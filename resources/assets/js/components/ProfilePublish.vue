@@ -6,7 +6,7 @@
         <!--panorama-->
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <div class="thumbnail-img" style="padding:0px;border:none;">
-                <div class="card-carousel">
+                <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
                     <!-- <div id="panorama"></div>           -->
                     <Pannellum :src="'/upload/nursing_profile/Imagepanorama/' + currentPanoImage" class="pannellum" :auto-load="true" :show-zoom="true" :show-fullscreen="true" :auto-rotate="isAutoRotationOn" :orientation="isOrientationOn" :compass="true" :hfov= "120"></Pannellum>
@@ -61,7 +61,7 @@
             </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
-                情報
+                介護情報
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
@@ -93,7 +93,7 @@
 
 
             <div class="row m-lr-0 ele p-t-65" id="element1">
-                 <h5 class="profile_header">情報</h5>
+                 <h5 class="profile_header">介護情報</h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -158,7 +158,7 @@
                                     <tbody>
                                         <tr>
                                             <th width="200" class="custom-bg-color">
-                                                <font>入居時</font>
+                                                <font>入居時費用</font>
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
@@ -170,7 +170,7 @@
                                         </tr>
                                         <tr>
                                             <th width="200" class="custom-bg-color">
-                                                <font>月額</font>
+                                                <font>月額費用</font>
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
@@ -190,7 +190,7 @@
                                         </tr>
                                         <tr>
                                             <th width="200" class="custom-bg-color">
-                                                <font>電話</font>
+                                                <font>電話番号</font>
                                             </th>
                                             <td>
                                                 <font>{{cust.phone}}</font>
@@ -298,7 +298,7 @@
                                         </thead>
 
                                         <tbody>
-                                        <tr v-for="cost in method_payment" :key="cost.id">
+                                        <tr v-for="(cost,index) in method_payment" :key="cost.id" @click="changeBg(cost.id,index)" :class="'cost'+index">
                                             <td>
                                                 <h5 class="method-name">{{cost.payment_name}}</h5>
                                                 <span class="room-type"> {{cost.living_room_type}} </span>
@@ -422,11 +422,12 @@
                     <div class="col-md-12">
                         <label class="cost_heading_lbl">フォトアルバム</label>
                         <div class="row">
-                            <div v-for="(image) in  images" :key="image.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <img  :src ="'/upload/nursing_profile/' + image.photo" style="width:100%;border:7px solid #eee;" class="img-responsive">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
+                                <img  :src ="'/upload/nursing_profile/' + image.name" style="width:100%;border:7px solid #eee;" class="img-responsive" @click="showLightbox(image.name)"  >
                                 <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
+                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
                         </div>
                     </div>
 
@@ -901,7 +902,7 @@
                 </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
-                情報
+                病院情報
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
@@ -922,7 +923,7 @@
 
             <!-- ee-->
 
-             <h5 class="profile_header">情報 </h5>
+             <h5 class="profile_header">病院情報 </h5>
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -1016,7 +1017,7 @@
                                     </tr>
                                     <tr>
                                         <th width="250" class="custom-bg-color">
-                                            <font>電話</font>
+                                            <font>電話番号</font>
                                         </th>
                                         <td>
                                             <font>{{cust.phone}}</font>
@@ -1197,17 +1198,17 @@
 
                     <div v-for="hospital in hospitals" :key="hospital.id">
 
-                        <p><strong class="font-weight-bold">休診日:</strong><font>{{hospital.closed_day}}</font> </p>
+                        <p><strong class="font-weight-bold">休診日: </strong><font>{{hospital.closed_day}}</font> </p>
 
                     </div>
 
                 </div>
 
-                <div class="row col-12">
+                <!-- <div class="row col-12">
 
                     <p><span style="color:red;font-weight:bold;font-size:15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p>
 
-                </div>
+                </div> -->
 
                 </div>
 
@@ -1405,7 +1406,7 @@ $(document).scroll(function() {
   var cur_pos = $(this).scrollTop();
 
   if (cur_pos >= 100) {
-      $('.fixed-nav').css("top" , "200px");
+      $('.fixed-nav').css("top" , "210px");
   } else {
       $('.fixed-nav').css("top" , "unset");
   }
@@ -1415,12 +1416,14 @@ $(document).scroll(function() {
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
+import Lightbox from 'vue-my-photos'
 
 export default {
 
     components:{
         joboffer,
-        Pannellum
+        Pannellum,
+        Lightbox
     },
     data() {
 
@@ -1462,6 +1465,8 @@ export default {
                 activeImageTitle:'',
                 activeImageDescription:'',
                 index: 0,
+                light_images:[],
+                thumbnailDir: '/upload/nursing_profile/',
                 // cusid: 0,
                 // type: 0,
                 pageNum: 0,
@@ -1484,7 +1489,7 @@ export default {
                 panoimages:[],
                 changelinktitle:'内容を見る',
                 panocurrentOffset: 0,
-                windowSize: 13,
+                windowSize: 10,
                 paginationFactor:103,
 
             };
@@ -1540,7 +1545,18 @@ export default {
                     this.center['lng'] = response.data.nurselatlong[0]['longitude'];
 
                     this.images = response.data.images;
+
+                    for(var i=0; i<this.images.length; i++){
+                        this.light_images.push({
+                            'name': this.images[i]['photo'],
+                            'description': this.images[i]['description'],
+                            'id': this.images[i]['id'],
+                            'title': this.images[i]['title']
+                        })
+                    }
+
                     this.panoimages = response.data.panoimages;
+
                     this.videos = response.data.videos;
                     // console.log(this.panoimages);return;
 
@@ -1700,6 +1716,13 @@ export default {
 
         },
         methods: {
+            changeBg(ch,a) {
+                $('.main-cost-table td').css({'background':'transparent'});
+                $('.cost'+a+' td').css({'background':'#ffe9df'});
+            },
+            showLightbox: function(imageName) {
+                this.$refs.lightbox.show(imageName);
+            },
             moveCarousel(direction) {
                         // Find a more elegant way to express the :style. consider using props to make it truly generic
                 if (direction === 1 && !this.atEndOfList) {
@@ -1792,7 +1815,8 @@ export default {
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
-    width: 1336px;
+    /* width: 1336px; */
+    width:1033px;
 }
 
 
@@ -2258,7 +2282,8 @@ export default {
 }
 
 .room-type {
-    background: #fdd6c3;
+    /* background: #fdd6c3; */
+    background: #fbaa84;
     color: #333333;
     padding: 3px 5px 3px 7px;
     border-radius: 3px;
@@ -2282,5 +2307,4 @@ export default {
     color: #333;
     font-size: 0.8em;
 }
-
 </style>

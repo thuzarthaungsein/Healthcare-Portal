@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
-          <div class="col-sm-11 map-wrap">
+          <div class="col-sm-11 col-offset-1 map-wrap" style="margin:0 auto">
             <div class="divisions">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
@@ -287,19 +287,22 @@
               </svg>
             </div>
           </div>
+           </div>
 
-          <table class="table card-2 col-10 hospitalselect">
+          <div class="col-12 hospitalselect"> 
+            <h5 class="profile_header" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>    
+          <table class="table table-bordered col-12">
             <tbody>
               <tr>
                 <th>地域</th>
                 <td>
-                  <select id="select" class="form-control col-3 custom-select mt-2" v-model="id">
+                  <select id="select" class="col-9 form-control custom-select mt-2 mb-2" v-model="id">
                     <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                   </select>
-                  <button @click="toggleContent" class="btn btn-link">
+                  <button @click="toggleContent" class="btn col-3 seemore-btn">
                     <i class="fa" aria-hidden="true"></i>
                     <!-- <em>{{city.city_name}}</em> -->
-                    <span id="close"><i class="fas fa-arrow-circle-up"></i> Close Township</span>
+                    <span id="close"><i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる</span>
                   </button>
 
                   <div class="toBeToggled" id="toBeToggled">
@@ -320,10 +323,8 @@
                 <th>
                   フリーワード
                 </th>
-                <td>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="" placeholder="例）施設名、エリア">
-                  </div>
+                <td>                 
+                    <input type="text" class="form-control mt-2 mb-2" id="" placeholder="例）施設名、エリア">                 
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
@@ -357,97 +358,123 @@
               </tr>
 
               <tr class="text-center">
-                <td colspan="2">
-                  <button @click="ShowHide1" class="btn btn-link">
+                <td colspan="2" style="border:none;">
+                  <button @click="ShowHide1" class="btn seemore-btn">
                     <i class="fa" aria-hidden="true"></i>
-                    <span id="close2"><i class="fas fa-arrow-circle-up"></i> 閉じる</span>
+                    <span id="close2"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
                   </button>
                 </td>
               </tr>
               <tr class="text-center">
                 <td colspan="2">
-                  <input type="button" id="search" name="search" value="検索"  @click="search"/>
+                  <button type="button" class="main-bg-color create-btn all-btn" style="width:16%;" id="search" name="search" value="検索"  @click="search">
+                  <i class="fas fa-search"></i>&nbsp; 検索 
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
-        </div>
-               <div class=" col-12">
-                 <div class="row">
-                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
-                     <div class="job-content">
-                      <div class="job-body row  clearfix">
-                        <div class="col-4 job-img">
-                          <img src="/upload/news/nursing.JPG"  alt="">
-                        </div>
-                        <div class="col-8 job-box">
-                          <table  class="table table-bordered  table-sm">
-                            <h2>
-                                <router-link :to="{name: 'profile', params: {cusid:hos.customer_id, type: 'hospital'}}" class="pseudolink">{{hos.name}}</router-link>
-                            </h2>
-                              
-                               <tr>
-                                <td> Email : {{hos.email}}</td>
-                              </tr>
-                                <tr>
-                                <td> Phone : {{hos.phone}}</td>
-                              </tr>
-                                <tr>
-                                <td> Address : {{hos.address}}</td>
-                              </tr>
-                              <tr>
-                                <td> Closed_day : {{hos.closed_day}}</td>
-                              </tr>
-                              <h2> SpecialFeature </h2>
-                              <span v-for="(spe,index) in specialfeatures" :key="index+'-'+spe.name+'-'+hos.id">
-                                <span v-if="spe.customer_id == hos.customer_id" class="feature_list">
-                                  {{spe.name}}
-                                </span>
-                              </span>
-                              <h2> Subject </h2>
-                              <tr v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">
-                                <td v-if="sub.customer_id == hos.customer_id">
-                                  {{sub.name}}
-                                 </td>
-                              </tr>
-
-                              <h2> Schedule </h2>
-                              <!-- <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
-                                <td v-if="hos.customer_id == time.customer_id" >
-                                  {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
-                                </td>
-                              </tr> -->
-
-                              <table>
-                              <thead >
-                                  <tr >
-                                    <th>Monday</th>
-                                    <th>Tuesday</th>
-                                    <th>Wednesday</th>
-                                    <th>Saturday</th>
-                                    <th>Sunday</th>
-                                    <th>Part</th>
-                                  </tr>
-                                </thead>
-                                <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
-                                  <tr v-if="hos.customer_id == time.customer_id">
-                                    <td>{{time.mon}}</td>
-                                    <td>{{time.tue}}</td>
-                                    <td>{{time.wed}}</td>
-                                    <td>{{time.sat}}</td>
-                                    <td>{{time.sun}}</td>
-                                    <td>{{time.part}}</td>
-                                  </tr>
-                                </tbody>
-                            </table>
-                          </table>
-
-                        </div>
-                      </div>
-                    </div>
+          </div>
+       
+          <div class="col-12">
+            <div class="row">
+              <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
+                <div class="hos-content">
+                  <div class="job-header">
+                  <h5 class="hos-title">
+                    <router-link :to="{name: 'profile', params: {cusid:hos.customer_id, type: 'hospital'}}" class="pseudolink">{{hos.name}}</router-link>
+                </h5>  
+                  
+                </div>
+                <div class="clearfix m-b-20">
+                    <span v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">
+                    <span v-if="sub.customer_id == hos.customer_id" class="job_status">
+                      {{sub.name}}
+                    </span>
+                  </span>
+                  <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{hos.phone}}</p>                     
+                  </div>  
+                <div class="hos-body row clearfix">
+                  <div class="col-3 job-img">
+                    <img src="/upload/news/nursing.JPG"  alt="img" class="img-fluid">
+                  </div>
+                  <div class="col-4 job-box">
+                    <table  class="table table-bordered table-sm">                     
+                        <tr>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>名前</td>
+                          <td>{{hos.name}}</td>
+                        </tr>
+                          <tr>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
+                          <td>{{hos.email}}</td>
+                        </tr>                       
+                        <tr>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
+                          <td>{{hos.address}}</td>
+                        </tr>
+                        <!-- <tr>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-calendar-alt"></i></span>休業日</td>
+                          <td>{{hos.closed_day}}</td>
+                        </tr> -->
+                    </table>
+                    <!--special feature and subject-->
+                <h5 class="header m-t-10">こだわりの特長</h5>
+                  <span v-for="(spe,index) in specialfeatures" :key="index+'-'+spe.name+'-'+hos.id">
+                    <span v-if="spe.customer_id == hos.customer_id" class="feature_list">
+                      {{spe.name}}
+                    </span>
+                  </span>               
+                <!--end special feature and subject-->  
+                  </div>
+                  <div class="col-5">
+                    <!--schedule-->
+                 <h5 class="header">診療時間</h5>
+                  <!-- <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                    <td v-if="hos.customer_id == time.customer_id" >
+                      {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
+                    </td>
+                  </tr> -->         
+                <table class="table table-bordered">   
+                    <thead>
+                      <tr class="first-hos-row text-center">
+                        <th style="width:10%">日付</th>
+                        <th>月</th>
+                        <th>火</th>
+                        <th>水</th>
+                        <th>木</th>
+                        <th>金</th>
+                        <th>土</th>
+                        <th>日</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
+                      <tr v-if="hos.customer_id == time.customer_id" class="text-center">
+                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'am'">午前</td>
+                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'pm'">午後</td>
+                        <td style="width:10%;">{{time.mon}}</td>
+                        <td style="width:10%;">{{time.tue}}</td>
+                        <td style="width:10%;">{{time.wed}}</td>
+                        <td style="width:10%;">{{time.thu}}</td>
+                        <td style="width:10%;">{{time.fri}}</td>
+                        <td style="width:10%;">{{time.sat}}</td>
+                        <td style="width:10%;">{{time.sun}}</td>
+                      
+                      </tr>
+                    </tbody>
+                </table>
+               <span> <strong> 休診日：</strong>{{hos.closed_day}}</span>
+               <!-- <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p> -->
+                <!--end schedule-->  
+                                                
                   </div>
                 </div>
+                
+                <div class="mt-4 detail-btn text-center"><router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}" class="btn all-btn">詳細を見る</router-link></div>
               </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -540,24 +567,24 @@
         if (this.toggleCheck == true) {
           $('#close').empty();
           $("#toBeToggled").slideDown();
-          $('#close').append('<i class="fas fa-arrow-circle-up"></i> Close Township');
+          $('#close').append('<i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる');
 
         } else {
           $('#close').empty();
           $("#toBeToggled").slideUp();
-          $('#close').append('<i class="fas fa-arrow-circle-down"></i> Open Township');
+          $('#close').append('<i class="fas fa-arrow-circle-down"></i> 市区町村を開く');
         }
       },
       ShowHide1() {
         this.toggleCheck_1 = !this.toggleCheck_1;
         if (this.toggleCheck_1 == true) {
           $('#close2').empty();
-          $(".ShowHide1").slideToggle();
+          $(".ShowHide1").slideDown();
           $('#close2').append('<i class="fas fa-arrow-circle-up"></i> 閉じる');
 
         } else {
           $('#close2').empty();
-          $(".ShowHide1").slideToggle();
+          $(".ShowHide1").slideUp();
           $('#close2').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
         }
       },
@@ -720,13 +747,8 @@
   }
 
   .toBeToggled1 {
-    display: table-row;
+    display: none;
   }
-
-  table {
-    border-top: none !important;
-  }
-
   table>tbody>tr th {
     background-color: #e8e7e7;
     text-align: right;

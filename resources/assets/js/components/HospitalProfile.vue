@@ -1290,7 +1290,6 @@ export default {
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
                         profile_type:'hospital',
-                        id:2, // test_id
                         schedule_arr:[],shedule_am:[],shedule_pm:[],
                         schedule_list:[],
                         customer_info:[],
@@ -1308,43 +1307,52 @@ export default {
                 }
         },
         created(){
+
+                if(this.type != undefined && this.cusid!= undefined){
+                        localStorage.setItem('cusType',this.type);
+                        localStorage.setItem('cusId',this.cusid);
+                }
+
+                this.type = localStorage.getItem('cusType');
+                this.cusid = Number(localStorage.getItem('cusId'));
+
                 this.axios
-                .get('/api/clinical-subject/'+this.id)
+                .get('/api/clinical-subject/'+this.cusid)
                 .then(response=>{
                         this.clinical_subj = response.data;
                 });
                  this.axios
-                .get('/api/schedule/'+this.id)
+                .get('/api/schedule/'+this.cusid)
                 .then(response=>{
                         this.schedule_arr = response.data;
                 });
                 this.axios
-                .get('/api/customerinfo/'+this.id)
+                .get('/api/customerinfo/'+this.cusid)
                 .then(response=>{
                         this.customer_info = response.data;
                 });
                 this.axios
-                .get('/api/hospitalinfo/'+this.id)
+                .get('/api/hospitalinfo/'+this.cusid)
                 .then(response=>{
                         this.hospital_info = response.data;
                 });
                 this.axios
-                .get('/api/hospital-pgallery/'+this.id)
+                .get('/api/hospital-pgallery/'+this.cusid)
                 .then(response=>{
                         this.img_arr = response.data;
                 });
                 this.axios
-                .get('/api/hospital-vgallery/'+this.id)
+                .get('/api/hospital-vgallery/'+this.cusid)
                 .then(response=>{
                         this.video_arr = response.data;
                 });
                 this.axios
-                .get('/api/feature/'+this.profile_type+'/'+this.id)
+                .get('/api/feature/'+this.profile_type+'/'+this.cusid)
                 .then(response=>{
                         this.feature_list = response.data;
                 });
                 this.axios
-                .get('/api/facility/'+this.profile_type+'/'+this.id)
+                .get('/api/facility/'+this.profile_type+'/'+this.cusid)
                 .then(response=>{
                         this.fac_list = response.data;
                 });
@@ -1488,7 +1496,7 @@ export default {
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios
-                                        .post(`/api/hospital/galleryupdate/${this.id}`,this.gallery_list)
+                                        .post(`/api/hospital/galleryupdate/${this.cusid}`,this.gallery_list)
                                                 .then((response) => {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
@@ -1499,7 +1507,7 @@ export default {
                         }
                         if(this.customer_info_push.length > 0) {
                                 this.axios
-                                        .post(`/api/customer/profile/${this.id}`,this.customer_info_push)
+                                        .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                                 .then((response) => {
     
                                                 }).catch(error=>{
@@ -1511,7 +1519,7 @@ export default {
                         }
                         if(this.save_hospital_info.length > 0) {
                                 this.axios
-                                        .post(`/api/hospital/profile/${this.id}`,this.save_hospital_info)
+                                        .post(`/api/hospital/profile/${this.cusid}`,this.save_hospital_info)
                                                 .then((response) => {
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
@@ -1522,7 +1530,7 @@ export default {
                         }
                         if(this.schedule_list.length > 0) {
                                 this.axios
-                                        .post(`/api/schedule/update/${this.id}`,this.schedule_list)
+                                        .post(`/api/schedule/update/${this.cusid}`,this.schedule_list)
                                                 .then((response) => {
                                                         
                                                 }).catch(error=>{
@@ -1535,7 +1543,7 @@ export default {
 
                         if(this.chek_feature.length > 0) {
                                 this.axios
-                                        .post(`/api/feature/update/${this.id}`,this.chek_feature)
+                                        .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
                                                         
                                                 }).catch(error=>{
@@ -1548,7 +1556,7 @@ export default {
 
                         if(this.subjects.length > 0) {
                                 this.axios
-                                        .post(`/api/subject_junctions/update/${this.id}`,this.subjects)
+                                        .post(`/api/subject_junctions/update/${this.cusid}`,this.subjects)
                                                 .then((response) => {
                                                         
                                                 }).catch(error=>{
