@@ -157,15 +157,14 @@ export default {
                     hos_his_arr.push(response.data[0].pro_id);
                     hos_his_arr = [...new Set(hos_his_arr)]; 
                     localStorage.setItem("hospital_history", hos_his_arr);       
-                    $("#hos-his-local").html(hos_his_arr.length);        
+                    $("#hos-his-local").html(hos_his_arr.length);  
+                          
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);   
-                    // if(hos_his_arr.length == 0){
-
-                    // }
+                    
                 }
                 if(localStorage.getItem("hospital_fav")){
                     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
@@ -220,10 +219,12 @@ export default {
         if(this.type == 'nursing'){
             var locReplace = "nursing_fav";
             var varReplace = "#nus-fav-local";
+            var linkBox = ".fav-nursing-link-box>a";
         } 
         else{
             var locReplace = "hospital_fav";
             var varReplace = "#hos-fav-local";
+            var linkBox = ".fav-hospital-link-box>a";
         } 
         
         if(status == 'add'){
@@ -239,6 +240,7 @@ export default {
                 localStorage.setItem(locReplace, fav_arr); 
                 $(varReplace).html(fav_arr.length);
             }
+            $(linkBox).css({'cursor':'pointer','pointer-events':'auto'});
         }
         else{
             var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
@@ -248,6 +250,13 @@ export default {
                 localStorage.setItem(locReplace, fav_arr); 
             }
             $(varReplace).html(fav_arr.length);
+
+            if(fav_arr.length == 0){
+                $(linkBox).css({'cursor':'not-allowed','pointer-events':'none'})
+            }
+            else{
+                $(linkBox).css({'cursor':'pointer','pointer-events':'auto'})
+            }
         }
     },
     scrollTop(){

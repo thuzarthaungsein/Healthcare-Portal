@@ -1101,7 +1101,7 @@
                 </div>
             <!--end ee-->
 
-                <h5 class="profile_header">情報 </h5>
+                <h5 class="profile_header">医院からのお知らせ </h5>
 
                 <div class="row m-lr-0">
 

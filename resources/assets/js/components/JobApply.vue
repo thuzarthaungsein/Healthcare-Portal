@@ -95,11 +95,11 @@
             </div>
             <div class="col-md-9 col-sm-12 form-right pl-4">
               <label class="control control--radio">
-                <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Male" /> 女性
+                <input type="radio"  v-model="jobApply.gender" value="Male" /> 女性
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--radio">
-                <input type="radio" class="custom-radio" v-model="jobApply.gender" value="Female" /> 男性
+                <input type="radio" v-model="jobApply.gender" value="Female" /> 男性
                 <div class="control__indicator"></div>
               </label>
             </div>
@@ -247,7 +247,7 @@
                 </strong>
               </label>
             </div>
-            <div class="col-md-9 col-sm-12 form-right">
+            <div class="col-md-9 col-sm-12 form-right" style="cursor:pointer;">
               <label for class="ml-4">
                 <router-link to="/termsAndConditions" target="_blank">「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。
               </label>

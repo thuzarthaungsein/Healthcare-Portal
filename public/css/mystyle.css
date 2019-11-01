@@ -459,10 +459,6 @@ body {
     text-align: left;
     line-height: 1.1;
     letter-spacing: 1px;
-    /* border-radius: 3px; */
-    /* -webkit-border-radius: 3px; */
-    /* -moz-border-radius: 3px; */
-    font-size: 25px;
 }
 
 
@@ -2331,6 +2327,14 @@ ul.sub-ul li {
 .edit-borderbtn {
     border: 1px solid #ffc107 !important;
     color: #ffc107;
+    background: #fff;
+    box-shadow: none !important;
+    min-width: 70px;
+}
+
+.pending-borderbtn {
+    border: 1px solid #d2571c !important;
+    color: #d2571c;
     background: #fff;
     box-shadow: none !important;
     min-width: 70px;
@@ -6999,6 +7003,7 @@ ul.test>li:before {
     letter-spacing: 1px;
     font-weight: bold;
     overflow: hidden;
+    <<<<<<< HEAD=======>>>>>>>9f252de2ac57e438ebef1c52157bfcecd4d5918d
 }
 
 .hos_status {
@@ -7020,6 +7025,7 @@ ul.test>li:before {
     right: 15px;
     top: 65px;
     border: 1px solid #c40000;
+    <<<<<<< HEAD=======>>>>>>>9f252de2ac57e438ebef1c52157bfcecd4d5918d
 }
 
 .circle-phone {
@@ -7500,6 +7506,10 @@ ul.test>li:before {
     display: none;
 }
 
+.control--checkbox:hover {
+    cursor: pointer;
+}
+
 .control input:checked~.control__indicator:after {
     display: block;
 }
@@ -7516,6 +7526,10 @@ ul.test>li:before {
 
 .control--checkbox input:disabled~.control__indicator:after {
     border-color: #d2571c;
+}
+
+.control--radio:hover {
+    cursor: pointer;
 }
 
 .control--radio .control__indicator:after {
