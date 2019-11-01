@@ -355,7 +355,7 @@
           </div>
 
           <div class="col-sm-2 col-md-2 align-self-center">
-            <button class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</button>
+            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</span>
           </div>
         </div>
       </div>
@@ -366,6 +366,7 @@
               <div class="overlay standard hidden">&nbsp;</div>
               
               <div id="mymap" class="select"></div>
+            
           </div>
           </div>
         </div>
@@ -481,6 +482,92 @@
             </div>
           </div>
 
+        <!-- <div class="col-sm-2 left-div-1">費用</div> -->
+          <!-- <div class="col-sm-10">
+            <hr>
+            <table class="text-center" width="50%">
+              <tbody>
+                <tr>
+                  <td>入居時</td>
+                  <td>
+                    <select class="form-control custom-select" name="" id="">
+                      <option value="" selected="selected">下限なし</option>
+                      <option value="0">0円</option>
+                      <option value="500000">50万円</option>
+                      <option value="1000000">100万円</option>
+                      <option value="2000000">200万円</option>
+                      <option value="3000000">300万円</option>
+                      <option value="4000000">400万円</option>
+                      <option value="5000000">500万円</option>
+                      <option value="6000000">600万円</option>
+                      <option value="7000000">700万円</option>
+                      <option value="8000000">800万円</option>
+                      <option value="9000000">900万円</option>
+                      <option value="10000000">1,000万円</option>
+                      <option value="20000000">2,000万円</option>
+                      <option value="30000000">3,000万円</option>
+                    </select>
+                  </td>
+                  <td>～</td>
+                  <td>
+                    <select class="form-control custom-select" name="" id="">
+                      <option value="" selected="selected">上限なし</option>
+                      <option value="0">0円</option>
+                      <option value="500000">50万円</option>
+                      <option value="1000000">100万円</option>
+                      <option value="2000000">200万円</option>
+                      <option value="3000000">300万円</option>
+                      <option value="4000000">400万円</option>
+                      <option value="5000000">500万円</option>
+                      <option value="6000000">600万円</option>
+                      <option value="7000000">700万円</option>
+                      <option value="8000000">800万円</option>
+                      <option value="9000000">900万円</option>
+                      <option value="10000000">1,000万円</option>
+                      <option value="20000000">2,000万円</option>
+                      <option value="30000000">3,000万円</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>月額</td>
+                  <td>
+                    <select class="form-control custom-select" name="" id="">
+                      <option value="" selected="selected">下限なし</option>
+                      <option value="0">0円</option>
+                      <option value="100000">10万円</option>
+                      <option value="150000">15万円</option>
+                      <option value="200000">20万円</option>
+                      <option value="250000">25万円</option>
+                      <option value="300000">30万円</option>
+                      <option value="350000">35万円</option>
+                      <option value="400000">40万円</option>
+                      <option value="450000">45万円</option>
+                      <option value="500000">50万円</option>
+                    </select>
+                  </td>
+                  <td>～</td>
+                  <td>
+                    <select class="form-control custom-select" name="" id="">
+                      <option value="" selected="selected">上限なし</option>
+                      <option value="0">0円</option>
+                      <option value="100000">10万円</option>
+                      <option value="150000">15万円</option>
+                      <option value="200000">20万円</option>
+                      <option value="250000">25万円</option>
+                      <option value="300000">30万円</option>
+                      <option value="350000">35万円</option>
+                      <option value="400000">40万円</option>
+                      <option value="450000">45万円</option>
+                      <option value="500000">50万円</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+
+
           <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
           <div class="col-sm-10" v-if="showOne">
             <hr>
@@ -550,7 +637,7 @@
 
             <div class="col-sm-6 left-div-6"></div>
             <div class="col-sm-6 m-b-20">
-                <input type="button" value="Search" name="search" @click="search">
+                <span class="btn all-btn btn-success" @click="search">検索</span>
             </div>
         </div>
 
@@ -604,11 +691,7 @@
                                   {{med.name}}
                                 </span>
                               </span>
-                             
-
-                            
                           </table>
-
                         </div>
                       </div>
                     </div>
