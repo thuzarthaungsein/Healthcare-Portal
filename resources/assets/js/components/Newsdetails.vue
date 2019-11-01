@@ -35,7 +35,7 @@
               <li class="breadcrumb-item">
                 <router-link to="/">ホーム</router-link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">新しい詳細</li>
+              <li class="breadcrumb-item active" aria-current="page">ニュース詳細</li>
             </ol>
           </nav>
         </div>
@@ -108,7 +108,7 @@
                   <p
                     class="img_2 header"
                     style="font-size:22px;width:20%;line-height:1;margin-bottom:10px;"
-                  >もっと記事を見る</p>
+                  >記事をもっと見る</p>
                   <br />
                   <!-- 関連ニュース -->
                   <div
