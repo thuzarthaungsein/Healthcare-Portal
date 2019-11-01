@@ -10,7 +10,7 @@
     </div>
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
       <div class="col-12">
-        <h4 class="job-title-color">{{jobDetail.title}} <label class="job_id" style="color:#000;">求人番号: {{jobDetail.jobid}}</label></h4> 
+        <h4 class="job-title-color">{{jobDetail.title}} <label class="job_id" style="color:#000;">仕事番号: {{jobDetail.jobid}}</label></h4> 
         
       </div>
       <div class="col-sm-10 offset-1">
@@ -87,7 +87,7 @@
               
               
               
-              white all-btn width17" style="background-color:#828282;">この案件に応募</router-link>
+              white all-btn width17" style="background-color:#828282;">この案件に応募する</router-link>
             </div>
           </div>
         </div>
