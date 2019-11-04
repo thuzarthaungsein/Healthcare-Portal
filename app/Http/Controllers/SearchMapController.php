@@ -23,7 +23,7 @@ class SearchMapController extends Controller
                     JOIN types AS ty
                     ON c.type_id = ty.id
                     WHERE t.city_id=" . $id . "
-                    order BY n.id ASC LIMIT 26 ";
+                    group by c.id order BY n.id ASC LIMIT 26 ";
         $nursing_profile = DB::select($nursing);
     
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -41,12 +41,11 @@ class SearchMapController extends Controller
             }
         }
 
-        $mapid = $request->id;
+     
 
-        $getCityId          = DB::table('cities')->where('id', $mapid)->select('id')->pluck('id');
-        $getCity            = DB::table('cities')->where('id', $mapid)->get();
+        $getCity            = DB::table('cities')->where('id', $id)->get();
         $city               = DB::table('cities')->get();
-        $getTownships       = DB::table('townships')->where('city_id', $getCityId)->get();
+        $getTownships       = DB::table('townships')->where('city_id', $id)->get();
         $special_features   = DB::table('special_features')->get();
         $fac_types          = DB::table('fac_types')->get();
         $subjects           = DB::table('subjects')->get();
@@ -143,8 +142,9 @@ class SearchMapController extends Controller
            }
 
 
-           $query = "SELECT n.id as nus_id,c.id as cus_id,c.*,n.* from nursing_profiles as n  
+           $query = "SELECT '' as alphabet, n.id as nus_id,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name from nursing_profiles as n  
                      left join customers as c on c.id = n.customer_id 
+                     left join types AS ty ON c.type_id = ty.id
                      left join townships as t on t.id = c.townships_id
                      left join cities as ci on ci.id = t.city_id
                      left join fac_types as f on f.id = n.fac_type 
@@ -153,7 +153,6 @@ class SearchMapController extends Controller
                      left join acceptance_transactions as acct on acct.customer_id = n.customer_id
                      left join medical_acceptance as med on med.id = acct.medical_acceptance_id where ";
         
-
            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID === '0' )
            {
                 $query .= " ci.id = ".$id." group by c.id";    
@@ -521,6 +520,20 @@ class SearchMapController extends Controller
             $fac_query = "SELECT fac.* from nursing_profiles as n  right join fac_types  as fac on fac.id = n.fac_type";
             $factype = DB::select($fac_query);
             
+            $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+            for($i = 0;$i<count($nus_data);$i++)
+            {
+                for($j=0;$j<count($alphabet);$j++)
+                {
+                    if($i == $j)
+                    {
+                        $nus_data[$i] =  (array)($nus_data[$i]) ;
+                        $nus_data[$i]['alphabet']  = $alphabet[$j];
+                    
+                    }
+                }
+            }
             return response()->json(array("nursing"=>$nus_data,"specialfeature"=>$specialfeature,"medicalacceptance"=>$medicalacceptance,"factype"=>$factype));
 
          
