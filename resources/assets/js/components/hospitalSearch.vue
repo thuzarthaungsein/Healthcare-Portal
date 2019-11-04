@@ -671,59 +671,6 @@
     border: 1px solid #8e3c15;
 }
 
-/* .path {
-    cursor: pointer;
-}
-
-.selected {
-    fill: #5c5959;
-    stroke: #111;
-    stroke-width: 2px;
-    stroke-linejoin: round;
-    color: #f27a24 !important;
-    font-weight: bold;
-}
-
-.path {
-    -moz-transition-property: opacity;
-    -o-transition-property: opacity;
-    -webkit-transition-property: opacity;
-    transition-property: opacity;
-    -moz-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-    -moz-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -moz-transition: fill 0.75s;
-    -o-transition: fill 0.75s;
-    -webkit-transition: fill 0.75s;
-    transition: fill 0.75s;
-  }
-
-  .path:hover,
-  .path:focus {
-    cursor: pointer;
-  }
-
-  .path:hover,
-  .path:hover .path,
-  .path:focus,
-  .path:focus .path {
-    color: #000;
-  }
-
-  .path:hover,
-  a:hover {
-    fill: #20487c !important;
-    stroke: #002868 !important;
-    stroke-width: 2px;
-    stroke-linejoin: round;
-    cursor: pointer;
-  } */
-
   .hospitalselect {
     display: none;
   }
