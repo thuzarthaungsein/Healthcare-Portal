@@ -6369,6 +6369,15 @@ button.confirmed {
     font-weight: bold;
 }
 
+.item-fav {
+    padding: 2px 10px;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #544e4e;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
 
 /*End  nursing */
 
@@ -7030,7 +7039,6 @@ ul.test>li:before {
     right: 15px;
     top: 65px;
     border: 1px solid #c40000;
-  
 }
 
 .circle-phone {

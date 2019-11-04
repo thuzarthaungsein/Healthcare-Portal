@@ -396,15 +396,14 @@
                           <tr>
                             <td colspan="2" class="text-center">
                               <div class="item-fav btn btn-sm" >
-                                <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加
-                                <img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">
+                                <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加   
                               </div>
                             </td>
                           </tr>
                           <tr>
                             <td colspan="2" class="text-left">
-                              <span class="item-name">{{items.name}}</span> <br>
-                              <span>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</span>
+                              <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">{{items.name}}</p>
+                              <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
 
                             </td>
                           </tr>
