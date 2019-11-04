@@ -740,7 +740,9 @@
           this.citylatlng = response.data.city
             var mmarker = new Array()
             var item = []
+
            if(response.data.nursing.length > 0){
+
             for (var i = 0; i < this.markers.length; i++) {
                 mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
                 item.push(this.markers[i])
@@ -925,17 +927,9 @@
                 strokeWeight: 1
               })
            }
-           
-             
-             
-        
-
             
         })
-          
-          
-
-
+        
       },
       openInfoWindow(marker) {
         this.selectedLocation = marker;
