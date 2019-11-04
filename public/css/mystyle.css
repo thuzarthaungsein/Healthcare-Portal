@@ -3073,146 +3073,153 @@ ul.main-tab li:after {
 
 .search-map {
     background: white;
+    padding: 15px !important;
+}
+
+/* .map-wrap {
+    max-width: 1000px !important;
+} */
+
+.map {
+    /* position: relative;
+    z-index: 1;    
+    background: url(/images/img_map1.png) center top no-repeat;
+    width: 100%;
+    height: 424px; */
+}
+.search-map {
+    background: #fff;
     padding: 0px 15px 15px 15px !important;
 }
 
 .map-wrap {
-    max-width: 1000px !important;
-}
-
-.map {
-    position: relative;
-    z-index: 1;
+    /* max-width: 1180px !important; */
+    padding: 10px 0px;
+    background: #f7f0ed;
 }
 
 
-/* .divisions {
-
-    position: absolute;
-
+.divisions {
+    /* position: absolute;
     top: 0;
+    left: 0; */
+    position: relative;
+    z-index: 1;    
+    background: url(/images/img_map1.png) center top no-repeat;    
+    width: 1180px;
+    height: 424px;
+}
+.division-box > ul {
+    box-sizing: border-box;
+    position: absolute;
+    overflow: hidden;
+    color: #fff;
+    /* background: #f7f0ed; */
+    /* border: 1.5px solid #331d12; */
+    /* border-radius: 10px; */
+    -moz-border-radius: 10px;
+    /* -webkit-border-radius: 10px; */
+    width: 65px;
+    /* box-shadow: 1px 1px 2px #868181;
+    /* box-shadow: 1px 1px 2px #868181; */
+}
+.division-box a{
+    color: #461e0a;
+}
 
-    left: 0;
-
-} */
-
+.spanclass:hover{
+    background-color: #ccff60 !important;
+    background-image: none;
+    border: 1px solid #8e3c15;
+    color: #ff6117;
+}
+.spanclass:hover a.card-text {
+    color: #ff6117 !important;
+}
+.spanclass > a.card-text {
+    color: #461e0a;
+}
+ul.hokkaido-wrap{
+    left: 0px;   
+}
 .divisions span {
     margin-right: 10px;
 }
 
-.divisions .card-header {
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    padding: 5px !important;
-}
-
-.divisions .card-body {
-    padding: 10px !important;
-}
-
 .hokkaido-box {
     position: absolute;
-    top: 23%;
-    right: 14%;
+    top: 12%;
+    right: 16%;
     z-index: 2;
 }
+.tohoku-box {
+    position: absolute;
+    top: 26%;
+    right: 23%;
+    z-index: 2;
+}
+.multiple-box{
+    width: 128px !important;
+}
 
 .hokkaido-box .spanclass,
 .kanto-box .spanclass,
 .okinawa-box .spanclass {
-    margin-right: 3px;
+    margin-right: 1px;
 }
-
-
-/*
-
-.hokkaido-box .spanclass,
-
-.kanto-box .spanclass,
-
-.okinawa-box .spanclass {
-
-    display: block;
-
-    margin-right: 0;
-
-    border-bottom: 1px solid #ddd;
-
-}
-
-
-
-.divisions .hokkaido-box .card-body,
-
-.divisions .kanto-box .card-body,
-
-.divisions .okinawa-box .card-body {
-
-    padding: 0 !important;
-
-}
-
-
-
-.hokkaido-box .spanclass:last-child,
-
-.kanto-box .spanclass:last-child,
-
-.okinawa-box .spanclass:last-child {
-
-    margin-bottom: 0;
-
-    border-bottom: 0;
-
-} */
 
 .kanto-box {
     position: absolute;
-    top: 48%;
-    right: 14%;
+    top: 57%;
+    right: 25%;
     z-index: 2;
 }
 
 .hokuriku-box {
     position: absolute;
-    top: 6%;
-    left: 25%;
+    top: 24%;
+    left: 51%;
     z-index: 2;
 }
 
 .tokai-box {
     position: absolute;
-    bottom: 9%;
-    right: 14%;
+    bottom: 27%;
+    right: 30%;
     z-index: 2;
 }
 
 .kinki-box {
     position: absolute;
-    top: 23%;
-    left: 2%;
+    top: 39%;
+    left: 39%;
     z-index: 2;
 }
 
 .chugoku-box {
     position: absolute;
-    top: 6%;
-    left: 2%;
+    top: 27%;
+    left: 32%;
     z-index: 2;
 }
 
 .shikoku-box {
     position: absolute;
-    left: 38%;
-    bottom: 9%;
+    left: 32%;
+    bottom: 22%;
     z-index: 2;
 }
 
+.kyushu-box{
+    position: absolute;
+    bottom: 66%;
+    left: 25%;
+    z-index: 2;
+}
 .okinawa-box {
     position: absolute;
-    bottom: 9%;
-    left: 2%;
+    bottom: 4%;
+    left: 31%;
     z-index: 2;
 }
 
@@ -3222,11 +3229,13 @@ screen and (min-width: 750px) {
         letter-spacing: normal;
         /* width: 50%; */
         display: inline-block;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
         font-weight: bold;
         text-align: center;
-        padding-right: 10px;
+        padding: 5px;
         font-size: 12px;
+        margin-top: 1px;
+        margin-left: 1px;
     }
     .spanclass a {
         position: relative;
@@ -3387,15 +3396,93 @@ screen and (min-width: 750px) {
         padding: 2px;
         height: 120px;
     }
-    /* .top-ad-slider .ads-img {
-
-
-
-    background-color: #f5f5f5;
-
-
-
-      }  */
+    /*job search*/
+    ul.hokkaido-wrap{
+        left: 0px;   
+    }
+    .divisions span {
+        margin-right: 10px;
+    }
+    
+    .hokkaido-box {
+        position: absolute;
+        top: 12%;
+        right: 16%;
+        z-index: 2;
+    }
+    .tohoku-box {
+        position: absolute;
+        top: 26%;
+        right: 22%;
+        z-index: 2;
+    }
+    .multiple-box{
+        width: 128px !important;
+    }
+    .multiple-boxa{
+        width: 127px !important;
+    }
+    .hokkaido-box .spanclass,
+    .kanto-box .spanclass,
+    .okinawa-box .spanclass {
+        margin-right: 1px;
+    }
+    
+    .kanto-box {
+        position: absolute;
+        top: 55%;
+        right: 22%;
+        z-index: 2;
+    }
+    
+    .hokuriku-box {
+        position: absolute;
+        top: 24%;
+        left: 53%;
+        z-index: 2;
+    }
+    
+    .tokai-box {
+        position: absolute;
+        bottom: 27%;
+        right: 27%;
+        z-index: 2;
+    }
+    
+    .kinki-box {
+        position: absolute;
+        top: 39%;
+        left: 39%;
+        z-index: 2;
+    }
+    
+    .chugoku-box {
+        position: absolute;
+        top: 27%;
+        left: 32%;
+        z-index: 2;
+    }
+    
+    .shikoku-box {
+        position: absolute;
+        left: 32%;
+        bottom: 22%;
+        z-index: 2;
+    }
+    
+    .kyushu-box{
+        position: absolute;
+        bottom: 66%;
+        left: 25%;
+        z-index: 2;
+    }
+    .okinawa-box {
+        position: absolute;
+        bottom: 4%;
+        left: 31%;
+        z-index: 2;
+    }
+    /*end job search*/
 }
 
 
@@ -4930,168 +5017,19 @@ padding-bottom: 15px; */
 
 /* Hospital Search */
 
-.search-map {
-    background: white;
-    padding: 0px 15px 15px 15px !important;
-}
-
-.map-wrap {
-    max-width: 1180px !important;
-}
-
-.map {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* .divisions {
-
-position: absolute;
-
-top: 0;
-
-left: 0;
-
-} */
-
-.divisions span {
-    margin-right: 10px;
-}
-
-.divisions .card-header {
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    padding: 5px !important;
-}
-
-.divisions .card-body {
-    padding: 10px !important;
-}
-
-.hokkaido-box {
-    position: absolute;
-    top: 23%;
-    right: 9%;
-    z-index: 2;
-}
-
-.hokkaido-box .spanclass,
-.kanto-box .spanclass,
-.okinawa-box .spanclass {
-    margin-right: 3px;
-}
-
-
-/*
-
-.hokkaido-box .spanclass,
-
-.kanto-box .spanclass,
-
-.okinawa-box .spanclass {
-
-display: block;
-
-margin-right: 0;
-
-border-bottom: 1px solid #ddd;
-
-}
-
-
-
-.divisions .hokkaido-box .card-body,
-
-.divisions .kanto-box .card-body,
-
-.divisions .okinawa-box .card-body {
-
-padding: 0 !important;
-
-}
-
-
-
-.hokkaido-box .spanclass:last-child,
-
-.kanto-box .spanclass:last-child,
-
-.okinawa-box .spanclass:last-child {
-
-margin-bottom: 0;
-
-border-bottom: 0;
-
-} */
-
-.kanto-box {
-    position: absolute;
-    top: 48%;
-    right: 9%;
-    z-index: 2;
-}
-
-.hokuriku-box {
-    position: absolute;
-    top: 6%;
-    left: 37%;
-    max-width: 240px;
-    z-index: 2;
-}
-
-.tokai-box {
-    position: absolute;
-    bottom: 9%;
-    right: 9%;
-    max-width: 250px;
-    z-index: 2;
-}
-
-.kinki-box {
-    position: absolute;
-    top: 23%;
-    left: 17%;
-    max-width: 300px;
-    z-index: 2;
-}
-
-.chugoku-box {
-    position: absolute;
-    top: 6%;
-    left: 17%;
-    max-width: 240px;
-    z-index: 2;
-}
-
-.shikoku-box {
-    position: absolute;
-    right: 30%;
-    bottom: 9%;
-    max-width: 250px;
-    z-index: 2;
-}
-
-.okinawa-box {
-    position: absolute;
-    bottom: 9%;
-    left: 17%;
-    max-width: 180px;
-    z-index: 2;
-}
-
 @media print,
 screen and (min-width: 750px) {
     .spanclass {
-        letter-spacing: normal;
-        /* width: 50%; */
-        display: inline-block;
-        margin-bottom: 5px;
-        font-weight: bold;
+        width: 60px;
+        height: 30px;
+        background-color: #fff;
+        background-image: linear-gradient(to bottom, #ffffff,#f1f1f1);
+        float: left;
         text-align: center;
-        padding-right: 10px;
-        font-size: 12px;
+        overflow: hidden;
+        /* margin-top: 1px; */
+        border: 1px solid #8e3c15;
+        border-radius: 3px;
     }
     .spanclass a {
         position: relative;
@@ -7639,43 +7577,94 @@ ul.test>li:before {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    .hokkaido-box,
+    /*job search*/
+    
+    ul.hokkaido-wrap{
+        left: 0px;   
+    }
+    .divisions span {
+        margin-right: 10px;
+    }
+    .divisions{
+        width: 100%;
+    }
+    .hokkaido-box {
+        position: absolute;
+        top: 12%;
+        right: 16%;
+        z-index: 2;
+    }
+    .tohoku-box {
+        position: absolute;
+        top: 26%;
+        right: 23%;
+        z-index: 2;
+    }
+    .multiple-box{
+        width: 132px !important;
+    }
+    
+    .hokkaido-box .spanclass,
+    .kanto-box .spanclass,
+    .okinawa-box .spanclass {
+        margin-right: 3px;
+    }
+    
     .kanto-box {
-        right: 7%;
-        max-width: 165px;
+        position: absolute;
+        top: 57%;
+        right: 25%;
+        z-index: 2;
     }
+    
+    .hokuriku-box {
+        position: absolute;
+        top: 24%;
+        left: 51%;
+        z-index: 2;
+    }
+    
     .tokai-box {
-        right: 7%;
+        position: absolute;
+        bottom: 27%;
+        right: 30%;
+        z-index: 2;
     }
+    
+    .kinki-box {
+        position: absolute;
+        top: 39%;
+        left: 39%;
+        z-index: 2;
+    }
+    
+    .chugoku-box {
+        position: absolute;
+        top: 27%;
+        left: 32%;
+        z-index: 2;
+    }
+    
     .shikoku-box {
-        right: 22%;
+        position: absolute;
+        left: 32%;
+        bottom: 22%;
+        z-index: 2;
+    }
+    
+    .kyushu-box{
+        position: absolute;
+        bottom: 66%;
+        left: 25%;
+        z-index: 2;
     }
     .okinawa-box {
-        left: 16%;
+        position: absolute;
+        bottom: 4%;
+        left: 31%;
+        z-index: 2;
     }
-    .kinki-box,
-    .chugoku-box {
-        left: 16%;
-    }
-    .chugoku-box {
-        max-width: 230px;
-    }
-    /* .hokuriku-box {
-        left: 36%;
-    } */
-    /* #v-pills-tab li a {
-
-
-
-        display: block;
-
-
-
-        padding: 0;
-
-
-
-    } */
+    /*end job search*/
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
@@ -7762,6 +7751,4 @@ ul.test>li:before {
     font-size: 29px;
     color: #d2571c;
 }
-
-
 /*commentform*/
