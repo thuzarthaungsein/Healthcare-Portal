@@ -1,6 +1,6 @@
 <template>
 <div>
-   <div class="col-md-12" style="border-bottom: 3px solid #ff6117;padding-bottom: 10px; margin-bottom: 20px;">
+   <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">
      <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5></div>
   <div class="search-map card-body" @click="getStateClick" @mouseover="getStateHover">   
     <div class="row" id="hos">
