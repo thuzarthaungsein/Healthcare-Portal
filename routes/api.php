@@ -235,7 +235,7 @@ Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
-Route::post('feature/update/{id}','SpecialFeaturesJunctionsController@update');
+Route::post('sfeature/update/{id}','SpecialFeaturesJunctionsController@update');
 Route::post('subject_junctions/update/{id}','SubjectJunctionsController@update');
 
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');

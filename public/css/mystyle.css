@@ -60,6 +60,14 @@ body {
     margin-top: 10%;
 }
 
+.choose-btn {
+    color: #a93f0c!important;
+    /* margin-left: 10px; */
+    background: #eee;
+    border-radius: 0px 5px 5px 0px;
+    font-weight: bold;
+}
+
 .box {
     padding: 10px;
 }
@@ -441,10 +449,11 @@ body {
     border-top: 1px dashed #d1291d;
 }
 
-#hospitalView .pro-heading h5 {
-    /* background-color: #2981cc; */
+
+/* #hospitalView .pro-heading h5 {
+    background-color: #2981cc;
     color: #2981cc;
-}
+} */
 
 
 /* #nursingView .pro-heading h5 {
@@ -557,7 +566,8 @@ html {
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #118063;
+    /* background: #d2571c; */
+    background: #cecece;
     position: relative;
     display: flex;
     justify-content: center;
@@ -579,7 +589,8 @@ html {
     background: #fff;
     padding: 10px;
     text-align: center;
-    border: 10px solid #4db197;
+    /* border: 10px solid #a93f0c; */
+    border: 10px solid #dedede;
 }
 
 .brand_logo {
@@ -603,8 +614,12 @@ width: 100%; */
 
 .login_btn {
     width: 100%;
-    background: #4db197 !important;
+    background: #d2571c !important;
     color: white !important;
+}
+
+.login_btn:hover {
+    background: #f3773c !important;
 }
 
 .login_btn:focus {
@@ -626,7 +641,7 @@ width: 100%; */
 }
 
 .input-group-text {
-    background: #4db197 !important;
+    background: #d2571c !important;
     color: white !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
@@ -706,6 +721,11 @@ width: 100%; */
     color: #d2cfcf !important;
 }
 
+.user_card .links a {
+    color: #96390d !important;
+    font-weight: bold;
+}
+
 .text {
     color: #fff !important;
     /* padding: 0px 0px 0px 240px; */
@@ -751,7 +771,8 @@ width: 100%; */
 }
 
 .user_registercard form label {
-    color: #fff;
+    color: #a93f0c!important;
+    font-weight: bold;;
     align-self: flex-end;
 }
 
@@ -1164,6 +1185,11 @@ p.p_2>a {
     color: #d2571c;
     border-radius: 1px;
     border-bottom: 1px dashed #ff9563;
+}
+
+#hospitalView .profile-tit {
+    color: #2981cc;
+    border-bottom: 1px dashed #2981cc;
 }
 
 #pano-slider-page .card-carousel-wrapper {
@@ -6958,9 +6984,9 @@ ul.test>li:before {
     padding: 5px 15px;
     border-radius: 5px;
     color: #fff!important;
-    position: absolute;
+    /* position: absolute;
     right: 15px;
-    top: 65px;
+    top: 65px; */
     border: 1px solid #c40000;
   
 }
@@ -7644,13 +7670,13 @@ ul.test>li:before {
         margin: 10px 0 30px;
     }
     .job-img {
-        max-width: 80% !important;
+        /* max-width: 80% !important;*/
         margin: 0 auto 20px;
-        flex: unset;
+        flex: unset; 
     }
     .job-box {
-        max-width: 100% !important;
-        flex: unset;
+        /* max-width: 100% !important;*/
+        flex: unset; 
     }
     .compare-wrap {
         max-width: 82%;

@@ -20,8 +20,8 @@
         <div class="d-flex justify-content-center h-100">
             <div class="user_card user_registercard">
                 <div class="links">
-                    <a href="/" class="mr-auto text-white">{{__('ホーム')}}</a>
-                    <a href="/login" class="ml-auto text">{{__('ログイン')}}</a>
+                    <a href="/" class="mr-auto text-white" style="color: #a93f0c!important;font-weight:bold;">{{__('ホーム')}}</a>
+                    <a href="/login" class="ml-auto text" style="color: #a93f0c!important;font-weight:bold;">{{__('ログイン')}}</a>
                 </div>
 
                 <div class="d-flex justify-content-center registerform_container">
@@ -40,7 +40,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-image"></i></span>
                                     </div>
-                                    <span class="btn all-btn" onClick="choosefile()">Choose</span> <span id="imgname" style = "padding: 8px 0 0 30px;color: #fff;"></span>
+                                    <span class="btn all-btn choose-btn" style="color: #a93f0c!important;box-shadow:none!important;" onClick="choosefile()">Choose</span> <span id="imgname" style = "padding: 8px 0 0 30px;color: #fff;"></span>
                                     <input type="file" accept="image/*" onchange="showMyImage(this)" name="img" id="file" ref="file" class="form-control inputfile">
                                 </div>
                                 <div class="input-group mb-3">
@@ -140,8 +140,8 @@
                                 <div class="form-group ">
                                     <div class="form-group row float-right">
                                         <div class="col-12">
-                                            <button class="btn btn-danger register_btn">キャンセル</button>
-                                            <button type="submit" class="btn register_btn" id="sub_btn" style="background: #4db197;">作成</button>
+                                            <!-- <button class="btn btn-danger register_btn">キャンセル</button> -->
+                                            <button type="submit" class="btn register_btn login_btn" id="sub_btn">作成</button>
                                             <!-- <a class="btn btn-danger register_btn">キャンセル</a>
                                                  <a class="btn register_btn" >作成</a> -->
                                         </div>
