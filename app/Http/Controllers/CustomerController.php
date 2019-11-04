@@ -189,4 +189,30 @@ class CustomerController extends Controller
                             ->toArray();
         return $search_customer;
     }
+
+    public function movePhoto(Request $request) {
+        $request = $request->all();
+
+        $destination_0 = 'upload/customers/'.$request['photo'];
+
+        $tmp = $request['file'];
+
+        if($request['type'] == 'nursing') {
+            $destination_1 = 'upload/nursing_profile/'.$request['photo'];
+        }
+        if($request['type'] == 'hosptial') {
+            $destination_1 = 'upload/hospital_profile/'.$request['photo'];
+        }
+
+        for($i=0; $i<2; $i++) {
+            if($i == 0) { 
+                move_uploaded_file($request['file'], $destination_0);
+            } else { 
+                move_uploaded_file($tmp, $destination_1);
+            }
+            
+        }
+
+        
+    }
 }
