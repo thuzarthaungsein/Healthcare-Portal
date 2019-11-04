@@ -3012,9 +3012,9 @@ ul.main-tab li:after {
     padding: 15px !important;
 }
 
-.map-wrap {
+/* .map-wrap {
     max-width: 1000px !important;
-}
+} */
 
 .map {
     /* position: relative;
@@ -3022,6 +3022,16 @@ ul.main-tab li:after {
     background: url(/images/img_map1.png) center top no-repeat;
     width: 100%;
     height: 424px; */
+}
+.search-map {
+    background: #fff;
+    padding: 0px 15px 15px 15px !important;
+}
+
+.map-wrap {
+    /* max-width: 1180px !important; */
+    padding: 10px 0px;
+    background: #f7f0ed;
 }
 
 
@@ -3032,7 +3042,7 @@ ul.main-tab li:after {
     position: relative;
     z-index: 1;    
     background: url(/images/img_map1.png) center top no-repeat;
-    width: 100%;
+    width: 1180px;
     height: 424px;
 }
 .division-box > ul {
@@ -4937,18 +4947,6 @@ padding-bottom: 15px; */
 
 
 /* Hospital Search */
-
-.search-map {
-    background: #f7f0ed;
-    padding: 0px 15px 15px 15px !important;
-}
-
-.map-wrap {
-    max-width: 1180px !important;
-    padding: 10px 0px;
-}
-
-
 
 @media print,
 screen and (min-width: 750px) {

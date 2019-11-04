@@ -8,8 +8,8 @@
       <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
-          <div class="col-md-12 col-sm-12 col-md-12 map-wrap" style="margin:0 auto">
-            <div class="divisions">
+          <div class="col-md-12 col-sm-12 col-md-12 map-wrap">
+            <div class="divisions" style="margin:0 auto">
               <div class="row">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
@@ -344,7 +344,7 @@
 
          
           <div class="col-12 jobselect"> 
-             <h5 class="profile_header" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
+             <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
             <table class="table table-bordered col-12 ">
               <tbody>
                 <tr>
