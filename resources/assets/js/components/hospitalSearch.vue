@@ -396,7 +396,7 @@
                   </div>
                 <div class="hos-body row clearfix">
                   <div class="col-3 job-img">
-                    <img src="/upload/news/nursing.JPG"  alt="img" class="img-fluid">
+                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid">
                   </div>
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">

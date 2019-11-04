@@ -410,7 +410,7 @@
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
                                         <div class="col-md-12 m-t-30 m-b-20 gallery-area-cooperate" v-bind:id="'cooperate'+indx" v-for="(cooperate,indx) in cooperate_arr" :key="cooperate.id">
-                                          
+
                                             <div class="clearfix" style="margin-bottom:30px;">
                                                    <span :class="'float-right btn all-btn main-bg-color cooperateChangeLink'+cooperate.id" style="min-width: 0px;" @click="cooperateToggle(cooperate.id)" >
                                                         <i :id="'cooperate' + cooperate.id" class="fas fa-sort-down"></i>
@@ -1339,8 +1339,6 @@ export default {
   }
   .panorama-box {
     padding: 10px 10px 20px 0px;
-    border: 1px solid #dee2e6;
-    /* border-radius: 5px; */
     margin: 0px;
     margin-bottom: 15px;
   }
