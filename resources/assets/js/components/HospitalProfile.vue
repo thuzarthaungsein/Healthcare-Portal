@@ -1516,7 +1516,7 @@ export default {
 
                         if(this.chek_feature.length > 0) {
                                 this.axios
-                                        .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
+                                        .post(`/api/sfeature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
 
                                                 }).catch(error=>{
