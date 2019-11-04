@@ -1339,8 +1339,6 @@ export default {
   }
   .panorama-box {
     padding: 10px 10px 20px 0px;
-    border: 1px solid #dee2e6;
-    /* border-radius: 5px; */
     margin: 0px;
     margin-bottom: 15px;
   }

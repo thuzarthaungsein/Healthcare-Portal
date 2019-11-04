@@ -19,8 +19,8 @@
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
           </label>
         </li>
-        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+        <span class="btn fav-profile fav-item fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+        <span class="btn fav-profile fav-item fav-color" style="color:#aaa;" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
       </ul>
 
       <div class="tab-content nursing-borderColor tab-content1 tabs">
@@ -164,9 +164,7 @@ export default {
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);   
-                    if(hos_his_arr.length == 0){
-                        
-                    }
+                    
                 }
                 if(localStorage.getItem("hospital_fav")){
                     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
@@ -221,10 +219,12 @@ export default {
         if(this.type == 'nursing'){
             var locReplace = "nursing_fav";
             var varReplace = "#nus-fav-local";
+            var linkBox = ".fav-nursing-link-box>a";
         } 
         else{
             var locReplace = "hospital_fav";
             var varReplace = "#hos-fav-local";
+            var linkBox = ".fav-hospital-link-box>a";
         } 
         
         if(status == 'add'){
@@ -240,6 +240,7 @@ export default {
                 localStorage.setItem(locReplace, fav_arr); 
                 $(varReplace).html(fav_arr.length);
             }
+            $(linkBox).css({'cursor':'pointer','pointer-events':'auto'});
         }
         else{
             var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
@@ -249,6 +250,13 @@ export default {
                 localStorage.setItem(locReplace, fav_arr); 
             }
             $(varReplace).html(fav_arr.length);
+
+            if(fav_arr.length == 0){
+                $(linkBox).css({'cursor':'not-allowed','pointer-events':'none'})
+            }
+            else{
+                $(linkBox).css({'cursor':'pointer','pointer-events':'auto'})
+            }
         }
     },
     scrollTop(){
