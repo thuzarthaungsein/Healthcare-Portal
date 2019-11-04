@@ -95,7 +95,6 @@
             </div>
 
 
-             
             <div class="row m-lr-0 ele pt-2"   id="element1">
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
@@ -257,7 +256,7 @@
 
             <div class="row ele m-lr-0" id="element3">
 
-                <h5 class="profile_header col-md-12">費用 {{customer.name}}</h5>
+                <h5 class="profile_header col-md-12">費用</h5>
 
                     <div class="col-12">
 
@@ -449,7 +448,7 @@
             <div class="row ele m-lr-0" id="element4">
 
                 <!-- <div class="row"> -->
-                    <h5 class="profile_header col-md-12"> 施設の概要 {{customer.name}}</h5>
+                    <h5 class="profile_header col-md-12"> 施設の概要</h5>
                     <div v-for="nus in nusfacilities" :key="nus.id" class="col-md-12" >
 
                         <table border="1" class="table table-bordered cost_table">
@@ -587,10 +586,9 @@
 
                         <div class="row col-12 pad-free">
                             <div class="col-md-12">
-                            <h5 class="profile_header col-md-12"> 協力医療機関 {{customer.name}}</h5>
+                            <h5 class="profile_header col-md-12"> 協力医療機関</h5>
                             </div>
                             <div v-if="cooperate_medical.length>0" class="col-md-12">
-
                                 <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
                                     <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
                                     <table border="1" class="table table-bordered">
@@ -637,14 +635,13 @@
 
                        <div class="row col-12">
 
-                                <h5 class="profile_header col-12"> 医療面の受入れ {{customer.name}}</h5>
+                                <h5 class="profile_header col-12"> 医療面の受入れ</h5>
 
                             <div class="row col-12">
 
                                 <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
 
                                 <div class="col-md-12 accept-box">
-
                                     <div class="float-left" v-for="(ma,index) in medical" :key="index" style="padding-right:20px;">
 
                                             <i v-if="ma.name === maccept.name && ma.accept_type === 'accept'" class="fas fa-check green"></i>
@@ -678,7 +675,7 @@
 
 
                         <div class="row col-12">
-                                <h5  class="profile_header col-12"> 職員体制 {{customer.name}}</h5>
+                                <h5  class="profile_header col-12"> 職員体制</h5>
                             <div v-if="staff.length>0">
 
                                 <div v-for="st in staff" :key="st.id" class="col-md-12" >
@@ -725,7 +722,7 @@
 
             <div class="row ele m-lr-0" id="element5">
 
-                <h5 class="profile_header col-md-12"> 地図 {{customer.name}}</h5>
+                <h5 class="profile_header col-md-12"> 地図</h5>
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -762,7 +759,7 @@
 
             <div class="row ele m-lr-0" id="element6">
 
-               <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>
+               <h5 class="profile_header col-12">口コミ</h5>
 
                <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -830,102 +827,102 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->
-                <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
-                <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
-                        <div class="thumbnail-img" style="padding:0px;border:none;">
-                            <div class="card-carousel">
-                            <div class="card-img">
-                                <!-- <div id="panorama"></div>           -->
+            <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
+            <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
+                    <div class="thumbnail-img" style="padding:0px;border:none;">
+                        <div class="card-carousel">
+                        <div class="card-img">
+                            <!-- <div id="panorama"></div>           -->
 
-                                <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage"
-                                            class="pannellum"
-                                            :auto-load="true"
-                                            :show-zoom="true"
-                                            :show-fullscreen="true"
-                                            :auto-rotate="isAutoRotationOn"
-                                            :orientation="isOrientationOn"
-                                            :compass="true"
-                                            :hfov= "120"
+                            <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage"
+                                        class="pannellum"
+                                        :auto-load="true"
+                                        :show-zoom="true"
+                                        :show-fullscreen="true"
+                                        :auto-rotate="isAutoRotationOn"
+                                        :orientation="isOrientationOn"
+                                        :compass="true"
+                                        :hfov= "120"
 
-                                            ></Pannellum>
+                                        ></Pannellum>
 
+                        </div>
+                            <div class="col-12" id="pano-slider-page">
+                <div class="card-carousel-wrapper">
+
+                        <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                            <div class="nav-content mr-2">
+                                <div class="card-carousel--nav__left"></div>
                             </div>
-                             <div class="col-12" id="pano-slider-page">
-                    <div class="card-carousel-wrapper">
+                        </div>
+                        <div class="card-carousel">
+                            <div class="card-carousel--overflow-container">
+                                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
+                                    <div class="card-carousel--card">
+                                        <!-- <div class="card-carousel--card--footer"> -->
 
-                            <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
-                                <div class="nav-content mr-2">
-                                    <div class="card-carousel--nav__left"></div>
-                                </div>
-                            </div>
-                            <div class="card-carousel">
-                                <div class="card-carousel--overflow-container">
-                                    <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + panocurrentOffset + 'px' + ')'}">
-                                        <div class="card-carousel--card">
-                                           <!-- <div class="card-carousel--card--footer"> -->
-
-											<div class="thumbnails-pano">
-                                                <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
-                                                </div>
+                                        <div class="thumbnails-pano">
+                                            <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
+                                                <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
                                             </div>
-                                        <!-- </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-
-                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
-                                <div class="nav-content ml-2">
-                                   <div class="card-carousel--nav__right"></div>
+                                        </div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
 
-                            <!-- <div  class="thumbnails">
-                                    <div
-
-                                        v-for="(image,index) in  panoimages"
-
-                                        :key="image.id"
-
-                                        :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"
-
-                                        @click="activatePanoImage(index)" >
-                                        <img  :src ="'upload/nursing_profile/Imagepanorama/' + image.photo">
-                                    </div>
-                            </div> -->
+                        <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                            <div class="nav-content ml-2">
+                                <div class="card-carousel--nav__right"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                        <!-- <div  class="thumbnails">
+                                <div
+
+                                    v-for="(image,index) in  panoimages"
+
+                                    :key="image.id"
+
+                                    :class="['thumbnail-image', (activePanoImage == index) ? 'active' : '']"
+
+                                    @click="activatePanoImage(index)" >
+                                    <img  :src ="'upload/nursing_profile/Imagepanorama/' + image.photo">
+                                </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
             <!--end panorama-->
            <div class="col-12 col-lg-12 col-md-10 tab typelabel nav-link fixed-nav" v-bind:style="{width:width}">
                 <!-- <div class="row col-12 m-t-10">
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
                 </div> -->
 
-            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
-                病院情報
-            </button>
+                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
+                    病院情報
+                </button>
 
-            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
-                口コミ
-            </button>
+                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
+                    口コミ
+                </button>
 
-            <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
-                地図
-            </button>
+                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
+                    地図
+                </button>
 
-            <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
-                求人応募
-            </button> -->
+                <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
+                    求人応募
+                </button> -->
 
             </div>
 
             <div class="row ele m-lr-0 pt-2" id="element1">
 
-            <!-- ee-->
+                <!-- ee-->
                  <div class="row col-12 list-wrap m-lr-0 white-bg-color" v-for="cust in customer" :key="cust.id">
                     <!--for slideimage-->
                     <div class="col-sm-5 detail_profile_left">
@@ -1062,7 +1059,7 @@
                                     </tr>
                                 </table>
                             </div>
-<!--
+                            <!--
                             <div class="col-lg-3 col-md-4 col-sm-12"><p><strong>住所 :</strong></p></div>
 
                             <div class="col-lg-9 col-md-8 col-sm-12" ><p>{{cust.address}}</p></div>
@@ -1342,14 +1339,14 @@
 
             <!-- Hospital Video -->
                 <div class="col-md-12 m-t-15 m-b-15">
-                        <label class="cost_heading_lbl">動画</label>
-                        <div class="row">
-                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
-                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
-                            </div>
+                    <label class="cost_heading_lbl">動画</label>
+                    <div class="row">
+                        <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                            <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                            <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                         </div>
                     </div>
+                </div>
             <!-- End -->
 
             <div class="row ele m-lr-0" id="element3">
@@ -1652,7 +1649,6 @@ export default {
                 });
 
                 this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
-
                       this.subjects = response.data;
 
                 });
