@@ -31,7 +31,7 @@
                 The page has expired due to inactivity.
                 <br><br>
                 <a class="btn all-btn" href="/" style="border: none; padding: 7px 15px 10px 15px; color: #fff; background: #d2571c; font-weight: bold; ">
-                    Back to Home.
+                    Back to Home
                 </a>
             </div>
         </div>

@@ -427,10 +427,10 @@
                         </div>
                       </div>
                       <div class="job-body row  clearfix">
-                        <div class="col-4 job-img">
+                        <!-- <div class="col-4 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
-                        </div>
-                        <div class="col-8 job-box">
+                        </div> -->
+                        <div class="col-12 job-box">
                           <table  class="table table-bordered  table-sm">
                             <tr>
                               <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>最寄り駅</td>
