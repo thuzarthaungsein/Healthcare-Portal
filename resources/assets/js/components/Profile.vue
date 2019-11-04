@@ -57,8 +57,8 @@
           </label>
         </li>
 
-        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#333; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-        <span style="cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; position: fixed; right: 12%; color:#aaa; font-weight:bold;z-index:1000;" class="btn fav-item fav-color" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+        <span style="font-size:14px;" class="btn fav-profile fav-color" v-if="!view_pro_id" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+        <span style="color:#aaa;font-size:14px;" class="btn fav-profile fav-color" v-if="view_pro_id" @click="favAddFun('remove');view_pro_id = !view_pro_id"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
       </ul>
 
       <div class="tab-content hospital-borderColor tab-content1 tabs">

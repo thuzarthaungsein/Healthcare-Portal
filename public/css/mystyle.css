@@ -441,10 +441,11 @@ body {
     border-top: 1px dashed #d1291d;
 }
 
-#hospitalView .pro-heading h5 {
-    /* background-color: #2981cc; */
+
+/* #hospitalView .pro-heading h5 {
+    background-color: #2981cc;
     color: #2981cc;
-}
+} */
 
 
 /* #nursingView .pro-heading h5 {
@@ -1164,6 +1165,11 @@ p.p_2>a {
     color: #d2571c;
     border-radius: 1px;
     border-bottom: 1px dashed #ff9563;
+}
+
+#hospitalView .profile-tit {
+    color: #2981cc;
+    border-bottom: 1px dashed #2981cc;
 }
 
 #pano-slider-page .card-carousel-wrapper {
