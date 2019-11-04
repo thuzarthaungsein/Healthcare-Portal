@@ -38,7 +38,7 @@
 
             <form @submit.prevent="add" class="col-md-12 pad-free">
                 <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
-                    <div class="row">
+                    <div class="row justify-content-lg-center">
                         <div class="card-carousel-wrapper">
 
                             <div class="nav-box"  @click="moveCarousel(-1)" :disabled="atHeadOfList">

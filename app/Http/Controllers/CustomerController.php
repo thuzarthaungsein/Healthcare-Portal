@@ -21,7 +21,7 @@ class CustomerController extends Controller
 
         // $customers = Customer::all()->toArray();
         // return array_reverse($customers);
-        $customer =Customer::all();
+        $customer =Customer::orderBy('created_at', 'desc')->get();
         return response()->json($customer);
     }
 

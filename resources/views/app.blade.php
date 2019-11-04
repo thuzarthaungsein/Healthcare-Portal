@@ -15,7 +15,7 @@
 
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
-<script src="path/to/vue-easy-lightbox.umd.min.js"></script>
+<!-- <script src="path/to/vue-easy-lightbox.umd.min.js"></script> -->
 
 
 
@@ -84,6 +84,7 @@
             height: 400px;
         }
         #homeBtn{
+            display:none;
             position: fixed;
             top: 177px;
             left: -1px;
@@ -635,7 +636,6 @@
                                     <ads_slider></ads_slider>
 
                                     <!--end Ads slider-->
-
                                 </div>
 
                                     <!--end slider for ads-->
