@@ -1379,7 +1379,7 @@
 
   #mymap {
     width: 100%;
-    height: 700px;
+    height: 500px;
   }
   /* #mymap {background: transparent url('/images/google/loading.jpg') no-repeat center center;} */
 div#holder {

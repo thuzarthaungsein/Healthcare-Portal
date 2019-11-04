@@ -386,7 +386,7 @@
                 </h5>
 
                 </div>
-                <div class="clearfix m-b-20">
+                <div class="clearfix col-12 m-b-20">
                     <span v-for="(sub,index) in subject" :key="index+'-'+sub.name+'-'+hos.id">
                     <span v-if="sub.customer_id == hos.customer_id" class="job_status">
                       {{sub.name}}

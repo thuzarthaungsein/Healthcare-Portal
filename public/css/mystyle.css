@@ -7020,9 +7020,9 @@ ul.test>li:before {
     padding: 5px 15px;
     border-radius: 5px;
     color: #fff!important;
-    position: absolute;
+    /* position: absolute;
     right: 15px;
-    top: 65px;
+    top: 65px; */
     border: 1px solid #c40000;
   
 }
@@ -7655,13 +7655,13 @@ ul.test>li:before {
         margin: 10px 0 30px;
     }
     .job-img {
-        max-width: 80% !important;
+        /* max-width: 80% !important;*/
         margin: 0 auto 20px;
-        flex: unset;
+        flex: unset; 
     }
     .job-box {
-        max-width: 100% !important;
-        flex: unset;
+        /* max-width: 100% !important;*/
+        flex: unset; 
     }
     .compare-wrap {
         max-width: 82%;
