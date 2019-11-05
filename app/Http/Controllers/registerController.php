@@ -14,6 +14,7 @@ use Redirect;
 use App\Type;
 use Session;
 use App\password_reset_view;
+use App\Mail\customerCreateMail;
 class registerController extends Controller
 {
     /**
@@ -100,6 +101,14 @@ class registerController extends Controller
             // $customer->address = $request->address;
             $customer->townships_id = $request->township;
             $customer->save();
+            if($request->types == 2){
+                $customer->type = '病院';
+            }
+            elseif($request->types == 3){
+                $customer->type = '介護';
+            }
+            $admin_email = 'sawnwaiyan2014@gmail.com';
+            \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success', "Special message goes here");
             return Redirect::back();
