@@ -421,14 +421,12 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <label class="cost_heading_lbl">フォトアルバム</label>
-                        <div class="row">
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
-                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
+                    <div class="col-md-12 p-0">
+                        <h3 class="profile_header">フォトアルバム</h3>
+                        <div class="row m-0 gallery-list">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                              
                                     <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
-                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                                </div>
+                                    <span>{{image.title}}</span><br>
                                 
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
@@ -436,9 +434,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 m-t-15 m-b-15">
-                        <label class="cost_heading_lbl">動画</label>
-                        <div class="row">
+                    <div class="col-md-12 m-t-15 m-b-15 p-0">
+                        <h3 class="profile_header">動画</h3>
+                        <div class="row m-0">
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
                                 <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
                                 <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
