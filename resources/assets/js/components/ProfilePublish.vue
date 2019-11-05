@@ -799,14 +799,22 @@
 
                                     </div>
 
-                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
+                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}<br>
 
                                         <small class="card-text">{{comment.year}}</small>
                                       
                                     </h5>
 
-                                    <p>{{comment.created_date}}</p>
-                                    <p>{{comment.created_time}}</p>
+                                    <div class="comment-title2">
+                                       <i class="fa fa-calendar" aria-hidden="true"></i>
+                                       {{comment.created_date}}
+                                    </div>
+
+                                     <div class="comment-title2">
+                                      <i class="fa fa-clock" aria-hidden="true"></i>
+                                     {{comment.created_time}}
+                                    </div>
+                                   
 
 
 
@@ -2135,6 +2143,14 @@ export default {
     color: #3fc8d6;
     display: block;
     font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.comment-title2{
+    background-size: 29px;
+    color: #afbac3;
+    display: block;
+    font-size: 14px;
     font-weight: 700;
     padding-bottom: 10px;
 }

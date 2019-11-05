@@ -632,20 +632,19 @@ export default {
         this.updateJob();
       } else {
         this.$swal({
-          title: "確認",
-          text: "作成よろしいでしょうか",
-          type: "warning",
-          width: 350,
-          height: 200,
-          showCancelButton: true,
-          reverseButtons: true,
-          confirmButtonColor: "#0cc72c",
-          cancelButtonColor: "#b1abab",
-          cancelButtonTextColor: "#000",
-          cancelButtonText: "キャンセル",
-          confirmButtonText: "作成",
-          confirmButtonClass: "all-btn",
-          cancelButtonClass: "all-btn"
+         title: "確認",
+                            text: "作成をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
         }).then(response => {
           this.axios
             .post("/api/job/add", this.joboffer)
@@ -654,13 +653,13 @@ export default {
               this.$swal({
                 position: "top-end",
                 type: "success",
-                title: "作成されました",
-                text: "ファイルが作成されました。",
+                title: "作成されました。",
+                // text: "ファイルが作成されました。",
                 type: "success",
                 width: 350,
                 height: 200,
                 confirmButtonText: "はい",
-                confirmButtonColor: "#0cc72c"
+                confirmButtonColor: "#6cb2eb",
               });
 
               // alert('Successfully Created')
@@ -777,20 +776,19 @@ export default {
 
     updateJob() {
       this.$swal({
-        title: "確認",
-        text: "更新よろしいでしょうか",
-        type: "warning",
-        width: 350,
-        height: 200,
-        showCancelButton: true,
-        reverseButtons: true,
-        confirmButtonColor: "#0cc72c",
-        cancelButtonColor: "#b1abab",
-        cancelButtonTextColor: "#000",
-        cancelButtonText: "キャンセル",
-        confirmButtonText: "更新",
-        confirmButtonClass: "all-btn",
-        cancelButtonClass: "all-btn"
+          title: "確認",
+                            text: "編集をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
       }).then(response => {
         this.axios
 
@@ -798,13 +796,13 @@ export default {
 
           .then(response => {
             this.$swal({
-              title: "更新された",
-              text: "ファイルが更新されました。",
+              title: "更新されました。",
+              // text: "ファイルが更新されました。",
               type: "success",
               width: 350,
               height: 200,
               confirmButtonText: "はい",
-              confirmButtonColor: "#0cc72c"
+              confirmButtonColor: "#6cb2eb"
             });
 
             this.$router.push({

@@ -168,6 +168,7 @@
 
                         this.news.photo = event.target.files[0];
                         this.upload_img = URL.createObjectURL(event.target.files[0]);
+                        
                     },
                     // updateselected() {
                     //     $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
@@ -183,7 +184,21 @@
                         input.type = 'file';
                     },
                     updatepost() {
-
+                         this.$swal({
+                            title:"確認",
+                            text: "編集をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => {
                         let fData = new FormData();
                         fData.append('photo', this.news.photo)
                         fData.append('title', this.news.title)
@@ -198,8 +213,8 @@
                             position: 'top-end',
                             type: 'success',
                             title: '更新されました',
-                            showConfirmButton: false,
-                            timer: 1500,
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#6cb2eb",
                             width: 250,
                             height: 200,
 
@@ -215,6 +230,9 @@
                             this.errors = error.response.data.errors
 
                         }
+                        });
+
+                      
                     });
                     },
                     getstates: function() {
@@ -230,14 +248,48 @@
                     },
                     closeBtnMethod: function(old_photo) {
                         // console.log(old_photo);
-                        if(confirm("Are you sure you want to delete?"))
+                        if(confirm)
                         {
+                            this.$swal({
+                            title: "削除",
+                            text: "削除をよろしでしょうか。",
+                            type: "warning",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#d41010",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                            }).then(response =>{ 
                             var image_x = document.getElementById('x-image');
                             image_x.parentNode.removeChild(image_x);
                             document.getElementById('showimage').style.display = 'block';
+                           
+                            
+                            
+                           }).then(response => {
+                            
+                                this.$swal({
+                                        title: "削除された",
+                                        text: "ファイルが削除されました。",
+                                        type: "success",
+                                        width: 350,
+                                        height: 200,
+                                        confirmButtonText: "はい",
+                                        confirmButtonColor: "#dc3545"
+                                    });
+                                    this.old_photo = old_photo;
+                                    this.getPostsByCatId;
+                           });
+                             
                         }
-                        this.old_photo = old_photo;
-                        this.getPostsByCatId;
+                     
+                        
+                    
                     },
                     checkValidate() {
                         if (this.news.title) {

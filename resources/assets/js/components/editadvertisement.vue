@@ -124,7 +124,7 @@ export default {
 
                      $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
 
-                     this.advertisement.photo = event.target.files[0]
+                     this.advertisement.photo = event.target.files[0];
                     // this.advertisement.photo = event.target.files[0];
                     // this.upload_img = URL.createObjectURL(event.target.files[0]);
               },

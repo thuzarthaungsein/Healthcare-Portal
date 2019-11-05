@@ -161,6 +161,21 @@
                         input.type = 'file';
                     },
                         add() {
+                            this.$swal({
+                            title: "確認",
+                            text: "作成をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => { 
                         let fData = new FormData();
                         fData.append('photo', this.news.image)
                         fData.append('title', this.news.title)
@@ -170,6 +185,19 @@
                         fData.append('related_news', this.checkedNews)
                         this.axios.post('/api/new/add', fData)
                             .then(response => {
+                            this.name = ''
+                            console.log(response);
+                            this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#6cb2eb",
+                            // showConfirmButton: false,
+                            // timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
                                 this.$router.push({
                                     name: 'news_list'
                                 })
@@ -178,7 +206,8 @@
                             if(error.response.status == 422){
 
                                 this.errors = error.response.data.errors
-                            }
+                            }});
+                        
                         })
                     },
                     getstates: function() {
