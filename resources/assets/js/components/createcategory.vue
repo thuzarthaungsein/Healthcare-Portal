@@ -12,13 +12,13 @@
                              <form @submit.prevent="add">
                             <div class="form-group">
                                 <label>カテゴリ名 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ 名" >
+                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ名" >
                                   <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
 
                             <div class="form-group">
                                 <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
-                                <button class="btn news-post-btn all-btn">カテゴリを投稿する</button>
+                                <button class="btn news-post-btn all-btn">作成する</button>
                             </div>
                                 </form>
                             </div>

@@ -4,7 +4,7 @@
             <div class="row m-b-10" v-if="norecord !== 0">
                 <div class="col-md-12">
                     <router-link to="/occupation" class="float-right main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> Create New Occupation
+                        <i class="fas fa-plus-circle"></i> 新しい職種を作成
                     </router-link>
                 </div>
             </div>
@@ -22,17 +22,17 @@
                         </a>
                     </div>
                     <div v-else class="container-fuid">
-                        <h4 class="main-color m-b-10">Occupation Search</h4>
+                        <h4 class="main-color m-b-10">職種検索</h4>
                     <div class="row">
                         <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchOccupation()">
+                            <input type="text" class="form-control" placeholder="職種検索" id="search-item" @keyup="searchOccupation()">
                         </div>
                         <div class="col-md-2">
                             <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
                     </div>
                 <hr/>
-                    <h5 class="header">Occupation List</h5>
+                    <h5 class="header">職種一覧</h5>
                 <div class="card card-default m-b-20"  v-for="occupations in occupation" :key="occupations.id">
                     <div class="card-body">
                         <div class="row">

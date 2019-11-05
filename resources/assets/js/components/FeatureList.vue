@@ -123,8 +123,8 @@ export default {
             // let i = this.features.map(item => item.id).indexOf(id); // find index of your object
             // this.features.splice(i, 1);
             this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
+              title: "削除済",
+              text: "特徴を削除されました。",
               type: "success",
               width: 350,
               height: 200,

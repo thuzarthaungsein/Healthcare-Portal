@@ -6,19 +6,19 @@
                     <div class="row">
                          
                         <div class="col-md-12">
-                            <h4 class="page-header header">施設一作成</h4>
+                            <h4 class="page-header header">施設作成</h4>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>施設一名:<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="facility.description"  placeholder="施設一名" >
+                                <label>施設の種類:<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="facility.description"  placeholder="施設の種類を入力してください。" >
                                    <span v-if="errors.description" class="error">{{errors.description[0]}}</span>  
                             </div>
                         
                             <div class="form-group">
                                 <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>    
-                                <button class="btn news-post-btn all-btn" > 更新 </button>                                          
+                                <button class="btn news-post-btn all-btn" > 作成する </button>                                          
                                 <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link> -->
                             </div>  
                                 </form>  

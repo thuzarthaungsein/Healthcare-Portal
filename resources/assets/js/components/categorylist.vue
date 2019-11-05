@@ -23,13 +23,13 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">カテゴ一覧 検索</h4>
+            <h4 class="main-color m-b-10">カテゴリー検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="カテゴリー検索"
                   id="search-item"
                   @keyup="searchCategory()"
                 />
@@ -39,7 +39,7 @@
               </div>-->
             </div>
             <hr />
-            <h5 class="header">カテゴ一覧</h5>
+            <h5 class="header">カテゴリ一覧</h5>
             <div class="card card-default m-b-20" v-for="category in categories" :key="category.id">
               <div class="card-body">
                 <div class="row">

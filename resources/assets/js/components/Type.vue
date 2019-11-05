@@ -11,10 +11,10 @@
               <form @submit.prevent="add">
                 <div class="form-group">
                   <label>
-                    名前 :
+                    事業者の種類 :
                     <span class="error">*</span>
                   </label>
-                  <input type="text" class="form-control" v-model="Type.name" placeholder="名前" />
+                  <input type="text" class="form-control" v-model="Type.name" placeholder="事業者の種類" />
                   <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                 </div>
                 <div class="form-group">
@@ -63,8 +63,8 @@ export default {
       },
 
       selectedValue: 0,
-      header: "タイプ作成",
-      subtitle: "タイプを投稿する"
+      header: "事業者の種類作成",
+      subtitle: "作成する"
     };
   },
   created() {
@@ -83,8 +83,8 @@ export default {
           this.Type.parent = response.data.parent;
           this.selectedValue = response.data.parent;
           this.TypeList.name = response.data.name;
-          this.header = " 特徴更新";
-          this.subtitle = "更新";
+          this.header = " 事業者の種類更新";
+          this.subtitle = "更新する";
           return this.header;
           return this.subtitle;
         });
@@ -120,7 +120,7 @@ export default {
                 position: "top-end",
                 type: "success",
                 title: "作成されました",
-                text: "ファイルが作成されました。",
+                text: "事業者の種類を作成されました。",
                 type: "success",
                 width: 350,
                 height: 200,
@@ -164,7 +164,7 @@ export default {
             this.norecord = this.types.length;
             this.$swal({
               title: "更新された",
-              text: "ファイルが更新されました。",
+              text: "事業者の種類を更新されました。",
               type: "success",
               width: 350,
               height: 200,

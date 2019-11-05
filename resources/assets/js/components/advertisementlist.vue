@@ -9,7 +9,7 @@
             class="float-right main-bg-color create-btn all-btn"
             style="color: blue;"
           >
-            <i class="fas fa-plus-circle"></i> 広告を作成する
+            <i class="fas fa-plus-circle"></i> 広告を作成
           </router-link>
         </div>
       </div>
