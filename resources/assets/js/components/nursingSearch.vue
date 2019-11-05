@@ -1,4 +1,5 @@
 <template>
+
   <div class="search-map"  @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
