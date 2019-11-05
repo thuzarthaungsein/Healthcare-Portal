@@ -51,16 +51,31 @@ export default {
 
   methods: {
     updateFacility() {
-      this.axios
-        .post(`/api/facility/update/${this.$route.params.id}`, this.facility)
-        .then(response => {
+                this.$swal({
+                            title: "確認",
+                            text: "編集をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => {
+          this.axios.post(`/api/facility/update/${this.$route.params.id}`, this.facility).then(response => {
           this.description = "";
           this.$swal({
                       position: 'top-end',
                       type: 'success',
                       title: '更新されました',
-                      showConfirmButton: false,
-                      timer: 1500,
+                      // showConfirmButton: false,
+                      // timer: 1500,
+                      confirmButtonText: "はい",
+                      confirmButtonColor: "#6cb2eb",
                       width: 250,
                       height: 200,
 
@@ -73,6 +88,8 @@ export default {
             this.errors = error.response.data.errors;
           }
         });
+      });
+  
     }
   }
 };
