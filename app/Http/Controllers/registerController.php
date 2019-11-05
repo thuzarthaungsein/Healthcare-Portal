@@ -107,7 +107,7 @@ class registerController extends Controller
             elseif($request->types == 3){
                 $customer->type = '介護';
             }
-            $admin_email = 'sawnwaiyan2014@gmail.com';
+            $admin_email = 'thuzar@management-partners.co.jp';
             \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success', "Special message goes here");
