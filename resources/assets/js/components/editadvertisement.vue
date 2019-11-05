@@ -114,7 +114,7 @@ export default {
               },
               updateselected()
               {
-                   $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closeBtnMethod()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
+                   $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closeBtnMethod()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img' '></div>");
               },
              removeUpload(e) {
                         this.advertisement.photo = '';
@@ -142,6 +142,7 @@ export default {
                 },
             updateAds() {
                 let adsData = new FormData();
+                alert('update');
 
             // if(this.deleteImage == 'Delete')
             //     {
