@@ -15,7 +15,7 @@
 
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
-<script src="path/to/vue-easy-lightbox.umd.min.js"></script>
+<!-- <script src="path/to/vue-easy-lightbox.umd.min.js"></script> -->
 
 
 
@@ -23,99 +23,87 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script> -->
+<script src="{{ asset('js/map-api.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 
-<!-- <script src="{{ asset('js/vue.js') }}"></script> -->
-<!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>  -->
-
-
-
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 
-<!-- Include after Vue (before closing body) -->
-<script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
+
 
 <!-- Fonts -->
-<!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
 <!--mailbox-->
 <!-- Styles -->
-<!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script> -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.4/build/pannellum.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.4/build/pannellum.js"></script>
+<link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
+<script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
 
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
-    <style>
-        .bg-light {
-            background-color: #eae9e9 !important;
-        }
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 40px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: #ff6117;
-            color: transparent;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 50%;
-            background: url(../images/top-arrow.png) no-repeat left center;
-        }
+<style>
+    .bg-light {
+        background-color: #eae9e9 !important;
+    }
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #ff6117;
+        color: transparent;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        background: url(../images/top-arrow.png) no-repeat left center;
+    }
 
-        #myBtn:hover {
-            background: url(../images/top-arrow.png) no-repeat left center;
-        }
-        #panorama {
-            width: 100%;
-            height: 400px;
-        }
-        #homeBtn{
-            display:none;
-            position: fixed;
-            top: 177px;
-            left: -1px;
-            z-index: 99;
-            font-size: 14px;
-            border: none;
-            outline: none;
-            background-color: #ff6117;
-            color: #fff!important;
-            cursor: pointer;
-            border: 1px solid #e66527;
-            border-radius: 30px !important;
-            border-top-left-radius: 0px !important;
-            border-bottom-left-radius: 0px !important;
-            box-sizing: border-box;
-            padding: 10px 20px;
-            /* background: url(../images/home-24.png) no-repeat center; */
-            /* box-shadow: 0 9px 10px -10px #d2571c; */
-            box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            text-decoration: none;
-        }
-        #homeBtn i.fa {
-            color: white!important;
-        }
-        #homeBtn:hover {
-            background: #fbaa84;
-            border-color: #fbaa84;
-        }
-    </style>
+    #myBtn:hover {
+        background: url(../images/top-arrow.png) no-repeat left center;
+    }
+    #panorama {
+        width: 100%;
+        height: 400px;
+    }
+    #homeBtn{
+        display:none;
+        position: fixed;
+        top: 177px;
+        left: -1px;
+        z-index: 99;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        background-color: #ff6117;
+        color: #fff!important;
+        cursor: pointer;
+        border: 1px solid #e66527;
+        border-radius: 30px !important;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        /* background: url(../images/home-24.png) no-repeat center; */
+        /* box-shadow: 0 9px 10px -10px #d2571c; */
+        box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        text-decoration: none;
+    }
+    #homeBtn i.fa {
+        color: white!important;
+    }
+    #homeBtn:hover {
+        background: #fbaa84;
+        border-color: #fbaa84;
+    }
+</style>
 <!-- link for editor -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet"> -->
 <!-- end link for editor -->
 </head>
 
@@ -747,24 +735,19 @@
 </div>
 
 <script src="/js/app.js" type="text/javascript"></script>
-
-  <!-- script for editor -->
-
+<!-- Include after Vue (before closing body) -->
+<script src="{{ asset('js/vue-fullpage.min.js') }}"></script>
+<script src="{{ asset('js/sweetalert2.all.js') }}"></script>
+<!-- script for editor -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
-
-  <!-- end script for editor -->
-
-
-
-<script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> -->
+<!-- end script for editor -->
+<!-- <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script> -->
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
 <script type="text/javascript">
 
 

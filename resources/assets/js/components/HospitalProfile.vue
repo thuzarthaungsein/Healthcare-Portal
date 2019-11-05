@@ -274,7 +274,7 @@
 
                                 type="text"
 
-                                class="form-control am-from0 white-bg-color"
+                                class="form-control am-from0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_mon_from"
 
@@ -290,7 +290,7 @@
 
                                 type="text"
 
-                                class="form-control am-to0 white-bg-color"
+                                class="form-control am-to0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_mon_to"
 
@@ -314,7 +314,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from0 white-bg-color"
+                                class="form-control pm-from0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_mon_from"
 
@@ -330,7 +330,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to0 white-bg-color"
+                                class="form-control pm-to0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_mon_to"
 
@@ -360,7 +360,7 @@
 
                                 type="text"
 
-                                class="form-control am-from1 white-bg-color"
+                                class="form-control am-from1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_tue_from"
 
@@ -376,7 +376,7 @@
 
                                 type="text"
 
-                                class="form-control am-to1 white-bg-color"
+                                class="form-control am-to1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_tue_to"
 
@@ -400,7 +400,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from1 white-bg-color"
+                                class="form-control pm-from1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_tue_from"
 
@@ -416,7 +416,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to1 white-bg-color"
+                                class="form-control pm-to1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_tue_to"
 
@@ -446,7 +446,7 @@
 
                                 type="text"
 
-                                class="form-control am-from2 white-bg-color"
+                                class="form-control am-from2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_wed_from"
 
@@ -462,7 +462,7 @@
 
                                 type="text"
 
-                                class="form-control am-to2 white-bg-color"
+                                class="form-control am-to2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_wed_to"
 
@@ -486,7 +486,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from2 white-bg-color"
+                                class="form-control pm-from2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_wed_from"
 
@@ -502,7 +502,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to2 white-bg-color"
+                                class="form-control pm-to2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_wed_to"
 
@@ -532,7 +532,7 @@
 
                                 type="text"
 
-                                class="form-control am-from3 white-bg-color"
+                                class="form-control am-from3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_thu_from"
 
@@ -548,7 +548,7 @@
 
                                 type="text"
 
-                                class="form-control am-to3 white-bg-color"
+                                class="form-control am-to3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_thu_to"
 
@@ -572,7 +572,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from3 white-bg-color"
+                                class="form-control pm-from3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_thu_from"
 
@@ -588,7 +588,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to3 white-bg-color"
+                                class="form-control pm-to3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_thu_to"
 
@@ -618,7 +618,7 @@
 
                                 type="text"
 
-                                class="form-control am-from4 white-bg-color"
+                                class="form-control am-from4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_fri_from"
 
@@ -634,7 +634,7 @@
 
                                 type="text"
 
-                                class="form-control am-to4 white-bg-color"
+                                class="form-control am-to4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_fri_to"
 
@@ -658,7 +658,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from4 white-bg-color"
+                                class="form-control pm-from4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_fri_from"
 
@@ -674,7 +674,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to4 white-bg-color"
+                                class="form-control pm-to4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_fri_to"
 
@@ -704,7 +704,7 @@
 
                                 type="text"
 
-                                class="form-control am-from5 white-bg-color"
+                                class="form-control am-from5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sat_from"
 
@@ -720,7 +720,7 @@
 
                                 type="text"
 
-                                class="form-control am-to5 white-bg-color"
+                                class="form-control am-to5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sat_to"
 
@@ -744,7 +744,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from5 white-bg-color"
+                                class="form-control pm-from5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sat_from"
 
@@ -760,7 +760,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to5 white-bg-color"
+                                class="form-control pm-to5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sat_to"
 
@@ -790,7 +790,7 @@
 
                                 type="text"
 
-                                class="form-control am-from6 white-bg-color"
+                                class="form-control am-from6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sun_from"
 
@@ -806,7 +806,7 @@
 
                                 type="text"
 
-                                class="form-control am-to6 white-bg-color"
+                                class="form-control am-to6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sun_to"
 
@@ -830,7 +830,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from6 white-bg-color"
+                                class="form-control pm-from6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sun_from"
 
@@ -846,7 +846,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to6 white-bg-color"
+                                class="form-control pm-to6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sun_to"
 
@@ -1225,12 +1225,10 @@
 
         <!-- End Map -->
 
-
-
-        <div class="row col-2 col-offset-6 mx-auto">
-
-          <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
-
+        <div style="position:fixed;width:100%;background:rgba(0,0,0,.5);left:0;right:0;bottom:0;padding:0 0 10px 0;">
+            <div class="row col-2 col-offset-5 mx-auto">
+                <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
+            </div>
         </div>
 
       </div>
