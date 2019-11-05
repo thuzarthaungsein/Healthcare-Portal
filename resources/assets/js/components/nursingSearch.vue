@@ -1,4 +1,5 @@
 <template>
+
   <div class="search-map"  @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
@@ -1379,7 +1380,7 @@
 
   #mymap {
     width: 100%;
-    height: 700px;
+    height: 500px;
   }
   /* #mymap {background: transparent url('/images/google/loading.jpg') no-repeat center center;} */
 div#holder {
