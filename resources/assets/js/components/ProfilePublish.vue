@@ -425,8 +425,11 @@
                         <label class="cost_heading_lbl">フォトアルバム</label>
                         <div class="row">
                             <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
-                                <img  :src ="'/upload/nursing_profile/' + image.name" style="width:100%;border:7px solid #eee;" class="img-responsive" @click="showLightbox(image.name)"  >
-                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
+                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                </div>
+                                
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
