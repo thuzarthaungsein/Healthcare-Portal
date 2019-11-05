@@ -199,7 +199,7 @@
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
                         }).then(response => {
-                        let fData = new FormData();
+                              let fData = new FormData();
                         fData.append('photo', this.news.photo)
                         fData.append('title', this.news.title)
                         fData.append('main_point', this.news.main_point)

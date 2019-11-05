@@ -166,14 +166,14 @@
                         <label  class="heading-lbl col-2 pad-free">診療科目</label>
                         <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="clinicalSubject()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate1}"></i></span>
                         <div class="col-md-10 float-right clinical-subject-toggle-div toggle-div m-t-10">
-                            <div class="row">
-                                <div v-for="subj in clinical_subj" :key="subj.id" class="col-md-3 m-b-20">
-                                    <label>
-                                        <input type="checkbox"  name="subject" v-bind:value="subj.id" @click="subjectCheck(subj.id)" v-model="subj.checked">
+                            <div class="row"> <div v-for="subj in clinical_subj" :key="subj.id" class="form-check form-check-inline col-sm-3">
+                                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                                        <input type="checkbox" class="form-check-input"  name="subject" v-bind:value="subj.id" @click="subjectCheck(subj.id)" v-model="subj.checked">
                                           {{subj.name}}
+                                        <div class="control__indicator"></div>
                                     </label>
                                 </div>
-                            </div>                                        
+                            </div>
                         </div>
                     </div>
                 </td>
@@ -212,7 +212,7 @@
                           <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" v-model="hospital_info.details_info" :options="editorOption"/>
                   </td>
           </tr>
-        </table>   
+        </table>
         <!-- <div class="form-group">
                             <label class="heading-lbl">診療科目<span class="error">*</span></label>
                             <textarea name="subject" class="form-control"></textarea>
@@ -274,7 +274,7 @@
 
                                 type="text"
 
-                                class="form-control am-from0 white-bg-color"
+                                class="form-control am-from0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_mon_from"
 
@@ -290,7 +290,7 @@
 
                                 type="text"
 
-                                class="form-control am-to0 white-bg-color"
+                                class="form-control am-to0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_mon_to"
 
@@ -314,7 +314,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from0 white-bg-color"
+                                class="form-control pm-from0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_mon_from"
 
@@ -330,7 +330,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to0 white-bg-color"
+                                class="form-control pm-to0 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_mon_to"
 
@@ -360,7 +360,7 @@
 
                                 type="text"
 
-                                class="form-control am-from1 white-bg-color"
+                                class="form-control am-from1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_tue_from"
 
@@ -376,7 +376,7 @@
 
                                 type="text"
 
-                                class="form-control am-to1 white-bg-color"
+                                class="form-control am-to1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_tue_to"
 
@@ -400,7 +400,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from1 white-bg-color"
+                                class="form-control pm-from1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_tue_from"
 
@@ -416,7 +416,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to1 white-bg-color"
+                                class="form-control pm-to1 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_tue_to"
 
@@ -446,7 +446,7 @@
 
                                 type="text"
 
-                                class="form-control am-from2 white-bg-color"
+                                class="form-control am-from2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_wed_from"
 
@@ -462,7 +462,7 @@
 
                                 type="text"
 
-                                class="form-control am-to2 white-bg-color"
+                                class="form-control am-to2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_wed_to"
 
@@ -486,7 +486,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from2 white-bg-color"
+                                class="form-control pm-from2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_wed_from"
 
@@ -502,7 +502,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to2 white-bg-color"
+                                class="form-control pm-to2 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_wed_to"
 
@@ -532,7 +532,7 @@
 
                                 type="text"
 
-                                class="form-control am-from3 white-bg-color"
+                                class="form-control am-from3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_thu_from"
 
@@ -548,7 +548,7 @@
 
                                 type="text"
 
-                                class="form-control am-to3 white-bg-color"
+                                class="form-control am-to3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_thu_to"
 
@@ -572,7 +572,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from3 white-bg-color"
+                                class="form-control pm-from3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_thu_from"
 
@@ -588,7 +588,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to3 white-bg-color"
+                                class="form-control pm-to3 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_thu_to"
 
@@ -618,7 +618,7 @@
 
                                 type="text"
 
-                                class="form-control am-from4 white-bg-color"
+                                class="form-control am-from4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_fri_from"
 
@@ -634,7 +634,7 @@
 
                                 type="text"
 
-                                class="form-control am-to4 white-bg-color"
+                                class="form-control am-to4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_fri_to"
 
@@ -658,7 +658,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from4 white-bg-color"
+                                class="form-control pm-from4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_fri_from"
 
@@ -674,7 +674,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to4 white-bg-color"
+                                class="form-control pm-to4 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_fri_to"
 
@@ -704,7 +704,7 @@
 
                                 type="text"
 
-                                class="form-control am-from5 white-bg-color"
+                                class="form-control am-from5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sat_from"
 
@@ -720,7 +720,7 @@
 
                                 type="text"
 
-                                class="form-control am-to5 white-bg-color"
+                                class="form-control am-to5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sat_to"
 
@@ -744,7 +744,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from5 white-bg-color"
+                                class="form-control pm-from5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sat_from"
 
@@ -760,7 +760,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to5 white-bg-color"
+                                class="form-control pm-to5 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sat_to"
 
@@ -790,7 +790,7 @@
 
                                 type="text"
 
-                                class="form-control am-from6 white-bg-color"
+                                class="form-control am-from6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sun_from"
 
@@ -806,7 +806,7 @@
 
                                 type="text"
 
-                                class="form-control am-to6 white-bg-color"
+                                class="form-control am-to6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.am_sun_to"
 
@@ -830,7 +830,7 @@
 
                                 type="text"
 
-                                class="form-control pm-from6 white-bg-color"
+                                class="form-control pm-from6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sun_from"
 
@@ -846,7 +846,7 @@
 
                                 type="text"
 
-                                class="form-control pm-to6 white-bg-color"
+                                class="form-control pm-to6 white-bg-color" placeholder="0:00"
 
                                 v-model="schedule_arr.pm_sun_to"
 
@@ -924,28 +924,14 @@
 
                   <div class="row">
 
-                    <div v-for="fac in fac_list" :key="fac.id" class="col-md-3 m-b-20">
+                    <div v-for="fac in fac_list" :key="fac.id" class="form-check form-check-inline col-sm-3">
 
-                      <label>
+                      <label class="form-check-label control control--checkbox" style="padding-left:5px;">
 
-                        <input
-
-                          type="checkbox"
-
-                          name="facility"
-
-                          :class="'facility-'+fac.id"
-
-                          v-bind:value="fac.id"
-
-                          @click="facilityCheck(fac.id)"
-
-                          v-model="fac.checked"
-
-                        />
+                        <input type="checkbox" class="form-check-input" name="facility" :class="'facility-'+fac.id" v-bind:value="fac.id" @click="facilityCheck(fac.id)" v-model="fac.checked" />
 
                         {{fac.description}}
-
+                        <div class="control__indicator"></div>
                       </label>
 
                     </div>
@@ -1000,27 +986,14 @@
 
                   <div class="row">
 
-                    <div v-for="feat in feature_list" :key="feat.id" class="col-md-3 m-b-20">
+                    <div v-for="feat in feature_list" :key="feat.id" class="form-check form-check-inline col-sm-3">
 
-                      <label>
+                      <label class="form-check-label control control--checkbox" style="padding-left:5px;">
 
-                        <input
-
-                          type="checkbox"
-
-                          name="special-features"
-
-                          :class="'feature-'+feat.id"
-
-                          v-bind:value="feat.id"
-
-                          @click="featureCheck(feat.id)"
-
-                          v-model="feat.checked"
-
-                        />
+                        <input type="checkbox" class="form-check-input" name="special-features" :class="'feature-'+feat.id" v-bind:value="feat.id" @click="featureCheck(feat.id)" v-model="feat.checked"/>
 
                         {{feat.name}}
+                        <div class="control__indicator"></div>
 
                       </label>
 
@@ -1252,12 +1225,10 @@
 
         <!-- End Map -->
 
-
-
-        <div class="row col-2 col-offset-6 mx-auto">
-
-          <span class="btn secondary-bg-color col-12 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
-
+        <div style="position:fixed;width:100%;background:rgba(0,0,0,.5);left:0;right:0;bottom:0;padding:0 0 10px 0;">
+            <div class="row col-2 col-offset-5 mx-auto">
+                <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="Create_Profile()">作成</span>
+            </div>
         </div>
 
       </div>
@@ -1294,7 +1265,7 @@ export default {
                         schedule_list:[],
                         customer_info:[],
                         customer_info_push:[],
-                        hospital_info:[],  save_hospital_info:[], 
+                        hospital_info:[],  save_hospital_info:[],
                         chek_feature : [],
                         subjects:[],
                         city: '',
@@ -1387,7 +1358,7 @@ export default {
             clinicalSubject() {
                      $(".clinical-subject-toggle-div").toggle('medium');
                      this.isRotate1 = !this.isRotate1;
-                     
+
             },
             DeltArr(indx,type) {
                     var arr_list = [];
@@ -1427,7 +1398,7 @@ export default {
                     var email = $('.customer-email').val();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
-                    this.customer_info_push.push({name:name,email:email,phone:phone,address:address}); 
+                    this.customer_info_push.push({name:name,email:email,phone:phone,address:address});
 
                     var access = $('.access').val();
                     var subject = $('.subject').val();
@@ -1463,26 +1434,26 @@ export default {
                         }
                      this.gallery_list = this.img_list.concat(this.video_list);
 
-                    
+
                     var s_features =[];
                         $.each($("input[name='special-features']:checked"), function(){
                             s_features.push($(this).val());
-                        }); 
+                        });
                         this.chek_feature.push({special_feature_id:s_features});
-                        
+
                      var chek_facility = [];
                      var facilities ;
                         $.each($("input[name='facility']:checked"), function(){
                                chek_facility.push($(this).val());
                         });
                         facilities = chek_facility.join(',');
-                    
+
                     var chek_subj = [];
                         $.each($("input[name='subject']:checked"), function(){
                                chek_subj.push($(this).val());
                         });
                         this.subjects.push({subject_id:chek_subj});
-                        
+
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
@@ -1509,7 +1480,7 @@ export default {
                                 this.axios
                                         .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                                 .then((response) => {
-    
+
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.customer_info_push = 'error';
@@ -1532,7 +1503,7 @@ export default {
                                 this.axios
                                         .post(`/api/schedule/update/${this.cusid}`,this.schedule_list)
                                                 .then((response) => {
-                                                        
+
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.schedule_list = 'error';
@@ -1543,9 +1514,9 @@ export default {
 
                         if(this.chek_feature.length > 0) {
                                 this.axios
-                                        .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
+                                        .post(`/api/sfeature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
-                                                        
+
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.chek_feature = 'error';
@@ -1558,7 +1529,7 @@ export default {
                                 this.axios
                                         .post(`/api/subject_junctions/update/${this.cusid}`,this.subjects)
                                                 .then((response) => {
-                                                        
+
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
                                                   this.subjects = 'error';

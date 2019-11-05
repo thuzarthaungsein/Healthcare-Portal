@@ -32,16 +32,22 @@
                             <div class="form-group">
                                      <label>ロケーション : <span class="error">*</span></label><br/>
                                 <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
-                                    <label> <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)</label><br/>
-                                    <label> <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)</label>
+                                    <label class="form-check-label control control--checkbox">
+                                        <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>Top Bar </strong> (240px*120px 300円)
+                                        <div class="control__indicator"></div>
+                                        </label><br/>
+                                    <label class="form-check-label control control--checkbox">
+                                        <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> Side Bar </strong>(167px*100px 200円)
+                                        <div class="control__indicator"></div>
+                                    </label>
                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                 </div>
                             </div>
-
-                            <!-- <div class="form-group" id="showimage">
-                                <label class="">メディア:<span class="error">*</span></label>
+                            <div class="form-group" style="display:none" id="showimage">
+                                <label>メディア : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file" ref="file" accept="image/*" @change="fileSelected" required>
+                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
+                                    <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
                             </div>
                             <div class="image_show" v-if="upload_img">
@@ -50,24 +56,17 @@
                                     <img :src="upload_img" class='show-img'>
                                 </div>
                             </div>
-                            <div class="form-group image_update" id="x-image">
+                            <div class="form-group image_update" id="x-image" v-if="advertisement.photo">
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(advertisement.photo)'>X</span>
-                                        <img :src="'/upload/advertisement/'+ advertisement.photo" class='show-img' alt="ads">
+                                        <img :src="'/upload/advertisement/'+ advertisement.photo" class='show-img' alt="hhh">
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" v-model="old_photo" > -->
-                            <div class="form-group" style="display:none" id="showimage">
-                                <label>メディア : <span class="error">*</span></label><br/>
-                                <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" required>
-                                    <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
-                                </div>
-                            </div>
-                            <div class="image_show"></div>
-                            <div class="form-group image_update" id="x-image"> </div>
+                            <input type="hidden" v-model="old_photo" >
+                            <!-- <div class="image_show"></div>
+                            <div class="form-group image_update" id="x-image"> </div> -->
 
                             <div class="form-group">
                                 <router-link to="/ads" class="btn btn-danger all-btn">戻る</router-link>
@@ -98,8 +97,8 @@ export default {
                         photo:'',
                     },
                     ischeck:'',
-                   // old_photo: "",
-                    upload_img:null,
+                   old_photo: "",
+                    upload_img:'',
                     //deleteImage:'',
             }
         },
@@ -114,7 +113,7 @@ export default {
                      this.updateCheck(this.ischeck);
                     this.advertisement.photo=response.data.photo;
                      //console.log(this.advertisement.photo);
-                     this.updateselected();
+                     //this.updateselected();
                 });
 
         },
@@ -122,16 +121,24 @@ export default {
          methods: {
               fileSelected(){
 
-                     $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
+                    //  $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
 
-                     this.advertisement.photo = event.target.files[0];
-                    // this.advertisement.photo = event.target.files[0];
-                    // this.upload_img = URL.createObjectURL(event.target.files[0]);
+                     //this.advertisement.photo = event.target.files[0];
+                    this.advertisement.photo = event.target.files[0];
+                    this.upload_img = URL.createObjectURL(event.target.files[0]);
               },
-              updateselected()
-              {
-                   $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closeBtnMethod()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
-              },
+            //   updateselected()
+            //   {
+            //        $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closeBtnMethod()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
+            //   },
+            closeBtnMethod: function(old_photo) {
+                 if(confirm("Are you sure you want to delete?"))
+                {
+                        var image_x = document.getElementById('x-image');
+                        image_x.parentNode.removeChild(image_x);
+                        document.getElementById('showimage').style.display = 'block';
+                }
+                            },
              removeUpload(e) {
                         this.advertisement.photo = '';
                         this.upload_img = '';
@@ -183,11 +190,12 @@ export default {
 
 
             }
-            console.log(this.advertisement.photo);
+            //console.log(this.advertisement.photo);
              adsData.append('title',this.advertisement.title)
              adsData.append('description',this.advertisement.description)
              adsData.append('link',this.advertisement.link)
              adsData.append('photo',this.advertisement.photo)
+             adsData.append('old_photo',this.old_photo)
             //ads.photo=this.advertisement.photo
                 this.axios.post(`/api/advertisement/update/${this.$route.params.id}`, adsData)
                     .then((response) => {

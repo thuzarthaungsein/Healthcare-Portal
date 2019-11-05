@@ -1,73 +1,73 @@
 var timeout;
-$(".path").hover(
-  function() {
-    clearTimeout(timeout);
-    $('#info-box').css({
-      'display':'block',
-    });
+// $(".path").hover(
+//   function() {
+//     clearTimeout(timeout);
+//     $('#info-box').css({
+//       'display':'block',
+//     });
 
-    $('.info-box').html($(this).data('info'));
+//     $('.info-box').html($(this).data('info'));
 
-    $('.'+$(this).data('info')).css({
-      'opacity': '0.5',
-      'font-weight':'bold',
-      'text-decoration':'underline',
-       'color':'#f27a24',
-    });
-  },
-  function(){
-  	timeout = setTimeout(function(){
-      $('.info-box').css('display','none');
-      },1000);
-});
+//     $('.'+$(this).data('info')).css({
+//       'opacity': '0.5',
+//       'font-weight':'bold',
+//       'text-decoration':'underline',
+//        'color':'#fff',
+//     });
+//   },
+//   function(){
+//   	timeout = setTimeout(function(){
+//       $('.info-box').css('display','none');
+//       },1000);
+// });
 
-  $(".path").mouseout(function(){
-    $('.'+$(this).data('info')).css({
-      'background':'transparent',
-      'opacity':'1'
-    });
+//   $(".path").mouseout(function(){
+    // $('.'+$(this).data('info')).css({
+    //   'background':'transparent',
+    //   'opacity':'1'
+    // });
 
-    $(".path").mouseleave(function(e) {
-      $(".info-box").css("display", "none");
-    });
+//     $(".path").mouseleave(function(e) {
+//       $(".info-box").css("display", "none");
+//     });
 
-$(document)
-.mousemove(function(e) {
-  $(".info-box").css("top", e.pageY - $(".info-box").height() - 35);
-  $(".info-box").css("left", e.pageX - $(".info-box").width() / 2);
-})
-.mouseover();
+// $(document)
+// .mousemove(function(e) {
+//   $(".info-box").css("top", e.pageY - $(".info-box").height() - 35);
+//   $(".info-box").css("left", e.pageX - $(".info-box").width() / 2);
+// })
+// .mouseover();
 
-$(".path").mouseout(function(){
-  $('.'+$(this).data('info')).css({
-    'background':'transparent',
-    'opacity':'1',
-    'text-decoration':'none'
-  });
-})
+// $(".path").mouseout(function(){
+//   $('.'+$(this).data('info')).css({
+//     'background':'transparent',
+//     'opacity':'1',
+//     'text-decoration':'none'
+//   });
+// })
 
-var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-if(ios) {
-  $('abbr').on('click touchend', function() {
-    var link = $(this).attr('href');
-    window.open(link,'_blank');
-    return false;
-  });
-}
+// var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+// if(ios) {
+//   $('abbr').on('click touchend', function() {
+//     var link = $(this).attr('href');
+//     window.open(link,'_blank');
+//     return false;
+//   });
+// }
 
-$('.path').on("click", function(e) {
-    e.preventDefault();
-    $('.path').removeClass('selected');
-    $('.path.selected').attr("class", "");
-    $('.'+$(this).data('info')).addClass("selected");
-    var title = $(this).attr("title");
-    var id = $(this).attr("id");
+// $('.path').on("click", function(e) {
+    // e.preventDefault();
+    // $('.path').removeClass('selected');
+    // $('.path.selected').attr("class", "");
+    // $('.'+$(this).data('info')).addClass("selected");
+    // var title = $(this).attr("title");
+    // var id = $(this).attr("id");
 
-});
-$('#select').on('change',function(){
-  var id = this.value;
+// });
+// $('#select').on('change',function(){
+//   var id = this.value;
 
-})
+// })
 // $('.text').click(function() {
 //   $('.checkbox, .nursgingcheckbox, .jobcheckbox').slideToggle("slow");
 // });
@@ -226,7 +226,7 @@ $('#save_value').click(function(){
             $(".select_all").prop("checked", false);
         }
       });
-    });
+    // });
 
      /* start nurse profile*/
 
@@ -316,15 +316,15 @@ $('#save_value').click(function(){
   //     );
   // });
 
-  function closeBtnMethod(){
+//   function closeBtnMethod(){
 
-    if(confirm("Are you sure you want to delete?"))
-    {
-        var image_x = document.getElementById('x-image');
-        image_x.parentNode.removeChild(image_x);
-        document.getElementById('showimage').style.display = 'block';
-    }
-}
+//     if(confirm("Are you sure you want to delete?"))
+//     {
+//         var image_x = document.getElementById('x-image');
+//         image_x.parentNode.removeChild(image_x);
+//         document.getElementById('showimage').style.display = 'block';
+//     }
+// }
 
 function closeBtnPreview(indx) {
   if(confirm("Are you sure you want to delete?"))

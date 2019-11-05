@@ -15,7 +15,7 @@
 
 <title>{{ config('app.name', 'Healthcare Portal') }}</title>
 
-<script src="path/to/vue-easy-lightbox.umd.min.js"></script>
+<!-- <script src="path/to/vue-easy-lightbox.umd.min.js"></script> -->
 
 
 
@@ -23,98 +23,87 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script> -->
+<script src="{{ asset('js/map-api.js') }}"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 
-<!-- <script src="{{ asset('js/vue.js') }}"></script> -->
-<!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>  -->
-
-
-
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script> -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 
-<!-- Include after Vue (before closing body) -->
-<script src="https://unpkg.com/vue-fullpage.js/dist/vue-fullpage.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
+
 
 <!-- Fonts -->
-<!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
 <!--mailbox-->
 <!-- Styles -->
-<!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyCNpeRgwCQoHIlLn-X8TIB9SnO8iLPt808&callback=initMap" async defer></script> -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.4/build/pannellum.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.4/build/pannellum.js"></script>
+<link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
+<script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
 
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
-    <style>
-        .bg-light {
-            background-color: #eae9e9 !important;
-        }
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 40px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: #ff6117;
-            color: transparent;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 50%;
-            background: url(../images/top-arrow.png) no-repeat left center;
-        }
+<style>
+    .bg-light {
+        background-color: #eae9e9 !important;
+    }
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #ff6117;
+        color: transparent;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        background: url(../images/top-arrow.png) no-repeat left center;
+    }
 
-        #myBtn:hover {
-            background: url(../images/top-arrow.png) no-repeat left center;
-        }
-        #panorama {
-            width: 100%;
-            height: 400px;
-        }
-        #homeBtn{
-            position: fixed;
-            top: 177px;
-            left: -1px;
-            z-index: 99;
-            font-size: 14px;
-            border: none;
-            outline: none;
-            background-color: #ff6117;
-            color: #fff!important;
-            cursor: pointer;
-            border: 1px solid #e66527;
-            border-radius: 30px !important;
-            border-top-left-radius: 0px !important;
-            border-bottom-left-radius: 0px !important;
-            box-sizing: border-box;
-            padding: 10px 20px;
-            /* background: url(../images/home-24.png) no-repeat center; */
-            /* box-shadow: 0 9px 10px -10px #d2571c; */
-            box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            text-decoration: none;
-        }
-        #homeBtn i.fa {
-            color: white!important;
-        }
-        #homeBtn:hover {
-            background: #fbaa84;
-            border-color: #fbaa84;
-        }
-    </style>
+    #myBtn:hover {
+        background: url(../images/top-arrow.png) no-repeat left center;
+    }
+    #panorama {
+        width: 100%;
+        height: 400px;
+    }
+    #homeBtn{
+        display:none;
+        position: fixed;
+        top: 177px;
+        left: -1px;
+        z-index: 99;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        background-color: #ff6117;
+        color: #fff!important;
+        cursor: pointer;
+        border: 1px solid #e66527;
+        border-radius: 30px !important;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        /* background: url(../images/home-24.png) no-repeat center; */
+        /* box-shadow: 0 9px 10px -10px #d2571c; */
+        box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        text-decoration: none;
+    }
+    #homeBtn i.fa {
+        color: white!important;
+    }
+    #homeBtn:hover {
+        background: #fbaa84;
+        border-color: #fbaa84;
+    }
+</style>
 <!-- link for editor -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet"> -->
 <!-- end link for editor -->
 </head>
 
@@ -145,7 +134,7 @@
                     </span>
                     </router-link>
                 </div>
-                <div class="div2 fav-nursing-link-box">               
+                <div class="div2 fav-hospital-link-box">               
                     <router-link to="/favouriteHospital">
                     <i class="fa fa-chevron-circle-right is-hos"></i>
                     <span style="color:#2981cc;">
@@ -157,19 +146,19 @@
             <li class="fav-item history-color btn all-btn m-r-10 m-b-10" style="color: #000 !important;">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
                 &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
-                <div class="div1">
+                <div class="div1 his-nursing-link-box">
              
                     <router-link to="/nursing_history">
-                    <i class="fa fa-chevron-circle-right is-nur"></i>
+                        <i class="fa fa-chevron-circle-right is-nur"></i>
                         <span  style="color:#d2571c;">
                         介護&nbsp;<span id="nus-his-local"></span>&nbsp;<span style="color:#000;">件</span>
                         </span>
                     </router-link>
                 </div>
-                <div class="div2">
+                <div class="div2 his-hospital-link-box">
               
                     <router-link to="/hospital_history">
-                    <i class="fa fa-chevron-circle-right is-hos"></i>
+                        <i class="fa fa-chevron-circle-right is-hos"></i>
                         <span style="color:#2981cc;">
                         病院&nbsp;<span id="hos-his-local"></span>&nbsp;<span style="color:#000;">件</span>
                         </span>
@@ -229,9 +218,15 @@
 
                     <li class="nav-item btn login-register-btn col-12 userprofile-name pc">
 
-                        <img src="/images/user.png" alt="" class="userprofile-img">
-
-                        <a class="nav-link" href="#!">{{ Auth::user()->name }}</a>
+                        <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
+                        @if(Auth::user()->type_id == 2)
+                        <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
+                        <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
+                        @else
+                        <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
+                        <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
+                        @endif
+                        <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
 
                     </li>
 
@@ -628,7 +623,6 @@
                                     <ads_slider></ads_slider>
 
                                     <!--end Ads slider-->
-
                                 </div>
 
                                     <!--end slider for ads-->
@@ -741,24 +735,19 @@
 </div>
 
 <script src="/js/app.js" type="text/javascript"></script>
-
-  <!-- script for editor -->
-
+<!-- Include after Vue (before closing body) -->
+<script src="{{ asset('js/vue-fullpage.min.js') }}"></script>
+<script src="{{ asset('js/sweetalert2.all.js') }}"></script>
+<!-- script for editor -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
-
-  <!-- end script for editor -->
-
-
-
-<script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> -->
+<!-- end script for editor -->
+<!-- <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script> -->
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
 <script type="text/javascript">
 
 
@@ -792,27 +781,35 @@
 
     if(localStorage.getItem("hospital_history")){
         $("#hos-his-local").html(localStorage.getItem("hospital_history").split(",").length);
+        $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
         $("#hos-his-local").html(0);
+        $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
     }
     if(localStorage.getItem("nursing_history")){
         $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
+        $('.his-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
         $("#nus-his-local").html(0);
+        $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
     }
     if(localStorage.getItem("hospital_fav")){
         $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
+        $('.fav-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
         $("#hos-fav-local").html(0);
+        $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
     }
     if(localStorage.getItem("nursing_fav")){
         $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
+        $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
         $("#nus-fav-local").html(0);
+        $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
     }
 
     $('.DataTable').DataTable();

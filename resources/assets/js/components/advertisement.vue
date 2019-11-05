@@ -31,9 +31,15 @@
                                 </div>
                                 <div class="form-group">
                                     <!-- <label for ="location" ><strong></strong> ロケーション :</strong>  </label><label> -->
-                                    <label>ロケーション : <span class="error">*</span></label><br />
-                                    <label> <input type="checkbox" value="topbar" name="top_bar" v-model="ads.location"> <strong>Top Bar </strong> (240px*120px 300円)</label><br />
-                                    <label> <input type="checkbox" value="sidebar" name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(167px*100px 200円)</label>
+                                        <label>ロケーション : <span class="error">*</span></label><br />
+                                        <label class="form-check-label control control--checkbox">
+                                            <input type="checkbox" value="topbar" name="top_bar" v-model="ads.location"> <strong>Top Bar </strong> (240px*120px 300円)
+                                            <div class="control__indicator"></div>
+                                        </label><br />
+                                        <label class="form-check-label control control--checkbox">
+                                            <input type="checkbox" value="sidebar" name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(167px*100px 200円)
+                                             <div class="control__indicator"></div>
+                                        </label>
                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                 </div>
                                 <div class="form-group">
@@ -134,3 +140,5 @@
         }
     }
 </script>
+
+

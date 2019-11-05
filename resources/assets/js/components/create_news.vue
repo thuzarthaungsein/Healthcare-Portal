@@ -59,7 +59,7 @@
                             <div class="row col-md-12">
                                 <label> 関連ニュース:<span class="error">*</span></label>
                                 <div class="col-md-4">
-                                
+
                                 <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
                                     <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
                                         {{category.name}}
@@ -71,10 +71,10 @@
                                     <input type="text" placeholder="search" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
                                 </div>
                             </div>
-
+                            <br/>
                             <div class="row col-md-12">
                                 <div class="col-md-4" v-for="news in related_news" :key="news.id">
-                                    <label>
+                                    <label class="form-check-label control control--checkbox">
                                         <input type="checkbox" :value="news.id" v-model="checkedNews">
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
                                             <div class="card-body news-post">
@@ -88,6 +88,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="control__indicator"></div>
                                     </label>
                                  </div>
                             </div>

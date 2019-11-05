@@ -48,7 +48,9 @@ class ProfilePublishController extends Controller
         $hosfacility= explode(',',$profile_facility);
         $facility = Facility::whereIn('id',$hosfacility)->select('description','id')->get();
         //for image slide show
-        $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+        $logo = Customer::where('id',$cusid)->select('logo as photo')->get()->toArray();
+        $gallery = Gallery::where('customer_id',$cusid)->where('type','photo')->get()->toArray();
+        $images = array_merge($logo,$gallery);
 
         $videos = Gallery::where('customer_id',$cusid)->where('type','video')->select()->get()->toArray();
         for($i=0;$i<count($videos);$i++) {
@@ -92,7 +94,9 @@ class ProfilePublishController extends Controller
                              ->where('nursing_profiles.customer_id','=',$cusid)->get();
 
         //for image slide show
-        $images = Gallery::where('customer_id',$cusid)->where('type','photo')->select()->get();
+        $logo = Customer::where('id',$cusid)->select('logo as photo')->get()->toArray();
+        $gallery = Gallery::where('customer_id',$cusid)->where('type','photo')->get()->toArray();
+        $images = array_merge($logo,$gallery);
 
         $panoimages = Gallery::where('customer_id',$cusid)->where('type','panorama')->select()->orderBy('id','desc')->get();
         $videos = Gallery::where('customer_id',$cusid)->where('type','video')->select()->get()->toArray();

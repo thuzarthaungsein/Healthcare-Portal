@@ -11,7 +11,7 @@
                        <div class="col-12 m-b-10 m-t-8"><h4 class="comment-apply-color" style="margin-left:5px;"><i class="fa fa-comments com_ic"></i> 口コミ作成</h4></div>
                     <div class="card-body ">
                         <div class="row">
-                         <div class="col-sm-9 offset-2">
+                         <div class="col-sm-10 offset-1">
                                 <form @submit.prevent ="add" class="m-t-16 sendEmail comform"  method="post">
                                         <div class="form-group row">
                                             <div class="col-sm-4 text-right">

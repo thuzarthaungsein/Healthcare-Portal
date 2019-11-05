@@ -274,7 +274,7 @@
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <img class="img-fluid" v-bind:src="'/upload/customers/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
+                                                        <img class="img-fluid" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
                                                         <br>
                                                         <div style="width: 250px">
                                                             <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nur_profile.name}}</router-link>
@@ -505,6 +505,12 @@
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
                                 $("#nus-fav-local").html(l_sto_arr.length); 
+                                if(l_sto_arr.length == 0){
+                                    $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
+                                }
+                                else{
+                                    $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                                }
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
