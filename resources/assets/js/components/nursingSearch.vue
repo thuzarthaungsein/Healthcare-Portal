@@ -1,293 +1,307 @@
 <template>
-
+<div>
+  <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">     
+    <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5>
+  </div>
   <div class="search-map"  @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
         <div>
         <div class="row">
           <!-- search map and path -->
-          <div class="col-sm-11 col-offset-1 map-wrap" style="margin:0 auto" id="searchMap">
-            <div class="divisions">
-              <div class="row">
+          <div class="col-md-12 col-sm-12 col-md-12 map-wrap" id="searchMap">
+            <div class="divisions" style="margin:0 auto">
+              <div class="row " id="divisionswrap">
                 <div class="col-sm-2 hokkaido-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#6699cc">北海道・東北</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#"  id="1" @click="getStateClick" data-info="Hokkaido" class="path Hokkaido card-text">北海道</a>
-                        </span>
-                        <span class="spanclass"> 
-                          <a href="#"  id="2" @click="getStateClick" data-info="Aomori" class="path Aomori card-text">青森県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="3" @click="getStateClick" data-info="Iwate" class="path Iwate card-text">岩手県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="4" @click="getStateClick" data-info="Miyagi" class="path Miyagi card-text">宮城県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="5" @click="getStateClick" data-info="Akita" class="path Akita card-text">秋田県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="6" @click="getStateClick" data-info="Yamagata" class="path Yamagata card-text">山形県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="7" @click="getStateClick" data-info="Fukushima" class="path Fukushima card-text">福島県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">                    
+                    <div class="division-box">
+                      <ul class="hokkaido-wrap">    
+                        <a href="#" data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick">
+                            <li class="spanclass" id="1">北海道</li> 
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 tohoku-box">
+                  <div class="mb-3">                    
+                    <div class="division-box">
+                      <ul class="multiple-boxa">    
+                        <a href="#" data-info="Aomori" class="path Aomori card-text" @click="getStateClick">
+                            <li class="spanclass" id="2">青森</li>
+                        </a>
+                        <a href="#" data-info="Iwate" class="path Iwate card-text" @click="getStateClick">
+                            <li class="spanclass" id="3" >岩手</li>
+                        </a>
+                       
+                        <a href="#" data-info="Akita" class="path Akita card-text" @click="getStateClick">
+                            <li class="spanclass" id="5">秋田</li>
+                        </a>                     
+                        
+                        <a href="#" data-info="Miyagi" class="path Miyagi card-text" @click="getStateClick">
+                            <li class="spanclass" id="4">宮城</li>     
+                        </a>                   
+                       
+                        <a  href="#" data-info="Yamagata" class="path Yamagata card-text" @click="getStateClick">
+                            <li class="spanclass" id="6">山形</li>
+                        </a>
+                        <a href="#" data-info="Fukushima" class="path Fukushima card-text" @click="getStateClick">
+                            <li class="spanclass" id="7">福島</li>
+                        </a>
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-2 kanto-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#71d5cb">関東</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="8" @click="getStateClick" data-info="Ibaraki" class="path Ibaraki card-text">茨城県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="9" @click="getStateClick" data-info="Tochigi" class="path Tochigi card-text">栃木県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="10" @click="getStateClick" data-info="Gunma" class="path Gunma card-text">群馬県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="11" @click="getStateClick" data-info="Saitama" class="path Saitama card-text">埼玉県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="12" @click="getStateClick" data-info="Chiba" class="path Chiba card-text">千葉県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="13" @click="getStateClick" data-info="Tokyo" class="path Tokyo card-text">東京都</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="14" @click="getStateClick" data-info="Kanagawa" class="path Kanagawa card-text">神奈川県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#71d5cb">関東</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-box">
+                        <a href="#" data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
+                             <li class="spanclass" id="13" >東京</li>
+                        </a>
+                        
+                        <a href="#" data-info="Kanagawa" class="path Kanagawa card-text" @click="getStateClick">
+                            <li class="spanclass" id="14">神奈川</li>
+                        </a>
+
+                        <a href="#" data-info="Saitama" class="path Saitama card-text" @click="getStateClick">
+                            <li class="spanclass" id="11" >埼玉</li>
+                        </a>
+
+                        
+                        <a href="#" data-info="Chiba" class="path Chiba card-text" @click="getStateClick">
+                            <li class="spanclass" id="12">千葉</li>
+                        </a>                        
+                         
+                        <a href="#" data-info="Gunma" class="path Gunma card-text" @click="getStateClick">
+                            <li class="spanclass" id="10">群馬</li>
+                        </a>
+
+                        <a href="#" data-info="Ibaraki" class="path Ibaraki card-text" @click="getStateClick">
+                            <li class="spanclass" id="8" >茨城</li>
+                        </a>                       
+                      
+                        <a href="#" data-info="Tochigi" class="path Tochigi card-text" @click="getStateClick">
+                              <li class="spanclass" id="9">栃木</li>
+                        </a> 
+                        
+                        <a href="#" data-info="Yamanashi" class="path Yamanashi card-text" @click="getStateClick">
+                            <li class="spanclass" id="19">山梨</li>
+                        </a>
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-3 hokuriku-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#75b777">北陸</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="15" @click="getStateClick" data-info="Niigata" class="path Niigata card-text">新潟県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="16" @click="getStateClick" data-info="Toyama" class="path Toyama card-text">富山県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="17" @click="getStateClick" data-info="Ishikawa" class="path Ishikawa card-text">石川県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="18" @click="getStateClick" data-info="Fukui" class="path Fukui card-text">福井県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#75b777">北陸</div> -->
+                    <div class="division-box">
+                      <ul class="">
+                        <a href="#" data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
+                            <li class="spanclass" id="15" >新潟</li>
+                        </a>
+                        
+                        <a href="#" data-info="Nagano" class="path Nagano card-text" @click="getStateClick">
+                            <li class="spanclass" id="20">長野</li>
+                        </a>
+                        
+                          <a href="#" data-info="Toyama" class="path Toyama card-text" @click="getStateClick">
+                            <li class="spanclass" id="16">富山</li>
+                        </a>
+                        
+                        <a href="#" data-info="Ishikawa" class="path Ishikawa card-text" @click="getStateClick">
+                            <li class="spanclass" id="17">石川</li>
+                        </a>
+                       
+                        <a href="#" data-info="Fukui" class="path Fukui card-text" @click="getStateClick">
+                             <li class="spanclass" id="18">福井</li>
+                        </a>
+                         
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-3 tokai-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="19" @click="getStateClick" data-info="Yamanashi" class="path Yamanashi card-text">山梨県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="20" @click="getStateClick" data-info="Nagano" class="path Nagano card-text">長野県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="21" @click="getStateClick" data-info="Gifu" class="path Gifu card-text">岐阜県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="22" @click="getStateClick" data-info="Shizuoka" class="path Shizuoka card-text">静岡県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="23" @click="getStateClick" data-info="Aichi" class="path Aichi card-text">愛知県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                         
+                        <a href="#" data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
+                              <li class="spanclass" id="23">愛知</li>
+                        </a>
+                       
+                        
+                        <a href="#" data-info="Shizuoka" class="path Shizuoka card-text" @click="getStateClick" >
+                            <li class="spanclass" id="22">静岡</li>
+                        </a>      
+                         
+                        <a href="#" id="21" data-info="Gifu" class="path Gifu card-text" @click="getStateClick">
+                            <li class="spanclass" id="21">岐阜</li>
+                        </a>                 
+                       
+                        <a href="#" data-info="Mie" class="path Mie card-text" @click="getStateClick">
+                             <li class="spanclass"  id="24">三重</li>
+                        </a>
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-4 kinki-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background:#efb838">近畿</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="24" @click="getStateClick" data-info="Mie" class="path Mie card-text">三重県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="25" @click="getStateClick" data-info="Shiga" class="path Shiga card-text">滋賀県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="26" @click="getStateClick" data-info="Kyoto" class="path Kyoto card-text">京都府</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="27" @click="getStateClick" data-info="Osaka" class="path Osaka card-text">大阪府</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="28" @click="getStateClick" data-info="Hyogo" class="path Hyogo card-text">兵庫県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="29" @click="getStateClick" data-info="Nara" class="path Nara card-text">奈良県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="30" @click="getStateClick" data-info="Wakayama" class="path Wakayama card-text">和歌山県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background:#efb838">近畿</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        
+                        <a href="#" data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
+                            <li class="spanclass" id="27">大阪府</li>
+                        </a>  
+                       
+                        <a href="#" data-info="Hyogo" class="path Hyogo card-text" @click="getStateClick">
+                             <li class="spanclass" id="28">兵庫</li>
+                        </a>   
+                        
+                        <a href="#" data-info="Kyoto" class="path Kyoto card-text" @click="getStateClick">
+                            <li class="spanclass"  id="26">京都府</li>
+                        </a>    
+                        
+                        <a href="#" data-info="Nara" class="path Nara card-text" @click="getStateClick">
+                            <li class="spanclass"  id="29">奈良</li>
+                        </a>               
+                        
+                        <a href="#" data-info="Shiga" class="path Shiga card-text" @click="getStateClick">
+                              <li class="spanclass"  id="25">滋賀</li>
+                        </a>  
+                        
+                        <a href="#" data-info="Wakayama" class="path Wakayama card-text" @click="getStateClick">
+                            <li class="spanclass" id="30">和歌山</li>
+                        </a>
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-3 chugoku-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background:#f58c3f;">中国</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="31" @click="getStateClick" data-info="Tottori" class="path Tottori card-text">鳥取県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="32" @click="getStateClick" data-info="Shimane" class="path Shimane card-text">島根県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="33" @click="getStateClick" data-info="Okayama" class="path Okayama card-text">岡山県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="34" @click="getStateClick" data-info="Hiroshima" class="path Hiroshima card-text">広島県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="35" @click="getStateClick" data-info="Yamaguchi" class="path Yamaguchi card-text">山口県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
+                    <div class="division-box">
+                      <ul class="">
+                        
+                        <a href="#" data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
+                             <li class="spanclass" id="33">岡山</li>
+                        </a>
+                        
+                        <a href="#" data-info="Hiroshima" class="path Hiroshima card-text" @click="getStateClick">
+                            <li class="spanclass" id="34">広島</li>
+                        </a>
+                        
+                        <a href="#" data-info="Yamaguchi" class="path Yamaguchi card-text" @click="getStateClick">
+                            <li class="spanclass" id="35">山口</li>
+                        </a>
+                        
+                        <a href="#" data-info="Shimane" class="path Shimane card-text" @click="getStateClick">
+                            <li class="spanclass" id="32">島根</li>
+                        </a>        
+                         
+                        <a href="#" data-info="Tottori" class="path Tottori card-text" @click="getStateClick">
+                            <li class="spanclass"  id="31">鳥取</li>
+                        </a>               
+                        
+                        
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-3 shikoku-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background:#f1a296;">四国</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="36" @click="getStateClick" data-info="Tokushima" class="path Tokushima card-text">徳島県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="37" @click="getStateClick" data-info="Kagawa" class="path Kagawa card-text">香川県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="38" @click="getStateClick" data-info="Ehime" class="path Ehime card-text">愛媛県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="39" @click="getStateClick" data-info="Kochi" class="path Kochi card-text">高知県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background:#f1a296;">四国</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        
+                        <a href="#" data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
+                            <li class="spanclass" id="36">徳島</li>
+                        </a>
+                        
+                        <a href="#" data-info="Kagawa" class="path Kagawa card-text" @click="getStateClick">
+                            <li class="spanclass" id="37">香川</li>
+                        </a>
+                        
+                        <a href="#" data-info="Kochi" class="path Kochi card-text" @click="getStateClick">
+                            <li class="spanclass" id="39">高知</li>
+                        </a>
+                        
+                        <a href="#" data-info="Ehime" class="path Ehime card-text" @click="getStateClick">
+                            <li class="spanclass" id="38">愛媛</li>
+                        </a>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 kyushu-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
+                    <div class="division-box">
+                      <ul class="">
+                        
+                        <a href="#" data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
+                          <li class="spanclass" id="40">福岡</li>
+                        </a>
+                        
+                        <a href="#" data-info="Saga" class="path Saga card-text" @click="getStateClick">
+                            <li class="spanclass" id="41">佐賀</li>
+                        </a>
+                       
+                        <a href="#" data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick"> 
+                            <li class="spanclass" id="42">長崎</li>
+                        </a>
+                        
+                        <a href="#" data-info="Oita" class="path Oita card-text" @click="getStateClick">
+                            <li class="spanclass" id="44">大分</li>
+                        </a>
+
+                       <a href="#" data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick"> 
+                           <li class="spanclass" id="43">熊本</li>
+                        </a>
+                       
+                        
+                        <a href="#" data-info="Miyazaki" class="path Miyazaki card-text" @click="getStateClick">
+                              <li class="spanclass" id="45">宮崎</li>
+                        </a>
+
+                        <a href="#" data-info="Kagoshima" class="path Kagoshima card-text" @click="getStateClick">
+                            <li class="spanclass" id="46">鹿児島</li>
+                        </a>
+                        
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-sm-2 okinawa-box">
-                  <div class="card mb-3">
-                    <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div>
-                    <div class="card-body">
-                      <p class="card-text map-text">
-                        <span class="spanclass">
-                          <a href="#" id="40" @click="getStateClick" data-info="Fukuoka" class="path Fukuoka card-text">福岡県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="41" @click="getStateClick" data-info="Saga" class="path Saga card-text">佐賀県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="42" @click="getStateClick" data-info="Nagasaki" class="path Nagasaki card-text">長崎県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="43" @click="getStateClick" data-info="Kumamoto" class="path Kumamoto card-text">熊本県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="44" @click="getStateClick" data-info="Oita" class="path Oita card-text">大分県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="45" @click="getStateClick" data-info="Miyazaki" class="path Miyazaki card-text">宮崎県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="46" @click="getStateClick" data-info="Kagoshima" class="path Kagoshima card-text">鹿児島県</a>
-                        </span>
-                        <span class="spanclass">
-                          <a href="#" id="47" @click="getStateClick" data-info="Okinawa" class="path Okinawa card-text">沖縄県</a>
-                        </span>
-                      </p>
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
+                    <div class="division-box">
+                      <ul class=""> 
+                          <a href="#" data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">
+                              <li class="spanclass" id="47">沖縄県</li>
+                        </a>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="map">
-              <svg class="map_svg" viewBox="88 220 400 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" mapsvg:geoViewBox="123.658963 45.523885 145.820743 24.217586" width="100%" height="730">
-                <path id="1" @click="getStateClick" data-info="Hokkaido" title="Hokkaido" class="path Hokkaido" stroke="#333333" fill="#6699cc" d="M378.27,247.63h86.97v55.8h-62.62l0.09,8.05h-24.44V247.63z" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-6121795b id="2" @click="getStateClick" data-info="Aomori" title="Aomori" stroke="#333333" fill="#6699cc" d="M377.33,317.77h65.18v21.09h-65.18V317.77z" class="path Aomori" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-6121795b id="3" @click="getStateClick" data-info="Iwate" title="Iwate" stroke="#333333" fill="#6699cc" d="M377.33,338.86h32.59v23.24h-32.59V338.86z" class="path Iwate" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-6121795b id="4" @click="getStateClick" data-info="Miyagi" title="Miyagi" stroke="#333333" fill="#6699cc" d="M409.92,338.86h32.59v23.24h-32.59V338.86z" class="path Miyagi" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-6121795b id="5" @click="getStateClick" data-info="Akita" title="Akita" stroke="#333333" fill="#6699cc" d="M377.33,362.11h32.59v24.01h-19.39l-0.13-8.34l-13.07-0.13V362.11z" class="path Akita" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="6" @click="getStateClick" data-info="Yamagata" title="Yamagata" stroke="#333333" fill="#6699cc" d="M442.51,362.11v24.01h-32.59v-24.01H442.51z" class="path Yamagata" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="7" @click="getStateClick" data-info="Fukushima" title="Fukushima" stroke="#333333" fill="#6699cc" d="M390.53,386.12h51.98v23.62h-52.48L390.53,386.12z" class="path Fukushima" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="8" @click="getStateClick" data-info="Ibaraki" title="Ibaraki" stroke="#333333" fill="#71d5cb" d="M426.21,440.8l-0.51-31.06h16.8v31.06H426.21z" class="path Ibaraki" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="9" @click="getStateClick" data-info="Tochigi" title="Tochigi" stroke="#333333" fill="#71d5cb" d="M401.96,409.74h23.75v23.36h-23.75V409.74z" class="path Tochigi" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="10" @click="getStateClick" data-info="Gunma" title="Gunma" stroke="#333333" fill="#71d5cb" d="M378.46,409.74h23.49v23.36h-23.49V409.74z" class="path Gunma" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="11" @click="getStateClick" data-info="Saitama" title="Saitama" stroke="#333333" fill="#71d5cb" d="M425.71,433.09v19.45h-47.24v-19.45H425.71z" class="path Saitama" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="12" @click="getStateClick" data-info="Chiba" title="Chiba" stroke="#333333" fill="#71d5cb" d="M426.21,440.8h16.29v56.21c0,0-16.04,1.26-16.29,0C425.96,495.75,426.21,440.8,426.21,440.8z" class="path Chiba" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="13" @click="getStateClick" data-info="Tokyo" title="Tokyo" stroke="#333333" fill="#71d5cb" d="M390.02,453.18l35.68-0.63v13.77h-10.86l0.13,6.57h-24.76L390.02,453.18z" class="path Tokyo" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="14" @click="getStateClick" data-info="Kanagawa" title="Kanagawa" stroke="#333333" fill="#71d5cb" d="M378.46,472.88h36.51v24.69l-24.95-0.44v-12.63l-11.56,0.13V472.88z" class="path Kanagawa" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="15" @click="getStateClick" data-info="Niigata" title="Niigata" stroke="#333333" fill="#75b777" d="M377.33,377.65l13.07,0.13l-0.38,31.96h-31.26v-24.83h18.32L377.33,377.65z" class="path Niigata" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="16" @click="getStateClick" data-info="Toyama" title="Toyama" stroke="#333333" fill="#75b777" d="M335.07,384.91h23.68v24.83h-23.68V384.91z" class="path Toyama" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="17" @click="getStateClick" data-info="Ishikawa" title="Ishikawa" stroke="#333333" fill="#75b777" d="M318.59,377.65h16.48v32.08h-16.48V377.65z" class="path Ishikawa" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="18" @click="getStateClick" data-info="Fukui" title="Fukui" stroke="#333333" fill="#75b777" d="M303.05,416.93h15.54v-7.19h16.48v23.36c0,0-32.02,0.44-32.02,0S303.05,416.93,303.05,416.93z" class="path Fukui" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="19" @click="getStateClick" data-info="Yamanashi" title="Yamanashi" stroke="#333333" fill="#c0c743" d="M366.72,472.06v-19.52l23.31,0.63v18.88H366.72z" class="path Yamanashi" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="20" @click="getStateClick" data-info="Nagano" title="Nagano" stroke="#333333" fill="#c0c743" d="M350.8,409.74h27.66v42.81h-11.75v19.52H350.8V409.74z" class="path Nagano" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="21" @click="getStateClick" data-info="Gifu" title="Gifu" stroke="#333333" fill="#c0c743" d="M335.07,409.74h15.73v62.33h-15.73V409.74z" class="path Gifu" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="22" @click="getStateClick" data-info="Shizuoka" title="Shizuoka" stroke="#333333" fill="#c0c743" d="M358.76,472.88h19.71v11.75l11.56-0.13v12.63l-31.26-0.82V472.88z" class="path Shizuoka" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="23" @click="getStateClick" data-info="Aichi" title="Aichi" stroke="#333333" fill="#c0c743" d="M335.07,472.06l23.68,0.82v23.43h-23.68V472.06z" class="path Aichi" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="24" @click="getStateClick" data-info="Mie" title="Mie" stroke="#333333" fill="#efb838" d="M319.06,456.97h16.01l1.07,55.07h-17.08V456.97z" class="path Mie" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="25" @click="getStateClick" data-info="Shiga" title="Shiga" stroke="#333333" fill="#efb838" d="M319.06,433.29l16.01-0.2v23.87h-16.01V433.29z" class="path Shiga" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="26" @click="getStateClick" data-info="Kyoto" title="Kyoto" stroke="#333333" fill="#efb838" d="M287.89,417.05l15.16-0.13v16.17l16.01,0.2v23.68h-31.17V417.05z" class="path Kyoto" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="27" @click="getStateClick" data-info="Osaka" title="Osaka" stroke="#333333" fill="#efb838" d="M287.89,484.19v-27.22h15.58v27.22H287.89z" class="path Osaka" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="28" @click="getStateClick" data-info="Hyogo" title="Hyogo" stroke="#333333" fill="#efb838" d="M271.73,416.93l16.17,0.13v48h-16.17V416.93z" class="path Hyogo" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="29" @click="getStateClick" data-info="Nara" title="Nara" stroke="#333333" fill="#efb838" d="M303.48,456.97h15.58v39.35h-16.01L303.48,456.97z" class="path Nara" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="30" @click="getStateClick" data-info="Wakayama" title="Wakayama" stroke="#333333" fill="#efb838" d="M303.48,484.19l-0.43,12.13h16.01v15.73h-31.17v-27.85H303.48zz" class="path Wakayama" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="31" @click="getStateClick" data-info="Tottori" title="Tottori" stroke="#333333" fill="#f58c3f" d="M256.32,416.93h15.41v24.06l-15.41-0.19V416.93z" class="path Tottori" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="32" @click="getStateClick" data-info="Shimane" title="Shimane" stroke="#333333" fill="#f58c3f" d="M240.65,416.93h15.66v23.87l-15.66,0.19V416.93zz" class="path Shimane" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="33" @click="getStateClick" data-info="Okayama" title="Okayama" stroke="#333333" fill="#f58c3f" d="M256.32,465.05V440.8l15.41,0.19v24.06H256.32z" class="path Okayama" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="34" @click="getStateClick" data-info="Hiroshima" title="Hiroshima" stroke="#333333" fill="#f58c3f" d="M240.65,440.99l15.66-0.19v24.25h-15.66V440.99z" class="path Hiroshima" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="35" @click="getStateClick" data-info="Yamaguchi" title="Yamaguchi" stroke="#333333" fill="#f58c3f" d="M224.23,416.93h16.42v48.13h-16.42V416.93z" class="path Yamaguchi" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="36" @click="getStateClick" data-info="Tokushima" title="Tokushima" stroke="#333333" fill="#f1a296" d="M279.81,492.59h-27.54v-20.53h27.54V492.59z" class="path Tokushima" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="37" @click="getStateClick" data-info="Kagawa" title="Kagawa" stroke="#333333" fill="#f1a296" d="M224.23,472.06h28.04v20.53h-28.04V472.06z" class="path Kagawa" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="38" @click="getStateClick" data-info="Ehime" title="Ehime" stroke="#333333" fill="#f1a296" d="M224.23,512.04v-19.45h28.04v19.45H224.23z" class="path Ehime" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="39" @click="getStateClick" data-info="Kochi" title="Kochi" stroke="#333333" fill="#f1a296" d="M279.81,512.04h-27.54v-19.45h27.54V512.04z" class="path Kochi" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="40" @click="getStateClick" data-info="Fukuoka" title="Fukuoka" stroke="#333333" fill="#e77a72" d="M162.08,416.93h16.17l-1.26,36l-14.91-0.38V416.93z" class="path Fukuoka" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="41" @click="getStateClick" data-info="Saga" title="Saga" stroke="#333333" fill="#e77a72" d="M145,416.93h17.08v35.62L145,452.93V416.93z" class="path Saga" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="42" @click="getStateClick" data-info="Nagasaki" title="Nagasaki" stroke="#333333" fill="#e77a72" d="M177.75,452.55v-35.62h39.66v16.17h-16.17v19.45H177.75z" class="path Nagasaki" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="43" @click="getStateClick" data-info="Kumamoto" title="Kumamoto" stroke="#333333" fill="#e77a72" d="M217.41,460.76h-16.17v-27.66h16.17V460.76z" class="path Kumamoto" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="44" @click="getStateClick" data-info="Oita" title="Oita" stroke="#333333" fill="#e77a72" d="M217.41,488.04h-16.17v-27.28h16.17V488.04z" class="path Oita" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="45" @click="getStateClick" data-info="Miyazaki" title="Miyazaki" stroke="#333333" fill="#e77a72" d="M177.75,452.55h23.49v35.49h-23.49V452.55z" class="path Miyazaki" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="46" @click="getStateClick" data-info="Kagoshima" title="Kagoshima" stroke="#333333" fill="#e77a72" d="M177.75,488.04h39.66v24h-39.66V488.04z" class="path Kagoshima" v-scroll-to="{ el: '#scroll-map'}" />
-                <path data-v-5cde3559 id="47" @click="getStateClick" data-info="Okinawa" title="Okinawa" stroke="#333333" fill="#e77a72" d="M176.99,519.62h16.8V544h-16.8V519.62z" class="path Okinawa" v-scroll-to="{ el: '#scroll-map'}" />
-                <path stroke="#333333" fill="none" @click="getStateClick" stroke-width="1.8px" d="M224.23,416.93h94.36v-39.27h16.48v7.25h42l0.25-67.14h65.18v179.24h-16.29l-0.51-30.69h-10.86l-0.05,30.82l-78.94-0.34l-0.07,15.25h-48.27l-0.19-46.42l-63.09-0.57V416.93z" v-scroll-to="{ el: '#scroll-map'}" />
-                <path stroke="#333333" fill="none" @click="getStateClick" stroke-width="1.8px" d="M224.23,472.06h55.58v39.98h-55.58V472.06z" v-scroll-to="{ el: '#scroll-map'}" />
-                <path stroke="#333333" fill="none" @click="getStateClick" stroke-width="1.8px" d="M145,416.93h72.41v95.12h-39.66v-58.61L145,452.93V416.93z" v-scroll-to="{ el: '#scroll-map'}" />
-                <path stroke="#333333" fill="none" @click="getStateClick" stroke-width="1.8px" d="M176.99,519.62h16.8V544h-16.8V519.62z" v-scroll-to="{ el: '#scroll-map'}" />
-                <path stroke="#333333" fill="none" @click="getStateClick" stroke-width="1.8px" d="M378.27,248.11l86.97-0.47v55.8h-62.62l-0.19,8.05h-24.16V248.11z" v-scroll-to="{ el: '#scroll-map'}" />
-              </svg>
-            </div>
+            <!-- <div class="map">
+            </div> -->
           </div>
         </div>
 
@@ -373,8 +387,9 @@
         </div>
        
         <!-- nursing list -->
-        <div class="row" id="nursing-search">
-          <div class="card-carousel-wrapper">
+       <div id="nursing-search"> 
+        <div class="row">
+          <div class="card-carousel-wrapper col-12">
             <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
               <div class="nav-content mr-2">
                   <div class="card-carousel--nav__left"></div>
@@ -382,79 +397,132 @@
             </div>
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
-                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-               
-                  <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card" v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id">
-                    <div class="MarkerHover" >
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th class="text-left text-danger">{{items.num_rooms}} </th>
-                            <th class="text-right">{{items.date_of_establishment}}</th>
-                          </tr>
-                        </thead>
+                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">             
+                  <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id"> -->
+                  <div class="card-carousel--card">
+                    <div class="MarkerHover">
+                        <table class="nursingSearch-tbl">
                         <tbody>
-                          <tr>
-                            <td colspan="2" class="text-center">
-                              <div class="item-fav btn btn-sm" >
-                                <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加
-                                <img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">
-                              </div>
+                          <tr >
+                            <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                                <div class="wd-in">
+                                    <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                                    <p class="item-fav btn btn-sm">
+                                        <i class="fas fa-plus-square"></i> お気に入りに追加 
+                                    </p>                                 
+                                    <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
+                                    <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
+                                </div> 
                             </td>
                           </tr>
                           <tr>
-                            <td colspan="2" class="text-left">
-                              <span class="item-name">{{items.name}}</span> <br>
-                              <span>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</span>
-
+                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                                <div class="wd-in">
+                                    <p class="type-name">{{items.type_name}}</p>
+                                
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img :src="'/images/'+items.logo" alt="image" width="110px" />
+                                        </div>
+                                        <div class="col-8">
+                                            <table class="table table-bordered address-tbl">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Address</td>
+                                                    <td><p>{{items.address}}</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone</td>
+                                                    <td><p>{{items.phone}}</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Website</td>
+                                                    <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>                          
                             </td>
                           </tr>
                           <tr>
-                            <td colspan="2" style="background-color:#ff6117">
-                              {{items.type_name}}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img :src="'/images/'+items.logo" alt="image" width="150px" />
-                            </td>
-                            <td>
-                              <table class="table table-bordered">
-                                <tbody>
-                                  <tr>
-                                    <td>Address</td>
-                                    <td>{{items.address}}</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Phone</td>
-                                    <td>{{items.phone}}</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Website</td>
-                                    <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div style="background-color:#ff6117;padding:10px">Moving In</div>
-                            </td>
-                            <td>
-                              <div style="background-color:#ff6117;padding:10px">Per Month</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>{{items.moving_in_to}}</td>
-                            <td>{{items.per_month_to}}</td>
+                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                                <div class="wd-in">
+                                     <table class="table table-bordered price-tbl text-center">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Moving In</th>
+                                                <th class="text-center">Per Month</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span>{{items.moving_in_to}} </span>万円</td>
+                                                <td><span>{{items.per_month_to}} </span>万円</td>
+                                            </tr>
+                                        </tbody>                               
+                                    </table>
+                                </div>
+                            </td>  
                           </tr>
                         </tbody>
                       </table>
-
-
-
+                        <!-- <div class="col-12">
+                            <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                              <p class="item-fav btn btn-sm">
+                                <i class="fas fa-plus-square"></i> お気に入りに追加 
+                              </p>                                 
+                              <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
+                              <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
+                        </div> 
+                        <div class="col-12 mt-3">
+                           <p class="type-name">{{items.type_name}}</p> 
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <img :src="'/images/'+items.logo" alt="image" width="130px" />
+                                </div>
+                                <div class="col-7">
+                                    <table class="table table-bordered address-tbl">
+                                    <tbody>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>{{items.address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>{{items.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Website</td>
+                                        <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3 price-tbl-wrap">
+                            <table class="table table-bordered price-tbl">
+                                <thead>
+                                    <tr>
+                                        <th>Moving In</th>
+                                        <th>Per Month</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>{{items.moving_in_to}} </span>万円</td>
+                                        <td><span>{{items.per_month_to}} </span>万円</td>
+                                    </tr>
+                                </tbody>                               
+                            </table>
+                        </div> -->
                     </div>
+
+                    
                   </div>
                 </div>
               </div>
@@ -467,17 +535,18 @@
           </div>
 
         </div>
+      </div>
 
         <!-- query list -->
-        <div class="row row-div select mt-3">
+        <div class="row box-wrap select mt-3">
           <div class="col-2 left-div">地域</div>
           <div class="col-10">
-            <hr>
             <div>
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                <label class="form-check-label">
+                <label class="form-check-label control control--checkbox">
                   <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
                   {{township.township_name}}
+                  <div class="control__indicator"></div>
                 </label>
               </div>
             </div>
@@ -558,7 +627,7 @@
                 <span class="btn all-btn btn-success" @click="search">検索</span>
             </div>
         </div>
-
+        <!--end query list-->
         <div class=" col-12">
                  <div class="row">
                    <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
@@ -623,7 +692,7 @@
       </div>-->
     </div>
 
-
+  </div>
   </div>
 </template>
 
@@ -667,8 +736,8 @@
         showOne: true,
         checkarr: [],
         currentOffset: 0,
-        windowSize: 3,
-        paginationFactor: 410,
+        windowSize: 4,
+        paginationFactor: 500,
         nursingList: [],
         alphabet: [],
         markerHover:[],
@@ -913,7 +982,9 @@
           this.currentOffset += this.paginationFactor;
         }
       },
-      getStateClick(e) {
+      getStateClick(e) {      
+
+        $("#nursing-search").css("display", "block");
         if(e.target.id == ''){
             var id = $('#selectCity').val();
           }else{
@@ -1308,31 +1379,25 @@
 
 
   .left-div {
-    text-align: end;
-    padding: 10px 20px 10px 40px;
-    border-radius: 5px 0px 0px;
-    border-left: 10px solid brown;
+    background-color: #e8e7e7;
+    text-align: right;
+    width: 140px;
+    padding: 25px;
   }
 
   .left-div-1 {
-    text-align: end;
-    padding: 10px 20px 10px 40px;
-    border-left: 10px solid brown;
+    background-color: #e8e7e7;
+    text-align: right;
+    width: 140px;
+    padding: 25px;
   }
 
   .left-div-2 {
-    text-align: end;
-    padding: 10px 20px 10px 40px;
-    border-left: 10px solid brown;
-    border-radius: 0px 0px 0px 5px;
+    background-color: #e8e7e7;
+    text-align: right;
+    width: 140px;
+    padding: 25px;
 
-  }
-
-  .row-div {
-    background: radial-gradient(ellipse at center, rgb(255, 240, 223) 0%, rgba(242, 234, 225, 0.58) 100%);
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 10px;
   }
 
   .toBeToggled2 {
@@ -1349,7 +1414,7 @@
   }
 
   table>tbody>tr th {
-    background-color: #e8e7e7;
+    background-color: #eeeeee94;
     text-align: right;
     width: 140px;
     padding: 25px;
@@ -1363,7 +1428,6 @@
     height: 640px;
   }
 
-  .infoWindow {}
 
   .justBlock {
     width: 100px;
@@ -1465,7 +1529,9 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
-
+    #nursing-search{
+      display: none;
+    }
 
   #nursing-search .card-carousel-wrapper {
     display: flex;
@@ -1490,10 +1556,10 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     display: inline-block;
     width: 15px;
     height: 15px;
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
-    border-top: 2px solid #42b883;
-    border-right: 2px solid #42b883;
+    border-top: 5px solid #ff9563;
+    border-right: 5px solid #ff9563;
     margin: 0 10px;
     transition: transform 150ms linear;
   }
@@ -1527,17 +1593,17 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
   }
 
   #nursing-search .card-carousel-cards .card-carousel--card {
-    margin: 0 10px;
+    /* margin: 0 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;
     margin-bottom: 2px;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
   }
 
   #nursing-search .card-carousel-cards .card-carousel--card:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
 
   }
 
@@ -1549,13 +1615,6 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     margin-right: 0;
   }
 
-  #nursing-search .card-carousel-cards .card-carousel--card img {
-    vertical-align: bottom;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    transition: opacity 150ms linear;
-    user-select: none;
-  }
 
   #nursing-search .card-carousel-cards .card-carousel--card img:hover {
     opacity: 0.5;
@@ -1632,4 +1691,5 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     border-radius: 50%;
     text-align: center;
 }
+
 </style>

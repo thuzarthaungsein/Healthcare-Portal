@@ -5,10 +5,10 @@
     <div v-if="type == 'nursing'" id="nursingView">
         <!--panorama-->
         <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
-        
-        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">        
+
+        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
-            
+
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
@@ -87,10 +87,6 @@
             <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn"  @click="activate(6)" :class="{ active : active_el == 6 }">
                 ロコミ
             </button>
-
-            <!-- <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
-                求人応募
-            </button> -->
 
             </div>
 
@@ -425,8 +421,11 @@
                         <label class="cost_heading_lbl">フォトアルバム</label>
                         <div class="row">
                             <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
-                                <img  :src ="'/upload/nursing_profile/' + image.name" style="width:100%;border:7px solid #eee;" class="img-responsive" @click="showLightbox(image.name)"  >
-                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
+                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                </div>
+                                
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
@@ -758,9 +757,16 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-
-               <h5 class="profile_header col-12">口コミ</h5>
-
+                <div class="profile_header col-12">
+                    <h5 style="padding-top:10px;">口コミ {{customer.name}}</h5><div class="comment-ico2">
+                              <a href="/comment" class="comhov">
+                              <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span>
+                              </a>
+                           </div>
+                </div>
+               
+            
                <div class="col-lg-12 col-md-12 col-sm-12">
 
                     <div class="row col-12">
@@ -768,7 +774,7 @@
 
 
                         <div class="col-12 comment-wrapper">
-
+                        
                             <div class="card" v-for="comment in comments" :key="comment.id">
 
                                 <!-- <div class="card-profile_header comment-title text-truncate">
@@ -786,28 +792,42 @@
                                         <i class="fas fa-comment"></i>
 
                                         {{comment.title}}
+                                        
+                                        <!-- {{comment.created_time}}   -->
+                                        <!-- {{substr("comment.created_at", 0, 10)}} -->
 
                                     </div>
 
-                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
+                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}<br>
 
                                         <small class="card-text">{{comment.year}}</small>
-
+                                      
                                     </h5>
 
+                                    <div class="comment-title2">
+                                       <i class="fa fa-calendar" aria-hidden="true"></i>
+                                       {{comment.created_date}}
+                                    </div>
+
+                                     <div class="comment-title2">
+                                      <i class="fa fa-clock" aria-hidden="true"></i>
+                                     {{comment.created_time}}
+                                    </div>
+                                   
 
 
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>
 
+                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more><br>
+                                        <div>{{comment.customer}}</div>
                                 </div>
 
                             </div>
-                            <div class="comment-ico">
+                            <!-- <div class="comment-ico">
                               <a href="/comment">
                               <i class="far fa-comment"></i>
                               <span>口コミを追加する</span>
                               </a>
-                           </div>
+                           </div> -->
 
                         </div>
 
@@ -1401,22 +1421,10 @@
 
 
 <script>
-$(document).scroll(function() {
-  var cur_pos = $(this).scrollTop();
-
-  if (cur_pos >= 100) {
-      $(".fixed-nav").css({"position": "fixed", "top": "210px"});
-  } else {
-       $(".fixed-nav").css({"position": "unset", "top": "unset"});
-  }
-
-});
-
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
 import Lightbox from 'vue-my-photos'
-
 export default {
 
     components:{
@@ -1490,6 +1498,10 @@ export default {
                 panocurrentOffset: 0,
                 windowSize: 10,
                 paginationFactor:103,
+                  data: { 
+	  str:"Welcome to Canada!",
+	  substr: ""
+  },
 
             };
         },
@@ -1497,6 +1509,7 @@ export default {
         props:{
                 cusid:Number,
                 type:String,
+                login_status:Number
         },
 
         created(){
@@ -1511,6 +1524,29 @@ export default {
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
 
+            if(this.login_status == '1') {
+                $(document).scroll(function() {
+                    $(".fixed-nav").css({"position": "fixed","top":"70px"});
+                    var cur_pos = $(this).scrollTop();
+                    if (cur_pos >= 100) {
+                        $(".fixed-nav").css({"position": "fixed","top":"70px"});
+                    } else {
+                        $(".fixed-nav").css({"position": "unset", "top": "unset"});
+                    }
+                    //  $(".fixed-nav").css({"position": "unset","top":"unset"});
+                });
+
+            } else {
+                $(document).scroll(function() {
+                    $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                    var cur_pos = $(this).scrollTop();
+                    if (cur_pos >= 100) {
+                        $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                    } else {
+                        $(".fixed-nav").css({"position": "unset", "top": "unset"});
+                    }
+                });
+            }
             if(this.type == "nursing")
 
             {
@@ -1580,8 +1616,14 @@ export default {
                 });
 
                   this.axios.get('/api/profile/comment/'+this.cusid) .then(response => {
+                      console.log(response.data);
                       this.comments = response.data;
-
+                    // for ( var index=0; index<response.data.length; index++ ) {
+                        
+                    //     data = { "created_date": "1", "created_time": "Valid" };
+                    //     this.comments.push(data);
+                    //         // tempData.push( data );
+                    // }
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
@@ -1777,9 +1819,6 @@ export default {
                 this.activeImageTitle = this.images[imageIndex].title;
 
                  this.activeImageDescription = this.images[imageIndex].description;
-
-
-
             },
 
 
@@ -2113,6 +2152,14 @@ export default {
     font-weight: 700;
     padding-bottom: 10px;
 }
+.comment-title2{
+    background-size: 29px;
+    color: #afbac3;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
 
 .card-text{
     color: #777;
@@ -2127,6 +2174,19 @@ export default {
  border-radius: 20px;
  margin-top: 20px;
 }
+.comment-ico2 a{
+ font-size: 13px;
+ color: #111;
+ display: inline-block;
+ float: right;
+ border: 1px solid #111;
+ padding: 5px 20px;
+ border-radius: 20px;
+ margin-top: -29px;
+ text-decoration: none;
+}
+a.comhov:hover, a.comhov:active {background: #fbaa84;}
+
 .comment-ico i {
  display: block;
  float: left;
