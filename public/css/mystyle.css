@@ -127,13 +127,14 @@ body {
 .typelabel {
     /* background: #118063;
 
-    padding: 8px 15px;
 
+    padding: 8px 15px;
     border-radius: 5px;
 
     color: white;
 
     width: 100px; */
+
     margin-bottom: 0px;
     cursor: pointer;
     text-align: center;
@@ -5869,31 +5870,23 @@ button.confirmed {
 
 
 
-}
+}*/
 
 
 
-.swal2-icon{
-
-
-
-    width: 40px !important;
-
-
-
-    height: 40px !important;
-
-
-
-    margin: 5px auto 5px !important;
-
-
-
-
-
-
-
-} */
+.swal2-icon.swal2-warning{
+    width: 80px !important;
+    height: 80px !important;
+    margin: 20px auto 30px !important;
+    border: 4px solid #fd8c2a !important;
+ }
+ 
+ .swal2-icon.swal2-info{
+    width: 80px !important;
+    height: 80px !important;
+    margin: 20px auto 30px !important;
+    border: 4px solid #3fc3ee !important;
+ }
 
 .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
     width: 15px;
@@ -6081,6 +6074,7 @@ button.confirmed {
     -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
+
 
 #hospitalView .top-fixed-btn {
     background: #85c7ff;
@@ -7665,12 +7659,27 @@ ul.test>li:before {
 
 .mx-calendar-content .cell {
     border-radius: 3px;
+    /* background-color: rgba(0, 0, 0, 0.05); */
 }
-
+.mx-panel-date tbody tr:nth-of-type(odd){
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.mx-panel-date {
+    border :1px solid #dee2e6;
+}
+.mx-panel-date thead th{
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    border: 1px solid #dee2e6;
+}
 .mx-panel-date td.today {
     color: #c1470c !important;
+
 }
 
+.mx-calendar-content .cell {
+    border: 1px solid #dee2e6;
+}
 .mx-calendar-content .cell:hover {
     background-color: #e8b9a2 !important;
 }
@@ -7867,8 +7876,22 @@ ul.test>li:before {
     position: relative;
     overflow: visible;
 }
-
-.title_comment {
+  /* nursingSearch */
+  /*commentform*/
+    .comform
+    {
+       background-color: #e2d9d96b;
+       padding: 22px;
+       border-radius: 10px;
+       margin: auto;
+       background: url(https://www.sagasix.jp/images/support/consultation/bg_check.gif) repeat center top;
+       border: 1px solid #dad3d2;
+       border-radius: 7px;
+       padding: 30px;
+       position: relative;
+       overflow: visible;
+    }
+   .title_comment{
     margin-left: -15px;
     margin-right: -15px;
     padding: 2px;
