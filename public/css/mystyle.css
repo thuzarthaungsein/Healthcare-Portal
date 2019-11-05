@@ -6369,14 +6369,95 @@ button.confirmed {
     font-weight: bold;
 }
 
+
+/* nursing search */
+
+.nursingSearch-tbl {
+    padding: 20px 0 10px 0;
+    border: 1px solid #dee2e6;
+}
+
+.nursingSearch-tbl td:first-child {
+    border-left: 0;
+}
+
+.nursingSearch-tbl td {
+    width: 350px;
+    padding: 0 10px;
+    border-left: 1px solid #dee2e6;
+    vertical-align: top;
+}
+
 .item-fav {
-    padding: 2px 10px;
+    width: 100%;
+    padding: 3px 10px;
     font-size: 15px;
     background-color: #fff;
     border: 1px solid #544e4e;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     cursor: pointer;
 }
+
+.item-name {
+    margin-top: 5px;
+    font-size: 18px;
+    text-decoration: underline;
+    line-height: 1.2;
+}
+
+.item-name img {
+    width: 18px;
+    margin-right: 7px;
+    vertical-align: text-top;
+}
+
+.type-name {
+    width: 100%;
+    padding: 3px 10px 0px 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    background: #eeeeee;
+    border-left: 5px solid #ff9563;
+}
+
+.num-rooom {
+    float: left;
+    padding: 0 5px;
+    margin-right: 20px;
+    background: #ff9563;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.address-tbl td {
+    padding: 5px !important;
+    font-size: 11px;
+}
+
+.price-tbl th,
+.price-tbl td {
+    padding: 2px !important;
+}
+
+.price-tbl th {
+    background: #d7d7d7;
+}
+
+.price-tbl td {
+    font-size: 10px;
+}
+
+.price-tbl td span {
+    font-size: 20px;
+    color: #ff9563;
+    font-weight: bold;
+}
+
+
+/* end nursing search */
 
 
 /*End  nursing */
@@ -7671,11 +7752,11 @@ ul.test>li:before {
     .job-img {
         /* max-width: 80% !important;*/
         margin: 0 auto 20px;
-        flex: unset; 
+        flex: unset;
     }
     .job-box {
         /* max-width: 100% !important;*/
-        flex: unset; 
+        flex: unset;
     }
     .compare-wrap {
         max-width: 82%;

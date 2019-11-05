@@ -373,7 +373,7 @@
        
         <!-- nursing list -->
         <div class="row" id="nursing-search">
-          <div class="card-carousel-wrapper">
+          <div class="card-carousel-wrapper col-12">
             <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
               <div class="nav-content mr-2">
                   <div class="card-carousel--nav__left"></div>
@@ -381,78 +381,126 @@
             </div>
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
-                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-               
-                  <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card" v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id">
-                    <div class="MarkerHover" >
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th class="text-left text-danger">{{items.num_rooms}} </th>
-                            <th class="text-right">{{items.date_of_establishment}}</th>
-                          </tr>
-                        </thead>
+                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">             
+                  <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id"> -->
+                  <div class="card-carousel--card">
+                    <div class="MarkerHover">
+                        <table class="nursingSearch-tbl">
                         <tbody>
-                          <tr>
-                            <td colspan="2" class="text-center">
-                              <div class="item-fav btn btn-sm" >
-                                <i class="fas fa-plus-square"></i> 資料請求 . 見学リスト . 追加   
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="2" class="text-left">
-                              <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|FF0000|000000'" alt="">{{items.name}}</p>
+                          <tr >
+                            <td class="pt-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                              <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                              <p class="item-fav btn btn-sm">
+                                <i class="fas fa-plus-square"></i> お気に入りに追加 
+                              </p>                                 
+                              <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
                               <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
-
                             </td>
                           </tr>
                           <tr>
-                            <td colspan="2" style="background-color:#ff6117">
-                              {{items.type_name}}
+                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                                <p class="type-name">{{items.type_name}}</p>
+                                
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img :src="'/images/'+items.logo" alt="image" width="120px" />
+                                    </div>
+                                    <div class="col-8">
+                                        <table class="table table-bordered address-tbl">
+                                            <tbody>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td>{{items.address}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phone</td>
+                                                <td>{{items.phone}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Website</td>
+                                                <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>                          
                             </td>
                           </tr>
                           <tr>
-                            <td>
-                              <img :src="'/images/'+items.logo" alt="image" width="150px" />
-                            </td>
-                            <td>
-                              <table class="table table-bordered">
+                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                              <table class="table table-bordered price-tbl text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Moving In</th>
+                                        <th class="text-center">Per Month</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                  <tr>
-                                    <td>Address</td>
-                                    <td>{{items.address}}</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Phone</td>
-                                    <td>{{items.phone}}</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Website</td>
-                                    <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div style="background-color:#ff6117;padding:10px">Moving In</div>
-                            </td>
-                            <td>
-                              <div style="background-color:#ff6117;padding:10px">Per Month</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>{{items.moving_in_to}}</td>
-                            <td>{{items.per_month_to}}</td>
+                                    <tr>
+                                        <td><span>{{items.moving_in_to}} </span>万円</td>
+                                        <td><span>{{items.per_month_to}} </span>万円</td>
+                                    </tr>
+                                </tbody>                               
+                            </table>
+                            </td>  
                           </tr>
                         </tbody>
                       </table>
-
-
-
+                        <!-- <div class="col-12">
+                            <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                              <p class="item-fav btn btn-sm">
+                                <i class="fas fa-plus-square"></i> お気に入りに追加 
+                              </p>                                 
+                              <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
+                              <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
+                        </div> 
+                        <div class="col-12 mt-3">
+                           <p class="type-name">{{items.type_name}}</p> 
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <img :src="'/images/'+items.logo" alt="image" width="130px" />
+                                </div>
+                                <div class="col-7">
+                                    <table class="table table-bordered address-tbl">
+                                    <tbody>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>{{items.address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>{{items.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Website</td>
+                                        <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3 price-tbl-wrap">
+                            <table class="table table-bordered price-tbl">
+                                <thead>
+                                    <tr>
+                                        <th>Moving In</th>
+                                        <th>Per Month</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>{{items.moving_in_to}} </span>万円</td>
+                                        <td><span>{{items.per_month_to}} </span>万円</td>
+                                    </tr>
+                                </tbody>                               
+                            </table>
+                        </div> -->
                     </div>
+
+                    
                   </div>
                 </div>
               </div>
@@ -474,7 +522,7 @@
             <div>
               <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
+                  <input class="form-check-input " type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
                   {{township.township_name}}
                 </label>
               </div>
@@ -666,7 +714,7 @@
         checkarr: [],
         currentOffset: 0,
         windowSize: 3,
-        paginationFactor: 410,
+        paginationFactor: 10,
         nursingList: [],
         alphabet: [],
         markerHover:[],
@@ -1488,10 +1536,10 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     display: inline-block;
     width: 15px;
     height: 15px;
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
-    border-top: 2px solid #42b883;
-    border-right: 2px solid #42b883;
+    border-top: 5px solid #ff9563;
+    border-right: 5px solid #ff9563;
     margin: 0 10px;
     transition: transform 150ms linear;
   }
@@ -1525,17 +1573,17 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
   }
 
   #nursing-search .card-carousel-cards .card-carousel--card {
-    margin: 0 10px;
+    /* margin: 0 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;
     margin-bottom: 2px;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
   }
 
   #nursing-search .card-carousel-cards .card-carousel--card:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
 
   }
 
