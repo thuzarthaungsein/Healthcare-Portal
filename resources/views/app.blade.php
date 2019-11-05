@@ -557,6 +557,7 @@
                     @endcan
 
                     @can('customer')
+                    <li><router-link to="/profiledit" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp; Profile Edit</router-link></li>
                     <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                     <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
                     @endcan

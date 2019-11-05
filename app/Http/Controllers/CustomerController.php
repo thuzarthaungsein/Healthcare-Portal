@@ -103,7 +103,13 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+        if($id == 0) {
+            $u_id = auth('api')->user()->id;
+            $id = User::where('id',$u_id)->select('customer_id')->value('customer_id');
+            $type = User::where('id',$u_id)->select('type_id')->value('type_id');
+        }
         $customer = Customer::find($id);
+        $customer['type_id'] = $type? $type: '';
 
         return response()->json($customer);
     }
@@ -116,6 +122,10 @@ class CustomerController extends Controller
 
     public function update($id,Request $request)
     {
+        if($id == 0) {
+            $u_id = auth('api')->user()->id;
+            $id = User::where('id',$u_id)->select('customer_id')->value('customer_id');
+        }
         $customer = Customer::find($id);
         $customer->update($request->all());
         return response()->json('Customer successfully updated');
@@ -190,29 +200,5 @@ class CustomerController extends Controller
         return $search_customer;
     }
 
-    public function movePhoto(Request $request) {
-        $request = $request->all();
-
-        $destination_0 = 'upload/customers/'.$request['photo'];
-
-        $tmp = $request['file'];
-
-        if($request['type'] == 'nursing') {
-            $destination_1 = 'upload/nursing_profile/'.$request['photo'];
-        }
-        if($request['type'] == 'hosptial') {
-            $destination_1 = 'upload/hospital_profile/'.$request['photo'];
-        }
-
-        for($i=0; $i<2; $i++) {
-            if($i == 0) { 
-                move_uploaded_file($request['file'], $destination_0);
-            } else { 
-                move_uploaded_file($tmp, $destination_1);
-            }
-            
-        }
-
-        
-    }
+   
 }

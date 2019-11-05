@@ -250,7 +250,10 @@ Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
 Route::get('nursing-panorrama-gallery/{id}','GalleryController@getPanoramabyCustomerId');
 Route::post('nursing/movephoto','NursingProfileController@movePhoto');
 Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
-Route::post('customer/movephoto','CustomerController@movePhoto');
+Route::post('user/movephoto','UserController@movePhoto');
+Route::post('user/password-change','UserController@changePassword');
+Route::post('user/email-change','UserController@changeEmail');
+Route::get('user/userinfo','UserController@getUserInfo');
 
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');
