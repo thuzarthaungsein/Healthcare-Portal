@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="scrolldiv2 pb-5 tab-content" id="nursing"> 
+        <div class="scrolldiv2 pb-5 tab-content" id="nursing">
             <div class="row m-0">
                 <div class="col-12 pl-0">
                     <nav aria-label="breadcrumb">
@@ -349,7 +349,7 @@
                                                         <div class="bd3" style="width:250px;">
                                                             <ul class="fac_container m-t-8 m-b-15 m-l-8">
                                                                 <h6 style="font-weight:bold;text-align:left;">特長</h6>
-                                                                
+
                                                                 <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                             </ul>
                                                         </div>
@@ -390,7 +390,7 @@
             </div>
             <!--end compare box-->
             <!--result-->
-            
+
             <!--end result-->
 
         </div>
@@ -426,7 +426,7 @@
                     capacity_show: false,
                     opening_check: false,
                     opening_show: false,
-                    
+
                     iscompare: false,
                     markers: [{
                         position: {
@@ -450,7 +450,7 @@
                 };
             },
             computed: {
-                
+
                 atEndOfList() {
                         return this.currentOffset <= (this.paginationFactor * -1) * (this.fav_nursing.length - this.windowSize);
                     },
@@ -504,7 +504,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
-                                $("#nus-fav-local").html(l_sto_arr.length); 
+                                $("#nus-fav-local").html(l_sto_arr.length);
                                 if(l_sto_arr.length == 0){
                                     $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
                                 }
@@ -599,19 +599,19 @@
                                 // $('.check-all-btn').prop("checked", true);
                                 this.disableBtn = false;
                             }
-                          
+
                             else  if(!this.document_status[j] && this.check == true) {
                                 //   $('.check-all-btn').prop("checked", false);
                                   this.disableBtn = false;
                                   this.check = false;
                             }
-                             
+
                              else if(!this.document_status[j] && this.check == false){
                                     // $('.check-all-btn').prop("checked", false);
                                      this.disableBtn = true;
                                      this.check = false;
-                                   
-                                   
+
+
                             }
                         }
                     },
