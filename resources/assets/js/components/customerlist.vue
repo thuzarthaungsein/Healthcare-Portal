@@ -56,7 +56,8 @@
                   <div class="col-md-2">
                     <!-- <img src="/images/hospitalpage.jpg" alt="" class="img-fluid"> -->
                     <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
-                    <img :src="'/upload/customers/'+ customer.logo" class="img-fluid" alt="cust" />
+                    <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2" />
+                    <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" />
                   </div>
                   <div class="row col-md-10">
                     <div class="col-md-2 max-width13">

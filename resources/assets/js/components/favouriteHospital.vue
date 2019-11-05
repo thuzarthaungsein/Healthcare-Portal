@@ -38,7 +38,7 @@
 
             <form @submit.prevent="add" class="col-md-12 pad-free">
                 <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
-                    <div class="row">
+                    <div class="row justify-content-lg-center">
                         <div class="card-carousel-wrapper">
 
                             <div class="nav-box"  @click="moveCarousel(-1)" :disabled="atHeadOfList">
@@ -55,7 +55,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/customers/' + hos_profile.logo" alt  />
+                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/hospital_profile/' + hos_profile.logo" alt  />
                                                             <br>
                                                             <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
                                                         </td>
@@ -262,6 +262,12 @@
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
                                 $("#hos-fav-local").html(l_sto_arr.length); 
+                                if(l_sto_arr.length == 0){
+                                    $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
+                                }
+                                else{
+                                    $('.fav-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                                }
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_fav', new_local);
                                 this.local_sto = localStorage.getItem("hospital_fav");

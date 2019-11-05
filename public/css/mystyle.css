@@ -60,6 +60,14 @@ body {
     margin-top: 10%;
 }
 
+.choose-btn {
+    color: #a93f0c!important;
+    /* margin-left: 10px; */
+    background: #eee;
+    border-radius: 0px 5px 5px 0px;
+    font-weight: bold;
+}
+
 .box {
     padding: 10px;
 }
@@ -441,15 +449,17 @@ body {
     border-top: 1px dashed #d1291d;
 }
 
-#hospitalView .pro-heading h5 {
-    /* background-color: #2981cc; */
-    color: #2981cc;
-}
 
-#nursingView .pro-heading h5 {
-    /* background-color: #d2571c; */
+/* #hospitalView .pro-heading h5 {
+    background-color: #2981cc;
+    color: #2981cc;
+} */
+
+
+/* #nursingView .pro-heading h5 {
+    background-color: #d2571c;
     color: #d2571c;
-}
+} */
 
 .pro-heading h5 {
     position: relative;
@@ -458,10 +468,6 @@ body {
     text-align: left;
     line-height: 1.1;
     letter-spacing: 1px;
-    /* border-radius: 3px; */
-    /* -webkit-border-radius: 3px; */
-    /* -moz-border-radius: 3px; */
-    font-size: 25px;
 }
 
 
@@ -560,7 +566,8 @@ html {
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #118063;
+    /* background: #d2571c; */
+    background: #cecece;
     position: relative;
     display: flex;
     justify-content: center;
@@ -582,7 +589,8 @@ html {
     background: #fff;
     padding: 10px;
     text-align: center;
-    border: 10px solid #4db197;
+    /* border: 10px solid #a93f0c; */
+    border: 10px solid #dedede;
 }
 
 .brand_logo {
@@ -606,8 +614,12 @@ width: 100%; */
 
 .login_btn {
     width: 100%;
-    background: #4db197 !important;
+    background: #d2571c !important;
     color: white !important;
+}
+
+.login_btn:hover {
+    background: #f3773c !important;
 }
 
 .login_btn:focus {
@@ -629,7 +641,7 @@ width: 100%; */
 }
 
 .input-group-text {
-    background: #4db197 !important;
+    background: #d2571c !important;
     color: white !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
@@ -699,7 +711,7 @@ width: 100%; */
     height: 9px;
     margin-top: -6px;
     border-radius: 50%;
-    background: #118063;
+    background: #d2571c;
 }
 
 
@@ -707,6 +719,11 @@ width: 100%; */
 
 .links a {
     color: #d2cfcf !important;
+}
+
+.user_card .links a {
+    color: #96390d !important;
+    font-weight: bold;
 }
 
 .text {
@@ -754,7 +771,8 @@ width: 100%; */
 }
 
 .user_registercard form label {
-    color: #fff;
+    color: #a93f0c!important;
+    font-weight: bold;;
     align-self: flex-end;
 }
 
@@ -1144,6 +1162,38 @@ p.p_2>a {
     width: 100%;
     padding: 8px 10px;
     margin-bottom: 20px;
+}
+
+.fav-profile {
+    position: absolute;
+    top: 54px;
+    right: 30px;
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    padding: 2px 10px !important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.profile-tit {
+    padding: 5px;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #d2571c;
+    border-radius: 1px;
+    border-bottom: 1px dashed #ff9563;
+}
+
+#hospitalView .profile-tit {
+    color: #2981cc;
+    border-bottom: 1px dashed #2981cc;
+}
+
+#pano-slider-page .card-carousel-wrapper {
+    margin: 0 !important;
 }
 
 #hospitalView .header {
@@ -2043,15 +2093,21 @@ ul.sub-ul li {
 .pad-10 {
     padding: 10px !important;
 }
-.pad-r-10{
+
+.pad-r-10 {
     padding-right: 10px;
 }
+
 .m-0 {
     margin: 0px;
 }
 
 .m-t-71 {
     margin-top: 71px;
+}
+
+.pt {
+    padding-top: 70px;
 }
 
 .m-t-0 {
@@ -2301,6 +2357,7 @@ ul.sub-ul li {
     box-shadow: none !important;
     min-width: 70px;
 }
+
 .pending-borderbtn {
     border: 1px solid #d2571c !important;
     color: #d2571c;
@@ -2721,7 +2778,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     /* top: 166px; */
     border-bottom: none;
     background: transparent;
-    margin-bottom: -1px;
+    margin-bottom: -2px;
 }
 
 #Profile-page .nursing-tabColor .nav-link.active {
@@ -3016,146 +3073,153 @@ ul.main-tab li:after {
 
 .search-map {
     background: white;
+    padding: 15px !important;
+}
+
+/* .map-wrap {
+    max-width: 1000px !important;
+} */
+
+.map {
+    /* position: relative;
+    z-index: 1;    
+    background: url(/images/img_map1.png) center top no-repeat;
+    width: 100%;
+    height: 424px; */
+}
+.search-map {
+    background: #fff;
     padding: 0px 15px 15px 15px !important;
 }
 
 .map-wrap {
-    max-width: 1000px !important;
-}
-
-.map {
-    position: relative;
-    z-index: 1;
+    /* max-width: 1180px !important; */
+    padding: 10px 0px;
+    background: #f7f0ed;
 }
 
 
-/* .divisions {
-
-    position: absolute;
-
+.divisions {
+    /* position: absolute;
     top: 0;
+    left: 0; */
+    position: relative;
+    z-index: 1;    
+    background: url(/images/img_map1.png) center top no-repeat;    
+    width: 1180px;
+    height: 424px;
+}
+.division-box > ul {
+    box-sizing: border-box;
+    position: absolute;
+    overflow: hidden;
+    color: #fff;
+    /* background: #f7f0ed; */
+    /* border: 1.5px solid #331d12; */
+    /* border-radius: 10px; */
+    -moz-border-radius: 10px;
+    /* -webkit-border-radius: 10px; */
+    width: 65px;
+    /* box-shadow: 1px 1px 2px #868181;
+    /* box-shadow: 1px 1px 2px #868181; */
+}
+.division-box a{
+    color: #461e0a;
+}
 
-    left: 0;
-
-} */
-
+.spanclass:hover{
+    background-color: #ccff60 !important;
+    background-image: none;
+    border: 1px solid #8e3c15;
+    color: #ff6117;
+}
+.spanclass:hover a.card-text {
+    color: #ff6117 !important;
+}
+.spanclass > a.card-text {
+    color: #461e0a;
+}
+ul.hokkaido-wrap{
+    left: 0px;   
+}
 .divisions span {
     margin-right: 10px;
 }
 
-.divisions .card-header {
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    padding: 5px !important;
-}
-
-.divisions .card-body {
-    padding: 10px !important;
-}
-
 .hokkaido-box {
     position: absolute;
-    top: 23%;
-    right: 14%;
+    top: 12%;
+    right: 16%;
     z-index: 2;
 }
+.tohoku-box {
+    position: absolute;
+    top: 26%;
+    right: 23%;
+    z-index: 2;
+}
+.multiple-box{
+    width: 128px !important;
+}
 
 .hokkaido-box .spanclass,
 .kanto-box .spanclass,
 .okinawa-box .spanclass {
-    margin-right: 3px;
+    margin-right: 1px;
 }
-
-
-/*
-
-.hokkaido-box .spanclass,
-
-.kanto-box .spanclass,
-
-.okinawa-box .spanclass {
-
-    display: block;
-
-    margin-right: 0;
-
-    border-bottom: 1px solid #ddd;
-
-}
-
-
-
-.divisions .hokkaido-box .card-body,
-
-.divisions .kanto-box .card-body,
-
-.divisions .okinawa-box .card-body {
-
-    padding: 0 !important;
-
-}
-
-
-
-.hokkaido-box .spanclass:last-child,
-
-.kanto-box .spanclass:last-child,
-
-.okinawa-box .spanclass:last-child {
-
-    margin-bottom: 0;
-
-    border-bottom: 0;
-
-} */
 
 .kanto-box {
     position: absolute;
-    top: 48%;
-    right: 14%;
+    top: 57%;
+    right: 25%;
     z-index: 2;
 }
 
 .hokuriku-box {
     position: absolute;
-    top: 6%;
-    left: 25%;
+    top: 24%;
+    left: 51%;
     z-index: 2;
 }
 
 .tokai-box {
     position: absolute;
-    bottom: 9%;
-    right: 14%;
+    bottom: 27%;
+    right: 30%;
     z-index: 2;
 }
 
 .kinki-box {
     position: absolute;
-    top: 23%;
-    left: 2%;
+    top: 39%;
+    left: 39%;
     z-index: 2;
 }
 
 .chugoku-box {
     position: absolute;
-    top: 6%;
-    left: 2%;
+    top: 27%;
+    left: 32%;
     z-index: 2;
 }
 
 .shikoku-box {
     position: absolute;
-    left: 38%;
-    bottom: 9%;
+    left: 32%;
+    bottom: 22%;
     z-index: 2;
 }
 
+.kyushu-box{
+    position: absolute;
+    bottom: 66%;
+    left: 25%;
+    z-index: 2;
+}
 .okinawa-box {
     position: absolute;
-    bottom: 9%;
-    left: 2%;
+    bottom: 4%;
+    left: 31%;
     z-index: 2;
 }
 
@@ -3165,11 +3229,13 @@ screen and (min-width: 750px) {
         letter-spacing: normal;
         /* width: 50%; */
         display: inline-block;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
         font-weight: bold;
         text-align: center;
-        padding-right: 10px;
+        padding: 5px;
         font-size: 12px;
+        margin-top: 1px;
+        margin-left: 1px;
     }
     .spanclass a {
         position: relative;
@@ -3330,15 +3396,93 @@ screen and (min-width: 750px) {
         padding: 2px;
         height: 120px;
     }
-    /* .top-ad-slider .ads-img {
-
-
-
-    background-color: #f5f5f5;
-
-
-
-      }  */
+    /*job search*/
+    ul.hokkaido-wrap{
+        left: 0px;   
+    }
+    .divisions span {
+        margin-right: 10px;
+    }
+    
+    .hokkaido-box {
+        position: absolute;
+        top: 12%;
+        right: 16%;
+        z-index: 2;
+    }
+    .tohoku-box {
+        position: absolute;
+        top: 26%;
+        right: 22%;
+        z-index: 2;
+    }
+    .multiple-box{
+        width: 128px !important;
+    }
+    .multiple-boxa{
+        width: 127px !important;
+    }
+    .hokkaido-box .spanclass,
+    .kanto-box .spanclass,
+    .okinawa-box .spanclass {
+        margin-right: 1px;
+    }
+    
+    .kanto-box {
+        position: absolute;
+        top: 55%;
+        right: 22%;
+        z-index: 2;
+    }
+    
+    .hokuriku-box {
+        position: absolute;
+        top: 24%;
+        left: 53%;
+        z-index: 2;
+    }
+    
+    .tokai-box {
+        position: absolute;
+        bottom: 27%;
+        right: 27%;
+        z-index: 2;
+    }
+    
+    .kinki-box {
+        position: absolute;
+        top: 39%;
+        left: 39%;
+        z-index: 2;
+    }
+    
+    .chugoku-box {
+        position: absolute;
+        top: 27%;
+        left: 32%;
+        z-index: 2;
+    }
+    
+    .shikoku-box {
+        position: absolute;
+        left: 32%;
+        bottom: 22%;
+        z-index: 2;
+    }
+    
+    .kyushu-box{
+        position: absolute;
+        bottom: 66%;
+        left: 25%;
+        z-index: 2;
+    }
+    .okinawa-box {
+        position: absolute;
+        bottom: 4%;
+        left: 31%;
+        z-index: 2;
+    }
+    /*end job search*/
 }
 
 
@@ -4873,168 +5017,19 @@ padding-bottom: 15px; */
 
 /* Hospital Search */
 
-.search-map {
-    background: white;
-    padding: 0px 15px 15px 15px !important;
-}
-
-.map-wrap {
-    max-width: 1180px !important;
-}
-
-.map {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* .divisions {
-
-position: absolute;
-
-top: 0;
-
-left: 0;
-
-} */
-
-.divisions span {
-    margin-right: 10px;
-}
-
-.divisions .card-header {
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    padding: 5px !important;
-}
-
-.divisions .card-body {
-    padding: 10px !important;
-}
-
-.hokkaido-box {
-    position: absolute;
-    top: 23%;
-    right: 9%;
-    z-index: 2;
-}
-
-.hokkaido-box .spanclass,
-.kanto-box .spanclass,
-.okinawa-box .spanclass {
-    margin-right: 3px;
-}
-
-
-/*
-
-.hokkaido-box .spanclass,
-
-.kanto-box .spanclass,
-
-.okinawa-box .spanclass {
-
-display: block;
-
-margin-right: 0;
-
-border-bottom: 1px solid #ddd;
-
-}
-
-
-
-.divisions .hokkaido-box .card-body,
-
-.divisions .kanto-box .card-body,
-
-.divisions .okinawa-box .card-body {
-
-padding: 0 !important;
-
-}
-
-
-
-.hokkaido-box .spanclass:last-child,
-
-.kanto-box .spanclass:last-child,
-
-.okinawa-box .spanclass:last-child {
-
-margin-bottom: 0;
-
-border-bottom: 0;
-
-} */
-
-.kanto-box {
-    position: absolute;
-    top: 48%;
-    right: 9%;
-    z-index: 2;
-}
-
-.hokuriku-box {
-    position: absolute;
-    top: 6%;
-    left: 37%;
-    max-width: 240px;
-    z-index: 2;
-}
-
-.tokai-box {
-    position: absolute;
-    bottom: 9%;
-    right: 9%;
-    max-width: 250px;
-    z-index: 2;
-}
-
-.kinki-box {
-    position: absolute;
-    top: 23%;
-    left: 17%;
-    max-width: 300px;
-    z-index: 2;
-}
-
-.chugoku-box {
-    position: absolute;
-    top: 6%;
-    left: 17%;
-    max-width: 240px;
-    z-index: 2;
-}
-
-.shikoku-box {
-    position: absolute;
-    right: 30%;
-    bottom: 9%;
-    max-width: 250px;
-    z-index: 2;
-}
-
-.okinawa-box {
-    position: absolute;
-    bottom: 9%;
-    left: 17%;
-    max-width: 180px;
-    z-index: 2;
-}
-
 @media print,
 screen and (min-width: 750px) {
     .spanclass {
-        letter-spacing: normal;
-        /* width: 50%; */
-        display: inline-block;
-        margin-bottom: 5px;
-        font-weight: bold;
+        width: 60px;
+        height: 30px;
+        background-color: #fff;
+        background-image: linear-gradient(to bottom, #ffffff,#f1f1f1);
+        float: left;
         text-align: center;
-        padding-right: 10px;
-        font-size: 12px;
+        overflow: hidden;
+        /* margin-top: 1px; */
+        border: 1px solid #8e3c15;
+        border-radius: 3px;
     }
     .spanclass a {
         position: relative;
@@ -6050,7 +6045,7 @@ button.confirmed {
 /* start .profile */
 
 .fixed-nav {
-    position: fixed;
+    /* position: fixed; */
     z-index: 4;
     overflow: hidden;
     background: transparent;
@@ -6560,7 +6555,7 @@ ul.test>li:before {
 #fav-history-page .card-carousel {
     display: flex;
     justify-content: center;
-    width: 1336px;
+    max-width: 1336px;
     overflow-x: auto;
 }
 
@@ -6662,7 +6657,6 @@ ul.test>li:before {
     display: flex;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
-    margin-left: 48px;
 }
 
 #fav-history-page .card-carousel-cards .card-carousel--card {
@@ -6949,8 +6943,11 @@ ul.test>li:before {
     background: #828282;
     color: #fff;
 }
+
+
 /*hospital search*/
-.hos-content{
+
+.hos-content {
     position: relative;
     margin-bottom: 20px;
     padding: 20px 20px 20px 20px;
@@ -6958,19 +6955,21 @@ ul.test>li:before {
     border: 1px solid #63b7ff;
     border-radius: 5px;
 }
-.hos-title{
+
+.hos-title {
     width: 900px;
     padding-right: 10px;
     vertical-align: top;
 }
+
 .hos-title a {
-    color: #63b7ff ;
+    color: #63b7ff;
     letter-spacing: 1px;
     font-weight: bold;
     overflow: hidden;
-
 }
-.hos_status{
+
+.hos_status {
     float: left;
     padding: 0 5px;
     margin-right: 10px;
@@ -6979,18 +6978,20 @@ ul.test>li:before {
     color: #fff;
     border-radius: 3px;
 }
-.hos_phone{
+
+.hos_phone {
     background: #c40000;
     padding: 5px 15px;
     border-radius: 5px;
     color: #fff!important;
-    position: absolute;
+    /* position: absolute;
     right: 15px;
-    top: 65px;
+    top: 65px; */
     border: 1px solid #c40000;
-
+  
 }
-.circle-phone{
+
+.circle-phone {
     background: #fff;
     width: 25px;
     height: 25px;
@@ -7003,7 +7004,8 @@ ul.test>li:before {
     margin-right: 8px;
     color: #c40000;
 }
-.first-hos-row{
+
+.first-hos-row {
     color: #fff;
     background-color: #a2a7a1;
     border-bottom: 1px solid #ccc;
@@ -7011,19 +7013,23 @@ ul.test>li:before {
     text-align: center;
     padding: 10px;
 }
-.second-hos-row{
+
+.second-hos-row {
     background-color: #eff7ec;
 }
+
 .hos-content .detail-btn .btn {
     width: 16%;
     background: #63b7ff;
     color: #fff;
     padding: 10px;
 }
-.hos-body table td:first-child {
 
+.hos-body table td:first-child {
     background: #f9f9f9;
 }
+
+
 /* .slick-slider */
 
 .slick-slider {
@@ -7462,8 +7468,9 @@ ul.test>li:before {
     position: absolute;
     display: none;
 }
+
 .control--checkbox:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .control input:checked~.control__indicator:after {
@@ -7483,8 +7490,9 @@ ul.test>li:before {
 .control--checkbox input:disabled~.control__indicator:after {
     border-color: #d2571c;
 }
+
 .control--radio:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .control--radio .control__indicator:after {
@@ -7533,6 +7541,26 @@ ul.test>li:before {
 /*end for date time picker*/
 
 @media only screen and (max-width: 1300px) {
+    .main-content {
+        width: 100%;
+    }
+    .nav-warp {
+        max-width: 100%;
+        padding: 0;
+    }
+    .fixed-ads-fluid {
+        width: 100%;
+    }
+    #headerbar {
+        display: block;
+        top: 76px;
+    }
+    #headerbar li {
+        display: inline-block;
+    }
+    .ads-slider {
+        margin: 0 0 20px 35px;
+    }
     .adslist-card {
         height: auto;
     }
@@ -7543,58 +7571,112 @@ ul.test>li:before {
         width: auto;
         margin: 0 auto;
     }
+    .fav-profile {
+        right: 37px;
+    }
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    .hokkaido-box,
+    /*job search*/
+    
+    ul.hokkaido-wrap{
+        left: 0px;   
+    }
+    .divisions span {
+        margin-right: 10px;
+    }
+    .divisions{
+        width: 100%;
+    }
+    .hokkaido-box {
+        position: absolute;
+        top: 12%;
+        right: 16%;
+        z-index: 2;
+    }
+    .tohoku-box {
+        position: absolute;
+        top: 26%;
+        right: 23%;
+        z-index: 2;
+    }
+    .multiple-box{
+        width: 132px !important;
+    }
+    
+    .hokkaido-box .spanclass,
+    .kanto-box .spanclass,
+    .okinawa-box .spanclass {
+        margin-right: 3px;
+    }
+    
     .kanto-box {
-        right: -10%;
-        max-width: 165px;
+        position: absolute;
+        top: 57%;
+        right: 25%;
+        z-index: 2;
     }
+    
+    .hokuriku-box {
+        position: absolute;
+        top: 24%;
+        left: 51%;
+        z-index: 2;
+    }
+    
     .tokai-box {
-        right: -10%;
+        position: absolute;
+        bottom: 27%;
+        right: 30%;
+        z-index: 2;
     }
+    
+    .kinki-box {
+        position: absolute;
+        top: 39%;
+        left: 39%;
+        z-index: 2;
+    }
+    
+    .chugoku-box {
+        position: absolute;
+        top: 27%;
+        left: 32%;
+        z-index: 2;
+    }
+    
     .shikoku-box {
-        right: 22%;
+        position: absolute;
+        left: 32%;
+        bottom: 22%;
+        z-index: 2;
+    }
+    
+    .kyushu-box{
+        position: absolute;
+        bottom: 66%;
+        left: 25%;
+        z-index: 2;
     }
     .okinawa-box {
-        left: -1%;
+        position: absolute;
+        bottom: 4%;
+        left: 31%;
+        z-index: 2;
     }
-    .kinki-box,
-    .chugoku-box {
-        left: -1%;
-    }
-    .chugoku-box {
-        max-width: 230px;
-    }
-    .hokuriku-box {
-        left: 28%;
-    }
-    /* #v-pills-tab li a {
-
-
-
-        display: block;
-
-
-
-        padding: 0;
-
-
-
-    } */
+    /*end job search*/
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
     }
     .job-img {
-        max-width: 80% !important;
+        /* max-width: 80% !important;*/
         margin: 0 auto 20px;
-        flex: unset;
+        flex: unset; 
     }
     .job-box {
-        max-width: 100% !important;
-        flex: unset;
+        /* max-width: 100% !important;*/
+        flex: unset; 
     }
     .compare-wrap {
         max-width: 82%;
@@ -7607,20 +7689,26 @@ ul.test>li:before {
         overflow-x: auto;
     }
 }
+
+
 /* nursingSearch */
 
 #info_content table tr td {
     border-top: 0px;
 }
-.search-border-dash{
-    border: 1px dashed #b7dad2;    
+
+.search-border-dash {
+    border: 1px dashed #b7dad2;
     background: #f4f1eb;
 }
-.nurs-sub-heading{    
+
+.nurs-sub-heading {
     color: #ff9563;
     font-weight: bold;
     font-size: 18px;
 }
+
+
 /* end nursingSearch */
 
 
@@ -7630,7 +7718,7 @@ ul.test>li:before {
     background-color: #e2d9d96b;
     padding: 22px;
     border-radius: 10px;
-    width: 920px;
+    max-width: 920px;
     margin: auto;
     background: url(https://www.sagasix.jp/images/support/consultation/bg_check.gif) repeat center top;
     border: 1px solid #dad3d2;
@@ -7663,6 +7751,4 @@ ul.test>li:before {
     font-size: 29px;
     color: #d2571c;
 }
-
-
 /*commentform*/

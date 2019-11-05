@@ -1313,7 +1313,7 @@ export default {
 
                 if(this.chek_feature.length > 0) {
                                 this.axios
-                                        .post(`/api/feature/update/${this.cusid}`,this.chek_feature)
+                                        .post(`/api/sfeature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
 
                                                 }).catch(error=>{
@@ -1339,8 +1339,6 @@ export default {
   }
   .panorama-box {
     padding: 10px 10px 20px 0px;
-    border: 1px solid #dee2e6;
-    /* border-radius: 5px; */
     margin: 0px;
     margin-bottom: 15px;
   }
