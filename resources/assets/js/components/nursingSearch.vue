@@ -299,12 +299,12 @@
             <div class="card search-border-dash">
               
               <div class="card-body">
-                <select id="selectCity" class="form-control custom-select" @change="nursingSearchData" style="background-color: #fff;" v-model="id">
-                  <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_eng}}</option>
+                <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1)" style="background-color: #fff;" v-model="id">
+                  <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
-                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="township_id">
+                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2)" v-model="township_id">
                 <option value="-1">Select Township</option>
-                  <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_eng}}</option>
+                  <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
               </div>
             </div>
@@ -634,8 +634,8 @@
   import {
     eventBus
   } from '../event-bus.js';
-  import json_1 from '../google-map-kml/converted.json';
-  import json from '../google-map-kml/jp_cities.json';
+  import jp_cities from '../google-map-kml/jp_cities.json';
+  import jp_township from '../google-map-kml/jp_township.json';
   export default {
 
     name: "mymap",
@@ -755,14 +755,51 @@
             const theCity = this.markers[0]['city_eng']
             const lat = this.markers[0]['latitude']
             const lng = this.markers[0]['longitude']
-            const result = json.features
-              const coordinates = []
-              for (var i = 0; i < result.length; i++) {
-                if (result[i].Name == theCity) {
-                  coordinates.push(result[i].geometry['coordinates'])
+            const result = jp_township.features //jp_cities
+              const jp_city = jp_cities.features //convert
+              var townshipName = [];
+              for (let i = 0; i < this.getTownships.length; i++) {
+                if(this.getTownships[i]['id'] == this.township_id){
+                    townshipName.push(this.getTownships[i]['township_name'])
                 }
               }
-              var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+              var township_name = townshipName.toString();
+              const coordinates = []
+              const city_coordinates = []
+            
+              if(township_name == ''){
+                for (var i = 0; i < jp_city.length; i++) {
+                if (jp_city[i].properties.NAME_0 == theCity) {
+                
+                  if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                  {
+                    for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                   {
+                  
+                     city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                   }
+                  }
+                  else{          
+                     city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                   
+                  }
+                }
+               }
+              }else{
+                for (var i = 0; i < result.length; i++) {
+                if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                }    
+              }
+              }
+
+              if(township_name == ''){
+                var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
+               
+              }else{
+                var co = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var coordinate = co.reduce((acc, val) => acc.concat(val), []);
+              }
               var data = {
                 type: "Feature",
                 geometry: {
@@ -866,7 +903,6 @@
                     ])
                   }
               this.markerHover = [];
-
               var infoWindow = new google.maps.InfoWindow(),marker, i;
                 for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
@@ -977,7 +1013,13 @@
             this.changeMap(response)
             })
       },
-     nursingSearchData(){
+     nursingSearchData(index){
+     
+       if(index == 1)
+       {
+           this.township_id = -1;
+       }
+    
         this.axios.get('/api/getmap/',{
                 params:{
                 id: this.id,
@@ -1017,11 +1059,11 @@
                 item.push(this.markers[i])
               }
 
-              const theCity = response.data.getCity[0]['city_eng']
+              const theCity = response.data.getCity[0]['city_name']
               const lat = response.data.getCity[0]['latitude']
               const lng = response.data.getCity[0]['longitude']
-              const result = json.features //jp_cities
-              const tt = json_1.features //convert
+              const result = jp_township.features //jp_cities
+              const jp_city = jp_cities.features //convert
               var townshipName = [];
               for (let i = 0; i < this.getTownships.length; i++) {
                 if(this.getTownships[i]['id'] == this.township_id){
@@ -1030,24 +1072,42 @@
               }
               var township_name = townshipName.toString();
               const coordinates = []
-              const y = []
-              for (var i = 0; i < result.length; i++) {
-                y.push(result[i].properties.NAME_2 )
-                if (result[i].properties.NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
-                  coordinates.push(result[i].geometry['coordinates'])
-                  console.log(y +'==>'+ township_name);
-                  
-                }
-                else if (result[i].properties.NAME_1 == theCity && township_name == '') {
-                  coordinates.push(result[i].geometry['coordinates'])
-                  
-                }
+              const city_coordinates = []
+            
+              if(township_name == ''){
+                for (var i = 0; i < jp_city.length; i++) {
+                if (jp_city[i].properties.NAME_0 == theCity) {
                 
+                  if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                  {
+                    for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                   {
+                  
+                     city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                   }
+                  }
+                  else{          
+                     city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                   
+                  }
+                }
+               }
+              }else{
+                for (var i = 0; i < result.length; i++) {
+                if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                }    
+              }
+              }
+
+              if(township_name == ''){
+                var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
+               
+              }else{
+                var co = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var coordinate = co.reduce((acc, val) => acc.concat(val), []);
               }
               
-              var co = coordinates.reduce((acc, val) => acc.concat(val), []);
-              var coordinate = co.reduce((acc, val) => acc.concat(val), []);
-
               var data = {
                 type: "Feature",
                 geometry: {
@@ -1186,7 +1246,7 @@
                 }
 
       },
-      
+
       mouseover(index) {
          
           for (let i = 0; i < this.markerHover.length; i++) {
