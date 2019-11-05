@@ -298,10 +298,11 @@
             <div class="card search-border-dash">
               
               <div class="card-body">
-                <select id="selectCity" class="form-control custom-select" @change="changeCity" style="background-color: #fff;" v-model="id">
+                <select id="selectCity" class="form-control custom-select" @change="nursingSearchData" style="background-color: #fff;" v-model="id">
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_eng}}</option>
                 </select>
-                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" >
+                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="township_id">
+                <option value="-1">Select Township</option>
                   <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_eng}}</option>
                 </select>
               </div>
@@ -312,8 +313,8 @@
             <div class="card search-border-dash">              
               <div class="card-body">
                 <div class="">
-                  <select name="" id="" class="form-control custom-select" style="background-color: #fff;">
-                    <option data-price-type="" value="">▼入居一時金</option>
+                  <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="moving_in">
+                    <option data-price-type="" value="-1">▼入居一時金</option>
                     <option data-price-type="" value="0">一時金なし</option>
                     <option data-price-type="" value="50">50万円以下</option>
                     <option data-price-type="" value="100">100万円以下</option>
@@ -330,8 +331,8 @@
                     <option data-price-type="" value="3000">3,000万円以下</option>
                     <option data-price-type="more" value="3000">3,000万円以上</option>
                   </select>
-                  <select name="" id="" class="form-control  mt-1 custom-select" style="background-color: #fff;">
-                    <option data-price-type="" value="">▼月額利用料</option>
+                  <select name="" id="" class="form-control  mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="per_month">
+                    <option data-price-type="" value="-1">▼月額利用料</option>
                     <option data-price-type="" value="10">10万円以下</option>
                     <option data-price-type="" value="12">12万円以下</option>
                     <option data-price-type="" value="14">14万円以下</option>
@@ -632,8 +633,8 @@
   import {
     eventBus
   } from '../event-bus.js';
-  import json from '../google-map-kml/converted.json';
-  // import json from '../google-map-kml/jp_cities.json';
+  import json_1 from '../google-map-kml/converted.json';
+  import json from '../google-map-kml/jp_cities.json';
   export default {
 
     name: "mymap",
@@ -653,8 +654,10 @@
         infoBoxOpen: false,
         places: [],
         id: [],
-        townshipID: [],
-        township_id: [],
+        townshipID:[],
+        township_id:-1,
+        moving_in:-1,
+        per_month:-1,
         cities: '',
         getCity: [],
         getTownships: [],
@@ -730,7 +733,7 @@
           },
         }).then((response)=>{
  
-            
+          
           this.nus_data = response.data.nursing;
           this.specialfeature = response.data.specialfeature;
           this.medicalacceptance = response.data.medicalacceptance;
@@ -960,20 +963,36 @@
             var id = e.target.id;
           }
           this.id = id;
-          this.axios.post('/api/getmap/' + id + '')
+       
+          this.axios.get('/api/getmap/',{
+            params:{
+              id: this.id,
+              township_id:-1,
+              moving_in:-1,
+              per_month:-1
+            },
+           })
+            .then((response) => {
+            this.changeMap(response)
+            })
+      },
+     nursingSearchData(){
+        this.axios.get('/api/getmap/',{
+                params:{
+                id: this.id,
+                township_id:this.township_id,
+                moving_in:this.moving_in,
+                per_month:this.per_month
+                },
+        
+            })
             .then((response) => {
                 this.changeMap(response)
             })
-      },
-      changeCity(){
-        
-        var id = this.id
-        this.axios.post('/api/getmap/' + id + '')
-            .then((response) => {
-                this.changeMap(response)
-            })
         
       },
+
+
       changeMap(response){
         $('.select').removeClass('select');
               $('#searchMap').addClass('select');
@@ -989,7 +1008,7 @@
               this.markers = response.data.nursing_profile; 
             
  
-
+ 
               var mmarker = new Array();
               var item = [];
               for (var i = 0; i < this.markers.length; i++) {
@@ -1000,15 +1019,34 @@
               const theCity = response.data.getCity[0]['city_eng']
               const lat = response.data.getCity[0]['latitude']
               const lng = response.data.getCity[0]['longitude']
-              const result = json.features
-              const coordinates = []
-              for (var i = 0; i < result.length; i++) {
-                if (result[i].Name == theCity) {
-                  coordinates.push(result[i].geometry['coordinates'])
+              const result = json.features //jp_cities
+              const tt = json_1.features //convert
+              var townshipName = [];
+              for (let i = 0; i < this.getTownships.length; i++) {
+                if(this.getTownships[i]['id'] == this.township_id){
+                    townshipName.push(this.getTownships[i]['township_name'])
                 }
               }
-              var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-              // console.log(coordinates)
+              var township_name = townshipName.toString();
+              const coordinates = []
+              const y = []
+              for (var i = 0; i < result.length; i++) {
+                y.push(result[i].properties.NAME_2 )
+                if (result[i].properties.NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                  console.log(y +'==>'+ township_name);
+                  
+                }
+                else if (result[i].properties.NAME_1 == theCity && township_name == '') {
+                  coordinates.push(result[i].geometry['coordinates'])
+                  
+                }
+                
+              }
+              
+              var co = coordinates.reduce((acc, val) => acc.concat(val), []);
+              var coordinate = co.reduce((acc, val) => acc.concat(val), []);
+
               var data = {
                 type: "Feature",
                 geometry: {
@@ -1018,7 +1056,7 @@
               };
               var mapProp = {
                 center: new google.maps.LatLng(lat, lng),
-                zoom: 6,
+                zoom: 7,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
               };
 
@@ -1031,7 +1069,7 @@
                   fillOpacity: 0.1,
                   strokeWeight: 1
                 })
-                var bounds = new google.maps.LatLngBounds();
+               
                 var markers = mmarker;
                 var infoWindowContent = new Array();
                 for (var i = 0; i < item.length; i++) {
@@ -1112,6 +1150,7 @@
                       '</div>'
                     ])
                   }
+                  var bounds = new google.maps.LatLngBounds();
                   this.markerHover = [];
                   var infoWindow = new google.maps.InfoWindow(),marker, i;
                 for (let i = 0; i < this.markers.length; i++) {
@@ -1142,8 +1181,9 @@
                        var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
                       google.maps.event.removeListener(boundsListener);
                     });
+                    
                 }
-        
+
       },
       
       mouseover(index) {
@@ -1420,7 +1460,7 @@
 
   #mymap {
     width: 100%;
-    height: 700px;
+    height: 500px;
   }
   /* #mymap {background: transparent url('/images/google/loading.jpg') no-repeat center center;} */
 div#holder {

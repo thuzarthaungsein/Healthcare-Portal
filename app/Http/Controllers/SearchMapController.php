@@ -8,11 +8,16 @@ use DB;
 
 class SearchMapController extends Controller
 {
-    public function getMap(Request $request, $id)
+    public function getMap()
     {
 
+        $id = $_GET['id'];
+        $township_id = $_GET['township_id'];
 
-        $nursing = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
+
+        $moving_in = $_GET['moving_in'];
+        $per_month = $_GET['per_month'];
+        $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
                     FROM customers AS c 
                     JOIN townships AS t 
                     ON t.id = c.townships_id 
@@ -22,9 +27,32 @@ class SearchMapController extends Controller
                     ON t.city_id = ci.id
                     JOIN types AS ty
                     ON c.type_id = ty.id
-                    WHERE t.city_id=" . $id . "
-                   group by c.id order BY n.id ASC LIMIT 26 ";
-        $nursing_profile = DB::select($nursing);
+                    WHERE";
+
+        if($id != null && $township_id == -1 && $moving_in == -1 && $per_month == -1 ){
+            $query .= " t.city_id=" . $id . " group by c.id order BY n.id ASC LIMIT 26";    
+        }
+        else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month == -1){
+            $query .= " t.city_id=" . $id . " and t.id =".$township_id." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        else if($id != null && $township_id == -1 && $moving_in != -1 && $per_month == -1){
+            $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        else if ($id != null && $township_id == -1 && $moving_in == -1 && $per_month != -1){
+            $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        else if ($id != null && $township_id != -1 && $moving_in != -1 && $per_month != -1){
+            $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        else if($id != null && $township_id != -1 && $moving_in != -1 && $per_month == -1){
+            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month != -1){
+            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        
+       
+        $nursing_profile = DB::select($query);
     
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
