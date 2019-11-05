@@ -46,7 +46,7 @@
                             <div class="form-group" style="display:none" id="showimage">
                                 <label>メディア : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" required>
+                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
                                     <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
                             </div>
