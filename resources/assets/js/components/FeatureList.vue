@@ -4,7 +4,7 @@
       <div class="row m-b-10" v-if="norecord!== 0">
         <div class="col-md-12">
           <router-link to="/specialfeature" class="float-right main-bg-color create-btn all-btn">
-            <i class="fas fa-plus-circle"></i> 特殊機能を作成
+            <i class="fas fa-plus-circle"></i> 特殊を作成
           </router-link>
         </div>
       </div>
@@ -23,13 +23,13 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">特徴一覧検索</h4>
+            <h4 class="main-color m-b-10">特徴検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="特徴検索"
                   id="search-item"
                   @keyup="searchFeature()"
                 />
@@ -46,8 +46,8 @@
                 <table class="table table-hover custom-table">
                   <thead style="background-color:rgb(183, 218, 210);">
                     <tr>
-                      <th>機能名</th>
-                      <th>縮小</th>
+                      <th>特徴名</th>
+                      <th>略語</th>
                       <th>種類</th>
                       <th></th>
                     </tr>

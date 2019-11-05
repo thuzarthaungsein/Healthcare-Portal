@@ -12,7 +12,7 @@
                             <form @submit.prevent ="add">
                                 <div class="form-group">
                                     <label>職種名 :<span class="error">*</span></label>
-                                    <input type="text" class="form-control"  v-model="occupation.name"  placeholder="職種名" >
+                                    <input type="text" class="form-control"  v-model="occupation.name"  placeholder="職種名を入力してください。" >
                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                 </div>
                                 <div class="form-group">

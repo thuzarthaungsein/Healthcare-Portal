@@ -5,14 +5,14 @@
               <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">カテゴリ作成</h4>
+                            <h4 class="page-header header">カテゴリー作成</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>カテゴリ名 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ名" >
+                                <label>カテゴリー名 :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリー名を入力してください。" >
                                   <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
 

@@ -63,7 +63,7 @@ export default {
       },
 
       selectedValue: 0,
-      header: "事業者の種類作成",
+      header: "タイプ作成",
       subtitle: "作成する"
     };
   },
@@ -83,7 +83,7 @@ export default {
           this.Type.parent = response.data.parent;
           this.selectedValue = response.data.parent;
           this.TypeList.name = response.data.name;
-          this.header = " 事業者の種類更新";
+          this.header = " タイプ更新";
           this.subtitle = "更新する";
           return this.header;
           return this.subtitle;
@@ -118,7 +118,7 @@ export default {
               console.log(response);
               this.$swal({
                 position: "top-end",
-                type: "success",
+                type: "作成済",
                 title: "作成されました",
                 text: "事業者の種類を作成されました。",
                 type: "success",
@@ -163,7 +163,7 @@ export default {
             this.types = response.data;
             this.norecord = this.types.length;
             this.$swal({
-              title: "更新された",
+              title: "更新済",
               text: "事業者の種類を更新されました。",
               type: "success",
               width: 350,

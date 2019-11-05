@@ -4,7 +4,7 @@
          <div class="col-md-12 scrolldiv">
             <div class="container-fuid">
                 <div class="header">
-                    User Reset Password
+                    パスワードを再設定した事業者一覧
                 </div>
             </div>
         <div class="col-md-12 pad-free scrolldiv">
@@ -19,7 +19,7 @@
                         <tr>
                             <th>名前</th>
                             <th>メールアドレス</th>
-                            <th>パスワード</th>
+                            <th>再設定した日付</th>
                             <th></th>
                         </tr>
                    </thead>

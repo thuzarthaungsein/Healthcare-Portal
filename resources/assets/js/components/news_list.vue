@@ -45,7 +45,7 @@
                     <label for="selectBox col-2 col-form-label">カテゴリー</label>
                     <div class="col-10">
                       <select class="form-control" id="selectBox" @change="searchbyCategory()">
-                        <option selected="selected" value>全部</option>
+                        <option selected="selected" value>全体</option>
                         <option
                           v-for="category in categories"
                           :key="category.id"

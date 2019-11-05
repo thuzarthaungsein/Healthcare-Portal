@@ -3,6 +3,7 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
+        <span class="top-mail-btn" @click="documentPost()">資料請求</span>
         <!--panorama-->
         <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
         
@@ -1490,6 +1491,7 @@ export default {
                 panocurrentOffset: 0,
                 windowSize: 10,
                 paginationFactor:103,
+                fav_email : [],
 
             };
         },
@@ -1587,6 +1589,7 @@ export default {
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
 
                       this.customer = response.data;
+                      console.log('customer',this.customer)
 
                 });
 
@@ -1799,6 +1802,20 @@ export default {
         $('.changeLink'+id).addClass("CloseBtn");
         $('.closeChangeLink').hide('medium');
         $('#changeLink'+id).show('medium');
+    },
+    documentPost() {
+        localStorage.removeItem("item");        
+        for (var i = 0; i < this.customer.length; i++) {
+        this.fav_email.push({
+            'id': this.customer[i]['id'],
+            'email': this.customer[i]['email'],
+            'name': this.customer[i]['name']
+            });
+        }
+        localStorage.setItem("item", JSON.stringify(this.fav_email));
+        this.$router.push({
+            name: 'nursingFavouriteMail',
+        });
     }
 
   }
@@ -2304,5 +2321,19 @@ export default {
 .cash-unit {
     color: #333;
     font-size: 0.8em;
+}
+
+.top-mail-btn {
+    position: absolute;
+    right: 120px;
+    top: -12px;
+    background: #ff7100;
+    border: 1px solid #ff9563;
+    color: #000;
+    width: 145px;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 5px 3px #ccc!important;
 }
 </style>

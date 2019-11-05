@@ -68,7 +68,7 @@
                                 <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
+                                    <input type="text" placeholder="関連ニュース検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
                                 </div>
                             </div>
                             <br/>
@@ -95,7 +95,7 @@
                             <input type="hidden" v-model="checkedNews">
 
                             <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
                             </div>
                         </form>

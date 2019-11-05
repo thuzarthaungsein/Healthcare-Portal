@@ -14,7 +14,7 @@
                             <div class="form-group">
 
                                                 <label>広告タイトル : <span class="error">*</span></label>
-                                                <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title">
+                                                <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title" placeholder="広告タイトルを入力してください。">
                                                 <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
 
                                     </div>
@@ -26,7 +26,7 @@
                                     </div>
                             <div class="form-group">
                                 <label>広告リンク : <span class="error"></span></label>
-                                <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link">
+                                <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link" placeholder="広告リンクを入力してください。">
 
                             </div>
                             <div class="form-group">

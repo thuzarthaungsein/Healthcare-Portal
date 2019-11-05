@@ -5,16 +5,16 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h4 class="page-header header">カテゴリ更新</h4>
+              <h4 class="page-header header">カテゴリー更新</h4>
             </div>
 
             <form @submit.prevent="updateCategory" class="col-md-12">
               <div class="form-group">
                 <label>
-                  カテゴリ名:
+                  カテゴリー名:
                   <span class="error">*</span>
                 </label>
-                <input type="text" class="form-control" v-model="category.name" placeholder="カテゴリ名を入力してください。" />
+                <input type="text" class="form-control" v-model="category.name" placeholder="カテゴリー名を入力してください。" />
                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
               </div>
 

@@ -16,8 +16,8 @@
                                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
                             <div class="form-group">
-                                <label>機能の短い名前 :<span class="error">*</span></label>
-                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="機能の短い名前を入力してください。" >
+                                <label>特徴の略語 :<span class="error">*</span></label>
+                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="特徴の略語を入力してください。" >
                                  <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
                             </div>
                             <div class="form_group">
@@ -55,7 +55,7 @@ export default {
                         type:'',
                     },
                     selectedValue:0,
-                    header: '特殊機能を作成',
+                    header: '特殊を作成',
                     subtitle: '作成する'
             }
         },

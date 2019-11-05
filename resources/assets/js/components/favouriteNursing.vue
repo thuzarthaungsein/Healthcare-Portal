@@ -562,6 +562,7 @@
                         }
                         // localStorage.setItem("reserve", JSON.stringify(this.reserv_status));
                         localStorage.setItem("document", JSON.stringify(this.document_status));
+                        localStorage.removeItem("item");
                         localStorage.setItem("item", JSON.stringify(this.fav_email));
                         this.$router.push({
                             name: 'nursingFavouriteMail',

@@ -4,7 +4,7 @@
       <div class="row m-b-10" v-if="norecord !== 0">
         <div class="col-md-12">
           <router-link to="/createcategory" class="float-right main-bg-color create-btn all-btn">
-            <i class="fas fa-plus-circle"></i> 新しいカテゴリを作成
+            <i class="fas fa-plus-circle"></i> 新しいカテゴリーを作成
           </router-link>
         </div>
       </div>
@@ -39,7 +39,7 @@
               </div>-->
             </div>
             <hr />
-            <h5 class="header">カテゴリ一覧</h5>
+            <h5 class="header">カテゴリー一覧</h5>
             <div class="card card-default m-b-20" v-for="category in categories" :key="category.id">
               <div class="card-body">
                 <div class="row">
