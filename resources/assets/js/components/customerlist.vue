@@ -56,8 +56,8 @@
                   <div class="col-md-2">
                     <!-- <img src="/images/hospitalpage.jpg" alt="" class="img-fluid"> -->
                     <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
-                    <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2" />
-                    <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" />
+                    <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2"  @error="imgUrlAlt"/>
+                    <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" @error="imgUrlAlt" />
                   </div>
                   <div class="row col-md-10">
                     <div class="col-md-2 max-width13">
@@ -162,7 +162,10 @@ export default {
       this.axios.post("/api/customer/search", fd).then(response => {
         this.customers = response.data;
       });
-    }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
   }
 };
 </script>

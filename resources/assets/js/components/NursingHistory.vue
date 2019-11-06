@@ -101,7 +101,7 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt />
+                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt @error="imgUrlAlt"/>
                                                             <br>
 
                                                             <router-link class="pseudolink" :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
@@ -365,7 +365,10 @@ export default {
                                 this.payment_name = this.nur_profiles[i].payment_method;
                             }
                         }
-                    }
+                    },
+          imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
 
     
   }

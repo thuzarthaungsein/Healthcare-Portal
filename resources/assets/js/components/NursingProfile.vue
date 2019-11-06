@@ -1034,6 +1034,7 @@ export default {
                 },
 
             createProfile() {
+                   
                 this.customer_info_push = [];
                 this.staff_info_push = [];
 
@@ -1211,6 +1212,7 @@ export default {
                         this.axios
                                 .post(`/api/nursing/galleryupdate/${this.cusid}`,this.gallery_list)
                                 .then((response) => {
+                      
 
                                 }).catch(error=>{
 
@@ -1226,6 +1228,8 @@ export default {
                         this.axios
                                 .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
                                 .then((response) => {
+                                         this.name = ''
+                    
 
                                 }).catch(error=>{
 
@@ -1241,6 +1245,8 @@ export default {
                         this.axios
                                 .post(`/api/nursing/paymentmethod/${this.cusid}`,this.payment_list)
                                 .then((response) => {
+                                         this.name = ''
+                      
 
                                 }).catch(error=>{
 
@@ -1256,6 +1262,8 @@ export default {
                         this.axios
                                 .post(`/api/nursing/profile/${this.cusid}`,this.profile_arr)
                                 .then((response) => {
+                                         this.name = ''
+                       
 
                                 }).catch(error=>{
 
@@ -1272,6 +1280,8 @@ export default {
                         this.axios
                                 .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                                 .then((response) => {
+                                         
+                        
 
                                 }).catch(error=>{
 
@@ -1287,6 +1297,7 @@ export default {
                         this.axios
                                 .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
                                 .then((response) => {
+                      
                                         console.log(response.data);
 
                                 }).catch(error=>{
@@ -1302,6 +1313,7 @@ export default {
                         this.axios
                                 .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
                                 .then((response) => {
+                   
 
                                 }).catch(error=>{
                                         if(error.response.status == 422) {
@@ -1315,6 +1327,7 @@ export default {
                                 this.axios
                                         .post(`/api/sfeature/update/${this.cusid}`,this.chek_feature)
                                                 .then((response) => {
+                      
 
                                                 }).catch(error=>{
                                                 if(error.response.status == 422){
@@ -1325,8 +1338,20 @@ export default {
                 }
 
                 if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {
-                        alert('Nursing Profile is Succcessfully Updated');
+                        // alert('Nursing Profile is Succcessfully Updated'); 
+                     
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '作成されました',
+                            showConfirmButton: false,
+                            timer: 1800,
+                            width: 250,
+                            height: 200,
+                        })
                 }
+                
+                
             }
         }
 }

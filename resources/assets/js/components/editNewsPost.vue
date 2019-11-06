@@ -51,7 +51,7 @@
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
-                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="news">
+                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="news" @error="imgUrlAlt">
                                     </div>
                                 </div>
                             </div>
@@ -321,6 +321,10 @@
                             this.updatepost();
                         }
                     },
+                imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
+			
             }
     }
 </script>

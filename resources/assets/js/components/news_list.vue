@@ -63,7 +63,7 @@
               <div class="card-body news-post">
                 <div class="row">
                   <div class="col-md-2" v-if="newsList.photo">
-                    <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid" />
+                    <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid"  @error="imgUrlAlt"/>
                   </div>
                   <div class="col-md-2" v-else></div>
                   <div class="col-md-10">
@@ -184,7 +184,10 @@ export default {
       this.axios.post("/api/news_list/search", fd).then(response => {
         this.news_list = response.data;
       });
-    }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
   }
 };
 </script>
