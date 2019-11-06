@@ -101,13 +101,32 @@ class registerController extends Controller
             // $customer->address = $request->address;
             $customer->townships_id = $request->township;
             $customer->save();
-            if($request->types == 2){
+            if($type == 2){
                 $customer->type = '病院';
             }
-            elseif($request->types == 3){
-                $customer->type = '介護';
+            elseif($type == 4){
+                $customer->type = '介護  (有料老人ホーム)';
             }
-            $admin_email = 'thuzar@management-partners.co.jp';
+            elseif($type == 5){
+                $customer->type = '介護 (デイサービス)';
+            }
+            elseif($type == 6){
+                $customer->type = '介護  (訪問介護・看護)';
+            }
+            $query = "SELECT townships.*, cities.city_name 
+                    FROM townships 
+                    JOIN cities
+                    ON cities.id = townships.city_id
+                    WHERE townships.id =" . $customer->townships_id;
+
+            $address = DB::select($query);
+            foreach($address as $ad) {
+                $customer->city_name = $ad->city_name;
+                $customer->township_name = $ad->township_name;
+            }
+
+
+            $admin_email = 'sawnwaiyan2014@gmail.com';
             \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success', "Special message goes here");
