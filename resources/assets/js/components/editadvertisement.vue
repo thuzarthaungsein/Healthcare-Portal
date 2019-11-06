@@ -46,7 +46,7 @@
                             <div class="form-group" style="display:none" id="showimage">
                                 <label>写真 : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
+                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" required>
                                     <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
                             </div>
@@ -138,6 +138,9 @@ export default {
                         image_x.parentNode.removeChild(image_x);
                         document.getElementById('showimage').style.display = 'block';
                 }
+                // else {
+                //     this,deleteImage ='Delete';
+                // }
                             },
              removeUpload(e) {
                         this.advertisement.photo = '';

@@ -524,10 +524,10 @@
                     <!-- <li><router-link to="/stationlist" class="nav-link"><i class="fa fa-file"></i>&nbsp;&nbsp;駅一覧</router-link></li> -->
 
                     <li><router-link to="/facilitieslist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;施設一覧</router-link></li>
-                    <li><router-link to="/typelist" class="nav-link"><i class="fa fa-sun"></i>&nbsp;事業者タイプ</router-link></li>
-                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;特徴一覧</router-link></li>
-                    <li><router-link to="/occupationlist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;職種一覧</router-link></li>
-                    <li><router-link to="/subjectlist" class="nav-link"><i class="fa fa-list"></i>&nbsp;&nbsp;診療科目一覧</router-link></li>
+                    <li><router-link to="/typelist" class="nav-link"><i class="	fas fa-user-tie"></i>&nbsp;事業者 タイプ</router-link></li>
+                    <li><router-link to="/featurelist" class="nav-link"><i class="fa fa-stethoscope"></i>&nbsp;&nbsp;特殊機能</router-link></li>
+                    <li><router-link to="/occupationlist" class="nav-link"><i class="fa fa-suitcase"></i>&nbsp;&nbsp;職業</router-link></li>
+                    <li><router-link to="/subjectlist" class="nav-link"><i class="fa fa-user-md"></i>&nbsp;&nbsp;医学科目</router-link></li>
 
                     <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
