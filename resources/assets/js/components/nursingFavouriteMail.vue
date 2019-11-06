@@ -145,7 +145,7 @@
 
                         <div class="btn-list mt-2  clearfix">
                             <ul>
-                                <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
+                                <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li>
                                 <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
                             </ul>
                         </div>
@@ -328,8 +328,11 @@
                         </div>
                         <div class="btn-list  clearfix">
                             <ul>
-                                <li class="m-r-15"><router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link></li>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
+                                <li class="m-r-15">
+                                <!-- <router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link> -->
+                                <a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a>
+                                </li>
+                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページへ進む</button></li>
                             </ul>
                         </div>
                     </form>
@@ -396,6 +399,7 @@ import DatePicker from 'vue2-datepicker';
             }
         },
         created() {
+            console.log('item',JSON.parse(localStorage.getItem("item")))
             this.bk_data = this.$route.params.input_data;
             this.bk_postal = this.$route.params.bk_postal;
             if (this.bk_data != undefined) {

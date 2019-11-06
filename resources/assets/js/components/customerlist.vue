@@ -41,14 +41,14 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="事業者検索"
                   id="search-word"
                   @keyup="searchCustomer()"
                 />
               </div>
             </div>
             <hr />
-            <h5 class="header">事業者</h5>
+            <h5 class="header">事業者一覧</h5>
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
           
               <div class="card-body news-post">
@@ -56,8 +56,8 @@
                   <div class="col-md-2">
                     <!-- <img src="/images/hospitalpage.jpg" alt="" class="img-fluid"> -->
                     <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
-                    <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2" />
-                    <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" />
+                    <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2"  @error="imgUrlAlt"/>
+                    <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" @error="imgUrlAlt" />
                   </div>
                   <div class="row col-md-10">
                     <div class="col-md-2 max-width13">
@@ -142,7 +142,7 @@ export default {
       this.axios.get(`/api/confirm/${id}`).then(response => {
         console.log(response);
           this.$swal({
-              title: "確認",
+              title: "確認済",
               text: "メールを送信しました",
               type: "success",
               width: 350,
@@ -162,7 +162,10 @@ export default {
       this.axios.post("/api/customer/search", fd).then(response => {
         this.customers = response.data;
       });
-    }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
   }
 };
 </script>

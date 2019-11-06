@@ -9,7 +9,7 @@
             class="float-right main-bg-color create-btn all-btn"
             style="color: blue;"
           >
-            <i class="fas fa-plus-circle"></i> 新しい投稿を作成
+            <i class="fas fa-plus-circle"></i> 新しいニュースを作成
           </router-link>
         </div>
         <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
@@ -36,7 +36,7 @@
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="検索"
+                      placeholder="ニュース検索"
                       id="search-item"
                       @keyup="searchbyCategory()"
                     />
@@ -45,7 +45,7 @@
                     <label for="selectBox col-2 col-form-label">カテゴリー</label>
                     <div class="col-10">
                       <select class="form-control" id="selectBox" @change="searchbyCategory()">
-                        <option selected="selected" value>全て</option>
+                        <option selected="selected" value>全体</option>
                         <option
                           v-for="category in categories"
                           :key="category.id"
@@ -63,7 +63,7 @@
               <div class="card-body news-post">
                 <div class="row">
                   <div class="col-md-2" v-if="newsList.photo">
-                    <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid" />
+                    <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid"  @error="imgUrlAlt"/>
                   </div>
                   <div class="col-md-2" v-else></div>
                   <div class="col-md-10">
@@ -160,8 +160,8 @@ export default {
             // let i = this.news_list.map(item => item.id).indexOf(id);
             // this.news_list.splice(i, 1);
             this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
+              title: "削除済",
+              text: "ニュースを削除されました。",
               type: "success",
               width: 350,
               height: 200,
@@ -184,7 +184,10 @@ export default {
       this.axios.post("/api/news_list/search", fd).then(response => {
         this.news_list = response.data;
       });
-    }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
   }
 };
 </script>

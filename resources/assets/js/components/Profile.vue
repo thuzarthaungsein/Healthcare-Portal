@@ -30,7 +30,7 @@
           </div>
 
           <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-            <profilePublish :cusid="cusid" :type="type" :login_status="login_status"></profilePublish>
+            <profilePublish :cusid="cusid" :type="type" :loginuser="loginuser"></profilePublish>
           </div>
         </form>
       </div>
@@ -68,7 +68,7 @@
           </div>
 
           <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-            <profilePublish :cusid="cusid" :type="type"></profilePublish>
+            <profilePublish :cusid="cusid" :type="type" :loginuser="loginuser"></profilePublish>
           </div>
         </form>
       </div>
@@ -100,7 +100,7 @@ export default {
         cusid: null,
         btntype: "view",
         width: "",
-        login_status : '0',
+        // login_status : '0',
         loginuser: true,
         l_storage_hos_history: [],
         l_storage_nus_history: [],
@@ -114,10 +114,7 @@ export default {
     this.axios.get('/api/user').then(response => {
         this.pro_id = response.data.lat_lng[0].id;
         this.loginuser = true;
-        if(this.loginuser) {
-            this.login_status = 1;
-        }
-
+       
         localStorage.setItem("cusId", response.data.user.customer_id);
         localStorage.setItem("lat_num", response.data.lat_lng[0].latitude);
         localStorage.setItem("lng_num", response.data.lat_lng[0].longitude);

@@ -27,6 +27,7 @@ import joboffercreate from "./components/JobOfferCreate.vue";
 import editPost from "./components/editNewsPost.vue";
 import Profile from "./components/Profile.vue";
 import JobOfferList from "./components/JobOfferList.vue";
+import ProfileEdit from "./components/ProfileEdit.vue";
 import ProfilePublish from "./components/ProfilePublish.vue";
 import advertisement from "./components/advertisement.vue";
 import createmedicalacceptance from "./components/createmedicalacceptance.vue";
@@ -210,6 +211,11 @@ export const routes = [
         name: "profile",
         path: "/profile",
         component: Profile
+    },
+    {
+        name: "profiledit",
+        path: "/profiledit",
+        component: ProfileEdit
     },
     {
         name: "jobofferlist",
