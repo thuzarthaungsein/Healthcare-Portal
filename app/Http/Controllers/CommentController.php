@@ -28,18 +28,18 @@ class CommentController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'title' => 'required',
-            'comment' =>'required',
-            'email' => 'required|email',
+        // $request->validate([
+        //     'title' => 'required',
+        //     'comment' =>'required',
+        //     'email' => 'required|email',
             //  'fzipcode' => 'required',
             //  'lzipcode' => 'required',
-        ]
+        // ]
         // ,[
         //     'fzipcode.required' => 'First zipcode is required and must be three !',
         //     'lzipcode.required' => 'Second zipcode is required and  must be four'
         // ]
-    );
+    // );
 
         // $request->validate([
         //     'title' => 'required',

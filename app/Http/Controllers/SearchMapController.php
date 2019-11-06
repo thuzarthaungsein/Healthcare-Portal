@@ -23,7 +23,7 @@ class SearchMapController extends Controller
                     JOIN types AS ty
                     ON c.type_id = ty.id
                     WHERE t.city_id=" . $id . "
-                    group by c.id order BY n.id ASC LIMIT 26 ";
+                     order BY n.id ASC LIMIT 26 ";
         $nursing_profile = DB::select($nursing);
     
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];

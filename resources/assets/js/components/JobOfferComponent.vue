@@ -54,7 +54,7 @@
                 <div class="form-group">
                   <label>内容:</label>
                   <br />
-                  <div class="summernote" name="body"></div>
+                  <!-- <div class="summernote" name="body"></div> -->
                 </div>
 
                 <!-- <div class="form-group row">
@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-sm-10">
                   <!-- <textarea name="body" class="form-control" cols="50" rows="5"  ></textarea>   -->
-                  <div class="summernote" name="body"></div>
+                  <!-- <div class="summernote" name="body"></div> -->
                 </div>
               </div>
             </div>
