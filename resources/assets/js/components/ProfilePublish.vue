@@ -1509,7 +1509,7 @@ export default {
         props:{
                 cusid:Number,
                 type:String,
-                login_status:Number
+                loginuser:Boolean,
         },
 
         created(){
@@ -1524,7 +1524,7 @@ export default {
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
 
-            if(this.login_status == '1') {
+            if(this.loginuser == true) {
                 $(document).scroll(function() {
                     $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     var cur_pos = $(this).scrollTop();
@@ -1627,7 +1627,7 @@ export default {
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
-
+console.log(response);
                       this.customer = response.data;
 
                 });

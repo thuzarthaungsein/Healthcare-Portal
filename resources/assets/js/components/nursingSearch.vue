@@ -641,7 +641,9 @@
                           <table  class="table table-bordered  table-sm">
                               <h2> Nursing </h2>
                               <tr>
-                                <td>Name : {{nus.name}}</td>
+                                <td>Name : 
+                                <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
+                                </td>
                               </tr>
                                <tr>
                                 <td> Email : {{nus.email}}</td>
