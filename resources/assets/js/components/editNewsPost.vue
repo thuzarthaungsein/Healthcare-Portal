@@ -14,26 +14,7 @@
                                 <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
                                 <span v-if="errors.title" class="error">{{errors.title}}</span>
                             </div>
-                            <div class="form-group">
-                                <label>主な情報:<span class="error">*</span></label>
-                                <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
-                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
-                            </div>
-                            <div class="form-group">
-                                <label>カテゴリー:<span class="error">*</span></label>
-                                <select v-model="selectedValue" class="form-control" @change='getstates()'>
-                                    <option v-bind:value="0">選択してください。</option>
-                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
-                                        {{category.name}}
-                                    </option>
-                                </select>
-                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
-                            </div>
-                            <div class="form-group">
-                                <label>内容:<span class="error">*</span></label>
-                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
-                                <span v-if="errors.body" class="error">{{errors.body}}</span>
-                            </div>
+
                             <div class="form-group" id="showimage">
                                 <label class="">写真:</label>
                                 <div class="custom-file">
@@ -55,6 +36,27 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>主な情報:<span class="error">*</span></label>
+                                <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
+                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>カテゴリー:<span class="error">*</span></label>
+                                <select v-model="selectedValue" class="form-control" @change='getstates()'>
+                                    <option v-bind:value="0">選択してください。</option>
+                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                        {{category.name}}
+                                    </option>
+                                </select>
+                                <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>内容:<span class="error">*</span></label>
+                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
+                                <span v-if="errors.body" class="error">{{errors.body}}</span>
+                            </div>
+                  
                             <input type="hidden" v-model="old_photo" >
                             <div class="form-group">
                                 <label> カテゴリー:<span class="error">*</span></label>

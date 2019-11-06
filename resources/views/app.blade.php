@@ -20,6 +20,7 @@
 
 
 <!-- Scripts -->
+<!-- <script src="{{asset('js/app.js')}}" type="text/javascript" defer> </script> -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 

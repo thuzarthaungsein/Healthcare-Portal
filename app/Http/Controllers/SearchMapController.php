@@ -12,9 +12,8 @@ class SearchMapController extends Controller
     {
 
         $id = $_GET['id'];
+
         $township_id = $_GET['township_id'];
-
-
         $moving_in = $_GET['moving_in'];
         $per_month = $_GET['per_month'];
         $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name

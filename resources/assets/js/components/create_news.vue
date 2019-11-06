@@ -25,7 +25,7 @@
                                 <!-- <button class="btn main-bg-color white all-btn" type="button">
                                                     種類
                                                 <span class="caret"></span>
-                                            </button> -->
+                                            </button> --> 
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id" id="categories" class="form-control" @change='getstates()'>
                                     <option v-bind:value="-1">選択してください。</option>
@@ -53,7 +53,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="row col-md-12">

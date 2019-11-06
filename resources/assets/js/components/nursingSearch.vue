@@ -772,7 +772,8 @@
     },
     methods: {
       search(){
-    
+      
+
         if(this.townshipID == null || this.townshipID == '')
         {
           this.townshipID[0] = 0;
@@ -781,7 +782,7 @@
         {
           this.SpecialFeatureID[0] = 0;
         }
-        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
+        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
         {
           this.MedicalAcceptanceID[0] = 0;
         }
@@ -974,6 +975,7 @@
                     ])
                   }
               this.markerHover = [];
+
               var infoWindow = new google.maps.InfoWindow(),marker, i;
                 for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
@@ -1066,6 +1068,28 @@
       },
       getStateClick(e) {      
 
+          if(this.townshipID.length > 0)
+          {
+            this.townshipID = [];
+          }
+          if(this.SpecialFeatureID.length > 0)
+          {
+            this.SpecialFeatureID = [];
+          }
+          if(this.MedicalAcceptanceID.length > 0)
+          {
+            this.MedicalAcceptanceID = [];
+          }
+           if(this.FacTypeID.length > 0)
+          {
+            this.FacTypeID = [];
+          }
+            if(this.MoveID.length > 0)
+          {
+            this.MoveID = [];
+          }
+
+
         $("#nursing-search").css("display", "block");
         if(e.target.id == ''){
             var id = $('#selectCity').val();
@@ -1085,8 +1109,11 @@
             .then((response) => {
             this.changeMap(response)
             })
+        this.search();
+            
       },
      nursingSearchData(index){
+         this.search();
      
        if(index == 1)
        {
