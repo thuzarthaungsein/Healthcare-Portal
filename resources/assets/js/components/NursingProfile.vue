@@ -6,7 +6,7 @@
             <div class="col-md-12 pad-free">
                 <div class="col-md-12 m-lr-0 pad-free">
                     <div class="form-group form-group-wrapper">
-                        <label class="heading-lbl col-2 pad-free">Panorama<span class="error">*</span></label>
+                        <label class="heading-lbl col-2 pad-free">パノラマ<span class="error">*</span></label>
                         <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
 
                         <div class="row col-md-12 pad-free panorama panorama-box">
@@ -76,7 +76,7 @@
 
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">動画</label> <span class="galleryvideo btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryVideoAdd()">
-                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <i class="fas fa-plus-circle"></i> 追加</span>
                                     <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryVideoToggle" >
                                         <i id="video" class="fas fa-sort-down"></i>
                                    </span>
@@ -117,7 +117,7 @@
                                 <label class="heading-lbl" style="border-left: 5px solid #f9793c;padding-left: 5px;">費用</label>
                             </div>
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">入居時 <span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">入居時費用 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <div class="row">
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="heading-lbl col-2 pad-free">月額 <span class="error">*</span></label>
+                                <label class="heading-lbl col-2 pad-free">月額費用 <span class="error">*</span></label>
                                 <div class="col-10 float-right pad-free">
                                     <div class="row">
                                         <div class="col-md-6" style="font-weight:bold;font-size:1.5em;">
@@ -613,7 +613,7 @@
                 <!-- end table 7 for 公式サイト -->
                 <div style="position:fixed;width:100%;background:rgba(0,0,0,.5);left:0;right:0;bottom:0;padding:0 0 10px 0;">
                     <div class="row col-2 col-offset-5 mx-auto">
-                        <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="createProfile()">作成</span>
+                        <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="createProfile()">保存する</span>
                     </div>
                 </div>
 

@@ -41,14 +41,14 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="事業者検索"
                   id="search-word"
                   @keyup="searchCustomer()"
                 />
               </div>
             </div>
             <hr />
-            <h5 class="header">事業者</h5>
+            <h5 class="header">事業者一覧</h5>
             <div v-for="customer in customers" :key="customer.id" class="card card-default m-b-20">
           
               <div class="card-body news-post">
@@ -142,7 +142,7 @@ export default {
       this.axios.get(`/api/confirm/${id}`).then(response => {
         console.log(response);
           this.$swal({
-              title: "確認",
+              title: "確認済",
               text: "メールを送信しました",
               type: "success",
               width: 350,

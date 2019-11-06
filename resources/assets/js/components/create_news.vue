@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">ニュース投稿を作成</h4>
+                            <h4 class="page-header header">ニュース作成</h4>
                             <br>
                         </div>
 
@@ -41,7 +41,7 @@
                                     <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
                             <div class="form-group">
-                                <label class="">メディア:</label>
+                                <label class="">写真:</label>
                                 <div>
                                 <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput">
                                 </div>
@@ -68,7 +68,7 @@
                                 <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="search" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
+                                    <input type="text" placeholder="関連ニュース検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
                                 </div>
                             </div>
                             <br/>
@@ -95,7 +95,7 @@
                             <input type="hidden" v-model="checkedNews">
 
                             <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
                             </div>
                         </form>
@@ -239,17 +239,17 @@
                     if (this.news.main_point) {
                         this.errors.main_point = "";
                     } else {
-                        this.errors.main_point = "ニュースの題名が必須です。";
+                        this.errors.main_point = "ニュースの主な情報が必須です。";
                     }
                     if (this.news.body) {
                         this.errors.body = "";
                     } else {
-                        this.errors.body = "ニュースの題名が必須です。";
+                        this.errors.body = "ニュースの内容が必須です。";
                     }
                     if (this.news.category_id) {
                         this.errors.category_id = "";
                     } else {
-                        this.errors.category_id = "ニュースの題名が必須です。";
+                        this.errors.category_id = "ニュースのカテゴリーが必須です。";
                     }
                     if (
                         !this.errors.title &&

@@ -5,20 +5,20 @@
               <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">カテゴリ作成</h4>
+                            <h4 class="page-header header">カテゴリー作成</h4>
                             <br>
                         </div>
                         <div class="col-md-12">
                              <form @submit.prevent="add">
                             <div class="form-group">
-                                <label>カテゴリ名 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリ 名" >
+                                <label>カテゴリー名 :<span class="error">*</span></label>
+                                <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリー名を入力してください。" >
                                   <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
 
                             <div class="form-group">
                                 <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
-                                <button class="btn news-post-btn all-btn">カテゴリを投稿する</button>
+                                <button class="btn news-post-btn all-btn">作成する</button>
                             </div>
                                 </form>
                             </div>
