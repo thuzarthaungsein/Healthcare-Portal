@@ -94,9 +94,9 @@
                             </div>
                             <input type="hidden" v-model="checkedNews">
 
-                            <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
+                            <div class="form-group">                     
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
                             </div>
                         </form>
                     </div>
