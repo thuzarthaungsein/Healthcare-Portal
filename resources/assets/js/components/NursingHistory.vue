@@ -13,8 +13,8 @@
           <div class="col-md-12 fav-his-header">
               <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
         &nbsp;<span class="font-weight-bold"> 最近見た施設リスト</span>
-         &nbsp;<span> {{his_nus}}</span>
-          &nbsp;<span style="color:#000;">件</span>
+         &nbsp;<span class ="job_count"> {{his_nus}}件</span>
+          <!-- &nbsp;<span style="color:#000;">件</span> -->
         </div>
       </div>
     </div>
@@ -280,9 +280,6 @@ export default {
         if(this.local_sto){
             this.his_nus = this.local_sto.split(",").length;
         }
-        else {
-            this.his_nus =0;
-        }
 
     this.getAllCustomer(this.local_sto);
 
@@ -334,6 +331,9 @@ export default {
                         }
                     });
                 }
+            }
+            if(this.local_sto){
+                this.his_nus = this.local_sto.split(",").length;
             }
         }
     },

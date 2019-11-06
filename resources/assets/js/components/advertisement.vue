@@ -5,46 +5,46 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h4 class="page-header header">広告</h4>
+                            <h4 class="page-header header">広告作成</h4>
                         </div>
                         <div class="col-12">
                             <form @submit.prevent="add">
                                 <div class="form-group">
 
-                                    <label>タイトル : <span class="error">*</span></label>
-                                    <input type="title" class="form-control box" id="title" name="title" v-model="ads.title">
+                                    <label>広告タイトル : <span class="error">*</span></label>
+                                    <input type="title" class="form-control box" id="title" name="title" v-model="ads.title" placeholder="広告タイトルを入力してください。">
                                     <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
 
                                 </div>
                                 <div class="form-group">
 
                                     <!-- <label for="description"><strong>描写:</strong></label> -->
-                                    <label>描写 : <span class="error"></span></label>
+                                    <label>説明 : <span class="error"></span></label>
                                     <textarea name="description" class="form-control" cols="50" rows="5" v-model="ads.description"></textarea>
                                 </div>
                                 <div class="form-group">
 
                                     <!-- <label for="link"><strong>リンク:</strong></label> -->
-                                    <label>リンク : <span class="error"></span></label>
-                                    <input type="link" class="form-control box" id="link" name="link" v-model="ads.link">
+                                    <label>広告リンク : <span class="error"></span></label>
+                                    <input type="link" class="form-control box" id="link" name="link" v-model="ads.link" placeholder="広告リンクを入力してください。">
 
                                 </div>
                                 <div class="form-group">
                                     <!-- <label for ="location" ><strong></strong> ロケーション :</strong>  </label><label> -->
-                                        <label>ロケーション : <span class="error">*</span></label><br />
+                                        <label>表示するロケーション : <span class="error">*</span></label><br />
                                         <label class="form-check-label control control--checkbox">
-                                            <input type="checkbox" value="topbar" name="top_bar" v-model="ads.location"> <strong>Top Bar </strong> (240px*120px 300円)
+                                            <input type="checkbox" value="topbar" name="top_bar" v-model="ads.location"> <strong>トップバー </strong> (240px*120px 300円)
                                             <div class="control__indicator"></div>
                                         </label><br />
                                         <label class="form-check-label control control--checkbox">
-                                            <input type="checkbox" value="sidebar" name="side_bar" v-model="ads.location"><strong> Side Bar </strong>(167px*100px 200円)
+                                            <input type="checkbox" value="sidebar" name="side_bar" v-model="ads.location"><strong> サイドバー </strong>(167px*100px 200円)
                                              <div class="control__indicator"></div>
                                         </label>
                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
                                 </div>
                                 <div class="form-group">
                                     <!-- <label for ="photo" ><strong> メディア :</strong>  </label><br> -->
-                                    <label>メディア : <span class="error">*</span></label><br />
+                                    <label>写真 : <span class="error">*</span></label><br />
                                     <input type="file" id="upload" accept="image/*" @change="uploadImage">
                                     <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
                                     <!-- <label class="" for="file">No file chosen</label> -->
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <router-link class="btn btn-danger all-btn" to="/ads"> キャンセル </router-link>
-                                    <button class="btn news-post-btn all-btn">作る</button>
+                                    <button class="btn news-post-btn all-btn">作成する</button>
                                 </div>
                             </form>
                         </div>

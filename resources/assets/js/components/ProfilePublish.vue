@@ -3,6 +3,7 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
+         <span class="top-mail-btn" @click="documentPost()" v-if="!loginuser"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
         <!--panorama-->
         <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
 
@@ -1497,6 +1498,7 @@ export default {
                 panocurrentOffset: 0,
                 windowSize: 10,
                 paginationFactor:103,
+                fav_email : [],
                   data: {
 	  str:"Welcome to Canada!",
 	  substr: ""
@@ -1508,7 +1510,7 @@ export default {
         props:{
                 cusid:Number,
                 type:String,
-                login_status:Number
+                loginuser:Boolean,
         },
 
         created(){
@@ -1523,7 +1525,7 @@ export default {
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
 
-            if(this.login_status == '1') {
+            if(this.loginuser == true) {
                 $(document).scroll(function() {
                     $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     var cur_pos = $(this).scrollTop();
@@ -1626,8 +1628,9 @@ export default {
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
-
+console.log(response);
                       this.customer = response.data;
+                      console.log('customer',this.customer)
 
                 });
 
@@ -1837,6 +1840,20 @@ export default {
         $('.changeLink'+id).addClass("CloseBtn");
         $('.closeChangeLink').hide('medium');
         $('#changeLink'+id).show('medium');
+    },
+    documentPost() {
+        localStorage.removeItem("item");
+        for (var i = 0; i < this.customer.length; i++) {
+        this.fav_email.push({
+            'id': this.customer[i]['id'],
+            'email': this.customer[i]['email'],
+            'name': this.customer[i]['name']
+            });
+        }
+        localStorage.setItem("item", JSON.stringify(this.fav_email));
+        this.$router.push({
+            name: 'nursingFavouriteMail',
+        });
     }
 
   }
@@ -2363,5 +2380,26 @@ a.comhov:hover, a.comhov:active {background: #fbaa84;}
 .cash-unit {
     color: #333;
     font-size: 0.8em;
+}
+
+.top-mail-btn {
+    position: absolute;
+    right: 175px;
+    top: -12px;
+    cursor: pointer;
+    /* background: #ff7100; */
+    background-color: #0cc72c !important;
+    /* border: 1px solid #ff9563; */
+    color: #fff;
+    width: 160px;
+    padding: 6px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 3px 5px 3px #ccc!important;
+    box-shadow: 3px 5px 3px #ccc!important;
+    font-size: 14.4px;
+    border: 1px solid #53c000;
+
 }
 </style>

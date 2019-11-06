@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <router-link to="/type" class="float-right main-bg-color create-btn all-btn">
             <i class="fas fa-plus-circle"></i>
-            新しいタイプ作成
+            新しいタイプを作成
           </router-link>
         </div>
       </div>
@@ -23,13 +23,13 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">タイプ一覧 検索</h4>
+            <h4 class="main-color m-b-10">タイプ検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="タイプ検索"
                   id="search-item"
                   @keyup="searchType()"
                 />

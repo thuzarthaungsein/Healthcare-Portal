@@ -34,8 +34,7 @@
                             </g>
                         </svg>
                         &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
-                        &nbsp;<span>{{fav_nus}}</span>
-                        &nbsp;<span style="color:#000;">件</span>
+                        &nbsp;<span class ="job_count">{{fav_nus}} 件</span>
                     </div>
                 </div>
 
@@ -287,7 +286,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</button>
                                                         <label class="btn all-btn res-btn hos-btn">
-                                                            <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
+                                                            <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
                                                             <span class="checkmark"></span>資料請求</label>
                                                     </td>
                                                 </tr>
@@ -487,8 +486,6 @@
                 this.getAllFavourite(this.local_sto);
                 if(this.local_sto){
                     this.fav_nus = this.local_sto.split(",").length;
-                }else {
-                     this.fav_nus = 0;
                 }
              },
 
@@ -517,13 +514,6 @@
                                 else{
                                     $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
                                     }
-                                                if(this.local_sto){
-                                    this.fav_nus = this.local_sto.split(",").length;
-                                }else {
-                                    this.fav_nus = 0;
-                                }
-
-
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
@@ -539,6 +529,9 @@
                                     });
                                 }
                             }
+                        }
+                        if(this.local_sto){
+                            this.fav_nus = this.local_sto.split(",").length;
                         }
                     },
                     getAllFavourite: function(local_storage) {
@@ -575,6 +568,7 @@
                         }
                         // localStorage.setItem("reserve", JSON.stringify(this.reserv_status));
                         localStorage.setItem("document", JSON.stringify(this.document_status));
+                        localStorage.removeItem("item");
                         localStorage.setItem("item", JSON.stringify(this.fav_email));
                         this.$router.push({
                             name: 'nursingFavouriteMail',
@@ -603,29 +597,12 @@
                             }
                         }
                     },
-                    checkSingle() {
-                        this.disableBtn = false;
-                        for (var i = 0; i < this.fav_nursing.length; i++) {
-                            var j = this.fav_nursing[i].id;
-                            if (this.document_status[j]) {
-                                 this.check = true;
-                                // $('.check-all-btn').prop("checked", true);
-                                this.disableBtn = false;
-                            }
-
-                            else  if(!this.document_status[j] && this.check == true) {
-                                //   $('.check-all-btn').prop("checked", false);
-                                  this.disableBtn = false;
-                                  this.check = false;
-                            }
-
-                             else if(!this.document_status[j] && this.check == false){
-                                    // $('.check-all-btn').prop("checked", false);
-                                     this.disableBtn = true;
-                                     this.check = false;
-
-
-                            }
+                    checkSingle(nid) {
+                        if (this.document_status[nid]) {
+                            this.disableBtn = false;
+                        }
+                        else if(!this.document_status.includes(true)){
+                            this.disableBtn = true;
                         }
                     },
                     itemCompare() {

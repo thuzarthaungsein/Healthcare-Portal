@@ -11,14 +11,14 @@
                         <div class="col-md-12">
                             <form @submit.prevent ="add">
                                 <div class="form-group">
-                                    <label>名前 :<span class="error">*</span></label>
-                                    <input type="text" class="form-control"  v-model="occupation.name"  placeholder="名前" >
+                                    <label>職種名 :<span class="error">*</span></label>
+                                    <input type="text" class="form-control"  v-model="occupation.name"  placeholder="職種名を入力してください。" >
                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                 </div>
                                 <div class="form-group">
                                 <label>ペアレント :<span class="error">*</span></label>
                                     <select v-model="selectedValue" class="form-control" @change='getOccupation()'>
-                                        <option value="0">None</option>
+                                        <option value="0">選択してください。</option>
                                         <option v-for="occupations in occupationList" :key="occupations.id" v-bind:value="occupations.id">
                                             {{occupations.name}}
                                         </option>
@@ -56,8 +56,8 @@ export default {
                    },
 
                 selectedValue:0,
-                header: 'Create Occupation',
-                subtitle: '作る'
+                header: '職種作成',
+                subtitle: '作成する'
 
             }
         },
@@ -87,7 +87,7 @@ export default {
                         this.selectedValue = response.data.parent;
                         this.occupationList.name = response.data.name;
                         this.header = ' 特徴更新';
-                        this.subtitle = '更新';
+                        this.subtitle = '更新する';
                         return this.header;
                         return this.subtitle;
                     }

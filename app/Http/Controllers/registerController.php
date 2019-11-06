@@ -14,6 +14,7 @@ use Redirect;
 use App\Type;
 use Session;
 use App\password_reset_view;
+use App\Mail\customerCreateMail;
 class registerController extends Controller
 {
     /**
@@ -100,6 +101,33 @@ class registerController extends Controller
             // $customer->address = $request->address;
             $customer->townships_id = $request->township;
             $customer->save();
+            if($type == 2){
+                $customer->type = '病院';
+            }
+            elseif($type == 4){
+                $customer->type = '介護  (有料老人ホーム)';
+            }
+            elseif($type == 5){
+                $customer->type = '介護 (デイサービス)';
+            }
+            elseif($type == 6){
+                $customer->type = '介護  (訪問介護・看護)';
+            }
+            $query = "SELECT townships.*, cities.city_name 
+                    FROM townships 
+                    JOIN cities
+                    ON cities.id = townships.city_id
+                    WHERE townships.id =" . $customer->townships_id;
+
+            $address = DB::select($query);
+            foreach($address as $ad) {
+                $customer->city_name = $ad->city_name;
+                $customer->township_name = $ad->township_name;
+            }
+
+
+            $admin_email = 'sawnwaiyan2014@gmail.com';
+            \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success', "Special message goes here");
             return Redirect::back();

@@ -1168,15 +1168,16 @@ p.p_2>a {
 
 .fav-profile {
     position: absolute;
-    top: 54px;
+    top: 52px;
     right: 30px;
     font-size: 12px;
     color: #333;
     font-weight: bold;
-    padding: 2px 10px !important;
+    padding: 5px 10px !important;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     cursor: pointer;
     z-index: 4;
+    width:160px;
 }
 
 .profile-tit {
@@ -7008,7 +7009,8 @@ ul.test>li:before {
     border-radius: 3px;
     margin: 0 5px 5px 0;
     letter-spacing: normal;
-    font-size: 0.857em;
+    /* font-size: 0.857em; */
+    font-size: 16px;
 }
 
 .job-tit {
@@ -7496,7 +7498,6 @@ ul.test>li:before {
     letter-spacing: 1px;
 }
 
-
 /* start nursing information */
 
 .nursing-info {
@@ -7891,6 +7892,12 @@ ul.test>li:before {
     font-size: 29px;
     color: #d2571c;
 }
-
+/* start count profie */
+/* .profile_count {
+    color: #C40000;
+    font-weight: bold;
+    font-size: 25px;
+} */
+/* end count profile */
 
 /*commentform*/
