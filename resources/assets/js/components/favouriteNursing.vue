@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-12 fav-his-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                 <g id="original-icon" fill="#c40000" opacity="0" visibility="hidden">
@@ -34,6 +34,8 @@
                             </g>
                         </svg>
                         &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
+                        &nbsp;<span>{{fav_nus}}</span>
+                        &nbsp;<span style="color:#000;">件</span>
                     </div>
                 </div>
 
@@ -285,7 +287,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</button>
                                                         <label class="btn all-btn res-btn hos-btn">
-                                                            <input type="checkbox" value="documentation" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
+                                                            <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
                                                             <span class="checkmark"></span>資料請求</label>
                                                     </td>
                                                 </tr>
@@ -426,7 +428,7 @@
                     capacity_show: false,
                     opening_check: false,
                     opening_show: false,
-
+                    fav_nus :"",
                     iscompare: false,
                     markers: [{
                         position: {
@@ -463,7 +465,7 @@
             },
 
             created() {
-                $('.checkbox1').prop("checked", true);
+                // $('.checkbox1').prop("checked", true);
                 this.iscompare = true;
                 this.address_check = true;
                 this.address_show = true;
@@ -483,8 +485,12 @@
                 this.opening_show = true;
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
-
-            },
+                if(this.local_sto){
+                    this.fav_nus = this.local_sto.split(",").length;
+                }else {
+                     this.fav_nus = 0;
+                }
+             },
 
             methods: {
                 moveCarousel(direction) {
@@ -510,7 +516,14 @@
                                 }
                                 else{
                                     $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
+                                    }
+                                                if(this.local_sto){
+                                    this.fav_nus = this.local_sto.split(",").length;
+                                }else {
+                                    this.fav_nus = 0;
                                 }
+
+
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
@@ -572,11 +585,11 @@
                     checkAll() {
                         this.disableBtn = false;
                         if ($('.check-all-btn').is(":checked")) {
-                            $('.checkbox1').prop("checked", true);
-                            $('.checkbox2').prop("checked", true);
+                            // $('.checkbox1').prop("checked", true);
+                            // $('.checkbox2').prop("checked", true);
                         } else {
-                            $('.checkbox1').prop("checked", false);
-                            $('.checkbox2').prop("checked", false);
+                            // $('.checkbox1').prop("checked", false);
+                            // $('.checkbox2').prop("checked", false);
                              this.disableBtn = true;
                         }
                         for (var i = 0; i < this.fav_nursing.length; i++) {
@@ -591,28 +604,23 @@
                         }
                     },
                     checkSingle() {
-
                         this.disableBtn = false;
                         for (var i = 0; i < this.fav_nursing.length; i++) {
                             var j = this.fav_nursing[i].id;
                             if (this.document_status[j]) {
-
                                  this.check = true;
-                                $('.check-all-btn').prop("checked", true);
+                                // $('.check-all-btn').prop("checked", true);
                                 this.disableBtn = false;
-
                             }
 
                             else  if(!this.document_status[j] && this.check == true) {
-
-                                  $('.check-all-btn').prop("checked", false);
+                                //   $('.check-all-btn').prop("checked", false);
                                   this.disableBtn = false;
                                   this.check = false;
                             }
 
                              else if(!this.document_status[j] && this.check == false){
-
-                                    $('.check-all-btn').prop("checked", false);
+                                    // $('.check-all-btn').prop("checked", false);
                                      this.disableBtn = true;
                                      this.check = false;
 
