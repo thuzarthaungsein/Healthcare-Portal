@@ -87,9 +87,8 @@
                             <input type="hidden" v-model="checkedNews" >
 
                             <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
-                                <!-- <button class="btn news-post-btn all-btn">更新</button> -->
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 更新する</span>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                             </div>
                         </form>
                     </div>
@@ -212,7 +211,7 @@
                          this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新されました',
+                            title: '更新されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             width: 250,
@@ -274,7 +273,7 @@
                            }).then(response => {
                             
                                 this.$swal({
-                                        title: "削除された",
+                                        title: "削除されました",
                                         text: "ニュース削除されました。",
                                         type: "success",
                                         width: 350,

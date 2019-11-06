@@ -145,8 +145,8 @@
 
                         <div class="btn-list mt-2  clearfix">
                             <ul>
-                                <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">内容を確認する</button></li>
+                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページに進む</button></li>
+                                <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li>                                
                             </ul>
                         </div>
                         <!--next_form-->
@@ -328,11 +328,11 @@
                         </div>
                         <div class="btn-list  clearfix">
                             <ul>
+                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページに進む</button></li>
                                 <li class="m-r-15">
                                 <!-- <router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link> -->
                                 <a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a>
-                                </li>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページへ進む</button></li>
+                                </li>                                
                             </ul>
                         </div>
                     </form>
