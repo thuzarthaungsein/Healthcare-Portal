@@ -12,7 +12,7 @@
         </div>
         <div class="col-12">
             <div class="col-md-12 fav-his-header">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <path d="M0,172v-172h172v172z" fill="none"></path>
                         <g id="original-icon" fill="#c40000" opacity="0" visibility="hidden">
@@ -75,6 +75,59 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
+                                                                <dt style="text-align:left;">診療時間</dt>
+                                                            </dl>
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr class="first-row">
+                                                                        <th>日付</th>
+                                                                        <th>午前</th>
+                                                                        <th>午後</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">月</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.mon}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.mon}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">火</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.tue}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.tue}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">水</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.wed}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.wed}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">木</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.thu}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.thu}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">金</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.fri}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.fri}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">土</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.sat}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.sat}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="second-row text-center">日</th>
+                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.sun}}</td>
+                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.sun}}</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
+                                                            <dl>
                                                                 <dt style="text-align:left;">住所</dt>
                                                                 <dd>{{hos_profile.township_name}} {{hos_profile.city_name}}</dd>
                                                             </dl>
@@ -131,59 +184,7 @@
                                                             </dl>
                                                         </td>
                                                     </tr>                                                    
-                                                    <tr>
-                                                        <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <dl>
-                                                                <dt style="text-align:left;">診療時間</dt>
-                                                            </dl>
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr class="first-row">
-                                                                        <th>日付</th>
-                                                                        <th>午前</th>
-                                                                        <th>午後</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">月</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.mon}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.mon}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">火</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.tue}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.tue}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">水</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.wed}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.wed}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">木</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.thu}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.thu}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">金</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.fri}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.fri}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">土</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.sat}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.sat}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="second-row text-center">日</th>
-                                                                        <td v-for="am in hos_profile.schedule_am" :key="am.id">{{am.sun}}</td>
-                                                                        <td v-for="pm in hos_profile.schedule_pm" :key="pm.id">{{pm.sun}}</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
+                                                    
                                                 </table>
 
                                             </div>

@@ -99,11 +99,11 @@ export default {
         this.$swal({
           title: "確認",
           text: "作成よろしいでしょうか",
-          type: "warning",
+          type: "info",
           width: 350,
           height: 200,
           showCancelButton: true,
-          confirmButtonColor: "#dc3545",
+          confirmButtonColor: "#6cb2eb",
           cancelButtonColor: "#b1abab",
           cancelButtonTextColor: "#000",
           cancelButtonText: "キャンセル",
@@ -125,7 +125,7 @@ export default {
                 width: 350,
                 height: 200,
                 confirmButtonText: "はい",
-                confirmButtonColor: "#dc3545"
+                confirmButtonColor: "#6cb2eb"
               });
               // alert('Successfully Created')
               this.$router.push({ name: "typelist" });
@@ -144,12 +144,12 @@ export default {
     updateType() {
       this.$swal({
         title: "確認",
-        text: "更新よろしいでしょうか",
-        type: "warning",
+        text: "編集をよろしでしょうか。",
+        type: "info",
         width: 350,
         height: 200,
         showCancelButton: true,
-        confirmButtonColor: "#dc3545",
+        confirmButtonColor: "#6cb2eb",
         cancelButtonColor: "#b1abab",
         cancelButtonTextColor: "#000",
         cancelButtonText: "キャンセル",
@@ -169,7 +169,7 @@ export default {
               width: 350,
               height: 200,
               confirmButtonText: "はい",
-              confirmButtonColor: "#dc3545"
+              confirmButtonColor: "#6cb2eb"
             });
             this.$router.push({ name: "typelist" });
           })

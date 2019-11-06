@@ -25,193 +25,157 @@
           <li class="no-active">2.内容のご確認</li>
           <li>3.送信完了</li>
         </ul>
-        <form class="col-md-12 form-wrap">
-          <div class="form-group m-0 row bd">
+<!-- test date-picker -->
+    <form class="col-md-12 form-wrap">
+        <div class="form-group m-0 row bd">
+
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="first_name">
-                <strong>
+                <label for="first_name">
+                    <strong>
                   お名前
                   <span class="error sp1">必須</span>
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                id="first_name"
-                placeholder="トラスト　太郎"
-                v-model="jobApply.first_name"
-              />
-              <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div>
+                <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name" />
+                <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div>
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="last_name">
-                <strong>
+                <label for="last_name">
+                    <strong>
                   お名前フリガナ
                   <span class="error sp1">必須</span>
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                id="last_name"
-                placeholder="トラスト　タロウ"
-                v-model="jobApply.last_name"
-              />
-              <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div>
+                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" />
+                <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div>
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="birthday">
-                <strong>
+                <label for="birthday">
+                    <strong>
                   生年月日
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <!-- <input
+                <!-- <input
                 type="text"
                 class="form-control box"
                 placeholder="○○日○○月○○○○年"
                 id="birthday"
                 v-model="jobApply.birthday"
               /> -->
-              <date-picker class="box" v-model="jobApply.birthday" valueType="format"  style="margin-left: 11px;"></date-picker>
+
+                <date-picker class="box date-of-establishment" v-model="jobApply.birthday" id="datepickerbox" valueType="format" style="margin-left: 11px;"></date-picker>
+
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="gender">
-                <strong>
+                <label for="gender">
+                    <strong>
                   性別
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right pl-4">
-              <label class="control control--radio">
-                <input type="radio"  v-model="jobApply.gender" value="Male" /> 女性
-                <div class="control__indicator"></div>
-              </label>
-              <label class="control control--radio">
-                <input type="radio" v-model="jobApply.gender" value="Female" /> 男性
-                <div class="control__indicator"></div>
-              </label>
+                <label class="control control--radio">
+                    <input type="radio" v-model="jobApply.gender" value="Male" /> 女性
+                    <div class="control__indicator"></div>
+                </label>
+                <label class="control control--radio">
+                    <input type="radio" v-model="jobApply.gender" value="Female" /> 男性
+                    <div class="control__indicator"></div>
+                </label>
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="postal">
-                <strong>
+                <label for="postal">
+                    <strong>
                   郵便番号
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                id="postal"
-                placeholder="165879"
-                v-model="jobApply.postal"
-                maxlength="7"
-                v-on:keyup="getPostal"
-              />
-              <div v-if="errors.postal" class="text-danger mt-2 ml-4">{{ errors.postal }}</div>
+                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" maxlength="7" v-on:keyup="getPostal" />
+                <div v-if="errors.postal" class="text-danger mt-2 ml-4">{{ errors.postal }}</div>
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="str_address">
-                <strong>
+                <label for="str_address">
+                    <strong>
                   都道府県
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                v-model="jobApply.pref"
-              />
+                <input type="text" class="form-control box" v-model="jobApply.pref" />
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="str_address">
-                <strong>
+                <label for="str_address">
+                    <strong>
                   住所
                   <span class="error sp1">必須</span>
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                id="str_address"
-                v-model="jobApply.str_address"
-              />
-              <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div>
+                <input type="text" class="form-control box" id="str_address" v-model="jobApply.str_address" />
+                <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div>
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="home_address">
-                <strong>
+                <label for="home_address">
+                    <strong>
                   番地以下
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                id="home_address"
-                v-model="jobApply.home_address"
-              />
+                <input type="text" class="form-control box" id="home_address" v-model="jobApply.home_address" />
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="phone">
-                <strong>
+                <label for="phone">
+                    <strong>
                   電話番号
                   <span class="error sp1">必須</span>
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" />
-              <div v-if="errors.phone" class="text-danger mt-2 ml-4">{{ errors.phone }}</div>
+                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" />
+                <div v-if="errors.phone" class="text-danger mt-2 ml-4">{{ errors.phone }}</div>
             </div>
-          </div>
-          <div class="form-group m-0 row bd">
+        </div>
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="email">
-                <strong>
+                <label for="email">
+                    <strong>
                   メールアドレス
                   <span class="error sp1">必須</span>
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <input
-                type="text"
-                class="form-control box"
-                id="email"
-                placeholder="例：abc@gmail.com"
-                v-model="jobApply.email"
-              />
-              <div v-if="errors.email" class="text-danger mt-2 ml-4">{{ errors.email }}</div>
+                <input type="text" class="form-control box" id="email" placeholder="例：abc@gmail.com" v-model="jobApply.email" />
+                <div v-if="errors.email" class="text-danger mt-2 ml-4">{{ errors.email }}</div>
             </div>
-          </div>
-          <!-- <div class="form-group m-0 row bd">
+        </div>
+        <!-- <div class="form-group m-0 row bd">
                 <div class="col-md-3 col-sm-12 form-left">
                     <label for ="skill"  ><strong>Skill : </strong>  </label>
                 </div>
@@ -219,54 +183,47 @@
                     <input type="text" class="form-control box" id="skill" v-model="jobApply.skill"  >
                 </div>
           </div>-->
-          <div class="form-group m-0 row bd">
+        <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="remark">
-                <strong>
+                <label for="remark">
+                    <strong>
                   ご希望等
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <textarea
-                name="remark"
-                class="form-control"
-                cols="50"
-                rows="5"
-                v-model="jobApply.remark"
-              ></textarea>
+                <textarea name="remark" class="form-control" cols="50" rows="5" v-model="jobApply.remark"></textarea>
             </div>
-          </div>
+        </div>
 
-          <div class="form-group m-0 row bd-all">
+        <div class="form-group m-0 row bd-all">
             <div class="col-md-3 col-sm-12 form-left">
-              <label for="terms">
-                <strong>
+                <label for="terms">
+                    <strong>
                   個人情報について
                   <span class="error sp1">必須</span>
                 </strong>
-              </label>
+                </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right" style="cursor:pointer;">
-              <label for class="ml-4">
-                <router-link to="/termsAndConditions" target="_blank">「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。
-              </label>
-              <br />
-              <label class="ml-4 control control--checkbox">
-                <input type="checkbox" v-model="jobApply.terms" /> 同意する
-                <div class="control__indicator"></div>
-              </label>
-              <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
+                <label for class="ml-4">
+                    <router-link to="/termsAndConditions" target="_blank">「プライバシーポリシー」</router-link>をご確認いただき、よろしければ「同意する」にチェックをして、内容を送信してください。
+                </label>
+                <br />
+                <label class="ml-4 control control--checkbox">
+                    <input type="checkbox" v-model="jobApply.terms" /> 同意する
+                    <div class="control__indicator"></div>
+                </label>
+                <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
             </div>
-          </div>
-          <div class="text-center mt-4 pb-5">
-            <span
-              :disabled="isDisabled"
-              class="btn main-bg-color white all-btn width17"
-              @click="checkValidate()"
-            >確認画面へ進む</span>
-          </div>
-        </form>
+        </div>
+        <div class="text-center mt-4 pb-5">
+            <span :disabled="isDisabled" class="btn main-bg-color white all-btn width17" @click="checkValidate()">確認画面へ進む</span>
+        </div>
+</form>
+
+<!-- end date-picker -->
+
       </div>
 
       <div class="col-md-12 confirm_box" v-if="type == 'confirm'">
@@ -383,7 +340,7 @@
               <label for="skill">
                 <strong>スキル</strong>
               </label>
-            </div>
+            </div>f
             <div class="col-md-9 col-sm-12 form-right">
               <span class="pl-4">{{ jobApply.skill }}</span>
             </div>

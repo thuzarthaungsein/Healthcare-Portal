@@ -54,36 +54,44 @@ export default {
 
   methods: {
     updateCategory() { 
-      this.axios.post(`/api/category/update/${this.$route.params.id}`, this.category).then(response => {
-        this.name = "";
-        this.$swal({
-            position: 'top-end',
-            type: 'success',
-            title: '更新されました',
-            showConfirmButton: false,
-            timer: 1500,
-            width: 250,
-            height: 200,
-        })
-         this.$router.push({ name: "categorylist" });
-        })
-        .catch(error => {
-          if (error.response.status == 422) {
-            this.errors = error.response.data.errors;
-          }
-        });
-      // this.axios
-      //   .post(`/api/category/update/${this.$route.params.id}`, this.category)
-      //   .then(response => {
-      //     this.name = "";
-      //     alert("Successfully Updated!");
-      //     this.$router.push({ name: "categorylist" });
-      //   })
-      //   .catch(error => {
-      //     if (error.response.status == 422) {
-      //       this.errors = error.response.data.errors;
-      //     }
-      //   });
+                    this.$swal({
+                            title: "確認",
+                            text: "編集をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => { 
+                     this.axios.post(`/api/category/update/${this.$route.params.id}`, this.category)
+                    .then((response) => {
+                        this.name = ''
+                        this.$swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: '更新されました。',
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#6cb2eb",
+                            width: 250,
+                            height: 200,
+                        })
+                        // alert('Successfully Created')
+                     this.$router.push({name: 'categorylist'});
+                    }).catch(error=>{
+
+                    if(error.response.status == 422){
+
+                        this.errors = error.response.data.errors
+
+                    }
+                });
+            });
     }
   }
 };

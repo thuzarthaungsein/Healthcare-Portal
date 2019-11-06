@@ -88,7 +88,22 @@
 
             },
             add() {
-                let adsData = new FormData();
+                  this.$swal({
+                            title: "作成",
+                            text: "作成をよろしでしょうか。",
+                            type: "success",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => { 
+                             let adsData = new FormData();
                 adsData.append('title', this.ads.title)
                 adsData.append('description', this.ads.description)
                 adsData.append('link', this.ads.link)
@@ -101,9 +116,9 @@
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新されました',
-                            showConfirmButton: false,
-                            timer: 1500,
+                            title: '作成されました。',
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#0cc72c",
                             width: 250,
                             height: 200,
 
@@ -118,6 +133,8 @@
                             this.errors = error.response.data.errors
 
                         }
+                         });
+               
                     })
             },
         }

@@ -99,18 +99,35 @@ export default {
 
          methods: {
             add() {
-                if( `${this.$route.params.id}` == "undefined")
+                          if( `${this.$route.params.id}` == "undefined")
                 {
-                    this.axios.post('/api/occupation/add', this.occupation)
-                        .then((response) => {
+                    this.$swal({
+                                title: "作成",
+                            text: "作成をよろしでしょうか。",
+                            type: "success",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                            }).then(response =>{
+                                  this.axios.post('/api/occupation/add', this.occupation)
+                        .then(response => {
                             this.name = ''
                             console.log(response);
                             this.$swal({
                             position: 'top-end',
                             type: 'success',
                             title: '作成されました',
-                            showConfirmButton: false,
-                            timer: 1800,
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#6cb2eb",
+                            // showConfirmButton: false,
+                            // timer: 1800,
                             width: 250,
                             height: 200,
                         })
@@ -124,6 +141,8 @@ export default {
 
                     }
                 })
+                            })
+
                 }
                 else{
                      this.updateType();
@@ -136,17 +155,32 @@ export default {
                 },
 
               updateType() {
-                this.axios
+                  this.$swal({
+                            title: "確認",
+                            text: "編集をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => {
+                            this.axios
                     .post(`/api/occupation/update/${this.$route.params.id}`, this.occupation)
-                    .then((response) => {
+                    .then(response => {
                         // this.name = ''
                         //   alert('Successfully Updated!')
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
-                            showConfirmButton: false,
-                            timer: 1800,
+                            title: '更新されました。',
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#6cb2eb",
                             width: 250,
                             height: 200,
                         })
@@ -159,6 +193,8 @@ export default {
 
                     }
                 });
+                         });
+                
             },
 
 

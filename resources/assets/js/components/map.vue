@@ -1,13 +1,6 @@
 
 <template>
-  <svg
-    width="100%"
-    height="100%"
-    viewBox="100 0 400 420"
-    preserveAspectRatio="xMidYMid meet"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-  >
+  <svg width="100%" height="100%" viewBox="100 0 400 420" preserveAspectRatio="xMidYMid meet" xmlns:xlink="http://www.w3.org/1999/xlink" >
     <path
       id="JP-23"
       title="Aichi"

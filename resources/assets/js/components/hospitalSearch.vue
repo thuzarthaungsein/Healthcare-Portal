@@ -384,7 +384,7 @@
               <tr class="text-center">
                 <td colspan="2">
                   <button type="button" class="main-bg-color create-btn all-btn" style="width:16%;" id="search" name="search" value="検索"  @click="search">
-                  <i class="fas fa-search"></i>&nbsp; 検索 
+                  <i class="fas fa-search"></i>&nbsp; 検索
                   </button>
                 </td>
               </tr>
