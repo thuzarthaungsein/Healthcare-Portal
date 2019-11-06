@@ -448,6 +448,7 @@ import DatePicker from 'vue2-datepicker';
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
                 // this.reservation = JSON.parse(localStorage.getItem("reserve"));
                 this.documentation = JSON.parse(localStorage.getItem("document"));
+                console.log('document',this.documentation)
                 for (var i = 0; i < this.all_mail.length; i++) {
                     this.comments.fav_mail.push(this.all_mail[i].email);
                     this.comments.fav_id.push(this.all_mail[i].id);

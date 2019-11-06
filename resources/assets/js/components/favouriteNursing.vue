@@ -593,6 +593,7 @@
                     },
                     checkSingle() {
                         this.disableBtn = false;
+                        console.log('dod',this.document_status)
                         for (var i = 0; i < this.fav_nursing.length; i++) {
                             var j = this.fav_nursing[i].id;
                             if (this.document_status[j]) {
