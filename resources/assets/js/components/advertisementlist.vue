@@ -46,7 +46,7 @@
               <div class="card-body news-post">
                 <div class="row">
                   <div class="col-md-2">
-                    <img :src="'/upload/advertisement/'+ ads.photo" class="img-fluid" alt="ads" />
+                    <img :src="'/upload/advertisement/'+ ads.photo" class="img-fluid" alt="ads"  @error="imgUrlAlt"/>
                   </div>
                   <div class="row col-md-10">
                     <div class="col-md-2 max-width16">
@@ -139,7 +139,10 @@ export default {
       this.axios.post("/api/advertisement/search", fd).then(response => {
         this.advertisements = response.data;
       });
-    }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
      }
   }
 

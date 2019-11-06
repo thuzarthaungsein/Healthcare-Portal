@@ -399,7 +399,7 @@ import DatePicker from 'vue2-datepicker';
             }
         },
         created() {
-            console.log('item',JSON.parse(localStorage.getItem("item")));
+            console.log('item',JSON.parse(localStorage.getItem("item")))
             this.bk_data = this.$route.params.input_data;
             this.bk_postal = this.$route.params.bk_postal;
             if (this.bk_data != undefined) {
