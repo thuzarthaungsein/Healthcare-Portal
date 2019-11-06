@@ -882,7 +882,6 @@ export default {
            closeBtnMethod: function(indx) {
                         if(confirm("Are you sure you want to delete?"))
                         {
-                        alert(indx);
                             var panorama_x = document.getElementById('x-panorama'+indx);
                             panorama_x.parentNode.removeChild(panorama_x);
                         }
