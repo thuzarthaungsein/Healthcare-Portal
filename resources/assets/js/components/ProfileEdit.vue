@@ -154,6 +154,10 @@ export default {
                 this.axios
                     .post(`/api/user/password-change`,arr)
                     .then((response) => {
+                       console.log(response);
+                        if(response == 'oldpasswordwrong') {
+                            alert('Old Password is Wrong!');return;
+                        }
                         alert('Password is Successfully Changed!');
                     }).catch(error=>{
 

@@ -429,7 +429,7 @@
                                 
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
-                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
+                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
                         </div>
                     </div>
 
@@ -856,16 +856,16 @@
                             <!-- <div id="panorama"></div>           -->
 
                             <Pannellum  :src="'/upload/hospital_profile/Imagepanorama/' + currentPanoImage"
-                                        class="pannellum"
-                                        :auto-load="true"
-                                        :show-zoom="true"
-                                        :show-fullscreen="true"
-                                        :auto-rotate="isAutoRotationOn"
-                                        :orientation="isOrientationOn"
-                                        :compass="true"
-                                        :hfov= "120"
+                                class="pannellum"
+                                :auto-load="true"
+                                :show-zoom="true"
+                                :show-fullscreen="true"
+                                :auto-rotate="isAutoRotationOn"
+                                :orientation="isOrientationOn"
+                                :compass="true"
+                                :hfov= "120"
 
-                                        ></Pannellum>
+                                ></Pannellum>
 
                         </div>
                             <div class="col-12" id="pano-slider-page">
@@ -1358,6 +1358,21 @@
 
             </div>
 
+            <div class="col-md-12">
+                        <label class="cost_heading_lbl">フォトアルバム</label>
+                        <div class="row">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
+                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
+                                    <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                </div>
+                                
+                                <!-- <span>{{image.photo}}</span> -->
+                            </div>
+                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
+                        </div>
+                    </div>
+
             <!-- Hospital Video -->
                 <div class="col-md-12 m-t-15 m-b-15">
                     <label class="cost_heading_lbl">動画</label>
@@ -1474,7 +1489,7 @@ export default {
                 activeImageDescription:'',
                 index: 0,
                 light_images:[],
-                thumbnailDir: '/upload/nursing_profile/',
+                thumbnailDir: '/upload/',
                 // cusid: 0,
                 // type: 0,
                 pageNum: 0,
@@ -1654,6 +1669,15 @@ export default {
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
 
                     this.images = response.data.images;
+
+                    for(var i=0; i<this.images.length; i++){
+                        this.light_images.push({
+                            'name': this.images[i]['photo'],
+                            'description': this.images[i]['description'],
+                            'id': this.images[i]['id'],
+                            'title': this.images[i]['title']
+                        })
+                    }
 
                     this.videos = response.data.videos;
 

@@ -109,7 +109,7 @@ class CustomerController extends Controller
             $type = User::where('id',$u_id)->select('type_id')->value('type_id');
         }
         $customer = Customer::find($id);
-        $customer['type_id'] = $type? $type: '';
+        $customer['type_id'] = isset($type)? $type: '';
 
         return response()->json($customer);
     }
