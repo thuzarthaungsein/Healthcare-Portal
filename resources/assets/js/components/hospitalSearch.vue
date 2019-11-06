@@ -417,7 +417,7 @@
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">
                         <tr>
-                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>名前</td>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
                           <td>{{hos.name}}</td>
                         </tr>
                           <tr>

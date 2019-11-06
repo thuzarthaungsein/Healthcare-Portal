@@ -317,7 +317,7 @@
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
                 <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2)" v-model="township_id">
-                <option value="-1">Select Township</option>
+                <option value="-1">▼市区町村</option>
                   <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
               </div>
@@ -407,7 +407,7 @@
                           <tr >
                             <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
-                                    <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                                    <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                                     <p class="item-fav btn btn-sm">
                                         <i class="fas fa-plus-square"></i> お気に入りに追加 
                                     </p>                                 
@@ -470,7 +470,7 @@
                         </tbody>
                       </table>
                         <!-- <div class="col-12">
-                            <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                            <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                               <p class="item-fav btn btn-sm">
                                 <i class="fas fa-plus-square"></i> お気に入りに追加 
                               </p>                                 
@@ -641,52 +641,56 @@
         
         <div class=" col-12">
                  <div class="row">
-                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
-                     <div class="job-content">
+                   <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                     <div class="nur-content">
                       <div class="job-body row  clearfix">
-                        <div class="col-4 job-img">
+                        <div class="col-3 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div>
-                        <div class="col-8 job-box">
-                          <table  class="table table-bordered  table-sm">
-                              <h2> Nursing </h2>
+                        <div class="col-5 job-box">
+                          <table  class="table table-bordered table-sm">                              
                               <tr>
-                                <td>住所: {{nus.name}}</td>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
+                                <td>{{nus.name}}</td>
                               </tr>
                                <tr>
-                                <td>メール: {{nus.email}}</td>
-                              </tr>
-                                <tr>
-                                <td>電話: {{nus.phone}}</td>
-                              </tr>
-                                <tr>
-                                <td> 住所 : {{nus.address}}</td>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
+                                <td>{{nus.email}}</td>
                               </tr>
                               <tr>
-                                <td> Moving In : {{nus.moving_in}} </td>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-phone-alt"></i></span>電話</td>
+                                <td>{{nus.phone}}</td>
                               </tr>
-                                <h2> Fac Type </h2>
+                              <tr>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
+                                <td>{{nus.address}}</td>
+                              </tr>
+                              <tr>
+                                <td style="width:30%;"><span class="job_ico">&#xa5;</span>入居時費用</td>
+                                <td>{{nus.moving_in}} </td>
+                              </tr>
+                                
                               <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                                 <span v-if="fac.id == nus.fac_type" class="feature_list">
                                   {{fac.description}}
                                 </span>
                               </span>
-                             
-                        
-                              <h2> SpecialFeature </h2>
+                          </table>
+                        </div>
+                        <div class="col-4">                            
+                           <h5 class="header m-t-10">こだわりの特長</h5>
                               <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
                                 <span v-if="spe.customer_id == nus.customer_id" class="feature_list">
                                   {{spe.name}}
                                 </span>
                               </span>
 
-                               <h2> Medical Acceptance </h2>
+                             <h5 class="header m-t-10">医療受入</h5>  
                               <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
                                 <span v-if="med.customer_id == nus.customer_id" class="feature_list">
                                   {{med.name}}
                                 </span>
                               </span>
-                          </table>
                         </div>
                       </div>
                     </div>
@@ -907,8 +911,8 @@
                           '<table class="table">' +
                             '<thead>' +
                               '<tr>' +
-                                '<td class="text-left text-danger">' + item[i]['num_rooms'] +
-                                '</td>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
                                 '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
                               '</tr>' +
@@ -916,38 +920,38 @@
                             '<tbody>' +
                               '<tr>' +
                                 '<td colspan="2"><button class="item-fav-infowindow">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+                                
                                 '</span> </button></td>' +
                               '</tr>' +
                               '<tr>' +
                               '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
                                 '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
                                 '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
-                                '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
+                                '<td colspan="2"><p class="type-name">' +
                                 item[i]['type_name'] +
-                                +'</td>' +
+                                +'</p></td>' +
                             '</tr>' +
                             '<tr>' +
                             '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                             '</td>' +
                             '<td>' +
-                              '<table class="table table-bordered">' +
+                              '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
                                 '<tbody>' +
                                   '<tr>' +
-                                    '<td>Address</td>' +
+                                    '<td>住所</td>' +
                                     '<td>' + item[i]['address'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                  '<td>Phone</td>' +
+                                  '<td>電話</td>' +
                                   '<td>' + item[i]['phone'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                '<td>Website</td>' +
+                                '<td>ウェブ</td>' +
                                 '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                                 '</tr>' +
                                 '</tbody>' +
@@ -956,19 +960,15 @@
                             '</tr>' +
                             ' <tr>' +
                             '<td colspan="2">' +
-                              '<div class="row text-center">' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in">入居時費用</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month">月額利用料</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
-                                '</div>' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
+                                '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
+                                '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
                               '</div>' +
                             '</td>' +
                             '</tr>' +
@@ -992,7 +992,7 @@
                     marker = new google.maps.Marker({
                       position: myLatLng,
                       map: this.map,
-                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|FF0000|000000',
+                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
                       zoom: 6,
                       title: this.markers[i]['name']
                     });
@@ -1218,47 +1218,47 @@
                           '<table class="table">' +
                             '<thead>' +
                               '<tr>' +
-                                '<td class="text-left text-danger">' + item[i]['num_rooms'] +
-                                '</td>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
                                 '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
                               '</tr>' +
                             '</thead>' +
                             '<tbody>' +
                               '<tr>' +
-                                '<td colspan="2"><button class="item-fav-infowindow">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+                                
                                 '</span> </button></td>' +
                               '</tr>' +
                               '<tr>' +
                               '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
                                 '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
                                 '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
-                                '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
+                                '<td colspan="2"><p class="type-name">' +
                                 item[i]['type_name'] +
-                                +'</td>' +
+                                +'</p></td>' +
                             '</tr>' +
                             '<tr>' +
                             '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                             '</td>' +
                             '<td>' +
-                              '<table class="table table-bordered">' +
+                              '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
                                 '<tbody>' +
                                   '<tr>' +
-                                    '<td>Address</td>' +
+                                    '<td>住所</td>' +
                                     '<td>' + item[i]['address'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                  '<td>Phone</td>' +
+                                  '<td>電話</td>' +
                                   '<td>' + item[i]['phone'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                '<td>Website</td>' +
+                                '<td>ウェブ</td>' +
                                 '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                                 '</tr>' +
                                 '</tbody>' +
@@ -1267,19 +1267,15 @@
                             '</tr>' +
                             ' <tr>' +
                             '<td colspan="2">' +
-                              '<div class="row text-center">' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in">Moving In</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month">Per Month</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
-                                '</div>' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
+                                '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
+                                '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
                               '</div>' +
                             '</td>' +
                             '</tr>' +
@@ -1304,7 +1300,7 @@
                     marker = new google.maps.Marker({
                       position: position,
                       map: this.map,
-                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|FF0000|000000',
+                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
                       zoom: 6,
                       title: this.markers[i]['name']
                     });
