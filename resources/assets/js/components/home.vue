@@ -59,10 +59,6 @@ export default {
         },
         created() {
             this.start();
-            this.getAllCat();
-            this.getPostByFirstCat();
-            this.getLatestPostByFirstCatID();
-            this.getLatestPostFromAllCat();
         },
         methods: {
             start() {
@@ -84,8 +80,6 @@ export default {
                                 this.fade3 = false;
                                 this.fade4 = false;
                                 this.subtab2active = 'active';
-
-
                         }
                         else if(this.$route.params.page == '#tab3'){
                             this.changeRoute('nursing');
@@ -94,8 +88,6 @@ export default {
                                 this.fade3 = false;
                                 this.fade4 = false;
                                 this.subtab3active = 'active';
-
-
                         }
                         else if(this.$route.params.page == '#tab4'){
                             this.changeRoute('job');
@@ -104,8 +96,6 @@ export default {
                                 this.fade3 = false;
                                 this.fade4 = false;
                                 this.subtab4active = 'active';
-
-
                         }
                         else if(this.$route.params.page == '#tab1'){
                             this.changeRoute('news');
@@ -114,8 +104,6 @@ export default {
                                 this.fade3 = false;
                                 this.fade4 = false;
                                 this.subtab1active = 'active';
-
-
                         }
 
                 }
@@ -127,44 +115,7 @@ export default {
 
             //     this.$route.params.page? (this.$route.params.page == 'subtab2'? (this.subtab2active = 'active') : (this.subtab3active = 'active')) : (this.subtab1active = 'active');
             },
-            getAllCat: function() {
-                    this.axios
-                    .get('/api/home')
-                    .then(response => {
-                            this.cats = response.data;
-                    });
-            },
-            getPostByFirstCat: function() {
-                        this.axios.get("/api/posts/1")
-                    .then(response => {
-                            this.posts = response.data;
-                    });
-            },
-            getPostByCatID: function(cat_id) {
-                    this.axios.get("/api/posts/" + cat_id)
-                    .then(response => {
-                            this.posts = response.data;
-                    });
-            },
-            getLatestPostByFirstCatID: function() {
-                    this.axios.get("/api/get_latest_post/1")
-                    .then(response => {
-                            this.latest_post = response.data;
-                    });
-            },
-            getLatestPostByCatID: function(cat_id) {
-                    this.axios.get("/api/get_latest_post/" + cat_id)
-                    .then(response => {
-                            this.latest_post = response.data;
-                    });
-            },
-            getLatestPostFromAllCat: function() {
-                    this.axios
-                    .get('/api/get_latest_post_all_cat')
-                    .then(response => {
-                            this.latest_post_all_cats = response.data;
-                    });
-            },
+ 
             changeRoute(tab){
                     // $('[class^="-tabColor"]').removeClass();
                     $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
