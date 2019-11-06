@@ -1,4 +1,5 @@
 <template>
+<layout>
 <div>
   <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">     
     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5>
@@ -695,10 +696,18 @@
 
   </div>
   </div>
+
+
+
+
+
+
+  </layout>
 </template>
 
 
 <script>
+  import layout from '../components/home.vue'
   import asidebar from "./aside.vue";
   import {
     eventBus
@@ -709,7 +718,8 @@
 
     name: "mymap",
     components: {
-      asidebar
+      asidebar,
+      layout
     },
 
     data() {
