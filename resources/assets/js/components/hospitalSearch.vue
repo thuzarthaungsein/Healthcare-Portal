@@ -318,7 +318,7 @@
                   <button @click="toggleContent" class="btn col-3 seemore-btn">
                     <i class="fa" aria-hidden="true"></i>
                     <!-- <em>{{city.city_name}}</em> -->
-                    <span id="close"><i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる</span>
+                    <span id="close"><i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる</span>
                   </button>
 
                   <div class="toBeToggled" id="toBeToggled">
@@ -359,7 +359,7 @@
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
-                <th>医科</th>
+                <th>診療科目</th>
                 <td>
                   <div class="form-check form-check-inline col-sm-2" v-for="subject in subjects" :key="subject.id">
                     <!-- <label class="form-check-label" > -->
@@ -384,7 +384,7 @@
               <tr class="text-center">
                 <td colspan="2">
                   <button type="button" class="main-bg-color create-btn all-btn" style="width:16%;" id="search" name="search" value="検索"  @click="search">
-                  <i class="fas fa-search"></i>&nbsp; 検索 
+                  <i class="fas fa-search"></i>&nbsp; 検索
                   </button>
                 </td>
               </tr>
@@ -585,12 +585,12 @@
         if (this.toggleCheck == true) {
           $('#close').empty();
           $("#toBeToggled").slideDown();
-          $('#close').append('<i class="fas fa-arrow-circle-up"></i> 市区町村を閉じる');
+          $('#close').append('<i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる');
 
         } else {
           $('#close').empty();
           $("#toBeToggled").slideUp();
-          $('#close').append('<i class="fas fa-arrow-circle-down"></i> 市区町村を開く');
+          $('#close').append('<i class="fas fa-arrow-circle-down"></i> 市区町村エリアを開く');
         }
       },
       ShowHide1() {

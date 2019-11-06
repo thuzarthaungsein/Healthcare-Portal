@@ -92,7 +92,7 @@
 
               <div class="form-group">
                 <label for="description" class="mt-2">
-                  経験・スキ:
+                  経験・スキル:
                   <a class="btn btn-sm main-bg-color all-btn white mb-2 ml-4" @click="addRow">
                     <i class="fas fa-plus-circle"></i> 新スキルを追加
                   </a>
@@ -172,7 +172,7 @@
               </div>
               <div class="form-group">
                 <label for="location">
-                  郵便番号:
+                  都道府県:
                   <span class="error sp2">必須</span>
                 </label>
                 <input
@@ -184,7 +184,7 @@
               </div>
               <div class="form-group">
                 <label for="location">
-                  郵便番号:
+                  市区町村、番地（建物名):
                   <span class="error sp2">必須</span>
                 </label>
                 <input
@@ -371,14 +371,14 @@
               </div>
 
               <div class="form-group">
-                <label for="salary_remark">Salary Remark:</label>
+                <label for="salary_remark">給料備考:</label>
                 <textarea
                   name="salary_remark"
                   class="form-control"
                   cols="50"
                   rows="5"
                   v-model="joboffer.salary_remark"
-                  placeholder="諸手当を入力してください。"
+                  placeholder="給料備考を入力してください。"
                 ></textarea>
               </div>
 
@@ -591,7 +591,7 @@ export default {
 
           this.joboffer.recordstatus = response.data[0].recordstatus;
           this.header = " 求人採用更新";
-          this.subtitle = "更新";
+          this.subtitle = "更新する";
           return this.header;
           return this.subtitle;
         });

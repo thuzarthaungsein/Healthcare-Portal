@@ -3,12 +3,13 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
+        <span class="top-mail-btn" @click="documentPost()">資料請求</span>
         <!--panorama-->
         <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
-        
-        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">        
+
+        <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
             <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
-            
+
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel" style="background:#fff;">
                 <div class="card-img" >
@@ -87,10 +88,6 @@
             <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn"  @click="activate(6)" :class="{ active : active_el == 6 }">
                 ロコミ
             </button>
-
-            <!-- <button v-scroll-to="{ el: '#element7' }" class="top-fixed-btn"  @click="activate(7)" :class="{ active : active_el == 7 }">
-                求人応募
-            </button> -->
 
             </div>
 
@@ -425,8 +422,11 @@
                         <label class="cost_heading_lbl">フォトアルバム</label>
                         <div class="row">
                             <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
-                                <img  :src ="'/upload/nursing_profile/' + image.name" style="width:100%;border:7px solid #eee;" class="img-responsive" @click="showLightbox(image.name)"  >
-                                <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
+                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                </div>
+                                
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
@@ -1422,22 +1422,10 @@
 
 
 <script>
-$(document).scroll(function() {
-  var cur_pos = $(this).scrollTop();
-
-  if (cur_pos >= 100) {
-      $(".fixed-nav").css({"position": "fixed", "top": "210px"});
-  } else {
-       $(".fixed-nav").css({"position": "unset", "top": "unset"});
-  }
-
-});
-
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
 import Lightbox from 'vue-my-photos'
-
 export default {
 
     components:{
@@ -1511,6 +1499,7 @@ export default {
                 panocurrentOffset: 0,
                 windowSize: 10,
                 paginationFactor:103,
+                fav_email : [],
                   data: { 
 	  str:"Welcome to Canada!",
 	  substr: ""
@@ -1522,6 +1511,7 @@ export default {
         props:{
                 cusid:Number,
                 type:String,
+                loginuser:Boolean,
         },
 
         created(){
@@ -1536,6 +1526,29 @@ export default {
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
 
+            if(this.loginuser == true) {
+                $(document).scroll(function() {
+                    $(".fixed-nav").css({"position": "fixed","top":"70px"});
+                    var cur_pos = $(this).scrollTop();
+                    if (cur_pos >= 100) {
+                        $(".fixed-nav").css({"position": "fixed","top":"70px"});
+                    } else {
+                        $(".fixed-nav").css({"position": "unset", "top": "unset"});
+                    }
+                    //  $(".fixed-nav").css({"position": "unset","top":"unset"});
+                });
+
+            } else {
+                $(document).scroll(function() {
+                    $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                    var cur_pos = $(this).scrollTop();
+                    if (cur_pos >= 100) {
+                        $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                    } else {
+                        $(".fixed-nav").css({"position": "unset", "top": "unset"});
+                    }
+                });
+            }
             if(this.type == "nursing")
 
             {
@@ -1616,8 +1629,9 @@ export default {
                 });
 
                   this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
-
+console.log(response);
                       this.customer = response.data;
+                      console.log('customer',this.customer)
 
                 });
 
@@ -1808,9 +1822,6 @@ export default {
                 this.activeImageTitle = this.images[imageIndex].title;
 
                  this.activeImageDescription = this.images[imageIndex].description;
-
-
-
             },
 
 
@@ -1830,6 +1841,20 @@ export default {
         $('.changeLink'+id).addClass("CloseBtn");
         $('.closeChangeLink').hide('medium');
         $('#changeLink'+id).show('medium');
+    },
+    documentPost() {
+        localStorage.removeItem("item");        
+        for (var i = 0; i < this.customer.length; i++) {
+        this.fav_email.push({
+            'id': this.customer[i]['id'],
+            'email': this.customer[i]['email'],
+            'name': this.customer[i]['name']
+            });
+        }
+        localStorage.setItem("item", JSON.stringify(this.fav_email));
+        this.$router.push({
+            name: 'nursingFavouriteMail',
+        });
     }
 
   }
@@ -2356,5 +2381,19 @@ a.comhov:hover, a.comhov:active {background: #fbaa84;}
 .cash-unit {
     color: #333;
     font-size: 0.8em;
+}
+
+.top-mail-btn {
+    position: absolute;
+    right: 120px;
+    top: -12px;
+    background: #ff7100;
+    border: 1px solid #ff9563;
+    color: #000;
+    width: 145px;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 5px 3px #ccc!important;
 }
 </style>

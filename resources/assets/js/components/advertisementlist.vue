@@ -9,7 +9,7 @@
             class="float-right main-bg-color create-btn all-btn"
             style="color: blue;"
           >
-            <i class="fas fa-plus-circle"></i> 広告を作成する
+            <i class="fas fa-plus-circle"></i> 広告を作成
           </router-link>
         </div>
       </div>
@@ -34,7 +34,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="広告検索"
                   id="search-item"
                   @keyup="searchAdvertisment()"
                 />
@@ -118,8 +118,8 @@ export default {
         //   let a = this.advertisements.map(item => item.id).indexOf(id);
         //   this.advertisements.splice(a, 1);
           this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
+              title: "削除済",
+              text: "広告を削除されました。",
               type: "success",
               width: 350,
               height: 200,

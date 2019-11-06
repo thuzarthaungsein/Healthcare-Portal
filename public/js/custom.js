@@ -1,11 +1,4 @@
-///////////////////////////////for summernote//////////////////////////
-$(".summernote").summernote({
-    placeholder: "Hello bootstrap 4",
-    tabsize: 2,
-    height: 100
-});
 
-///////////////////////////js///////////////////////////////
 var ct = 1;
 
 function new_link() {

@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
 // public route api start
     Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch','SearchMapController@getNursingSearch');
-    Route::post('getmap/{id}','SearchMapController@getMap');
+    Route::get('getmap/','SearchMapController@getMap');
     Route::get('getjobsearch','SearchMapController@getJobSearch');
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
 
@@ -250,6 +250,10 @@ Route::get('nursing-vgallery/{id}','GalleryController@getVideobyCustomerId');
 Route::get('nursing-panorrama-gallery/{id}','GalleryController@getPanoramabyCustomerId');
 Route::post('nursing/movephoto','NursingProfileController@movePhoto');
 Route::post('hospital/movephoto','HospitalProfileController@movePhoto');
+Route::post('user/movephoto','UserController@movePhoto');
+Route::post('user/password-change','UserController@changePassword');
+Route::post('user/email-change','UserController@changeEmail');
+Route::get('user/userinfo','UserController@getUserInfo');
 
 Route::get('nursing-cooperate/{id}','CooperateMedicalController@getCooperateByCustomerId');
 Route::get('nursing-payment/{id}','PaymentMethodController@getPaymentByCustomerId');

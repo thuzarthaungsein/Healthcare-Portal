@@ -48,7 +48,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" name="name" value="" required placeholder="事業者名">
+                                    <input type="text" class="form-control" name="name" value="" required placeholder="事業者名を入力してください。">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -56,7 +56,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                     </div>
-                                    <input type="email" class="form-control" name="email" value="" required placeholder="電子メールアドレス">
+                                    <input type="email" class="form-control" name="email" value="" required placeholder="メールアドレスを入力してください。">
 
                                 </div>
                                 <div class="input-group mb-3">
@@ -64,46 +64,46 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="password" onkeyup="password_validate()" value="" id="pwd" required placeholder="パスワード">
+                                    <input type="password" class="form-control" name="password" onkeyup="password_validate()" value="" id="pwd" required placeholder="パスワードを入力してください。">
 
                                 </div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">パスワードを認証</label>
+                                    <label class="col-4 col-lg-3 control-label">パスワード確認</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onkeyup="password_validate()" value="" required placeholder="パスワードを認証">
+                                    <input type="password" class="form-control" name="comfirm_password" id="confirm_pwd" onkeyup="password_validate()" value="" required placeholder="パスワードをもう一度確認してください。">
                                     <br>
                                     
                                 </div>
                                 <div class="error" id="passworderror" style="padding-left: 162px;margin-bottom: 18px;display: none;">Password not match.</div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">タイプを選択</label>
+                                    <label class="col-4 col-lg-3 control-label">事業者タイプ</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-list"></i></span>
 
                                     </div>
                                     <select id="type" class="form-control custom-select" name="types" required>
-                                        <option value="">タイプを選択</option>
+                                        <option value="">事業者タイプを選択してください。</option>
                                         <option value="2">病院</option>
                                         <option value="3">介護</option>
                                     </select>
                                 </div>
                                 <div class="input-group mb-3 hide form-check form-check-inline" id="showHideActionNursing">
-                                    <label class="col-4 col-lg-3 control-label">選択看護</label>
+                                    <label class="col-4 col-lg-3 control-label">看護種類</label>
                                     <div class="input-group-append " id="nursing">
 
                                     </div>
-                                    <div class="error" id="radioerror" style="margin-bottom: 6px;margin-left: 210px;">Required</div>
+                                    <div class="error" id="radioerror" style="margin-bottom: 6px;margin-left: 210px;">必須</div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <label class="col-4 col-lg-3 control-label">都道府県選択</label>
+                                    <label class="col-4 col-lg-3 control-label">都道府県</label>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-map"></i></span>
 
                                     </div>
                                     <select name="cities" id="cities" class="form-control custom-select" required>
-                                        <option value="">都市を選択</option>
+                                        <option value="">都道府県を選択してください。</option>
                                         <!-- <option value="">選択してください。</option> -->
                                         @foreach($cities as $city)
                                         <option value="{{$city->id}}">{{$city->city_name}}</option>
@@ -127,7 +127,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="phone" value="" required placeholder="電話番号">
+                                    <input type="number" class="form-control" name="phone" value="" required placeholder="電話番号を入力してください。">
  
                                 </div>
                                 <!-- <div class="input-group mb-3">
@@ -141,7 +141,7 @@
                                     <div class="form-group row float-right">
                                         <div class="col-12">
                                             <!-- <button class="btn btn-danger register_btn">キャンセル</button> -->
-                                            <button type="submit" class="btn register_btn login_btn" id="sub_btn">作成</button>
+                                            <button type="submit" class="btn register_btn login_btn" id="sub_btn">作成する</button>
                                             <!-- <a class="btn btn-danger register_btn">キャンセル</a>
                                                  <a class="btn register_btn" >作成</a> -->
                                         </div>
@@ -232,7 +232,7 @@
                 let cities = e.target.value;
                 $.getJSON("ajax-cities?cities=" + cities, function(data) {
                     $('#showHideActionTownship').removeClass('hide').addClass('show');
-                    $('#township').html('<option selected="selected" value="">選択してください。</option>');
+                    $('#township').html('<option selected="selected" value="">市区町村選択してください。</option>');
                     $.each(data.data, function(id, name) {
                         $('#township').append('<option value="' + name.id + '">' + name.township_name + '</option>');
                     });

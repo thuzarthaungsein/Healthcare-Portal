@@ -23,7 +23,7 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">コメント一覧 検索</h4>
+            <h4 class="main-color m-b-10">コメント 検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
@@ -49,7 +49,7 @@
                     <button :class="'btn btn all-btn main-bg-color changeLink'+comment.id" style="min-width: 0px;" @click="commentToggle(comment.id)" >
                                                             <i :id="'icon' + comment.id" class="fa fa-angle-down"></i> 見る</button>
                     <button class="btn-secondary all-btn confirmed" v-if="comment.status != 0" style="padding:5px;border-radius:2px;">確認しました。</button>
-                    <button class="btn btn-info all-btn" v-else @click="commentConfirm(comment.id)">確認してください。</button>
+                    <button class="btn btn-info all-btn" v-else @click="commentConfirm(comment.id)">確認</button>
                     <button class="btn btn-danger all-btn" @click="deleteComment(comment.id)">削除</button>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                 </th>
             </tr>
             <tr>
-                <th>メール</th>
+                <th>メールアドレス</th>
                 <th>
                     <input type="text" name="exp[]" class="form-control monthly-fees white-bg-color" v-model="comment.email">
                 </th>
@@ -117,7 +117,7 @@
                 deleteComment(id) {
                         this.$swal({
                             title: "確認",
-                            text: "削除よろしいでしょうか",
+                            text: "削除よろしいでしょうか。",
                             type: "warning",
                             width: 350,
                             height: 200,
@@ -139,8 +139,8 @@
                                     // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
                                     // this.categories.splice(i, 1);
                                     this.$swal({
-                                        title: "削除された",
-                                        text: "ファイルが削除されました。",
+                                        title: "削除済",
+                                        text: "コメントが削除されました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,
@@ -158,7 +158,7 @@
                       commentConfirm(id) {
                             this.$swal({
                             title: "確認",
-                            text: "確認をよろしでしょうか。",
+                            text: "確認よろしでしょうか。",
                             type:"info",
                             width: 350,
                             height: 200,
@@ -175,8 +175,8 @@
                                 .then(response => {
                                     this.comments = response.data.comments;
                                     this.$swal({
-                                        title: "確認しました。",
-                                        text: "ファイルを確認しました。",
+                                        title: "確認済",
+                                        text: "コメントを確認しました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,
@@ -186,7 +186,7 @@
                                     .catch(() => {
                                     this.$swal({
                                         title: "エラーメッセージ",
-                                        text: "プロセスは続行します",
+                                        text: "プロセスを続行します",
                                         type: "error",
                                         width: 350,
                                         height: 200,

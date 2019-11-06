@@ -1,7 +1,7 @@
 <template>
   <div id="Profile-page">
     <div v-if="type == 'nursing'">
-      
+
       <ul class="nav nav-tabs nursing-tabColor" role="tablist" id="profilenav" v-bind:style="{width:width}" >
         <li role="presentation" class="subtab1 nav-item" v-if="loginuser">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
@@ -13,7 +13,7 @@
 
         <li role="presentation" class="subtab2 nav-item">
           <label for="nursing" class="typelabel dim-btn nav-link active" id="nursing-lbl">
-            
+
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
             <span v-if="loginuser"><i class="fas fa-id-badge"></i> myページ</span>
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
@@ -30,11 +30,11 @@
           </div>
 
           <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-            <profilePublish :cusid="cusid" :type="type"></profilePublish>
+            <profilePublish :cusid="cusid" :type="type" :loginuser="loginuser"></profilePublish>
           </div>
         </form>
       </div>
-      
+
     </div>
 
     <div v-if="type == 'hospital'">
@@ -50,7 +50,7 @@
 
         <li role="presentation" class="subtab2 nav-item">
           <label for="nursing" class="typelabel nav-link active" id="nursing-lbl">
-            
+
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
             <span v-if="loginuser"><i class="fas fa-id-badge"></i> myページ</span>
             <span v-if="!loginuser"><i class="fas fa-home"></i></span>
@@ -68,7 +68,7 @@
           </div>
 
           <div class="col-md-12 pad-free" v-if="btntype == 'view'">
-            <profilePublish :cusid="cusid" :type="type"></profilePublish>
+            <profilePublish :cusid="cusid" :type="type" :loginuser="loginuser"></profilePublish>
           </div>
         </form>
       </div>
@@ -100,6 +100,7 @@ export default {
         cusid: null,
         btntype: "view",
         width: "",
+        // login_status : '0',
         loginuser: true,
         l_storage_hos_history: [],
         l_storage_nus_history: [],
@@ -113,7 +114,7 @@ export default {
     this.axios.get('/api/user').then(response => {
         this.pro_id = response.data.lat_lng[0].id;
         this.loginuser = true;
-
+       
         localStorage.setItem("cusId", response.data.user.customer_id);
         localStorage.setItem("lat_num", response.data.lat_lng[0].latitude);
         localStorage.setItem("lng_num", response.data.lat_lng[0].longitude);
@@ -130,14 +131,14 @@ export default {
         else{
             localStorage.setItem("cusType", 'nursing');
             this.type = 'nursing';
-        }            
+        }
         this.cusid = response.data.user.customer_id;
     }).catch((error) => {
-        
+
         this.loginuser = false;
         if (this.$route.params.type) {
         this.type = this.$route.params.type;
-        localStorage.setItem("cusType", this.type);         
+        localStorage.setItem("cusType", this.type);
         }
         if (this.$route.params.cusid) {
         this.cusid = this.$route.params.cusid;
@@ -155,16 +156,16 @@ export default {
                 if(localStorage.getItem("hospital_history")) {
                     var hos_his_arr = JSON.parse("[" + localStorage.getItem("hospital_history") + "]");
                     hos_his_arr.push(response.data[0].pro_id);
-                    hos_his_arr = [...new Set(hos_his_arr)]; 
-                    localStorage.setItem("hospital_history", hos_his_arr);       
-                    $("#hos-his-local").html(hos_his_arr.length);  
-                          
+                    hos_his_arr = [...new Set(hos_his_arr)];
+                    localStorage.setItem("hospital_history", hos_his_arr);
+                    $("#hos-his-local").html(hos_his_arr.length);
+
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
-                    $("#hos-his-local").html(hos_his_arr.length);   
-                    
+                    $("#hos-his-local").html(hos_his_arr.length);
+
                 }
                 if(localStorage.getItem("hospital_fav")){
                     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
@@ -175,14 +176,14 @@ export default {
                 if(localStorage.getItem("nursing_history")) {
                     var nus_his_arr = JSON.parse("[" + localStorage.getItem("nursing_history") + "]");
                     nus_his_arr.push(response.data[0].pro_id);
-                    nus_his_arr = [...new Set(nus_his_arr)]; 
-                    localStorage.setItem("nursing_history", nus_his_arr); 
-                    $("#nus-his-local").html(nus_his_arr.length);              
+                    nus_his_arr = [...new Set(nus_his_arr)];
+                    localStorage.setItem("nursing_history", nus_his_arr);
+                    $("#nus-his-local").html(nus_his_arr.length);
                 }
                 else{
                     var nus_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("nursing_history", nus_his_arr);
-                    $("#nus-his-local").html(nus_his_arr.length);   
+                    $("#nus-his-local").html(nus_his_arr.length);
                 }
 
                 if(localStorage.getItem("nursing_fav")){
@@ -192,12 +193,12 @@ export default {
             }
         });
     })
-    
-    this.scrollTop();   
+
+    this.scrollTop();
 
     var new_width = $("#content-all").width();
     var fixed_width = new_width - 49.5;
-    this.width = fixed_width + "px";   
+    this.width = fixed_width + "px";
 
   },
   methods: {
@@ -206,7 +207,7 @@ export default {
         document.getElementById(a).classList.add("active");
         document.getElementById(b).classList.remove("active");
 
-        
+
       // if (this.btntype == "create") {
       //   document.getElementById("hospital-lbl").classList.add("dim-btn");
       //   document.getElementById("nursing-lbl").classList.remove("dim-btn");
@@ -220,24 +221,24 @@ export default {
             var locReplace = "nursing_fav";
             var varReplace = "#nus-fav-local";
             var linkBox = ".fav-nursing-link-box>a";
-        } 
+        }
         else{
             var locReplace = "hospital_fav";
             var varReplace = "#hos-fav-local";
             var linkBox = ".fav-hospital-link-box>a";
-        } 
-        
+        }
+
         if(status == 'add'){
             if(localStorage.getItem(locReplace)){
                 var fav_arr = JSON.parse("[" + localStorage.getItem(locReplace) + "]");
                 fav_arr.push(this.pro_id);
-                fav_arr = [...new Set(fav_arr)]; 
-                localStorage.setItem(locReplace, fav_arr); 
+                fav_arr = [...new Set(fav_arr)];
+                localStorage.setItem(locReplace, fav_arr);
                 $(varReplace).html(fav_arr.length);
             }
             else{
                 var fav_arr = [this.pro_id];
-                localStorage.setItem(locReplace, fav_arr); 
+                localStorage.setItem(locReplace, fav_arr);
                 $(varReplace).html(fav_arr.length);
             }
             $(linkBox).css({'cursor':'pointer','pointer-events':'auto'});
@@ -247,7 +248,7 @@ export default {
             var index = fav_arr.indexOf(this.pro_id);
             if (index > -1) {
                 fav_arr.splice(index, 1);
-                localStorage.setItem(locReplace, fav_arr); 
+                localStorage.setItem(locReplace, fav_arr);
             }
             $(varReplace).html(fav_arr.length);
 

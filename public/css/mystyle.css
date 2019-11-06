@@ -127,13 +127,14 @@ body {
 .typelabel {
     /* background: #118063;
 
-    padding: 8px 15px;
 
+    padding: 8px 15px;
     border-radius: 5px;
 
     color: white;
 
     width: 100px; */
+
     margin-bottom: 0px;
     cursor: pointer;
     text-align: center;
@@ -772,7 +773,8 @@ width: 100%; */
 
 .user_registercard form label {
     color: #a93f0c!important;
-    font-weight: bold;;
+    font-weight: bold;
+    ;
     align-self: flex-end;
 }
 
@@ -3076,6 +3078,7 @@ ul.main-tab li:after {
     padding: 15px !important;
 }
 
+
 /* .map-wrap {
     max-width: 1000px !important;
 } */
@@ -3087,6 +3090,7 @@ ul.main-tab li:after {
     width: 100%;
     height: 424px; */
 }
+
 .search-map {
     background: #fff;
     padding: 0px 15px 15px 15px !important;
@@ -3098,18 +3102,18 @@ ul.main-tab li:after {
     background: #f7f0ed;
 }
 
-
 .divisions {
     /* position: absolute;
     top: 0;
     left: 0; */
     position: relative;
-    z-index: 1;    
-    background: url(/images/img_map1.png) center top no-repeat;    
+    z-index: 1;
+    background: url(/images/img_map1.png) center top no-repeat;
     width: 1180px;
     height: 424px;
 }
-.division-box > ul {
+
+.division-box>ul {
     box-sizing: border-box;
     position: absolute;
     overflow: hidden;
@@ -3123,25 +3127,30 @@ ul.main-tab li:after {
     /* box-shadow: 1px 1px 2px #868181;
     /* box-shadow: 1px 1px 2px #868181; */
 }
-.division-box a{
+
+.division-box a {
     color: #461e0a;
 }
 
-.spanclass:hover{
+.spanclass:hover {
     background-color: #ccff60 !important;
     background-image: none;
     border: 1px solid #8e3c15;
     color: #ff6117;
 }
+
 .spanclass:hover a.card-text {
     color: #ff6117 !important;
 }
-.spanclass > a.card-text {
+
+.spanclass>a.card-text {
     color: #461e0a;
 }
-ul.hokkaido-wrap{
-    left: 0px;   
+
+ul.hokkaido-wrap {
+    left: 0px;
 }
+
 .divisions span {
     margin-right: 10px;
 }
@@ -3152,13 +3161,15 @@ ul.hokkaido-wrap{
     right: 16%;
     z-index: 2;
 }
+
 .tohoku-box {
     position: absolute;
     top: 26%;
     right: 23%;
     z-index: 2;
 }
-.multiple-box{
+
+.multiple-box {
     width: 128px !important;
 }
 
@@ -3210,12 +3221,13 @@ ul.hokkaido-wrap{
     z-index: 2;
 }
 
-.kyushu-box{
+.kyushu-box {
     position: absolute;
     bottom: 66%;
     left: 25%;
     z-index: 2;
 }
+
 .okinawa-box {
     position: absolute;
     bottom: 4%;
@@ -3397,13 +3409,12 @@ screen and (min-width: 750px) {
         height: 120px;
     }
     /*job search*/
-    ul.hokkaido-wrap{
-        left: 0px;   
+    ul.hokkaido-wrap {
+        left: 0px;
     }
     .divisions span {
         margin-right: 10px;
     }
-    
     .hokkaido-box {
         position: absolute;
         top: 12%;
@@ -3416,10 +3427,10 @@ screen and (min-width: 750px) {
         right: 22%;
         z-index: 2;
     }
-    .multiple-box{
+    .multiple-box {
         width: 128px !important;
     }
-    .multiple-boxa{
+    .multiple-boxa {
         width: 127px !important;
     }
     .hokkaido-box .spanclass,
@@ -3427,50 +3438,43 @@ screen and (min-width: 750px) {
     .okinawa-box .spanclass {
         margin-right: 1px;
     }
-    
     .kanto-box {
         position: absolute;
         top: 55%;
         right: 22%;
         z-index: 2;
     }
-    
     .hokuriku-box {
         position: absolute;
         top: 24%;
         left: 53%;
         z-index: 2;
     }
-    
     .tokai-box {
         position: absolute;
         bottom: 27%;
         right: 27%;
         z-index: 2;
     }
-    
     .kinki-box {
         position: absolute;
         top: 39%;
         left: 39%;
         z-index: 2;
     }
-    
     .chugoku-box {
         position: absolute;
         top: 27%;
         left: 32%;
         z-index: 2;
     }
-    
     .shikoku-box {
         position: absolute;
         left: 32%;
         bottom: 22%;
         z-index: 2;
     }
-    
-    .kyushu-box{
+    .kyushu-box {
         position: absolute;
         bottom: 66%;
         left: 25%;
@@ -5023,7 +5027,7 @@ screen and (min-width: 750px) {
         width: 60px;
         height: 30px;
         background-color: #fff;
-        background-image: linear-gradient(to bottom, #ffffff,#f1f1f1);
+        background-image: linear-gradient(to bottom, #ffffff, #f1f1f1);
         float: left;
         text-align: center;
         overflow: hidden;
@@ -5843,43 +5847,24 @@ button.confirmed {
 
 
 
-}
+}*/
 
 
 
-.swal2-icon{
-
-
-
-    width: 40px !important;
-
-
-
-    height: 40px !important;
-
-
-
-    margin: 5px auto 5px !important;
-
-
-
-
-
-
-
-} */
 .swal2-icon.swal2-warning{
     width: 80px !important;
     height: 80px !important;
     margin: 20px auto 30px !important;
     border: 4px solid #fd8c2a !important;
-}
-.swal2-icon.swal2-info{
+ }
+ 
+ .swal2-icon.swal2-info{
     width: 80px !important;
     height: 80px !important;
     margin: 20px auto 30px !important;
     border: 4px solid #3fc3ee !important;
-}
+ }
+
 .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
     width: 15px;
     left: 22px;
@@ -6066,6 +6051,7 @@ button.confirmed {
     -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
+
 
 #hospitalView .top-fixed-btn {
     background: #85c7ff;
@@ -6337,6 +6323,130 @@ button.confirmed {
     color: #ff6117;
     font-weight: bold;
 }
+
+
+/* nursing search */
+
+.nursingSearch-tbl {
+    padding: 20px 0 10px 0;
+    border: 1px solid #dee2e6;
+}
+
+.nursingSearch-tbl td:first-child {
+    border-left: 0;
+}
+
+.nursingSearch-tbl td {
+    padding: 0 10px;
+    border-left: 1px solid #dee2e6;
+    vertical-align: top;
+}
+
+.wd-in {
+    width: 317px;
+}
+
+.item-fav {
+    width: 100%;
+    padding: 3px 10px;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #544e4e;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.item-fav:hover {
+    opacity: 0.7;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.36), 0 2px 10px 0 rgba(0, 0, 0, 0.32);
+}
+
+.item-name {
+    height: 35px;
+    padding-top: 5px;
+    font-size: 18px;
+    text-decoration: underline;
+    line-height: 1.2;
+    overflow: hidden;
+}
+
+.item-name img {
+    width: 18px;
+    margin-right: 7px;
+    vertical-align: text-top;
+    transition: all 0.2s ease-in;
+    transform: translateY(0);
+}
+
+.item-name:hover {
+    color: #ff9563;
+}
+
+.item-name:hover>img {
+    transform: translateY(-5px);
+}
+
+.type-name {
+    width: 100%;
+    padding: 3px 10px 0px 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    background: #eeeeee;
+    border-left: 5px solid #ff9563;
+}
+
+.num-rooom {
+    float: left;
+    padding: 0 5px;
+    margin-right: 20px;
+    background: #ff9563;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.address-tbl td {
+    padding: 5px !important;
+    font-size: 11px;
+}
+
+.address-tbl td p {
+    height: 13px;
+    overflow: hidden;
+}
+
+.address-tbl td:first-child {
+    background: #eeeeee94;
+}
+
+.price-tbl th,
+.price-tbl td {
+    padding: 2px !important;
+}
+
+.price-tbl th {
+    background: #d7d7d7;
+}
+
+.price-tbl td {
+    font-size: 10px;
+}
+
+.price-tbl td span {
+    font-size: 20px;
+    color: #ff9563;
+    font-weight: bold;
+}
+
+.box-wrap {
+    border: 1px solid #dee2e6;
+}
+
+
+/* end nursing search */
 
 
 /*End  nursing */
@@ -6999,7 +7109,6 @@ ul.test>li:before {
     right: 15px;
     top: 65px; */
     border: 1px solid #c40000;
-  
 }
 
 .circle-phone {
@@ -7527,12 +7636,27 @@ ul.test>li:before {
 
 .mx-calendar-content .cell {
     border-radius: 3px;
+    /* background-color: rgba(0, 0, 0, 0.05); */
 }
-
+.mx-panel-date tbody tr:nth-of-type(odd){
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.mx-panel-date {
+    border :1px solid #dee2e6;
+}
+.mx-panel-date thead th{
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    border: 1px solid #dee2e6;
+}
 .mx-panel-date td.today {
     color: #c1470c !important;
+
 }
 
+.mx-calendar-content .cell {
+    border: 1px solid #dee2e6;
+}
 .mx-calendar-content .cell:hover {
     background-color: #e8b9a2 !important;
 }
@@ -7589,14 +7713,13 @@ ul.test>li:before {
         top: 7px;
     }
     /*job search*/
-    
-    ul.hokkaido-wrap{
-        left: 0px;   
+    ul.hokkaido-wrap {
+        left: 0px;
     }
     .divisions span {
         margin-right: 10px;
     }
-    .divisions{
+    .divisions {
         width: 100%;
     }
     .hokkaido-box {
@@ -7611,59 +7734,51 @@ ul.test>li:before {
         right: 23%;
         z-index: 2;
     }
-    .multiple-box{
+    .multiple-box {
         width: 132px !important;
     }
-    
     .hokkaido-box .spanclass,
     .kanto-box .spanclass,
     .okinawa-box .spanclass {
         margin-right: 3px;
     }
-    
     .kanto-box {
         position: absolute;
         top: 57%;
         right: 25%;
         z-index: 2;
     }
-    
     .hokuriku-box {
         position: absolute;
         top: 24%;
         left: 51%;
         z-index: 2;
     }
-    
     .tokai-box {
         position: absolute;
         bottom: 27%;
         right: 30%;
         z-index: 2;
     }
-    
     .kinki-box {
         position: absolute;
         top: 39%;
         left: 39%;
         z-index: 2;
     }
-    
     .chugoku-box {
         position: absolute;
         top: 27%;
         left: 32%;
         z-index: 2;
     }
-    
     .shikoku-box {
         position: absolute;
         left: 32%;
         bottom: 22%;
         z-index: 2;
     }
-    
-    .kyushu-box{
+    .kyushu-box {
         position: absolute;
         bottom: 66%;
         left: 25%;
@@ -7683,11 +7798,11 @@ ul.test>li:before {
     .job-img {
         /* max-width: 80% !important;*/
         margin: 0 auto 20px;
-        flex: unset; 
+        flex: unset;
     }
     .job-box {
         /* max-width: 100% !important;*/
-        flex: unset; 
+        flex: unset;
     }
     .compare-wrap {
         max-width: 82%;
@@ -7776,4 +7891,6 @@ ul.test>li:before {
     font-size: 29px;
     color: #d2571c;
 }
+
+
 /*commentform*/
