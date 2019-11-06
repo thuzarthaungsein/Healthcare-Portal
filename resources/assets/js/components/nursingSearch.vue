@@ -313,11 +313,12 @@
             <div class="card search-border-dash">
               
               <div class="card-body">
-                <select id="selectCity" class="form-control custom-select" @change="changeCity" style="background-color: #fff;" v-model="id">
-                  <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_eng}}</option>
+                <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1)" style="background-color: #fff;" v-model="id">
+                  <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
-                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" >
-                  <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_eng}}</option>
+                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2)" v-model="township_id">
+                <option value="-1">Select Township</option>
+                  <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
               </div>
             </div>
@@ -327,8 +328,8 @@
             <div class="card search-border-dash">              
               <div class="card-body">
                 <div class="">
-                  <select name="" id="" class="form-control custom-select" style="background-color: #fff;">
-                    <option data-price-type="" value="">▼入居一時金</option>
+                  <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="moving_in">
+                    <option data-price-type="" value="-1">▼入居一時金</option>
                     <option data-price-type="" value="0">一時金なし</option>
                     <option data-price-type="" value="50">50万円以下</option>
                     <option data-price-type="" value="100">100万円以下</option>
@@ -345,8 +346,8 @@
                     <option data-price-type="" value="3000">3,000万円以下</option>
                     <option data-price-type="more" value="3000">3,000万円以上</option>
                   </select>
-                  <select name="" id="" class="form-control  mt-1 custom-select" style="background-color: #fff;">
-                    <option data-price-type="" value="">▼月額利用料</option>
+                  <select name="" id="" class="form-control  mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="per_month">
+                    <option data-price-type="" value="-1">▼月額利用料</option>
                     <option data-price-type="" value="10">10万円以下</option>
                     <option data-price-type="" value="12">12万円以下</option>
                     <option data-price-type="" value="14">14万円以下</option>
@@ -709,8 +710,8 @@
   import {
     eventBus
   } from '../event-bus.js';
-  import json from '../google-map-kml/converted.json';
-  // import json from '../google-map-kml/jp_cities.json';
+  import jp_cities from '../google-map-kml/jp_cities.json';
+  import jp_township from '../google-map-kml/jp_township.json';
   export default {
 
     name: "mymap",
@@ -730,8 +731,10 @@
         infoBoxOpen: false,
         places: [],
         id: [],
-        townshipID: [],
-        township_id: [],
+        townshipID:[],
+        township_id:-1,
+        moving_in:-1,
+        per_month:-1,
         cities: '',
         getCity: [],
         getTownships: [],
@@ -756,7 +759,8 @@
         specialfeature:[],
         medicalacceptance:[],
         factype:[],
-        selectedcity:''
+        selectedcity:'',
+        citylatlng:[]
 
       }
     },
@@ -806,14 +810,18 @@
           },
         }).then((response)=>{
  
+          
           this.nus_data = response.data.nursing;
           this.specialfeature = response.data.specialfeature;
           this.medicalacceptance = response.data.medicalacceptance;
           this.factype = response.data.factype;
           this.markers = response.data.nursing;
           this.nursingList = response.data.nursing;
+          this.citylatlng = response.data.city
             var mmarker = new Array()
             var item = []
+
+           if(response.data.nursing.length > 0){
 
             for (var i = 0; i < this.markers.length; i++) {
                 mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
@@ -823,14 +831,51 @@
             const theCity = this.markers[0]['city_eng']
             const lat = this.markers[0]['latitude']
             const lng = this.markers[0]['longitude']
-            const result = json.features
-              const coordinates = []
-              for (var i = 0; i < result.length; i++) {
-                if (result[i].Name == theCity) {
-                  coordinates.push(result[i].geometry['coordinates'])
+            const result = jp_township.features //jp_cities
+              const jp_city = jp_cities.features //convert
+              var townshipName = [];
+              for (let i = 0; i < this.getTownships.length; i++) {
+                if(this.getTownships[i]['id'] == this.township_id){
+                    townshipName.push(this.getTownships[i]['township_name'])
                 }
               }
-              var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+              var township_name = townshipName.toString();
+              const coordinates = []
+              const city_coordinates = []
+            
+              if(township_name == ''){
+                for (var i = 0; i < jp_city.length; i++) {
+                if (jp_city[i].properties.NAME_0 == theCity) {
+                
+                  if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                  {
+                    for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                   {
+                  
+                     city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                   }
+                  }
+                  else{          
+                     city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                   
+                  }
+                }
+               }
+              }else{
+                for (var i = 0; i < result.length; i++) {
+                if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                }    
+              }
+              }
+
+              if(township_name == ''){
+                var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
+               
+              }else{
+                var co = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var coordinate = co.reduce((acc, val) => acc.concat(val), []);
+              }
               var data = {
                 type: "Feature",
                 geometry: {
@@ -935,7 +980,7 @@
                   }
               this.markerHover = [];
               var infoWindow = new google.maps.InfoWindow(),marker, i;
-              for (let i = 0; i < this.markers.length; i++) {
+                for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
                     var lats = this.markers[i]['latitude']
                     var lngs = this.markers[i]['longitude']
@@ -951,7 +996,6 @@
                       zoom: 6,
                       title: this.markers[i]['name']
                     });
-                    console.log(marker)
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
                       return function() {
                         infoWindow.setContent(infoWindowContent[i][0]);
@@ -963,9 +1007,45 @@
                       google.maps.event.removeListener(boundsListener);
                     });
                 }
+           }
+           else{
+            var lat = this.citylatlng[0]['latitude']
+            var lng = this.citylatlng[0]['longitude']
+            var theCity = this.citylatlng[0]['city_eng']
+             const result = json.features
+              const coordinates = []
+              for (var i = 0; i < result.length; i++) {
+                if (result[i].Name == theCity) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                }
+              }
+              var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+              var data = {
+                type: "Feature",
+                geometry: {
+                  "type": "Polygon",
+                  "coordinates": coordinate
+                },
+              };
+              
+              var mapProp = {
+                center: new google.maps.LatLng(lat, lng),
+                zoom: 6,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+              };
+              this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+              this.map.data.addGeoJson(data);
+              this.map.data.setStyle({
+                strokeColor: "red",
+                fillColor: 'red',
+                strokeOpacity: 0.8,
+                fillOpacity: 0.1,
+                strokeWeight: 1
+              })
+           }
+            
         })
-
-
+        
       },
       openInfoWindow(marker) {
         this.selectedLocation = marker;
@@ -998,20 +1078,42 @@
             var id = e.target.id;
           }
           this.id = id;
-          this.axios.post('/api/getmap/' + id + '')
+       
+          this.axios.get('/api/getmap/',{
+            params:{
+              id: this.id,
+              township_id:-1,
+              moving_in:-1,
+              per_month:-1
+            },
+           })
+            .then((response) => {
+            this.changeMap(response)
+            })
+      },
+     nursingSearchData(index){
+     
+       if(index == 1)
+       {
+           this.township_id = -1;
+       }
+    
+        this.axios.get('/api/getmap/',{
+                params:{
+                id: this.id,
+                township_id:this.township_id,
+                moving_in:this.moving_in,
+                per_month:this.per_month
+                },
+        
+            })
             .then((response) => {
                 this.changeMap(response)
             })
-      },
-      changeCity(){
-        
-        var id = this.id
-        this.axios.post('/api/getmap/' + id + '')
-            .then((response) => {
-                this.changeMap(response)
-            })
         
       },
+
+
       changeMap(response){
         $('.select').removeClass('select');
               $('#searchMap').addClass('select');
@@ -1027,7 +1129,7 @@
               this.markers = response.data.nursing_profile; 
             
  
-
+ 
               var mmarker = new Array();
               var item = [];
               for (var i = 0; i < this.markers.length; i++) {
@@ -1035,18 +1137,55 @@
                 item.push(this.markers[i])
               }
 
-              const theCity = response.data.getCity[0]['city_eng']
+              const theCity = response.data.getCity[0]['city_name']
               const lat = response.data.getCity[0]['latitude']
               const lng = response.data.getCity[0]['longitude']
-              const result = json.features
-              const coordinates = []
-              for (var i = 0; i < result.length; i++) {
-                if (result[i].Name == theCity) {
-                  coordinates.push(result[i].geometry['coordinates'])
+              const result = jp_township.features //jp_cities
+              const jp_city = jp_cities.features //convert
+              var townshipName = [];
+              for (let i = 0; i < this.getTownships.length; i++) {
+                if(this.getTownships[i]['id'] == this.township_id){
+                    townshipName.push(this.getTownships[i]['township_name'])
                 }
               }
-              var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-              // console.log(coordinates)
+              var township_name = townshipName.toString();
+              const coordinates = []
+              const city_coordinates = []
+            
+              if(township_name == ''){
+                for (var i = 0; i < jp_city.length; i++) {
+                if (jp_city[i].properties.NAME_0 == theCity) {
+                
+                  if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                  {
+                    for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                   {
+                  
+                     city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                   }
+                  }
+                  else{          
+                     city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                   
+                  }
+                }
+               }
+              }else{
+                for (var i = 0; i < result.length; i++) {
+                if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
+                  coordinates.push(result[i].geometry['coordinates'])
+                }    
+              }
+              }
+
+              if(township_name == ''){
+                var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
+               
+              }else{
+                var co = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var coordinate = co.reduce((acc, val) => acc.concat(val), []);
+              }
+              
               var data = {
                 type: "Feature",
                 geometry: {
@@ -1056,7 +1195,7 @@
               };
               var mapProp = {
                 center: new google.maps.LatLng(lat, lng),
-                zoom: 6,
+                zoom: 7,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
               };
 
@@ -1069,7 +1208,7 @@
                   fillOpacity: 0.1,
                   strokeWeight: 1
                 })
-                var bounds = new google.maps.LatLngBounds();
+               
                 var markers = mmarker;
                 var infoWindowContent = new Array();
                 for (var i = 0; i < item.length; i++) {
@@ -1150,6 +1289,7 @@
                       '</div>'
                     ])
                   }
+                  var bounds = new google.maps.LatLngBounds();
                   this.markerHover = [];
                   var infoWindow = new google.maps.InfoWindow(),marker, i;
                 for (let i = 0; i < this.markers.length; i++) {
@@ -1180,10 +1320,11 @@
                        var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
                       google.maps.event.removeListener(boundsListener);
                     });
+                    
                 }
-        
+
       },
-      
+
       mouseover(index) {
          
           for (let i = 0; i < this.markerHover.length; i++) {

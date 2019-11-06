@@ -24,11 +24,9 @@
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
 <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script> -->
-<script src="{{ asset('js/map-api.js') }}"></script>
+
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 
-<script src="{{ asset('js/vue2-5-13.js') }}"></script>
-<script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <!-- Fonts -->
 <!--mailbox-->
 <!-- Styles -->
@@ -38,7 +36,7 @@
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
-<script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
+
 
 <style>
     .bg-light {
@@ -100,7 +98,6 @@
     }
 </style>
 <!-- link for editor -->
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet"> -->
 <!-- end link for editor -->
 </head>
 
@@ -732,22 +729,21 @@
 </div>
 
 <script src="/js/app.js" type="text/javascript"></script>
+<script src="{{ asset('js/map-api.js') }}"></script>
+<script src="{{ asset('js/vue2-5-13.js') }}"></script>
+<script src="{{ asset('js/vue-scrollto.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>
 <!-- Include after Vue (before closing body) -->
 <script src="{{ asset('js/vue-fullpage.min.js') }}"></script>
 <script src="{{ asset('js/sweetalert2.all.js') }}"></script>
 <!-- script for editor -->
 <script src="{{ asset('js/popper.min.js') }}"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script> -->
 <!-- end script for editor -->
-<!-- <script src="{{ asset('js/jssor.slider-27.5.0.min.js') }}" type="text/javascript"></script> -->
 <script src="{{ asset('js/jquery.scrolling-tabs.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/adsslider.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+
 <script type="text/javascript">
-
-
  $(document).ready(function() {
 
     // pannellum.viewer('panorama', {
@@ -809,7 +805,6 @@
         $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
     }
 
-    $('.DataTable').DataTable();
     var csrf = "{{ csrf_token() }}";
 
     $.ajax({
