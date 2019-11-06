@@ -1358,6 +1358,21 @@
 
             </div>
 
+            <div class="col-md-12">
+                        <label class="cost_heading_lbl">フォトアルバム</label>
+                        <div class="row">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
+                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
+                                    <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                                </div>
+                                
+                                <!-- <span>{{image.photo}}</span> -->
+                            </div>
+                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir" :timeoutDuration="5000" />
+                        </div>
+                    </div>
+
             <!-- Hospital Video -->
                 <div class="col-md-12 m-t-15 m-b-15">
                     <label class="cost_heading_lbl">動画</label>
@@ -1656,6 +1671,15 @@ console.log(response);
                     this.center['lng'] = response.data.hoslatlong[0]['longitude'];
 
                     this.images = response.data.images;
+
+                    for(var i=0; i<this.images.length; i++){
+                        this.light_images.push({
+                            'name': this.images[i]['photo'],
+                            'description': this.images[i]['description'],
+                            'id': this.images[i]['id'],
+                            'title': this.images[i]['title']
+                        })
+                    }
 
                     this.videos = response.data.videos;
 

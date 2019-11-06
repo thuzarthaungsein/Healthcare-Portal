@@ -613,10 +613,11 @@
                 <!-- end table 7 for 公式サイト -->
                 <div style="position:fixed;width:100%;background:rgba(0,0,0,.5);left:0;right:0;bottom:0;padding:0 0 10px 0;">
                     <div class="row col-2 col-offset-5 mx-auto">
-                        <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="createProfile()">保存する</span>
+                        <router-link to="/ProfilePublish">
+                                <span class="btn secondary-bg-color col-8 offset-2 all-btn m-t-15 pad-10" @click="createProfile()" id="create-profile">保存する</span>
+                        </router-link>
                     </div>
                 </div>
-
             </div>
         </form>
     </div>
@@ -1074,8 +1075,15 @@ export default {
                 },
 
             createProfile() {
+
+                // $('#create-profile').prop('disabled', true);
+                 document.getElementById("create-profile").disabled=true;
                 this.customer_info_push = [];
                 this.staff_info_push = [];
+                this.gallery_list = [];
+
+                this.cooperate_list = [];
+                this.payment_list = [];
 
                 var customer_name = $('.customer-name').val();
                 var customer_email = $('.customer-email').val();
@@ -1381,6 +1389,8 @@ export default {
 
                 if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {
                         alert('Nursing Profile is Succcessfully Updated');
+                        window.location.reload(true);
+
                 }
             }
         }
