@@ -94,7 +94,20 @@
                         <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">
                                 <h4 class="category_news_title" :class="'h-color'+index"><span>{{name}}</span></h4>
                                 <div class="row m-lr-0">
-                                        <div class="col-md-3 p-l-0" v-for="(item,i) in group" :key="i">
+                                    <div class="col-md-3">
+                                      <img v-bind:src="'/upload/news/' + group[0].photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"><br>
+                                        {{group[0].main_point}}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p v-for="(item,index) in group.slice(1, 9)" :key="index" style="border:1px solid #eee;">{{item.main_point}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p v-for="(item,index) in group.slice(9, 12)" :key="index" style="border:1px solid #eee;">{{item.main_point}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p v-for="(item,index) in group.slice(12, 15)" :key="index" style="border:1px solid #eee;">{{item.main_point}}</p>
+                                    </div>
+                                        <!-- <div class="col-md-3 p-l-0" v-for="(item,i) in group" :key="i">
                                                 <div class="col-md-12 row m-b-10 adslist-card m-lr-0" style="background-color: #eee;box-shadow: 0 0 2px #bfb9b9;">
                                                         <div class="col-md-4 img-box">
                                                                 <router-link :to="'/newsdetails/'+item.pid">
@@ -107,8 +120,8 @@
                                                                         <p class="news-title smallads-title"> {{item.main_point}} </p>
                                                                 </router-link>
                                                         </div>
-                                                </div>
-                                        </div>
+                                                </div> 
+                                        </div>-->
                                 </div>                             
                         </div>
                     </div>
