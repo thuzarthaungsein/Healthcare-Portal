@@ -428,15 +428,15 @@
                                             <table class="table table-bordered address-tbl">
                                                 <tbody>
                                                 <tr>
-                                                    <td>Address</td>
+                                                    <td style="width:50px">住所</td>
                                                     <td><p>{{items.address}}</p></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Phone</td>
+                                                    <td style="width:50px">電話</td>
                                                     <td><p>{{items.phone}}</p></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Website</td>
+                                                    <td style="width:50px;">ウェブ</td>
                                                     <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
                                                 </tr>
                                                 </tbody>
@@ -452,8 +452,8 @@
                                      <table class="table table-bordered price-tbl text-center">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">Moving In</th>
-                                                <th class="text-center">Per Month</th>
+                                                <th class="text-center">入居時費用</th>
+                                                <th class="text-center">月額利用料</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -536,98 +536,108 @@
 
         </div>
       </div>
-
-        <!-- query list -->
-        <div class="row box-wrap select mt-3">
-          <div class="col-2 left-div">地域</div>
-          <div class="col-10">
-            <div>
-              <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                <label class="form-check-label control control--checkbox">
-                  <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
-                  {{township.township_name}}
-                  <div class="control__indicator"></div>
-                </label>
-              </div>
-            </div>
-          </div>
-
-       
-
-
-          <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
-          <div class="col-sm-10" v-if="showOne">
-            <hr>
-            <div class="row pl-3 pt-3" v-if="showOne">
-              <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                <label class="form-check-label">
-                  <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
-                  自立
-                </label>
-              </div>
-              <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                <label class="form-check-label">
-                  <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
-                  要支援
-                </label>
-              </div>
-              <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                <label class="form-check-label">
-                  <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
-                  要介護
-                </label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-2 left-div-1" v-if="showOne">特長</div>
-          <div class="col-sm-10" v-if="showOne">
-            <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
-                {{feature.name}}
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-2 left-div-1" v-if="showOne">施設の種類</div>
-          <div class="col-sm-10" v-if="showOne">
-            <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
-                {{fac_type.description}}
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-2 left-div-1" v-if="showOne">医療面・診療科目</div>
-          <div class="col-sm-10 mb-4" v-if="showOne">
-            <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
-                {{medical.name}}
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-2 left-div-2"></div>
-          <div class="col-sm-10">
-            <button @click="showOne = !showOne" class="btn btn-link mt-2">
-              <span v-show="showOne"><i class="fas fa-arrow-circle-up"></i> Close</span>
-              <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
-            </button>
-          </div>
-
-            <div class="col-sm-6 left-div-6"></div>
-            <div class="col-sm-6 m-b-20">
-                <span class="btn all-btn btn-success" @click="search">検索</span>
-            </div>
-        </div>
-        <!--end query list-->
+      <!--list-->
+       <table class="table table-bordered col-12 box-wrap select">
+              <tbody>
+                <tr>
+                  <th>地域</th>
+                  <td>
+                    <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
+                            {{township.township_name}}
+                        <div class="control__indicator"></div>
+                        </label>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th v-if="showOne" style="padding:10px;">入居時の条件</th>
+                  <td v-if="showOne">
+                        <div class="form-check form-check-inline col-sm-2" id="customCheck1">
+                          <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
+                            自立
+                             <div class="control__indicator"></div>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                          <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
+                            要支援
+                             <div class="control__indicator"></div>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                          <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
+                            要介護
+                             <div class="control__indicator"></div>
+                          </label>
+                        </div>                      
+                  </td> 
+                </tr>   
+                <tr>
+                  <th v-if="showOne">特長</th>
+                  <td v-if="showOne">
+                    <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
+                      <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                        <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
+                        {{feature.name}}
+                         <div class="control__indicator"></div>
+                      </label>
+                  </div>
+                  </td>
+                </tr> 
+                <tr>
+                  <th v-if="showOne">施設の種類</th>
+                  <td v-if="showOne">
+                  <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                      <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
+                      {{fac_type.description}}
+                       <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th v-if="showOne">医療面・診療科目</th>
+                  <td v-if="showOne">
+                  <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                      <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
+                      {{medical.name}}
+                       <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  </td>
+                </tr>
+                <tr class="text-center">                  
+                  <td colspan="2">
+                    <button @click="showOne = !showOne" class="btn btn-link mt-2">
+                      <!-- <span v-show="showOne"><i class="fas fa-arrow-circle-up"></i>閉じる</span> -->
+                      <button v-show="showOne" class="btn seemore-btn">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close4"><i class="fas fa-arrow-circle-up"></i> 閉じる</span>
+                      </button>
+                      <!-- <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i>もっと見る</span> -->
+                      <button v-show="!showOne" class="btn seemore-btn">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                      </button>
+                    </button>
+                  </td>
+                </tr>
+               <tr class="text-center">
+                  <td colspan="2" style="border:none;">
+                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検索 </button>
+                  </td>
+                </tr>
+              </tbody>
+      </table>
+      <!--end list-->
+        
         <div class=" col-12">
                  <div class="row">
                    <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
@@ -640,23 +650,20 @@
                           <table  class="table table-bordered  table-sm">
                               <h2> Nursing </h2>
                               <tr>
-                                <td>Name : {{nus.name}}</td>
+                                <td>住所: {{nus.name}}</td>
                               </tr>
                                <tr>
-                                <td> Email : {{nus.email}}</td>
+                                <td>メール: {{nus.email}}</td>
                               </tr>
                                 <tr>
-                                <td> Phone : {{nus.phone}}</td>
+                                <td>電話: {{nus.phone}}</td>
                               </tr>
                                 <tr>
-                                <td> Address : {{nus.address}}</td>
+                                <td> 住所 : {{nus.address}}</td>
                               </tr>
                               <tr>
                                 <td> Moving In : {{nus.moving_in}} </td>
-                               </tr>
-                           
-                                   
-
+                              </tr>
                                 <h2> Fac Type </h2>
                               <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                                 <span v-if="fac.id == nus.fac_type" class="feature_list">
@@ -906,10 +913,10 @@
                             '<td colspan="2">' +
                               '<div class="row text-center">' +
                                 '<div class="col-sm-6">' +
-                                  '<div class="moveing-in">Moving In</div>' +
+                                  '<div class="moveing-in">入居時費用</div>' +
                                 '</div>' +
                                 '<div class="col-sm-6">' +
-                                  '<div class="per-month">Per Month</div>' +
+                                  '<div class="per-month">月額利用料</div>' +
                                 '</div>' +
                                 '<div class="col-sm-6">' +
                                   '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
@@ -1537,7 +1544,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0 40px;
+    margin: 20px 0;
     color: #666a73;
   }
 

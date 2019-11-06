@@ -6445,7 +6445,9 @@ button.confirmed {
     border: 1px solid #dee2e6;
 }
 
-
+table.box-wrap th{
+    padding: 12px !important;
+}
 /* end nursing search */
 
 
