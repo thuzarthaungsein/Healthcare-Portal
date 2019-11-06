@@ -658,13 +658,13 @@ export default {
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
-                panorama_arr:[],panorama_list:[], tmp_list:[],
+                panorama_arr:[],panorama_list:[], tmp_list:[],already_panorama_list:[],panorama:[], test:[],
                 gallery_list:[],
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
                 profile_type:'nursing',
                 profile_arr:[], test:'',
-                station_list:[],chek_feature : [],
+                station_list:[],chek_feature : [], panorama_count:'0',
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -835,13 +835,53 @@ export default {
             },
 
             preview_panorama() {
+                this.already_panorama_list = [];
                 for(var i=0; i< event.target.files.length; i++) {
+                        this.panorama_count = i+1;
                         $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
                 }
+               
+
+                var panorama = document.getElementsByClassName('gallery-area-panorama');
+                var status = 0;
+
+                for(var i = 0; i< this.panorama_count; i++) {
+                        var preview = document.getElementsByClassName('preview-panorama');
+                        if(document.getElementById('preview-panorama'+i)) {
+                                if(status == 0) { var j = i; } else { var j = i+1; }
+                        } else {
+                                if(status == 0) { var j = i+1; } else { var j = i+2; }
+                                status = 1;
+                        }
+                        
+                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
+                        
+                        if(file && i<this.panorama_count) {
+                                var file_name = file.name;
+                                        let fd = new FormData();
+                                        fd.append('file' ,file )
+                                        fd.append('photo' ,file_name )
+                                        fd.append('type', 'panorama')
+                                        this.axios.post('/api/nursing/movephoto', fd)
+                                                .then(response => {
+                                                }).catch(error=>{
+                                                        console.log(error);
+                                                if(error.response.status == 422){
+                                                        this.errors = error.response.data.errors
+                                                }
+                                        })
+
+                        }
+                         
+                        this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
+                } 
+                
+
             },
            closeBtnMethod: function(indx) {
                         if(confirm("Are you sure you want to delete?"))
                         {
+                        alert(indx);
                             var panorama_x = document.getElementById('x-panorama'+indx);
                             panorama_x.parentNode.removeChild(panorama_x);
                         }
@@ -1102,41 +1142,41 @@ export default {
                         this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
 
-                var panorama = document.getElementsByClassName('gallery-area-panorama');
-                var count = 0;
-                var status = 0;
-                for(var i = 0; i< panorama.length; i++) {
-                        var preview = document.getElementsByClassName('preview-panorama');
-                        if(document.getElementById('preview-panorama'+i)) {
-                                if(status == 0) { var j = i; } else { var j = i+1; }
+                // var panorama = document.getElementsByClassName('gallery-area-panorama');
+                // var count = 0;
+                // var status = 0;
+                // for(var i = 0; i< panorama.length; i++) {
+                //         var preview = document.getElementsByClassName('preview-panorama');
+                //         if(document.getElementById('preview-panorama'+i)) {
+                //                 if(status == 0) { var j = i; } else { var j = i+1; }
 
-                        } else {
-                                if(status == 0) { var j = i+1; } else { var j = i+2; }
-                                status = 1;
-                        }
-                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
-                        if(file && i<preview.length) {
-                                var file_name = file.name;
-                                        let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        fd.append('type', 'panorama')
-                                        this.axios.post('/api/nursing/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
+                //         } else {
+                //                 if(status == 0) { var j = i+1; } else { var j = i+2; }
+                //                 status = 1;
+                //         }
+                //         var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
+                //         if(file && i<preview.length) {
+                //                 var file_name = file.name;
+                //                         let fd = new FormData();
+                //                         fd.append('file' ,file )
+                //                         fd.append('photo' ,file_name )
+                //                         fd.append('type', 'panorama')
+                //                         this.axios.post('/api/nursing/movephoto', fd)
+                //                                 .then(response => {
+                //                                 }).catch(error=>{
+                //                                         console.log(error);
+                //                                 if(error.response.status == 422){
+                //                                         this.errors = error.response.data.errors
+                //                                 }
+                //                         })
 
-                        }
-                        else {
-                                var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
-                                count = count + 1;
-                        }
-                        this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
-                }
+                //         }
+                //         else {
+                //                 var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
+                //                 count = count + 1;
+                //         }
+                //         this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
+                // }
 
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
@@ -1203,6 +1243,21 @@ export default {
                 this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
+              
+                
+                
+                var already_panorama = document.getElementsByClassName('already-panorama');
+                var panorama = document.getElementsByClassName('gallery-area-panorama');
+                if(already_panorama.length>0) {
+                        for(var i = 0; i< already_panorama.length; i++) {
+                                var file_name = panorama[i].getElementsByClassName('already-panorama')[0].value;
+                                if(file_name) {
+                                        this.already_panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
+                                        console.log(this.already_panorama_list);
+                                }
+                        }
+                }
+                this.panorama_list = this.panorama.concat(this.already_panorama_list);
 
                 this.tmp_list = this.img_list.concat(this.video_list);
                 this.gallery_list = this.tmp_list.concat(this.panorama_list);
