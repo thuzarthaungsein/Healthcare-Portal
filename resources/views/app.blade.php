@@ -20,6 +20,7 @@
 
 
 <!-- Scripts -->
+<!-- <script src="{{asset('js/app.js')}}" type="text/javascript" defer> </script> -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
@@ -728,7 +729,7 @@
 
 </div>
 
-<script src="/js/app.js" type="text/javascript"></script>
+
 <script src="{{ asset('js/map-api.js') }}"></script>
 <script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
