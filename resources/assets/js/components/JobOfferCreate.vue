@@ -109,7 +109,7 @@
                         type="text"
                         class="form-control"
                         v-model="field.skills"
-                        placeholder="経験・スキを入力してください。"
+                        placeholder="経験・スキルを入力してください。"
                       />
                       <!-- <input type="text" class="form-control"  v-model="joboffer.skills" >  -->
                     </div>
@@ -179,6 +179,7 @@
                   type="text"
                   class="form-control box"
                   v-model="joboffer.pref"
+                  placeholder="都道府県を入力してください。"
                 />
                 <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
               </div>
@@ -191,6 +192,7 @@
                   type="text"
                   class="form-control box"
                   v-model="joboffer.str_address"
+                  placeholder="市区町村、番地を入力してください。"
                 />
                 <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
               </div>
@@ -659,7 +661,7 @@ export default {
                 type: "success",
                 title: "作成されました。",
                 // text: "ファイルが作成されました。",
-                type: "success",
+                // type: "success",
                 width: 350,
                 height: 200,
                 confirmButtonText: "はい",
@@ -781,7 +783,7 @@ export default {
     updateJob() {
       this.$swal({
           title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -789,7 +791,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
