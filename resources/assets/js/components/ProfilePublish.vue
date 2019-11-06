@@ -1550,8 +1550,10 @@ export default {
                 });
             }
             if(this.type == "nursing")
-
             {
+                this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
+                      this.customer = response.data;
+                });
 
                 this.axios.get('/api/profile/nursing/'+this.cusid) .then(response => {
                     this.nursing_profiles = response.data.feature;
@@ -1626,18 +1628,14 @@ export default {
                     //     this.comments.push(data);
                     //         // tempData.push( data );
                     // }
-                });
-
-                  this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
-console.log(response);
-                      this.customer = response.data;
-                      console.log('customer',this.customer)
-
-                });
+                });                  
 
             }
 
             else{
+                this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type).then(response => {
+                    this.customer = response.data;
+                });
                 this.axios.get('/api/profile/hospital/'+this.cusid).then(response => {
                     this.google = response.data.hoslatlong;
 
@@ -1687,11 +1685,7 @@ console.log(response);
 
                       this.comments = response.data;
 
-                });
-
-                 this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type).then(response => {
-                      this.customer = response.data;
-                });
+                });                 
 
                 this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
                       this.subjects = response.data;
