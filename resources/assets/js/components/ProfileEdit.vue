@@ -36,6 +36,7 @@
                                 <label class="new-pass">New-Password:</label>
                                 <input type="password" name="new_password" class="form-control new-password">
                                 <div class="error" id="newpassword" style="display: none;">New Password is required.</div>
+                                <div class="error" id="newpasswordlength" style="display: none;">Password must be at least 6 digit.</div>
                             </div>
                         </div>
                         <div class="row">
@@ -151,6 +152,7 @@ export default {
             var confirm_pass = $('.confirm-password').val();
             if(old_pass == '') { $('#oldpassword').css('display','block'); return; }
             if(new_pass == '') { $('#newpassword').css('display','block'); return; }
+            if(new_pass.length < 6) { $('#newpasswordlength').css('display','block'); return; }
             if(confirm_pass == '') { $('#confirmpassword').css('display','block'); return; }
 
             if("'"+new_pass+"'" === "'"+confirm_pass+"'") {
