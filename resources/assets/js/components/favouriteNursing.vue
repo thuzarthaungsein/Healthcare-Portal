@@ -34,6 +34,7 @@
                             </g>
                         </svg>
                         &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
+                        &nbsp;<span class ="job_count">{{fav_nus}} 件</span>
                     </div>
                 </div>
 
@@ -426,7 +427,7 @@
                     capacity_show: false,
                     opening_check: false,
                     opening_show: false,
-
+                    fav_nus :"",
                     iscompare: false,
                     markers: [{
                         position: {
@@ -483,8 +484,10 @@
                 this.opening_show = true;
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
-
-            },
+                if(this.local_sto){
+                    this.fav_nus = this.local_sto.split(",").length;
+                }
+             },
 
             methods: {
                 moveCarousel(direction) {
@@ -510,7 +513,7 @@
                                 }
                                 else{
                                     $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
-                                }
+                                    }
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
@@ -526,6 +529,9 @@
                                     });
                                 }
                             }
+                        }
+                        if(this.local_sto){
+                            this.fav_nus = this.local_sto.split(",").length;
                         }
                     },
                     getAllFavourite: function(local_storage) {
@@ -585,7 +591,7 @@
                     checkSingle(nid) {
                         if (this.document_status[nid]) {
                             this.disableBtn = false;
-                        }                        
+                        }
                         else if(!this.document_status.includes(true)){
                             this.disableBtn = true;
                         }

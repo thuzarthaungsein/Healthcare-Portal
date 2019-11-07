@@ -32,6 +32,9 @@
                     </g>
                 </svg>
                 &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
+                &nbsp; <span class="job_count">{{fav_hos}}件</span>
+                <!-- &nbsp;<span style="color:#000;">件</span> -->
+
             </div>
         </div>
         <div class="row m-0">
@@ -183,8 +186,8 @@
                                                                 <dd class="profile_wd">{{hos_profile.medical_department}}</dd>
                                                             </dl>
                                                         </td>
-                                                    </tr>                                                    
-                                                    
+                                                    </tr>
+
                                                 </table>
 
                                             </div>
@@ -213,6 +216,7 @@
                 return {
                     errors: [],
                     fav_hospital: [],
+                    fav_hos:'',
                     local_sto: "",
                     post_list: [],
                     city_list: [],
@@ -241,6 +245,9 @@
             created() {
                 this.local_sto = localStorage.getItem("hospital_fav");
                 this.getAllFavourite(this.local_sto);
+                if(this.local_sto){
+                    this.fav_hos =this.local_sto.split(",").length;
+                }
             },
             methods: {
 
@@ -262,7 +269,7 @@
                             var index = l_sto_arr.indexOf(rm_id);
                             if (index > -1) {
                                 l_sto_arr.splice(index, 1);
-                                $("#hos-fav-local").html(l_sto_arr.length); 
+                                $("#hos-fav-local").html(l_sto_arr.length);
                                 if(l_sto_arr.length == 0){
                                     $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'})
                                 }
@@ -283,6 +290,9 @@
                                         }
                                     });
                                 }
+                            }
+                            if(this.local_sto){
+                                this.fav_hos =this.local_sto.split(",").length;
                             }
                         }
 
@@ -311,7 +321,7 @@
         padding: 10px;
         font-size: 100%;
     }
-    
+
     .second-row {
         background-color: #eff7ec;
     }

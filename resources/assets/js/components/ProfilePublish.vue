@@ -3,7 +3,7 @@
   <div id="app">
 
     <div v-if="type == 'nursing'" id="nursingView">
-        <span class="top-mail-btn" @click="documentPost()">資料請求</span>
+         <span class="top-mail-btn" @click="documentPost()" v-if="!loginuser"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
         <!--panorama-->
         <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
 
@@ -88,7 +88,6 @@
             <button v-scroll-to="{ el: '#element6' }" class="top-fixed-btn"  @click="activate(6)" :class="{ active : active_el == 6 }">
                 ロコミ
             </button>
-
             </div>
 
 
@@ -426,7 +425,7 @@
                                     <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
                                     <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
                                 </div>
-                                
+
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
@@ -766,8 +765,8 @@
                               </a>
                            </div>
                 </div>
-               
-            
+
+
                <div class="col-lg-12 col-md-12 col-sm-12">
 
                     <div class="row col-12">
@@ -775,7 +774,7 @@
 
 
                         <div class="col-12 comment-wrapper">
-                        
+
                             <div class="card" v-for="comment in comments" :key="comment.id">
 
                                 <!-- <div class="card-profile_header comment-title text-truncate">
@@ -793,7 +792,7 @@
                                         <i class="fas fa-comment"></i>
 
                                         {{comment.title}}
-                                        
+
                                         <!-- {{comment.created_time}}   -->
                                         <!-- {{substr("comment.created_at", 0, 10)}} -->
 
@@ -802,7 +801,7 @@
                                     <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}<br>
 
                                         <small class="card-text">{{comment.year}}</small>
-                                      
+
                                     </h5>
 
                                     <div class="comment-title2">
@@ -814,7 +813,7 @@
                                       <i class="fa fa-clock" aria-hidden="true"></i>
                                      {{comment.created_time}}
                                     </div>
-                                   
+
 
 
 
@@ -1515,7 +1514,7 @@ export default {
                 windowSize: 10,
                 paginationFactor:103,
                 fav_email : [],
-                  data: { 
+                  data: {
 	  str:"Welcome to Canada!",
 	  substr: ""
   },
@@ -1638,7 +1637,7 @@ export default {
                       console.log(response.data);
                       this.comments = response.data;
                     // for ( var index=0; index<response.data.length; index++ ) {
-                        
+
                     //     data = { "created_date": "1", "created_time": "Valid" };
                     //     this.comments.push(data);
                     //         // tempData.push( data );
@@ -1861,7 +1860,7 @@ export default {
         $('#changeLink'+id).show('medium');
     },
     documentPost() {
-        localStorage.removeItem("item");        
+        localStorage.removeItem("item");
         for (var i = 0; i < this.customer.length; i++) {
         this.fav_email.push({
             'id': this.customer[i]['id'],
@@ -1919,7 +1918,7 @@ export default {
 }
 
 #pano-slider-page .card-carousel--nav__left,
-.card-carousel--nav__right {
+#pano-slider-page .card-carousel--nav__right {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -1928,13 +1927,13 @@ export default {
     border-top: 5px solid #f9793c;
     border-right: 5px solid #f9793c;
     cursor: pointer;
-    margin: 0 10px;
+    /* margin: 0 10px; */
     transition: transform 150ms linear;
 }
 
 
- #pano-slider-page .card-carousel--nav__left[disabled],
-.card-carousel--nav__right[disabled] {
+#pano-slider-page .card-carousel--nav__left[disabled],
+#pano-slider-page .card-carousel--nav__right[disabled] {
     opacity: 0.2;
     border-color: black;
 }
@@ -2403,15 +2402,22 @@ a.comhov:hover, a.comhov:active {background: #fbaa84;}
 
 .top-mail-btn {
     position: absolute;
-    right: 120px;
+    right: 175px;
     top: -12px;
-    background: #ff7100;
-    border: 1px solid #ff9563;
-    color: #000;
-    width: 145px;
-    padding: 5px;
+    cursor: pointer;
+    /* background: #ff7100; */
+    background-color: #0cc72c !important;
+    /* border: 1px solid #ff9563; */
+    color: #fff;
+    width: 160px;
+    padding: 6px;
     border-radius: 5px;
+    text-align: center;
     text-decoration: none;
+    -webkit-box-shadow: 3px 5px 3px #ccc!important;
     box-shadow: 3px 5px 3px #ccc!important;
+    font-size: 14.4px;
+    border: 1px solid #53c000;
+
 }
 </style>
