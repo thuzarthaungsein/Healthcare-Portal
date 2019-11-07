@@ -59,7 +59,7 @@ class CommentController extends Controller
         $comment->year = $request->input('year');
         $comment->gender = $request->input('gender');
         $comment->zipcode = $zipcode;
-        $comment->customer_id = 1;
+        $comment->customer_id = $request->customer_id;
         $comment->status = 0;
         $comment->recordstatus = 1;
         $comment ->save();

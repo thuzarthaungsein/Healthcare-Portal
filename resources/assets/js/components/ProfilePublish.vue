@@ -760,10 +760,12 @@
             <div class="row ele m-lr-0" id="element6">
                 <div class="profile_header col-12">
                     <h5 style="padding-top:10px;">口コミ {{customer.name}}</h5><div class="comment-ico2">
-                              <a href="/comment" class="comhov">
+                              <!-- <a href="/comment" class="comhov">
                               <i class="far fa-comment"></i>
                               <span>口コミを追加する</span>
-                              </a>
+                              </a> -->
+                              <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span></router-link>
                            </div>
                 </div>
                
@@ -1437,6 +1439,7 @@ export default {
 
             var that = this;
             return {
+                customer_id: "",
                 url: 'upload/nursing_profile/Imagepanorama/',
                 isAutoRotationOn: true,
                 isOrientationOn: true,
@@ -1515,8 +1518,8 @@ export default {
         },
 
         created(){
-            console.log(this.cusid);
-          this.activePanoImage = 0;
+            this.customer_id = this.cusid;
+            this.activePanoImage = 0;
 
             if(this.type != undefined && this.cusid!= undefined){
                 localStorage.setItem('cusType',this.type);
