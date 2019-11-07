@@ -11,22 +11,22 @@
                              <div class="col-md-12">
                                  <form @submit.prevent ="add">
                                 <div class="form-group">
-                                    <label>名前 :<span class="error">*</span></label>
-                                    <input type="text" class="form-control"  v-model="Subject.name"  placeholder="名前" >
+                                    <label>科目 :<span class="error">*</span></label>
+                                    <input type="text" class="form-control"  v-model="Subject.name"  placeholder="科目を入力してください。" >
                                     <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                                 </div>
                                 <div class="form-group">
                                 <label>ペアレント :<span class="error">*</span></label>
                                     <select v-model="selectedValue" class="form-control" @change='getParent()'>
-                                        <option value="0">None</option>
+                                        <option value="0">選択してください。</option>
                                         <option v-for="Subjectlist in SubjectList" :key="Subjectlist.id" v-bind:value="Subjectlist.id">
                                             {{Subjectlist.name}}
                                         </option>
                                     </select>
                             </div><br/>
                                  <div class="form-group">
-                                        <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>
-                                         <button class="btn news-post-btn all-btn">{{subtitle}}</button>
+                                    <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
+                                    <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>                                         
                                 </div>
                              </form>
                              </div>
@@ -55,8 +55,8 @@ export default {
                    },
 
                 selectedValue:0,
-                header: 'Create Subject',
-                subtitle: '作る'
+                header: '診療科目作成',
+                subtitle: '作成する'
 
             }
         },
@@ -81,8 +81,8 @@ export default {
                         this.Subject.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.SubjectList.name = response.data.name;
-                        this.header = ' 特徴更新';
-                        this.subtitle = '更新';
+                        this.header = ' 診療科目更新';
+                        this.subtitle = '更新する';
                         return this.header;
                         return this.subtitle;
                 });
@@ -97,7 +97,7 @@ export default {
                 {
                     this.$swal({
                                 title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -152,7 +152,7 @@ export default {
 
                 this.$swal({
                           title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -160,7 +160,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -171,7 +171,7 @@ export default {
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新されました',
+                            title: '更新されました。',
                             // showConfirmButton: false,
                             // timer: 1800,
                             confirmButtonText: "はい",

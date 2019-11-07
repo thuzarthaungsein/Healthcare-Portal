@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">ニュース投稿を作成</h4>
+                            <h4 class="page-header header">ニュース作成</h4>
                             <br>
                         </div>
 
@@ -32,15 +32,15 @@
 
                             </div>
                             <div class="form-group">
-                                <label>主な情報:<span class="error">*</span></label>
-                                <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
+                                <label>主情報:<span class="error">*</span></label>
+                                <input type="text" class="form-control" placeholder="ニュースの主情報を入力してください。" v-model="news.main_point">
                                 <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
                             </div>
                             <div class="form-group">
                                 <!-- <button class="btn main-bg-color white all-btn" type="button">
                                                     種類
                                                 <span class="caret"></span>
-                                            </button> -->
+                                            </button> --> 
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id" id="categories" class="form-control" @change='getstates()'>
                                     <option v-bind:value="-1">選択してください。</option>
@@ -69,7 +69,7 @@
                                             <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" placeholder="検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
+                                            <input type="text" placeholder="関連ニュース検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
                                         </div>
                                     </div>
                                     <br/>
@@ -97,9 +97,9 @@
                             </div>
                             <input type="hidden" v-model="checkedNews">
 
-                            <div class="form-group">                     
+                            <div class="form-group">
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                             </div>
                         </form>
                     </div>
@@ -167,7 +167,7 @@
                         add() {
                             this.$swal({
                             title: "確認",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -194,7 +194,7 @@
                             this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            title: '作成されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             // showConfirmButton: false,
@@ -242,17 +242,17 @@
                     if (this.news.main_point) {
                         this.errors.main_point = "";
                     } else {
-                        this.errors.main_point = "ニュースの題名が必須です。";
+                        this.errors.main_point = "ニュースの主な情報が必須です。";
                     }
                     if (this.news.body) {
                         this.errors.body = "";
                     } else {
-                        this.errors.body = "ニュースの題名が必須です。";
+                        this.errors.body = "ニュースの内容が必須です。";
                     }
                     if (this.news.category_id) {
                         this.errors.category_id = "";
                     } else {
-                        this.errors.category_id = "ニュースの題名が必須です。";
+                        this.errors.category_id = "ニュースのカテゴリーが必須です。";
                     }
                     if (
                         !this.errors.title &&

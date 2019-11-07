@@ -8,7 +8,7 @@
             style="color: blue;"
             to="/createfacility"
           >
-            <i class="fas fa-plus-circle"></i> 新しい施設を作る
+            <i class="fas fa-plus-circle"></i> 新しい施設を作成
           </router-link>
         </div>
         <!-- <a href="/joboffer" class="float-right" style="color: blue;"></a> -->
@@ -29,13 +29,13 @@
             </a>
           </div>
           <div v-else class="container-fuid">
-            <h4 class="main-color m-b-10">施設一覧検索</h4>
+            <h4 class="main-color m-b-10">施設検索</h4>
             <div class="row">
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="検索"
+                  placeholder="施設検索"
                   id="search-item"
                   @keyup="searchFacility()"
                 />
@@ -84,7 +84,7 @@ export default {
     deleteFacility(id) {
       this.$swal({
         title: "確認",
-        text: "削除よろしいでしょうか",
+        text: "削除よろしいでしょうか。",
         type: "warning",
         width: 350,
         height: 200,
@@ -106,8 +106,8 @@ export default {
             // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
             // this.facilities.splice(i, 1);
             this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
+              title: "削除済",
+              text: "施設を削除されました。",
               type: "success",
               width: 350,
               height: 200,

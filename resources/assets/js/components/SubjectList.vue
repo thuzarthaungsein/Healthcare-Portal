@@ -4,7 +4,7 @@
          <div class="row m-b-10" v-if="norecord !== 0">
                 <div class="col-md-12">
                     <router-link to="/subject" class="float-right main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> Create New Subject
+                        <i class="fas fa-plus-circle"></i>新しい診療科目を作成
                     </router-link>
                 </div>
          </div>
@@ -22,17 +22,17 @@
                             </a>
                     </div>
                      <div v-else class="container-fuid">
-                          <h4 class="main-color m-b-10">Medical Subject Search</h4>
+                          <h4 class="main-color m-b-10">診療科目検索</h4>
                     <div class="row">
                         <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="検索" id="search-item" @keyup="searchSubject()">
+                            <input type="text" class="form-control" placeholder="診療科目検索" id="search-item" @keyup="searchSubject()">
                         </div>
                         <div class="col-md-2">
                             <button class="btn secondary-bg-color all-btn white">検索</button>
                         </div>
                     </div>
                     <hr/>
-                        <h5 class="header">Subject List</h5>
+                        <h5 class="header">診療科目一覧</h5>
                     <div class="card card-default m-b-20"  v-for="subject in subjects" :key="subject.id">
                         <div class="card-body">
                         <div class="row">
@@ -80,7 +80,7 @@ export default {
             deleteSubject(id) {
                 this.$swal({
                 title: "確認",
-                text: "削除よろしいでしょうか",
+                text: "削除よろしいでしょうか。",
                 type: "warning",
                 width: 350,
                 height: 200,
@@ -100,8 +100,8 @@ export default {
                     //    let i = this.subjects.map(item => item.id).indexOf(id); // find index of your object
                     //     this.subjects.splice(i, 1)
                          this.$swal({
-                title: "削除された",
-                text: "ファイルが削除されました。",
+                title: "削除済",
+                text: "診療科目を削除されました。",
                 type: "success",
                 width: 350,
                 height: 200,
@@ -109,7 +109,7 @@ export default {
                 confirmButtonColor: "#dc3545"
                     });
                 }).catch(() => {
-                this.$swal("Failed", "wrong");
+                this.$swal("失礼しました。", "サーバーに問題があります。");
             });
         });
          },

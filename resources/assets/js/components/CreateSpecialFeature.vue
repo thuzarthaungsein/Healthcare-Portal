@@ -12,12 +12,12 @@
                              <form @submit.prevent="add">
                             <div class="form-group">
                                 <label>特徴 :<span class="error">*</span></label>
-                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="特徴" >
+                                <input type="text" class="form-control"  v-model="feature.name"  placeholder="特徴を入力してください。" >
                                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
                             </div>
                             <div class="form-group">
-                                <label>機能の短い名前 :<span class="error">*</span></label>
-                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="機能の短い名前" >
+                                <label>特徴の略語 :<span class="error">*</span></label>
+                                <input type="text" class="form-control" v-model="feature.short_name"  placeholder="特徴の略語を入力してください。" >
                                  <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
                             </div>
                             <div class="form_group">
@@ -31,9 +31,9 @@
                             </div> <br/>
 
                             <div class="form-group ">
+                                <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
                                 <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>
-                                <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
-                                <button class="btn news-post-btn all-btn">{{subtitle}}</button>
+                                <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->                                
                             </div>
                                 </form>
                             </div>
@@ -55,8 +55,8 @@ export default {
                         type:'',
                     },
                     selectedValue:0,
-                    header: '特殊機能作成',
-                    subtitle: '作る'
+                    header: '特殊を作成',
+                    subtitle: '作成する'
             }
         },
           created() {
@@ -77,7 +77,7 @@ export default {
                         this.selectedValue = '介護';
                     }
                       this.header = ' 特徴更新';
-                        this.subtitle = '更新';
+                        this.subtitle = '更新する';
                         return this.header;
                         return this.subtitle;
 
@@ -91,7 +91,7 @@ export default {
                 {
                     this.$swal({
                                 title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -144,7 +144,7 @@ export default {
             updateFeature() {
                  this.$swal({
                             title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -152,7 +152,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -165,7 +165,7 @@ export default {
                     this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新された',
+                            title: '更新されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             width: 250,

@@ -103,7 +103,13 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+        if($id == 0) {
+            $u_id = auth('api')->user()->id;
+            $id = User::where('id',$u_id)->select('customer_id')->value('customer_id');
+            $type = User::where('id',$u_id)->select('type_id')->value('type_id');
+        }
         $customer = Customer::find($id);
+        $customer['type_id'] = isset($type)? $type: '';
 
         return response()->json($customer);
     }
@@ -116,6 +122,10 @@ class CustomerController extends Controller
 
     public function update($id,Request $request)
     {
+        if($id == 0) {
+            $u_id = auth('api')->user()->id;
+            $id = User::where('id',$u_id)->select('customer_id')->value('customer_id');
+        }
         $customer = Customer::find($id);
         $customer->update($request->all());
         return response()->json('Customer successfully updated');
@@ -189,4 +199,6 @@ class CustomerController extends Controller
                             ->toArray();
         return $search_customer;
     }
+
+   
 }

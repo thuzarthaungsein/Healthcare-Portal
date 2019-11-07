@@ -34,6 +34,7 @@
                             </g>
                         </svg>
                         &nbsp; <span class="font-weight-bold">お気に入りリスト</span>
+                        &nbsp;<span class ="job_count">{{fav_nus}} 件</span>
                     </div>
                 </div>
 
@@ -274,7 +275,7 @@
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <img class="img-fluid" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" />
+                                                        <img class="img-fluid" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt style="width: 250px; margin-bottom: 15px;" @error="imgUrlAlt"/>
                                                         <br>
                                                         <div style="width: 250px">
                                                             <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nur_profile.name}}</router-link>
@@ -285,7 +286,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</button>
                                                         <label class="btn all-btn res-btn hos-btn">
-                                                            <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle()">
+                                                            <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
                                                             <span class="checkmark"></span>資料請求</label>
                                                     </td>
                                                 </tr>
@@ -426,7 +427,7 @@
                     capacity_show: false,
                     opening_check: false,
                     opening_show: false,
-
+                    fav_nus :"",
                     iscompare: false,
                     markers: [{
                         position: {
@@ -483,8 +484,10 @@
                 this.opening_show = true;
                 this.local_sto = localStorage.getItem("nursing_fav");
                 this.getAllFavourite(this.local_sto);
-
-            },
+                if(this.local_sto){
+                    this.fav_nus = this.local_sto.split(",").length;
+                }
+             },
 
             methods: {
                 moveCarousel(direction) {
@@ -510,7 +513,7 @@
                                 }
                                 else{
                                     $('.fav-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
-                                }
+                                    }
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('nursing_fav', new_local);
                                 this.local_sto = localStorage.getItem("nursing_fav");
@@ -527,20 +530,15 @@
                                 }
                             }
                         }
+                        if(this.local_sto){
+                            this.fav_nus = this.local_sto.split(",").length;
+                        }
                     },
                     getAllFavourite: function(local_storage) {
                         this.axios
                             .post('/api/nursing_fav/' + local_storage)
                             .then(response => {
-                                console.log(response);
-                                console.log(local_storage);
                                 this.fav_nursing = response.data;
-                                // for (var i = 0; i < this.fav_nursing.length; i++) {
-                                //     var j = this.fav_nursing[i].id;
-                                //     this.reserv_status[j] = true;
-                                // }
-                                console.log('fav', this.fav_nursing)
-
                                 for (var i = 0; i < this.fav_nursing.length; i++) {
                                     var j = this.fav_nursing[i].id;
                                     if (this.document_status[j] == true) {
@@ -560,8 +558,8 @@
                                 'name': this.fav_nursing[i]['name']
                             });
                         }
-                        // localStorage.setItem("reserve", JSON.stringify(this.reserv_status));
                         localStorage.setItem("document", JSON.stringify(this.document_status));
+                        localStorage.removeItem("item");
                         localStorage.setItem("item", JSON.stringify(this.fav_email));
                         this.$router.push({
                             name: 'nursingFavouriteMail',
@@ -590,29 +588,12 @@
                             }
                         }
                     },
-                    checkSingle() {
-                        this.disableBtn = false;
-                        for (var i = 0; i < this.fav_nursing.length; i++) {
-                            var j = this.fav_nursing[i].id;
-                            if (this.document_status[j]) {
-                                 this.check = true;
-                                // $('.check-all-btn').prop("checked", true);
-                                this.disableBtn = false;
-                            }
-
-                            else  if(!this.document_status[j] && this.check == true) {
-                                //   $('.check-all-btn').prop("checked", false);
-                                  this.disableBtn = false;
-                                  this.check = false;
-                            }
-
-                             else if(!this.document_status[j] && this.check == false){
-                                    // $('.check-all-btn').prop("checked", false);
-                                     this.disableBtn = true;
-                                     this.check = false;
-
-
-                            }
+                    checkSingle(nid) {
+                        if (this.document_status[nid]) {
+                            this.disableBtn = false;
+                        }
+                        else if(!this.document_status.includes(true)){
+                            this.disableBtn = true;
                         }
                     },
                     itemCompare() {
@@ -687,7 +668,10 @@
                                 this.payment_name = this.fav_nursing[i].payment_method;
                             }
                         }
-                    }
+                    },
+                imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
             }
     };
 </script>

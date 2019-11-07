@@ -5,22 +5,22 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h4 class="page-header header">カテゴリを編集</h4>
+              <h4 class="page-header header">カテゴリー更新</h4>
             </div>
 
             <form @submit.prevent="updateCategory" class="col-md-12">
               <div class="form-group">
                 <label>
-                  カテゴリ名:
+                  カテゴリー名:
                   <span class="error">*</span>
                 </label>
-                <input type="text" class="form-control" v-model="category.name" placeholder="種別名" />
+                <input type="text" class="form-control" v-model="category.name" placeholder="カテゴリー名を入力してください。" />
                 <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
               </div>
 
               <div class="form-group">
+                <button class="btn main-bg-color white all-btn">更新する</button>
                 <router-link to="/categorylist" class="btn btn-danger all-btn">キャンセル</router-link>
-                <button class="btn news-post-btn all-btn">更新</button>
                 <!-- <router-link to="/categorylist" class="btn news-post-btn all-btn">更新</router-link> -->
                 <!-- <a href="categorylist" class="btn btn-warning">Cancel</a> -->
               </div>
@@ -56,7 +56,7 @@ export default {
     updateCategory() { 
                     this.$swal({
                             title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -64,7 +64,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"

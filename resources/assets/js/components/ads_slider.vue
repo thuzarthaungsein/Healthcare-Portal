@@ -4,7 +4,7 @@
         <div class="list-group-item adslist-card" v-for="adsList in ads_list" :key="adsList.id">
             <a :href="adsList.link" target="_blank">
                 <div class="slide-img">
-                    <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" />
+                    <img :src="'/upload/advertisement/'+ adsList.photo" alt class="img-fluid ads-img" @error="imgUrlAlt"/>
                 </div>
                 <h3 class="smallads-title">{{adsList.title}}</h3>
             </a>       
@@ -53,7 +53,12 @@ export default {
                 this.$refs.slick.reSlick();
             });
         },
+         imgUrlAlt(event) 
+        {
+                event.target.src = "images/noimage.jpg"
+            }
     }
+   
 }
 </script>
 

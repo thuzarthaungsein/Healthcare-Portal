@@ -6,13 +6,35 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">ニュース投稿を作成</h4>
+                            <h4 class="page-header header">ニュース更新</h4>
                         </div>
                         <form @submit.prevent="updatepost" class="col-md-12">
                             <div class="form-group">
                                 <label>題名:<span class="error">*</span></label>
                                 <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
                                 <span v-if="errors.title" class="error">{{errors.title}}</span>
+                            </div>
+
+                            <div class="form-group" id="showimage">
+                                <label class="">写真:</label>
+                                <div class="custom-file">
+                                    <input type="file" ref="file" accept="image/*" @change="fileSelected">
+                                </div>
+                            </div>
+
+                            <div class="image_show" v-if="upload_img">
+                                <div class='col-md-2'>
+                                    <span class='img-close-btn' v-on:click="removeUpload()">X</span>
+                                    <img :src="upload_img" class='show-img'>
+                                </div>
+                            </div>
+                            <div class="form-group image_update" id="x-image" v-if="news.photo && !upload_img && !old_photo">
+                                <div class="col-md-12" >
+                                    <div id='x-image' class='col-md-2'>
+                                        <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
+                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="news" @error="imgUrlAlt">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>主な情報:<span class="error">*</span></label>
@@ -34,27 +56,7 @@
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                 <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
-                            <div class="form-group" id="showimage">
-                                <label class="">メディア:</label>
-                                <div class="custom-file">
-                                    <input type="file" ref="file" accept="image/*" @change="fileSelected">
-                                </div>
-                            </div>
-
-                            <div class="image_show" v-if="upload_img">
-                                <div class='col-md-2'>
-                                    <span class='img-close-btn' v-on:click="removeUpload()">X</span>
-                                    <img :src="upload_img" class='show-img'>
-                                </div>
-                            </div>
-                            <div class="form-group image_update" id="x-image" v-if="news.photo && !upload_img && !old_photo">
-                                <div class="col-md-12" >
-                                    <div id='x-image' class='col-md-2'>
-                                        <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
-                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="news">
-                                    </div>
-                                </div>
-                            </div>
+                  
                             <input type="hidden" v-model="old_photo" >
                             <div class="form-group">
                                 <label> カテゴリー:<span class="error">*</span></label>
@@ -87,9 +89,8 @@
                             <input type="hidden" v-model="checkedNews" >
 
                             <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">戻る</router-link>
-                                <!-- <button class="btn news-post-btn all-btn">更新</button> -->
-                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 更新する</span>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                             </div>
                         </form>
                     </div>
@@ -186,7 +187,7 @@
                     updatepost() {
                          this.$swal({
                             title:"確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -194,7 +195,7 @@
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -212,7 +213,7 @@
                          this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新されました',
+                            title: '更新されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             width: 250,
@@ -252,7 +253,7 @@
                         {
                             this.$swal({
                             title: "削除",
-                            text: "削除をよろしでしょうか。",
+                            text: "削除よろしでしょうか。",
                             type: "warning",
                             width: 350,
                             height: 200,
@@ -260,7 +261,7 @@
                             confirmButtonColor: "#d41010",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "削除",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -274,8 +275,8 @@
                            }).then(response => {
                             
                                 this.$swal({
-                                        title: "削除された",
-                                        text: "ファイルが削除されました。",
+                                        title: "削除されました",
+                                        text: "ニュース削除されました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,
@@ -300,17 +301,17 @@
                         if (this.news.main_point) {
                             this.errors.main_point = "";
                         } else {
-                            this.errors.main_point = "ニュースの題名が必須です。";
+                            this.errors.main_point = "ニュースの主な情報が必須です。";
                         }
                         if (this.news.body) {
                             this.errors.body = "";
                         } else {
-                            this.errors.body = "ニュースの題名が必須です。";
+                            this.errors.body = "ニュースの内容が必須です。";
                         }
                         if (this.news.category_id) {
                             this.errors.category_id = "";
                         } else {
-                            this.errors.category_id = "ニュースの題名が必須です。";
+                            this.errors.category_id = "ニュースのカテゴリーが必須です。";
                         }
                         if (
                             !this.errors.title &&
@@ -321,6 +322,10 @@
                             this.updatepost();
                         }
                     },
+                imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
+			
             }
     }
 </script>

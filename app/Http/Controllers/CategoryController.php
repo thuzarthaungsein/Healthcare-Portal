@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
         ],
         [
-            'name.unique' => 'Unique Name'
+            'name.unique' => 'カテゴリ名は一意である必要があります。'
         ]
     );
 
