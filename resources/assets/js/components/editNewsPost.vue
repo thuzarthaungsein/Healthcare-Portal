@@ -89,9 +89,8 @@
                             <input type="hidden" v-model="checkedNews" >
 
                             <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
-                                <!-- <button class="btn news-post-btn all-btn">更新</button> -->
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 更新する</span>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                             </div>
                         </form>
                     </div>
@@ -188,7 +187,7 @@
                     updatepost() {
                          this.$swal({
                             title:"確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -196,7 +195,7 @@
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -214,7 +213,7 @@
                          this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新されました',
+                            title: '更新されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             width: 250,
@@ -254,7 +253,7 @@
                         {
                             this.$swal({
                             title: "削除",
-                            text: "削除をよろしでしょうか。",
+                            text: "削除よろしでしょうか。",
                             type: "warning",
                             width: 350,
                             height: 200,
@@ -262,7 +261,7 @@
                             confirmButtonColor: "#d41010",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "削除",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -276,8 +275,8 @@
                            }).then(response => {
                             
                                 this.$swal({
-                                        title: "削除された",
-                                        text: "ファイルが削除されました。",
+                                        title: "削除されました",
+                                        text: "ニュース削除されました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,

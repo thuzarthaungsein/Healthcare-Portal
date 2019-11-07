@@ -532,15 +532,7 @@
                         this.axios
                             .post('/api/nursing_fav/' + local_storage)
                             .then(response => {
-                                console.log(response);
-                                console.log(local_storage);
                                 this.fav_nursing = response.data;
-                                // for (var i = 0; i < this.fav_nursing.length; i++) {
-                                //     var j = this.fav_nursing[i].id;
-                                //     this.reserv_status[j] = true;
-                                // }
-                                console.log('fav', this.fav_nursing)
-
                                 for (var i = 0; i < this.fav_nursing.length; i++) {
                                     var j = this.fav_nursing[i].id;
                                     if (this.document_status[j] == true) {
@@ -560,7 +552,6 @@
                                 'name': this.fav_nursing[i]['name']
                             });
                         }
-                        // localStorage.setItem("reserve", JSON.stringify(this.reserv_status));
                         localStorage.setItem("document", JSON.stringify(this.document_status));
                         localStorage.removeItem("item");
                         localStorage.setItem("item", JSON.stringify(this.fav_email));

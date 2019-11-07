@@ -17,8 +17,8 @@
                                 <span v-if="errors.title" class="error">{{errors.title}}</span>
                             </div>
                             <div class="form-group">
-                                <label>主な情報:<span class="error">*</span></label>
-                                <input type="text" class="form-control" placeholder="ニュースの主な情報を入力してください。" v-model="news.main_point">
+                                <label>主情報:<span class="error">*</span></label>
+                                <input type="text" class="form-control" placeholder="ニュースの主情報を入力してください。" v-model="news.main_point">
                                 <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
                             </div>
                             <div class="form-group">
@@ -94,8 +94,8 @@
                             <input type="hidden" v-model="checkedNews">
 
                             <div class="form-group">
-                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
+                                <router-link :to="{name: 'news_list'}" class="btn btn-danger all-btn">キャンセル</router-link>
                             </div>
                         </form>
                     </div>
@@ -163,7 +163,7 @@
                         add() {
                             this.$swal({
                             title: "確認",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -190,7 +190,7 @@
                             this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            title: '作成されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             // showConfirmButton: false,

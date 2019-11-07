@@ -107,7 +107,7 @@ export default {
             // this.facilities.splice(i, 1);
             this.$swal({
               title: "削除済",
-              text: "施設が削除されました。",
+              text: "施設を削除されました。",
               type: "success",
               width: 350,
               height: 200,
