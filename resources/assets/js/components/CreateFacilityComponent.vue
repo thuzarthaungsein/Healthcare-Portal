@@ -13,12 +13,13 @@
                             <div class="form-group">
                                 <label>施設の種類:<span class="error">*</span></label>
                                 <input type="text" class="form-control"  v-model="facility.description"  placeholder="施設の種類を入力してください。" >
-                                   <span v-if="errors.description" class="error">{{errors.description[0]}}</span>  
+                                      <span v-if="errors.description" class="error">{{errors.description}}</span>
                             </div>
                         
                             <div class="form-group">
                                 <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>    
-                                <button class="btn news-post-btn all-btn" > 作成する </button>                                          
+                                <!-- <button class="btn news-post-btn all-btn" > 作成する </button> -->
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>                                         
                                 <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link> -->
                             </div>  
                                 </form>  
@@ -33,7 +34,9 @@
 export default {
   data() {
     return {
-      errors: [],
+      errors: {
+        description:"",
+      },
       facility: {
         description: ""
       }
@@ -82,7 +85,22 @@ export default {
                     }
                 });
             });
-    }
+    },
+     checkValidate() {
+                     if (this.facility.description) {
+                        // console.log('exist');
+                        this.errors.description = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.description = " 施設の種類が必須です。";
+                    }
+                   if (
+                        !this.errors.description
+                        
+                    ) {
+                        this.add();
+                    }
+                },
   }
 };
 </script>
