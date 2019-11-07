@@ -9,6 +9,7 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use App\Customer;
 
 class UserController extends Controller
 
@@ -26,10 +27,10 @@ class UserController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:role-list');
-         $this->middleware('permission:role-create', ['only' => ['create','store']]);
-         $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        //  $this->middleware('permission:role-list');
+        //  $this->middleware('permission:role-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:role-delete', ['only' => ['destroy']]);
     }
 
 
@@ -195,5 +196,48 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success','User deleted successfully');
 
+    }
+
+    public function movePhoto(Request $request) {
+        $request = $request->all();
+        $user = User::find(auth('api')->user()->id);
+        $tmp = $request['file'];
+
+        if($user['type_id'] == '2') {
+            $destination = 'upload/hospital_profile/'.$request['photo'];
+        }
+       else {
+            $destination = 'upload/nursing_profile/'.$request['photo'];
+        }
+        move_uploaded_file($tmp, $destination);
+        
+    }
+
+    public function changePassword(Request $request) {
+        $request = $request->all();
+        $user = User::find(auth('api')->user()->id);
+    
+        if (Hash::check($request['old_pass'], $user['password'])) {
+            $user->password = Hash::make($request['old_pass']);
+            $user->save();
+        } 
+    }
+
+    public function changeEmail(Request $request) {
+        $request = $request->all();
+
+        $user = User::find(auth('api')->user()->id);
+        $user->email = $request['email'];
+        $user->save();
+
+        $customer = Customer::find($user['customer_id']);
+        $customer->email = $request['email'];
+        $customer->save();
+      
+    }
+
+    public function getUserInfo() {
+        $user = User::find(auth('api')->user()->id);
+        return response()->json($user);
     }
 }

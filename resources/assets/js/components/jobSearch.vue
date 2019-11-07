@@ -316,7 +316,7 @@
                     <button @click="toggleContent4" class="btn col-3 seemore-btn">
                       <i class="fa" aria-hidden="true"></i>
                           <!-- <em>{{city.city_name}}</em> -->
-                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる </span>
+                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる </span>
                     </button>
 
                     <div  class="toBeToggled4" id="toBeToggled4">
@@ -423,7 +423,7 @@
                           </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
-                          <p class="job_id">求人NO.{{job.jobnum}}</p>
+                          <p class="job_id">求人番号{{job.jobnum}}</p>
                         </div>
                       </div>
                       <div class="job-body row  clearfix">
@@ -540,12 +540,12 @@ export default {
             if (this.toggleCheck == true) {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> 都道府県を閉じる');
+                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる');
 
             } else {
                 $('#close6').empty();
                 $("#toBeToggled4").slideToggle();
-                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 都道府県を開く');
+                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 市区町村エリアを開く');
             }
         },
         ShowHide4() {

@@ -409,7 +409,7 @@
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                                     <p class="item-fav btn btn-sm">
-                                        <i class="fas fa-plus-square"></i> お気に入りに追加 
+                                        <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
                                     </p>                                 
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
@@ -643,6 +643,19 @@
                  <div class="row">
                    <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
                      <div class="nur-content">
+                      <div class="job-header">
+                        <h5 class="nur-tit">
+                          <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
+                          </h5> 
+                        <p class="btn all-btn nur-addbtn">
+                            <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
+                        </p>  
+                      </div>
+                      <div class="col-12 pad-free clearfix">
+                          <span class="job_status"> {{nus.num_rooms}} </span>
+                          <span class="nur_date">{{nus.date_of_establishment}}</span>
+                           <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
+                        </div>
                       <div class="job-body row  clearfix">
                         <div class="col-3 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
@@ -656,19 +669,15 @@
                                <tr>
                                 <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                                 <td>{{nus.email}}</td>
-                              </tr>
-                              <tr>
-                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-phone-alt"></i></span>電話</td>
-                                <td>{{nus.phone}}</td>
-                              </tr>
+                              </tr>                              
                               <tr>
                                 <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
                                 <td>{{nus.address}}</td>
                               </tr>
-                              <tr>
+                              <!-- <tr>
                                 <td style="width:30%;"><span class="job_ico">&#xa5;</span>入居時費用</td>
                                 <td>{{nus.moving_in}} </td>
-                              </tr>
+                              </tr> -->
                                 
                               <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                                 <span v-if="fac.id == nus.fac_type" class="feature_list">
@@ -676,8 +685,6 @@
                                 </span>
                               </span>
                           </table>
-                        </div>
-                        <div class="col-4">                            
                            <h5 class="header m-t-10">こだわりの特長</h5>
                               <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
                                 <span v-if="spe.customer_id == nus.customer_id" class="feature_list">
@@ -685,14 +692,33 @@
                                 </span>
                               </span>
 
-                             <h5 class="header m-t-10">医療受入</h5>  
+                             <!-- <h5 class="header m-t-10">医療受入</h5>  
                               <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
                                 <span v-if="med.customer_id == nus.customer_id" class="feature_list">
                                   {{med.name}}
                                 </span>
-                              </span>
+                              </span> -->
+                        </div>
+                        <div class="col-4"> 
+                            <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+nus.alphabet+'|ff9563|000000'" alt="">{{nus.name}}</p>
+                            <p>{{nus.city_name}} <i class="fas fa-angle-double-right"></i> {{nus.township_name}}</p>
+                            <div>
+                                <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td class="text-center" style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
+                                            <td><span class="cash-lbl">{{nus.moving_in_to}} </span>万円</td>
+                                        </tr>      
+                                        <tr>
+                                            <td class="text-center"><span class="job_ico">&#xa5;</span>月額利用料</td>
+                                            <td><span class="cash-lbl">{{nus.per_month_to}} </span>万円</td>
+                                        </tr>      
+                                </table>
+                            </div>
                         </div>
                       </div>
+                      <div class="mt-4 col-12 detail-btn text-center">                                             
+                        <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -814,7 +840,7 @@
           },
         }).then((response)=>{
  
-          
+          console.log(response.data.nursing);
           this.nus_data = response.data.nursing;
           this.specialfeature = response.data.specialfeature;
           this.medicalacceptance = response.data.medicalacceptance;
@@ -920,7 +946,7 @@
                             '<tbody>' +
                               '<tr>' +
                                 '<td colspan="2"><button class="item-fav-infowindow">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+                                
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
                                 '</span> </button></td>' +
                               '</tr>' +
                               '<tr>' +
@@ -1227,7 +1253,7 @@
                             '<tbody>' +
                               '<tr>' +
                                 '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+                                
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
                                 '</span> </button></td>' +
                               '</tr>' +
                               '<tr>' +
