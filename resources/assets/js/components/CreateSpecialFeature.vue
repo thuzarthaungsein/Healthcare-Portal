@@ -13,27 +13,34 @@
                             <div class="form-group">
                                 <label>特徴 :<span class="error">*</span></label>
                                 <input type="text" class="form-control"  v-model="feature.name"  placeholder="特徴を入力してください。" >
-                                <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                <!-- <span v-if="errors.name" class="error">{{errors.name[0]}}</span> -->
+                                  <span v-if="errors.name" class="error">{{errors.name}}</span>
                             </div>
                             <div class="form-group">
                                 <label>特徴の略語 :<span class="error">*</span></label>
                                 <input type="text" class="form-control" v-model="feature.short_name"  placeholder="特徴の略語を入力してください。" >
-                                 <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span>
+                                 <!-- <span v-if="errors.short_name" class="error">{{errors.short_name[0]}}</span> -->
+                                   <span v-if="errors.short_name" class="error">{{errors.short_name}}</span>
                             </div>
                             <div class="form_group">
                                 <label> カテゴリー:<span class="error">*</span></label>
-                                <select v-model="selectedValue" name="type" class="form-control" @change="onChange()">
-                                        <option value="0">選択してください。</option>
-                                        <option value="病院">病院</option>
+                                <select v-model="feature.type" name="type" class="form-control">
+                                        <option v-bind:value='-1'>選択してください。 </option>
+                                        <option value="病院" >病院</option>
                                         <option value="介護">介護</option>
                                 </select>
-                                 <span v-if="errors.type" class="error">{{errors.type[0]}}</span>
+                                <span v-if="errors.type" class="error">{{errors.type}}</span>
+                                    <!-- <span v-if="errors.nur" class="error">{{errors.nur}}</span> -->
                             </div> <br/>
 
                             <div class="form-group ">
-                                <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
+                                  <span class="btn main-bg-color white all-btn" @click="checkValidate()"> {{subtitle}}</span>
+                                <!-- <button class="btn main-bg-color white all-btn">{{subtitle}}</button> -->
                                 <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>
-                                <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->                                
+                                <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
+                                <!-- <button class="btn news-post-btn all-btn" >{{subtitle}}</button> -->
+                              
+                                <!-- {{ this.errors.type }} -->
                             </div>
                                 </form>
                             </div>
@@ -48,11 +55,21 @@
 export default {
           data() {
             return {
-                errors: [],
+                errors: {
+                   name:"",
+				   short_name:"",
+                   selectedValue:"",
+                   host:"",
+                   nurse:"",
+                   type: ""
+
+                },
                 feature: {
                         name: '',
                         short_name:'',
-                        type:'',
+                        type: '-1',
+                        host:"",
+                        nurse:""
                     },
                     selectedValue:0,
                     header: '特殊を作成',
@@ -60,6 +77,8 @@ export default {
             }
         },
           created() {
+              console.log('22222');
+              console.log(this.$route.params.id);
               if(this.$route.params.id){
               //  alert('title');
                 //  this.title = this.title.toUpperCase();
@@ -71,10 +90,10 @@ export default {
                     this.feature= response.data;
                     if(this.feature.type == '病院')
                     {
-                        this.selectedValue = '病院';
+                        this.feature.type = '病院';
                     }
                     else if (this.feature.type == '介護') {
-                        this.selectedValue = '介護';
+                        this.feature.type = '介護';
                     }
                       this.header = ' 特徴更新';
                         this.subtitle = '更新する';
@@ -86,9 +105,49 @@ export default {
         },
 
          methods: {
+              checkValidate() {
+                //   alert(1);
+                     if (this.feature.name) {
+                        // console.log('exist');
+                        this.errors.name = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.name = " 特徴が必須です。";
+                    }
+
+                    if (this.feature.short_name) {
+                        // console.log('exist');
+                        this.errors.short_name = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.short_name = " 特徴の略語が必須です。";
+                    }
+                    
+
+                    if (this.feature.type == '-1') {
+                        console.log(this.feature.type);
+                        this.errors.type = " カテゴリが必須です。";
+                    }
+                    else {
+                        this.errors.type = "";
+                    }
+
+                   if (
+                        !this.errors.name &&
+                        !this.errors.short_name &&
+                        !this.errors.type
+                        
+                    ) {
+                        
+                        this.add();
+                    }
+                },
+				
             add() {
-                 if( `${this.$route.params.id}` == "undefined")
+                 if( !this.$route.params.id || this.$route.params.id == 'undefined')
                 {
+                    // console.log(`${this.$route.params.id}`);
+                    // console.log('this.$route.params.id');
                     this.$swal({
                                 title: "作成",
                             text: "作成よろしでしょうか。",
@@ -133,14 +192,17 @@ export default {
 
                 }
                 else{
+                    console.log('bbbbb');
+                    console.log(this.$route.params.id);
                      this.updateFeature();
                 }
 
             },
-            onChange: function(){
-               this.feature.type = this.selectedValue;
+        //     onChange: function(){
+        //        this.feature.type = this.selectedValue;
+        //     //    console.log(this.selectedValue);
 
-           },
+        //    },
             updateFeature() {
                  this.$swal({
                             title: "確認",

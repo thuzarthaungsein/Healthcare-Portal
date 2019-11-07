@@ -249,8 +249,22 @@
                             });
                     },
                     deleteLocalSto: function(id) {
-                        if (confirm("Are you sure you want to delete?")) {
-                            alert('Delete Successfully!');
+
+                            this.$swal({
+                            title: "確認",
+                            text: "削除よろしいでしょうか",
+                            type: "warning",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#dc3545",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "削除",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => { 
                             var l_sto = this.local_sto;
                             var l_sto_arr = l_sto.split(",");
                             var rm_id = id.toString();
@@ -267,6 +281,15 @@
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_history', new_local);
                                 this.local_sto = localStorage.getItem("hospital_history");
+                                this.$swal({
+                                title: "削除された",
+                                text: "ファイルが削除されました。",
+                                type: "success",
+                                width: 350,
+                                height: 200,
+                                confirmButtonText: "はい",
+                                confirmButtonColor: "#dc3545"
+                                });
                                 if (this.local_sto) {
                                     this.getAllCustomer(this.local_sto);
                                 } else {
@@ -279,10 +302,13 @@
                                     });
                                 }
                             }
+                         });
+                           
+                            
                             if(this.local_sto){
                             this.his_hos = this.local_sto.split(",").length;
                             }
-                        }
+                     
 
                     },
                 imgUrlAlt(event) {
