@@ -317,7 +317,7 @@
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
                 <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2)" v-model="township_id">
-                <option value="-1">Select Township</option>
+                <option value="-1">▼市区町村</option>
                   <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
               </div>
@@ -407,9 +407,9 @@
                           <tr >
                             <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
-                                    <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                                    <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                                     <p class="item-fav btn btn-sm">
-                                        <i class="fas fa-plus-square"></i> お気に入りに追加 
+                                        <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
                                     </p>                                 
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
@@ -429,15 +429,15 @@
                                             <table class="table table-bordered address-tbl">
                                                 <tbody>
                                                 <tr>
-                                                    <td>Address</td>
+                                                    <td style="width:50px">住所</td>
                                                     <td><p>{{items.address}}</p></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Phone</td>
+                                                    <td style="width:50px">電話</td>
                                                     <td><p>{{items.phone}}</p></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Website</td>
+                                                    <td style="width:50px;">ウェブ</td>
                                                     <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
                                                 </tr>
                                                 </tbody>
@@ -453,8 +453,8 @@
                                      <table class="table table-bordered price-tbl text-center">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">Moving In</th>
-                                                <th class="text-center">Per Month</th>
+                                                <th class="text-center">入居時費用</th>
+                                                <th class="text-center">月額利用料</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -470,7 +470,7 @@
                         </tbody>
                       </table>
                         <!-- <div class="col-12">
-                            <p class="mb-2 clearfix"><span class="num-rooom">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+                            <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                               <p class="item-fav btn btn-sm">
                                 <i class="fas fa-plus-square"></i> お気に入りに追加 
                               </p>                                 
@@ -537,153 +537,188 @@
 
         </div>
       </div>
-
-        <!-- query list -->
-        <div class="row box-wrap select mt-3">
-          <div class="col-2 left-div">地域</div>
-          <div class="col-10">
-            <div>
-              <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                <label class="form-check-label control control--checkbox">
-                  <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
-                  {{township.township_name}}
-                  <div class="control__indicator"></div>
-                </label>
-              </div>
-            </div>
-          </div>
-
-       
-
-
-          <div class="col-sm-2 left-div-1" v-if="showOne"> 入居時の条件</div>
-          <div class="col-sm-10" v-if="showOne">
-            <hr>
-            <div class="row pl-3 pt-3" v-if="showOne">
-              <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                <label class="form-check-label">
-                  <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
-                  自立
-                </label>
-              </div>
-              <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                <label class="form-check-label">
-                  <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
-                  要支援
-                </label>
-              </div>
-              <div class="form-check form-check-inline col-sm-3" id="customCheck1">
-                <label class="form-check-label">
-                  <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
-                  要介護
-                </label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-2 left-div-1" v-if="showOne">特長</div>
-          <div class="col-sm-10" v-if="showOne">
-            <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
-                {{feature.name}}
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-2 left-div-1" v-if="showOne">施設の種類</div>
-          <div class="col-sm-10" v-if="showOne">
-            <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
-                {{fac_type.description}}
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-2 left-div-1" v-if="showOne">医療面・診療科目</div>
-          <div class="col-sm-10 mb-4" v-if="showOne">
-            <hr>
-            <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
-                {{medical.name}}
-              </label>
-            </div>
-          </div>
-
-          <div class="col-sm-2 left-div-2"></div>
-          <div class="col-sm-10">
-            <button @click="showOne = !showOne" class="btn btn-link mt-2">
-              <span v-show="showOne"><i class="fas fa-arrow-circle-up"></i> Close</span>
-              <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i> Open</span>
-            </button>
-          </div>
-
-            <div class="col-sm-6 left-div-6"></div>
-            <div class="col-sm-6 m-b-20">
-                <span class="btn all-btn btn-success" @click="search">検索</span>
-            </div>
-        </div>
-        <!--end query list-->
+      <!--list-->
+       <table class="table table-bordered col-12 box-wrap select">
+              <tbody>
+                <tr>
+                  <th>地域</th>
+                  <td>
+                    <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
+                            {{township.township_name}}
+                        <div class="control__indicator"></div>
+                        </label>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th v-if="showOne" style="padding:10px;">入居時の条件</th>
+                  <td v-if="showOne">
+                        <div class="form-check form-check-inline col-sm-2" id="customCheck1">
+                          <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" :id="1" value="自立" v-model="MoveID" type="checkbox">
+                            自立
+                             <div class="control__indicator"></div>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                          <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" :id="2" value="要支援" v-model="MoveID" type="checkbox">
+                            要支援
+                             <div class="control__indicator"></div>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3" id="customCheck1">
+                          <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" :id="3" value="要介護" v-model="MoveID" type="checkbox">
+                            要介護
+                             <div class="control__indicator"></div>
+                          </label>
+                        </div>                      
+                  </td> 
+                </tr>   
+                <tr>
+                  <th v-if="showOne">特長</th>
+                  <td v-if="showOne">
+                    <div class="form-check form-check-inline col-sm-2" v-for="feature in special_features" :key="feature.id">
+                      <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                        <input class="form-check-input" type="checkbox" v-model="SpecialFeatureID" :id="feature.id" :value="feature.id" @click="features($event)">
+                        {{feature.name}}
+                         <div class="control__indicator"></div>
+                      </label>
+                  </div>
+                  </td>
+                </tr> 
+                <tr>
+                  <th v-if="showOne">施設の種類</th>
+                  <td v-if="showOne">
+                  <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                      <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
+                      {{fac_type.description}}
+                       <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th v-if="showOne">医療面・診療科目</th>
+                  <td v-if="showOne">
+                  <div class="form-check form-check-inline col-sm-2" v-for="medical in medical_acceptance" :key="medical.id">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                      <input class="form-check-input" type="checkbox" v-model="MedicalAcceptanceID" :id="medical.id" :value="medical.id">
+                      {{medical.name}}
+                       <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  </td>
+                </tr>
+                <tr class="text-center">                  
+                  <td colspan="2">
+                    <button @click="showOne = !showOne" class="btn btn-link mt-2">
+                      <!-- <span v-show="showOne"><i class="fas fa-arrow-circle-up"></i>閉じる</span> -->
+                      <button v-show="showOne" class="btn seemore-btn">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close4"><i class="fas fa-arrow-circle-up"></i> 閉じる</span>
+                      </button>
+                      <!-- <span v-show="!showOne"><i class="fas fa-arrow-circle-down"></i>もっと見る</span> -->
+                      <button v-show="!showOne" class="btn seemore-btn">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                      </button>
+                    </button>
+                  </td>
+                </tr>
+               <tr class="text-center">
+                  <td colspan="2" style="border:none;">
+                     <button class="main-bg-color create-btn all-btn" id="search" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検索 </button>
+                  </td>
+                </tr>
+              </tbody>
+      </table>
+      <!--end list-->
+        
         <div class=" col-12">
                  <div class="row">
-                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
-                     <div class="job-content">
+                   <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                     <div class="nur-content">
+                      <div class="job-header">
+                        <h5 class="nur-tit">
+                          <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
+                          </h5> 
+                        <p class="btn all-btn nur-addbtn">
+                            <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
+                        </p>  
+                      </div>
+                      <div class="col-12 pad-free clearfix">
+                          <span class="job_status"> {{nus.num_rooms}} </span>
+                          <span class="nur_date">{{nus.date_of_establishment}}</span>
+                           <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
+                        </div>
                       <div class="job-body row  clearfix">
-                        <div class="col-4 job-img">
+                        <div class="col-3 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div>
-                        <div class="col-8 job-box">
-                          <table  class="table table-bordered  table-sm">
-                              <h2> Nursing </h2>
+                        <div class="col-5 job-box">
+                          <table  class="table table-bordered table-sm">                              
                               <tr>
-                                <td>Name : 
-                                <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
-                                </td>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
+                                <td>{{nus.name}}</td>
                               </tr>
                                <tr>
-                                <td> Email : {{nus.email}}</td>
-                              </tr>
-                                <tr>
-                                <td> Phone : {{nus.phone}}</td>
-                              </tr>
-                                <tr>
-                                <td> Address : {{nus.address}}</td>
-                              </tr>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
+                                <td>{{nus.email}}</td>
+                              </tr>                              
                               <tr>
-                                <td> Moving In : {{nus.moving_in}} </td>
-                               </tr>
-                           
-                                   
-
-                                <h2> Fac Type </h2>
+                                <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
+                                <td>{{nus.address}}</td>
+                              </tr>
+                              <!-- <tr>
+                                <td style="width:30%;"><span class="job_ico">&#xa5;</span>入居時費用</td>
+                                <td>{{nus.moving_in}} </td>
+                              </tr> -->
+                                
                               <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                                 <span v-if="fac.id == nus.fac_type" class="feature_list">
                                   {{fac.description}}
                                 </span>
                               </span>
-                             
-                        
-                              <h2> SpecialFeature </h2>
+                          </table>
+                           <h5 class="header m-t-10">こだわりの特長</h5>
                               <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
                                 <span v-if="spe.customer_id == nus.customer_id" class="feature_list">
                                   {{spe.name}}
                                 </span>
                               </span>
 
-                               <h2> Medical Acceptance </h2>
+                             <!-- <h5 class="header m-t-10">医療受入</h5>  
                               <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
                                 <span v-if="med.customer_id == nus.customer_id" class="feature_list">
                                   {{med.name}}
                                 </span>
-                              </span>
-                          </table>
+                              </span> -->
+                        </div>
+                        <div class="col-4"> 
+                            <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+nus.alphabet+'|ff9563|000000'" alt="">{{nus.name}}</p>
+                            <p>{{nus.city_name}} <i class="fas fa-angle-double-right"></i> {{nus.township_name}}</p>
+                            <div>
+                                <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td class="text-center" style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
+                                            <td><span class="cash-lbl">{{nus.moving_in_to}} </span>万円</td>
+                                        </tr>      
+                                        <tr>
+                                            <td class="text-center"><span class="job_ico">&#xa5;</span>月額利用料</td>
+                                            <td><span class="cash-lbl">{{nus.per_month_to}} </span>万円</td>
+                                        </tr>      
+                                </table>
+                            </div>
                         </div>
                       </div>
+                      <div class="mt-4 col-12 detail-btn text-center">                                             
+                        <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -772,7 +807,8 @@
     },
     methods: {
       search(){
-    
+      
+
         if(this.townshipID == null || this.townshipID == '')
         {
           this.townshipID[0] = 0;
@@ -781,7 +817,7 @@
         {
           this.SpecialFeatureID[0] = 0;
         }
-        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
+        if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
         {
           this.MedicalAcceptanceID[0] = 0;
         }
@@ -805,7 +841,7 @@
           },
         }).then((response)=>{
  
-          
+          console.log(response.data.nursing);
           this.nus_data = response.data.nursing;
           this.specialfeature = response.data.specialfeature;
           this.medicalacceptance = response.data.medicalacceptance;
@@ -902,8 +938,8 @@
                           '<table class="table">' +
                             '<thead>' +
                               '<tr>' +
-                                '<td class="text-left text-danger">' + item[i]['num_rooms'] +
-                                '</td>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
                                 '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
                               '</tr>' +
@@ -911,38 +947,38 @@
                             '<tbody>' +
                               '<tr>' +
                                 '<td colspan="2"><button class="item-fav-infowindow">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
                                 '</span> </button></td>' +
                               '</tr>' +
                               '<tr>' +
                               '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
                                 '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
                                 '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
-                                '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
+                                '<td colspan="2"><p class="type-name">' +
                                 item[i]['type_name'] +
-                                +'</td>' +
+                                +'</p></td>' +
                             '</tr>' +
                             '<tr>' +
                             '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                             '</td>' +
                             '<td>' +
-                              '<table class="table table-bordered">' +
+                              '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
                                 '<tbody>' +
                                   '<tr>' +
-                                    '<td>Address</td>' +
+                                    '<td>住所</td>' +
                                     '<td>' + item[i]['address'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                  '<td>Phone</td>' +
+                                  '<td>電話</td>' +
                                   '<td>' + item[i]['phone'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                '<td>Website</td>' +
+                                '<td>ウェブ</td>' +
                                 '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                                 '</tr>' +
                                 '</tbody>' +
@@ -951,19 +987,15 @@
                             '</tr>' +
                             ' <tr>' +
                             '<td colspan="2">' +
-                              '<div class="row text-center">' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in">Moving In</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month">Per Month</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
-                                '</div>' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
+                                '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
+                                '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
                               '</div>' +
                             '</td>' +
                             '</tr>' +
@@ -974,6 +1006,7 @@
                     ])
                   }
               this.markerHover = [];
+
               var infoWindow = new google.maps.InfoWindow(),marker, i;
                 for (let i = 0; i < this.markers.length; i++) {
                     var beach = this.markers[i]
@@ -987,7 +1020,7 @@
                     marker = new google.maps.Marker({
                       position: myLatLng,
                       map: this.map,
-                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|FF0000|000000',
+                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
                       zoom: 6,
                       title: this.markers[i]['name']
                     });
@@ -1066,6 +1099,28 @@
       },
       getStateClick(e) {      
 
+          if(this.townshipID.length > 0)
+          {
+            this.townshipID = [];
+          }
+          if(this.SpecialFeatureID.length > 0)
+          {
+            this.SpecialFeatureID = [];
+          }
+          if(this.MedicalAcceptanceID.length > 0)
+          {
+            this.MedicalAcceptanceID = [];
+          }
+           if(this.FacTypeID.length > 0)
+          {
+            this.FacTypeID = [];
+          }
+            if(this.MoveID.length > 0)
+          {
+            this.MoveID = [];
+          }
+
+
         $("#nursing-search").css("display", "block");
         if(e.target.id == ''){
             var id = $('#selectCity').val();
@@ -1085,8 +1140,11 @@
             .then((response) => {
             this.changeMap(response)
             })
+        this.search();
+            
       },
      nursingSearchData(index){
+         this.search();
      
        if(index == 1)
        {
@@ -1213,47 +1271,47 @@
                           '<table class="table">' +
                             '<thead>' +
                               '<tr>' +
-                                '<td class="text-left text-danger">' + item[i]['num_rooms'] +
-                                '</td>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
                                 '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
                               '</tr>' +
                             '</thead>' +
                             '<tbody>' +
                               '<tr>' +
-                                '<td colspan="2"><button class="item-fav-infowindow">'+
-                                '<i class="fas fa-plus-square"></i> <span class="info-font"> 資料請求 . 見学リスト . 追加 '+
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|FF0000|000000" alt="">'+
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
                                 '</span> </button></td>' +
                               '</tr>' +
                               '<tr>' +
                               '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
                                 '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
                                 '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
-                                '<td colspan="2" style="background: linear-gradient(135deg, rgba(255,151,76,1) 0%, rgba(255,92,10,0.59) 100%);">' +
+                                '<td colspan="2"><p class="type-name">' +
                                 item[i]['type_name'] +
-                                +'</td>' +
+                                +'</p></td>' +
                             '</tr>' +
                             '<tr>' +
                             '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="150px"/>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                             '</td>' +
                             '<td>' +
-                              '<table class="table table-bordered">' +
+                              '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
                                 '<tbody>' +
                                   '<tr>' +
-                                    '<td>Address</td>' +
+                                    '<td>住所</td>' +
                                     '<td>' + item[i]['address'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                  '<td>Phone</td>' +
+                                  '<td>電話</td>' +
                                   '<td>' + item[i]['phone'] + '</td>' +
                                   '</tr>' +
                                 '<tr>' +
-                                '<td>Website</td>' +
+                                '<td>ウェブ</td>' +
                                 '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
                                 '</tr>' +
                                 '</tbody>' +
@@ -1262,19 +1320,15 @@
                             '</tr>' +
                             ' <tr>' +
                             '<td colspan="2">' +
-                              '<div class="row text-center">' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in">Moving In</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month">Per Month</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="moveing-in-item">' + item[i]['moving_in_to'] + '</div>' +
-                                '</div>' +
-                                '<div class="col-sm-6">' +
-                                  '<div class="per-month-item">' + item[i]['per_month_to'] + '</div>' +
-                                '</div>' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
+                                '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
+                                '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
                               '</div>' +
                             '</td>' +
                             '</tr>' +
@@ -1299,7 +1353,7 @@
                     marker = new google.maps.Marker({
                       position: position,
                       map: this.map,
-                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|FF0000|000000',
+                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
                       zoom: 6,
                       title: this.markers[i]['name']
                     });
@@ -1680,7 +1734,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0 40px;
+    margin: 20px 0;
     color: #666a73;
   }
 
