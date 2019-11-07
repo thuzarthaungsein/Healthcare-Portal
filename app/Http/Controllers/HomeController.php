@@ -38,6 +38,7 @@ class HomeController extends Controller
 
     public function getPosts(Request $request)
     {
+        
         $request = $request->all();
         $cat_id = $request['category_id'];
 
