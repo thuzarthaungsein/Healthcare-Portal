@@ -6406,6 +6406,8 @@ button.confirmed {
     text-decoration: underline;
     line-height: 1.2;
     overflow: hidden;
+    color: #ff6117;
+    font-weight: bold;
 }
 
 .item-name img {
@@ -6417,7 +6419,8 @@ button.confirmed {
 }
 
 .item-name:hover {
-    color: #ff9563;
+    color: #fe9463;
+    cursor: pointer;
 }
 
 .item-name:hover>img {
@@ -6425,14 +6428,24 @@ button.confirmed {
 }
 
 .type-name {
-    width: 100%;
+    /* width: 100%;
     padding: 3px 10px 0px 10px;
     margin-bottom: 10px;
     font-size: 18px;
     color: #000;
     font-weight: bold;
     background: #eeeeee;
-    border-left: 5px solid #ff9563;
+    border-left: 5px solid #ff9563; */
+    width: 50%;
+    padding: 0px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    background: #ffffcc;
+    border: 1px solid #ff6117;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .num-room {
@@ -7205,7 +7218,7 @@ ul.test>li:before {
 }
 
 .nur-tit a {
-    color: #ff9563;
+    color: #ff6117;
     letter-spacing: 1px;
     font-weight: bold;
 }
@@ -7219,7 +7232,7 @@ ul.test>li:before {
 
 .nur-content .detail-btn .btn {
     width: 25%;
-    background: #ff9563;
+    background: #ff6117;
     color: #fff;
 }
 .nur_date {
@@ -7231,6 +7244,16 @@ ul.test>li:before {
     border: 1px solid #212529 !important;
     color: #212529!important;
 }
+.fac_list {
+    float: left;
+    padding: 0 5px;
+    margin-right: 20px;
+    background: #0cc72c;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+}
+
 /* .slick-slider */
 
 .slick-slider {
@@ -7913,7 +7936,7 @@ ul.test>li:before {
 }
 
 .nurs-sub-heading {
-    color: #ff9563;
+    color: #ff6117;
     font-weight: bold;
     font-size: 18px;
 }
