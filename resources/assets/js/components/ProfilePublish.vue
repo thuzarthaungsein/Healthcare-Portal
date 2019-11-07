@@ -755,73 +755,7 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-<<<<<<< HEAD
-                <div class="profile_header col-12">
-                    <h5 style="padding-top:10px;">口コミ {{customer_name}}</h5><div class="comment-ico2">
-                              <a href="/comment" class="comhov">
-                              <i class="far fa-comment"></i>
-                              <span>口コミを追加する</span>
-                              </a>
-                           </div>
-                </div>
-
-
-               <div class="col-lg-12 col-md-12 col-sm-12">
-
-                    <div class="row col-12">
-
-
-
-                        <div class="col-12 comment-wrapper">
-
-                            <div class="card" v-for="comment in comments" :key="comment.id">
-
-                                <!-- <div class="card-profile_header comment-title text-truncate">
-
-                                    <i class="fas fa-comment"></i>
-
-                                    {{comment.title}}
-
-                                </div> -->
-
-                                <div class="card-body">
-
-                                    <div class="comment-title">
-
-                                        <i class="fas fa-comment"></i>
-
-                                        {{comment.title}}
-
-                                        <!-- {{comment.created_time}}   -->
-                                        <!-- {{substr("comment.created_at", 0, 10)}} -->
-
-                                    </div>
-
-                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}<br>
-
-                                        <small class="card-text">{{comment.year}}</small>
-
-                                    </h5>
-
-                                    <div class="comment-title2">
-                                       <i class="fa fa-calendar" aria-hidden="true"></i>
-                                       {{comment.created_date}}
-                                    </div>
-
-                                     <div class="comment-title2">
-                                      <i class="fa fa-clock" aria-hidden="true"></i>
-                                     {{comment.created_time}}
-                                    </div>
-
-
-
-
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more><br>
-                                        <div>{{comment.customer}}</div>
-                                </div>
-
-=======
-                <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>                  
+                <h5 class="profile_header col-12">口コミ {{customer_name}}</h5>                  
                 <div class="comment-ico  col-12">
                     <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -833,7 +767,6 @@
                         <div class="card-body">
                             <div class="comment-title">
                                 <i class="fas fa-comment"></i>{{comment.title}}
->>>>>>> 1cd53e9a96474d98bd14a13cc36f2901a62280f4
                             </div>
                             <div class="d-flex">
                                 <p class="card-title font-weight-bold">{{comment.email}}</p>
