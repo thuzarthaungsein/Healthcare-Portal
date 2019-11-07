@@ -53,10 +53,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn main-bg-color white all-btn">作成する</button>
+                                    <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>
                                     <router-link class="btn btn-danger all-btn" to="/ads"> キャンセル </router-link>
                                     <!-- <button class="btn news-post-btn all-btn">作成する</button> -->
-                                    <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>
+                                    
                                 </div>
 
                               
@@ -158,7 +158,7 @@
                             type: 'success',
                             title: '作成されました。',
                             confirmButtonText: "はい",
-                            confirmButtonColor: "#0cc72c",
+                            confirmButtonColor: "#6cb2eb",
                             width: 250,
                             height: 200,
 

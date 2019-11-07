@@ -92,7 +92,9 @@
 
                     <div>
                         <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">
+                                
                                 <h4 class="category_news_title" :class="'h-color'+index"><span>{{name}}</span></h4>
+                                <div class="news_p">最新ニュース</div>
                                 <div class="row m-lr-0">
                                     <div class="col-md-3">
                                       <img v-bind:src="'/upload/news/' + group[0].photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"><br>

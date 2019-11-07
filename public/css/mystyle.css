@@ -7989,3 +7989,10 @@ ul.test>li:before {
 /* end count profile */
 
 /*commentform*/
+.news_p
+{
+    float: right;
+    margin-top: -3%;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -81,7 +81,7 @@
                                                     <div class="card-body news-post">
                                                         <div class="row">
                                                             <div class="col-md-3 pad-free" >
-                                                                <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
+                                                                <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news" @error="imgUrlAlt">
                                                             </div>
                                                             <div class="col-md-9">
                                                                 {{news.title}}
@@ -263,6 +263,9 @@
                         this.add();
                     }
                 },
+                imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            },
             }
     }
 </script>

@@ -25,11 +25,12 @@
                                     </select>
                             </div><br/>
                             <div class="form-group ">
-                                <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()">{{subtitle}}</span>
+                                <!-- <button class="btn main-bg-color white all-btn">{{subtitle}}</button> -->
                                 <router-link class="btn btn-danger all-btn" to="/occupationlist" > キャンセル </router-link>
                                 <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
                                 <!-- <button class="btn news-post-btn all-btn">{{subtitle}}</button> -->
-                                <span class="btn main-bg-color white all-btn" @click="checkValidate()">{{subtitle}}</span>
+                                
 				
                             </div>
                             </form>
