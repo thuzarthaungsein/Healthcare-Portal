@@ -755,84 +755,29 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <div class="profile_header col-12">
-                    <h5 style="padding-top:10px;">口コミ {{customer.name}}</h5><div class="comment-ico2">
-                              <a href="/comment" class="comhov">
-                              <i class="far fa-comment"></i>
-                              <span>口コミを追加する</span>
-                              </a>
-                           </div>
-                </div>
-               
-            
-               <div class="col-lg-12 col-md-12 col-sm-12">
-
-                    <div class="row col-12">
-
-
-
-                        <div class="col-12 comment-wrapper">
-                        
-                            <div class="card" v-for="comment in comments" :key="comment.id">
-
-                                <!-- <div class="card-profile_header comment-title text-truncate">
-
-                                    <i class="fas fa-comment"></i>
-
-                                    {{comment.title}}
-
-                                </div> -->
-
-                                <div class="card-body">
-
-                                    <div class="comment-title">
-
-                                        <i class="fas fa-comment"></i>
-
-                                        {{comment.title}}
-                                        
-                                        <!-- {{comment.created_time}}   -->
-                                        <!-- {{substr("comment.created_at", 0, 10)}} -->
-
-                                    </div>
-
-                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}<br>
-
-                                        <small class="card-text">{{comment.year}}</small>
-                                      
-                                    </h5>
-
-                                    <div class="comment-title2">
-                                       <i class="fa fa-calendar" aria-hidden="true"></i>
-                                       {{comment.created_date}}
-                                    </div>
-
-                                     <div class="comment-title2">
-                                      <i class="fa fa-clock" aria-hidden="true"></i>
-                                     {{comment.created_time}}
-                                    </div>
-                                   
-
-
-
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more><br>
-                                        <div>{{comment.customer}}</div>
-                                </div>
-
+                <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>                  
+                <div class="comment-ico  col-12">
+                    <a href="/comment">
+                        <i class="far fa-comment"></i>
+                        <span>口コミを追加する</span>
+                    </a>
+                </div>             
+               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                    <div class="card mb-4" v-for="comment in comments" :key="comment.id">
+                        <div class="card-body">
+                            <div class="comment-title">
+                                <i class="fas fa-comment"></i>{{comment.title}}
                             </div>
-                            <!-- <div class="comment-ico">
-                              <a href="/comment">
-                              <i class="far fa-comment"></i>
-                              <span>口コミを追加する</span>
-                              </a>
-                           </div> -->
-
+                            <div class="d-flex">
+                                <p class="card-title font-weight-bold">{{comment.email}}</p>
+                                <p class="comment-age">{{ new Date().getFullYear() - comment.year}}年代</p>
+                                <p class="comment-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p>
+                            </div>
+                                <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more><br>
+                                <div>{{comment.customer}}</div>
                         </div>
-
                     </div>
-
                </div>
-
             </div>
 
             <!-- <div class="ele m-lr-0" id="element7">
@@ -1266,98 +1211,34 @@
             </div>
 
             <div class="row ele m-lr-0" id="element2">
-
-                <h5 class="profile_header col-12">口コミ </h5>
-
-                 <div class="col-lg-12 col-md-12 col-sm-12">
-
-                    <div class="row col-12">
-
-                        <div class="col-12 comment-wrapper">
-
-                            <div class="card" v-for="comment in comments" :key="comment.id">
-
-                                <div class="card-body">
-
-                                    <div class="comment-title">
-
-                                        <i class="fas fa-comment"></i>
-
-                                        {{comment.title}}
-
-                                    </div>
-
-                                    <h5 class="card-title font-weight-bold source-img-small">{{comment.email}}
-
-                                        <small class="card-text">{{comment.year}}</small>
-
-                                    </h5>
-
-
-
-                                        <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more>
-
-                                </div>
-
+                <h5 class="profile_header col-12 m-t-20">口コミ {{customer.name}}</h5>                  
+                <div class="comment-ico  col-12">
+                    <a href="/comment">
+                        <i class="far fa-comment"></i>
+                        <span>口コミを追加する</span>
+                    </a>
+                </div>             
+               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                    <div class="card mb-4" v-for="comment in comments" :key="comment.id">
+                        <div class="card-body">
+                            <div class="comment-title">
+                                <i class="fas fa-comment"></i>{{comment.title}}
                             </div>
-                            <div class="comment-ico">
-                              <a href="/comment">
-                              <i class="far fa-comment"></i>
-                              <span>口コミを追加する</span>
-                              </a>
-                           </div>
-
+                            <div class="d-flex">
+                                <p class="card-title font-weight-bold">{{comment.email}}</p>
+                                <p class="comment-age">{{ new Date().getFullYear() - comment.year}}年代</p>
+                                <p class="comment-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p>
+                            </div>
+                                <read-more more-str="もっと見る" :text="comment.comment" :max-chars="160"></read-more><br>
+                                <div>{{comment.customer}}</div>
                         </div>
-
                     </div>
-
-                 </div>
-
-              <div class="col-12" v-for="comment in comments" :key="comment.id">
-
-                    <!-- <div class="col-md-12">タイトル:{{comment.title}}</div><br/>
-
-
-
-                    <div class="col-md-5">電子メールアドレス:{{comment.email}}</div>
-
-                    <div class="col-md-3">年月日投稿:{{comment.year}}</div>
-
-                        <br/><br/> -->
-
-                        <!-- <div class="col-md-3 offset-md-4" v-for="comment in comments" :key="comment.id">
-
-                            <div class="content hideContent">{{comment.comment}}</div>
-
-                        </div> -->
-
-                        <!-- <button onclick="function()">See more</button> -->
-
-                    <!-- <div class="row col-md-12 m-lr-0">
-
-                        <p class="showContent"> {{comment.comment}}</p>
-
-                            <span class="displaytext" :id="'test'+comment.id">{{comment.comment}}</span>
-
-                                <a class="mt-2 readMore" @click="review(comment.id)" href ="#">ReadMore</a>
-
-
-
-                    </div> -->
-
-                     <!-- <div class="row col-md-6 m-lr-0">
-
-                        <read-more more-str="read more" :text="comment.comment" :max-chars="50"></read-more>
-
-                    </div> -->
-
-                </div>
-
+               </div>
             </div>
 
             <!-- Hospital Video -->
-                <div class="col-md-12 m-t-15 m-b-15">
-                    <label class="cost_heading_lbl">動画</label>
+                <div class="col-md-12 m-t-15 m-b-15 p-0">
+                    <h5 class="profile_header col-12">動画</h5>
                     <div class="row">
                         <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
                             <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
@@ -1419,6 +1300,7 @@
 
 
 <script>
+
 
 import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
@@ -2150,51 +2032,43 @@ export default {
     font-weight: 700;
     padding-bottom: 10px;
 }
-.comment-title2{
-    background-size: 29px;
-    color: #afbac3;
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    padding-bottom: 10px;
-}
 
 .card-text{
     color: #777;
 }
+.comment-ico {
+    margin: 0 0 10px 0;
+}
 .comment-ico a {
- font-size: 13px;
- color: #111;
- display: inline-block;
- float: right;
- border: 1px solid #111;
- padding: 5px 20px;
- border-radius: 20px;
- margin-top: 20px;
+    display: inline-block;
+    float: right;
+    font-size: 13px;
+    color: #111; 
+    border: 1px solid #111;
+    padding: 5px 20px;
+    border-radius: 20px;
 }
-.comment-ico2 a{
- font-size: 13px;
- color: #111;
- display: inline-block;
- float: right;
- border: 1px solid #111;
- padding: 5px 20px;
- border-radius: 20px;
- margin-top: -29px;
- text-decoration: none;
-}
-a.comhov:hover, a.comhov:active {background: #fbaa84;}
 
 .comment-ico i {
- display: block;
- float: left;
- margin: 3px 5px 0 0;
- font-size: 15px;
+    display: block;
+    float: left;
+    margin: 3px 5px 0 0;
+    font-size: 15px;
 }
 .comment-ico a:hover {
- text-decoration: none;
+    text-decoration: none;
+    border: 1px solid #ff9563;
+    color: #ff9563;
 }
-
+.comment-age {
+    margin: 0 20px;
+    font-weight: bold;
+}
+.comment-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #777;
+}
 /* div.tab-card-profile_header > .card-profile_header-tab > .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
 
     border-color: transparent   #ecede1   transparent   #ecede1   !important;
