@@ -1467,13 +1467,13 @@ export default {
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios
-                                        .post(`/api/hospital/galleryupdate/${this.cusid}`,this.gallery_list)
-                                                .then((response) => {
-                                                }).catch(error=>{
-                                                if(error.response.status == 422){
-                                                  this.gallery_list = 'error';
-                                                  this.errors = error.response.data.errors
-                                        }
+                                    .post(`/api/hospital/galleryupdate/${this.cusid}`,this.gallery_list)
+                                        .then((response) => {
+                                        }).catch(error=>{
+                                        if(error.response.status == 422){
+                                            this.gallery_list = 'error';
+                                            this.errors = error.response.data.errors
+                                    }
                                 }) ;
                         }
                         if(this.customer_info_push.length > 0) {
@@ -1539,7 +1539,17 @@ export default {
                         }
 
                         if(this.gallery_list != 'error' && this.customer_info != 'error' && this.hospital_info != 'error' && this.schedule_list != 'error') {
-                          alert('Hospital Profile is Successfully Updated!');
+                            this.$swal({
+                                    position: 'top-end',
+                                    type: 'success',
+                                    title: '更新されました',
+                                    confirmButtonText: "はい",
+                                    confirmButtonColor: "#6cb2eb",
+                                    width: 250,
+                                    height: 200,
+                                }).then(response => {
+                                    document.getElementById('nursing').click();
+                            })
                         }
                 }
             },

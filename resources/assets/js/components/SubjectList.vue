@@ -80,7 +80,7 @@ export default {
             deleteSubject(id) {
                 this.$swal({
                 title: "確認",
-                text: "削除よろしいでしょうか",
+                text: "削除よろしいでしょうか。",
                 type: "warning",
                 width: 350,
                 height: 200,

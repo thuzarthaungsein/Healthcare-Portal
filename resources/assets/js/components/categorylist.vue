@@ -88,7 +88,7 @@ export default {
     deleteCategory(id) {
       this.$swal({
         title: "確認",
-        text: "削除よろしいでしょうか",
+        text: "削除よろしいでしょうか。",
         type: "warning",
         width: 350,
         height: 200,
@@ -110,8 +110,8 @@ export default {
             // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
             // this.categories.splice(i, 1);
             this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
+              title: "削除済",
+              text: "カテゴリーを削除されました。",
               type: "success",
               width: 350,
               height: 200,

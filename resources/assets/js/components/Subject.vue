@@ -25,9 +25,10 @@
                                     </select>
                             </div><br/>
                                  <div class="form-group">
+                                        <span class="btn main-bg-color white all-btn" @click="checkValidate()">{{subtitle}}</span>
                                         <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>
                                          <!-- <button class="btn news-post-btn all-btn">{{subtitle}}</button> -->
-                                         <span class="btn main-bg-color white all-btn" @click="checkValidate()">{{subtitle}}</span>
+                                        
                                 </div>
                              </form>
                              </div>
@@ -83,8 +84,8 @@ export default {
                         this.Subject.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.SubjectList.name = response.data.name;
-                        this.header = ' 特徴更新';
-                        this.subtitle = '更新';
+                        this.header = ' 診療科目更新';
+                        this.subtitle = '更新する';
                         return this.header;
                         return this.subtitle;
                 });
@@ -115,7 +116,7 @@ export default {
                 {
                     this.$swal({
                                 title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -170,7 +171,7 @@ export default {
 
                 this.$swal({
                           title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -178,7 +179,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -189,7 +190,7 @@ export default {
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新されました',
+                            title: '更新されました。',
                             // showConfirmButton: false,
                             // timer: 1800,
                             confirmButtonText: "はい",

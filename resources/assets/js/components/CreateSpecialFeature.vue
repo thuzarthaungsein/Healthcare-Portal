@@ -34,6 +34,7 @@
                             </div> <br/>
 
                             <div class="form-group ">
+                                <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
                                 <router-link class="btn btn-danger all-btn" to="/featurelist" > キャンセル </router-link>
                                 <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
                                 <!-- <button class="btn news-post-btn all-btn" >{{subtitle}}</button> -->
@@ -148,7 +149,7 @@ export default {
                     // console.log('this.$route.params.id');
                     this.$swal({
                                 title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -204,7 +205,7 @@ export default {
             updateFeature() {
                  this.$swal({
                             title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -212,7 +213,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
@@ -225,7 +226,7 @@ export default {
                     this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '更新された',
+                            title: '更新されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             width: 250,

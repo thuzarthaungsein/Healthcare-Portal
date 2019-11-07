@@ -60,7 +60,7 @@
                         <p class="nouser-txt01">応募者がありません。</p>
 
                         <div class="form-group mt-3 pb-5">
-                            <router-link class="btn main-bg-color white all-btn btn_custom" to="/jobofferlist">求人採用一覧ページへ</router-link>
+                            <router-link class="btn main-bg-color white all-btn btn_custom" to="/jobofferlist">求人採用一覧ページに進む</router-link>
                         </div>
 
                     </div>
@@ -144,7 +144,7 @@
                         </table>
                         <div class="form-group mt-3 pb-5">
 
-                            <router-link class="btn main-bg-color white all-btn btn_custom" to="/jobofferlist">求人採用一覧ページへ</router-link>
+                            <router-link class="btn main-bg-color white all-btn btn_custom" to="/jobofferlist">求人採用一覧ページに戻す</router-link>
                         </div>
                     </div>
                 </div>

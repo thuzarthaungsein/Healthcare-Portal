@@ -53,6 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <button class="btn main-bg-color white all-btn">作成する</button>
                                     <router-link class="btn btn-danger all-btn" to="/ads"> キャンセル </router-link>
                                     <!-- <button class="btn news-post-btn all-btn">作成する</button> -->
                                     <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>
@@ -129,7 +130,7 @@
             add() {
                   this.$swal({
                             title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,

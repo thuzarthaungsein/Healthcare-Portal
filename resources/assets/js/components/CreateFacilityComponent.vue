@@ -17,9 +17,10 @@
                             </div>
                         
                             <div class="form-group">
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>
                                 <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>    
                                 <!-- <button class="btn news-post-btn all-btn" > 作成する </button> -->
-                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>                                         
+                                                                         
                                 <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link> -->
                             </div>  
                                 </form>  
@@ -47,7 +48,7 @@ export default {
     add() {
      this.$swal({
                             title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -66,7 +67,7 @@ export default {
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            title: '作成されました。',
                             // showConfirmButton: false,
                             // timer: 1800,
                             confirmButtonText: "はい",
