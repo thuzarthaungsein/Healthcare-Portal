@@ -128,7 +128,7 @@ class HomeController extends Controller
 
         $cat = Category::select('id')->get();
         for($i = 0; $i < count($cat); $i++) {
-            $sql.= "(SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 15) UNION "; 
+            $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION "; 
         }
 
         $sql = trim($sql,' UNION ');
