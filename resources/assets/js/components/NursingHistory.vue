@@ -13,8 +13,10 @@
           <div class="col-md-12 fav-his-header">
               <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
         &nbsp;<span class="font-weight-bold"> 最近見た施設リスト</span>
-          </div>      
-      </div>  
+         &nbsp;<span class ="job_count"> {{his_nus}}件</span>
+          <!-- &nbsp;<span style="color:#000;">件</span> -->
+        </div>
+      </div>
     </div>
 
     <!--modal-->
@@ -47,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                      <!--monthly cost and expense cost -->
                     <div class="modal fade bd-example-modal-cost costcheck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
                         <div class="modal-dialog modal-xl" role="document">
@@ -112,7 +114,7 @@
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div class="profile_wd">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設リストから削除</button>                                                                
+                                                                <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設リストから削除</button>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -134,7 +136,7 @@
                                                         </dl>
                                                     </td>
                                                 </tr>
-                                                    
+
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <dl>
@@ -226,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-    
+
   </div>
 </template>
 
@@ -252,6 +254,7 @@ export default {
                         lat: 0,
                         lng: 0
                     },
+                    his_nus:'',
       address: '',
       access: '',
       custname: '',
@@ -274,6 +277,9 @@ export default {
 
   created() {
     this.local_sto = localStorage.getItem("nursing_history");
+        if(this.local_sto){
+            this.his_nus = this.local_sto.split(",").length;
+        }
 
     this.getAllCustomer(this.local_sto);
 
@@ -309,11 +315,11 @@ export default {
                 }
                 else{
                     $('.his-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'})
-                } 
+                }
                 var new_local = l_sto_arr.toString();
                 localStorage.setItem('nursing_history', new_local);
                 this.local_sto = localStorage.getItem("nursing_history");
-                
+
                 if (this.local_sto) {
                     this.getAllCustomer(this.local_sto);
                 } else {
@@ -325,6 +331,9 @@ export default {
                         }
                     });
                 }
+            }
+            if(this.local_sto){
+                this.his_nus = this.local_sto.split(",").length;
             }
         }
     },
@@ -370,7 +379,7 @@ export default {
                 event.target.src = "images/noimage.jpg"
             }
 
-    
+
   }
 };
 </script>
