@@ -320,10 +320,10 @@ $('#save_value').click(function(){
 //     }
 // }
 
-function closeBtnPreview(indx) {
+function closeBtnPreview(indx,sec) {
   if(confirm("Are you sure you want to delete?"))
   {
-      var panorama_preview = document.getElementById('preview-panorama'+indx);
+      var panorama_preview = document.getElementById('preview-panorama'+indx+'nex'+sec);
       panorama_preview.parentNode.removeChild(panorama_preview);
   }
 }

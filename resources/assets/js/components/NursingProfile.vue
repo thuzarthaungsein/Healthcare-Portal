@@ -693,6 +693,7 @@ export default {
                 customer_address_val:'',
                 // customer_address_val: '',
                 access_val: '',
+                pre_panocount:'0'
           }
         },
 
@@ -840,7 +841,7 @@ export default {
                 this.already_panorama_list = [];
                 for(var i=0; i< event.target.files.length; i++) {
                         this.panorama_count = i+1;
-                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
+                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"nex"+this.pre_panocount+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+","+this.pre_panocount+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
                 }
                
 
@@ -849,7 +850,7 @@ export default {
 
                 for(var i = 0; i< this.panorama_count; i++) {
                         var preview = document.getElementsByClassName('preview-panorama');
-                        if(document.getElementById('preview-panorama'+i)) {
+                        if(document.getElementById('preview-panorama'+i+'nex'+this.pre_panocount)) {
                                 if(status == 0) { var j = i; } else { var j = i+1; }
                         } else {
                                 if(status == 0) { var j = i+1; } else { var j = i+2; }
@@ -877,6 +878,7 @@ export default {
                          
                         this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
                 } 
+                this.pre_panocount++;
                 
 
             },
