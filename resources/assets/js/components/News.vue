@@ -382,6 +382,7 @@ export default {
               this.getCategoryRandomValue();           
         }
         else{
+            console.log(localStorage.getItem('date'));
         
               var localdate = localStorage.getItem('date');
  
@@ -390,10 +391,7 @@ export default {
                   localStorage.setItem('date',todaydate);
                   this.getCategoryRandomValue();      
               }  
-              else{
-                 this.getCategoryRandomValue();   
-              }          
-                        
+                  
         }
     
 
@@ -468,10 +466,8 @@ export default {
 
             getCategoryRandomValue(){
                  
-                this.axios.get("/api/get_cat_random") .then(response => {
-                    this.pattern = response.data;
-                });
-               
+            this.axios.get("/api/get_cat_random") .then(response => {
+                });          
             },
 
             getLatestPostByCatID: function(catId) {
