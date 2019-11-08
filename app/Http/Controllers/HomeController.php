@@ -38,6 +38,10 @@ class HomeController extends Controller
 
     public function getPosts(Request $request)
     {
+     
+    
+
+
         $request = $request->all();
         $cat_id = $request['category_id'];
 
@@ -54,6 +58,10 @@ class HomeController extends Controller
 
     public function getLatestPost(Request $request)
     {
+
+       
+
+
         // $latest_post = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->first();
         $request = $request->all();
         $cat_id = $request['category_id'];
@@ -69,6 +77,43 @@ class HomeController extends Controller
         // }
         $latest_post = $latest_post->orderBy('created_at', 'desc')->first();
         return response()->json($latest_post);
+    }
+
+    public function getCategoryRandom()
+    {
+        // $pattern_arr = [1,2,3,1,2];
+
+        // $random = "SELECT  id, pattern from categories order by rand() limit 5 ";
+        // $cat_random = DB::select($random);
+        // for($i=0;$i<count($cat_random);$i++)
+        // {
+       
+
+        //    $cat_random[$i]->pattern = $pattern_arr[$i];
+             
+        // }
+        // return response()->json($cat_random);
+
+
+        $pattern_arr = [1,2,3];
+
+        $random = "SELECT  id, pattern from categories order by rand() ";
+        $cat_random = DB::select($random);
+        $k = count($cat_random);
+        for($i=0;$i<count($cat_random);$i++)
+        { 
+           for($j=0; $j<count($pattern_arr);$j++)
+           {
+               if($i < $k)
+               {        
+                    $cat_random[$i]->pattern = $pattern_arr[$j];
+                    $i++;
+               }       
+           } 
+           $i--;      
+        }
+
+        return response()->json($cat_random);
     }
 
 

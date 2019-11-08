@@ -354,10 +354,49 @@ export default {
             post_groups : [],
             status:'0',
             search_word:null,
-            first_search_word:''
+            first_search_word:'',
+            pattern:[]
         }
     },
     created() {
+
+        var today = new Date();  
+        var month =(String) (today.getMonth()+1);
+        var date = (String) (today.getDate());
+
+        if(month.length == 1)
+        {
+                month = '0' + today.getMonth();
+        }
+        
+        if(date.length == 1 )
+        {
+                date = '0' + today.getDate();
+        }
+        var todaydate = today.getFullYear()+'-'+ month +'-'+ date; 
+ 
+        if(localStorage.getItem('date') == null)
+        {     
+            
+              localStorage.setItem('date',todaydate); 
+              this.getCategoryRandomValue();           
+        }
+        else{
+        
+              var localdate = localStorage.getItem('date');
+ 
+              if(todaydate > localdate) 
+              {
+                  localStorage.setItem('date',todaydate);
+                  this.getCategoryRandomValue();      
+              }  
+              else{
+                 this.getCategoryRandomValue();   
+              }          
+                        
+        }
+    
+
         this.getAllCat();
         this.getLatestPostsByCatID();
         this.getPostByCatID();
@@ -365,7 +404,7 @@ export default {
         this.getLatestPostFromAllCat();
     //     this.categoryId();
     },
-    methods: {
+    methods: {        
             getAllCat: function() {
                 this.axios
                 .get('/api/home')
@@ -398,6 +437,7 @@ export default {
                 .then(response => {
                     console.log(response);
                     this.post_groups = this.groupBy(response.data, 'name');
+                    
                 });
             },
 
@@ -426,6 +466,14 @@ export default {
                 });
             },
 
+            getCategoryRandomValue(){
+                 
+                this.axios.get("/api/get_cat_random") .then(response => {
+                          this.pattern = response.data;
+                });
+               
+            },
+
             getLatestPostByCatID: function(catId) {
                 if($('#search-word').val()) {
                     var search_word = $('#search-word').val();
@@ -446,6 +494,8 @@ export default {
                 this.axios.post("/api/get_latest_post" , fd)
                 .then(response => {
                     this.latest_post = response.data;
+                   
+                    console.log(this.pattern);
                 });
             },
             getLatestPostFromAllCat: function() {

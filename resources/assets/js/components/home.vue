@@ -57,11 +57,21 @@ export default {
                 fade4: true,
             }
         },
-        created() {
+        created() {   
+
+                
+                       
             this.start();
+           
         },
         methods: {
-            start() {
+            start() {  
+                
+                
+                    
+                // var today = new Date();
+                // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                // console.log("today" + date);
 
                 if(this.$route.params.page) {
                         //console.log(this.$route.params.page)
