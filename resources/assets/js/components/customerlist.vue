@@ -131,6 +131,15 @@ export default {
         cancelButtonClass: "all-btn"
       }).then(response => {
         this.axios.delete(`/api/customer/delete/${id}`).then(response => {
+          this.$swal({
+              title: "削除された",
+              text: "ファイルが削除されました。",
+              type: "success",
+              width: 350,
+              height: 200,
+              confirmButtonText: "はい",
+              confirmButtonColor: "#dc3545"
+            });
           //flash("Delete Success", "success");
           let a = this.customers.map(item => item.id).indexOf(id);
           this.customers.splice(a, 1);

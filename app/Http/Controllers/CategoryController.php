@@ -52,14 +52,14 @@ class CategoryController extends Controller
     public function add(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|unique:categories',
+    //     $request->validate([
+    //         'name' => 'required|unique:categories',
 
-        ],
-        [
-            'name.unique' => 'カテゴリ名は一意である必要があります。'
-        ]
-    );
+    //     ],
+    //     [
+    //         'name.unique' => 'カテゴリ名は一意である必要があります。'
+    //     ]
+    // );
 
         $category = new Category();
         $category->name = $request->input('name');

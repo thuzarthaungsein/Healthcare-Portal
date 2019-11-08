@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div>
         <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">
             <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5></div>
@@ -294,6 +295,132 @@
                                 </div>
                             </div>
                             <!-- <div class="map">
+=======
+<layout>
+<div>
+   <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">
+     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5></div>
+  <div class="search-map card-body" @mouseover="getStateHover">   
+    <div class="row" id="hos">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="info-box"></div>
+          <div class="col-md-12 col-sm-12 col-md-12 map-wrap">
+            <div class="divisions" style="margin:0 auto">
+              <div class="row " id="divisionswrap">
+                <div class="col-sm-2 hokkaido-box">
+                  <div class="mb-3">                    
+                    <div class="division-box">
+                      <ul class="hokkaido-wrap">    
+                        <a href="#" data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick">
+                            <li class="spanclass" id="1">北海道</li> 
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 tohoku-box">
+                  <div class="mb-3">                    
+                    <div class="division-box">
+                      <ul class="multiple-boxa">    
+                        <a href="#" data-info="Aomori" class="path Aomori card-text" @click="getStateClick" >
+                            <li class="spanclass" id="2">青森</li>
+                        </a>
+                        <a href="#" data-info="Iwate" class="path Iwate card-text" @click="getStateClick">
+                            <li class="spanclass" id="3" >岩手</li>
+                        </a>
+                       
+                        <a href="#" data-info="Akita" class="path Akita card-text" @click="getStateClick">
+                            <li class="spanclass" id="5">秋田</li>
+                        </a>                     
+                        
+                        <a href="#" data-info="Miyagi" class="path Miyagi card-text" @click="getStateClick">
+                            <li class="spanclass" id="4">宮城</li>     
+                        </a>                   
+                       
+                        <a  href="#" data-info="Yamagata" class="path Yamagata card-text" @click="getStateClick">
+                            <li class="spanclass" id="6">山形</li>
+                        </a>
+                        <a href="#" data-info="Fukushima" class="path Fukushima card-text" @click="getStateClick">
+                            <li class="spanclass" id="7">福島</li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 kanto-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#71d5cb">関東</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-box">
+                        <a href="#" data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
+                             <li class="spanclass" id="13" >東京</li>
+                        </a>
+                        
+                        <a href="#" data-info="Kanagawa" class="path Kanagawa card-text" @click="getStateClick">
+                            <li class="spanclass" id="14">神奈川</li>
+                        </a>
+
+                        <a href="#" data-info="Saitama" class="path Saitama card-text" @click="getStateClick">
+                            <li class="spanclass" id="11" >埼玉</li>
+                        </a>
+
+                        
+                        <a href="#" data-info="Chiba" class="path Chiba card-text" @click="getStateClick">
+                            <li class="spanclass" id="12">千葉</li>
+                        </a>                        
+                         
+                        <a href="#" data-info="Gunma" class="path Gunma card-text" @click="getStateClick">
+                            <li class="spanclass" id="10">群馬</li>
+                        </a>
+
+                        <a href="#" data-info="Ibaraki" class="path Ibaraki card-text" @click="getStateClick">
+                            <li class="spanclass" id="8" >茨城</li>
+                        </a>                       
+                      
+                        <a href="#" data-info="Tochigi" class="path Tochigi card-text" @click="getStateClick">
+                              <li class="spanclass" id="9">栃木</li>
+                        </a> 
+                        
+                        <a href="#" data-info="Yamanashi" class="path Yamanashi card-text" @click="getStateClick">
+                            <li class="spanclass" id="19">山梨</li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3 hokuriku-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#75b777">北陸</div> -->
+                    <div class="division-box">
+                      <ul class="">
+                        <a href="#" data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
+                            <li class="spanclass" id="15" >新潟</li>
+                        </a>
+                        
+                        <a href="#" data-info="Nagano" class="path Nagano card-text" @click="getStateClick">
+                            <li class="spanclass" id="20">長野</li>
+                        </a>
+                        
+                          <a href="#" data-info="Toyama" class="path Toyama card-text" @click="getStateClick">
+                            <li class="spanclass" id="16">富山</li>
+                        </a>
+                        
+                        <a href="#" data-info="Ishikawa" class="path Ishikawa card-text" @click="getStateClick">
+                            <li class="spanclass" id="17">石川</li>
+                        </a>
+                       
+                        <a href="#" data-info="Fukui" class="path Fukui card-text" @click="getStateClick">
+                             <li class="spanclass" id="18">福井</li>
+                        </a>
+                         
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+>>>>>>> c6653a4bbe092465993471eff1c30fb432313c2c
 
             </div> -->
                         </div>
@@ -417,6 +544,7 @@
                                             <!-- <div class="col-4 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div> -->
+<<<<<<< HEAD
                                             <div class="col-12 job-box">
                                                 <table class="table table-bordered  table-sm">
                                                     <tr>
@@ -466,6 +594,32 @@
                                     </li>
                                 </ul>
                             </nav>
+=======
+                        <div class="col-12 job-box">
+                          <table  class="table table-bordered  table-sm">
+                            <tr>
+                              <td><span class="job_ico"><i class="fa fa-map-marker"></i></span>最寄り駅</td>
+                              <td>{{job.nearest_station}}</td>
+                            </tr>
+                            <tr>
+                              <td><span class="job_ico">&#xa5;</span>給料</td>
+                              <td>{{job.salary_type}} : {{(Number(job.salary)).toLocaleString()}} ¥ </td>
+                            </tr>
+                            <tr>
+                              <td><span class="job_ico">時</span>勤務時間/日/休日の詳細</td>
+                              <td> {{job.working_hours}} / {{job.holidays}}  </td>
+                            </tr>
+                            <tr>
+                              <td><span class="job_ico"><i class="fa fa-briefcase"></i></span>特別な条件</td>
+                              <td> {{job.allowances}} </td>
+                            </tr>
+                          </table>
+                        </div>  
+                      </div>
+                      <div class="mt-4 detail-btn">
+                        <span class="btn all-btn" @click="gotoJobdetail(job.jobid)">詳細を見る</span>
+                        <!-- <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn">詳細を見る</router-link> -->
+>>>>>>> c6653a4bbe092465993471eff1c30fb432313c2c
                         </div>
                     </div>
                 </div>
@@ -473,13 +627,112 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+  </div>
+  </div>
+</layout>
+>>>>>>> c6653a4bbe092465993471eff1c30fb432313c2c
 </template>
 
 <script>
+<<<<<<< HEAD
     import asidebar from "./aside.vue";
     export default {
         components: {
             asidebar
+=======
+import layout from '../components/home.vue'
+import asidebar from "./aside.vue";
+export default {
+    components: {
+      asidebar,
+      layout
+    },
+    data(){
+      return{
+        id:'',
+        townshipID:[],
+        township_id:[],
+        cities:[],
+        getCity:[],
+        township_id:-1,
+        moving_in:-1,
+        per_month:-1,
+        getTownships:[],
+        special_features:[],
+        fac_types:[],
+        fac_id:[],
+        medical_acceptance:[],
+        subjects:[],
+        occupationID:[],
+        occupations:[],
+        toggleCheck: true,
+        toggleCheck_1: false,
+        empstatus:[],
+        job_data:[]
+      }
+    },
+    mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('job-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('job-borderColor');
+        },
+  methods:{
+
+    search()
+    {  
+     
+       
+        if(this.townshipID == null || this.townshipID == '')
+        {
+          this.townshipID[0] = 0;
+        }
+        if(this.occupationID == null || this.occupationID == '')
+        {
+          this.occupationID[0] = 0;
+        }
+        if(this.empstatus == null || this.empstatus == '')
+        {
+          this.empstatus[0] = 0;
+        }
+
+        this.axios.get('api/getjobsearch',{
+          
+          params:{
+              id: this.id,
+              townshipID:this.townshipID,
+              occupationID:this.occupationID,
+              empstatus:this.empstatus
+          },
+        }).then((response)=>{
+    
+          this.job_data = response.data;
+         
+      
+        })
+        
+         // window.scrollTo({ top : 1000, behavior: 'smooth' });
+    },
+
+    gotoJobdetail(jid) {
+        this.$router.push({ name: 'job_details', params:{id:jid}});
+    },
+
+    toggleContent4() {
+        this.toggleCheck = !this.toggleCheck;
+            if (this.toggleCheck == true) {
+                $('#close6').empty();
+                $("#toBeToggled4").slideToggle();
+                $('#close6').append('<i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる');
+
+            } else {
+                $('#close6').empty();
+                $("#toBeToggled4").slideToggle();
+                $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 市区町村エリアを開く');
+            }
+>>>>>>> c6653a4bbe092465993471eff1c30fb432313c2c
         },
         data() {
             return {
@@ -714,6 +967,7 @@
 </script>
 
 <style scoped>
+<<<<<<< HEAD
     .active {
         background-color: #fffe00 !important;
         background-image: none;
@@ -796,3 +1050,86 @@
         border: 1px solid #8e3c15;
     }
 </style>
+=======
+.active{
+    background-color: #fffe00 !important;
+    background-image: none;
+    border: 1px solid #8e3c15;
+}
+.jobselect {
+  display: none;
+}
+span.tooltip {
+  padding: 0px 5px;
+  position: relative;
+  background: #ffbb99;
+  cursor: pointer;
+}
+
+.tooltip-info {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+span.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 1.5em;
+  font-size: 0.9em;
+  padding: 1px 5px;
+  display: none;
+  color: white;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  transition: opacity 0.1s ease-out;
+  z-index: 99;
+  text-align: left;
+}
+
+span:hover::before {
+  display: inline-block;
+}
+
+[data-toggle="collapse"] .fa:before {
+  content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f13a";
+}
+
+
+.card-2 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius:10px;
+}
+.toBeToggled4 {
+    display: block;
+}
+
+.toBeToggled1 {
+    display: none;
+}
+
+table > tbody > tr th{
+  background-color: #eeeeee;
+  text-align:right;
+  width:140px;
+  padding:25px;
+}
+.job-tabColor .nav-link {
+    background: #828282 !important;
+    color: #fff;
+    border-right: 1px solid #fff;
+}
+
+.job-borderColor {
+    border: 1px solid #828282 !important;
+}
+.tab-pane{
+        padding: 10px;
+    }
+
+</style>
+>>>>>>> c6653a4bbe092465993471eff1c30fb432313c2c

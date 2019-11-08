@@ -1,4 +1,5 @@
 <template>
+  <layout>
 <div>
   <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">     
     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5>
@@ -515,14 +516,17 @@
   </div>
 </div>
 </div>
+</layout>
 </template>
 
 
 <script>
+  import layout from '../components/home.vue'
   import asidebar from "./aside.vue";
   export default {
     components: {
-      asidebar
+      asidebar,
+      layout
     },
 
     data() {
@@ -552,7 +556,12 @@
         items: []
       }
     },
-
+    mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('hospital-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('hospital-borderColor');
+        },
     methods: {
 
         search()
@@ -841,4 +850,16 @@ $( '#page-item button' ).on( 'click', function(e) {
     background-image: none;
     border: 1px solid #8e3c15;
 }
+
+  .hospital-tabColor .nav-link {
+        background: #63b7ff !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+.hospital-borderColor {
+        border: 1px solid #63b7ff !important;
+    }
+.tab-pane{
+        padding: 10px;
+    }
 </style>

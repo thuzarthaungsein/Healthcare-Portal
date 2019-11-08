@@ -13,12 +13,15 @@
                             <div class="form-group">
                                 <label>カテゴリー名 :<span class="error">*</span></label>
                                 <input type="text" class="form-control"  v-model="category.name"  placeholder="カテゴリー名を入力してください。" >
-                                  <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                  <span v-if="errors.name" class="error">{{errors.name}}</span>
                             </div>
 
                             <div class="form-group">
-                                <button class="btn main-bg-color white all-btn">作成する</button>
+                                <!-- <button class="btn main-bg-color white all-btn">作成する</button> -->
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>
                                 <router-link class="btn btn-danger all-btn" to="/categorylist" > キャンセル </router-link>
+                                <!-- <button class="btn news-post-btn all-btn"  @click="checkValidate()>作成する</button> -->
+                             
                             </div>
                                 </form>
                             </div>
@@ -33,7 +36,11 @@
 export default {
           data() {
             return {
-                errors: [],
+                errors: {
+                        name: "",
+                },
+                
+    
                 category: {
                         name: '',
                         user_id:'',
@@ -85,7 +92,22 @@ export default {
                 });
             });
                 
-            }
+            },
+            checkValidate() {
+                     if (this.category.name) {
+                        // console.log('exist');
+                        this.errors.name = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.name = " カテゴリー名が必須です。";
+                    }
+                   if (
+                        !this.errors.name
+                        
+                    ) {
+                        this.add();
+                    }
+                },
 
         }
 
