@@ -188,7 +188,7 @@
                             <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン（3件）／</h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン／{{custname}}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <button class="btn btn-secondary">閉じる&times;</button>
                                         </button>

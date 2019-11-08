@@ -65,11 +65,11 @@
                 <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
             </div> -->
 
-            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
+            <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" >
                 介護情報
             </button>
 
-            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
+            <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" >
                 特長
             </button>
 
