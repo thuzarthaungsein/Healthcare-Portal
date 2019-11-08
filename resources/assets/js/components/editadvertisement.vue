@@ -40,7 +40,7 @@
                             <div class="form-group" style="display:none" id="showimage">
                                 <label>写真 : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" required>
+                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
                                     <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
                             </div>
@@ -126,10 +126,14 @@ export default {
                         image_x.parentNode.removeChild(image_x);
                         document.getElementById('showimage').style.display = 'block';
                 }
+                // if(this.advertisement.photo) {
+                //       console.log('ok');
+                //       $('#upload_img').removeAttr('required');
+                //   }
                 // else {
                 //     this,deleteImage ='Delete';
                 // }
-                            },
+            },
              removeUpload(e) {
                         this.advertisement.photo = '';
                         this.upload_img = '';
@@ -155,7 +159,6 @@ export default {
                 },
             updateAds() {
                 let adsData = new FormData();
-                alert('update');
             // if(this.deleteImage == 'Delete')
             //     {
             //         alert('Please Select New Image');

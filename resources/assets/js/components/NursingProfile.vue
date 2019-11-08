@@ -57,7 +57,7 @@
                                                                         <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
                                                                         <div class="col-md-12 m-b-10" v-bind:class="img.classname">
                                                                                 <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt">
+                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt"/>
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -799,7 +799,7 @@ export default {
 
         },
         methods: {
-                imgUrlAlt(event) {
+            imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
             },
 

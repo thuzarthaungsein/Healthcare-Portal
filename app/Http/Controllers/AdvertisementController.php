@@ -99,10 +99,10 @@ class AdvertisementController extends Controller
     public function update($id,Request $request)
 
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'location'=>'required',
-        // ]);
+        $request->validate([
+            'title' => 'required',
+            'location'=>'required',
+        ]);
 
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();

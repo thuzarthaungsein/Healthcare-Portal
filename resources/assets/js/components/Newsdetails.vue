@@ -96,7 +96,7 @@
                         :src="'/upload/news/'+ newdetails.photo"
                         class="img-responsive img_2"
                         style="max-width:100%;"
-                      />
+                      @error="imgUrlAlt"/>
                     </div>
                     <p class="img_2 mb-1">{{newdetails.main_point}}</p>
                   </div>
@@ -141,7 +141,7 @@
                         class="img-responsive fit-image"
                         v-bind:src="'/upload/news/' + latest_post_all_cat.photo"
                         alt
-                      />
+                      @error="imgUrlAlt"/>
                       <div class="overlay">
                         <span class="btn btn-sm all-btn secondary-bg-color m-t-20">詳細</span>
                       </div>
@@ -206,6 +206,10 @@ export default {
   },
 
   methods: {
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            },
+
     // getLatestPostFromAllCat: function() {
 
     //         this.axios
