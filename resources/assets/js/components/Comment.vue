@@ -157,7 +157,7 @@
 export default {
           data() {
             return {
-                  errors: {
+                errors: {
                     title: "",
                     email: "",
                     name:"",
@@ -198,6 +198,7 @@ export default {
         },
         created(){
             this.comments.gender = 0;
+            this.comments.customer_id = this.$route.params.customer_id;
         },
 
 

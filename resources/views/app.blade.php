@@ -24,7 +24,7 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/myJs.js') }}" defer></script>
 
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script> -->
+
 
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 
@@ -164,12 +164,12 @@
         @endif
 
         <nav class="navbar navbar-expand-lg  main-header">
-        <div class="container nav-warp">
-            <div class="col-4 d-flex">
+        <div class="container nav-warp d-flex">
+            <div class="d-flex">
                 <a class="navbar-brand logo-text" href="/">
                     LOGO <span>HERE</span>
                 </a>
-                <p class="h-tel"><i class="fas fa-phone-alt"></i><span>03-1234-5678</span><br>&nbsp;&nbsp;&nbsp;&nbsp;平日受付 11:00 〜 18:00</p>
+                <p class="h-tel"><i class="fas fa-phone-alt"></i><span>03-1234-5678</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:mpm_secretary@management-partners.co.jp">mpm_secretary@management-partners.co.jp</a></p>
             </div>
             
 
@@ -179,9 +179,17 @@
 
             </button>
 
+            <ul class="gNav">
+                <li><a href="/">ホーム</a></li>
+                <li><a href="/">ニュース</a></li>
+                <li><a href="/">介護施設検索</a></li>
+                <li><a href="/">病院検索</a></li>
+                <li><a href="/">求人検索</a></li>
+            </ul>
 
 
-            <div class="collapse navbar-collapse col-8 d-flex justify-content-end" id="navbarSupportedContent">
+
+            <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
 
                 <!-- <form class="form-inline my-2 my-lg-0 col-lg-8 container-fluid form-inline">
 
@@ -190,24 +198,25 @@
                 <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
 
                 </form> -->
-                <div class="row">
+                <div class="d-flex">
                     <!-- <ul class="social-link col-12 d-flex justify-content-end">
                         <li><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li> 
                     </ul> -->
-                    <ul class="navbar-nav ml-auto pc col-12  d-flex justify-content-end"> 
+                    <ul class="navbar-nav ml-auto pc  d-flex justify-content-end"> 
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ __('事業者 ログイン') }}</a>
+                            <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>{{ __('事業者 ログイン') }}</span></a>
                         </li>
                         <li class="nav-item">
                             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
-                            <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;{{ __('事業者 登録') }}</a>
+                            <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;<span>{{ __('事業者 登録') }}</span></a>
                             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
                         </li>
-                        <li><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
+                        <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
+                        <!-- <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li> -->
                         @else
                         <li class="nav-item col-12 userprofile-name pc">
 
@@ -730,7 +739,8 @@
 </div>
 
 <!-- <script src="/js/app.js" type="text/javascript"></script> -->
-<script src="{{ asset('js/map-api.js') }}"></script>
+<!-- <script src="{{ asset('js/map-api.js') }}"></script> -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2U_IRuSrajQavHadFp8FlXNi61MA3nw&libraries=places&sensor=false"></script>
 <script src="{{ asset('js/vue2-5-13.js') }}"></script>
 <script src="{{ asset('js/vue-scrollto.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pannellum.js') }}"></script>

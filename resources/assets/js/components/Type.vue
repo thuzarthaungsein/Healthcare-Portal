@@ -15,7 +15,7 @@
                     <span class="error">*</span>
                   </label>
                   <input type="text" class="form-control" v-model="Type.name" placeholder="事業者の種類" />
-                  <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                  <span v-if="errors.name" class="error">{{errors.name}}</span>
                 </div>
                 <div class="form-group">
                   <label>
@@ -34,8 +34,9 @@
                 <br />
                 <div class="form-group">
                   <router-link class="btn btn-danger all-btn" to="/typelist">キャンセル</router-link>
-                  <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
-                  <button class="btn news-post-btn all-btn">{{subtitle}}</button>
+                  <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>  -->
+                  <span class="btn main-bg-color white all-btn" @click="checkValidate()"> {{subtitle}}</span>
+                  <!-- <button class="btn news-post-btn all-btn">{{subtitle}}</button> -->
                 </div>
               </form>
             </div>
@@ -51,17 +52,24 @@
 export default {
   data() {
     return {
-      errors: [],
-
+      errors: {
+        name:"",
+      },
+        Userdrp: "選択してください。",
+                    categories: {
+                        id: '',
+                        name: ''
+                    },
       Type: {
         name: "",
-        parent: ""
+        parent: "",
+        category_id:""
       },
       TypeList: {
         id: "",
         name: ""
       },
-
+      category_id_1: '1',
       selectedValue: 0,
       header: "タイプ作成",
       subtitle: "作成する"
@@ -177,7 +185,22 @@ export default {
             this.$swal("Failed", "wrong");
           });
       });
-    }
+    },
+      checkValidate() {
+                     if (this.Type.name) {
+                        // console.log('exist');
+                        this.errors.name = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.name = " 事業者の種類が必須です。";
+                    }
+                   if (
+                        !this.errors.name
+                        
+                    ) {
+                        this.add();
+                    }
+                }
   }
 };
 </script>
