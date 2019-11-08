@@ -7380,11 +7380,11 @@ ul.test>li:before {
     font-size: 15px;    
 }
 
-.nur-addbtn {
+/* .nur-addbtn {
     background: #fff !important;
     border: 1px solid #212529 !important;
     color: #212529!important;
-}
+} */
 ul.nur-caro-card > li.list-group-item{
    padding: 5px !important;
    border: none !important;

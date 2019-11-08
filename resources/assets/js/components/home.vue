@@ -63,7 +63,8 @@ export default {
         methods: {
             start() {  
                 
-                
+                // localStorage.removeItem('nursing_fav');
+                // localStorage.removeItem('hospital_fav');
                     
                 // var today = new Date();
                 // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
