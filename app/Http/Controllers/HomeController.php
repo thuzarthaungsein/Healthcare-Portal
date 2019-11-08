@@ -109,7 +109,7 @@ class HomeController extends Controller
                if($i < $k)
                {        
                     $cat_random[$i]->pattern = $pattern_arr[$j];
-                    $id = $cat[$i]->id;
+                    $id = $cat_random[$i]->id;
                     $category = Category::find($id);
                     $category->pattern =  $pattern_arr[$j]; 
                     $category->save(); 

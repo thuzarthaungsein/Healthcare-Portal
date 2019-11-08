@@ -385,7 +385,8 @@ export default {
             console.log(localStorage.getItem('date'));
         
               var localdate = localStorage.getItem('date');
- 
+    console.log(localdate);
+    console.log(todaydate > localdate)
               if(todaydate > localdate) 
               {
                   localStorage.setItem('date',todaydate);
