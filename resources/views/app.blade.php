@@ -163,14 +163,15 @@
         </ul>
         @endif
 
-        <nav class="navbar navbar-expand-lg navbar-dark main-header">
+        <nav class="navbar navbar-expand-lg  main-header">
         <div class="container nav-warp">
-            <a class="navbar-brand col-2 pl-0 logo-text" href="/">
-
-                <!-- <img src="/images/sample_2.png" alt="Logo"> -->
-                LOGO <span>HERE</span>
-
-            </a>
+            <div class="col-4 d-flex">
+                <a class="navbar-brand logo-text" href="/">
+                    LOGO <span>HERE</span>
+                </a>
+                <p class="h-tel"><i class="fas fa-phone-alt"></i><span>03-1234-5678</span><br>&nbsp;&nbsp;&nbsp;&nbsp;平日受付 11:00 〜 18:00</p>
+            </div>
+            
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -180,7 +181,7 @@
 
 
 
-            <div class="collapse navbar-collapse col-6 offset-4" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-8 d-flex justify-content-end" id="navbarSupportedContent">
 
                 <!-- <form class="form-inline my-2 my-lg-0 col-lg-8 container-fluid form-inline">
 
@@ -189,47 +190,43 @@
                 <button class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary pc" type="submit"><i class="fas fa-search"></i> 検索</button>
 
                 </form> -->
-            <ul class="navbar-nav ml-auto pad-free pc">
-
-                    @guest
-
-                    <li class="nav-item btn login-register-btn p-lr-0">
-
-                        <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ __('事業者 ログイン') }}</a>
-
-                    </li>
-
-                    <li class="nav-item btn login-register-btn p-lr-0">
-
-                        <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
-
-                        <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;{{ __('事業者 登録') }}</a>
-
-                        <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
-
-                    </li>
-
-                    @else
-
-                    <li class="nav-item btn login-register-btn col-12 userprofile-name pc">
-
-                        <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
-                        @if(Auth::user()->type_id == 2)
-                        <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
-                        <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
+                <div class="row">
+                    <!-- <ul class="social-link col-12 d-flex justify-content-end">
+                        <li><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li> 
+                    </ul> -->
+                    <ul class="navbar-nav ml-auto pc col-12  d-flex justify-content-end"> 
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ __('事業者 ログイン') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
+                            <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;{{ __('事業者 登録') }}</a>
+                            <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
+                        </li>
+                        <li><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
                         @else
-                        <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
-                        <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
-                        @endif
-                        <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
+                        <li class="nav-item col-12 userprofile-name pc">
 
-                    </li>
+                            <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
+                            @if(Auth::user()->type_id == 2)
+                            <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
+                            <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
+                            @else
+                            <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
+                            <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
+                            @endif
+                            <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
 
-                    @endguest
-
-                </ul>
-
-
+                        </li>
+                        @endguest 
+                    </ul> 
+                </div>
+                
+                
                 <ul class="sp-nav sp">
 
                     <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;&nbsp;ホーム</router-link></li>
@@ -342,6 +339,7 @@
             </div>
         </div>
         </nav>
+        
 
         <!--end navigation bar-->
 
