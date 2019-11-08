@@ -628,7 +628,7 @@
                                 @if(Auth::check())
                                 <div class="row justify-content-md-center p-t-15">
                                 @else
-                                <div class="row justify-content-md-center p-t-110">
+                                <div class="row justify-content-md-center">
 
                                 @endif
 
