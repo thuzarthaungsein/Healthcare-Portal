@@ -13,7 +13,7 @@
                                 <div class="form-group">
                                     <label>職種名 :<span class="error">*</span></label>
                                     <input type="text" class="form-control"  v-model="occupation.name"  placeholder="職種名を入力してください。" >
-                                    <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                    <span v-if="errors.name" class="error">{{errors.name}}</span>
                                 </div>
                                 <div class="form-group">
                                 <label>ペアレント :<span class="error">*</span></label>
@@ -25,9 +25,13 @@
                                     </select>
                             </div><br/>
                             <div class="form-group ">
+                                <span class="btn main-bg-color white all-btn" @click="checkValidate()">{{subtitle}}</span>
+                                <!-- <button class="btn main-bg-color white all-btn">{{subtitle}}</button> -->
                                 <router-link class="btn btn-danger all-btn" to="/occupationlist" > キャンセル </router-link>
                                 <!-- <router-link class="btn news-post-btn all-btn" to="/featurelist" >Create</router-link>             -->
-                                <button class="btn news-post-btn all-btn">{{subtitle}}</button>
+                                <!-- <button class="btn news-post-btn all-btn">{{subtitle}}</button> -->
+                                
+				
                             </div>
                             </form>
                         </div>
@@ -43,8 +47,10 @@
 export default {
           data() {
             return {
-                 errors:[
-                ],
+                 errors:{
+                     name:""
+                 }
+              ,
 
                  occupation: {
                         name: '',
@@ -86,7 +92,7 @@ export default {
                         this.occupation.parent = response.data.parent;
                         this.selectedValue = response.data.parent;
                         this.occupationList.name = response.data.name;
-                        this.header = ' 特徴更新';
+                        this.header = ' 職種更新';
                         this.subtitle = '更新する';
                         return this.header;
                         return this.subtitle;
@@ -98,12 +104,27 @@ export default {
 
 
          methods: {
+             checkValidate() {
+                     if (this.occupation.name) {
+                        // console.log('exist');
+                        this.errors.name = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.name = " 職種が必須です。";
+                    }
+                   if (
+                        !this.errors.name
+                        
+                    ) {
+                        this.add();
+                    }
+                },
             add() {
                           if( `${this.$route.params.id}` == "undefined")
                 {
                     this.$swal({
                                 title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -123,7 +144,7 @@ export default {
                             this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            title: '作成されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             // showConfirmButton: false,
@@ -157,7 +178,7 @@ export default {
               updateType() {
                   this.$swal({
                             title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -165,7 +186,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"

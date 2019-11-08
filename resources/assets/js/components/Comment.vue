@@ -135,14 +135,11 @@
                                         <div class="form-group row">
                                             
                                             <div class="col-sm-12 text-center">
+                                                <span class="btn main-bg-color white all-btn" @click="checkValidate()">確認画面へ進む</span>
                                                  <router-link class="btn btn-danger all-btn" to="/profile" > キャンセル </router-link>
                                                  <!-- <button class="btn main-bg-color white all-btn"> 利用規約、個人情報の取り扱いについてに同意して確認する </button> -->
                                                  <!-- <button class="btn main-bg-color white all-btn"> 確認 </button> -->
                                                       <!-- <span :disabled="isDisabled" >確認画面へ進む</span> -->
-                                                      <span
-                                                        class="btn main-bg-color white all-btn"
-                                                        @click="checkValidate()"
-                                                        >確認画面へ進む</span>
                                             </div>
                                             
                                         </div>
@@ -160,7 +157,7 @@
 export default {
           data() {
             return {
-                  errors: {
+                errors: {
                     title: "",
                     email: "",
                     name:"",
@@ -201,6 +198,7 @@ export default {
         },
         created(){
             this.comments.gender = 0;
+            this.comments.customer_id = this.$route.params.customer_id;
         },
 
 

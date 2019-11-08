@@ -134,7 +134,6 @@ body {
     color: white;
 
     width: 100px; */
-
     margin-bottom: 0px;
     cursor: pointer;
     text-align: center;
@@ -380,7 +379,7 @@ body {
 
 .category_box {
     border-top: 1px dashed #1aa985;
-    padding-top: 10px;
+    padding:10px 0px 0px 0px;
     margin-top: 10px;
 }
 
@@ -431,23 +430,38 @@ body {
 }
 
 .bordertop-color0 {
-    border-top: 1px dashed #63b7ff;
+    border-top: 2px solid #63b7ff;
+}
+.bordertop-color0 i{
+    color: #63b7ff;
 }
 
 .bordertop-color1 {
-    border-top: 1px dashed #a3774a;
+    border-top: 2px solid #a3774a;
+}
+.bordertop-color1 i{
+    color: #a3774a;
 }
 
 .bordertop-color2 {
-    border-top: 1px dashed #9579ef;
+    border-top: 2px solid #9579ef;
+}
+.bordertop-color2 i{
+    color: #9579ef;
 }
 
 .bordertop-color3 {
-    border-top: 1px dashed #21d1de;
+    border-top: 2px solid #21d1de;
+}
+.bordertop-color3 i{
+    color: #21d1de;
 }
 
 .bordertop-color4 {
-    border-top: 1px dashed #d1291d;
+    border-top: 2px solid #d1291d;
+}
+.bordertop-color4 i{
+    color: #d1291d;
 }
 
 
@@ -546,6 +560,29 @@ body {
 
 .lightbox-arrow {
     width: 7rem !important;
+}
+
+.gallery-list {
+    margin-top: 20px;
+}
+
+.gallery-list .gallery-item {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 35px;
+}
+
+.gallery-list img {
+    position: relative;
+    object-fit: cover;
+    height: 100%;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.gallery-list span {
+    color: #ff9563;
+    font-weight: bold;
 }
 
 
@@ -1168,15 +1205,16 @@ p.p_2>a {
 
 .fav-profile {
     position: absolute;
-    top: 54px;
+    top: 52px;
     right: 30px;
     font-size: 12px;
     color: #333;
     font-weight: bold;
-    padding: 2px 10px !important;
+    padding: 5px 10px !important;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     cursor: pointer;
     z-index: 4;
+    width:160px;
 }
 
 .profile-tit {
@@ -1431,6 +1469,23 @@ margin-right: 100px; */
     color: white !important;
     position: relative;
     left: 15px;
+}
+
+.related-card {
+    margin-bottom: 20px;
+    background: #f5f5f5;
+}
+
+.related-card .form-control {
+    background: #fff;
+}
+
+.related-card #search-word {
+    border: 1px solid #ced4da;
+}
+
+.mg {
+    margin-bottom: -0.2rem;
 }
 
 
@@ -2169,6 +2224,10 @@ ul.sub-ul li {
     margin-top: 55px;
 }
 
+.m-b-8 {
+    margin-bottom: 8px;
+}
+
 .m-b-20 {
     margin-bottom: 20px;
 }
@@ -2565,6 +2624,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 #myTabContent {
     border: 1px solid #ccc;
+    height:376px;
 }
 
 .nav-tabs .nav-link {
@@ -3085,7 +3145,7 @@ ul.main-tab li:after {
 
 .map {
     /* position: relative;
-    z-index: 1;    
+    z-index: 1;
     background: url(/images/img_map1.png) center top no-repeat;
     width: 100%;
     height: 424px; */
@@ -3587,7 +3647,7 @@ background-color: #f5f5f5;
 /* News Tab */
 
 .news-wrapper {
-    height: 290px;
+    height: 350px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -3641,7 +3701,7 @@ width: 30rem;
     line-height: 1.538;
     text-transform: uppercase;
     color: #444;
-    margin: 12px 0;
+    margin: 9px 0;
 }
 
 .source-subtitle {
@@ -4143,6 +4203,10 @@ margin-right: 2% !important;
 
 .p-t-30 {
     padding-top: 30px;
+}
+
+.p-b-0{
+    padding-bottom: 0px;
 }
 
 .p-b-5 {
@@ -5849,21 +5913,19 @@ button.confirmed {
 
 }*/
 
-
-
-.swal2-icon.swal2-warning{
+.swal2-icon.swal2-warning {
     width: 80px !important;
     height: 80px !important;
     margin: 20px auto 30px !important;
     border: 4px solid #fd8c2a !important;
- }
- 
- .swal2-icon.swal2-info{
+}
+
+.swal2-icon.swal2-info {
     width: 80px !important;
     height: 80px !important;
     margin: 20px auto 30px !important;
     border: 4px solid #3fc3ee !important;
- }
+}
 
 .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
     width: 15px;
@@ -6051,7 +6113,6 @@ button.confirmed {
     -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
-
 
 #hospitalView .top-fixed-btn {
     background: #85c7ff;
@@ -6398,7 +6459,7 @@ button.confirmed {
     border-left: 5px solid #ff9563;
 }
 
-.num-rooom {
+.num-room {
     float: left;
     padding: 0 5px;
     margin-right: 20px;
@@ -6445,7 +6506,9 @@ button.confirmed {
     border: 1px solid #dee2e6;
 }
 
-
+table.box-wrap th{
+    padding: 12px !important;
+}
 /* end nursing search */
 
 
@@ -7008,7 +7071,8 @@ ul.test>li:before {
     border-radius: 3px;
     margin: 0 5px 5px 0;
     letter-spacing: normal;
-    font-size: 0.857em;
+    /* font-size: 0.857em; */
+    font-size: 16px;
 }
 
 .job-tit {
@@ -7149,7 +7213,48 @@ ul.test>li:before {
     background: #f9f9f9;
 }
 
+/*nursing search */
+.nur-content{
+    position: relative;
+    margin-bottom: 20px;
+    padding: 20px 20px 50px 20px;
+    height: 100%;
+    border: 1px solid #ff9563 ;
+    border-radius: 5px;
+}
+.nur-tit {
+    margin-bottom: 10px;
+    height: 20px;
+    overflow: hidden;
+}
 
+.nur-tit a {
+    color: #ff9563;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.nur-content .detail-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 30px;
+}
+
+.nur-content .detail-btn .btn {
+    width: 25%;
+    background: #ff9563;
+    color: #fff;
+}
+.nur_date {
+    padding: 2px 10px;
+    font-size: 12px;
+}
+.nur-addbtn{
+    background: #fff !important;
+    border: 1px solid #212529 !important;
+    color: #212529!important;
+}
 /* .slick-slider */
 
 .slick-slider {
@@ -7496,7 +7601,6 @@ ul.test>li:before {
     letter-spacing: 1px;
 }
 
-
 /* start nursing information */
 
 .nursing-info {
@@ -7638,25 +7742,29 @@ ul.test>li:before {
     border-radius: 3px;
     /* background-color: rgba(0, 0, 0, 0.05); */
 }
-.mx-panel-date tbody tr:nth-of-type(odd){
+
+.mx-panel-date tbody tr:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
 .mx-panel-date {
-    border :1px solid #dee2e6;
+    border: 1px solid #dee2e6;
 }
-.mx-panel-date thead th{
+
+.mx-panel-date thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
     border: 1px solid #dee2e6;
 }
+
 .mx-panel-date td.today {
     color: #c1470c !important;
-
 }
 
 .mx-calendar-content .cell {
     border: 1px solid #dee2e6;
 }
+
 .mx-calendar-content .cell:hover {
     background-color: #e8b9a2 !important;
 }
@@ -7853,22 +7961,27 @@ ul.test>li:before {
     position: relative;
     overflow: visible;
 }
-  /* nursingSearch */
-  /*commentform*/
-    .comform
-    {
-       background-color: #e2d9d96b;
-       padding: 22px;
-       border-radius: 10px;
-       margin: auto;
-       background: url(https://www.sagasix.jp/images/support/consultation/bg_check.gif) repeat center top;
-       border: 1px solid #dad3d2;
-       border-radius: 7px;
-       padding: 30px;
-       position: relative;
-       overflow: visible;
-    }
-   .title_comment{
+
+
+/* nursingSearch */
+
+
+/*commentform*/
+
+.comform {
+    background-color: #e2d9d96b;
+    padding: 22px;
+    border-radius: 10px;
+    margin: auto;
+    background: url(https://www.sagasix.jp/images/support/consultation/bg_check.gif) repeat center top;
+    border: 1px solid #dad3d2;
+    border-radius: 7px;
+    padding: 30px;
+    position: relative;
+    overflow: visible;
+}
+
+.title_comment {
     margin-left: -15px;
     margin-right: -15px;
     padding: 2px;
@@ -7891,6 +8004,19 @@ ul.test>li:before {
     font-size: 29px;
     color: #d2571c;
 }
-
+/* start count profie */
+/* .profile_count {
+    color: #C40000;
+    font-weight: bold;
+    font-size: 25px;
+} */
+/* end count profile */
 
 /*commentform*/
+.news_p
+{
+    float: right;
+    margin-top: -3%;
+    font-size: 20px;
+    font-weight: bold;
+}

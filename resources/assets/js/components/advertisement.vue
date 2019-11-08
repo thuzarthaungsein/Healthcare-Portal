@@ -13,7 +13,7 @@
 
                                     <label>広告タイトル : <span class="error">*</span></label>
                                     <input type="title" class="form-control box" id="title" name="title" v-model="ads.title" placeholder="広告タイトルを入力してください。">
-                                    <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
+                                    <span v-if="errors.title" class="error">{{errors.title}}</span>
 
                                 </div>
                                 <div class="form-group">
@@ -40,22 +40,26 @@
                                             <input type="checkbox" value="sidebar" name="side_bar" v-model="ads.location"><strong> サイドバー </strong>(167px*100px 200円)
                                              <div class="control__indicator"></div>
                                         </label>
-                                    <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                    <span v-if="errors.location" class="error">{{errors.location}}</span>
                                 </div>
                                 <div class="form-group">
                                     <!-- <label for ="photo" ><strong> メディア :</strong>  </label><br> -->
                                     <label>写真 : <span class="error">*</span></label><br />
                                     <input type="file" id="upload" accept="image/*" @change="uploadImage">
-                                    <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span>
+                                    <span v-if="errors.photo" class="error">{{errors.photo}}</span>
                                     <!-- <label class="" for="file">No file chosen</label> -->
                                     <div class="col-md-12" id="par">
                                         <div class="row image_preview"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <span class="btn main-bg-color white all-btn" @click="checkValidate()"> 作成する</span>
                                     <router-link class="btn btn-danger all-btn" to="/ads"> キャンセル </router-link>
-                                    <button class="btn news-post-btn all-btn">作成する</button>
+                                    <!-- <button class="btn news-post-btn all-btn">作成する</button> -->
+                                    
                                 </div>
+
+                              
                             </form>
                         </div>
                     </div>
@@ -70,7 +74,11 @@
     export default {
         data() {
             return {
-                errors: [],
+                errors: {
+                    title:"",
+                    location:"",
+                    photo:""
+                },
                 ads: {
                     title: '',
                     description: '',
@@ -82,6 +90,38 @@
 
         },
         methods: {
+              checkValidate() {
+                     if (this.ads.title) {
+                        // console.log('exist');
+                        this.errors.title = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.title = " カテゴリが必須です。";
+                    }
+                     if (this.ads.location.length != 0) {
+                        console.log(this.ads.location.length);
+                        console.log(1);
+                        this.errors.location = "";
+                    } else {
+                        console.log(2);
+                        this.errors.location = " カテゴリが必須です。";
+                    }
+                     if (this.ads.photo) {
+                     
+                        this.errors.photo = "";
+                    } else {
+                      
+                        this.errors.photo = "写真が必須です。";
+                    }
+                   if (
+                        !this.errors.title &&
+                        !this.errors.location &&
+                        !this.errors.photo
+                        
+                    ) {
+                        this.add();
+                    }
+                },
             uploadImage() {
                 $('.image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
                 this.ads.photo = event.target.files[0]
@@ -90,7 +130,7 @@
             add() {
                   this.$swal({
                             title: "作成",
-                            text: "作成をよろしでしょうか。",
+                            text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -118,7 +158,7 @@
                             type: 'success',
                             title: '作成されました。',
                             confirmButtonText: "はい",
-                            confirmButtonColor: "#0cc72c",
+                            confirmButtonColor: "#6cb2eb",
                             width: 250,
                             height: 200,
 

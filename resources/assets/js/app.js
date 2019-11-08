@@ -83,6 +83,7 @@ import Lightbox from 'vue-my-photos'
 Vue.use(Lightbox)
     //end Light Gallery
 
+Vue.use(require('vue-moment'));
 
 //vuejs loading
 import VueLoading from 'vuejs-loading-plugin'

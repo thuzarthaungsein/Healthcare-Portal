@@ -19,8 +19,8 @@
               </div>
 
               <div class="form-group">
+                <button class="btn main-bg-color white all-btn">更新する</button>
                 <router-link to="/categorylist" class="btn btn-danger all-btn">キャンセル</router-link>
-                <button class="btn news-post-btn all-btn">更新する</button>
                 <!-- <router-link to="/categorylist" class="btn news-post-btn all-btn">更新</router-link> -->
                 <!-- <a href="categorylist" class="btn btn-warning">Cancel</a> -->
               </div>
@@ -56,7 +56,7 @@ export default {
     updateCategory() { 
                     this.$swal({
                             title: "確認",
-                            text: "編集をよろしでしょうか。",
+                            text: "更新よろしでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -64,7 +64,7 @@ export default {
                             confirmButtonColor: "#6cb2eb",
                             cancelButtonColor: "#b1abab",
                             cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
+                            confirmButtonText: "更新",
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"

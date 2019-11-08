@@ -12,9 +12,8 @@ class SearchMapController extends Controller
     {
 
         $id = $_GET['id'];
+
         $township_id = $_GET['township_id'];
-
-
         $moving_in = $_GET['moving_in'];
         $per_month = $_GET['per_month'];
         $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
@@ -40,6 +39,9 @@ class SearchMapController extends Controller
         }
         else if ($id != null && $township_id == -1 && $moving_in == -1 && $per_month != -1){
             $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+        }
+        else if ($id != null && $township_id == -1 && $moving_in != -1 && $per_month != -1){
+            $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if ($id != null && $township_id != -1 && $moving_in != -1 && $per_month != -1){
             $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";

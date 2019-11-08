@@ -332,7 +332,7 @@ export const routes = [
   },
   {
     name: 'comment',
-    path: '/comment',
+    path: '/comment/:customer_id',
     component: comment
   },
   {
