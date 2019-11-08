@@ -117,14 +117,14 @@ const router = new VueRouter({
     routes: routes
 });
 
-// router.beforeEach((to, from, next) => {
-//     NProgress.start()
-//     NProgress.set(0.1)
-//     next()
-//   })
-//   router.afterEach(() => {
-//     setTimeout(() => NProgress.done(), 500)
-//   })
+router.beforeEach((to, from, next) => {
+    NProgress.start()
+    NProgress.set(0.1)
+    next()
+  })
+  router.afterEach(() => {
+    setTimeout(() => NProgress.done(), 500)
+  })
 
 const app = new Vue({
     el: '#app',
