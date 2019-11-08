@@ -533,7 +533,12 @@
         toggleCheck_1: false,
       }
     },
-
+    mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('hospital-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('hospital-borderColor');
+        },
     methods: {
 
         search()
@@ -750,4 +755,16 @@
     width: 140px;
     padding: 25px;
   }
+
+  .hospital-tabColor .nav-link {
+        background: #63b7ff !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+.hospital-borderColor {
+        border: 1px solid #63b7ff !important;
+    }
+.tab-pane{
+        padding: 10px;
+    }
 </style>

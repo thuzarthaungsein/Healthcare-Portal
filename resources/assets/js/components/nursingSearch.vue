@@ -805,8 +805,11 @@
       }
     },
     mounted() {
-
-    },
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('nursing-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('nursing-borderColor');
+        },
     computed: {
       atEndOfList() {
         return this.currentOffset <= (this.paginationFactor * -1) * (this.nursingList.length - this.windowSize);
@@ -1901,5 +1904,21 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     border-radius: 50%;
     text-align: center;
 }
+
+
+
+    .nursing-tabColor .nav-link {
+        background: #ff9563 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+
+    .nursing-borderColor {
+        border: 1px solid #ff9563 !important;
+    }
+    .tab-pane{
+        padding: 10px;
+    }
+</style>
 
 </style>

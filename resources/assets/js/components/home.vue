@@ -2,57 +2,32 @@
     <div>
         <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
-        <ul class="nav nav-tabs news-tabColor" id="navtab">
+        <ul class="nav nav-tabs news-tabColor navtab" id="navtab">
             <li role="presentation" class="subtab1 nav-item">
-                <router-link  :to="{ name: 'News' }" @click="changeRoute('news')" class="nav-link"><i class="fas fa-newspaper"></i> ニュース</router-link>
+                <router-link  :to="{ name: 'News' }"  class="nav-link"><i class="fas fa-newspaper" id="t"></i> ニュース</router-link>
             </li>
-            <li role="presentation" class="subtab3 nav-item">
-                <router-link :to="{ name: 'nursingSearch' }" @click="changeRoute('nursing')" class="nav-link"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
+            <li role="presentation" class="subtab3 nav-item"  >
+                <router-link :to="{ name: 'nursingSearch' }"  class="nav-link" id="t"><i class="fas fa-user-md"></i> 介護施設検索</router-link>
             </li>
-            <li role="presentation" class="subtab2 nav-item">
-                <router-link  :to="{ name: 'hospital_search' }" @click="changeRoute('hospital')" class="nav-link"><i class="fas fa-briefcase-medical"></i> 病院検索</router-link>
+            <li role="presentation" class="subtab2 nav-item"  >
+                <router-link  :to="{ name: 'hospital_search' }"  class="nav-link" id="t"><i class="fas fa-briefcase-medical"></i> 病院検索</router-link>
             </li>
-            <li role="presentation" class="subtab5 nav-item">
-                <router-link  :to="{ name: 'jobSearch' }" @click="changeRoute('job')" class="nav-link"><i class="fas fa-users"></i> 求人検索</router-link>
+            <li role="presentation" class="subtab5 nav-item"  >
+                <router-link  :to="{ name: 'jobSearch' }"  class="nav-link"id="t"><i class="fas fa-users"></i> 求人検索</router-link>
             </li>
         </ul>
-        <main>
-            <slot />
-        </main>
-        <div class="tab-content tab-content1 tabs upper-tab" id="upper-tab">
-        <div class="tab-pane" id="tab1">
-                
-        </div>
-              
+        
+        <div class="tabs upper-tab" id="upper-tab">
+            <div class="tab-pane" id="tab1">
+                    <main>
+                        <slot />
+                    </main>
+            </div>
         </div>
         <!--end menu tabs-->
     </div>
     <!-- {{ l_storage_hos_history }} -->
 </template>
-
-<script>
-
-
-    // import ProfilePublish from './ProfilePublish.vue'
-
-    export default {
-
-        methods: {
-
-
-            changeRoute(tab) {
-                console.log(tab)
-                $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
-                $('#navtab').addClass(tab + '-tabColor');
-                $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
-                $('#upper-tab').addClass(tab + '-borderColor');
-                // console.log(e.target.tagName);
-                //this.$router.push({name:'home'});
-            },
-        }
-
-    }
-</script>
 
 <style>
     .hospital-tabColor .nav-link {
@@ -93,6 +68,9 @@
 
     .nursing-borderColor {
         border: 1px solid #ff9563 !important;
+    }
+    .tab-pane{
+        padding: 10px;
     }
 </style>
 

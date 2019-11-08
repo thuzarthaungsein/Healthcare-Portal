@@ -339,41 +339,83 @@
             layout
         },
         mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('news-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('news-borderColor');
+        },
+    data() {
+        return {
+            cats: [],
+            posts: [],
+            latest_post: [],
+            latest_post_all_cats: [],
+            search_posts:[],
+            tmp_arr:[],
+            categoryId: 1,
+            index:[0,3],
+            second_index:[1,2],
+            third_index:[4,5],
+            tmp_title:[],
+            title_arr:[],
+            tmp_photo:[],
+            photo_arr:[],
+            tmp_post_id:[],
+            id_arr:[],
+            post_groups : [],
+            status:'0',
+            search_word:null,
+            first_search_word:'',
+            pattern:[]
+        }
+    },
+    created() {
 
-        },
-        data() {
-            return {
-                cats: [],
-                posts: [],
-                latest_post: [],
-                latest_post_all_cats: [],
-                search_posts: [],
-                tmp_arr: [],
-                categoryId: 1,
-                index: [0, 3],
-                second_index: [1, 2],
-                third_index: [4, 5],
-                tmp_title: [],
-                title_arr: [],
-                tmp_photo: [],
-                photo_arr: [],
-                tmp_post_id: [],
-                id_arr: [],
-                post_groups: [],
-                status: '0',
-                search_word: null,
-                first_search_word: ''
-            }
-        },
-        created() {
-            this.getAllCat();
-            this.getLatestPostsByCatID();
-            this.getPostByCatID();
-            this.getLatestPostByCatID();
-            this.getLatestPostFromAllCat();
-            //     this.categoryId();
-        },
-        methods: {
+        var today = new Date();  
+        var month =(String) (today.getMonth()+1);
+        var date = (String) (today.getDate());
+
+        if(month.length == 1)
+        {
+                month = '0' + today.getMonth();
+        }
+        
+        if(date.length == 1 )
+        {
+                date = '0' + today.getDate();
+        }
+        var todaydate = today.getFullYear()+'-'+ month +'-'+ date; 
+ 
+        if(localStorage.getItem('date') == null)
+        {     
+            
+              localStorage.setItem('date',todaydate); 
+              this.getCategoryRandomValue();           
+        }
+        else{
+        
+              var localdate = localStorage.getItem('date');
+ 
+              if(todaydate > localdate) 
+              {
+                  localStorage.setItem('date',todaydate);
+                  this.getCategoryRandomValue();      
+              }  
+              else{
+                 this.getCategoryRandomValue();   
+              }          
+                        
+        }
+    
+
+        this.getAllCat();
+        this.getLatestPostsByCatID();
+        this.getPostByCatID();
+        this.getLatestPostByCatID();
+        this.getLatestPostFromAllCat();
+    //     this.categoryId();
+    },
+    methods: {        
             getAllCat: function() {
                 this.axios
                     .get('/api/home')
@@ -401,11 +443,12 @@
                 }
                 console.log(searchword);
                 this.axios
-                    .get('/api/get_latest_posts_by_catId/' + searchword)
-                    .then(response => {
-                        console.log(response);
-                        this.post_groups = this.groupBy(response.data, 'name');
-                    });
+                .get('/api/get_latest_posts_by_catId/'+searchword)
+                .then(response => {
+                    console.log(response);
+                    this.post_groups = this.groupBy(response.data, 'name');
+                    
+                });
             },
 
             getPostByCatID: function(catId = 1) {
@@ -433,6 +476,14 @@
                     });
             },
 
+            getCategoryRandomValue(){
+                 
+                this.axios.get("/api/get_cat_random") .then(response => {
+                    this.pattern = response.data;
+                });
+               
+            },
+
             getLatestPostByCatID: function(catId) {
                 if ($('#search-word').val()) {
                     var search_word = $('#search-word').val();
@@ -450,10 +501,12 @@
 
                 $('.search-item').css('display', 'none');
                 this.categoryId = cat_id;
-                this.axios.post("/api/get_latest_post", fd)
-                    .then(response => {
-                        this.latest_post = response.data;
-                    });
+                this.axios.post("/api/get_latest_post" , fd)
+                .then(response => {
+                    this.latest_post = response.data;
+                   
+                    console.log(this.pattern);
+                });
             },
             getLatestPostFromAllCat: function() {
                 this.axios
@@ -513,4 +566,16 @@
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
 }
+
+.news-tabColor .nav-link {
+        background: #75b777 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+.news-borderColor {
+        border: 1px solid #75b777 !important;
+    }
+    .tab-pane{
+        padding: 10px;
+    }
 </style>

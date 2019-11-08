@@ -503,6 +503,12 @@ export default {
         job_data:[]
       }
     },
+    mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('job-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('job-borderColor');
+        },
   methods:{
 
     search()
@@ -727,5 +733,17 @@ table > tbody > tr th{
   width:140px;
   padding:25px;
 }
+.job-tabColor .nav-link {
+    background: #828282 !important;
+    color: #fff;
+    border-right: 1px solid #fff;
+}
+
+.job-borderColor {
+    border: 1px solid #828282 !important;
+}
+.tab-pane{
+        padding: 10px;
+    }
 
 </style>

@@ -838,7 +838,10 @@
             // jssor_slider2_init();
         }
     });
+
 });
+
+
 </script>
 </body>
 
