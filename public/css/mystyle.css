@@ -6561,24 +6561,17 @@ button.confirmed {
 }
 
 .type-name {
-    /* width: 100%;
-    padding: 3px 10px 0px 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #000;
-    font-weight: bold;
-    background: #eeeeee;
-    border-left: 5px solid #ff9563; */
-    width: 50%;
+    width: 40%;
     padding: 0px;
     margin-bottom: 10px;
     font-size: 16px;
-    color: #333;
+    color: #fff;
     font-weight: bold;
-    background: #ffffcc;
-    border: 1px solid #ff6117;
+    background: #ff9563;
+    border: 1px solid #ff9563;
     border-radius: 5px;
     text-align: center;
+    font-weight: normal;
 }
 
 .num-room {
@@ -7342,8 +7335,8 @@ ul.test>li:before {
 
 .nur-content {
     position: relative;
-    margin-bottom: 20px;
-    padding: 20px 20px 50px 20px;
+    /* margin-bottom: 20px; */
+    padding: 20px;
     height: 100%;
     border: 1px solid #ff9563;
     border-radius: 5px;
@@ -7362,15 +7355,13 @@ ul.test>li:before {
 }
 
 .nur-content .detail-btn {
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
-    text-align: center;
-    bottom: 20px;
 }
 
 .nur-content .detail-btn .btn {
-    width: 25%;
+    width: 100%;
     background: #ff6117;
     color: #fff;
 }

@@ -678,7 +678,10 @@
                         </div>
                       <div class="job-body row  clearfix">
                         <div class="col-4 job-img">
-                          <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">                          
+                          <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">    
+                          <div class="mt-4 col-12 detail-btn text-center">                                             
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                          </div>                       
                         </div>
                         <div class="col-8 job-box">
                           <table  class="table table-bordered table-sm">                              
@@ -735,9 +738,7 @@
                             </div>
                         </div> -->
                       </div>   
-                      <div class="mt-4 col-12 detail-btn text-center">                                             
-                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
-                          </div>                   
+                                        
                     </div>
                   </div>
                 </div>
@@ -966,7 +967,7 @@
                             '</thead>' +
                             '<tbody>' +
                               '<tr>' +
-                                '<td colspan="2"><button class="item-fav-infowindow">'+
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
                                 '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
                                 '</span> </button></td>' +
                               '</tr>' +
@@ -987,32 +988,33 @@
                             '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                             '</td>' +
                             '<td>' +
-                              '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
-                                '<tbody>' +
-                                  '<tr>' +
-                                    '<td>住所</td>' +
-                                    '<td>' + item[i]['address'] + '</td>' +
-                                  '</tr>' +
-                                '<tr>' +
-                                  '<td>電話</td>' +
-                                  '<td>' + item[i]['phone'] + '</td>' +
-                                  '</tr>' +
-                                '<tr>' +
-                                '<td>ウェブ</td>' +
-                                '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                              '</table>' +
+                              '<ul class="list-group list-group-flush nur-caro-card">' +
+                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                                '<span style="color:#d2571c">住所</span>' +
+                                    item[i]['address'] + 
+                                '</p></li>' +
+
+                                '<li class="list-group-item">' +
+                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span>' + item[i]['phone'] + '</span>' +
+                                  '</li>' +
+
+                                '<li class="list-group-item">' +
+                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                                '</li>' +
+                                
+                              '</ul>' +
                             '</td>' +
                             '</tr>' +
                             ' <tr>' +
                             '<td colspan="2">' +
                               '<div class="">' +
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
-                                '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
-                                '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
+                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
@@ -1160,11 +1162,11 @@
             .then((response) => {
             this.changeMap(response)
             })
-        this.search();
+ 
             
       },
      nursingSearchData(index){
-         this.search();
+ 
      
        if(index == 1)
        {
@@ -1318,34 +1320,34 @@
                             '<tr>' +
                             '<td>' +
                             '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                            '</td>' +
-                            '<td>' +
-                              '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
-                                '<tbody>' +
-                                  '<tr>' +
-                                    '<td>住所</td>' +
-                                    '<td>' + item[i]['address'] + '</td>' +
-                                  '</tr>' +
-                                '<tr>' +
-                                  '<td>電話</td>' +
-                                  '<td>' + item[i]['phone'] + '</td>' +
-                                  '</tr>' +
-                                '<tr>' +
-                                '<td>ウェブ</td>' +
-                                '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                              '</table>' +
-                            '</td>' +
+                            '</td>' +                            
+                              '<td>' +
+                              '<ul class="list-group list-group-flush nur-caro-card">' +
+                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                                '<span style="color:#d2571c">住所</span>' +
+                                    item[i]['address'] + 
+                                '</p></li>' +
+
+                                '<li class="list-group-item">' +
+                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span>' + item[i]['phone'] + '</span>' +
+                                  '</li>' +
+
+                                '<li class="list-group-item">' +
+                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                                '</li>' +                                
+                              '</ul>' +
+                            '</td>' +                            
                             '</tr>' +
                             ' <tr>' +
                             '<td colspan="2">' +
                               '<div class="">' +
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
-                                '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
-                                '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
+                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
