@@ -757,10 +757,12 @@
             <div class="row ele m-lr-0" id="element6">
                 <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>                  
                 <div class="comment-ico  col-12">
-                    <a href="/comment">
+                    <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
                         <span>口コミを追加する</span>
-                    </a>
+                    </a> -->
+                    <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span></router-link>
                 </div>             
                <div class="col-lg-12 col-md-12 col-sm-12">                  
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
@@ -1213,10 +1215,12 @@
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header col-12 m-t-20">口コミ {{customer.name}}</h5>                  
                 <div class="comment-ico  col-12">
-                    <a href="/comment">
+                    <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
                         <span>口コミを追加する</span>
-                    </a>
+                    </a> -->
+                    <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span></router-link>
                 </div>             
                <div class="col-lg-12 col-md-12 col-sm-12">                  
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
@@ -1331,6 +1335,7 @@ export default {
 
             var that = this;
             return {
+                customer_id: "",
                 url: 'upload/nursing_profile/Imagepanorama/',
                 isAutoRotationOn: true,
                 isOrientationOn: true,
@@ -1409,8 +1414,8 @@ export default {
         },
 
         created(){
-            console.log(this.cusid);
-          this.activePanoImage = 0;
+            this.customer_id = this.cusid;
+            this.activePanoImage = 0;
 
             if(this.type != undefined && this.cusid!= undefined){
                 localStorage.setItem('cusType',this.type);

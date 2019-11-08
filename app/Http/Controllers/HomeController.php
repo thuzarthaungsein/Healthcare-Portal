@@ -41,14 +41,14 @@ class HomeController extends Controller
         $request = $request->all();
         $cat_id = $request['category_id'];
 
-        $posts = Post::where("category_id",$cat_id);
+        $posts = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->limit(9)->get();
         // if(isset($request['search_word'])) {
         //     $search_word = $request['search_word'];
         //     $posts = $posts->where(function($qu) use ($search_word){
         //         $qu->where('title', 'LIKE', "%{$search_word}%");
         //     });
         // }
-        $posts = $posts->orderBy('created_at', 'desc')->get();
+        // $posts = $posts->orderBy('created_at', 'desc')->get();
         return response()->json($posts);
     }
 
@@ -74,7 +74,7 @@ class HomeController extends Controller
 
         public function getLatestPostFromAllCat()
     {
-        $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('4')->get();
+        $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('14')->get();
         return response()->json($latest_post_all_cat);
     }
 
@@ -128,7 +128,7 @@ class HomeController extends Controller
 
         $cat = Category::select('id')->get();
         for($i = 0; $i < count($cat); $i++) {
-            $sql.= "(SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 15) UNION "; 
+            $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION "; 
         }
 
         $sql = trim($sql,' UNION ');

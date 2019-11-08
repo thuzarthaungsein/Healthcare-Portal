@@ -379,7 +379,7 @@ body {
 
 .category_box {
     border-top: 1px dashed #1aa985;
-    padding-top: 10px;
+    padding:10px 0px 0px 0px;
     margin-top: 10px;
 }
 
@@ -430,23 +430,38 @@ body {
 }
 
 .bordertop-color0 {
-    border-top: 1px dashed #63b7ff;
+    border-top: 2px solid #63b7ff;
+}
+.bordertop-color0 i{
+    color: #63b7ff;
 }
 
 .bordertop-color1 {
-    border-top: 1px dashed #a3774a;
+    border-top: 2px solid #a3774a;
+}
+.bordertop-color1 i{
+    color: #a3774a;
 }
 
 .bordertop-color2 {
-    border-top: 1px dashed #9579ef;
+    border-top: 2px solid #9579ef;
+}
+.bordertop-color2 i{
+    color: #9579ef;
 }
 
 .bordertop-color3 {
-    border-top: 1px dashed #21d1de;
+    border-top: 2px solid #21d1de;
+}
+.bordertop-color3 i{
+    color: #21d1de;
 }
 
 .bordertop-color4 {
-    border-top: 1px dashed #d1291d;
+    border-top: 2px solid #d1291d;
+}
+.bordertop-color4 i{
+    color: #d1291d;
 }
 
 
@@ -2209,6 +2224,10 @@ ul.sub-ul li {
     margin-top: 55px;
 }
 
+.m-b-8 {
+    margin-bottom: 8px;
+}
+
 .m-b-20 {
     margin-bottom: 20px;
 }
@@ -2605,6 +2624,7 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
 
 #myTabContent {
     border: 1px solid #ccc;
+    height:376px;
 }
 
 .nav-tabs .nav-link {
@@ -3627,7 +3647,7 @@ background-color: #f5f5f5;
 /* News Tab */
 
 .news-wrapper {
-    height: 290px;
+    height: 350px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
@@ -3681,7 +3701,7 @@ width: 30rem;
     line-height: 1.538;
     text-transform: uppercase;
     color: #444;
-    margin: 12px 0;
+    margin: 9px 0;
 }
 
 .source-subtitle {
@@ -4183,6 +4203,10 @@ margin-right: 2% !important;
 
 .p-t-30 {
     padding-top: 30px;
+}
+
+.p-b-0{
+    padding-bottom: 0px;
 }
 
 .p-b-5 {
@@ -8013,3 +8037,10 @@ ul.test>li:before {
 /* end count profile */
 
 /*commentform*/
+.news_p
+{
+    float: right;
+    margin-top: -3%;
+    font-size: 20px;
+    font-weight: bold;
+}
