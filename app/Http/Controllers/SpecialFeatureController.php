@@ -42,17 +42,17 @@ class SpecialFeatureController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|unique:special_features',
-            'short_name'=>'required|unique:special_features',
-            'type'=>'required',
-        ],[
-            'name.required' => '名前の入力が必要です。',
-            'name.unique'=>'名前はすでに使用されています。',
-            'short_name.unique'=>"短い名はすでに使用されています。",
-            'short_name.required'=>'短い名の入力が必要です。',
-            'type.required'=>'タイプの入力が必要です。'
-        ]);
+        // $request->validate([
+        //     'name' => 'required|unique:special_features',
+        //     'short_name'=>'required|unique:special_features',
+        //     'type'=>'required',
+        // ],[
+        //     'name.required' => '名前の入力が必要です。',
+        //     'name.unique'=>'名前はすでに使用されています。',
+        //     'short_name.unique'=>"短い名はすでに使用されています。",
+        //     'short_name.required'=>'短い名の入力が必要です。',
+        //     'type.required'=>'タイプの入力が必要です。'
+        // ]);
 
         $feature = new special_feature;
         $feature->name=$request->name;

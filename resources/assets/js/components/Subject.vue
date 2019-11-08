@@ -13,7 +13,7 @@
                                 <div class="form-group">
                                     <label>科目 :<span class="error">*</span></label>
                                     <input type="text" class="form-control"  v-model="Subject.name"  placeholder="科目を入力してください。" >
-                                    <span v-if="errors.name" class="error">{{errors.name[0]}}</span>
+                                    <span v-if="errors.name" class="error">{{errors.name}}</span>
                                 </div>
                                 <div class="form-group">
                                 <label>ペアレント :<span class="error">*</span></label>
@@ -25,8 +25,10 @@
                                     </select>
                             </div><br/>
                                  <div class="form-group">
-                                    <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
-                                    <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>                                         
+                                        <span class="btn main-bg-color white all-btn" @click="checkValidate()">{{subtitle}}</span>
+                                        <router-link class="btn btn-danger all-btn" to="/subjectlist" > キャンセル </router-link>
+                                         <!-- <button class="btn news-post-btn all-btn">{{subtitle}}</button> -->
+                                        
                                 </div>
                              </form>
                              </div>
@@ -42,8 +44,9 @@
 export default {
           data() {
             return {
-                 errors:[
-                ],
+                 errors:{
+                     name:""
+                 },
                 //  Parents : [ { id: 0,name : 'None'},{ id: 1, name: 'Hospital' },{ id: 2, name: 'Nursing' }],
                  Subject: {
                         name: '',
@@ -92,6 +95,22 @@ export default {
         },
 
          methods: {
+               checkValidate() {
+                     if (this.Subject.name) {
+                        // console.log('exist');
+                        this.errors.name = "";
+                    } else {
+                        // console.log('null');
+                        this.errors.name = "科目が必須です。";
+                    }
+                   if (
+                        !this.errors.name
+                        
+                    ) {
+                        this.add();
+                    }
+                },
+				
             add() {
                  if( `${this.$route.params.id}` == "undefined")
                 {
