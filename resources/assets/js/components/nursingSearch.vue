@@ -1176,12 +1176,8 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
-            this.search();
-                
         },
         nursingSearchData(index){
-            this.search();
-        
             if(index == 1)
             {
                 this.township_id = -1;
