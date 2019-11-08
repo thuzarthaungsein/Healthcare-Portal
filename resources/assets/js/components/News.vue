@@ -469,7 +469,7 @@ export default {
             getCategoryRandomValue(){
                  
                 this.axios.get("/api/get_cat_random") .then(response => {
-                          this.pattern = response.data;
+                    this.pattern = response.data;
                 });
                
             },
