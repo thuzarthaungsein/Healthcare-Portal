@@ -2283,9 +2283,7 @@ export default {
     right: 175px;
     top: -12px;
     cursor: pointer;
-    /* background: #ff7100; */
     background-color: #0cc72c !important;
-    /* border: 1px solid #ff9563; */
     color: #fff;
     width: 160px;
     padding: 6px;
@@ -2296,6 +2294,6 @@ export default {
     box-shadow: 3px 5px 3px #ccc!important;
     font-size: 14.4px;
     border: 1px solid #53c000;
-
+    z-index: 4;
 }
 </style>
