@@ -412,7 +412,7 @@
                                         <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
                                     </p>                                 
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
-                                    <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
+                                    <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div> 
                             </td>
                           </tr>
@@ -426,7 +426,13 @@
                                             <img :src="'/images/'+items.logo" alt="image" width="110px" />
                                         </div>
                                         <div class="col-8">
-                                            <table class="table table-bordered address-tbl">
+                                            <ul class="list-group list-group-flush nur-caro-card">
+                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c">住所</span> {{items.township_name}}{{items.address}}</p></li>
+                                                <li class="list-group-item"><span style="color:#d2571c">電話 </span><span>{{items.phone}}</span></li>
+                                                <li class="list-group-item"><span style="color:#d2571c">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                            </ul>
+
+                                            <!-- <table class="table table-bordered address-tbl">
                                                 <tbody>
                                                 <tr>
                                                     <td style="width:50px">住所</td>
@@ -438,10 +444,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="width:50px;">ウェブ</td>
-                                                    <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
+                                                    <td></td>
                                                 </tr>
                                                 </tbody>
-                                            </table>
+                                            </table> -->
                                         </div>
                                     </div>
                                 </div>                          
@@ -452,9 +458,9 @@
                                 <div class="wd-in">
                                      <table class="table table-bordered price-tbl text-center">
                                         <thead>
-                                            <tr>
-                                                <th class="text-center">入居時費用</th>
-                                                <th class="text-center">月額利用料</th>
+                                            <tr style="background-color:#ffffcc">
+                                                <th class="text-center" style="background-color:#ffffcc">入居時費用</th>
+                                                <th class="text-center" style="background-color:#ffffcc">月額利用料</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -661,7 +667,7 @@
                         
                       </div>
                       <div class="col-12 pad-free m-b-10 clearfix">
-                          <span class="job_status"> {{nus.num_rooms}} </span>                          
+                          <span class="num-room"> {{nus.num_rooms}} </span>                          
                           <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                             <span v-if="fac.id == nus.fac_type" class="fac_list">
                               {{fac.description}}
@@ -672,10 +678,7 @@
                         </div>
                       <div class="job-body row  clearfix">
                         <div class="col-4 job-img">
-                          <img src="/upload/news/nursing.JPG"  alt="">
-                          <div class="mt-4 col-12 detail-btn text-center">                                             
-                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
-                          </div>
+                          <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">                          
                         </div>
                         <div class="col-8 job-box">
                           <table  class="table table-bordered table-sm">                              
@@ -731,7 +734,10 @@
                                 </table>
                             </div>
                         </div> -->
-                      </div>                      
+                      </div>   
+                      <div class="mt-4 col-12 detail-btn text-center">                                             
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                          </div>                   
                     </div>
                   </div>
                 </div>
@@ -968,7 +974,7 @@
                               '<td colspan="2" class="text-left">' +
                                 '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
                                 '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
+                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
@@ -1301,7 +1307,7 @@
                               '<td colspan="2" class="text-left">' +
                                 '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
                                 '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right"></i> ' + item[i]['township_name'] + '</span>' +
+                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
@@ -1486,6 +1492,9 @@
         //  console.log(e)
         // }
       },
+      imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
     }
   };
 </script>
