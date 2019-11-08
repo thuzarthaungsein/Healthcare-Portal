@@ -180,13 +180,8 @@ export default {
     created() {
 
         var today = new Date();  
-        var mo = moment(String(today)).format('YYYY/MM/DD');
-        console.log('a');
-        console.log(mo);
         var month =(String) (today.getMonth()+1);
         var date = (String) (today.getDate());
-
-     
 
         if(month.length == 1)
         {
@@ -199,7 +194,7 @@ export default {
         }
         var todaydate = today.getFullYear()+'-'+ month +'-'+ date; 
  
-        if(localStorage.getItem('date') === null)
+        if(localStorage.getItem('date') == null)
         {     
             
               localStorage.setItem('date',todaydate); 
@@ -215,7 +210,7 @@ export default {
                   this.getCategoryRandomValue();      
               }  
               else{
-                       this.getCategoryRandomValue();   
+                 this.getCategoryRandomValue();   
               }          
                         
         }
@@ -228,7 +223,7 @@ export default {
         this.getLatestPostFromAllCat();
     //     this.categoryId();
     },
-    methods: {
+    methods: {        
             getAllCat: function() {
                 this.axios
                 .get('/api/home')
