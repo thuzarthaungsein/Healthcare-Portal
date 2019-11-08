@@ -660,7 +660,7 @@
                         
                         
                       </div>
-                      <div class="col-12 pad-free clearfix">
+                      <div class="col-12 pad-free m-b-10 clearfix">
                           <span class="job_status"> {{nus.num_rooms}} </span>                          
                           <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                             <span v-if="fac.id == nus.fac_type" class="fac_list">
@@ -673,6 +673,9 @@
                       <div class="job-body row  clearfix">
                         <div class="col-4 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
+                          <div class="mt-4 col-12 detail-btn text-center">                                             
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                          </div>
                         </div>
                         <div class="col-8 job-box">
                           <table  class="table table-bordered table-sm">                              
@@ -728,10 +731,7 @@
                                 </table>
                             </div>
                         </div> -->
-                      </div>
-                      <div class="mt-4 col-12 detail-btn text-center">                                             
-                        <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
-                        </div>
+                      </div>                      
                     </div>
                   </div>
                 </div>

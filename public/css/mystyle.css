@@ -7238,6 +7238,7 @@ ul.test>li:before {
 .nur_date {
     padding: 2px 10px;
     font-size: 12px;
+    color: #ada8a8;
 }
 .nur-addbtn{
     background: #fff !important;
