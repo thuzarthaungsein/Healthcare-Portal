@@ -1,6 +1,5 @@
 <template>
 <div>
-        <!-- <adsSlider></adsSlider> -->
         <!--menu tabs-->
         <ul class="nav nav-tabs news-tabColor" role="tablist" id="navtab">
         <li role="presentation"  class="subtab1 nav-item" :class="subtab1active"><a @click="changeRoute('news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link" :class="subtab1active"><i class="fas fa-newspaper"></i> ニュース</a></li>
@@ -26,7 +25,6 @@ import News from "./News.vue";
 import hospitalSearch from "./hospitalSearch.vue";
 import nursingSearch from "./nursingSearch.vue";
 import jobSearch from "./jobSearch.vue";
-import adsSlider from "./ads_slider.vue";
 // import ProfilePublish from './ProfilePublish.vue'
 
 export default {
@@ -35,7 +33,6 @@ export default {
      hospitalSearch,
      nursingSearch,
      jobSearch,
-     adsSlider
     },
      mounted() {
                 // console.log[l_storage_hos_history];
