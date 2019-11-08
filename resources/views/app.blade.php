@@ -37,7 +37,8 @@
 <link href="{{ asset('css/jquery.scrolling-tabs.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
-
+<link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
+<script src="{{asset('js/nprogress.js')}}"></script>
 
 <style>
     .bg-light {
@@ -844,7 +845,10 @@
             // jssor_slider2_init();
         }
     });
+
 });
+
+
 </script>
 </body>
 

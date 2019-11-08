@@ -18,6 +18,7 @@ import * as VueGoogleMaps from "vue2-google-maps";
 // import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
 
+
 //start onepage
 import 'animate.css'
 // import 'fullpage.js/vendors/scrolloverflow'
@@ -116,6 +117,14 @@ const router = new VueRouter({
     routes: routes
 });
 
+router.beforeEach((to, from, next) => {
+    NProgress.start()
+    NProgress.set(0.1)
+    next()
+  })
+  router.afterEach(() => {
+    setTimeout(() => NProgress.done(), 500)
+  })
 
 const app = new Vue({
     el: '#app',

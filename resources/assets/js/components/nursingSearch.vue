@@ -1,4 +1,5 @@
 <template>
+<layout>
 <div>
   <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">     
     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5>
@@ -753,10 +754,18 @@
 
   </div>
   </div>
+
+
+
+
+
+
+  </layout>
 </template>
 
 
 <script>
+  import layout from '../components/home.vue'
   import asidebar from "./aside.vue";
   import {
     eventBus
@@ -767,7 +776,8 @@
 
     name: "mymap",
     components: {
-      asidebar
+      asidebar,
+      layout
     },
 
     data() {
@@ -817,8 +827,11 @@
       }
     },
     mounted() {
-
-    },
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('nursing-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('nursing-borderColor');
+        },
     computed: {
       atEndOfList() {
         return this.currentOffset <= (this.paginationFactor * -1) * (this.nursingList.length - this.windowSize);
@@ -1954,5 +1967,21 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     top:0px;
     right:15px;
 }
+
+
+
+    .nursing-tabColor .nav-link {
+        background: #ff9563 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+
+    .nursing-borderColor {
+        border: 1px solid #ff9563 !important;
+    }
+    .tab-pane{
+        padding: 10px;
+    }
+</style>
 
 </style>
