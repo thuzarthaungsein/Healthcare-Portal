@@ -2,130 +2,167 @@
         <div class="m-lr-0 justify-content-md-center">
                
                 <div class="row">
-                        <div class="col-12">
-                                <div class="col-12">  
-                                    <!-- <form class="col-lg-12 mb-2 pad-free"> -->
+                    <div class="col-12 p-r-0">
+                        <div class="col-12 p-r-0">  
+                            <!-- <form class="col-lg-12 mb-2 pad-free"> -->
+                                <div class="row col-md-12 m-0 p-r-0">
+                                    <div class="col-md-6">
+                                        <!-- <div class="col-md-1 offset-1">
+                                                <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span>
+                                            </div> -->
+                                    </div>
+                                    <div class="col-md-6 p-l-0 m-b-15">
+                                        <div class="row ">
                                             
-                                        <div class="col-md-8 offset-4 pad-free m-b-15">
-                                            <div class="row ">
-                                                <div class="col-md-1 offset-1">
-                                                    <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input type="text" placeholder="ニュース検索" aria-label="ニュース検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <span class="btn btn my-2 col-md-12 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
-                                                </div>
+                                            <div class="col-md-9">
+                                                <input type="text" placeholder="ニュース検索" aria-label="ニュース検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
                                             </div>
-                                        </div>                                            
-                                            
-                                    <!-- </form>                                       -->
-                                    <div class="row" v-if="status=='0'">
-                                        <div class="card col-md-6" style="border:0px!important;">
-                                            <div class="card-header tab-card-header">
-                                                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                                    <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
-                                                        <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-                                                        {{ cat.name }}</a>
-
-                                                        <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-                                                        {{ cat.name }}</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                                                <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">                                                                        
-                                                    <div class="row">
-                                                        <div class="active-users col-md-6">
-                                                            <router-link :to="'/newsdetails/'+latest_post.id">
-                                                                <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:180px" @error="imgUrlAlt"/>
-                                                                <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
-                                                                <p class="source-subtitle" v-if="latest_post.created_at">
-                                                                        <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{ latest_post.created_at }}
-                                                                </p>
-                                                            </router-link>
-                                                        </div>
-                                                        <div class="col-md-6 news-wrapper">
-                                                                <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
-                                                                        <li  class="list-group-item p-t-5 p-b-5"  v-if = "posts[0].id != post.id">
-                                                                                <router-link :to="{name:'newdetails', params: {id:post.id}}">
-                                                                                        <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt">
-                                                                                        <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
-                                                                                </router-link>
-                                                                        </li>
-                                                                </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-3 p-r-20">
+                                                <span class="btn btn my-2 col-md-12 my-sm-0 all-btn secondary-bg-color btn-secondary" @click="searchCategory()"><i class="fas fa-search"></i> 検索</span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 pad-free">
-                                            <div class="col-md-12 m-lr-0" v-if="status =='0'">
-                                                <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
-                                                <div class="row col-md-12 pad-free">
-                                                    <div class="col-sm-6 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
-                                                        <div class="hovereffect fit-image">
-                                                            <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt">
-                                                            <div class="overlay">
-                                                                <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
-                                                            </div>
-                                                            <div class="info">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <p class=" p_3">
-                                                                            {{ latest_post_all_cat.main_point }}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                    </div>
+                                </div>                                            
+                                    
+                            <!-- </form>                                       -->
+                            <div class="row" v-if="status=='0'">
+                                <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
+                                    <div class="card-header tab-card-header">
+                                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
+                                                <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                                {{ cat.name }}</a>
+
+                                                <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                                {{ cat.name }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content tab-content2 scroll2" id="myTabContent">
+                                        <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">                                                                        
+                                            <div class="row">
+                                                <div class="active-users col-md-6">
+                                                    <router-link :to="'/newsdetails/'+latest_post.id">
+                                                        <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive" style="width:100%;height:auto;" @error="imgUrlAlt"/>
+                                                        <p class="source-title" v-if="latest_post.title" aria-label="">{{ latest_post.title }}</p>
+                                                        <p class="source-subtitle" v-if="latest_post.created_at">
+                                                                <img v-if="latest_post.created_at" alt="" src="/images/5.png" class="source-img" @error="imgUrlAlt">{{ latest_post.created_at }}
+                                                        </p>
+                                                    </router-link>
+                                                </div>
+                                                <div class="col-md-6 news-wrapper">
+                                                    <ul class="list-group list-group-flush all-item" v-for="post in posts" :key="post.id">
+                                                        <li  class="list-group-item" style="padding:6px 0px 4px 0px!important;"  v-if = "posts[0].id != post.id">
+                                                            <router-link :to="{name:'newdetails', params: {id:post.id}}">
+                                                                <img src="/images/4.png" alt="" style="width:16px; height: 16px;" class="img-responsive float-right" @error="imgUrlAlt">
+                                                                <span class="source-img-small d-inline-block text-truncate">{{ post.title }} </span>
+                                                            </router-link>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div v-else>
-                                            <NewsSearchListComponent :first_search_word="first_search_word"></NewsSearchListComponent>
-                                    </div> -->
                                 </div>
-                                <div class="col-md-12 m-lr-0" v-if="status =='0'">
-                                    <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
-                                    <div class="row col-md-12 pad-free">
-                                        <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
-                                                <div class="hovereffect fit-image">
+                                <div class="col-md-6 pad-free">
+                                    <div class="col-md-12 m-lr-0 pad-free" v-if="status =='0'">
+                                        <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
+                                        <div class="row col-md-12 p-l-0 m-0">
+                                            <div class="col-sm-6 m-b-8 p-l-0" v-for="latest_post_all_cat in latest_post_all_cats.slice(0, 2)" :key="latest_post_all_cat.id">
+                                                <div class="col-md-12 row m-0 pad-free">
+                                                    <div class="hovereffect fit-image">
                                                         <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt">
                                                         <div class="overlay">
-                                                                <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                            <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
                                                         </div>
                                                         <div class="info">
-                                                                <div class="row">
-                                                                        <div class="col-12">
-                                                                                <p class=" p_3">
-                                                                                        {{ latest_post_all_cat.main_point }}
-                                                                                </p>
-                                                                        </div>
+                                                            <div class="col-12" style="border:none;">
+                                                                <p class=" p_3">
+                                                                    {{ latest_post_all_cat.main_point }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 p-l-0 m-0">
+                                            <div class="col-md-6 m-b-8 p-l-0" v-for="item in latest_post_all_cats.slice(2, 6)"  :key="item.id">
+                                                <div class="col-md-12 row adslist-card news-3-card m-0">
+                                                    <div class="col-md-4 img-box">
+                                                        <router-link :to="'/newsdetails/'+item.id">
+                                                            <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt">
+                                                        </router-link>
+                                                    </div>
+
+                                                    <div class="col-md-8 txt-box">
+                                                        <router-link :to="'/newsdetails/'+item.id">
+                                                            <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                                        </router-link>
+                                                    </div>
+                                                </div>
+                                                    
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div v-else>
+                                    <NewsSearchListComponent :first_search_word="first_search_word"></NewsSearchListComponent>
+                            </div> -->
+                        </div>
+                        <div class="col-md-12 m-lr-0 p-r-0" v-if="status =='0'">
+                            <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
+                            <div class="row col-md-12 pad-free m-0">
+                                <div class="col-md-3 m-b-8 p-l-0" v-for="item in latest_post_all_cats.slice(6, 14)"  :key="item.id">
+                                    <div class="col-md-12 row adslist-card news-3-card m-0">
+                                        <div class="col-md-4 img-box">
+                                            <router-link :to="'/newsdetails/'+item.id">
+                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt">
+                                            </router-link>
+                                        </div>
+
+                                        <div class="col-md-8 txt-box">
+                                            <router-link :to="'/newsdetails/'+item.id">
+                                                <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-sm-3  col-md-3 mt-2" v-for="latest_post_all_cat in latest_post_all_cats" :key="latest_post_all_cat.id">
+                                        <div class="hovereffect fit-image">
+                                                <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt">
+                                                <div class="overlay">
+                                                        <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                </div>
+                                                <div class="info">
+                                                        <div class="row">
+                                                                <div class="col-12">
+                                                                        <p class=" p_3">
+                                                                                {{ latest_post_all_cat.main_point }}
+                                                                        </p>
                                                                 </div>
                                                         </div>
                                                 </div>
                                         </div>
-                                    </div>
-                                </div>
+                                </div> -->
+                            </div>
                         </div>
+                    </div>
                 </div>
 
                     <div>
                         <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">
-                            <h4 class="category_news_title" :class="'h-color'+index"><span>{{name}}</span></h4>
-                             <div class="news_p">最新ニュース</div>
+                            <h4 class="category_news_title" :class="'h-color'+index"><span>{{name}}</span> <label style="float: right; color: #999; font-size: 14px;">最新ニュース</label></h4>
                             <div class="row m-lr-0" v-if="group[0].pattern == 1">
-                                <div class="col-md-3 p-l-0">
+                                <div class="col-md-3 p-lr-0">
                                     <div class="col-12 single-news-box">
                                         <img v-bind:src="'/upload/news/' + group[0].photo" class="fit-image" style="height: 13rem; width: 100%;" @error="imgUrlAlt">
                                         <p style="padding: 5px 0px;">{{group[0].main_point}}</p>
                                     </div>
                                 </div>                                
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(1, 4)" :key="index">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.pid">
@@ -140,7 +177,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <!-- <div class="row" v-for="(item,index) in group.slice(4, 12)" :key="index">
                                         <div class="col-md-8">
                                             <p class="text-truncate news-list-display">{{item.main_point}} </p>
@@ -151,7 +188,7 @@
                                     </div> -->
                                     <p v-for="(item,index) in group.slice(4,12)" :key="index" class="text-truncate news-list-display"><i class="fas fa-building"></i> {{item.main_point}}</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(12, 15)" :key="index">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.pid">
@@ -168,7 +205,7 @@
                                 </div>
                             </div> 
                             <div class="row m-lr-0" v-if="group[0].pattern == 2">
-                                <div class="col-md-3 p-l-0">
+                                <div class="col-md-3 p-lr-0">
                                     <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(0, 3)" :key="index">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.pid">
@@ -183,10 +220,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <p v-for="(item,index) in group.slice(3, 11)" :key="index" class="text-truncate news-list-display"><i class="fas fa-building"></i> {{item.main_point}}</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(11, 14)" :key="index">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.pid">
@@ -201,18 +238,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <p v-for="(item,index) in group.slice(14, 22)" :key="index" class="text-truncate news-list-display"><i class="fas fa-building"></i> {{item.main_point}}</p>
                                 </div>
                             </div> 
                             <div class="row m-lr-0" v-if="group[0].pattern == 3">
-                                <div class="col-md-3 p-l-0">
+                                <div class="col-md-3 p-lr-0">
                                     <div class="col-12 single-news-box">
                                         <img v-bind:src="'/upload/news/' + group[0].photo" class="fit-image" style="height: 13rem; width: 100%;" @error="imgUrlAlt">
                                         <p style="padding: 5px 0px;">{{group[0].main_point}}</p>
                                     </div>
                                 </div>                                
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(1, 4)" :key="index">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.pid">
@@ -227,7 +264,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 p-r-0">
                                     <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(4, 7)" :key="index">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.pid">
@@ -242,7 +279,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 p-l-0">
+                                <div class="col-md-3 p-r-0">
                                     <div class="col-12 single-news-box">
                                         <img v-bind:src="'/upload/news/' + group[7].photo" class="fit-image" style="height: 13rem; width: 100%;" @error="imgUrlAlt">
                                         <p style="padding: 5px 0px;">{{group[7].main_point}}</p>

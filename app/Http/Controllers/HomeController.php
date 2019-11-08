@@ -41,14 +41,14 @@ class HomeController extends Controller
         $request = $request->all();
         $cat_id = $request['category_id'];
 
-        $posts = Post::where("category_id",$cat_id);
+        $posts = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->limit(9)->get();
         // if(isset($request['search_word'])) {
         //     $search_word = $request['search_word'];
         //     $posts = $posts->where(function($qu) use ($search_word){
         //         $qu->where('title', 'LIKE', "%{$search_word}%");
         //     });
         // }
-        $posts = $posts->orderBy('created_at', 'desc')->get();
+        // $posts = $posts->orderBy('created_at', 'desc')->get();
         return response()->json($posts);
     }
 
@@ -74,7 +74,7 @@ class HomeController extends Controller
 
         public function getLatestPostFromAllCat()
     {
-        $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('4')->get();
+        $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('14')->get();
         return response()->json($latest_post_all_cat);
     }
 
