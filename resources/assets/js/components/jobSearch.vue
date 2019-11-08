@@ -438,11 +438,11 @@
                             </tr>
                             <tr>
                               <td><span class="job_ico">&#xa5;</span>給料</td>
-                              <td> {{job.salary}}</td>
+                              <td>{{job.salary_type}} : {{(Number(job.salary)).toLocaleString()}} ¥ </td>
                             </tr>
                             <tr>
                               <td><span class="job_ico">時</span>勤務時間/日/休日の詳細</td>
-                              <td> {{job.working_hours}} / {{job.holidays}} </td>
+                              <td> {{job.working_hours}} / {{job.holidays}}  </td>
                             </tr>
                             <tr>
                               <td><span class="job_ico"><i class="fa fa-briefcase"></i></span>特別な条件</td>

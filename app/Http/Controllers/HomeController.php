@@ -96,9 +96,7 @@ class HomeController extends Controller
 
 
         $pattern_arr = [1,2,3];
-        $cat = "SELECT * from categories";
-        $cat = DB::select($cat);
-        $random = "SELECT  id, pattern from categories order by rand() ";
+        $random = "SELECT  id, pattern from categories order by rand()      ";
         $cat_random = DB::select($random);
         $k = count($cat_random);
         for($i=0;$i<count($cat_random);$i++)
@@ -109,7 +107,7 @@ class HomeController extends Controller
                if($i < $k)
                {        
                     $cat_random[$i]->pattern = $pattern_arr[$j];
-                    $id = $cat[$i]->id;
+                    $id = $cat_random[$i]->id;
                     $category = Category::find($id);
                     $category->pattern =  $pattern_arr[$j]; 
                     $category->save(); 

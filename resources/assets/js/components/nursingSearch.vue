@@ -1140,11 +1140,10 @@
             .then((response) => {
             this.changeMap(response)
             })
-        this.search();
+    
             
       },
      nursingSearchData(index){
-         this.search();
      
        if(index == 1)
        {
