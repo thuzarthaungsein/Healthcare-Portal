@@ -113,7 +113,7 @@ class registerController extends Controller
             elseif($type == 6){
                 $customer->type = '介護  (訪問介護・看護)';
             }
-            $query = "SELECT townships.*, cities.city_name 
+            $query = "SELECT townships.*, cities.city_name
                     FROM townships 
                     JOIN cities
                     ON cities.id = townships.city_id

@@ -25,20 +25,25 @@
                         <div class="row">
                             <div class="col-4">
                                 <label class="old-pass">Old-Password:</label>
-                                <input type="password" class="form-control old-password">
+                                <input type="password" name="old_password" class="form-control old-password">
+                                <div class="error" id="oldpassword" style="display: none;">Old Password is required.</div>
                             </div>
+                            
                            
                         </div>
                         <div class="row">
                             <div class="col-4">
                                 <label class="new-pass">New-Password:</label>
-                                <input type="password" class="form-control new-password">
+                                <input type="password" name="new_password" class="form-control new-password">
+                                <div class="error" id="newpassword" style="display: none;">New Password is required.</div>
+                                <div class="error" id="newpasswordlength" style="display: none;">Password must be at least 6 digit.</div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4">
                                 <label class="confirm-pass">Confirm-Password:</label>
-                                <input type="password" class="form-control confirm-password">
+                                <input type="password" name="comfirm_password" class="form-control confirm-password">
+                                <div class="error" id="confirmpassword" style="display: none;">Confirm Password is required.</div>
                             </div>
                         </div>
                         <div class="row">
@@ -145,6 +150,10 @@ export default {
             var old_pass = $('.old-password').val();
             var new_pass = $('.new-password').val();
             var confirm_pass = $('.confirm-password').val();
+            if(old_pass == '') { $('#oldpassword').css('display','block'); return; }
+            if(new_pass == '') { $('#newpassword').css('display','block'); return; }
+            if(new_pass.length < 6) { $('#newpasswordlength').css('display','block'); return; }
+            if(confirm_pass == '') { $('#confirmpassword').css('display','block'); return; }
 
             if("'"+new_pass+"'" === "'"+confirm_pass+"'") {
                 let arr = new FormData();
@@ -154,9 +163,8 @@ export default {
                 this.axios
                     .post(`/api/user/password-change`,arr)
                     .then((response) => {
-                       console.log(response);
-                        if(response == 'oldpasswordwrong') {
-                            alert('Old Password is Wrong!');return;
+                        if(response.data == 'oldpasswordwrong') {
+                            alert('Please Enter Correct Old Password!');return;
                         }
                         alert('Password is Successfully Changed!');
                     }).catch(error=>{
