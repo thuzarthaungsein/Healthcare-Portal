@@ -655,7 +655,7 @@
               this.id = id;
 
             })
-            this.search();
+            
         
       },
       getCheck(e) {

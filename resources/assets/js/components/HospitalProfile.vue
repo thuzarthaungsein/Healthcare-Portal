@@ -9,7 +9,6 @@
                 <label class="heading-lbl">名前<span class="error">*</span></label>
 
                 <input type="text" class="form-control customer-name col-10 float-right" placeholder="Name" v-model="customer_info.name">
-
         </div>
 
         <div class="form-group form-group-wrapper">
@@ -33,8 +32,6 @@
                         <div class="row" id="image_preview"></div>
                 </div>
         </div>-->
-
-
 
         <div class="form-group form-group-wrapper">
 
@@ -1376,6 +1373,7 @@ export default {
                     }
             },
             galleryAdd() {
+            
                     var date = new Date;
                     var s = date.getMilliseconds();
                     var m = date.getMinutes();
@@ -1383,13 +1381,15 @@ export default {
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
                     this.img_arr.push({classname:classname,phoまで:'',title:'',description:''});
+                  
             },
             galleryVideoAdd() {
                    this.video_arr.push({title:'',description:'',url:''});
+                 
             },
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
-                     this.isRotate4 = !this.isRotate4;
+                     this.isRotate4 = !this.isRotate4;  
             },
             Create_Profile () {
                     this.customer_info = [];
