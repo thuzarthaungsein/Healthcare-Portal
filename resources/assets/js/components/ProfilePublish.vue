@@ -867,15 +867,15 @@
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
                 </div> -->
 
-                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
+                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
                     病院情報
                 </button>
 
-                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
+                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
                     口コミ
                 </button>
 
-                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
+                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
                     地図
                 </button>
 
@@ -1733,7 +1733,7 @@ export default {
 
              activate:function(el){
 
-                this.active_el = el;
+                // this.active_el = el;
 
             },
 

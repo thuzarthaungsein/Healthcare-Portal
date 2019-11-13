@@ -414,7 +414,7 @@
                   </div>
                 <div class="hos-body row clearfix">
                   <div class="col-3 job-img">
-                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid">
+                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid" @error="imgUrlAlt">
                   </div>
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">
@@ -710,6 +710,9 @@
       if(this.currentPage < this.pages - 1) {
         this.currentPage++;
       }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
     },
     pageSelect(index) {
       this.currentPage = index - 1;

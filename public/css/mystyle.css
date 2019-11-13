@@ -6561,24 +6561,17 @@ button.confirmed {
 }
 
 .type-name {
-    /* width: 100%;
-    padding: 3px 10px 0px 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #000;
-    font-weight: bold;
-    background: #eeeeee;
-    border-left: 5px solid #ff9563; */
-    width: 50%;
+    width: 40%;
     padding: 0px;
     margin-bottom: 10px;
     font-size: 16px;
-    color: #333;
+    color: #fff;
     font-weight: bold;
-    background: #ffffcc;
-    border: 1px solid #ff6117;
+    background: #ff9563;
+    border: 1px solid #ff9563;
     border-radius: 5px;
     text-align: center;
+    font-weight: normal;
 }
 
 .num-room {
@@ -7342,8 +7335,8 @@ ul.test>li:before {
 
 .nur-content {
     position: relative;
-    margin-bottom: 20px;
-    padding: 20px 20px 50px 20px;
+    /* margin-bottom: 20px; */
+    padding: 20px;
     height: 100%;
     border: 1px solid #ff9563;
     border-radius: 5px;
@@ -7362,15 +7355,13 @@ ul.test>li:before {
 }
 
 .nur-content .detail-btn {
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
-    text-align: center;
-    bottom: 20px;
 }
 
 .nur-content .detail-btn .btn {
-    width: 25%;
+    width: 100%;
     background: #ff6117;
     color: #fff;
 }
@@ -7877,6 +7868,107 @@ ul.nur-caro-card > li.list-group-item{
     background: #d2571c;
 }
 
+/*for inner checkbox*/
+.control {
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+    /* margin-bottom: 15px;
+
+    cursor: pointer;
+
+    font-size: 18px; */
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.controlinner__indicator {
+    position: absolute;
+    top: 6px;
+    left: 50px;
+    height: 16px;
+    width: 16px;
+    background: #e6e6e6;
+    border: 1px solid #5d5957;
+    border-radius: 3px;
+}
+
+.controlinner--radio .controlinner__indicator {
+    border-radius: 50%;
+}
+
+.control:hover input~.controlinner__indicator,
+.control input:focus~.controlinner__indicator {
+    background: #ccc;
+}
+
+.control input:checked~.controlinner__indicator {
+    background: #ffffff !important;
+    border: 1px solid #fff;
+}
+
+.control:hover input:not([disabled]):checked~.controlinner__indicator,
+.control input:checked:focus~.controlinner__indicator {
+    background: #d2571c;
+}
+
+.control input:disabled~.controlinner__indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.controlinner__indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.controlinner--checkbox:hover {
+    cursor: pointer;
+}
+
+.control input:checked~.controlinner__indicator:after {
+    display: block;
+}
+
+.controlinner--checkbox .controlinner__indicator:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.controlinner--checkbox input:disabled~.controlinner__indicator:after {
+    border-color: #d2571c;
+}
+
+.controlinner--radio:hover {
+    cursor: pointer;
+}
+
+.controlinner--radio .controlinner__indicator:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #101010;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.controlinner--radio input:disabled~.controlinner__indicator:after {
+    background: #d2571c;
+}
+
+/*end for inner checkbox*/
 
 /*end for custom checkbox and radio*/
 
