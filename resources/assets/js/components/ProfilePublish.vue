@@ -420,10 +420,10 @@
                     <div class="col-md-12 p-0">
                         <h3 class="profile_header">フォトアルバム</h3>
                         <div class="row m-0 gallery-list">
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                              
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
                                     <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
                                     <span>{{image.title}}</span><br>
-                                
+
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
@@ -755,14 +755,14 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>                  
+                <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>
                 <div class="comment-ico  col-12">
                     <a href="/comment">
                         <i class="far fa-comment"></i>
                         <span>口コミを追加する</span>
                     </a>
-                </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -865,15 +865,15 @@
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
                 </div> -->
 
-                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
+                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
                     病院情報
                 </button>
 
-                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
+                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
                     口コミ
                 </button>
 
-                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
+                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
                     地図
                 </button>
 
@@ -1211,14 +1211,14 @@
             </div>
 
             <div class="row ele m-lr-0" id="element2">
-                <h5 class="profile_header col-12 m-t-20">口コミ {{customer.name}}</h5>                  
+                <h5 class="profile_header col-12 m-t-20">口コミ {{customer.name}}</h5>
                 <div class="comment-ico  col-12">
                     <a href="/comment">
                         <i class="far fa-comment"></i>
                         <span>口コミを追加する</span>
                     </a>
-                </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -1244,7 +1244,7 @@
                                     <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
                                     <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
                                 </div>
-                                
+
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
@@ -1422,8 +1422,15 @@ export default {
 
             if(this.loginuser == true) {
                 $(document).scroll(function() {
-                    $(".fixed-nav").css({"position": "fixed","top":"70px"});
+
                     var cur_pos = $(this).scrollTop();
+                     $('.ele').each(function(active_el){
+
+                        if($(this).position().top <= cur_pos){
+                            $('.top-fixed-btn.active').removeClass('active');
+                            $('.top-fixed-btn').eq(active_el).addClass('active');
+                        }
+                    });
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     } else {
@@ -1434,7 +1441,6 @@ export default {
 
             } else {
                 $(document).scroll(function() {
-                    $(".fixed-nav").css({"position": "fixed","top":"210px"});
                     var cur_pos = $(this).scrollTop();
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"210px"});
@@ -1522,7 +1528,7 @@ export default {
                     //     this.comments.push(data);
                     //         // tempData.push( data );
                     // }
-                });                  
+                });
 
             }
 
@@ -1588,7 +1594,7 @@ export default {
 
                       this.comments = response.data;
 
-                });                 
+                });
 
                 this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
                       this.subjects = response.data;
@@ -1726,6 +1732,7 @@ export default {
              activate:function(el){
 
                 this.active_el = el;
+
 
             },
 
@@ -2077,7 +2084,7 @@ export default {
     display: inline-block;
     float: right;
     font-size: 13px;
-    color: #111; 
+    color: #111;
     border: 1px solid #111;
     padding: 5px 20px;
     border-radius: 20px;
