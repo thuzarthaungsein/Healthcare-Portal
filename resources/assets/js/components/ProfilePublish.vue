@@ -1241,19 +1241,17 @@
             </div>
 
             <div class="col-md-12">
-                        <label class="cost_heading_lbl">フォトアルバム</label>
-                        <div class="row">
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
-                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
-                                    <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
-                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                                </div>
-                                
-                                <!-- <span>{{image.photo}}</span> -->
-                            </div>
-                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
-                        </div>
+                <h3 class="profile_header">フォトアルバム</h3>
+                <div class="row m-0 gallery-list">
+                    <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                            
+                        <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                        <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                        
+                        <!-- <span>{{image.photo}}</span> -->
                     </div>
+                    <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
+                </div>
+            </div>
 
             <!-- Hospital Video -->
                 <div class="col-md-12 m-t-15 m-b-15 p-0">
