@@ -45,6 +45,8 @@ class NursingProfileController extends Controller
 
     public function galleryupdate($id,Request $request) {
         $request = $request->all();
+        echo "gallery - ";
+        print_r($request);die();
         $del_gallery = Gallery::where('customer_id', $id)
                         ->delete();
        
