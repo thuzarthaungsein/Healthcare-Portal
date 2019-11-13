@@ -38,22 +38,30 @@ class HomeController extends Controller
 
     public function getPosts(Request $request)
     {
+     
+    
+
+
         $request = $request->all();
         $cat_id = $request['category_id'];
 
-        $posts = Post::where("category_id",$cat_id);
+        $posts = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->limit(9)->get();
         // if(isset($request['search_word'])) {
         //     $search_word = $request['search_word'];
         //     $posts = $posts->where(function($qu) use ($search_word){
         //         $qu->where('title', 'LIKE', "%{$search_word}%");
         //     });
         // }
-        $posts = $posts->orderBy('created_at', 'desc')->get();
+        // $posts = $posts->orderBy('created_at', 'desc')->get();
         return response()->json($posts);
     }
 
     public function getLatestPost(Request $request)
     {
+
+       
+
+
         // $latest_post = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->first();
         $request = $request->all();
         $cat_id = $request['category_id'];
@@ -71,10 +79,53 @@ class HomeController extends Controller
         return response()->json($latest_post);
     }
 
+    public function getCategoryRandom()
+    {
+        // $pattern_arr = [1,2,3,1,2];
+
+        // $random = "SELECT  id, pattern from categories order by rand() limit 5 ";
+        // $cat_random = DB::select($random);
+        // for($i=0;$i<count($cat_random);$i++)
+        // {
+       
+
+        //    $cat_random[$i]->pattern = $pattern_arr[$i];
+             
+        // }
+        // return response()->json($cat_random);
+
+
+        $pattern_arr = [1,2,3];
+        $random = "SELECT  id, pattern from categories order by rand()      ";
+        $cat_random = DB::select($random);
+        $k = count($cat_random);
+        for($i=0;$i<count($cat_random);$i++)
+        { 
+          
+           for($j=0; $j<count($pattern_arr);$j++)
+           {
+               if($i < $k)
+               {        
+                    $cat_random[$i]->pattern = $pattern_arr[$j];
+                    $id = $cat_random[$i]->id;
+                    $category = Category::find($id);
+                    $category->pattern =  $pattern_arr[$j]; 
+                    $category->save(); 
+                    $i++;     
+               }          
+           } 
+     
+           $i--;         
+        }
+       
+
+        return response()->json('success');
+    }
+
 
         public function getLatestPostFromAllCat()
     {
-        $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('4')->get();
+        $latest_post_all_cat = Post::orderBy('created_at', 'desc')->limit('14')->get();
         return response()->json($latest_post_all_cat);
     }
 
@@ -128,7 +179,7 @@ class HomeController extends Controller
 
         $cat = Category::select('id')->get();
         for($i = 0; $i < count($cat); $i++) {
-            $sql.= "(SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 15) UNION "; 
+            $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION "; 
         }
 
         $sql = trim($sql,' UNION ');

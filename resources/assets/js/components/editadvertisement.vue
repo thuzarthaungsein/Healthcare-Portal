@@ -4,7 +4,6 @@
           <div class="card">
               <div class="card-body">
                     <div class="row">
-
                         <div class="col-md-12">
                             <h4 class="page-header header">広告更新</h4>
                             <br>
@@ -12,22 +11,17 @@
                         <div class="col-md-12">
                              <form @submit.prevent="updateAds">
                             <div class="form-group">
-
                                                 <label>広告タイトル : <span class="error">*</span></label>
                                                 <input type="title" class="form-control box" id="title"  name="title" v-model="advertisement.title" placeholder="広告タイトルを入力してください。">
                                                 <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
-
                                     </div>
                             <div class="form-group">
-
                                             <label>説明 : <span class="error"></span></label>
                                             <textarea name="description" class="form-control" cols="50" rows="5" v-model="advertisement.description"></textarea>
-
                                     </div>
                             <div class="form-group">
                                 <label>広告リンク : <span class="error"></span></label>
                                 <input type="link" class="form-control box" id="link"  name="link" v-model="advertisement.link" placeholder="広告リンクを入力してください。">
-
                             </div>
                             <div class="form-group">
                                      <label>表示するロケーション : <span class="error">*</span></label><br/>
@@ -67,14 +61,12 @@
                             <input type="hidden" v-model="old_photo" >
                             <!-- <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image"> </div> -->
-
                             <div class="form-group">
                                 <router-link to="/ads" class="btn btn-danger all-btn">キャンセル</router-link>
                                 <button class="btn news-post-btn all-btn">更新する</button>
                             </div>
                                 </form>
                             </div>
-
                          </div>
                     </div>
             </div>
@@ -119,12 +111,9 @@ export default {
                     }
                 });
         },
-
          methods: {
               fileSelected(){
-
                     //  $('.image_show').html("<div class='col-md-2'><img src='"+URL.createObjectURL(event.target.files[0])+"' class='show-img'></div>");
-
                      //this.advertisement.photo = event.target.files[0];
                     this.advertisement.photo = event.target.files[0];
                     this.upload_img = URL.createObjectURL(event.target.files[0]);
@@ -149,7 +138,6 @@ export default {
                         this.advertisement.photo = '';
                         this.upload_img = '';
                     },
-
               updateCheck: function (check){
                      this.advertisement.location.shift()
                if(check == "topbar"){
@@ -172,14 +160,11 @@ export default {
             updateAds() {
                 let adsData = new FormData();
                 alert('update');
-
             // if(this.deleteImage == 'Delete')
             //     {
             //         alert('Please Select New Image');
             //     }
-
             var arr = this.advertisement.location;
-
             for(var i=0;i<arr.length;i++)
             {
                 if(arr[i]['topbars'] == 1 && arr[i]['sidebars'] == 0)
@@ -194,8 +179,6 @@ export default {
                 {
                     adsData.append('location', 'sidebar,topbar');
                 }
-
-
             }
             //console.log(this.advertisement.photo);
              adsData.append('title',this.advertisement.title)
@@ -215,15 +198,11 @@ export default {
                             timer: 1500,
                             width: 250,
                             height: 200,
-
                         })
                         this.$router.push({name: 'ads'});
                     }).catch(error=>{
-
                     if(error.response.status == 422){
-
                         this.errors = error.response.data.errors
-
                     }
                 })
             },

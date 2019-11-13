@@ -159,18 +159,17 @@ export default {
                     hos_his_arr = [...new Set(hos_his_arr)];
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);
-
                 }
                 else{
                     var hos_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("hospital_history", hos_his_arr);
                     $("#hos-his-local").html(hos_his_arr.length);
-
+                    $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
                 }
                 if(localStorage.getItem("hospital_fav")){
                     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("hospital_fav") + "]");
                     this.view_pro_id = nus_fav_arr.includes(response.data[0].pro_id);
-                }
+                }                
             }
             else{
                 if(localStorage.getItem("nursing_history")) {
@@ -184,6 +183,7 @@ export default {
                     var nus_his_arr = [response.data[0].pro_id];
                     localStorage.setItem("nursing_history", nus_his_arr);
                     $("#nus-his-local").html(nus_his_arr.length);
+                    $('.his-nursing-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
                 }
 
                 if(localStorage.getItem("nursing_fav")){

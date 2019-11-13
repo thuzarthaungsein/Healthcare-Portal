@@ -72,7 +72,7 @@
 
                     <input type="hidden" class="already-photo" v-model="img.photo" />
 
-                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx"/>
+                    <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid hospital-image" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt"/>
 
                   </div>
 
@@ -1578,6 +1578,9 @@ export default {
                         });
                 }
             },
+            imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            }
         }
 
 </script>

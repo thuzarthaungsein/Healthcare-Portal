@@ -218,13 +218,11 @@ class UserController extends Controller
         $user = User::find(auth('api')->user()->id);
     
         if (Hash::check($request['old_pass'], $user['password'])) {
-            print_r('Hello');
-            $user->password = Hash::make($request['old_pass']);
+            $user->password = Hash::make($request['new_pass']);
             $user->save();
         } 
         else {
-            print_r('Wrong Old Password');
-            response()->json('oldpasswordwrong');
+            return response()->json('oldpasswordwrong');
         }
     }
 
