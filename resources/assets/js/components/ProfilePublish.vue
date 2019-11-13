@@ -5,10 +5,10 @@
     <div v-if="type == 'nursing'" id="nursingView">
          <span class="top-mail-btn" @click="documentPost()" v-if="!loginuser"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
         <!--panorama-->
-        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
+        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer_name}}</h4>
 
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
-            <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h4>
+            <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer_name}}</h4>
 
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel" style="background:#fff;">
@@ -755,12 +755,14 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ {{customer.name}}</h5>
+                <h5 class="profile_header col-12">口コミ {{customer_name}}</h5>
                 <div class="comment-ico  col-12">
-                    <a href="/comment">
+                    <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
                         <span>口コミを追加する</span>
-                    </a>
+                    </a> -->
+                    <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span></router-link>
                 </div>
                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
@@ -790,7 +792,7 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->
-            <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer[0].name}}</h5>
+            <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer_name}}</h5>
             <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                     <div class="thumbnail-img" style="padding:0px;border:none;">
                         <div class="card-carousel">
@@ -1213,10 +1215,12 @@
             <div class="row ele m-lr-0" id="element2">
                 <h5 class="profile_header col-12 m-t-20">口コミ {{customer.name}}</h5>
                 <div class="comment-ico  col-12">
-                    <a href="/comment">
+                    <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
                         <span>口コミを追加する</span>
-                    </a>
+                    </a> -->
+                    <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
+                              <span>口コミを追加する</span></router-link>
                 </div>
                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
@@ -1331,12 +1335,14 @@ export default {
 
             var that = this;
             return {
+                customer_id: "",
                 url: 'upload/nursing_profile/Imagepanorama/',
                 isAutoRotationOn: true,
                 isOrientationOn: true,
                 markers: [
                     {  position: { lat: 0, lng: 0 }  },
                 ],
+                customer_name:'',
                 am_arr:[],
                 images:[],
                 videos:[],
@@ -1409,8 +1415,8 @@ export default {
         },
 
         created(){
-            console.log(this.cusid);
-          this.activePanoImage = 0;
+            this.customer_id = this.cusid;
+            this.activePanoImage = 0;
 
             if(this.type != undefined && this.cusid!= undefined){
                 localStorage.setItem('cusType',this.type);
@@ -1453,6 +1459,7 @@ export default {
             {
                 this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type) .then(response => {
                       this.customer = response.data;
+                      this.customer_name = response.data[0].name;
                 });
 
                 this.axios.get('/api/profile/nursing/'+this.cusid) .then(response => {
@@ -1535,6 +1542,7 @@ export default {
             else{
                 this.axios.get('/api/profile/customer/'+this.cusid+'/'+this.type).then(response => {
                     this.customer = response.data;
+                    this.customer_name = response.data[0].name;
                 });
                 this.axios.get('/api/profile/hospital/'+this.cusid).then(response => {
                     this.google = response.data.hoslatlong;
@@ -1748,13 +1756,11 @@ export default {
     },
     documentPost() {
         localStorage.removeItem("item");
-        for (var i = 0; i < this.customer.length; i++) {
         this.fav_email.push({
-            'id': this.customer[i]['id'],
-            'email': this.customer[i]['email'],
-            'name': this.customer[i]['name']
+            'id': this.customer[0]['id'],
+            'email': this.customer[0]['email'],
+            'name': this.customer[0]['name']
             });
-        }
         localStorage.setItem("item", JSON.stringify(this.fav_email));
         this.$router.push({
             name: 'nursingFavouriteMail',
@@ -2284,9 +2290,7 @@ export default {
     right: 175px;
     top: -12px;
     cursor: pointer;
-    /* background: #ff7100; */
     background-color: #0cc72c !important;
-    /* border: 1px solid #ff9563; */
     color: #fff;
     width: 160px;
     padding: 6px;
@@ -2297,6 +2301,6 @@ export default {
     box-shadow: 3px 5px 3px #ccc!important;
     font-size: 14.4px;
     border: 1px solid #53c000;
-
+    z-index: 4;
 }
 </style>
