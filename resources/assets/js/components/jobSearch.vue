@@ -124,126 +124,311 @@
                   </div>
                 </div>
 
-            </div> 
-                        </div>
+                <div class="col-sm-3 tokai-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                         
+                        <a href="#" data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
+                              <li class="spanclass" id="23">愛知</li>
+                        </a>
+                       
+                        
+                        <a href="#" data-info="Shizuoka" class="path Shizuoka card-text" @click="getStateClick">
+                            <li class="spanclass" id="22">静岡</li>
+                        </a>      
+                         
+                        <a href="#" id="21" data-info="Gifu" class="path Gifu card-text" @click="getStateClick">
+                            <li class="spanclass" id="21">岐阜</li>
+                        </a>                 
+                       
+                        <a href="#" data-info="Mie" class="path Mie card-text" @click="getStateClick">
+                             <li class="spanclass"  id="24">三重</li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                        <div class="col-12 jobselect pad-free">
-                            <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>
-                            <table class="table table-bordered col-12 ">
-                                <tbody>
-                                    <tr>
-                                        <th>地域</th>
-                                        <td>
-                                            <select id="selectCity" class="col-9 form-control custom-select mt-2 mb-2" v-model="id">
-                                                <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
-                                            </select>
-                                            <button @click="toggleContent4" class="btn col-3 seemore-btn">
-                                                <i class="fa" aria-hidden="true"></i>
-                                                <!-- <em>{{city.city_name}}</em> -->
-                                                <span id="close6"><i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる </span>
-                                            </button>
+                <div class="col-sm-4 kinki-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background:#efb838">近畿</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        
+                        <a href="#" data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
+                            <li class="spanclass" id="27">大阪府</li>
+                        </a>  
+                       
+                        <a href="#" data-info="Hyogo" class="path Hyogo card-text" @click="getStateClick">
+                             <li class="spanclass" id="28">兵庫</li>
+                        </a>   
+                        
+                        <a href="#" data-info="Kyoto" class="path Kyoto card-text" @click="getStateClick">
+                            <li class="spanclass"  id="26">京都府</li>
+                        </a>    
+                        
+                        <a href="#" data-info="Nara" class="path Nara card-text" @click="getStateClick">
+                            <li class="spanclass"  id="29">奈良</li>
+                        </a>               
+                        
+                        <a href="#" data-info="Shiga" class="path Shiga card-text" @click="getStateClick">
+                              <li class="spanclass"  id="25">滋賀</li>
+                        </a>  
+                        
+                        <a href="#" data-info="Wakayama" class="path Wakayama card-text" @click="getStateClick">
+                            <li class="spanclass" id="30">和歌山</li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                                            <div class="toBeToggled4" id="toBeToggled4">
+                <div class="col-sm-3 chugoku-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
+                    <div class="division-box">
+                      <ul class="">
+                        
+                        <a href="#" data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
+                             <li class="spanclass" id="33">岡山</li>
+                        </a>
+                        
+                        <a href="#" data-info="Hiroshima" class="path Hiroshima card-text" @click="getStateClick">
+                            <li class="spanclass" id="34">広島</li>
+                        </a>
+                        
+                        <a href="#" data-info="Yamaguchi" class="path Yamaguchi card-text" @click="getStateClick">
+                            <li class="spanclass" id="35">山口</li>
+                        </a>
+                        
+                        <a href="#" data-info="Shimane" class="path Shimane card-text" @click="getStateClick">
+                            <li class="spanclass" id="32">島根</li>
+                        </a>        
+                         
+                        <a href="#" data-info="Tottori" class="path Tottori card-text" @click="getStateClick">
+                            <li class="spanclass"  id="31">鳥取</li>
+                        </a>               
+                        
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                                                <div class="form-check form-check-inline col-sm-2" v-for="township in getTownships" :key="township.id">
-                                                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                                        <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)"> {{township.township_name}}
-                                                        <div class="control__indicator"></div>
-                                                    </label>
-                                                </div>
+                <div class="col-sm-3 shikoku-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background:#f1a296;">四国</div> -->
+                    <div class="division-box">
+                      <ul class="multiple-boxa">
+                        
+                        <a href="#" data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
+                            <li class="spanclass" id="36">徳島</li>
+                        </a>
+                        
+                        <a href="#" data-info="Kagawa" class="path Kagawa card-text" @click="getStateClick">
+                            <li class="spanclass" id="37">香川</li>
+                        </a>
+                        
+                        <a href="#" data-info="Kochi" class="path Kochi card-text" @click="getStateClick">
+                            <li class="spanclass" id="39">高知</li>
+                        </a>
+                        
+                        <a href="#" data-info="Ehime" class="path Ehime card-text" @click="getStateClick">
+                            <li class="spanclass" id="38">愛媛</li>
+                        </a>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                                            </div>
-                                        </td>
-                                    </tr>
+                <div class="col-sm-2 kyushu-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
+                    <div class="division-box">
+                      <ul class="">
+                        
+                        <a href="#" data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
+                          <li class="spanclass" id="40">福岡</li>
+                        </a>
+                        
+                        <a href="#" data-info="Saga" class="path Saga card-text" @click="getStateClick">
+                            <li class="spanclass" id="41">佐賀</li>
+                        </a>
+                       
+                        <a href="#" data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick"> 
+                            <li class="spanclass" id="42">長崎</li>
+                        </a>
+                        
+                        <a href="#" data-info="Oita" class="path Oita card-text" @click="getStateClick">
+                            <li class="spanclass" id="44">大分</li>
+                        </a>
 
-                                    <tr class="toBeToggled1 ShowHide">
-                                        <th>
-                                            フリーワード
-                                        </th>
-                                        <td>
+                       <a href="#" data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick"> 
+                           <li class="spanclass" id="43">熊本</li>
+                        </a>
+                       
+                        
+                        <a href="#" data-info="Miyazaki" class="path Miyazaki card-text" @click="getStateClick">
+                              <li class="spanclass" id="45">宮崎</li>
+                        </a>
 
-                                            <input type="text" class="form-control mt-2 mb-2" id="" placeholder="例）施設名、エリア">
+                        <a href="#" data-info="Kagoshima" class="path Kagoshima card-text" @click="getStateClick">
+                            <li class="spanclass" id="46">鹿児島</li>
+                        </a>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                                        </td>
-                                    </tr>
-                                    <tr class="toBeToggled1 ShowHide">
-                                        <th>職種</th>
-                                        <td>
-                                            <div class="form-check form-check-inline col-sm-2" v-for="occupation in occupations" :key="occupation.id">
-                                                <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                                    <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID"> {{occupation.name}}
-                                                    <div class="control__indicator"></div>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="toBeToggled1 ShowHide">
-                                        <th style="padding:10px;">雇用形態</th>
-                                        <td>
-                                            <div class="form-check form-check-inline col-sm-2">
-                                                <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                                    <input class="form-check-input" value="正職員" v-model="empstatus" type="checkbox"> 正社員(正職員)
-                                                    <div class="control__indicator"></div>
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline col-sm-2">
-                                                <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                                    <input class="form-check-input" value="契約社員" v-model="empstatus" type="checkbox"> 契約社員(職員)
-                                                    <div class="control__indicator"></div>
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline col-sm-2">
-                                                <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                                    <input class="form-check-input" value="非常勤" v-model="empstatus" type="checkbox"> 非常勤。パート
-                                                    <div class="control__indicator"></div>
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline col-sm-2">
-                                                <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                                                    <input class="form-check-input" value="その他" v-model="empstatus" type="checkbox"> その他
-                                                    <div class="control__indicator"></div>
-                                                </label>
-                                            </div>
+                <div class="col-sm-2 okinawa-box">
+                  <div class="mb-3">
+                    <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
+                    <div class="division-box">
+                      <ul class=""> 
+                          <a href="#" data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">
+                              <li class="spanclass" id="47">沖縄県</li>
+                        </a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="map">
+              
+            </div> -->
+          </div>
 
-                                        </td>
-                                    </tr>
+         
+          <div class="col-12 jobselect pad-free"> 
+             <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
+            <table class="table table-bordered col-12 ">
+              <tbody>
+                <tr>
+                  <th>地域</th>
+                  <td>
+                    <select id="selectCity"   class="col-9 form-control custom-select mt-2 mb-2" v-model="id">
+                      <option v-for = "city in cities" :value="city.id" :key="city.id" >{{city.city_name}}</option>
+                    </select>
+                    <button @click="toggleContent4" class="btn col-3 seemore-btn">
+                      <i class="fa" aria-hidden="true"></i>
+                          <!-- <em>{{city.city_name}}</em> -->
+                          <span id="close6"><i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる </span>
+                    </button>
 
-                                    <tr class="text-center">
-                                        <td colspan='2' style="border:none;">
-                                            <button @click="ShowHide4" class="btn seemore-btn">
-                                                <i class="fa" aria-hidden="true"></i>
-                                                <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
-                                            </button>
-                                        </td>
-                                    </tr>
+                    <div  class="toBeToggled4" id="toBeToggled4">
 
-                                    <tr class="text-center">
-                                        <td colspan="2" style="border:none;">
+                      <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @change="getCheck($event)">
 
-                                            <button class="main-bg-color create-btn all-btn" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検索 </button>
+                        {{township.township_name}}
+                        <div class="control__indicator"></div>
+                        </label>
+                      </div>
 
-                                        </td>
-                                    </tr>
+                    </div>
+                  </td>
+                </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>
+                  フリーワード
+                  </th>
+                  <td>
+                    
+                      <input type="text" class="form-control mt-2 mb-2" id=""  placeholder="例）施設名、エリア">
+                    
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th>職種</th>
+                  <td>
+                      <div class="form-check form-check-inline col-sm-2"  v-for="occupation in occupations" :key="occupation.id">
+                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                        <input class="form-check-input" type="checkbox" :id="occupation.id" :value="occupation.id" v-model="occupationID" >
 
-                        <div class=" col-12">
-                            <div class="row">
-                                <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in displayItems" :key="job.jobid">
-                                    <div class="job-content">
-                                        <div class="job-header">
-                                            <h5 class="job-tit">
+                        {{occupation.name}}
+                        <div class="control__indicator"></div>
+                        </label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="toBeToggled1 ShowHide">
+                  <th style="padding:10px;">雇用形態</th>
+                  <td>
+                  <div class="form-check form-check-inline col-sm-2">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                    <input class="form-check-input" value="正職員" v-model="empstatus" type="checkbox">
+                    正社員(正職員)
+                    <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline col-sm-2">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                    <input class="form-check-input" value="契約社員" v-model="empstatus" type="checkbox">
+                    契約社員(職員)
+                    <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline col-sm-2">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                    <input class="form-check-input" value="非常勤" v-model="empstatus" type="checkbox">
+                    非常勤。パート
+                    <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline col-sm-2">
+                    <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                    <input class="form-check-input" value="その他" v-model="empstatus" type="checkbox">
+                    その他
+                    <div class="control__indicator"></div>
+                    </label>
+                  </div>
+
+                  </td>
+                </tr>
+
+                <tr class="text-center">
+                  <td colspan='2' style="border:none;">
+                    <button @click="ShowHide4" class="btn seemore-btn">
+                      <i class="fa" aria-hidden="true"></i>
+                          <span id="close4"><i class="fas fa-arrow-circle-down"></i> もっと見る</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="text-center">
+                  <td colspan="2" style="border:none;">
+
+                     <button class="main-bg-color create-btn all-btn" style="width:16%;" @click="search"><i class="fas fa-search"></i>&nbsp; 検索 </button>
+
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            </div>  
+            
+              <div class=" col-12">
+                <div class="row">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.jobid">
+                     <div class="job-content">
+                      <div class="job-header">
+                        <h5 class="job-tit">
                           <router-link :to="{name: 'job_details', params:{id:job.jobid}}">{{job.title}}</router-link>
                           </h5>
-                                            <div class="clearfix">
-                                                <p class="job_status">{{job.employment_status}}</p>
-                                                <p class="job_id">求人番号{{job.jobnum}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="job-body row  clearfix">
-                                            <!-- <div class="col-4 job-img">
+                        <div class="clearfix">
+                          <p class="job_status">{{job.employment_status}}</p>
+                          <p class="job_id">求人番号{{job.jobnum}}</p>
+                        </div>
+                      </div>
+                      <div class="job-body row  clearfix">
+                        <!-- <div class="col-4 job-img">
                           <img src="/upload/news/nursing.JPG"  alt="">
                         </div> -->
                         <div class="col-12 job-box">
@@ -272,39 +457,19 @@
                         <!-- <router-link :to="{name: 'job_details', params:{id:job.jobid}}" class="btn all-btn">詳細を見る</router-link> -->
                         </div>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="offset-md-4 col-md-8">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <span class="spanclass" @click="first">最初</span>
-                  </li>
-                  <li class="page-item">
-                    <span class="spanclass" @click="prev">前へ</span>
-                  </li>
-                  <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
-                    <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
-                  </li>
-                  <li class="page-item">
-                    <span class="spanclass" @click="next">次へ</span>
-                  </li>
-                  <li class="page-item">
-                    <span class="spanclass" @click="last">最後</span>
-                  </li>                 
-                </ul>
-              </nav>
-            </div>
+                  </div>
+                </div>        
+              </div>
+            
         </div>
       </div>
+
     </div>
   </div>
   </div>
 </layout>
 </template>
+
 
 <script>
 import layout from '../components/home.vue'
@@ -335,11 +500,7 @@ export default {
         toggleCheck: true,
         toggleCheck_1: false,
         empstatus:[],
-        job_data:[],
-        currentPage: 0,
-        size: 3,
-        pageRange: 5,
-        items: []
+        job_data:[]
       }
     },
     mounted() {
@@ -402,211 +563,107 @@ export default {
                 $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 市区町村エリアを開く');
             }
         },
-        computed: {
-            pages() {
-                    return Math.ceil(this.job_data.length / this.size);
-                },
-                displayPageRange() {
-                    const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
-                    const offset = isEven ? 1 : 2;
-                    let start, end;
-                    if (this.pages < this.pageRange) {
-                        start = 1;
-                        end = this.pages;
-                    } else if (this.currentPage < half) {
-                        start = 1;
-                        end = start + this.pageRange - 1;
-                    } else if (this.pages - half < this.currentPage) {
-                        end = this.pages;
-                        start = end - this.pageRange + 1;
-                    } else {
-                        start = this.currentPage - half + offset;
-                        end = this.currentPage + half;
-                    }
-                    let indexes = [];
-                    for (let i = start; i <= end; i++) {
-                        indexes.push(i);
-                    }
-                    return indexes;
-                },
-                displayItems() {
-                    const head = this.currentPage * this.size;
-                    return this.job_data.slice(head, head + this.size);
-                },
-                isSelected(page) {
-                    return page - 1 == this.currentPage;
-                }
+        ShowHide4() {
+        this.toggleCheck_1 = !this.toggleCheck_1;
+            if (this.toggleCheck_1 == true) {
+                $('#close4').empty();
+                $(".ShowHide").slideDown();
+                $('#close4').append('<i class="fas fa-arrow-circle-up"></i> 閉じる');
+
+            } else {
+                $('#close4').empty();
+                $(".ShowHide").slideUp();
+                $('#close4').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
+            }
         },
-        methods: {
 
-            search() {
+      getStateClick(e){
 
-                    if (this.townshipID == null || this.townshipID == '') {
-                        this.townshipID[0] = 0;
-                    }
-                    if (this.occupationID == null || this.occupationID == '') {
-                        this.occupationID[0] = 0;
-                    }
-                    if (this.empstatus == null || this.empstatus == '') {
-                        this.empstatus[0] = 0;
-                    }
+          if(this.townshipID.length > 0)
+          {
+            this.townshipID = [];
+          }
+          if(this.occupationID.length > 0)
+          {
+            this.occupationID = [];
+          }
+          if(this.empstatus.length > 0)
+          {
+            this.empstatus = [];
+          }
+      
+          if(e.target.id == ''){
+            var id = $('#selectCity').val();
+          }else{
+            var id = e.target.id;
+          }
+          this.id = id;
+       
+       
+          // const id = e.target.id;
+          // this.id = id;
 
-                    this.axios.get('api/getjobsearch', {
+          this.axios.get('api/getmap',{
+            params:{
+              id: this.id,
+              township_id:-1,
+              moving_in:-1,
+              per_month:-1
+          },
+          })
+          .then((response)=>{
 
-                        params: {
-                            id: this.id,
-                            townshipID: this.townshipID,
-                            occupationID: this.occupationID,
-                            empstatus: this.empstatus
-                        },
-                    }).then((response) => {
+          $('.jobselect').removeClass('jobselect');
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+          this.occupations = response.data.occupations
+          this.id = id
+         })
+        
+        this.search();
 
-                        this.job_data = response.data;
+      },
 
-                    })
+      getCheck(e){
 
-                    // window.scrollTo({ top : 1000, behavior: 'smooth' });
-                },
-
-                gotoJobdetail(jid) {
-                    this.$router.push({
-                        name: 'job_details',
-                        params: {
-                            id: jid
-                        }
-                    });
-                },
-
-                toggleContent4() {
-                    this.toggleCheck = !this.toggleCheck;
-                    if (this.toggleCheck == true) {
-                        $('#close6').empty();
-                        $("#toBeToggled4").slideToggle();
-                        $('#close6').append('<i class="fas fa-arrow-circle-up"></i> 市区町村エリアを閉じる');
-
-                    } else {
-                        $('#close6').empty();
-                        $("#toBeToggled4").slideToggle();
-                        $('#close6').append('<i class="fas fa-arrow-circle-down"></i> 市区町村エリアを開く');
-                    }
-                },
-                ShowHide4() {
-                    this.toggleCheck_1 = !this.toggleCheck_1;
-                    if (this.toggleCheck_1 == true) {
-                        $('#close4').empty();
-                        $(".ShowHide").slideDown();
-                        $('#close4').append('<i class="fas fa-arrow-circle-up"></i> 閉じる');
-
-                    } else {
-                        $('#close4').empty();
-                        $(".ShowHide").slideUp();
-                        $('#close4').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
-                    }
-                },
-
-                getStateClick(e) {
-
-                    if (this.townshipID.length > 0) {
-                        this.townshipID = [];
-                    }
-                    if (this.occupationID.length > 0) {
-                        this.occupationID = [];
-                    }
-                    if (this.empstatus.length > 0) {
-                        this.empstatus = [];
-                    }
-
-                    if (e.target.id == '') {
-                        var id = $('#selectCity').val();
-                    } else {
-                        var id = e.target.id;
-                    }
-                    this.id = id;
-
-                    // const id = e.target.id;
-                    // this.id = id;
-
-                    this.axios.get('api/getmap', {
-                            params: {
-                                id: this.id,
-                                township_id: -1,
-                                moving_in: -1,
-                                per_month: -1
-                            },
-                        })
-                        .then((response) => {
-
-                            $('.jobselect').removeClass('jobselect');
-                            this.cities = response.data.city
-                            this.getCity = response.data.getCity
-                            this.getTownships = response.data.getTownships
-                            this.occupations = response.data.occupations
-                            this.id = id
-                        })
-
-                    this.search();
-
-                },
-
-                getCheck(e) {
-
-                    console.log(this.townshipID);
-                    // console.log(this.townshipID);
-                    // if(e.target.checked){
-                    //   this.township_id = e.target.value;
-                    //    this.township_id.push(e.target.value);
-                    //    console.log(this.township_id);
-                    // }
-                },
-                features(e) {
-                    if (e.target.checked) {
-
-                    }
-                },
-                getStateHover(e) {
-                    if (e.target.tagName === 'path') {
-                        //console.log(e)
-                    }
-                },
-                first() {
-                    this.currentPage = 0;
-                },
-                last() {
-                    this.currentPage = this.pages - 1;
-                },
-                prev() {
-                    if (0 < this.currentPage) {
-                        this.currentPage--;
-                    }
-                },
-                next() {
-                    if (this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                },
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                }
-
+         console.log(this.townshipID);
+        // console.log(this.townshipID);
+        // if(e.target.checked){
+        //   this.township_id = e.target.value;
+        //    this.township_id.push(e.target.value);
+        //    console.log(this.township_id);
+        // }
+      },
+      features(e){
+        if(e.target.checked){
+        
         }
-    },
-}
-    // $("#search").on("click", function() {
-    //   alert('a');
-    //     // $("body").scrollTop(0);
-    // });
-    
-    $(function() {
-        $('#divisionswrap ul li').on('click', function(e) {
-            e.preventDefault();
-            $('#divisionswrap ul li').parent().find('li.active').removeClass('active');
-            $(this).addClass('active');
-        });
+      },
+      getStateHover(e){
+        if(e.target.tagName ==='path'){
+         //console.log(e)
+        }
+      }
 
-    });
+    }
+};
+  // $("#search").on("click", function() {
+  //   alert('a');
+  //     // $("body").scrollTop(0);
+  // });
 
+
+$(function() {  
+  $( '#divisionswrap ul li' ).on( 'click', function(e) {
+        e.preventDefault();        
+        $( '#divisionswrap ul li' ).parent().find( 'li.active' ).removeClass( 'active' );       
+        $( this ).addClass( 'active' );  
+ });
+ 
+});
 </script>
+
 
 <style scoped>
 .active{
