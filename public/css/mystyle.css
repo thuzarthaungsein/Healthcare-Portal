@@ -1336,7 +1336,7 @@ p {
 }
 
 .gNav li {
-    display: inline-block;
+    float: left;
     list-style: none;
 }
 
@@ -1363,6 +1363,13 @@ p {
 .gNav li:last-child a:after {
     width: 0;
     height: 0;
+}
+
+.gNav .router-link-exact-active {
+    font-weight: bold;
+    border-radius: 0px !important;
+    border-left: 0 solid #ff9563;
+    color: #ff9563 !important;
 }
 
 .h-tel {
@@ -6457,6 +6464,22 @@ button.confirmed {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
+#nursing .modal-header h5 {
+    padding-left: 7px;
+    border-left: 5px solid #d2571c;
+}
+
+#nursing .modal-footer {
+    padding: 0.5rem;
+    background: #eaeef0;
+}
+
+.modal-footer .fav-update-btn {
+    width: 100px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
 .profile_wd {
     width: 239px;
 }
@@ -7373,18 +7396,21 @@ ul.test>li:before {
 
 .nur_date {
     padding: 2px 10px;
-    font-size: 15px;    
+    font-size: 15px;
 }
+
 
 /* .nur-addbtn {
     background: #fff !important;
     border: 1px solid #212529 !important;
     color: #212529!important;
 } */
-ul.nur-caro-card > li.list-group-item{
-   padding: 5px !important;
-   border: none !important;
+
+ul.nur-caro-card>li.list-group-item {
+    padding: 5px !important;
+    border: none !important;
 }
+
 .fac_list {
     float: left;
     padding: 0 5px;
@@ -7394,6 +7420,7 @@ ul.nur-caro-card > li.list-group-item{
     color: #fff;
     border-radius: 3px;
 }
+
 
 /* .slick-slider */
 
@@ -8273,6 +8300,7 @@ ul.nur-caro-card > li.list-group-item{
 
 /* end count profile */
 
+
 /*commentform*/
 
 .news_p {
@@ -8281,4 +8309,3 @@ ul.nur-caro-card > li.list-group-item{
     font-size: 20px;
     font-weight: bold;
 }
-
