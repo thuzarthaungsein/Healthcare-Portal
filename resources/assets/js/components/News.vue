@@ -307,13 +307,13 @@
                 <!-- Old design end -->                            
             </div>
         </div>
-                <!-- </div>
-            </div>
+        <!-- </div>
         </div>
+    </div>
     </div> -->
     <!-- <div v-else>
-                        <NewsSearchListComponent></NewsSearchListComponent>
-                        </div> -->
+    <NewsSearchListComponent></NewsSearchListComponent>
+    </div> -->
     </layout>
 </template>
 
