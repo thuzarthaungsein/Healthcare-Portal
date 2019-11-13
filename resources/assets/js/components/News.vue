@@ -1,4 +1,5 @@
 <template>
+    <layout>
         <div class="m-lr-0 justify-content-md-center">
                
                 <div class="row">
@@ -151,6 +152,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
                     <div>
                         <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">
@@ -307,32 +310,40 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div v-else>
+            </div>
+        </div>
+    </div>
+    <!-- <div v-else>
                         <NewsSearchListComponent></NewsSearchListComponent>
                         </div> -->
-        
+    </layout>
 </template>
 
 <script>
-import News from './News.vue'
-import hospitalSearch from './hospitalSearch.vue'
-import nursingSearch from './nursingSearch.vue'
-import jobSearch from './jobSearch.vue'
-import asidebar from './aside.vue'
-import NewsSearchListComponent from './NewsSearchListComponent.vue'
+    import layout from '../components/home.vue'
+    import News from './News.vue'
+    import hospitalSearch from './hospitalSearch.vue'
+    import nursingSearch from './nursingSearch.vue'
+    import jobSearch from './jobSearch.vue'
+    import asidebar from './aside.vue'
+    import NewsSearchListComponent from './NewsSearchListComponent.vue'
 
-export default {
-    components: {
-     News,
-     hospitalSearch,
-     nursingSearch,
-     NewsSearchListComponent,
-     jobSearch,
-     asidebar
-    },
-     mounted() {
-
-    },
+    export default {
+        components: {
+            News,
+            hospitalSearch,
+            nursingSearch,
+            NewsSearchListComponent,
+            jobSearch,
+            asidebar,
+            layout
+        },
+        mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('news-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('news-borderColor');
+        },
     data() {
         return {
             cats: [],
@@ -382,18 +393,17 @@ export default {
               this.getCategoryRandomValue();           
         }
         else{
+            console.log(localStorage.getItem('date'));
         
               var localdate = localStorage.getItem('date');
- 
+    console.log(localdate);
+    console.log(todaydate > localdate)
               if(todaydate > localdate) 
               {
                   localStorage.setItem('date',todaydate);
                   this.getCategoryRandomValue();      
               }  
-              else{
-                 this.getCategoryRandomValue();   
-              }          
-                        
+                  
         }
     
 
@@ -407,28 +417,27 @@ export default {
     methods: {        
             getAllCat: function() {
                 this.axios
-                .get('/api/home')
-                .then(response => {
+                    .get('/api/home')
+                    .then(response => {
                         // console.log(response);
                         this.cats = response.data;
-                });
+                    });
             },
-            groupBy(array, key){
+            groupBy(array, key) {
                 const result = {}
                 array.forEach(item => {
-                if (!result[item[key]]){
-                result[item[key]] = []
-                }
-                result[item[key]].push(item)
+                    if (!result[item[key]]) {
+                        result[item[key]] = []
+                    }
+                    result[item[key]].push(item)
                 })
                 return result
             },
             getLatestPostsByCatID: function() {
-                    
-                if(this.search_word == null || this.search_word == '' || this.search_word == 'null'){
+
+                if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
                     var searchword = 'all_news_search';
-                }
-                else{
+                } else {
                     var searchword = this.search_word;
                 }
                 console.log(searchword);
@@ -441,14 +450,14 @@ export default {
                 });
             },
 
-            getPostByCatID: function(catId=1) {
-                if($('#search-word').val() != null) {
+            getPostByCatID: function(catId = 1) {
+                if ($('#search-word').val() != null) {
                     var search_word = $('#search-word').val();
                 } else {
                     var search_word = null;
                 }
 
-                if(catId !== undefined) {
+                if (catId !== undefined) {
                     var cat_id = catId;
                 } else {
                     var cat_id = 1;
@@ -458,38 +467,36 @@ export default {
                 fd.append('search_word', search_word);
                 fd.append('category_id', cat_id);
 
-                $('.search-item').css('display','none');
+                $('.search-item').css('display', 'none');
                 this.categoryId = cat_id;
-                this.axios.post("/api/posts" , fd)
-                .then(response => {
-                    this.posts = response.data;
-                });
+                this.axios.post("/api/posts", fd)
+                    .then(response => {
+                        this.posts = response.data;
+                    });
             },
 
             getCategoryRandomValue(){
                  
-                this.axios.get("/api/get_cat_random") .then(response => {
-                    this.pattern = response.data;
-                });
-               
+            this.axios.get("/api/get_cat_random") .then(response => {
+                });          
             },
 
             getLatestPostByCatID: function(catId) {
-                if($('#search-word').val()) {
+                if ($('#search-word').val()) {
                     var search_word = $('#search-word').val();
                 } else {
                     var search_word = null;
                 }
-                if(catId){
+                if (catId) {
                     var cat_id = catId;
                 } else {
                     var cat_id = 1;
                 }
                 let fd = new FormData();
-                    fd.append('search_word', search_word)
-                    fd.append('category_id', cat_id)
+                fd.append('search_word', search_word)
+                fd.append('category_id', cat_id)
 
-                $('.search-item').css('display','none');
+                $('.search-item').css('display', 'none');
                 this.categoryId = cat_id;
                 this.axios.post("/api/get_latest_post" , fd)
                 .then(response => {
@@ -500,22 +507,21 @@ export default {
             },
             getLatestPostFromAllCat: function() {
                 this.axios
-                .get('/api/get_latest_post_all_cat')
-                .then(response => {
-                    this.latest_post_all_cats = response.data;
-                });
+                    .get('/api/get_latest_post_all_cat')
+                    .then(response => {
+                        this.latest_post_all_cats = response.data;
+                    });
             },
 
             searchCategory() {
-                if($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null'){
+                if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
                     this.clearSearch();
-                }
-                else{
+                } else {
                     this.status = 1;
                     this.search_word = $('#search-word').val();
                     this.getLatestPostsByCatID();
                 }
-                    
+
             },
 
             clearSearch() {
@@ -527,10 +533,8 @@ export default {
             imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
             }
+        }
     }
-
-}
-
  </script>
 <style>
 .news-list-display{
@@ -559,4 +563,16 @@ export default {
     border:solid #f3efef;
     border-width: 0 .1rem .1rem 0;
 }
+
+.news-tabColor .nav-link {
+        background: #75b777 !important;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+.news-borderColor {
+        border: 1px solid #75b777 !important;
+    }
+    .tab-pane{
+        padding: 10px;
+    }
 </style>

@@ -325,6 +325,7 @@ function closeBtnPreview(indx,sec) {
   {
       var panorama_preview = document.getElementById('preview-panorama'+indx+'indx'+sec);
       panorama_preview.parentNode.removeChild(panorama_preview);
+      
   }
 }
 

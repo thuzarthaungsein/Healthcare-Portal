@@ -877,6 +877,9 @@ export default {
                         }
                          
                         this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
+                        console.log(this.panorama);
+                        // this.panorama.splice(0,1);
+                        // console.log(this.panorama);
                 } 
                 this.pre_panocount++;
                 
