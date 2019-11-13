@@ -285,9 +285,11 @@
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</button>
-                                                        <label class="btn all-btn res-btn hos-btn">
+                                                        <label class="btn all-btn res-btn hos-btn control controlinner--checkbox">
                                                             <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
-                                                            <span class="checkmark"></span>資料請求</label>
+                                                            <span class="checkmark"></span>資料請求
+                                                            <div class="controlinner__indicator"></div>                                                        
+                                                        </label>
                                                     </td>
                                                 </tr>
                                                 <tr v-if="address_show">

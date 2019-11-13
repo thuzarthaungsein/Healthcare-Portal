@@ -7868,6 +7868,107 @@ ul.nur-caro-card > li.list-group-item{
     background: #d2571c;
 }
 
+/*for inner checkbox*/
+.control {
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+    /* margin-bottom: 15px;
+
+    cursor: pointer;
+
+    font-size: 18px; */
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.controlinner__indicator {
+    position: absolute;
+    top: 6px;
+    left: 50px;
+    height: 16px;
+    width: 16px;
+    background: #e6e6e6;
+    border: 1px solid #5d5957;
+    border-radius: 3px;
+}
+
+.controlinner--radio .controlinner__indicator {
+    border-radius: 50%;
+}
+
+.control:hover input~.controlinner__indicator,
+.control input:focus~.controlinner__indicator {
+    background: #ccc;
+}
+
+.control input:checked~.controlinner__indicator {
+    background: #ffffff;
+    border: 1px solid #d2571c;
+}
+
+.control:hover input:not([disabled]):checked~.controlinner__indicator,
+.control input:checked:focus~.controlinner__indicator {
+    background: #d2571c;
+}
+
+.control input:disabled~.controlinner__indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.controlinner__indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.controlinner--checkbox:hover {
+    cursor: pointer;
+}
+
+.control input:checked~.controlinner__indicator:after {
+    display: block;
+}
+
+.controlinner--checkbox .controlinner__indicator:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.controlinner--checkbox input:disabled~.controlinner__indicator:after {
+    border-color: #d2571c;
+}
+
+.controlinner--radio:hover {
+    cursor: pointer;
+}
+
+.controlinner--radio .controlinner__indicator:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #101010;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.controlinner--radio input:disabled~.controlinner__indicator:after {
+    background: #d2571c;
+}
+
+/*end for inner checkbox*/
 
 /*end for custom checkbox and radio*/
 
