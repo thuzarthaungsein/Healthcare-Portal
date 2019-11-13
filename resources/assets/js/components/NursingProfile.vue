@@ -1264,8 +1264,8 @@ export default {
                 var old_panorama = document.getElementsByClassName('panorama-old-img');
                 var new_panorama = document.getElementsByClassName('panorama-new-img');
                 if(this.panorama_length != old_panorama.length || new_panorama.length > 0){
-                    for(var i = 0; i< panorama_arr.length; i++) {
-                        this.panorama_list.push({type:"panorama",photo:panorama_arr[i].photo,title:'',description:''});
+                    for(var i = 0; i< this.panorama_arr.length; i++) {
+                        this.panorama_list.push({type:"panorama",photo:this.panorama_arr[i].photo,title:'',description:''});
                         console.log(this.panorama_list);
                     }                
                 }
@@ -1283,28 +1283,26 @@ export default {
                 // }
                 // this.panorama_list = this.panorama.concat(this.already_panorama_list);
 
-                this.tmp_list = this.img_list.concat(this.video_list);
+                // this.tmp_list = this.img_list.concat(this.video_list);
                 var fData = new FormData();
                 fData.append("image",this.img_list);
-                fData.append("video",this.img_list);
-                fData.append("panorama",this.img_list);
+                fData.append("video",this.video_list);
+                fData.append("panorama",this.panorama_list);
                 
 
-                if(this.gallery_list.length > 0) {
-                    this.axios
-                        .post(`/api/nursing/galleryupdate/${this.cusid}`,this.gallery_list)
-                        .then((response) => {
-                
+                this.axios
+                    .post(`/api/nursing/galleryupdate/${this.cusid}`,{'video':this.video_list, 'image': this.img_list, 'panorama': this.panorama_list})
+                    .then((response) => {
+            
 
-                        }).catch(error=>{
+                    }).catch(error=>{
 
-                        if(error.response.status == 422){
-                        this.gallery_list = 'error';
-                        this.errors = error.response.data.errors
+                    if(error.response.status == 422){
+                    this.gallery_list = 'error';
+                    this.errors = error.response.data.errors
 
-                        }
-                    }) ;
-                }
+                    }
+                }) ;
 
                 if(this.cooperate_list.length > 0) {
                     this.axios
