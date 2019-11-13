@@ -27,11 +27,11 @@
                                      <label>表示するロケーション : <span class="error">*</span></label><br/>
                                 <div class="col-sm-9" v-for="advertisements in advertisement.location" :key="advertisements.id">
                                     <label class="form-check-label control control--checkbox">
-                                        <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars" > <strong>トップバー </strong> (240px*120px 300円)
+                                        <input type = "checkbox" value ="topbar" id="tbar" name="top_bar" v-model="advertisements.topbars"> <strong>トップバー </strong> (240px*120px 300円)
                                         <div class="control__indicator"></div>
                                         </label><br/>
                                     <label class="form-check-label control control--checkbox">
-                                        <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars"><strong> サイドバー </strong>(167px*100px 200円)
+                                        <input type = "checkbox"  value ="sidebar" id="sbar" name="side_bar" v-model="advertisements.sidebars" ><strong> サイドバー </strong>(167px*100px 200円)
                                         <div class="control__indicator"></div>
                                     </label>
                                     <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
@@ -40,21 +40,24 @@
                             <div class="form-group" style="display:none" id="showimage">
                                 <label>写真 : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected">
-                                    <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
+                                    <input type="file"  ref="file" accept="image/*" id="upd_img" @change ="fileSelected">
+                                   
                                 </div>
                             </div>
                             <div class="image_show" v-if="upload_img">
                                 <div class='col-md-2'>
                                     <span class='img-close-btn' v-on:click="removeUpload()">X</span>
                                     <img :src="upload_img" class='show-img'>
+                                     <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
+                                 
                             </div>
-                            <div class="form-group image_update" id="x-image" v-if="advertisement.photo">
+
+                            <div class="form-group image_update" id="x-image" >
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(advertisement.photo)'>X</span>
-                                        <img :src="'/upload/advertisement/'+ advertisement.photo" class='show-img' alt="hhh">
+                                        <img :src="'/upload/advertisement/'+ advertisement.photo" class='show-img' alt="ads">
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +80,11 @@
 export default {
           data() {
             return {
-                errors: [],
+                errors: {
+                    title:'',
+                    location:'',
+                    photo:'',
+                },
                 advertisement: {
                         title: '',
                         description:'',
@@ -106,6 +113,9 @@ export default {
                     this.advertisement.photo=response.data.photo;
                      //console.log(this.advertisement.photo);
                      //this.updateselected();
+                     if(this.advertisement.photo) {
+                        $('#upd_img').removeAttr('required');
+                    }
                 });
         },
          methods: {
@@ -120,23 +130,85 @@ export default {
             //        $('.image_update').append("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closeBtnMethod()'>X</span><img src= upload/advertisement/"+this.advertisement.photo+" class='show-img''></div>");
             //   },
             closeBtnMethod: function(old_photo) {
-                 if(confirm("Are you sure you want to delete?"))
-                {
-                        var image_x = document.getElementById('x-image');
-                        image_x.parentNode.removeChild(image_x);
-                        document.getElementById('showimage').style.display = 'block';
+                
+                 if(this.advertisement.photo)
+                {   
+                        this.$swal({
+                            title: "確認",
+                            text: "削除よろしいでしょうか",
+                            type: "warning",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#dc3545",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "削除",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response =>{ 
+                            var image_x = document.getElementById('x-image');
+                            image_x.parentNode.removeChild(image_x);
+                            document.getElementById('showimage').style.display = 'block';
+                            $("#upd_img").prop('required',true);
+                            
+                            
+                           }).then(response => {
+                            
+                                this.$swal({
+                                        title: "削除されました",
+                                        text: "ニュース削除されました。",
+                                        type: "success",
+                                        width: 350,
+                                        height: 200,
+                                        confirmButtonText: "はい",
+                                        confirmButtonColor: "#dc3545"
+                                    });
+                                    this.old_photo = old_photo;
+                           });
+                             
+                         
+                        // var image_x = document.getElementById('x-image');
+                        // image_x.parentNode.removeChild(image_x);
+                        // document.getElementById('showimage').style.display = 'block';
+                        // $("#upd_img").prop('required',true);
                 }
-                // if(this.advertisement.photo) {
-                //       console.log('ok');
-                //       $('#upload_img').removeAttr('required');
-                //   }
                 // else {
                 //     this,deleteImage ='Delete';
                 // }
-            },
+                            },
              removeUpload(e) {
-                        this.advertisement.photo = '';
-                        this.upload_img = '';
+                  this.$swal({
+                            title: "確認",
+                            text: "削除よろしいでしょうか",
+                            type: "warning",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#dc3545",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "削除",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => {
+                            
+                                this.$swal({
+                                        title: "削除されました",
+                                        text: "ニュース削除されました。",
+                                        type: "success",
+                                        width: 350,
+                                        height: 200,
+                                        confirmButtonText: "はい",
+                                        confirmButtonColor: "#dc3545"
+                                    });
+                                    this.advertisement.photo = '';
+                                    this.upload_img = '';
+                           });
+                        // this.advertisement.photo = '';
+                        // this.upload_img = '';
                     },
               updateCheck: function (check){
                      this.advertisement.location.shift()
@@ -158,7 +230,22 @@ export default {
                      }
                 },
             updateAds() {
-                let adsData = new FormData();
+                this.$swal({
+                            title: "確認",
+                            text: "編集をよろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "作成",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => { 
+                            let adsData = new FormData();
             // if(this.deleteImage == 'Delete')
             //     {
             //         alert('Please Select New Image');
@@ -193,8 +280,10 @@ export default {
                             position: 'top-end',
                             type: 'success',
                             title: '更新されました',
-                            showConfirmButton: false,
-                            timer: 1500,
+                            // showConfirmButton: false,
+                            // timer: 1500,
+                            confirmButtonText: "はい",
+                            confirmButtonColor: "#6cb2eb",
                             width: 250,
                             height: 200,
                         })
@@ -204,7 +293,10 @@ export default {
                         this.errors = error.response.data.errors
                     }
                 })
+                        });
+            
             },
+       
         }
 }
 </script>

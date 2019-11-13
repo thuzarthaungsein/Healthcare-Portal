@@ -37,11 +37,11 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        //  $request->validate([
-        //      'title' => 'required|unique:advertisements',
-        //      'location'=>'required',
-        //      'photo'=>'required',
-        //  ]);
+         $request->validate([
+             'title' => 'required|unique:advertisements',
+             'location'=>'required',
+             'photo'=>'required',
+         ]);
 
         $imageName = $request->photo->getClientOriginalName();
         $imgname = str_replace(' ', '', $imageName);
