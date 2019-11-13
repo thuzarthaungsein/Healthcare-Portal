@@ -7907,8 +7907,8 @@ ul.nur-caro-card > li.list-group-item{
 }
 
 .control input:checked~.controlinner__indicator {
-    background: #ffffff;
-    border: 1px solid #d2571c;
+    background: #ffffff !important;
+    border: 1px solid #fff;
 }
 
 .control:hover input:not([disabled]):checked~.controlinner__indicator,

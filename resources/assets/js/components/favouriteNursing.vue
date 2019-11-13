@@ -249,12 +249,13 @@
             <!--result-->
             <div class="col-12">
                 <div class="clearfix">
-                    <div class="float-right" style="margin-right:45px;">
-                        <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary mr-2 float-left" >
+                    <div class="float-right">
+                        <label class="btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary control controlinner--checkbox" style="width:300px;">
                             <input type="checkbox" @change="checkAll()" class="check-all-btn" />
                             <span class="checkmark"></span>すべての資料請求にチェックを入れる
+                             <div class="controlinner__indicator" style="top:8px;left:7px;"></div>
                         </label>
-                        <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">資料請求する</button>
+                        <button type="button" class="btn btn-success all-btn float-right m-l-10" @click="addingMail()" :disabled="isdisable">資料請求する</button>
                     </div>
                 </div>
                 <div style="margin-top: 20px;" id="fav-history-page">
