@@ -38,16 +38,38 @@
           <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
 
           <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
-
+         
             <i class="fas fa-plus-circle"></i> 追加
 
           </span>
 
-          <div class="col-md-12">
+          <div  class="col-md-12">
+                <div class="row" id ="gallery-photo">   
+                        <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
+                                <div class="col-md-12">
+                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
+                                        <div class="col-md-12 m-b-10" v-bind:class="img.classname">
+                                                <input type="hidden" class="already-photo" v-model="img.photo">
+                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt">
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="img.title">
+                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description"></textarea>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
+                                </div>
+                        </div>
+                </div>
+          </div>
+
+          <!-- <div class="col-md-12">
+
 
             <div class="row" id="gallery-photo">
 
-              <!-- Add by + Button -->
+           
 
               <div
 
@@ -60,6 +82,7 @@
                 :key="img.id"
 
               >
+            
 
                 <div class="col-md-12">
 
@@ -92,7 +115,7 @@
 
             </div>
 
-          </div>
+          </div> -->
 
         </div>
 
@@ -1272,6 +1295,12 @@ export default {
                         isRotate3: false,
                         isRotate4: false,
                         isRotate5: false,
+                          editorOption:{
+                        debug:'info',
+                        placeholder:'Type your post...',
+                        readonly:true,
+                        theme:'snow',
+                },
                 }
         },
         created(){
@@ -1327,6 +1356,9 @@ export default {
                 // quill.editor.disable()
         },
         methods: {
+             imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            },
             scheduletogglediv() {
                     $(".schedule-toggle-div").toggle('medium');
                     this.isRotate2 = !this.isRotate2;
@@ -1380,7 +1412,10 @@ export default {
                     var h = date.getHours();
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
-                    this.img_arr.push({classname:classname,phoまで:'',title:'',description:''});
+                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
+                  
+                   
+      
                   
             },
             galleryVideoAdd() {
@@ -1407,27 +1442,30 @@ export default {
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
-                    var img = document.getElementsByClassName('gallery-area-photo');
-                        for(var i = 0; i< img.length; i++) {
-                           var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
-                         if(file) {
-                                var file_name = file.name;
-                                let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        this.axios.post('/api/hospital/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
-                        } else {
-                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
-                        }
-                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
-                        }
+
+                      var img = document.getElementsByClassName('gallery-area-photo');
+                      for(var i = 0; i< img.length; i++) {
+                          var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
+                          if(file) {
+                                  var file_name = file.name;
+                                          let fd = new FormData();
+                                          fd.append('file' ,file )
+                                          fd.append('photo' ,file_name )
+                                          fd.append('type', 'photo')
+                                          this.axios.post('/api/hospital/movephoto', fd)
+                                                  .then(response => {
+                                                  }).catch(error=>{
+                                                          console.log(error);
+                                                  if(error.response.status == 422){
+                                                          this.errors = error.response.data.errors
+                                                  }
+                                          })
+                          } else {
+                                  var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                          }
+                          this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                    }
+
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
                            this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
@@ -1578,9 +1616,8 @@ export default {
                         });
                 }
             },
-            imgUrlAlt(event) {
-                event.target.src = "images/noimage.jpg"
-            }
+            
+           
         }
 
 </script>
