@@ -662,8 +662,8 @@
                         <!-- <p class="btn all-btn nur-addbtn" @click="favAddFun('add');view_pro_id = !view_pro_id">
                             <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加
                         </p>   -->
-                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.cus_id" style="display:block;" @click="favAddFun('add',nus.cus_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.cus_id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.cus_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
                     </div>
                     
@@ -841,8 +841,7 @@
       },
     },
     methods: {
-        search(){
-        
+        search(){        
 
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -883,16 +882,35 @@
             this.factype = response.data.factype;
             this.markers = response.data.nursing;
             this.nursingList = response.data.nursing;
+               
             console.log('nursing',this.nursingList)
             this.citylatlng = response.data.city
                 var mmarker = new Array()
                 var item = []
 
             if(response.data.nursing.length > 0){
-
+                console.log(this.markers)
                 for (var i = 0; i < this.markers.length; i++) {
                     mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
                     item.push(this.markers[i])
+
+                    // if(localStorage.getItem("nursing_fav")){
+                    //     console.log('a'+this.markers[i]['nus_id'])
+                    //     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
+                    //     // this.view_pro_id = nus_fav_arr.includes(this.markers[i]['nus_id']);
+                    //     console.log(nus_fav_arr);
+                    //     if(nus_fav_arr.includes(this.markers[i]['nus_id'])){
+                    //         console.log('b'+this.markers[i]['nus_id'])
+                           
+                    //         $('.view_pro_id'+this.markers[i]['nus_id']).css('display','none');
+                    //         $('.done_pro_id'+this.markers[i]['nus_id']).css('display','block');
+                    //     }
+                    //     else{
+                    //         console.log('c'+this.markers[i]['id'])
+                    //         $('.view_pro_id'+this.markers[i]['id']).css('display','block');
+                    //         $('.done_pro_id'+this.markers[i]['id']).css('display','none');
+                    //     }
+                    // }
                 }
 
                 const theCity = this.markers[0]['city_eng']
@@ -1505,7 +1523,6 @@
             event.target.src = "images/noimage.jpg"
         },
         favAddFun(status,index){
-            
             if(status == 'add'){
                 $('.view_pro_id'+index).css('display','none');
                 $('.done_pro_id'+index).css('display','block');
