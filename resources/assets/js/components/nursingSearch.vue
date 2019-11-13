@@ -423,7 +423,7 @@
                                 
                                     <div class="row">
                                         <div class="col-4">
-                                            <img :src="'/images/'+items.logo" alt="image" width="110px" />
+                                            <img :src="'/images/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
@@ -1496,7 +1496,7 @@
       },
       imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
-            }
+      }
     }
   };
 </script>

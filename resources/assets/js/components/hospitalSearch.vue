@@ -412,7 +412,7 @@
                   </div>
                 <div class="hos-body row clearfix">
                   <div class="col-3 job-img">
-                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid">
+                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid" @error="imgUrlAlt">
                   </div>
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">
@@ -662,8 +662,12 @@
         if (e.target.tagName === 'path') {
           //console.log(e)
         }
+      },
+       imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
       }
     }
+    
     
   };
   $(function() {  
