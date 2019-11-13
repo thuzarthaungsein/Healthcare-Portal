@@ -183,11 +183,11 @@
                                         </GmapMap>
                                     </div>
                                     <div class="modal-body">
-                                        <strong>住所</strong>
+                                        <strong><span class="job_ico"><i class="fas fa-map-marker-alt"></i></span>住所</strong>
                                         <br>
                                         <span>{{address}}</span>
                                         <hr>
-                                        <strong>最寄り駅</strong>
+                                        <strong><span class="job_ico"><i class="fa fa-map-signs"></i></span>最寄り駅</strong>
                                         <br>
                                         <p v-html="access"></p>
                                     </div>
