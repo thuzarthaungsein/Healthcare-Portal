@@ -46,7 +46,7 @@
                             <div class="form-group" style="display:none" id="showimage">
                                 <label>写真 : <span class="error">*</span></label><br/>
                                 <div class="custom-file">
-                                    <input type="file"  ref="file" accept="image/*" @change ="fileSelected" required>
+                                    <input type="file"  ref="file" accept="image/*" id="upd_img" @change ="fileSelected" required>
                                     <!-- <span v-if="errors.photo" class="error">{{errors.photo[0]}}</span> -->
                                 </div>
                             </div>
@@ -114,8 +114,10 @@ export default {
                     this.advertisement.photo=response.data.photo;
                      //console.log(this.advertisement.photo);
                      //this.updateselected();
+                     if(this.advertisement.photo) {
+                        $('#upd_img').removeAttr('required');
+                    }
                 });
-
         },
 
          methods: {
@@ -137,6 +139,7 @@ export default {
                         var image_x = document.getElementById('x-image');
                         image_x.parentNode.removeChild(image_x);
                         document.getElementById('showimage').style.display = 'block';
+                        $("#upd_img").prop('required',true);
                 }
                 // else {
                 //     this,deleteImage ='Delete';
