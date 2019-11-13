@@ -11,11 +11,11 @@
 
                         <div class="row col-md-12 pad-free panorama panorama-box">
                         <!-- <div > -->
-                                <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
-                                        <input type="hidden" class="already-panorama" v-model="img.photo">
-                                        <span class='img-close-btn' v-on:click="closeBtnMethod(indx)">X</span>
-                                        <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid" alt="profile"  id="already-panorama">
-                                </div>
+                            <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
+                                <input type="hidden" class="already-panorama" v-model="img.photo">
+                                <span class='img-close-btn' v-on:click="closeBtnMethod(indx)">X</span>
+                                <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid" alt="profile"  id="already-panorama">
+                            </div>
                         </div>
                     </div>
                         <!-- <div class="row col-md-12 text-center">
@@ -777,6 +777,7 @@ export default {
                 .get('/api/nursing-panorrama-gallery/'+this.cusid)
                 .then(response=>{
                         this.panorama_arr = response.data;
+                        console.log(this.panorama_arr)
                 });
 
                 this.axios
@@ -839,44 +840,47 @@ export default {
             preview_panorama() {
                 this.already_panorama_list = [];
                 for(var i=0; i< event.target.files.length; i++) {
-                        this.panorama_count = i+1;
-                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
+                    this.panorama_arr.push({id:'',type:"panorama",photo:event.target.files[i].name,title:'',description:''});
+                    console.log(this.panorama_arr);
+                    // console.log(event);
+                    // this.panorama_count = i+1;
+                    // $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
                 }
                
+                
+                // var panorama = document.getElementsByClassName('gallery-area-panorama');
+                // var status = 0;
 
-                var panorama = document.getElementsByClassName('gallery-area-panorama');
-                var status = 0;
-
-                for(var i = 0; i< this.panorama_count; i++) {
-                        var preview = document.getElementsByClassName('preview-panorama');
-                        if(document.getElementById('preview-panorama'+i)) {
-                                if(status == 0) { var j = i; } else { var j = i+1; }
-                        } else {
-                                if(status == 0) { var j = i+1; } else { var j = i+2; }
-                                status = 1;
-                        }
+                // for(var i = 0; i< this.panorama_count; i++) {
+                //         var preview = document.getElementsByClassName('preview-panorama');
+                //         if(document.getElementById('preview-panorama'+i)) {
+                //                 if(status == 0) { var j = i; } else { var j = i+1; }
+                //         } else {
+                //                 if(status == 0) { var j = i+1; } else { var j = i+2; }
+                //                 status = 1;
+                //         }
                         
-                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
+                //         var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
                         
-                        if(file && i<this.panorama_count) {
-                                var file_name = file.name;
-                                        let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        fd.append('type', 'panorama')
-                                        this.axios.post('/api/nursing/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
-
-                        }
+                //         if(file && i<this.panorama_count) {
+                //             var file_name = file.name;
+                //             let fd = new FormData();
+                //             fd.append('file' ,file )
+                //             fd.append('photo' ,file_name )
+                //             fd.append('type', 'panorama')
+                //             this.axios.post('/api/nursing/movephoto', fd)
+                //                 .then(response => {
+                //                 }).catch(error=>{
+                //                         console.log(error);
+                //                 if(error.response.status == 422){
+                //                         this.errors = error.response.data.errors
+                //                 }
+                //             })
+                //         }
                          
-                        this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
-                } 
+                //         this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
+                //         console.log(this.panorama)
+                // } 
                 
 
             },
