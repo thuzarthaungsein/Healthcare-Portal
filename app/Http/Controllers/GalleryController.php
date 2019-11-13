@@ -30,7 +30,7 @@ class GalleryController extends Controller
     }
 
     public function getPanoramabyCustomerId($customer_id) {
-        $panorama_list = Gallery::where("customer_id",$customer_id)
+        $panorama_list = Gallery::select('id','photo','title','description','type')->where("customer_id",$customer_id)
                             ->where('type','=', 'panorama')
                             ->get()
                             ->toArray();

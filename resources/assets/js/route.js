@@ -55,16 +55,35 @@ import passport from "./components/passport.vue";
 import specialfeature from "./components/CreateSpecialFeature.vue";
 import nursingFavouriteMail from "./components/nursingFavouriteMail.vue";
 import nursingMailConfirm from "./components/nursingMailConfirm.vue";
-//import hospitalfavouritemail from './components/hospitalfavouritemail.vue';
 import modal from './components/modal.vue';
 import termsAndConditions from './components/termsAndConditions.vue';
 import occupation from './components/occupation.vue';
 import occupationlist from './components/occupationlist.vue';
+import nursingSearch from './components/nursingSearch.vue';
+import jobSearch from './components/jobSearch.vue';
+import News from './components/News.vue';
+
 export const routes = [
+    // {
+    //     name: 'home',
+    //     path: '/',
+    //     component: home
+    // },
     {
-        name: 'home',
+        name: 'News',
         path: '/',
-        component: home
+        component: News
+    },
+  
+    {
+        name: 'jobSearch',
+        path: '/jobSearch',
+        component: jobSearch
+    },
+    {
+        name: 'nursingSearch',
+        path: '/nursingSearch',
+        component: nursingSearch
     },
     {
         name: "passport",

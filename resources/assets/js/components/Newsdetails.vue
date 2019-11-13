@@ -1,30 +1,8 @@
 <template>
+  
+<layout>
   <div>
     <!-- news details-->
-    <!--menu tabs-->
-    <ul class="nav nav-tabs news-tabColor" role="tablist" id="navtab">
-      <li role="presentation" class="active subtab1 nav-item">
-        <a @click="changeRoute($event,'news')" href="#tab1" role="tab" data-toggle="tab" class="nav-link active">
-          <i @click="changeRoute" class="fas fa-newspaper"></i> ニュース
-        </a>
-      </li>
-      <li role="presentation" class="subtab3 nav-item">
-        <a @click="changeRoute($event,'nursing')" href="#tab3" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-user-md"></i> 介護施設検索
-        </a>
-      </li>
-      <li role="presentation" class="subtab2 nav-item">
-        <a @click="changeRoute($event,'hospital')" href="#tab2" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-briefcase-medical"></i> 病院検索
-        </a>
-      </li>      
-      <li role="presentation" class="subtab5 nav-item">
-        <a @click="changeRoute($event,'job')" href="#tab4" role="tab" data-toggle="tab" class="nav-link">
-          <i class="fas fa-users"></i> 求人検索
-        </a>
-      </li>
-    </ul>
-    <!--end menu tabs-->
 
     <!-- Tab panes -->
     <div class="tab-content tab-content1 tabs">
@@ -160,30 +138,19 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab3">
-        <nursingSearch></nursingSearch>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="tab2">
-        <hospitalSearch></hospitalSearch>
-      </div>           
-      <div role="tabpanel" class="tab-pane fade" id="tab4">
-        <jobSearch></jobSearch>
-      </div>
+     
     </div>
     <!--end Tab panes-->
   </div>
   <!-- end news details-->
+  </layout>
 </template>
 
 <script>
-import hospitalSearch from "./hospitalSearch.vue";
-import nursingSearch from "./nursingSearch.vue";
-import jobSearch from "./jobSearch.vue";
+import layout from '../components/home.vue'
 export default {
   components: {
-    hospitalSearch,
-    nursingSearch,
-    jobSearch
+    layout
   },
 
   data() {
@@ -231,14 +198,11 @@ export default {
       });
     },
     changeRoute(e,tab){
-        console.log(e.target.hash);
         $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');                        
         $('#navtab').addClass(tab+'-tabColor');
         $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
         $('.tab-content').addClass(tab+'-borderColor'); 
-        // if(tab == 'news'){
-          this.$router.push({name:'home',params:{page:e.target.hash}});
-        // }       
+          this.$router.push({name:'home',params:{page:e.target.hash}});   
     },
   }
 };

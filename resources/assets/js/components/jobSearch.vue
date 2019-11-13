@@ -1,4 +1,5 @@
 <template>
+<layout>
 <div>
    <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">
      <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5></div>
@@ -438,11 +439,11 @@
                             </tr>
                             <tr>
                               <td><span class="job_ico">&#xa5;</span>給料</td>
-                              <td> {{job.salary}}</td>
+                              <td>{{job.salary_type}} : {{(Number(job.salary)).toLocaleString()}} ¥ </td>
                             </tr>
                             <tr>
                               <td><span class="job_ico">時</span>勤務時間/日/休日の詳細</td>
-                              <td> {{job.working_hours}} / {{job.holidays}} </td>
+                              <td> {{job.working_hours}} / {{job.holidays}}  </td>
                             </tr>
                             <tr>
                               <td><span class="job_ico"><i class="fa fa-briefcase"></i></span>特別な条件</td>
@@ -466,14 +467,17 @@
     </div>
   </div>
   </div>
+</layout>
 </template>
 
 
 <script>
+import layout from '../components/home.vue'
 import asidebar from "./aside.vue";
 export default {
     components: {
-      asidebar
+      asidebar,
+      layout
     },
     data(){
       return{
@@ -499,6 +503,12 @@ export default {
         job_data:[]
       }
     },
+    mounted() {
+            $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
+            $('#navtab').addClass('job-tabColor');
+            $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
+            $('#upper-tab').addClass('job-borderColor');
+        },
   methods:{
 
     search()
@@ -723,5 +733,17 @@ table > tbody > tr th{
   width:140px;
   padding:25px;
 }
+.job-tabColor .nav-link {
+    background: #828282 !important;
+    color: #fff;
+    border-right: 1px solid #fff;
+}
+
+.job-borderColor {
+    border: 1px solid #828282 !important;
+}
+.tab-pane{
+        padding: 10px;
+    }
 
 </style>
