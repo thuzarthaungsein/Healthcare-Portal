@@ -391,8 +391,6 @@
               </tr>
             </tbody>
           </table>
-          </div>
-
           <div class="col-12">
             <div class="row">
             
@@ -511,6 +509,9 @@
                 </ul>
               </nav>
             </div>
+          </div>
+
+          
       </div>
     </div>
   </div>

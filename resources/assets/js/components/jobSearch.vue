@@ -412,11 +412,9 @@
 
               </tbody>
             </table>
-            </div>  
-            
-              <div class=" col-12">
+             <div class=" col-12">
                 <div class="row">
-                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in job_data" :key="job.jobid">
+                   <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="job in displayItems" :key="job.jobid">
                      <div class="job-content">
                       <div class="job-header">
                         <h5 class="job-tit">
@@ -458,9 +456,33 @@
                         </div>
                     </div>
                   </div>
-                </div>        
+                </div>                       
               </div>
+            <div class="offset-md-4 col-md-8 mt-3">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <span class="spanclass" @click="first">最初</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="prev">前へ</span>
+                  </li>
+                  <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                    <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="next">次へ</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="last">最後</span>
+                  </li>                 
+                </ul>
+              </nav>
+            </div>  
+            </div>  
             
+             
+                        
         </div>
       </div>
 
@@ -500,7 +522,12 @@ export default {
         toggleCheck: true,
         toggleCheck_1: false,
         empstatus:[],
-        job_data:[]
+        job_data:[],
+        currentPage: 0,
+        size: 4,
+        pageRange: 5,
+        items: [],
+        show_paginate: false,
       }
     },
     mounted() {
@@ -508,7 +535,7 @@ export default {
             $('#navtab').addClass('job-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('job-borderColor');
-        },
+        },        
   methods:{
 
     search()
@@ -622,6 +649,7 @@ export default {
          })
         
         this.search();
+        this.show_paginate = true;
 
       },
 
@@ -644,10 +672,65 @@ export default {
         if(e.target.tagName ==='path'){
          //console.log(e)
         }
+      },
+      first() {
+      this.currentPage = 0;
+    },
+    last() {
+      this.currentPage = this.pages - 1;
+    },
+    prev() {
+      if(0<this.currentPage) {
+        this.currentPage--;
       }
-
+    },
+    next() {
+      if(this.currentPage < this.pages - 1) {
+        this.currentPage++;
+      }
+    },
+    pageSelect(index) {
+      this.currentPage = index - 1;
     }
+    },
+    computed: {
+    pages() {
+      return Math.ceil(this.job_data.length / this.size);
+    },
+    displayPageRange() {
+      const half = Math.ceil(this.pageRange/2);
+      const isEven = this.pageRange / 2 == 0;
+      const offset = isEven ? 1 : 2;
+      let start, end;
+      if(this.pages < this.pageRange) {
+        start = 1;
+        end = this.pages;
+      }else if (this.currentPage < half) {
+        start = 1;
+        end = start + this.pageRange - 1;
+      }else if (this.pages - half < this.currentPage) {
+        end = this.pages;
+        start = end - this.pageRange + 1;
+      }else {
+        start = this.currentPage - half + offset;
+        end = this.currentPage + half;
+      } 
+      let indexes = [];
+      for (let i = start; i <= end; i++) {
+        indexes.push(i);
+      }
+      return indexes;
+    },
+    displayItems() {
+      const head = this.currentPage * this.size;
+      return this.job_data.slice(head, head + this.size);
+    },
+    isSelected(page) {
+      return page - 1 == this.currentPage;
+    }
+	},    
 };
+
   // $("#search").on("click", function() {
   //   alert('a');
   //     // $("body").scrollTop(0);
@@ -672,6 +755,9 @@ $(function() {
     border: 1px solid #8e3c15;
 }
 .jobselect {
+  display: none;
+}
+.offset {
   display: none;
 }
 span.tooltip {
@@ -745,5 +831,15 @@ table > tbody > tr th{
 .tab-pane{
         padding: 10px;
     }
+    .offset{
+  width: 500px !important;
+  margin: 20px auto;  
+}
+.page-item.active_page .spanclass {
+  z-index: 1;
+  background-color: #ffbb99;
+    background-image: none;
+    border: 1px solid #8e3c15;
+}
 
 </style>
