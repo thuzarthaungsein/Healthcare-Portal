@@ -772,6 +772,7 @@
   } from '../event-bus.js';
   import jp_cities from '../google-map-kml/jp_cities.json';
   import jp_township from '../google-map-kml/jp_township.json';
+  import jp_cities_multipart from '../google-map-kml/japan-multipart.geojson';
   export default {
 
     name: "mymap",
@@ -1225,6 +1226,8 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
+                const jp_multipart = jp_cities_multipart.features
+                console.log(jp_multipart)
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){

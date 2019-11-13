@@ -120,7 +120,7 @@
                                     <div class="col-md-12 row adslist-card news-3-card m-0">
                                         <div class="col-md-4 img-box">
                                             <router-link :to="'/newsdetails/'+item.id">
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt">
+                                                <img v-lazyload v-bind:src="'/upload/news/' + item.photo"   class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt">
                                             </router-link>
                                         </div>
 
@@ -338,11 +338,16 @@
             asidebar,
             layout
         },
-        mounted() {
+      async  mounted() {
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
             $('#navtab').addClass('news-tabColor');
             $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');
             $('#upper-tab').addClass('news-borderColor');
+            this.getAllCat();
+        this.getLatestPostsByCatID();
+        this.getPostByCatID();
+        this.getLatestPostByCatID();
+        this.getLatestPostFromAllCat();
         },
     data() {
         return {
@@ -407,11 +412,7 @@
         }
     
 
-        this.getAllCat();
-        this.getLatestPostsByCatID();
-        this.getPostByCatID();
-        this.getLatestPostByCatID();
-        this.getLatestPostFromAllCat();
+        
     //     this.categoryId();
     },
     methods: {        

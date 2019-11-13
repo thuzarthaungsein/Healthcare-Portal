@@ -91,6 +91,10 @@ Vue.use(VueLoading, {
     text: '送信中'
 })
 
+
+import VueTinyLazyloadImg from 'vue-tiny-lazyload-img'
+Vue.use(VueTinyLazyloadImg);
+
 window.events = new Vue();
 window.flash = function(message) {
     window.events.$emit('flash', message);
