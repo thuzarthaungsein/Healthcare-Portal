@@ -2383,7 +2383,12 @@ ul.sub-ul li {
 .m-r-20 {
     margin-right: 20px;
 }
-
+.m-r-15{
+    margin-right: 15px;
+}
+.m-r-10{
+    margin-right: 10px;
+}
 .m-l-14 {
     margin-left: 14px;
 }
@@ -4748,7 +4753,7 @@ a:hover {
 }
 
 #profile-nav .subtab1 {
-    margin-bottom: -3px !important;
+    margin-bottom: -2px !important;
     border-right: 1px solid #f3a523 !important;
 }
 
