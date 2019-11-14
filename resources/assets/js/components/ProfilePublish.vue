@@ -872,15 +872,15 @@
             
                 
 
-                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
+                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                     病院情報
                 </button>
 
-                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
+                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
                     口コミ
                 </button>
 
-                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
+                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
                     地図
                 </button>
 
@@ -1350,7 +1350,7 @@ export default {
                 images:[],
                 videos:[],
                 pm_arr:[],
-                active_el:null,
+                active_el:0,
                 width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
@@ -1435,14 +1435,14 @@ export default {
                     $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     var cur_pos = $(this).scrollTop();  
                    
-                    $('.ele').each(function(active_el){
+                //     $('.ele').each(function(active_el){
                
-                       if($(this).position().top <= cur_pos){                                
+                //        if($(this).position().top <= cur_pos){                                
 
-                            $('.top-fixed-btn').removeClass('active');      
-                            $('.top-fixed-btn').eq(active_el+1).addClass('active');                   
-                       }
-                   });
+                //             $('.top-fixed-btn').removeClass('active');      
+                //             $('.top-fixed-btn').eq(active_el+1).addClass('active');                   
+                //        }
+                //    });
 
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
@@ -1747,7 +1747,7 @@ export default {
 
              activate:function(el){
 
-                // this.active_el = el;
+                 this.active_el = el;
 
             },
 
