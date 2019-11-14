@@ -621,7 +621,7 @@ export default {
           this.id = id
          })
         
-        this.search();
+     
 
       },
 

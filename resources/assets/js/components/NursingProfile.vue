@@ -46,32 +46,31 @@
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
+                            
                                     <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
                                     <i class="fas fa-plus-circle"></i> 加算</span>
                                     <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
                                         <i id="gallery" class="fas fa-sort-down"></i>
                                    </span>
                             <div id="changeGalleryLink"  class="col-md-12">
-                                    <div class="row" id ="gallery-photo">
+                                    <div class="row" id ="gallery-photo"> 
                                             <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
-                                                                <div class="col-md-12">
-                                                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
-                                                                        <div class="col-md-12 m-b-10" v-bind:class="img.classname">
-                                                                                <input type="hidden" class="already-photo" v-model="img.photo">
-                                                                                <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt">
-                                                                        </div>
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="img.title">
-                                                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description"></textarea>
-                                                                </div>
-                                                                <div class="col-md-12 text-right">
-                                                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
-                                                                </div>
-
-                                                </div>
+                                                    <div class="col-md-12">
+                                                            <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
+                                                            <div class="col-md-12 m-b-10" v-bind:class="img.classname">
+                                                                    <input type="hidden" class="already-photo" v-model="img.photo">
+                                                                    <img :src="'/upload/nursing_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt">
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                            <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="img.title">
+                                                            <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description"></textarea>
+                                                    </div>
+                                                    <div class="col-md-12 text-right">
+                                                            <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
+                                                    </div>
+                                            </div>
                                     </div>
-
                             </div>
                     </div>
 
@@ -685,7 +684,7 @@ export default {
                         placeholder:'Type your post...',
                         readonly:true,
                         theme:'snow',
-                },
+                }, 
 
                 feature_val: '',
                 acceptance_remark_val: '',
@@ -699,7 +698,7 @@ export default {
         },
 
         mounted() {
-        document.getElementById('btn_click').click();
+           document.getElementById('btn_click').click();
         },
 
         created(){
@@ -720,24 +719,23 @@ export default {
                 this.axios
                 .get('/api/customerinfo/'+this.cusid)
                 .then(response=>{
-                        this.customer_info = response.data;
+                        this.customer_info = response.data;   
                 });
 
                 this.axios
                 .get('/api/nursinginfo/'+this.cusid)
                 .then(response=>{
                         this.nursing_info = response.data;
-                        console.log(this.cusid);
-                        console.log(response.data);
+                        
 
 
                         if(this.nursing_info.latitude == 0){
-                            console.log("0");
+                           
                             localStorage.setItem('lat_num',35.6803997);
                             localStorage.setItem('lng_num',139.76901739);
                         }
                         else{
-                            console.log(this.nursing_info.latitude);
+                           
                             localStorage.setItem('lat_num',this.nursing_info.latitude);
                             localStorage.setItem('lng_num',this.nursing_info.longitude);
                         }
@@ -808,10 +806,10 @@ export default {
             },
 
                 onEditorBlur(quill) {
-        console.log('editor blur  !', quill)
+      
       },
       onEditorFocus(quill) {
-        console.log('editor focus!', quill)
+       
       },
             maptogglediv() {
                     $(".map-toggle-div").toggle('medium');
@@ -856,44 +854,16 @@ export default {
                 // var panorama = document.getElementsByClassName('gallery-area-panorama');
                 // var status = 0;
 
-                // for(var i = 0; i< this.panorama_count; i++) {
-                //         var preview = document.getElementsByClassName('preview-panorama');
-                //         if(document.getElementById('preview-panorama'+i)) {
-                //                 if(status == 0) { var j = i; } else { var j = i+1; }
-                //         } else {
-                //                 if(status == 0) { var j = i+1; } else { var j = i+2; }
-                //                 status = 1;
-                //         }
-                        
-                //         var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
-                        
-                //         if(file && i<this.panorama_count) {
-                //             var file_name = file.name;
-                //             let fd = new FormData();
-                //             fd.append('file' ,file )
-                //             fd.append('photo' ,file_name )
-                //             fd.append('type', 'panorama')
-                //             this.axios.post('/api/nursing/movephoto', fd)
-                //                 .then(response => {
-                //                 }).catch(error=>{
-                //                         console.log(error);
-                //                 if(error.response.status == 422){
-                //                         this.errors = error.response.data.errors
-                //                 }
-                //             })
-                //         }
-                         
-                //         this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
-                //         console.log(this.panorama)
-                // } 
+                
                 
 
             },
            closeBtnMethod: function(indx) {
                 if(confirm("Are you sure you want to delete?"))
                 {
-                    var panorama_x = document.getElementById('x-panorama'+indx);
-                    panorama_x.parentNode.removeChild(panorama_x);
+                    // var panorama_x = document.getElementById('x-panorama'+indx);
+                    // panorama_x.parentNode.removeChild(panorama_x);
+                    this.panorama_arr.splice(indx, 1);
                 }
             },
 
@@ -925,6 +895,7 @@ export default {
                     var c = "'"+classname+"'";
 
                     this.img_arr.push({classname:classname,photo:'',title:'',description:''});
+                 
             },
 
              galleryVideoAdd() {
@@ -1263,12 +1234,36 @@ export default {
 
                 var old_panorama = document.getElementsByClassName('panorama-old-img');
                 var new_panorama = document.getElementsByClassName('panorama-new-img');
+                console.log(old_panorama);
+                console.log(new_panorama);
                 if(this.panorama_length != old_panorama.length || new_panorama.length > 0){
                     for(var i = 0; i< this.panorama_arr.length; i++) {
                         this.panorama_list.push({type:"panorama",photo:this.panorama_arr[i].photo,title:'',description:''});
+                        console.log("this.panorama_list");
                         console.log(this.panorama_list);
                     }                
                 }
+                else{
+                    this.panorama_list = [];
+                }
+
+                for(var i = 0; i< new_panorama.length; i++) {
+                       
+                    var file = document.getElementsByClassName('nursing-panorama')[0].files[i];
+                    var file_name = file.name;
+                    let fd = new FormData();
+                    fd.append('file' ,file )
+                    fd.append('photo' ,file_name )
+                    fd.append('type', 'panorama')
+                    this.axios.post('/api/nursing/movephoto', fd)
+                        .then(response => {
+                        }).catch(error=>{
+                                console.log(error);
+                        if(error.response.status == 422){
+                                this.errors = error.response.data.errors
+                        }
+                    })                      
+                } 
                 
                 // var already_panorama = document.getElementsByClassName('already-panorama');
                 // var panorama = document.getElementsByClassName('gallery-area-panorama');
