@@ -641,7 +641,7 @@
       },
       getStateClick(e) {
         
-          this.hos_data = null;
+          
         //   if(this.townshipID.length > 0)
         //   {
         //     this.townshipID = [];
