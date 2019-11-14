@@ -35,11 +35,11 @@
                                     </GmapMap>
                                 </div>
                                 <div class="modal-body">
-                                    <strong>住所</strong>
+                                    <span class="job_ico"><i class="fas fa-map-marker-alt"></i></span><strong>住所</strong>
                                     <br>
                                     <span>{{address}}</span>
                                     <hr>
-                                    <strong>最寄り駅</strong>
+                                    <span class="job_ico"><i class="fa fa-map-signs"></i></span><strong>最寄り駅</strong>
                                     <br>
                                     <p v-html="access"></p>
                                 </div>
@@ -75,8 +75,8 @@
                                                     <br>
                                                     <small>[{{payment.living_room_type}}] {{payment.area}}</small>
                                                 </td>
-                                                <td style="font-size:large;color:#ff6117;">{{payment.expense_moving}}</td>
-                                                <td style="font-size:large;color:#ff6117;">{{payment.monthly_fees}}</td>
+                                                <td class="profile_price">{{payment.expense_moving}}</td>
+                                                <td class="profile_price">{{payment.monthly_fees}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <!-- end monthly cost -->
-                <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
+                <div class="col-12 m-t-20"  id="fav-history-page">
                     <div class="row justify-content-lg-center">
                         <div class="card-carousel-wrapper">
 
@@ -99,13 +99,12 @@
                                     <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                                         <div class="card-carousel--card">
                                             <div class="card-carousel--card--footer">
-
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt @error="imgUrlAlt"/>
-                                                            <br>
-
+                                                            <div class="profile_img_wrap">
+                                                                <img class="profile_img" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt @error="imgUrlAlt"/>
+                                                            </div>
                                                             <router-link class="pseudolink" :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" >{{nur_profile.name}}</router-link>
 
                                                         </td>
@@ -125,14 +124,14 @@
                                                     </tr>
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                            <div style="width:250px;">{{nur_profile.email}}</div>
+                                                            <div class="profile_wd">{{nur_profile.email}}</div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">住所</dt>
-                                                            <dd style="width:250px;">{{nur_profile.township_name}} {{nur_profile.city_name}}</dd>
+                                                            <dt class="text-left">住所</dt>
+                                                            <dd class="profile_wd">{{nur_profile.township_name}} {{nur_profile.city_name}}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -140,23 +139,23 @@
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">交通アクセス</dt>
-                                                                <dd style="width:250px;"><p v-html="nur_profile.access"></p></dd>
+                                                                <dt class="text-left">交通アクセス</dt>
+                                                                <dd class="profile_wd"><p v-html="nur_profile.access"></p></dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                        <div style="width:250px;"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
+                                                        <div class="profile_wd"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i>地図・交通アクセス</span></div>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">入居時の費用</dt>
-                                                            <dd style="width:250px;color:#ff6117;font-size:large;"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
+                                                            <dt class="text-left">入居時の費用</dt>
+                                                            <dd class="profile_price"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -164,23 +163,23 @@
                                                  <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">月額の費用</dt>
-                                                            <dd style="color:#ff6117;font-size:large;width:250px;"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
+                                                            <dt class="text-left">月額の費用</dt>
+                                                            <dd class="profile_price"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
 
                                                  <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
-                                                        <div style="width:250px;"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
+                                                        <div class="profile_wd"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i>料金プランの詳細</span></div>
                                                     </td>
                                                 </tr>
 
                                                  <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">入居条件</dt>
-                                                            <dd style="width:250px">{{nur_profile.occupancy_condition }}</dd>
+                                                            <dt class="text-left">入居条件</dt>
+                                                            <dd class="profile_wd">{{nur_profile.occupancy_condition }}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -188,7 +187,7 @@
                                                      <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <ul class="fac_container profile_wd">
-                                                                <h6 style="text-align:left;font-weight:bold;">特長</h6>
+                                                                <h6 class="text-left font-weight-bold">特長</h6>
                                                                 <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                             </ul>
                                                         </td>
@@ -197,9 +196,9 @@
                                                     <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id" >
                                                         <dl>
-                                                            <dt style="text-align:left;">定員</dt>
-                                                            <dd v-if="nur_profile.capacity != null" style="width:250px;">{{nur_profile.capacity }} </dd>
-                                                            <dd v-else style="width:250px;">-人</dd>
+                                                            <dt class="text-left">定員</dt>
+                                                            <dd v-if="nur_profile.capacity != null" class="profile_wd">{{nur_profile.capacity }} </dd>
+                                                            <dd v-else class="profile_wd">-人</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -207,8 +206,8 @@
                                                 <tr>
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">開設日</dt>
-                                                            <dd style="width:250px;">{{nur_profile.date_of_establishment }}</dd>
+                                                            <dt class="text-left">開設日</dt>
+                                                            <dd class="profile_wd">{{nur_profile.date_of_establishment }}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
