@@ -466,8 +466,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><span>{{items.moving_in_to}} </span>万円</td>
-                                                <td><span>{{items.per_month_to}} </span>万円</td>
+                                                <td><span>{{(Number(items.moving_in_to)/10000).toLocaleString()}} </span>万円</td>
+                                                <td><span>{{(Number(items.per_month_to)/10000).toLocaleString()}} </span>万円</td>
                                             </tr>
                                         </tbody>                               
                                     </table>
@@ -694,11 +694,22 @@
                             </tr> -->
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
-                                <td><span class="cash-lbl">{{nus.moving_in_to}} </span>万円</td>
+                                <!-- <td><span class="cash-lbl">{{Number(nus.moving_in_to)/10000}} </span>万円</td> -->
+                                <td class="cash-lbl">
+                                    {{(Math.floor(Number(nus.moving_in_from)/10000))==0? '' : (Math.floor(Number(nus.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_from)%10000)==0 ? '' : (Number(nus.moving_in_from)%10000).toLocaleString()}}円
+                                        ~
+                                    {{(Math.floor(Number(nus.moving_in_to)/10000))==0? '' : (Math.floor(Number(nus.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_to)%10000)==0 ? '' : (Number(nus.moving_in_to)%10000).toLocaleString()}}円
+                                </td>
                             </tr>      
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
-                                <td><span class="cash-lbl">{{nus.per_month_to}} </span>万円</td>
+                                <td>
+                                    <font class="cash-lbl">
+                                        {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
+                                            ~
+                                        {{(Math.floor(Number(nus.per_month_to)/10000))==0? '' : (Math.floor(Number(nus.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_to)%10000)==0 ? '' : (Number(nus.per_month_to)%10000).toLocaleString()}}円
+                                    </font>
+                                </td>
                             </tr>    
                             <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
@@ -1097,8 +1108,8 @@
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
                                 '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
@@ -1203,7 +1214,8 @@
             this.currentOffset += this.paginationFactor;
             }
         },
-        getStateClick(e) {      
+        getStateClick(e) {
+           this.nus_data = null;
 
             if(this.townshipID.length > 0)
             {
@@ -1424,8 +1436,8 @@
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                                 '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
