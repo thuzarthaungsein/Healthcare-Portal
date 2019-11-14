@@ -975,7 +975,7 @@
                     // }
                 }
 
-                const theCity = this.markers[0]['city_eng']
+                const theCity = this.markers[0]['city_name']
                 const lat = this.markers[0]['latitude']
                 const lng = this.markers[0]['longitude']
                 const result = jp_township.features //jp_cities
@@ -991,24 +991,29 @@
                 const city_coordinates = []
                 
                 if(township_name == ''){
-                    for (var i = 0; i < jp_city.length; i++) {
-                    if (jp_city[i].properties.NAME_0 == theCity) {
-                    
-                    if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                    {
-                        for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+               
+                    for (var i = 0; i < jp_city.length; i++) 
                     {
                     
-                        city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                    }
-                    }
-                    else{          
-                        city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                    
-                    }
-                    }
-                }
+                        if (jp_city[i].properties.NAME_0 == theCity)
+                        {
+                            if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                            {
+                                for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                                {
+                                
+                                    city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                                }
+                            }
+                            else
+                            {          
+                                city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                            
+                            }
+                        }
+                   }
                 }else{
+                  console.log('notnull');
                     for (var i = 0; i < result.length; i++) {
                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
                     coordinates.push(result[i].geometry['coordinates'])
@@ -1157,7 +1162,9 @@
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
                 var theCity = this.citylatlng[0]['city_eng']
-                const result = json.features
+                const result = jp_township.features
+  
+
                 const coordinates = []
                 for (var i = 0; i < result.length; i++) {
                     if (result[i].Name == theCity) {
@@ -1188,9 +1195,16 @@
                     strokeWeight: 1
                 })
             }
-                
-            })
-            this.show_paginate = true;            
+                console.log('search',this.nus_data)
+            if(this.nus_data.length > this.size){
+                this.show_paginate = true;
+                console.log('true')
+            }else{
+                this.show_paginate = false;
+                console.log('false')
+            }
+            })            
+                        
         },
         openInfoWindow(marker) {
             this.selectedLocation = marker;
@@ -1215,8 +1229,7 @@
             }
         },
         getStateClick(e) {
-           this.nus_data = null;
-
+         
             if(this.townshipID.length > 0)
             {
                 this.townshipID = [];
@@ -1258,6 +1271,8 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
+
+             this.search();
         },
         nursingSearchData(index){
             if(index == 1)
@@ -1277,6 +1292,8 @@
                 .then((response) => {
                     this.changeMap(response)
                 })
+
+           
             
         },
         changeMap(response){
@@ -1307,6 +1324,7 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
+
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){

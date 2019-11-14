@@ -112,7 +112,7 @@ Vue.component('ads_slider', require('./components/ads_slider.vue'));
 Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
 Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
 Vue.component('autocomplete', Autocomplete);
-
+Vue.use(VueClazyLoad)
 const router = new VueRouter({
     mode: 'history',
     routes: routes
