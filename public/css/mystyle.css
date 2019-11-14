@@ -8309,3 +8309,18 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
+/*pagination */
+.offset{
+    width: 500px !important;
+    margin: 20px auto;  
+  }
+  .page-item.active_page .spanclass {
+    z-index: 1;
+    background-color: #ffbb99;
+      background-image: none;
+      border: 1px solid #8e3c15;
+  }
+  .page-item .spanclass{
+    cursor: pointer;
+  }
+  /* end pagination*/
