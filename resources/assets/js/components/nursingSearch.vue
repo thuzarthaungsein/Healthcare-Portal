@@ -466,8 +466,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><span>{{items.moving_in_to}} </span>万円</td>
-                                                <td><span>{{items.per_month_to}} </span>万円</td>
+                                                <td><span>{{(Number(items.moving_in_to)/10000).toLocaleString()}} </span>万円</td>
+                                                <td><span>{{(Number(items.per_month_to)/10000).toLocaleString()}} </span>万円</td>
                                             </tr>
                                         </tbody>                               
                                     </table>
@@ -694,11 +694,22 @@
                             </tr> -->
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
-                                <td><span class="cash-lbl">{{nus.moving_in_to}} </span>万円</td>
+                                <!-- <td><span class="cash-lbl">{{Number(nus.moving_in_to)/10000}} </span>万円</td> -->
+                                <td class="cash-lbl">
+                                    {{(Math.floor(Number(nus.moving_in_from)/10000))==0? '' : (Math.floor(Number(nus.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_from)%10000)==0 ? '' : (Number(nus.moving_in_from)%10000).toLocaleString()}}円
+                                        ~
+                                    {{(Math.floor(Number(nus.moving_in_to)/10000))==0? '' : (Math.floor(Number(nus.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_to)%10000)==0 ? '' : (Number(nus.moving_in_to)%10000).toLocaleString()}}円
+                                </td>
                             </tr>      
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
-                                <td><span class="cash-lbl">{{nus.per_month_to}} </span>万円</td>
+                                <td>
+                                    <font class="cash-lbl">
+                                        {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
+                                            ~
+                                        {{(Math.floor(Number(nus.per_month_to)/10000))==0? '' : (Math.floor(Number(nus.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_to)%10000)==0 ? '' : (Number(nus.per_month_to)%10000).toLocaleString()}}円
+                                    </font>
+                                </td>
                             </tr>    
                             <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
@@ -964,7 +975,7 @@
                     // }
                 }
 
-                const theCity = this.markers[0]['city_eng']
+                const theCity = this.markers[0]['city_name']
                 const lat = this.markers[0]['latitude']
                 const lng = this.markers[0]['longitude']
                 const result = jp_township.features //jp_cities
@@ -980,24 +991,29 @@
                 const city_coordinates = []
                 
                 if(township_name == ''){
-                    for (var i = 0; i < jp_city.length; i++) {
-                    if (jp_city[i].properties.NAME_0 == theCity) {
-                    
-                    if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                    {
-                        for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+               
+                    for (var i = 0; i < jp_city.length; i++) 
                     {
                     
-                        city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                    }
-                    }
-                    else{          
-                        city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                    
-                    }
-                    }
-                }
+                        if (jp_city[i].properties.NAME_0 == theCity)
+                        {
+                            if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                            {
+                                for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                                {
+                                
+                                    city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                                }
+                            }
+                            else
+                            {          
+                                city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                            
+                            }
+                        }
+                   }
                 }else{
+                  console.log('notnull');
                     for (var i = 0; i < result.length; i++) {
                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
                     coordinates.push(result[i].geometry['coordinates'])
@@ -1097,8 +1113,8 @@
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
                                 '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
@@ -1146,7 +1162,9 @@
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
                 var theCity = this.citylatlng[0]['city_eng']
-                const result = json.features
+                const result = jp_township.features
+  
+
                 const coordinates = []
                 for (var i = 0; i < result.length; i++) {
                     if (result[i].Name == theCity) {
@@ -1203,8 +1221,8 @@
             this.currentOffset += this.paginationFactor;
             }
         },
-        getStateClick(e) {      
-
+        getStateClick(e) {
+         
             if(this.townshipID.length > 0)
             {
                 this.townshipID = [];
@@ -1246,6 +1264,8 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
+
+             this.search();
         },
         nursingSearchData(index){
             if(index == 1)
@@ -1265,6 +1285,8 @@
                 .then((response) => {
                     this.changeMap(response)
                 })
+
+           
             
         },
         changeMap(response){
@@ -1295,6 +1317,7 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
+
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){
@@ -1424,8 +1447,8 @@
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                                 '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+

@@ -641,18 +641,19 @@
       },
       getStateClick(e) {
         
-          if(this.townshipID.length > 0)
-          {
-            this.townshipID = [];
-          }
-          if(this.specialfeatureID.length > 0)
-          {
-            this.specialfeatureID = [];
-          }
-          if(this.subjectID.length > 0)
-          {
-            this.subjectID = [];
-          }
+          
+        //   if(this.townshipID.length > 0)
+        //   {
+        //     this.townshipID = [];
+        //   }
+        //   if(this.specialfeatureID.length > 0)
+        //   {
+        //     this.specialfeatureID = [];
+        //   }
+        //   if(this.subjectID.length > 0)
+        //   {
+        //     this.subjectID = [];
+        //   }
        
           if(e.target.id == ''){
             var id = $('#selectCity').val();
@@ -660,6 +661,7 @@
             var id = e.target.id;
           }
           this.id = id;
+          
          
           this.axios.get('api/getmap',{
               params:{
@@ -679,6 +681,7 @@
               this.id = id;
 
             })
+            this.search();
             
         
       },
