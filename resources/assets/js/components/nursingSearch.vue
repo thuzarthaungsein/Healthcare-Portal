@@ -1195,9 +1195,16 @@
                     strokeWeight: 1
                 })
             }
-                
-            })
-            this.show_paginate = true;            
+                console.log('search',this.nus_data)
+            if(this.nus_data.length > this.size){
+                this.show_paginate = true;
+                console.log('true')
+            }else{
+                this.show_paginate = false;
+                console.log('false')
+            }
+            })            
+                        
         },
         openInfoWindow(marker) {
             this.selectedLocation = marker;
