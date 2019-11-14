@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="offset-md-4 col-md-8 mt-3">
+                         <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -92,6 +92,7 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
+                    pagination: false,
                 }
             },
             created() {
@@ -100,6 +101,11 @@
                     .then(response => {
                         this.occupation = response.data;
                         this.norecord = this.occupation.length;
+                        if(this.norecord > this.size){
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
                     });
             },
             computed: {
@@ -161,6 +167,11 @@
                                 .then(response => {
                                     this.occupation = response.data;
                                     this.norecord = this.occupation.length;
+                                    if(this.norecord > this.size){
+                                        this.pagination = true;
+                                    }else{
+                                        this.pagination = false;
+                                    }
                                     // alert('Delete Successfully!');
                                     // let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
                                     // this.occupation.splice(i, 1)

@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="offset-md-4 col-md-8 mt-3">
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -84,12 +84,18 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
+                    pagination: false
                 };
             },
             created() {
                 this.axios.get("/api/facility/facilities").then(response => {
                     this.facilities = response.data;
                     this.norecord = this.facilities.length;
+                    if(this.norecord > this.size){
+                        this.pagination = true;
+                    }else{
+                        this.pagination = false;
+                    }
                 });
             },
             computed: {
@@ -150,6 +156,11 @@
                                 .then(response => {
                                     this.facilities = response.data;
                                     this.norecord = this.facilities.length;
+                                    if(this.norecord > this.size){
+                                    this.pagination = true;
+                                    }else{
+                                    this.pagination = false;
+                                    }
                                     //alert('Delete Successfully!');
                                     // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
                                     // this.facilities.splice(i, 1);

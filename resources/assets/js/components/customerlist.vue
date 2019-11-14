@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="offset-md-4 col-md-8 mt-3">
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -121,11 +121,17 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
+                    pagination: false,
                 };
             },
             created() {
                 this.axios.get("/api/customers").then(response => {
                     this.customers = response.data;
+                    if(this.customers.length > this.size){
+                        this.pagination = true;
+                    }else{
+                        this.pagination = false;
+                    }
                 });
             },
             computed: {
@@ -181,7 +187,7 @@
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
                         }).then(response => {
-                            this.axios.delete(`/api/customer/delete/${id}`).then(response => {
+                            this.axios.delete(`/api/customer/delete/${id}`).then(response => {                                
                                 this.$swal({
                                     title: "削除された",
                                     text: "ファイルが削除されました。",
@@ -191,6 +197,11 @@
                                     confirmButtonText: "はい",
                                     confirmButtonColor: "#dc3545"
                                 });
+                                if(this.customers.length > this.size){
+                                    this.pagination = true;
+                                }else{
+                                    this.pagination = false;
+                                }
                                 //flash("Delete Success", "success");
                                 let a = this.customers.map(item => item.id).indexOf(id);
                                 this.customers.splice(a, 1);

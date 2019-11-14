@@ -56,7 +56,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="offset-md-4 col-md-8 mt-3">
+                                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -98,6 +98,7 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
+                    pagination: false,
                 };
             },
 
@@ -105,6 +106,11 @@
                 this.axios.get("/api/feature/featurelist").then(response => {
                     this.features = response.data;
                     this.norecord = this.features.length;
+                    if(this.norecord > this.size) {
+                        this.pagination = true;
+                    }else{
+                        this.pagination = false;
+                    }
                 });
             },
             computed: {
@@ -165,6 +171,11 @@
                                 .then(response => {
                                     this.features = response.data;
                                     this.norecord = this.features.length;
+                                    if(this.norecord > this.size) {
+                                        this.pagination = true;
+                                    }else{
+                                        this.pagination = false;
+                                    }
                                     //   alert("Delete Successfully!");
                                     // let i = this.features.map(item => item.id).indexOf(id); // find index of your object
                                     // this.features.splice(i, 1);

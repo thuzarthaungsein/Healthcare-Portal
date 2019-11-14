@@ -74,7 +74,7 @@
                             </div>
 
                         </div>
-                        <div class="offset-md-4 col-md-8 mt-3">
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -123,12 +123,19 @@
                 size: 10,
                 pageRange: 5,
                 items: [],
+                pagination: false,
             };
         },
         created() {
             this.axios.get("/api/news_list").then(response => {
                 this.news_list = response.data;
                 this.norecord = this.news_list.length;
+                if(this.norecord > this.size){
+                    this.pagination = true;
+                }else{
+                    this.pagination = false;
+                }
+                console.log('no',this.norecord)
             });
         },
         mounted() {
@@ -199,6 +206,11 @@
                             .then(response => {
                                 this.news_list = response.data;
                                 this.norecord = this.news_list.length;
+                                if(this.norecord > this.size){
+                                    this.pagination = true;
+                                }else{
+                                     this.pagination = false;
+                                }
                                 // let i = this.news_list.map(item => item.id).indexOf(id);
                                 // this.news_list.splice(i, 1);
                                 this.$swal({
