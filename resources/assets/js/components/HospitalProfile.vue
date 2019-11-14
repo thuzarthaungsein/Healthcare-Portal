@@ -1362,7 +1362,15 @@ export default {
                 this.axios
                 .get('/api/hospitalinfo/'+this.cusid)
                 .then(response=>{
-                        this.hospital_info = response.data;
+                    this.hospital_info = response.data;
+                    if(this.hospital_info.latitude == 0){
+                        localStorage.setItem('lat_num',35.6803997);
+                        localStorage.setItem('lng_num',139.76901739);
+                    }
+                    else{
+                        localStorage.setItem('lat_num',this.hospital_info.latitude);
+                        localStorage.setItem('lng_num',this.hospital_info.longitude);
+                    }
                 });
                 this.axios
                 .get('/api/hospital-pgallery/'+this.cusid)
@@ -1520,6 +1528,10 @@ export default {
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
+                    var latitude = $('#new_lat').val();
+                    var longitude = $('#new_long').val();
+                    localStorage.setItem('lat_num',latitude);
+                    localStorage.setItem('lng_num',longitude);
 
                       var img = document.getElementsByClassName('gallery-area-photo');
                       for(var i = 0; i< img.length; i++) {
@@ -1579,7 +1591,7 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                       this.save_hospital_info.push({access:this.access_val,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       this.save_hospital_info.push({latitude:latitude,longitude:longitude,access:this.access_val,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios

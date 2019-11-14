@@ -116,8 +116,8 @@ export default {
         this.loginuser = true;
        console.log(response.data)
         localStorage.setItem("cusId", response.data.user.customer_id);
-        localStorage.setItem("lat_num", response.data.lat_lng[0].latitude);
-        localStorage.setItem("lng_num", response.data.lat_lng[0].longitude);
+        localStorage.setItem("lat_num", response.data.lat_lng[0].latitude==0?'35.6803997':response.data.lat_lng[0].latitude);
+        localStorage.setItem("lng_num", response.data.lat_lng[0].longitude==0?'139.76901739':response.data.lat_lng[0].longitude);
 
         // localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
         // localStorage.setItem("nursing_fav", this.l_storage_nus_fav);
