@@ -492,19 +492,19 @@
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
-                    <span class="spanclass" @click="first">最初</span>
+                    <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
                   </li>
                   <li class="page-item">
-                    <span class="spanclass" @click="prev">前へ</span>
+                    <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
                   </li>
                   <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
                     <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
                   </li>
                   <li class="page-item">
-                    <span class="spanclass" @click="next">次へ</span>
+                    <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
                   </li>
                   <li class="page-item">
-                    <span class="spanclass" @click="last">最後</span>
+                    <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
                   </li>                 
                 </ul>
               </nav>
@@ -552,7 +552,7 @@
         toggleCheck: true,
         toggleCheck_1: false,
         currentPage: 0,
-        size: 3,
+        size: 1,
         pageRange: 5,
         items: []
       }
@@ -866,4 +866,7 @@ $( '#page-item button' ).on( 'click', function(e) {
 .tab-pane{
         padding: 10px;
     }
+.page-item .spanclass{
+  cursor: pointer;
+}
 </style>
