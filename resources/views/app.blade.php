@@ -28,7 +28,7 @@
 
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
 <script src="{{ asset('js/vue-clazy-load.js') }}"></script>
-<script src="{{ asset('css/vue-lazy-load.css') }}"></script>
+
 <!-- Fonts -->
 <!--mailbox-->
 <!-- Styles -->
@@ -183,11 +183,10 @@
             </button>
 
             <ul class="gNav">
-                <li><a href="/">ホーム</a></li>
-                <li><a href="/">ニュース</a></li>
-                <li><a href="/">介護施設検索</a></li>
-                <li><a href="/">病院検索</a></li>
-                <li><a href="/">求人検索</a></li>
+                <li> <router-link  :to="{ name: 'News' }"> ニュース（ホーム）</router-link></li>
+                <li><router-link :to="{ name: 'nursingSearch' }">介護施設検索</router-link></li>
+                <li><router-link  :to="{ name: 'hospital_search' }" > 病院検索</router-link></li>
+                <li> <router-link  :to="{ name: 'jobSearch' }" >求人検索</router-link></li>
             </ul>
 
 

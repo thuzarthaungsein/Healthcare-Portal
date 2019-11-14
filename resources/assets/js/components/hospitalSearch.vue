@@ -417,10 +417,10 @@
                   </div>
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">
-                        <tr>
+                        <!-- <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
                           <td>{{hos.name}}</td>
-                        </tr>
+                        </tr> -->
                           <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                           <td>{{hos.email}}</td>
@@ -655,7 +655,7 @@
               this.id = id;
 
             })
-            this.search();
+            
         
       },
       getCheck(e) {
