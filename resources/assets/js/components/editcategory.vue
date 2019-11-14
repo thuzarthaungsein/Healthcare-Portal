@@ -59,8 +59,6 @@ export default {
      
               
                   if( `${this.$route.params.id}` && this.errors.name == null ){
-                  
-                  
                          this.axios.post(`/api/category/update/${this.$route.params.id}`, this.category)
                     .then((response) => {
                         this.name = ''

@@ -1430,14 +1430,14 @@ export default {
                 $(document).scroll(function() {
                     // $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     var cur_pos = $(this).scrollTop();
-                     $('.ele').each(function(active_el){
-                        console.log('scroll',active_el);
-                       if($(this).position().top <= cur_pos )
-                       {
-                           $('.top-fixed-btn.active').removeClass('active');//no
-                           $('.top-fixed-btn').eq(active_el).addClass('active');//yes
-                       }
-                   });
+                //      $('.ele').each(function(active_el){
+                //         console.log('scroll',active_el);
+                //        if($(this).position().top <= cur_pos )
+                //        {
+                //            $('.top-fixed-btn.active').removeClass('active');//no
+                //            $('.top-fixed-btn').eq(active_el).addClass('active');//yes
+                //        }
+                //    });
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     } else {
@@ -1741,7 +1741,7 @@ export default {
 
              activate:function(el){
 
-                // this.active_el = el;
+                 this.active_el = el;
 
             },
 

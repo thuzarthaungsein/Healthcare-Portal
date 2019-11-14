@@ -37,12 +37,7 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-             'title' => 'required|unique:advertisements',
-             'location'=>'required',
-             'photo'=>'required',
-         ]);
-
+        
         $imageName = $request->photo->getClientOriginalName();
         $imgname = str_replace(' ', '', $imageName);
         // move_uploaded_file($imageName, '/upload/advertisement/'.$imageName);
@@ -99,10 +94,10 @@ class AdvertisementController extends Controller
     public function update($id,Request $request)
 
     {
-        $request->validate([
-            'title' => 'required',
-            'location'=>'required',
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'location'=>'required',
+        // ]);
 
         if(is_object($request->photo)) {
             $imageName = $request->photo->getClientOriginalName();
