@@ -50,7 +50,7 @@
                   </div>
                   <div class="row col-md-10">
                     <div class="col-md-2 max-width16">
-                      <strong>広告題名:</strong>
+                      <strong>タイトル :</strong>
                     </div>
                     <div class="col-md-10">{{ads.title}}</div>
                     <!-- <div class="col-md-2 max-width16"><strong>描写  :</strong></div><div class="col-md-10">{{ads.description}}</div> -->

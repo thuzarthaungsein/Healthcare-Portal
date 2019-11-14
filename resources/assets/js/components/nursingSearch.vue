@@ -428,9 +428,9 @@
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c">住所</span> {{items.township_name}}{{items.address}}</p></li>
-                                                <li class="list-group-item"><span style="color:#d2571c">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
                                             <!-- <table class="table table-bordered address-tbl">
@@ -466,8 +466,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><span>{{items.moving_in_to}} </span>万円</td>
-                                                <td><span>{{items.per_month_to}} </span>万円</td>
+                                                <td><span>{{(Number(items.moving_in_to)/10000).toLocaleString()}} </span>万円</td>
+                                                <td><span>{{(Number(items.per_month_to)/10000).toLocaleString()}} </span>万円</td>
                                             </tr>
                                         </tbody>                               
                                     </table>
@@ -648,7 +648,7 @@
         
         <div class=" col-12">
             <div class="row">
-                <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in displayItems" :key="nus.id">
                     <div class="nur-content">
                     <div class="job-header">
                     <div class="row pad-free">
@@ -694,11 +694,22 @@
                             </tr> -->
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
-                                <td><span class="cash-lbl">{{nus.moving_in_to}} </span>万円</td>
+                                <!-- <td><span class="cash-lbl">{{Number(nus.moving_in_to)/10000}} </span>万円</td> -->
+                                <td class="cash-lbl">
+                                    {{(Math.floor(Number(nus.moving_in_from)/10000))==0? '' : (Math.floor(Number(nus.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_from)%10000)==0 ? '' : (Number(nus.moving_in_from)%10000).toLocaleString()}}円
+                                        ~
+                                    {{(Math.floor(Number(nus.moving_in_to)/10000))==0? '' : (Math.floor(Number(nus.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_to)%10000)==0 ? '' : (Number(nus.moving_in_to)%10000).toLocaleString()}}円
+                                </td>
                             </tr>      
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
-                                <td><span class="cash-lbl">{{nus.per_month_to}} </span>万円</td>
+                                <td>
+                                    <font class="cash-lbl">
+                                        {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
+                                            ~
+                                        {{(Math.floor(Number(nus.per_month_to)/10000))==0? '' : (Math.floor(Number(nus.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_to)%10000)==0 ? '' : (Number(nus.per_month_to)%10000).toLocaleString()}}円
+                                    </font>
+                                </td>
                             </tr>    
                             <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
@@ -740,8 +751,30 @@
                     </div>                  
                 </div>
                 </div>
+                <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination"> 
+                  <li class="page-item">
+                    <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                  </li>
+                  <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                    <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                  </li>                 
+                </ul>
+              </nav>
+            </div>
             </div>
         </div>
+        
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -813,6 +846,11 @@
         selectedcity:'',
         citylatlng:[],
         view_pro_id: [],
+        currentPage: 0,
+        size: 20,
+        pageRange: 5,
+        items: [],
+        show_paginate: false,
 
       }
     },
@@ -829,6 +867,40 @@
       atHeadOfList() {
         return this.currentOffset === 0;
       },
+    pages() {
+      return Math.ceil(this.nus_data.length / this.size);
+    },
+    displayPageRange() {
+      const half = Math.ceil(this.pageRange/2);
+      const isEven = this.pageRange / 2 == 0;
+      const offset = isEven ? 1 : 2;
+      let start, end;
+      if(this.pages < this.pageRange) {
+        start = 1;
+        end = this.pages;
+      }else if (this.currentPage < half) {
+        start = 1;
+        end = start + this.pageRange - 1;
+      }else if (this.pages - half < this.currentPage) {
+        end = this.pages;
+        start = end - this.pageRange + 1;
+      }else {
+        start = this.currentPage - half + offset;
+        end = this.currentPage + half;
+      } 
+      let indexes = [];
+      for (let i = start; i <= end; i++) {
+        indexes.push(i);
+      }
+      return indexes;
+    },
+    displayItems() {
+      const head = this.currentPage * this.size;
+      return this.nus_data.slice(head, head + this.size);
+    },
+    isSelected(page) {
+      return page - 1 == this.currentPage;
+    }
     },
     methods: {
         search(){        
@@ -903,7 +975,7 @@
                     // }
                 }
 
-                const theCity = this.markers[0]['city_eng']
+                const theCity = this.markers[0]['city_name']
                 const lat = this.markers[0]['latitude']
                 const lng = this.markers[0]['longitude']
                 const result = jp_township.features //jp_cities
@@ -919,24 +991,29 @@
                 const city_coordinates = []
                 
                 if(township_name == ''){
-                    for (var i = 0; i < jp_city.length; i++) {
-                    if (jp_city[i].properties.NAME_0 == theCity) {
-                    
-                    if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                    {
-                        for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+               
+                    for (var i = 0; i < jp_city.length; i++) 
                     {
                     
-                        city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                    }
-                    }
-                    else{          
-                        city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                    
-                    }
-                    }
-                }
+                        if (jp_city[i].properties.NAME_0 == theCity)
+                        {
+                            if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                            {
+                                for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                                {
+                                
+                                    city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                                }
+                            }
+                            else
+                            {          
+                                city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                            
+                            }
+                        }
+                   }
                 }else{
+                  console.log('notnull');
                     for (var i = 0; i < result.length; i++) {
                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
                     coordinates.push(result[i].geometry['coordinates'])
@@ -1013,17 +1090,17 @@
                             '<td>' +
                               '<ul class="list-group list-group-flush nur-caro-card">' +
                                 '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                                '<span style="color:#d2571c">住所</span>' +
-                                    item[i]['address'] + 
+                                '<span style="color:#d2571c" class="m-r-5">住所</span>' +
+                                    item[i] ['township_name'] ['address'] + 
                                 '</p></li>' +
 
                                 '<li class="list-group-item">' +
-                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span style="color:#d2571c" class="m-r-5">電話 </span>' +
                                   '<span>' + item[i]['phone'] + '</span>' +
                                   '</li>' +
 
                                 '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                 '<span style="color:#d2571c" class="m-r-5">ウェブ</span>' +
                                 '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                                 '</li>' +
                                 
@@ -1036,8 +1113,8 @@
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
                                 '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
@@ -1085,7 +1162,9 @@
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
                 var theCity = this.citylatlng[0]['city_eng']
-                const result = json.features
+                const result = jp_township.features
+  
+
                 const coordinates = []
                 for (var i = 0; i < result.length; i++) {
                     if (result[i].Name == theCity) {
@@ -1116,9 +1195,16 @@
                     strokeWeight: 1
                 })
             }
-                
-            })
-            
+                console.log('search',this.nus_data)
+            if(this.nus_data.length > this.size){
+                this.show_paginate = true;
+                console.log('true')
+            }else{
+                this.show_paginate = false;
+                console.log('false')
+            }
+            })            
+                        
         },
         openInfoWindow(marker) {
             this.selectedLocation = marker;
@@ -1142,8 +1228,8 @@
             this.currentOffset += this.paginationFactor;
             }
         },
-        getStateClick(e) {      
-
+        getStateClick(e) {
+         
             if(this.townshipID.length > 0)
             {
                 this.townshipID = [];
@@ -1185,6 +1271,8 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
+
+             this.search();
         },
         nursingSearchData(index){
             if(index == 1)
@@ -1204,6 +1292,8 @@
                 .then((response) => {
                     this.changeMap(response)
                 })
+
+           
             
         },
         changeMap(response){
@@ -1234,6 +1324,7 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
+
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){
@@ -1341,17 +1432,17 @@
                               '<td>' +
                               '<ul class="list-group list-group-flush nur-caro-card">' +
                                 '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                                '<span style="color:#d2571c">住所</span>' +
-                                    item[i]['address'] + 
+                                '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
+                                    item[i]['township_name'] + ['address'] + 
                                 '</p></li>' +
 
                                 '<li class="list-group-item">' +
-                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
                                   '<span>' + item[i]['phone'] + '</span>' +
                                   '</li>' +
 
                                 '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                 '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
                                 '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                                 '</li>' +                                
                               '</ul>' +
@@ -1363,8 +1454,8 @@
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                                 '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                                 '<tbody>'+
-                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '</tbody>'+
 
                                 '</table>'+
@@ -1551,6 +1642,25 @@
                 
             }
         },
+        first() {
+      this.currentPage = 0;
+    },
+    last() {
+      this.currentPage = this.pages - 1;
+    },
+    prev() {
+      if(0<this.currentPage) {
+        this.currentPage--;
+      }
+    },
+    next() {
+      if(this.currentPage < this.pages - 1) {
+        this.currentPage++;
+      }
+    },
+    pageSelect(index) {
+      this.currentPage = index - 1;
+    },
     }
   };
 </script>
@@ -1986,6 +2096,19 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     .tab-pane{
         padding: 10px;
     }
+    .offset{
+  width: 500px !important;
+  margin: 20px auto;  
+}
+.page-item.active_page .spanclass {
+  z-index: 1;
+  background-color: #ffbb99;
+    background-image: none;
+    border: 1px solid #8e3c15;
+}
+.page-item .spanclass{
+  cursor: pointer;
+}
 </style>
 
 </style>
