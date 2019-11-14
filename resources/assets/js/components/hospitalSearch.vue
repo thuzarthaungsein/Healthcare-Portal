@@ -552,7 +552,7 @@
         toggleCheck: true,
         toggleCheck_1: false,
         currentPage: 0,
-        size: 1,
+        size: 20,
         pageRange: 5,
         items: [],
         show_paginate: false

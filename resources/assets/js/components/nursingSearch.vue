@@ -836,7 +836,7 @@
         citylatlng:[],
         view_pro_id: [],
         currentPage: 0,
-        size: 1,
+        size: 20,
         pageRange: 5,
         items: [],
         show_paginate: false,
