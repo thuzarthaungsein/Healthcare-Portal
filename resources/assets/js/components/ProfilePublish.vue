@@ -5,10 +5,10 @@
     <div v-if="type == 'nursing'" id="nursingView">
          <span class="top-mail-btn" @click="documentPost()" v-if="!loginuser"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
         <!--panorama-->
-        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer_name}}</h4>
+        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-user-md"></i> {{customer_name}}</h4>
 
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
-            <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer_name}}</h4>
+            <h4 class="profile-tit"><i class="fas fa-user-md"></i> {{customer_name}}</h4>
 
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel" style="background:#fff;">
@@ -102,7 +102,7 @@
                            <div class="thumbnail-img">
 
                              <div class="card-carousel">
-                                <div>
+                               
                                     <div class="card-img photocard-carousel-wrapper">
 
                                         <img :src="'/upload/nursing_profile/' +currentImage" alt="" @error="imgUrlAlt"> 
@@ -131,7 +131,7 @@
                                             <p class="text-left">{{activeImageDescription}}</p>
                                         </div>
                                     </div>
-                                </div> 
+                                 
 
                                 <ul class="thumbnails">
                                     <li v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
@@ -902,7 +902,7 @@
 
                              <div class="card-carousel">
 
-                                <div class="card-img">
+                                <div class="card-img photocard-carousel-wrapper">
 
                                     <img :src="'/upload/hospital_profile/' +currentImage" alt="" @error="imgUrlAlt">
 
@@ -924,13 +924,13 @@
 
                                 </div>
 
-                                <div class="row col-12">
+                                <div class="row col-12 photocard-title">
 
                                     <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
 
                                     <div class="row col-12 m-b-10">
 
-                                         <p>{{activeImageDescription}}</p>
+                                         <p class="text-left">{{activeImageDescription}}</p>
 
                                     </div>
 
