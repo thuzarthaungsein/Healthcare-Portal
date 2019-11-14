@@ -975,7 +975,7 @@
                     // }
                 }
 
-                const theCity = this.markers[0]['city_eng']
+                const theCity = this.markers[0]['city_name']
                 const lat = this.markers[0]['latitude']
                 const lng = this.markers[0]['longitude']
                 const result = jp_township.features //jp_cities
@@ -991,24 +991,29 @@
                 const city_coordinates = []
                 
                 if(township_name == ''){
-                    for (var i = 0; i < jp_city.length; i++) {
-                    if (jp_city[i].properties.NAME_0 == theCity) {
-                    
-                    if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                    {
-                        for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+               
+                    for (var i = 0; i < jp_city.length; i++) 
                     {
                     
-                        city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                    }
-                    }
-                    else{          
-                        city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                    
-                    }
-                    }
-                }
+                        if (jp_city[i].properties.NAME_0 == theCity)
+                        {
+                            if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                            {
+                                for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                                {
+                                
+                                    city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                                }
+                            }
+                            else
+                            {          
+                                city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                            
+                            }
+                        }
+                   }
                 }else{
+                  console.log('notnull');
                     for (var i = 0; i < result.length; i++) {
                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
                     coordinates.push(result[i].geometry['coordinates'])
@@ -1217,8 +1222,7 @@
             }
         },
         getStateClick(e) {
-           this.nus_data = null;
-
+         
             if(this.townshipID.length > 0)
             {
                 this.townshipID = [];
@@ -1260,6 +1264,8 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
+
+             this.search();
         },
         nursingSearchData(index){
             if(index == 1)
@@ -1279,6 +1285,8 @@
                 .then((response) => {
                     this.changeMap(response)
                 })
+
+           
             
         },
         changeMap(response){
