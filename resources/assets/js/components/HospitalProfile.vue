@@ -14,8 +14,9 @@
         <div class="form-group form-group-wrapper">
 
                 <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
+                <label class=" col-10 float-right"> {{customer_info.email}} </label>
 
-                <input type="text" class="form-control customer-email col-10 float-right"  placeholder="Email" v-model="customer_info.email">
+                <!-- <input type="text" class="form-control customer-email col-10 float-right"  placeholder="Email" v-model="customer_info.email"> -->
         </div>
         <div class="form-group form-group-wrapper">
 
@@ -37,13 +38,16 @@
 
           <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
 
-          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
+          <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
          
             <i class="fas fa-plus-circle"></i> 追加
 
           </span>
+           <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
+                  <i id="gallery" class="fas fa-sort-down"></i>
+            </span>
 
-          <div  class="col-md-12">
+          <div id="changeGalleryLink" class="col-md-12">
                 <div class="row" id ="gallery-photo">   
                         <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                 <div class="col-md-12">
@@ -123,13 +127,17 @@
 
           <label class="heading-lbl col-2 pad-free">動画</label>
 
-          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()" >
+          <span class="galleryvideo btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryVideoAdd()" >
 
             <i class="fas fa-plus-circle"></i> 追加
 
           </span>
 
-          <div class="col-md-12">
+           <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryVideoToggle" >
+                                        <i id="video" class="fas fa-sort-down"></i>
+           </span>
+
+          <div id="changeGalleryVideoLink" class="col-md-12">
 
             <div class="row" id="gallery-video">
 
@@ -1418,6 +1426,49 @@ export default {
       
                   
             },
+             galleryToggle()
+                {
+
+                      var class_by_id = $('#gallery').attr('class');
+
+                      if(class_by_id == "fas fa-sort-down animate rotate")
+                      {
+                                $('#gallery').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryLink').addClass("fas fa-sort-down");
+                                $('#changeGalleryLink').show('medium');
+                                $('.galleryadd').show();
+                      }
+                      else {
+
+
+                                $('#gallery').removeClass("fas fa-sort-down");
+                                $('.changeGalleryLink').removeClass("fas fa-sort-down");
+                                $('#gallery').addClass("fas fa-sort-down animate rotate");
+                                $('#changeGalleryLink').hide('medium');
+                                 $('.galleryadd').show();
+                                      $('.galleryadd').hide();
+                      }
+                },
+                galleryVideoToggle()
+                {
+                       var class_by_id = $('#video').attr('class');
+
+                      if(class_by_id == "fas fa-sort-down animate rotate")
+                      {
+                                $('#video').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");
+                                $('#changeGalleryVideoLink').show('medium');
+                                 $('.galleryvideo').show();
+                      }
+                      else {
+
+                                $('#video').removeClass("fas fa-sort-down");
+                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");
+                                $('#video').addClass("fas fa-sort-down animate rotate");
+                                $('#changeGalleryVideoLink').hide('medium');
+                                $('.galleryvideo').hide();
+                      }
+                },
             galleryVideoAdd() {
                    this.video_arr.push({title:'',description:'',url:''});
                  

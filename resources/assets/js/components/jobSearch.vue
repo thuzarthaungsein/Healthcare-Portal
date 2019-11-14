@@ -578,6 +578,7 @@ export default {
         },
 
       getStateClick(e){
+           this.job_data = null;
 
           if(this.townshipID.length > 0)
           {

@@ -1142,7 +1142,8 @@
             this.currentOffset += this.paginationFactor;
             }
         },
-        getStateClick(e) {      
+        getStateClick(e) {
+           this.nus_data = null;
 
             if(this.townshipID.length > 0)
             {
