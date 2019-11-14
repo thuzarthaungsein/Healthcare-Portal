@@ -424,7 +424,7 @@
                                 
                                     <div class="row">
                                         <div class="col-4">
-                                            <img :src="'/images/'+items.logo" alt="image" width="110px" />
+                                            <img :src="'/images/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
@@ -662,8 +662,8 @@
                         <!-- <p class="btn all-btn nur-addbtn" @click="favAddFun('add');view_pro_id = !view_pro_id">
                             <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加
                         </p>   -->
-                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.cus_id" style="display:block;" @click="favAddFun('add',nus.cus_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.cus_id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.cus_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
                     </div>
                     
@@ -681,7 +681,10 @@
                     </div>
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
-                        <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">                          
+                        <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">   
+                         <div class="mt-4 col-12 detail-btn text-center">                                             
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                          </div>                         
                     </div>
                     <div class="col-8 job-box">
                         <table  class="table table-bordered table-sm">                              
@@ -731,16 +734,10 @@
                                 {{fac.description}}
                             </span>
                             </span>                            
-                        <div>
-                            <table class="text-center">
-                                        
-                            </table>
+                        <div>                            
                         </div>
                     </div> -->
-                    </div>   
-                    <div class="mt-4 col-12 detail-btn text-center">                                             
-                        <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
-                        </div>                   
+                    </div>                  
                 </div>
                 </div>
             </div>
@@ -751,15 +748,8 @@
         <asidebar></asidebar>
       </div>-->
     </div>
-
   </div>
   </div>
-
-
-
-
-
-
   </layout>
 </template>
 
@@ -772,7 +762,6 @@
   } from '../event-bus.js';
   import jp_cities from '../google-map-kml/jp_cities.json';
   import jp_township from '../google-map-kml/jp_township.json';
-  import jp_cities_multipart from '../google-map-kml/japan-multipart.geojson';
   export default {
 
     name: "mymap",
@@ -842,8 +831,7 @@
       },
     },
     methods: {
-        search(){
-        
+        search(){        
 
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -884,16 +872,35 @@
             this.factype = response.data.factype;
             this.markers = response.data.nursing;
             this.nursingList = response.data.nursing;
+               
             console.log('nursing',this.nursingList)
             this.citylatlng = response.data.city
                 var mmarker = new Array()
                 var item = []
 
             if(response.data.nursing.length > 0){
-
+                console.log(this.markers)
                 for (var i = 0; i < this.markers.length; i++) {
                     mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
                     item.push(this.markers[i])
+
+                    // if(localStorage.getItem("nursing_fav")){
+                    //     console.log('a'+this.markers[i]['nus_id'])
+                    //     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
+                    //     // this.view_pro_id = nus_fav_arr.includes(this.markers[i]['nus_id']);
+                    //     console.log(nus_fav_arr);
+                    //     if(nus_fav_arr.includes(this.markers[i]['nus_id'])){
+                    //         console.log('b'+this.markers[i]['nus_id'])
+                           
+                    //         $('.view_pro_id'+this.markers[i]['nus_id']).css('display','none');
+                    //         $('.done_pro_id'+this.markers[i]['nus_id']).css('display','block');
+                    //     }
+                    //     else{
+                    //         console.log('c'+this.markers[i]['id'])
+                    //         $('.view_pro_id'+this.markers[i]['id']).css('display','block');
+                    //         $('.done_pro_id'+this.markers[i]['id']).css('display','none');
+                    //     }
+                    // }
                 }
 
                 const theCity = this.markers[0]['city_eng']
@@ -971,75 +978,76 @@
                     for (var i = 0; i < item.length; i++) {
                         infoWindowContent.push([
                         '<div id="info_content">' +
-                            '<div class="">' +
-                            '<table class="table">' +
-                                '<thead>' +
-                                '<tr>' +
-                                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                                    '</span></td>' +
-                                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                    '</td>' +
-                                '</tr>' +
-                                '</thead>' +
-                                '<tbody>' +
-                                '<tr>' +
-                                    '<td colspan="2"><button class="item-fav-infowindow">'+
-                                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                                    '</span> </button></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td colspan="2" class="text-left">' +
-                                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
-                                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                        '<div class="">' +
+                          '<table class="table">' +
+                            '<thead>' +
+                              '<tr>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
+                                '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td colspan="2"><p class="type-name">' +
-                                    item[i]['type_name'] +
-                                    +'</p></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>' +
-                                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                                '</td>' +
-                                '<td>' +
-                                '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
-                                    '<tbody>' +
-                                    '<tr>' +
-                                        '<td>住所</td>' +
-                                        '<td>' + item[i]['address'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>電話</td>' +
-                                    '<td>' + item[i]['phone'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>ウェブ</td>' +
-                                    '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                    '</tr>' +
-                                    '</tbody>' +
-                                '</table>' +
-                                '</td>' +
-                                '</tr>' +
-                                ' <tr>' +
-                                '<td colspan="2">' +
-                                '<div class="">' +
-                                    '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
-                                    '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
-                                    '<tbody>'+
-                                    '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
-                                    '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
-                                    '</tbody>'+
+                              '</tr>' +
+                            '</thead>' +
+                            '<tbody>' +
+                              '<tr>' +
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
+                                '</span> </button></td>' +
+                              '</tr>' +
+                              '<tr>' +
+                              '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
+                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                              '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                                '<td colspan="2"><p class="type-name">' +
+                                item[i]['type_name'] +
+                                +'</p></td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                            '</td>' +
+                            '<td>' +
+                              '<ul class="list-group list-group-flush nur-caro-card">' +
+                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                                '<span style="color:#d2571c">住所</span>' +
+                                    item[i]['address'] + 
+                                '</p></li>' +
 
-                                    '</table>'+
-                                '</div>' +
-                                '</td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                            '</table>' +
-                            '</div>' +
-                        '</div>'
+                                '<li class="list-group-item">' +
+                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span>' + item[i]['phone'] + '</span>' +
+                                  '</li>' +
+
+                                '<li class="list-group-item">' +
+                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                                '</li>' +
+                                
+                              '</ul>' +
+                            '</td>' +
+                            '</tr>' +
+                            ' <tr>' +
+                            '<td colspan="2">' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
+                              '</div>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</tbody>' +
+                          '</table>' +
+                        '</div>' +
+                      '</div>'
                         ])
                     }
                 this.markerHover = [];
@@ -1226,8 +1234,7 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
-                const jp_multipart = jp_cities_multipart.features
-                console.log(jp_multipart)
+
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){
@@ -1300,75 +1307,75 @@
                     for (var i = 0; i < item.length; i++) {
                         infoWindowContent.push([
                         '<div id="info_content">' +
-                            '<div class="">' +
-                            '<table class="table">' +
-                                '<thead>' +
-                                '<tr>' +
-                                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                                    '</span></td>' +
-                                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                    '</td>' +
-                                '</tr>' +
-                                '</thead>' +
-                                '<tbody>' +
-                                '<tr>' +
-                                    '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                                    '</span> </button></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td colspan="2" class="text-left">' +
-                                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
-                                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                        '<div class="">' +
+                          '<table class="table">' +
+                            '<thead>' +
+                              '<tr>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
+                                '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td colspan="2"><p class="type-name">' +
-                                    item[i]['type_name'] +
-                                    +'</p></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>' +
-                                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                                '</td>' +
-                                '<td>' +
-                                '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
-                                    '<tbody>' +
-                                    '<tr>' +
-                                        '<td>住所</td>' +
-                                        '<td>' + item[i]['address'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>電話</td>' +
-                                    '<td>' + item[i]['phone'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>ウェブ</td>' +
-                                    '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                    '</tr>' +
-                                    '</tbody>' +
-                                '</table>' +
-                                '</td>' +
-                                '</tr>' +
-                                ' <tr>' +
-                                '<td colspan="2">' +
-                                '<div class="">' +
-                                    '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
-                                    '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
-                                    '<tbody>'+
-                                    '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
-                                    '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
-                                    '</tbody>'+
+                              '</tr>' +
+                            '</thead>' +
+                            '<tbody>' +
+                              '<tr>' +
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
+                                '</span> </button></td>' +
+                              '</tr>' +
+                              '<tr>' +
+                              '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
+                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                              '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                                '<td colspan="2"><p class="type-name">' +
+                                item[i]['type_name'] +
+                                +'</p></td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                            '</td>' +                            
+                              '<td>' +
+                              '<ul class="list-group list-group-flush nur-caro-card">' +
+                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                                '<span style="color:#d2571c">住所</span>' +
+                                    item[i]['address'] + 
+                                '</p></li>' +
 
-                                    '</table>'+
-                                '</div>' +
-                                '</td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                            '</table>' +
-                            '</div>' +
-                        '</div>'
+                                '<li class="list-group-item">' +
+                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span>' + item[i]['phone'] + '</span>' +
+                                  '</li>' +
+
+                                '<li class="list-group-item">' +
+                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                                '</li>' +                                
+                              '</ul>' +
+                            '</td>' +                            
+                            '</tr>' +
+                            ' <tr>' +
+                            '<td colspan="2">' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td><span>'+ item[i]['moving_in_to'] + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ item[i]['per_month_to'] + '</span>万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
+                              '</div>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</tbody>' +
+                          '</table>' +
+                        '</div>' +
+                      '</div>'
                         ])
                     }
                     var bounds = new google.maps.LatLngBounds();
@@ -1508,7 +1515,6 @@
             event.target.src = "images/noimage.jpg"
         },
         favAddFun(status,index){
-            
             if(status == 'add'){
                 $('.view_pro_id'+index).css('display','none');
                 $('.done_pro_id'+index).css('display','block');
