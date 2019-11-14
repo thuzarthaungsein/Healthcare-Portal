@@ -114,7 +114,7 @@ export default {
     this.axios.get('/api/user').then(response => {
         this.pro_id = response.data.lat_lng[0].id;
         this.loginuser = true;
-       
+       console.log(response.data)
         localStorage.setItem("cusId", response.data.user.customer_id);
         localStorage.setItem("lat_num", response.data.lat_lng[0].latitude);
         localStorage.setItem("lng_num", response.data.lat_lng[0].longitude);
@@ -146,11 +146,13 @@ export default {
         }
         this.type = localStorage.getItem("cusType");
         this.cusid = Number(localStorage.getItem("cusId"));
-
+        
         this.axios.get(`/api/profile_view/${this.cusid}/${this.type}`).then(response => {
+            console.log(response)
             this.pro_id = response.data[0].pro_id;
             localStorage.setItem("lat_num", response.data[0].latitude);
             localStorage.setItem("lng_num", response.data[0].longitude);
+            
 
             if(this.type == 'hospital'){
                 if(localStorage.getItem("hospital_history")) {

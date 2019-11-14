@@ -5,7 +5,7 @@
     <!-- news details-->
 
     <!-- Tab panes -->
-    <div class="tab-content tab-content1 tabs">
+    <div class="tab-content1 tabs">
       <div role="tabpanel" class="tab-pane active" id="tab1">
         <div class="col-sm-12 pad-free">
           <nav aria-label="breadcrumb">
@@ -74,6 +74,7 @@
                         :src="'/upload/news/'+ newdetails.photo"
                         class="img-responsive img_2"
                         style="max-width:100%;"
+                        @error="imgUrlAlt"
                       />
                     </div>
                     <p class="img_2 mb-1">{{newdetails.main_point}}</p>
@@ -118,7 +119,8 @@
                       <img
                         class="img-responsive fit-image"
                         v-bind:src="'/upload/news/' + latest_post_all_cat.photo"
-                        alt
+                        alt="img"
+                         @error="imgUrlAlt"
                       />
                       <div class="overlay">
                         <span class="btn btn-sm all-btn secondary-bg-color m-t-20">詳細</span>
@@ -199,6 +201,9 @@ export default {
         $('.tab-content').removeClass('news-borderColor job-borderColor nursing-borderColor hospital-borderColor');                        
         $('.tab-content').addClass(tab+'-borderColor'); 
           this.$router.push({name:'home',params:{page:e.target.hash}});   
+    },
+    imgUrlAlt(event) {
+        event.target.src = "/images/noimage.jpg"
     },
   }
 };

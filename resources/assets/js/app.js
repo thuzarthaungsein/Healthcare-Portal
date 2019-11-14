@@ -91,6 +91,7 @@ Vue.use(VueLoading, {
     text: '送信中'
 })
 
+
 window.events = new Vue();
 window.flash = function(message) {
     window.events.$emit('flash', message);

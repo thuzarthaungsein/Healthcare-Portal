@@ -66,14 +66,17 @@
             </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
+          
                 介護情報
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
+                  
                 特長
             </button>
 
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
+                  
                 費用
             </button>
 
@@ -866,16 +869,18 @@
                 <!-- <div class="row col-12 m-t-10">
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
                 </div> -->
+            
+                
 
-                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
+                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
                     病院情報
                 </button>
 
-                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
+                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
                     口コミ
                 </button>
 
-                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
+                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
                     地図
                 </button>
 
@@ -1241,19 +1246,17 @@
             </div>
 
             <div class="col-md-12">
-                        <label class="cost_heading_lbl">フォトアルバム</label>
-                        <div class="row">
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10">
-                                <div style="widht:100%;height:100%;padding:10px;background:#eee;">
-                                    <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
-                                    <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                                </div>
-                                
-                                <!-- <span>{{image.photo}}</span> -->
-                            </div>
-                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
-                        </div>
+                <h3 class="profile_header">フォトアルバム</h3>
+                <div class="row m-0 gallery-list">
+                    <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                            
+                        <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                        <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+                        
+                        <!-- <span>{{image.photo}}</span> -->
                     </div>
+                    <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
+                </div>
+            </div>
 
             <!-- Hospital Video -->
                 <div class="col-md-12 m-t-15 m-b-15 p-0">
@@ -1347,7 +1350,7 @@ export default {
                 images:[],
                 videos:[],
                 pm_arr:[],
-                active_el:0,
+                active_el:null,
                 width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
@@ -1400,9 +1403,9 @@ export default {
                 windowSize: 10,
                 paginationFactor:103,
                 fav_email : [],
-                  data: {
-	  str:"Welcome to Canada!",
-	  substr: ""
+                data: {
+                str:"Welcome to Canada!",
+                substr: ""
   },
 
             };
@@ -1425,11 +1428,22 @@ export default {
 
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
-
+          
             if(this.loginuser == true) {
                 $(document).scroll(function() {
+                 
                     $(".fixed-nav").css({"position": "fixed","top":"70px"});
-                    var cur_pos = $(this).scrollTop();
+                    var cur_pos = $(this).scrollTop();  
+                   
+                    $('.ele').each(function(active_el){
+               
+                       if($(this).position().top <= cur_pos){                                
+
+                            $('.top-fixed-btn').removeClass('active');      
+                            $('.top-fixed-btn').eq(active_el+1).addClass('active');                   
+                       }
+                   });
+
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     } else {
@@ -1464,7 +1478,7 @@ export default {
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
-                    console.log(this.nusfacilities);
+           
 
                     this.cooperate_medical = response.data.comedical;
 
@@ -1521,7 +1535,7 @@ export default {
                 });
 
                   this.axios.get('/api/profile/comment/'+this.cusid) .then(response => {
-                      console.log(response.data);
+                    
                       this.comments = response.data;
                     // for ( var index=0; index<response.data.length; index++ ) {
 
@@ -1733,7 +1747,7 @@ export default {
 
              activate:function(el){
 
-                this.active_el = el;
+                // this.active_el = el;
 
             },
 
