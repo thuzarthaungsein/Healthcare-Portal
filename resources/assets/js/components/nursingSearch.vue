@@ -1157,7 +1157,9 @@
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
                 var theCity = this.citylatlng[0]['city_eng']
-                const result = json.features
+                const result = jp_township.features
+  
+
                 const coordinates = []
                 for (var i = 0; i < result.length; i++) {
                     if (result[i].Name == theCity) {
@@ -1307,6 +1309,7 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
+
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){

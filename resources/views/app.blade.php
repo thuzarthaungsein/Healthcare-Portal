@@ -27,6 +27,7 @@
 
 
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/vue-clazy-load.js') }}"></script>
 
 <!-- Fonts -->
 <!--mailbox-->
@@ -38,6 +39,7 @@
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
 <link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
+
 <script src="{{asset('js/nprogress.js')}}"></script>
 
 <style>
