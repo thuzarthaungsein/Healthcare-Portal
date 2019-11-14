@@ -2390,12 +2390,15 @@ ul.sub-ul li {
 .m-r-20 {
     margin-right: 20px;
 }
-.m-r-15{
+
+.m-r-15 {
     margin-right: 15px;
 }
-.m-r-10{
+
+.m-r-10 {
     margin-right: 10px;
 }
+
 .m-l-14 {
     margin-left: 14px;
 }
@@ -6426,7 +6429,7 @@ button.confirmed {
 #nursing dl dd {
     width: 100%;
     text-align: left;
-    padding-left: 8px;
+    padding-left: 10px;
 }
 
 #nursing p {
@@ -6481,7 +6484,7 @@ button.confirmed {
 }
 
 .profile_wd {
-    width: 239px;
+    width: 239px !important;
 }
 
 .profile_price {
@@ -6514,6 +6517,25 @@ button.confirmed {
     border-radius: 3px;
     margin: 0 7px;
     font-weight: bold;
+}
+
+.profile_img_wrap {
+    width: 239px;
+    margin-bottom: 15px;
+    background: #ddd;
+    position: relative;
+    height: 160px;
+}
+
+.profile_img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
 }
 
 .expense_txt {
@@ -6990,8 +7012,6 @@ ul.test>li:before {
 
 #fav-history-page .card-carousel-cards .card-carousel--card {
     margin: 0 10px;
-    cursor: pointer;
-    /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08); */
     background-color: #fff;
     border-radius: 4px;
     z-index: 3;
@@ -7900,7 +7920,9 @@ ul.nur-caro-card>li.list-group-item {
     background: #d2571c;
 }
 
+
 /*for inner checkbox*/
+
 .control {
     position: relative;
     padding-left: 20px;
@@ -8000,7 +8022,9 @@ ul.nur-caro-card>li.list-group-item {
     background: #d2571c;
 }
 
+
 /*end for inner checkbox*/
+
 
 /*end for custom checkbox and radio*/
 
