@@ -45,19 +45,48 @@ class NursingProfileController extends Controller
 
     public function galleryupdate($id,Request $request) {
         $request = $request->all();
-        $del_gallery = Gallery::where('customer_id', $id)
-                        ->delete();
-       
-        for($i=0; $i<count($request); $i++) {
-            $gallery = new Gallery;
-            $gallery->customer_id = $id;
-            $gallery->type = $request[$i]['type'];
-            $gallery->photo = $request[$i]['photo'];
-            $gallery->title = $request[$i]['title'];
-            $gallery->description = $request[$i]['description'];
-
-            $gallery->save();
+        if(count($request["video"]) > 0){
+            $del_gallery = Gallery::where(['customer_id'=> $id,'type'=>'video'])->delete(); 
+            for($i=0; $i<count($request["video"]); $i++) {
+                $gallery = new Gallery;
+                $gallery->customer_id = $id;
+                $gallery->type = $request["video"][$i]['type'];
+                $gallery->photo = $request["video"][$i]['photo'];
+                $gallery->title = $request["video"][$i]['title'];
+                $gallery->description = $request["video"][$i]['description'];
+    
+                $gallery->save();
+            }
         }
+        if(count($request["image"]) > 0){
+            $del_gallery = Gallery::where(['customer_id'=> $id,'type'=>'photo'])->delete(); 
+            for($i=0; $i<count($request["image"]); $i++) {
+                $gallery = new Gallery;
+                $gallery->customer_id = $id;
+                $gallery->type = $request["image"][$i]['type'];
+                $gallery->photo = $request["image"][$i]['photo'];
+                $gallery->title = $request["image"][$i]['title'];
+                $gallery->description = $request["image"][$i]['description'];
+    
+                $gallery->save();
+            }
+        }
+        if(count($request["panorama"]) > 0){
+            $del_gallery = Gallery::where(['customer_id'=> $id,'type'=>'panorama'])->delete(); 
+            for($i=0; $i<count($request["panorama"]); $i++) {
+                $gallery = new Gallery;
+                $gallery->customer_id = $id;
+                $gallery->type = $request["panorama"][$i]['type'];
+                $gallery->photo = $request["panorama"][$i]['photo'];
+                $gallery->title = $request["panorama"][$i]['title'];
+                $gallery->description = $request["panorama"][$i]['description'];
+    
+                $gallery->save();
+            }
+        }
+        // $del_gallery = Gallery::where('customer_id', $id) ->delete();
+       
+        
     }
 
     public function cooperateupdate($id,Request $request) {

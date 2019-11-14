@@ -428,9 +428,9 @@
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c">住所</span> {{items.township_name}}{{items.address}}</p></li>
-                                                <li class="list-group-item"><span style="color:#d2571c">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
                                             <!-- <table class="table table-bordered address-tbl">
@@ -1074,17 +1074,17 @@
                             '<td>' +
                               '<ul class="list-group list-group-flush nur-caro-card">' +
                                 '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                                '<span style="color:#d2571c">住所</span>' +
-                                    item[i]['address'] + 
+                                '<span style="color:#d2571c" class="m-r-5">住所</span>' +
+                                    item[i] ['township_name'] ['address'] + 
                                 '</p></li>' +
 
                                 '<li class="list-group-item">' +
-                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span style="color:#d2571c" class="m-r-5">電話 </span>' +
                                   '<span>' + item[i]['phone'] + '</span>' +
                                   '</li>' +
 
                                 '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                 '<span style="color:#d2571c" class="m-r-5">ウェブ</span>' +
                                 '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                                 '</li>' +
                                 
@@ -1402,17 +1402,17 @@
                               '<td>' +
                               '<ul class="list-group list-group-flush nur-caro-card">' +
                                 '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                                '<span style="color:#d2571c">住所</span>' +
-                                    item[i]['address'] + 
+                                '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
+                                    item[i]['township_name'] + ['address'] + 
                                 '</p></li>' +
 
                                 '<li class="list-group-item">' +
-                                  '<span style="color:#d2571c">電話 </span>' +
+                                  '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
                                   '<span>' + item[i]['phone'] + '</span>' +
                                   '</li>' +
 
                                 '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c">ウェブ</span>' +
+                                 '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
                                 '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                                 '</li>' +                                
                               '</ul>' +

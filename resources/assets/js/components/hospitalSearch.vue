@@ -416,10 +416,10 @@
                   </div>
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">
-                        <tr>
+                        <!-- <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
                           <td>{{hos.name}}</td>
-                        </tr>
+                        </tr> -->
                           <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                           <td>{{hos.email}}</td>
@@ -488,7 +488,7 @@
             </div>
           </div>         
         </div>
-         <div class="offset-md-4 col-md-8">
+         <div class="offset-md-4 col-md-8" v-if="show_paginate">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
@@ -554,7 +554,8 @@
         currentPage: 0,
         size: 1,
         pageRange: 5,
-        items: []
+        items: [],
+        show_paginate: false
       }
     },
     mounted() {
@@ -596,8 +597,7 @@
             this.subject = response.data.subject;
 
           })
-
-
+          this.show_paginate = true;
         },
 
         groupBy(array, key){
@@ -679,7 +679,7 @@
               this.id = id;
 
             })
-            this.search();
+            
         
       },
       getCheck(e) {
