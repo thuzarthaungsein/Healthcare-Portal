@@ -758,6 +758,7 @@ export default {
                 .get('/api/medical/acceptancewithtransactions/'+this.cusid)
                 .then(response => {
                         this.medical_acceptance = response.data;
+                        console.log(response);
                 });
 
                 this.axios
@@ -1218,7 +1219,7 @@ export default {
                 // stations = chek_station.join(',');
 
                 var acceptance=[];
-                $.each($("input[class='medical-acceptance']:checked"), function(){
+                $.each($("input:radio.medical-acceptance:checked"), function(){
                         var accept_val = $(this).val();
                         var tmp_arr = accept_val.split('-');
                         var type = tmp_arr[0];
@@ -1226,6 +1227,7 @@ export default {
                         var type = tmp_arr[0];
                         var acceptance_id = tmp_arr[1];
                         acceptance.push({id:id,type:type});
+                        console.log(acceptance)
                 });
 
                 this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
@@ -1383,12 +1385,13 @@ export default {
                         }
                     }) ;
                 }
-
+console.log("acc len - "+acceptance.length)
                 if(acceptance.length > 0) {
                     this.axios
                         .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
                         .then((response) => {
-            
+            console.log("acceptance result");
+            console.log(response);
 
                         }).catch(error=>{
                             if(error.response.status == 422) {

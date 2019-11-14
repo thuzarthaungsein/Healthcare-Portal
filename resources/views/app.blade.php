@@ -224,6 +224,9 @@
                             @if(Auth::user()->type_id == 2)
                             <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
+                            @elseif(Auth::user()->type_id == 1)
+                            <img src="/images/user.png" alt="" class="userprofile-img">
+                            <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @else
                             <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
                             <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
