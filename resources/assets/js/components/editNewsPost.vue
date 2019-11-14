@@ -201,13 +201,10 @@
                                         confirmButtonText: "はい",
                                         confirmButtonColor: "#dc3545"
                                     });
-                                    this.news.photo = '';
-                                    this.upload_img = '';
-                                    this.reset();
                            });
-                        // this.news.photo = '';
-                        // this.upload_img = '';
-                        // this.reset();
+                        this.news.photo = '';
+                        this.upload_img = '';
+                        this.reset();
                     },
                     reset() {
                         const input = this.$refs.file;

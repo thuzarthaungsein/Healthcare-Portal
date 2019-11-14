@@ -65,8 +65,9 @@
                             <!-- <div class="image_show"></div>
                             <div class="form-group image_update" id="x-image"> </div> -->
                             <div class="form-group">
+                                 <button class="btn main-bg-color white all-btn">更新する</button>
                                 <router-link to="/ads" class="btn btn-danger all-btn">キャンセル</router-link>
-                                <button class="btn news-post-btn all-btn">更新する</button>
+                                <!-- <button class="btn news-post-btn all-btn">更新する</button> -->
                             </div>
                                 </form>
                             </div>
@@ -293,10 +294,10 @@ export default {
                         this.errors = error.response.data.errors
                     }
                 })
-                        });
+                    });
             
             },
-       
+  
         }
 }
 </script>
