@@ -222,10 +222,10 @@
 
                             <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
                             @if(Auth::user()->type_id == 2)
-                            <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
+                            <i class="fas fa-briefcase-medical" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @else
-                            <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
+                            <i class="fas fa-user-md" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
                             <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
                             @endif
                             <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
@@ -788,8 +788,9 @@
         $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
-        $("#hos-his-local").html(0);
+        $("#hos-his-local").html(0);       
         $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.his-hospital-link-box>a ').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("nursing_history")){
         $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
@@ -798,6 +799,7 @@
     else{
         $("#nus-his-local").html(0);
         $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.his-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("hospital_fav")){
         $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
@@ -806,6 +808,7 @@
     else{
         $("#hos-fav-local").html(0);
         $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.fav-hospital-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("nursing_fav")){
         $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
@@ -814,6 +817,7 @@
     else{
         $("#nus-fav-local").html(0);
         $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
 
     var csrf = "{{ csrf_token() }}";

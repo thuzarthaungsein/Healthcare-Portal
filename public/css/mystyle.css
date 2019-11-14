@@ -3009,7 +3009,10 @@ div.tabs>.card-head-tab>.nav-tabs .nav-link:hover {
     border-left: none !important;
     background-color: transparent;
 }
-
+#headerbar .router-link-exact-active>i.fa, .router-link-exact-active>i.fas{
+    color: #c40000 !important;
+    font-weight: bold;
+}
 #headerbar .navbar-dark .navbar-nav .nav-link {
     color: #000 !important;
 }
