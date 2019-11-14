@@ -391,11 +391,10 @@
               </tr>
             </tbody>
           </table>
-          </div>
-
           <div class="col-12">
             <div class="row">
-              <div id="job_detail" class="col-md-12 col-sm-12" style="margin-top:20px;" v-for="hos in hos_data" :key="hos.id">
+            
+              <div id="job_detail" class="col-md-12 col-sm-12 offset" style="margin-top:20px;" v-for="hos in displayItems" :key="hos.id">
                 <div class="hos-content">
                   <div class="job-header">
                   <h5 class="hos-title">
@@ -476,22 +475,43 @@
                         <td style="width:10%;">{{time.fri}}</td>
                         <td style="width:10%;">{{time.sat}}</td>
                         <td style="width:10%;">{{time.sun}}</td>
-
                       </tr>
                     </tbody>
                 </table>
                <span> <strong> 休診日：</strong>{{hos.closed_day}}</span>
                <!-- <p><span style="color: red; font-weight: bold; font-size: 15px;">※</span>診療時間は、変更される事や、診療科によって異なる場合があるため、直接医療機関のホームページ等でご確認ください。</p> -->
                 <!--end schedule-->
-
                   </div>
                 </div>
-
                 <div class="mt-4 detail-btn text-center"><router-link :to="{name: 'profile', params: {cusid:hos.cus_id, type: 'hospital'}}" class="btn all-btn">詳細を見る</router-link></div>
               </div>
             </div>
-          </div>
+          </div>         
         </div>
+         <div class="offset-md-4 col-md-8" v-if="show_paginate">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                  </li>
+                  <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                    <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                  </li>                 
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          
       </div>
     </div>
   </div>
@@ -531,6 +551,11 @@
         subject:[],
         toggleCheck: true,
         toggleCheck_1: false,
+        currentPage: 0,
+        size: 20,
+        pageRange: 5,
+        items: [],
+        show_paginate: false
       }
     },
     mounted() {
@@ -572,8 +597,7 @@
             this.subject = response.data.subject;
 
           })
-
-
+          this.show_paginate = true;
         },
 
         groupBy(array, key){
@@ -672,24 +696,85 @@
           //console.log(e)
         }
       },
-       imgUrlAlt(event) {
-                event.target.src = "images/noimage.jpg"
+    first() {
+      this.currentPage = 0;
+    },
+    last() {
+      this.currentPage = this.pages - 1;
+    },
+    prev() {
+      if(0<this.currentPage) {
+        this.currentPage--;
       }
+    },
+    next() {
+      if(this.currentPage < this.pages - 1) {
+        this.currentPage++;
+      }
+    },
+    imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+    },
+    pageSelect(index) {
+      this.currentPage = index - 1;
     }
-    
-    
+    },
+    computed: {
+    pages() {
+      return Math.ceil(this.hos_data.length / this.size);
+    },
+    displayPageRange() {
+      const half = Math.ceil(this.pageRange/2);
+      const isEven = this.pageRange / 2 == 0;
+      const offset = isEven ? 1 : 2;
+      let start, end;
+      if(this.pages < this.pageRange) {
+        start = 1;
+        end = this.pages;
+      }else if (this.currentPage < half) {
+        start = 1;
+        end = start + this.pageRange - 1;
+      }else if (this.pages - half < this.currentPage) {
+        end = this.pages;
+        start = end - this.pageRange + 1;
+      }else {
+        start = this.currentPage - half + offset;
+        end = this.currentPage + half;
+      } 
+      let indexes = [];
+      for (let i = start; i <= end; i++) {
+        indexes.push(i);
+      }
+      return indexes;
+    },
+    displayItems() {
+      const head = this.currentPage * this.size;
+      return this.hos_data.slice(head, head + this.size);
+    },
+    isSelected(page) {
+      return page - 1 == this.currentPage;
+    }
+	},    
   };
   $(function() {  
       $( '#divisionswrap ul li' ).on( 'click', function(e) {
             e.preventDefault();        
             $( '#divisionswrap ul li' ).parent().find( 'li.active' ).removeClass( 'active' );       
             $( this ).addClass( 'active' );  
-    });  
+    });
+  });
+  $(function() {
+$( '#page-item button' ).on( 'click', function(e) {
+            e.preventDefault();        
+            $( '#page-item button' ).parent().find( 'button.active' ).removeClass( 'active' );       
+            $( this ).addClass( 'active' );  
+    }); 
   });
 </script>
 
 
 <style scoped>
+
 .active{
     background-color: #fffe00 !important;
     background-image: none;
@@ -759,6 +844,16 @@
     width: 140px;
     padding: 25px;
   }
+.offset{
+  width: 500px !important;
+  margin: 20px auto;  
+}
+.page-item.active_page .spanclass {
+  z-index: 1;
+  background-color: #ffbb99;
+    background-image: none;
+    border: 1px solid #8e3c15;
+}
 
   .hospital-tabColor .nav-link {
         background: #63b7ff !important;
@@ -771,4 +866,7 @@
 .tab-pane{
         padding: 10px;
     }
+.page-item .spanclass{
+  cursor: pointer;
+}
 </style>
