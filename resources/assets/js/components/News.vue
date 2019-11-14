@@ -42,7 +42,7 @@
                                         <div class="row">
                                             <div class="active-users col-md-6">
                                                 <router-link :to="'/newsdetails/'+latest_post.id">
-                                                 <clazy-load class="wrapper-0" @load="log"  :src="'/upload/news/' + latest_post.photo" :key="latest_post.id">
+                                                 <clazy-load class="wrapper-0" @load="log"  src="images/noimage.jpg" :key="latest_post.id">
                                                     <transition name="fade">
                                                         <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
                                                     </transition>
@@ -81,7 +81,7 @@
                                         <div class="col-sm-6 m-b-8 p-l-0" v-for="latest_post_all_cat in latest_post_all_cats.slice(0, 2)" :key="latest_post_all_cat.id">
                                             <div class="col-md-12 row m-0 pad-free">
                                                 <div class="hovereffect fit-image">
-                                                <clazy-load class="wrapper-1" @load="log"  :src="'/upload/news/' + latest_post_all_cat.photo " :key="latest_post_all_cat.id">
+                                                <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
                                                     <transition name="fade">
                                                         <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image">
                                                     </transition>
@@ -113,7 +113,7 @@
                                             <div class="col-md-12 row adslist-card news-3-card m-0">
                                                 <div class="col-md-4 img-box">
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <clazy-load class="wrapper-4" @load="log" :src="'/upload/news/' + item.photo" :key="item.id">
+                                                        <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="item.id">
                                                             <transition name="fade">
                                                                 <img :src="'/upload/news/' + item.photo"  class="fit-image-0"  @error="imgUrlAlt">
                                                             </transition>
@@ -153,7 +153,7 @@
                                 <div class="col-md-12 row adslist-card news-3-card m-0">
                                     <div class="col-md-4 img-box">
                                         <router-link :to="'/newsdetails/'+item.id">
-                                        <clazy-load class="wrapper-4" @load="log"  :src="'/upload/news/' + item.photo" :key="item.id">
+                                        <clazy-load class="wrapper-4" @load="log"  src="images/noimage.jpg" :key="item.id">
                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
                                             <transition name="fade">
                                                 <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0"@error="imgUrlAlt">
@@ -207,7 +207,7 @@
                     <div class="col-md-3 p-lr-0">
                         <div class="col-12 single-news-box">
                             <router-link :to="'/newsdetails/'+group[0].pid">
-                        <clazy-load class="wrapper-3" @load="log" :src="'/upload/news/' + group[0].photo" :key="index" >
+                        <clazy-load class="wrapper-3" @load="log" src="images/noimage.jpg" :key="index" >
                             <transition name="fade">
                                 <img :src="'/upload/news/' + group[0].photo"  @error="imgUrlAlt">
                             </transition>
@@ -227,7 +227,7 @@
                         <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(1, 4)" :key="index">
                             <div class="col-md-4 img-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                <clazy-load class="wrapper-4" @load="log" :src="'/upload/news/' + item.photo" :key="index" >
+                                <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="index" >
                                     <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
                                     <transition name="fade">
                                         <img :src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
@@ -265,7 +265,7 @@
                         <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(12, 15)" :key="index">
                             <div class="col-md-4 img-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                <clazy-load class="wrapper-4" @load="log" v-bind:src="'/upload/news/' + item.photo" :key="index" >
+                                <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="index" >
                                     <transition name="fade">
                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0"  @error="imgUrlAlt">
                                     </transition>
@@ -293,7 +293,7 @@
                         <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(0, 3)" :key="index">
                             <div class="col-md-4 img-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                <clazy-load class="wrapper-4" @load="log" v-bind:src="'/upload/news/' + item.photo" :key="index">
+                                <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="index">
                                     <transition name="fade">
                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
                                     </transition>
@@ -322,7 +322,7 @@
                         <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(11, 14)" :key="index">
                             <div class="col-md-4 img-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                <clazy-load class="wrapper-4" @load="log" v-bind:src="'/upload/news/' + item.photo" :key="index">
+                                <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="index">
                                     <transition name="fade">
                                         <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
                                     </transition>
@@ -352,7 +352,7 @@
                     <div class="col-md-3 p-lr-0">
                         <div class="col-12 single-news-box">
                         <router-link :to="'/newsdetails/'+group[0].pid">
-                        <clazy-load class="wrapper-3" @load="log" v-bind:src="'/upload/news/' + group[0].photo" :key="index">
+                        <clazy-load class="wrapper-3" @load="log" src="images/noimage.jpg" :key="index">
                             <transition name="fade">
                                 <img v-bind:src="'/upload/news/' + group[0].photo" class="fit-image" @error="imgUrlAlt">
                             </transition>
@@ -373,7 +373,7 @@
                         <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(1, 4)" :key="index">
                             <div class="col-md-4 img-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                <clazy-load class="wrapper-4" @load="log" v-bind:src="'/upload/news/' + item.photo" :key="index">
+                                <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="index">
                                 <transition name="fade">
                                     <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
                                 </transition>
@@ -399,7 +399,7 @@
                         <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card" v-for="(item,index) in group.slice(4, 7)" :key="index">
                             <div class="col-md-4 img-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                <clazy-load class="wrapper-4" @load="log" v-bind:src="'/upload/news/' + item.photo" :key="index">
+                                <clazy-load class="wrapper-4" @load="log" src="images/noimage.jpg" :key="index">
                                 <transition name="fade">
                                     <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
                                 </transition>
@@ -423,8 +423,21 @@
                     </div>
                     <div class="col-md-3 p-r-0">
                         <div class="col-12 single-news-box">
-                            <img v-bind:src="'/upload/news/' + group[7].photo" class="fit-image" style="height: 13rem; width: 100%;" @error="imgUrlAlt">
-                            <p style="padding: 5px 0px;">{{group[7].main_point}}</p>
+                        <router-link :to="'/newsdetails/'+group[7].pid">
+                        <clazy-load class="wrapper-3" @load="log" src="images/noimage.jpg" :key="index">
+                            <transition name="fade">
+                                <img v-bind:src="'/upload/news/' + group[7].photo" class="fit-image" @error="imgUrlAlt">
+                            </transition>
+                            <transition name="fade" slot="placeholder">
+                                <div class="preloader">
+                                    <div class="circle">
+                                    <div class="circle-inner"></div>
+                                    </div>
+                                </div>
+                            </transition>
+                            <p>{{group[7].main_point}}</p>
+                        </clazy-load>
+                        </router-link>
                         </div>
                     </div>
                 </div> 
