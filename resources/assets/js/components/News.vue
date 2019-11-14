@@ -7,9 +7,9 @@
                         <!-- <form class="col-lg-12 mb-2 pad-free"> -->
                             <div class="row col-md-12 m-0 p-r-0">
                                 <div class="col-md-6">
-                                    <!-- <div class="col-md-1 offset-1">
-                                            <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span>
-                                        </div> -->
+                                    <div class="col-md-2 float-right">
+                                        <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 p-l-0 m-b-15">
                                     <div class="row ">                                            
@@ -24,7 +24,7 @@
                             </div>                                            
                                 
                         <!-- </form>                                       -->
-                        <div class="row" v-if="status=='0'">
+                        <div class="row" v-if="status == '0'">
                             <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
                                 <div class="card-header tab-card-header">
                                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -111,7 +111,7 @@
                                 <NewsSearchListComponent :first_search_word="first_search_word"></NewsSearchListComponent>
                         </div> -->
                     </div>
-                    <div class="col-md-12 m-lr-0 p-r-0" v-if="status =='0'">
+                    <div class="col-md-12 m-lr-0 p-r-0" v-if="status == '0'">
                         <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
                         <div class="row col-md-12 pad-free m-0">
                             <div class="col-md-3 m-b-8 p-l-0" v-for="item in latest_post_all_cats.slice(6, 14)"  :key="item.id">
