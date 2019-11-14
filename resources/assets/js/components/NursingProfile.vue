@@ -11,11 +11,12 @@
 
                         <div class="row col-md-12 pad-free panorama panorama-box">
                         <!-- <div > -->
-                                <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
-                                        <input type="hidden" class="already-panorama" v-model="img.photo">
-                                        <span class='img-close-btn' v-on:click="closeBtnMethod(indx)">X</span>
-                                        <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid" alt="profile"  id="already-panorama">
-                                </div>
+                            <div class="col-sm-3 col-md-3 mt-2 gallery-area-panorama" v-bind:id="'x-panorama'+indx" v-for="(img,indx) in panorama_arr" :key="img.id">
+                                <input type="hidden" class="already-panorama" v-model="img.photo">
+                                <span class='img-close-btn' v-on:click="closeBtnMethod(indx)">X</span>
+                                <img :src="'/upload/nursing_profile/Imagepanorama/'+ img.photo" class="img-fluid panorama-old-img" alt="profile" v-if="img.id!=null"  id="already-panorama">
+                                <img :src="img.path" class="img-fluid panorama-new-img" alt="profile" v-if="img.id==null" id="already-panorama">
+                            </div>
                         </div>
                     </div>
                         <!-- <div class="row col-md-12 text-center">
@@ -657,7 +658,7 @@ export default {
 
                 img_arr:[],img_list:[],
                 video_arr:[],video_list:[],
-                panorama_arr:[],panorama_list:[], tmp_list:[],already_panorama_list:[],panorama:[], test:[],
+                panorama_arr:[],panorama_list:[], tmp_list:[],test:[],
                 gallery_list:[],
                 cooperate_arr:[], cooperate_list:[],
                 payment_arr:[],payment_list:[],
@@ -693,6 +694,7 @@ export default {
                 customer_address_val:'',
                 // customer_address_val: '',
                 access_val: '',
+                panorama_length: 0,
           }
         },
 
@@ -777,6 +779,8 @@ export default {
                 .get('/api/nursing-panorrama-gallery/'+this.cusid)
                 .then(response=>{
                         this.panorama_arr = response.data;
+                        this.panorama_length = this.panorama_arr.length;
+                        console.log(this.panorama_arr)
                 });
 
                 this.axios
@@ -837,56 +841,61 @@ export default {
             },
 
             preview_panorama() {
-                this.already_panorama_list = [];
+                // this.already_panorama_list = [];
                 for(var i=0; i< event.target.files.length; i++) {
-                        this.panorama_count = i+1;
-                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
+                    var pathreal = URL.createObjectURL(event.target.files[i]);
+                    this.panorama_arr.push({id:null,type:"panorama",photo:event.target.files[i].name,title:'',description:'', path:pathreal});
+                    // this.panorama.push({type:"panorama",photo:event.target.files[i].name,title:'',description:''});
+                    console.log(this.panorama_arr);
+                    // console.log(event);
+                    // this.panorama_count = i+1;
+                    // $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
                 }
                
+                
+                // var panorama = document.getElementsByClassName('gallery-area-panorama');
+                // var status = 0;
 
-                var panorama = document.getElementsByClassName('gallery-area-panorama');
-                var status = 0;
-
-                for(var i = 0; i< this.panorama_count; i++) {
-                        var preview = document.getElementsByClassName('preview-panorama');
-                        if(document.getElementById('preview-panorama'+i)) {
-                                if(status == 0) { var j = i; } else { var j = i+1; }
-                        } else {
-                                if(status == 0) { var j = i+1; } else { var j = i+2; }
-                                status = 1;
-                        }
+                // for(var i = 0; i< this.panorama_count; i++) {
+                //         var preview = document.getElementsByClassName('preview-panorama');
+                //         if(document.getElementById('preview-panorama'+i)) {
+                //                 if(status == 0) { var j = i; } else { var j = i+1; }
+                //         } else {
+                //                 if(status == 0) { var j = i+1; } else { var j = i+2; }
+                //                 status = 1;
+                //         }
                         
-                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
+                //         var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
                         
-                        if(file && i<this.panorama_count) {
-                                var file_name = file.name;
-                                        let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        fd.append('type', 'panorama')
-                                        this.axios.post('/api/nursing/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
-
-                        }
+                //         if(file && i<this.panorama_count) {
+                //             var file_name = file.name;
+                //             let fd = new FormData();
+                //             fd.append('file' ,file )
+                //             fd.append('photo' ,file_name )
+                //             fd.append('type', 'panorama')
+                //             this.axios.post('/api/nursing/movephoto', fd)
+                //                 .then(response => {
+                //                 }).catch(error=>{
+                //                         console.log(error);
+                //                 if(error.response.status == 422){
+                //                         this.errors = error.response.data.errors
+                //                 }
+                //             })
+                //         }
                          
-                        this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
-                } 
+                //         this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
+                //         console.log(this.panorama)
+                // } 
                 
 
             },
            closeBtnMethod: function(indx) {
-                        if(confirm("Are you sure you want to delete?"))
-                        {
-                            var panorama_x = document.getElementById('x-panorama'+indx);
-                            panorama_x.parentNode.removeChild(panorama_x);
-                        }
-                    },
+                if(confirm("Are you sure you want to delete?"))
+                {
+                    var panorama_x = document.getElementById('x-panorama'+indx);
+                    panorama_x.parentNode.removeChild(panorama_x);
+                }
+            },
 
 
             DeltArr(indx,type) {
@@ -1129,25 +1138,25 @@ export default {
 
                 var img = document.getElementsByClassName('gallery-area-photo');
                 for(var i = 0; i< img.length; i++) {
-                        var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
-                        if(file) {
-                                var file_name = file.name;
-                                        let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        fd.append('type', 'photo')
-                                        this.axios.post('/api/nursing/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
-                        } else {
-                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
-                        }
-                        this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                    var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
+                    if(file) {
+                        var file_name = file.name;
+                        let fd = new FormData();
+                        fd.append('file' ,file )
+                        fd.append('photo' ,file_name )
+                        fd.append('type', 'photo')
+                        this.axios.post('/api/nursing/movephoto', fd)
+                            .then(response => {
+                            }).catch(error=>{
+                                    console.log(error);
+                            if(error.response.status == 422){
+                                    this.errors = error.response.data.errors
+                            }
+                        })
+                    } else {
+                        var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                    }
+                    this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
 
                 // var panorama = document.getElementsByClassName('gallery-area-panorama');
@@ -1251,152 +1260,161 @@ export default {
                 this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
                                         site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
                                         occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
-              
-                
-                
-                var already_panorama = document.getElementsByClassName('already-panorama');
-                var panorama = document.getElementsByClassName('gallery-area-panorama');
-                if(already_panorama.length>0) {
-                        for(var i = 0; i< already_panorama.length; i++) {
-                                var file_name = panorama[i].getElementsByClassName('already-panorama')[0].value;
-                                if(file_name) {
-                                        this.already_panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
-                                        console.log(this.already_panorama_list);
-                                }
-                        }
+
+                var old_panorama = document.getElementsByClassName('panorama-old-img');
+                var new_panorama = document.getElementsByClassName('panorama-new-img');
+                if(this.panorama_length != old_panorama.length || new_panorama.length > 0){
+                    for(var i = 0; i< this.panorama_arr.length; i++) {
+                        this.panorama_list.push({type:"panorama",photo:this.panorama_arr[i].photo,title:'',description:''});
+                        console.log(this.panorama_list);
+                    }                
                 }
-                this.panorama_list = this.panorama.concat(this.already_panorama_list);
+                
+                // var already_panorama = document.getElementsByClassName('already-panorama');
+                // var panorama = document.getElementsByClassName('gallery-area-panorama');
+                // if(already_panorama.length>0) {
+                //     for(var i = 0; i< already_panorama.length; i++) {
+                //         var file_name = panorama[i].getElementsByClassName('already-panorama')[0].value;
+                //         if(file_name) {
+                //                 this.already_panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
+                //                 console.log(this.already_panorama_list);
+                //         }
+                //     }
+                // }
+                // this.panorama_list = this.panorama.concat(this.already_panorama_list);
 
-                this.tmp_list = this.img_list.concat(this.video_list);
-                this.gallery_list = this.tmp_list.concat(this.panorama_list);
+                // this.tmp_list = this.img_list.concat(this.video_list);
+                var fData = new FormData();
+                fData.append("image",this.img_list);
+                fData.append("video",this.video_list);
+                fData.append("panorama",this.panorama_list);
+                
 
-                if(this.gallery_list.length > 0) {
-                        this.axios
-                                .post(`/api/nursing/galleryupdate/${this.cusid}`,this.gallery_list)
-                                .then((response) => {
-                      
+                this.axios
+                    .post(`/api/nursing/galleryupdate/${this.cusid}`,{'video':this.video_list, 'image': this.img_list, 'panorama': this.panorama_list})
+                    .then((response) => {
+            
 
-                                }).catch(error=>{
+                    }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.gallery_list = 'error';
-                                this.errors = error.response.data.errors
+                    if(error.response.status == 422){
+                    this.gallery_list = 'error';
+                    this.errors = error.response.data.errors
 
-                                }
-                        }) ;
-                }
+                    }
+                }) ;
 
                 if(this.cooperate_list.length > 0) {
-                        this.axios
-                                .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
-                                .then((response) => {
-                                         this.name = ''
-                    
+                    this.axios
+                        .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
+                        .then((response) => {
+                            this.name = ''
+            
 
-                                }).catch(error=>{
+                        }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.cooperate_list = 'error';
-                                this.errors = error.response.data.errors
+                        if(error.response.status == 422){
+                        this.cooperate_list = 'error';
+                        this.errors = error.response.data.errors
 
-                                }
-                        }) ;
+                        }
+                    }) ;
                 }
 
                 if(this.payment_list.length > 0) {
-                        this.axios
-                                .post(`/api/nursing/paymentmethod/${this.cusid}`,this.payment_list)
-                                .then((response) => {
-                                         this.name = ''
-                      
+                    this.axios
+                        .post(`/api/nursing/paymentmethod/${this.cusid}`,this.payment_list)
+                        .then((response) => {
+                                    this.name = ''
+                
 
-                                }).catch(error=>{
+                        }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.payment_list = 'error';
-                                this.errors = error.response.data.errors
+                        if(error.response.status == 422){
+                        this.payment_list = 'error';
+                        this.errors = error.response.data.errors
 
-                                }
-                        }) ;
+                        }
+                    }) ;
                 }
 
                 if(this.profile_arr.length > 0) {
-                        this.axios
-                                .post(`/api/nursing/profile/${this.cusid}`,this.profile_arr)
-                                .then((response) => {
-                                         this.name = ''
-                       
+                    this.axios
+                        .post(`/api/nursing/profile/${this.cusid}`,this.profile_arr)
+                        .then((response) => {
+                                    this.name = ''
+                
 
-                                }).catch(error=>{
+                        }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.profile_arr = 'error';
-                                this.errors = error.response.data.errors
+                        if(error.response.status == 422){
+                        this.profile_arr = 'error';
+                        this.errors = error.response.data.errors
 
-                                }
-                        }) ;
+                        }
+                    }) ;
                 }
 
                 if(this.customer_info_push.length > 0) {
                         // check
-                        this.axios
-                                .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
-                                .then((response) => {
-                                         
-                        
+                    this.axios
+                        .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
+                        .then((response) => {
+                                    
+                
 
-                                }).catch(error=>{
+                        }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                this.save_customer_info = 'error';
-                                this.errors = error.response.data.errors
+                        if(error.response.status == 422){
+                        this.save_customer_info = 'error';
+                        this.errors = error.response.data.errors
 
-                                }
-                        }) ;
+                        }
+                    }) ;
                 }
 
                 if(this.staff_info_push.length > 0) {
-                        this.axios
-                                .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
-                                .then((response) => {
-                      
-                                        console.log(response.data);
+                    this.axios
+                        .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
+                        .then((response) => {
+                
+                                console.log(response.data);
 
-                                }).catch(error=>{
+                        }).catch(error=>{
 
-                                if(error.response.status == 422){
-                                        this.save_staff_info = 'error';
-                                        this.errors = error.response.data.error
-                                }
-                        }) ;
+                        if(error.response.status == 422){
+                                this.save_staff_info = 'error';
+                                this.errors = error.response.data.error
+                        }
+                    }) ;
                 }
 
                 if(acceptance.length > 0) {
-                        this.axios
-                                .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
-                                .then((response) => {
-                   
+                    this.axios
+                        .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
+                        .then((response) => {
+            
 
-                                }).catch(error=>{
-                                        if(error.response.status == 422) {
-                                                acceptance = 'error';
-                                                this.errors = error.response.data.errors
-                                        }
-                        }) ;
+                        }).catch(error=>{
+                            if(error.response.status == 422) {
+                                acceptance = 'error';
+                                this.errors = error.response.data.errors
+                            }
+                    }) ;
                 }
 
                 if(this.chek_feature.length > 0) {
-                                this.axios
-                                        .post(`/api/sfeature/update/${this.cusid}`,this.chek_feature)
-                                                .then((response) => {
-                      
+                    this.axios
+                    .post(`/api/sfeature/update/${this.cusid}`,this.chek_feature)
+                    .then((response) => {
 
-                                                }).catch(error=>{
-                                                if(error.response.status == 422){
-                                                  this.chek_feature = 'error';
-                                                  this.errors = error.response.data.errors
-                                }
-                        }) ;
+
+                        }).catch(error=>{
+                        if(error.response.status == 422){
+                            this.chek_feature = 'error';
+                            this.errors = error.response.data.errors
+                        }
+                    }) ;
                 }
 
                 if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {

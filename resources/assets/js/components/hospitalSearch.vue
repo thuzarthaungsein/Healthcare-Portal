@@ -413,14 +413,14 @@
                   </div>
                 <div class="hos-body row clearfix">
                   <div class="col-3 job-img">
-                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid">
+                    <img v-bind:src="'/upload/hospital_profile/' + hos.logo"  alt="img" class="img-fluid" @error="imgUrlAlt">
                   </div>
                   <div class="col-4 job-box">
                     <table  class="table table-bordered table-sm">
-                        <tr>
+                        <!-- <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
                           <td>{{hos.name}}</td>
-                        </tr>
+                        </tr> -->
                           <tr>
                           <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                           <td>{{hos.email}}</td>
@@ -671,8 +671,12 @@
         if (e.target.tagName === 'path') {
           //console.log(e)
         }
+      },
+       imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
       }
     }
+    
     
   };
   $(function() {  
