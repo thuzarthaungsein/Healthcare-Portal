@@ -796,7 +796,7 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->
-            <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer_name}}</h5>
+            <h5 class="profile-tit"><i class="fas fa-briefcase-medical"></i> {{customer_name}}</h5>
             <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                     <div class="thumbnail-img" style="padding:0px;border:none;">
                         <div class="card-carousel">
