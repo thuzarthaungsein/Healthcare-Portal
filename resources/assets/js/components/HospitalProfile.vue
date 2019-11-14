@@ -14,7 +14,7 @@
         <div class="form-group form-group-wrapper">
 
                 <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
-                <label class=" col-10 float-right"> {{customer_info.email}} </label>
+                <label class=" col-10 float-right customer-email"> {{customer_info.email}} </label>
 
                 <!-- <input type="text" class="form-control customer-email col-10 float-right"  placeholder="Email" v-model="customer_info.email"> -->
         </div>
@@ -51,7 +51,7 @@
                 <div class="row" id ="gallery-photo">   
                         <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
                                 <div class="col-md-12">
-                                        <input type="file" name="" class="nursing-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
+                                        <input type="file" name="" class="hospital-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
                                         <div class="col-md-12 m-b-10" v-bind:class="img.classname">
                                                 <input type="hidden" class="already-photo" v-model="img.photo">
                                                 <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt">
@@ -1158,7 +1158,7 @@
 
 
 
-        <table class="table table-bordered table-wrapper">
+        <!-- <table class="table table-bordered table-wrapper">
 
           <tr>
 
@@ -1184,7 +1184,8 @@
 
                 <div class="col-md-12">
 
-                  <GoogleMap></GoogleMap>
+                    <GoogleMap :address="customer_info.address" :lat_num='nursing_info.latitude' :lng_num='nursing_info.longitude' v-if="nursing_info.latitude != 0"></GoogleMap>
+                    <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="nursing_info.latitude == 0"></GoogleMap>
 
 
 
@@ -1219,7 +1220,28 @@
 
           </tr>
 
-        </table>
+        </table> -->
+        <table class="table table-bordered table-wrapper">
+                    <tr>
+                        <td>
+                            <label class="heading-lbl col-2 pad-free">地図</label>
+                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
+                            <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
+                                <div class="col-md-12">
+                                    <GoogleMap :address="customer_info.address" :lat_num='hospital_info.latitude' :lng_num='hospital_info.longitude' v-if="hospital_info.latitude != 0"></GoogleMap>
+                                    <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="hospital_info.latitude == 0"></GoogleMap>
+
+                                    <div class="form-group">
+                                            <label>交通 / アクセス<span class="error">*</span></label>
+                                            <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                            <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="hospital_info.access"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
 
 
@@ -1308,6 +1330,7 @@ export default {
                         placeholder:'Type your post...',
                         readonly:true,
                         theme:'snow',
+                        access_val: '',
                 },
                 }
         },
@@ -1469,6 +1492,10 @@ export default {
                                 $('.galleryvideo').hide();
                       }
                 },
+            onAccessEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.access_val = html
+            },
             galleryVideoAdd() {
                    this.video_arr.push({title:'',description:'',url:''});
                  
@@ -1481,12 +1508,12 @@ export default {
                     this.customer_info = [];
 
                     var name = $('.customer-name').val();
-                    var email = $('.customer-email').val();
+                    var email = $('.customer-email').text();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
                     this.customer_info_push.push({name:name,email:email,phone:phone,address:address});
 
-                    var access = $('.access').val();
+                    // var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
                     var details_info = $('.details-info').val();
@@ -1552,7 +1579,7 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                       this.save_hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       this.save_hospital_info.push({access:this.access_val,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios
