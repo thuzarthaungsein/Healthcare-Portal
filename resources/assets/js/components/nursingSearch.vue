@@ -1162,7 +1162,7 @@
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
                 var theCity = this.citylatlng[0]['city_eng']
-                const result = json.features
+                const result = jp_township.features
                 const coordinates = []
                 for (var i = 0; i < result.length; i++) {
                     if (result[i].Name == theCity) {
@@ -1283,7 +1283,7 @@
                 .then((response) => {
                     this.changeMap(response)
                 })
-
+              
            
             
         },
