@@ -6605,6 +6605,7 @@ button.confirmed {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     cursor: pointer;
     transition: all 0.2s ease-in;
+    margin-bottom: 7px;
 }
 
 .item-fav:hover {
@@ -6621,6 +6622,10 @@ button.confirmed {
     overflow: hidden;
     color: #ff6117;
     font-weight: bold;
+}
+
+.item-name a {
+    color: #ff6117!important;
 }
 
 .item-name img {
