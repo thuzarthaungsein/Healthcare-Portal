@@ -27,6 +27,7 @@
 
 
 <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/vue-clazy-load.js') }}"></script>
 
 <!-- Fonts -->
 <!--mailbox-->
@@ -38,6 +39,7 @@
 <link rel="stylesheet" href="{{ asset('css/fullpage.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/pannellum.css') }}"/>
 <link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
+
 <script src="{{asset('js/nprogress.js')}}"></script>
 
 <style>
@@ -223,6 +225,9 @@
                             <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
                             @if(Auth::user()->type_id == 2)
                             <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
+                            <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
+                            @elseif(Auth::user()->type_id == 1)
+                            <img src="/images/user.png" alt="" class="userprofile-img">
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @else
                             <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>

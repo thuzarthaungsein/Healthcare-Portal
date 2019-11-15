@@ -170,9 +170,9 @@ class SearchMapController extends Controller
            } else {
                $MoveID = implode(',', $MoveID); // this condition is when array[0] has no '0'
            }
+     
 
-
-           $query = "SELECT '' as alphabet, n.id as nus_id,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
+           $query = "SELECT '' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
                      from nursing_profiles as n  
                      left join customers as c on c.id = n.customer_id 
                      left join types AS ty ON c.type_id = ty.id
