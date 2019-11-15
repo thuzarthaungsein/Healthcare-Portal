@@ -1524,7 +1524,7 @@ export default {
                     // var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
-                    var details_info = $('.details-info').val();
+                    var details_info = $('.details-info').text();
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
