@@ -32,7 +32,7 @@
                         <hr />
                         <h5 class="header">特徴一覧</h5>
                         <div class="col-md-12 pad-free scrolldiv">
-                            <div v-if="!this.features.length" class="container-fuid" style="padding-top:30px; height:700px; text-align:center ">No Record Data</div>
+                            <div v-if="!this.features.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
                             <div v-else class="container-fuid">
                                 <table class="table table-hover custom-table">
                                     <thead style="background-color:rgb(183, 218, 210);">
@@ -57,26 +57,26 @@
                                     </tbody>
                                 </table>
                                 <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
-                                    </li>
-                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
-                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
-                                    </li>
-                                    <li class="page-item">
-                                        <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                                            </li>
+                                            <li class="page-item">
+                                                <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                                            </li>
+                                            <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                                <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                                            </li>
+                                            <li class="page-item">
+                                                <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                                            </li>
+                                            <li class="page-item">
+                                                <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,48 +106,48 @@
                 this.axios.get("/api/feature/featurelist").then(response => {
                     this.features = response.data;
                     this.norecord = this.features.length;
-                    if(this.norecord > this.size) {
+                    if (this.norecord > this.size) {
                         this.pagination = true;
-                    }else{
+                    } else {
                         this.pagination = false;
                     }
                 });
             },
             computed: {
-            pages() {
-                    return Math.ceil(this.features.length / this.size);
-                },
-                displayPageRange() {
-                    const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
-                    const offset = isEven ? 1 : 2;
-                    let start, end;
-                    if (this.pages < this.pageRange) {
-                        start = 1;
-                        end = this.pages;
-                    } else if (this.currentPage < half) {
-                        start = 1;
-                        end = start + this.pageRange - 1;
-                    } else if (this.pages - half < this.currentPage) {
-                        end = this.pages;
-                        start = end - this.pageRange + 1;
-                    } else {
-                        start = this.currentPage - half + offset;
-                        end = this.currentPage + half;
+                pages() {
+                        return Math.ceil(this.features.length / this.size);
+                    },
+                    displayPageRange() {
+                        const half = Math.ceil(this.pageRange / 2);
+                        const isEven = this.pageRange / 2 == 0;
+                        const offset = isEven ? 1 : 2;
+                        let start, end;
+                        if (this.pages < this.pageRange) {
+                            start = 1;
+                            end = this.pages;
+                        } else if (this.currentPage < half) {
+                            start = 1;
+                            end = start + this.pageRange - 1;
+                        } else if (this.pages - half < this.currentPage) {
+                            end = this.pages;
+                            start = end - this.pageRange + 1;
+                        } else {
+                            start = this.currentPage - half + offset;
+                            end = this.currentPage + half;
+                        }
+                        let indexes = [];
+                        for (let i = start; i <= end; i++) {
+                            indexes.push(i);
+                        }
+                        return indexes;
+                    },
+                    displayItems() {
+                        const head = this.currentPage * this.size;
+                        return this.features.slice(head, head + this.size);
+                    },
+                    isSelected(page) {
+                        return page - 1 == this.currentPage;
                     }
-                    let indexes = [];
-                    for (let i = start; i <= end; i++) {
-                        indexes.push(i);
-                    }
-                    return indexes;
-                },
-                displayItems() {
-                    const head = this.currentPage * this.size;
-                    return this.features.slice(head, head + this.size);
-                },
-                isSelected(page) {
-                    return page - 1 == this.currentPage;
-                }
             },
             methods: {
                 deleteFeature(id) {
@@ -171,9 +171,9 @@
                                 .then(response => {
                                     this.features = response.data;
                                     this.norecord = this.features.length;
-                                    if(this.norecord > this.size) {
+                                    if (this.norecord > this.size) {
                                         this.pagination = true;
-                                    }else{
+                                    } else {
                                         this.pagination = false;
                                     }
                                     //   alert("Delete Successfully!");
@@ -203,25 +203,25 @@
                             this.features = response.data;
                         });
                     },
-                first() {
-                    this.currentPage = 0;
-                },
-                last() {
-                    this.currentPage = this.pages - 1;
-                },
-                prev() {
-                    if (0 < this.currentPage) {
-                        this.currentPage--;
-                    }
-                },
-                next() {
-                    if (this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                },
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                },
+                    first() {
+                        this.currentPage = 0;
+                    },
+                    last() {
+                        this.currentPage = this.pages - 1;
+                    },
+                    prev() {
+                        if (0 < this.currentPage) {
+                            this.currentPage--;
+                        }
+                    },
+                    next() {
+                        if (this.currentPage < this.pages - 1) {
+                            this.currentPage++;
+                        }
+                    },
+                    pageSelect(index) {
+                        this.currentPage = index - 1;
+                    },
             }
     };
 </script>

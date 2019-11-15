@@ -30,28 +30,31 @@
                         </div>
                         <hr/>
                         <h5 class="header">職種一覧</h5>
-                        <div class="card card-default m-b-20" v-for="occupations in displayItems" :key="occupations.id">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-9 m-t-8">{{occupations.name}}</div>
-                                    <div class="col-md-3 text-right">
-                                        <small>
+                        <div v-if="!this.occupation.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
+                        <div v-else class="container-fuid">
+                            <div class="card card-default m-b-20" v-for="occupations in displayItems" :key="occupations.id">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9 m-t-8">{{occupations.name}}</div>
+                                        <div class="col-md-3 text-right">
+                                            <small>
                             <router-link
                                 :to="{name:'occupation', params:{id : occupations.id}}"
                                 class="btn edit-borderbtn"
                             >編集</router-link>
                             </small> &nbsp;
-                                        <small>
+                                            <small>
                             <a
                                 class="btn text-danger delete-borderbtn"
                                 @click="deleteType(occupations.id)"
                             >削除</a>
                             </small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                         <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -76,7 +79,7 @@
                 </div>
             </div>
         </div>
-    </div>        
+    </div>
 </template>
 
 <script>
@@ -98,48 +101,48 @@
                     .then(response => {
                         this.occupation = response.data;
                         this.norecord = this.occupation.length;
-                        if(this.norecord > this.size){
+                        if (this.norecord > this.size) {
                             this.pagination = true;
-                        }else{
+                        } else {
                             this.pagination = false;
                         }
                     });
             },
             computed: {
-            pages() {
-                    return Math.ceil(this.occupation.length / this.size);
-                },
-                displayPageRange() {
-                    const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
-                    const offset = isEven ? 1 : 2;
-                    let start, end;
-                    if (this.pages < this.pageRange) {
-                        start = 1;
-                        end = this.pages;
-                    } else if (this.currentPage < half) {
-                        start = 1;
-                        end = start + this.pageRange - 1;
-                    } else if (this.pages - half < this.currentPage) {
-                        end = this.pages;
-                        start = end - this.pageRange + 1;
-                    } else {
-                        start = this.currentPage - half + offset;
-                        end = this.currentPage + half;
+                pages() {
+                        return Math.ceil(this.occupation.length / this.size);
+                    },
+                    displayPageRange() {
+                        const half = Math.ceil(this.pageRange / 2);
+                        const isEven = this.pageRange / 2 == 0;
+                        const offset = isEven ? 1 : 2;
+                        let start, end;
+                        if (this.pages < this.pageRange) {
+                            start = 1;
+                            end = this.pages;
+                        } else if (this.currentPage < half) {
+                            start = 1;
+                            end = start + this.pageRange - 1;
+                        } else if (this.pages - half < this.currentPage) {
+                            end = this.pages;
+                            start = end - this.pageRange + 1;
+                        } else {
+                            start = this.currentPage - half + offset;
+                            end = this.currentPage + half;
+                        }
+                        let indexes = [];
+                        for (let i = start; i <= end; i++) {
+                            indexes.push(i);
+                        }
+                        return indexes;
+                    },
+                    displayItems() {
+                        const head = this.currentPage * this.size;
+                        return this.occupation.slice(head, head + this.size);
+                    },
+                    isSelected(page) {
+                        return page - 1 == this.currentPage;
                     }
-                    let indexes = [];
-                    for (let i = start; i <= end; i++) {
-                        indexes.push(i);
-                    }
-                    return indexes;
-                },
-                displayItems() {
-                    const head = this.currentPage * this.size;
-                    return this.occupation.slice(head, head + this.size);
-                },
-                isSelected(page) {
-                    return page - 1 == this.currentPage;
-                }
             },
             methods: {
 
@@ -164,9 +167,9 @@
                                 .then(response => {
                                     this.occupation = response.data;
                                     this.norecord = this.occupation.length;
-                                    if(this.norecord > this.size){
+                                    if (this.norecord > this.size) {
                                         this.pagination = true;
-                                    }else{
+                                    } else {
                                         this.pagination = false;
                                     }
                                     // alert('Delete Successfully!');
@@ -196,25 +199,25 @@
                             this.occupation = response.data;
                         });
                     },
-                first() {
-                    this.currentPage = 0;
-                },
-                last() {
-                    this.currentPage = this.pages - 1;
-                },
-                prev() {
-                    if (0 < this.currentPage) {
-                        this.currentPage--;
-                    }
-                },
-                next() {
-                    if (this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                },
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                },
+                    first() {
+                        this.currentPage = 0;
+                    },
+                    last() {
+                        this.currentPage = this.pages - 1;
+                    },
+                    prev() {
+                        if (0 < this.currentPage) {
+                            this.currentPage--;
+                        }
+                    },
+                    next() {
+                        if (this.currentPage < this.pages - 1) {
+                            this.currentPage++;
+                        }
+                    },
+                    pageSelect(index) {
+                        this.currentPage = index - 1;
+                    },
 
             }
     }

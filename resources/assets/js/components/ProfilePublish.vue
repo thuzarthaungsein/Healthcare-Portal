@@ -66,17 +66,17 @@
             </div> -->
 
             <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn"  @click="activate(1)" :class="{ active : active_el == 1 }">
-          
+
                 介護情報
             </button>
 
             <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn"  @click="activate(2)" :class="{ active : active_el == 2 }">
-                  
+
                 特長
             </button>
 
             <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn"  @click="activate(3)" :class="{ active : active_el == 3 }">
-                  
+
                 費用
             </button>
 
@@ -102,10 +102,10 @@
                            <div class="thumbnail-img">
 
                              <div class="card-carousel">
-                               
+
                                     <div class="card-img photocard-carousel-wrapper">
 
-                                        <img :src="'/upload/nursing_profile/' +currentImage" alt="" @error="imgUrlAlt"> 
+                                        <img :src="'/upload/nursing_profile/' +currentImage" alt="" @error="imgUrlAlt">
 
                                         <div class="actions">
 
@@ -131,7 +131,7 @@
                                             <p class="text-left">{{activeImageDescription}}</p>
                                         </div>
                                     </div>
-                                 
+
 
                                 <ul class="thumbnails">
                                     <li v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
@@ -561,10 +561,10 @@
                     <div class="col-md-12">
                         <h5 class="profile_subtit">フォトアルバム</h5>
                         <div class="row gallery-list">
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                              
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
                                     <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                                     <span>{{image.title}}</span><br>
-                                
+
                                 <!-- <span>{{image.photo}}</span> -->
                             </div>
                             <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
@@ -731,7 +731,7 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ ({{customer_name}})</h5>                  
+                <h5 class="profile_header col-12">口コミ ({{customer_name}})</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -739,8 +739,8 @@
                     </a> -->
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
-                </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -842,8 +842,8 @@
                 <!-- <div class="row col-12 m-t-10">
                      <h5 style="color:#000" class="h_4 header font15rem font-weight-bold">ひだまりこころクリニック　サンシャインサカエ院</h5>
                 </div> -->
-            
-                
+
+
 
                 <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                     病院情報
@@ -1038,14 +1038,14 @@
                     </div>
                     <!--end for address-->
                 </div>
-            <!--end ee-->         
+            <!--end ee-->
 
                 <div class="col-12 m-b-20">
-                    <h5 class="profile_subtit">医院からのお知らせ </h5>                
+                    <h5 class="profile_subtit">医院からのお知らせ </h5>
                     <p v-for="hospital in hospitals" :key="hospital.id">{{hospital.details_info}}</p>
                 </div>
 
-                
+
 
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">診療時間 </h5>
@@ -1178,7 +1178,7 @@
             </div>
 
             <div class="row ele m-lr-0" id="element2">
-                <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>                  
+                <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -1186,8 +1186,8 @@
                     </a> -->
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
-                </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card mb-4" v-for="comment in comments" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -1208,10 +1208,10 @@
             <div class="col-md-12">
                 <h5 class="profile_subtit">フォトアルバム</h5>
                 <div class="row m-0 gallery-list">
-                    <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                            
+                    <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
                         <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                         <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-                        
+
                         <!-- <span>{{image.photo}}</span> -->
                     </div>
                     <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
@@ -1240,7 +1240,7 @@
 
                     <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
 
-                    </GmapMap>    
+                    </GmapMap>
 
                 </div>
                 <div  class="col-12 m-t-20" v-for="m in google" :key="m.id" >
@@ -1387,22 +1387,30 @@ export default {
 
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
-          
+
             if(this.loginuser == true) {
                 $(document).scroll(function() {
-                 
-                    $(".fixed-nav").css({"position": "fixed","top":"70px"});
-                    var cur_pos = $(this).scrollTop();  
-                   
-                //     $('.ele').each(function(active_el){
-               
-                //        if($(this).position().top <= cur_pos){                                
 
-                //             $('.top-fixed-btn').removeClass('active');      
-                //             $('.top-fixed-btn').eq(active_el+1).addClass('active');                   
+                    $(".fixed-nav").css({"position": "fixed","top":"70px"});
+                    var cur_pos = $(this).scrollTop();
+
+                //     $('.ele').each(function(active_el){
+
+                //        if($(this).position().top <= cur_pos){
+
+                //             $('.top-fixed-btn').removeClass('active');
+                //             $('.top-fixed-btn').eq(active_el+1).addClass('active');
                 //        }
                 //    });
 
+                    var cur_pos = $(this).scrollTop();
+                     $('.ele').each(function(active_el){
+
+                        if($(this).position().top <= cur_pos){
+                            $('.top-fixed-btn.active').removeClass('active');
+                            $('.top-fixed-btn').eq(active_el).addClass('active');
+                        }
+                    });
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     } else {
@@ -1437,7 +1445,7 @@ export default {
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
-           
+
 
                     this.cooperate_medical = response.data.comedical;
 
@@ -1494,7 +1502,7 @@ export default {
                 });
 
                   this.axios.get('/api/profile/comment/'+this.cusid) .then(response => {
-                    
+
                       this.comments = response.data;
                     // for ( var index=0; index<response.data.length; index++ ) {
 
@@ -1502,7 +1510,7 @@ export default {
                     //     this.comments.push(data);
                     //         // tempData.push( data );
                     // }
-                });                  
+                });
 
             }
 
@@ -1569,7 +1577,7 @@ export default {
 
                       this.comments = response.data;
 
-                });                 
+                });
 
                 this.axios.get('/api/profile/subject/'+this.cusid).then(response => {
                       this.subjects = response.data;
@@ -1707,6 +1715,7 @@ export default {
              activate:function(el){
 
                  this.active_el = el;
+
 
             },
 
@@ -2058,7 +2067,7 @@ export default {
     display: inline-block;
     float: right;
     font-size: 13px;
-    color: #111; 
+    color: #111;
     border: 1px solid #111;
     padding: 5px 20px;
     border-radius: 20px;
@@ -2182,7 +2191,7 @@ export default {
 }
 .card-img {
     position: relative;
-    margin-bottom: 10px;   
+    margin-bottom: 10px;
 }
 .card-img > img {
     display: block;
