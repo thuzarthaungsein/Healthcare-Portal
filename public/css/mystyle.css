@@ -8477,7 +8477,7 @@ ul.nur-caro-card>li.list-group-item {
 .fit-image-0 {
     width: 100%;
     object-fit: cover;
-    height: 70px;
+    height: 50px;
 }
 
 .fade-enter,
@@ -8490,10 +8490,11 @@ ul.nur-caro-card>li.list-group-item {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -25px 0 0 -25px;
+    margin: -10px 0 0 -10px;
     width: 50px;
     height: 50px;
-    transition: all 100ms ease-in;
+    transition: all 10ms ease-in;
+
 }
 
 .preloader .circle,
@@ -8501,7 +8502,7 @@ ul.nur-caro-card>li.list-group-item {
     width: inherit;
     height: inherit;
     border-radius: 50%;
-    background: linear-gradient(rgba(64, 150, 238, 1) -50%, rgba(64, 150, 238, 0) 60%);
+    background: linear-gradient(rgb(248, 158, 117) -50%, rgba(86, 156, 43, 0) 60%);
 }
 
 .preloader .circle {
@@ -8509,15 +8510,15 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 .preloader .circle .circle-inner {
-    padding: 5px;
+    padding: 3px;
     animation: roll 2s linear infinite reverse;
 }
 
 .preloader .circle .circle-inner::after {
     content: '';
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background: #fff;
 }
