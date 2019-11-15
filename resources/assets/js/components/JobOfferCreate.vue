@@ -585,6 +585,15 @@
                             this.errors=[];
                         }
 
+                         if (this.joboffer.working_hours == '') {
+                           
+                             this.errors.push("working_hours");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        
+
                         // if (this.joboffer.postal == '') {
                         //     this.errors.postal = 'postal';
                         // } else {
