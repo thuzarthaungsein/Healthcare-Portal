@@ -332,24 +332,24 @@ export default {
                 var new_local = l_sto_arr.toString();
                 localStorage.setItem('nursing_history', new_local);
                 this.local_sto = localStorage.getItem("nursing_history");
-                this.$swal({
-              title: "削除された",
-              text: "ファイルが削除されました。",
-              type: "success",
-              width: 350,
-              height: 200,
-              confirmButtonText: "はい",
-              confirmButtonColor: "#dc3545"
-            });
+            //     this.$swal({
+            //   title: "削除された",
+            //   text: "ファイルが削除されました。",
+            //   type: "success",
+            //   width: 350,
+            //   height: 200,
+            //   confirmButtonText: "はい",
+            //   confirmButtonColor: "#dc3545"
+            // });
                 if (this.local_sto) {
                     this.getAllCustomer(this.local_sto);
                 } else {
                     // window.location.reload();
                     this.$router.push({
-                        name: 'home',
-                        params: {
-                            page: 'subtab3'
-                        }
+                        name: 'nursingSearch',
+                        // params: {
+                        //     page: 'subtab3'
+                        // }
                     });
                 }
             }

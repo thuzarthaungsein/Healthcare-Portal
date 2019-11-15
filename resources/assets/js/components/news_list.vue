@@ -156,15 +156,19 @@
                     if (this.pages < this.pageRange) {
                         start = 1;
                         end = this.pages;
+                        console.log('half1');
                     } else if (this.currentPage < half) {
                         start = 1;
                         end = start + this.pageRange - 1;
+                        console.log('half2');
                     } else if (this.pages - half < this.currentPage) {
                         end = this.pages;
                         start = end - this.pageRange + 1;
+                        console.log('half3');
                     } else {
                         start = this.currentPage - half + offset;
                         end = this.currentPage + half;
+                        console.log('half4');
                     }
                     let indexes = [];
                     for (let i = start; i <= end; i++) {
