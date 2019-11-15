@@ -424,13 +424,13 @@
                                 
                                     <div class="row">
                                         <div class="col-4">
-                                            <img :src="'/images/'+items.logo" alt="image" width="110px" />
+                                            <img :src="'/images/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c">住所</span> {{items.township_name}}{{items.address}}</p></li>
-                                                <li class="list-group-item"><span style="color:#d2571c">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
                                             <!-- <table class="table table-bordered address-tbl">
@@ -466,8 +466,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><span>{{items.moving_in_to}} </span>万円</td>
-                                                <td><span>{{items.per_month_to}} </span>万円</td>
+                                                <td><span>{{(Number(items.moving_in_to)/10000).toLocaleString()}} </span>万円</td>
+                                                <td><span>{{(Number(items.per_month_to)/10000).toLocaleString()}} </span>万円</td>
                                             </tr>
                                         </tbody>                               
                                     </table>
@@ -648,7 +648,7 @@
         
         <div class=" col-12">
             <div class="row">
-                <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in nus_data" :key="nus.id">
+                <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in displayItems" :key="nus.id">
                     <div class="nur-content">
                     <div class="job-header">
                     <div class="row pad-free">
@@ -662,8 +662,8 @@
                         <!-- <p class="btn all-btn nur-addbtn" @click="favAddFun('add');view_pro_id = !view_pro_id">
                             <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加
                         </p>   -->
-                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.cus_id" style="display:block;" @click="favAddFun('add',nus.cus_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.cus_id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.cus_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
                     </div>
                     
@@ -681,7 +681,10 @@
                     </div>
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
-                        <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">                          
+                        <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">   
+                         <div class="mt-4 col-12 detail-btn text-center">                                             
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                          </div>                         
                     </div>
                     <div class="col-8 job-box">
                         <table  class="table table-bordered table-sm">                              
@@ -691,11 +694,22 @@
                             </tr> -->
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>入居時費用</td>
-                                <td><span class="cash-lbl">{{nus.moving_in_to}} </span>万円</td>
+                                <!-- <td><span class="cash-lbl">{{Number(nus.moving_in_to)/10000}} </span>万円</td> -->
+                                <td class="cash-lbl">
+                                    {{(Math.floor(Number(nus.moving_in_from)/10000))==0? '' : (Math.floor(Number(nus.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_from)%10000)==0 ? '' : (Number(nus.moving_in_from)%10000).toLocaleString()}}円
+                                        ~
+                                    {{(Math.floor(Number(nus.moving_in_to)/10000))==0? '' : (Math.floor(Number(nus.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_to)%10000)==0 ? '' : (Number(nus.moving_in_to)%10000).toLocaleString()}}円
+                                </td>
                             </tr>      
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
-                                <td><span class="cash-lbl">{{nus.per_month_to}} </span>万円</td>
+                                <td>
+                                    <font class="cash-lbl">
+                                        {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
+                                            ~
+                                        {{(Math.floor(Number(nus.per_month_to)/10000))==0? '' : (Math.floor(Number(nus.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_to)%10000)==0 ? '' : (Number(nus.per_month_to)%10000).toLocaleString()}}円
+                                    </font>
+                                </td>
                             </tr>    
                             <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
@@ -731,35 +745,44 @@
                                 {{fac.description}}
                             </span>
                             </span>                            
-                        <div>
-                            <table class="text-center">
-                                        
-                            </table>
+                        <div>                            
                         </div>
                     </div> -->
-                    </div>   
-                    <div class="mt-4 col-12 detail-btn text-center">                                             
-                        <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
-                        </div>                   
+                    </div>                  
                 </div>
                 </div>
+                <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination"> 
+                  <li class="page-item">
+                    <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                  </li>
+                  <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                    <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                  </li>
+                  <li class="page-item">
+                    <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                  </li>                 
+                </ul>
+              </nav>
+            </div>
             </div>
         </div>
+        
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
         <asidebar></asidebar>
       </div>-->
     </div>
-
   </div>
   </div>
-
-
-
-
-
-
   </layout>
 </template>
 
@@ -823,6 +846,11 @@
         selectedcity:'',
         citylatlng:[],
         view_pro_id: [],
+        currentPage: 0,
+        size: 20,
+        pageRange: 5,
+        items: [],
+        show_paginate: false,
 
       }
     },
@@ -839,10 +867,43 @@
       atHeadOfList() {
         return this.currentOffset === 0;
       },
+    pages() {
+      return Math.ceil(this.nus_data.length / this.size);
+    },
+    displayPageRange() {
+      const half = Math.ceil(this.pageRange/2);
+      const isEven = this.pageRange / 2 == 0;
+      const offset = isEven ? 1 : 2;
+      let start, end;
+      if(this.pages < this.pageRange) {
+        start = 1;
+        end = this.pages;
+      }else if (this.currentPage < half) {
+        start = 1;
+        end = start + this.pageRange - 1;
+      }else if (this.pages - half < this.currentPage) {
+        end = this.pages;
+        start = end - this.pageRange + 1;
+      }else {
+        start = this.currentPage - half + offset;
+        end = this.currentPage + half;
+      } 
+      let indexes = [];
+      for (let i = start; i <= end; i++) {
+        indexes.push(i);
+      }
+      return indexes;
+    },
+    displayItems() {
+      const head = this.currentPage * this.size;
+      return this.nus_data.slice(head, head + this.size);
+    },
+    isSelected(page) {
+      return page - 1 == this.currentPage;
+    }
     },
     methods: {
-        search(){
-        
+        search(){        
 
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -883,19 +944,38 @@
             this.factype = response.data.factype;
             this.markers = response.data.nursing;
             this.nursingList = response.data.nursing;
+               
             console.log('nursing',this.nursingList)
             this.citylatlng = response.data.city
                 var mmarker = new Array()
                 var item = []
 
             if(response.data.nursing.length > 0){
-
+                console.log(this.markers)
                 for (var i = 0; i < this.markers.length; i++) {
                     mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
                     item.push(this.markers[i])
+
+                    // if(localStorage.getItem("nursing_fav")){
+                    //     console.log('a'+this.markers[i]['nus_id'])
+                    //     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
+                    //     // this.view_pro_id = nus_fav_arr.includes(this.markers[i]['nus_id']);
+                    //     console.log(nus_fav_arr);
+                    //     if(nus_fav_arr.includes(this.markers[i]['nus_id'])){
+                    //         console.log('b'+this.markers[i]['nus_id'])
+                           
+                    //         $('.view_pro_id'+this.markers[i]['nus_id']).css('display','none');
+                    //         $('.done_pro_id'+this.markers[i]['nus_id']).css('display','block');
+                    //     }
+                    //     else{
+                    //         console.log('c'+this.markers[i]['id'])
+                    //         $('.view_pro_id'+this.markers[i]['id']).css('display','block');
+                    //         $('.done_pro_id'+this.markers[i]['id']).css('display','none');
+                    //     }
+                    // }
                 }
 
-                const theCity = this.markers[0]['city_eng']
+                const theCity = this.markers[0]['city_name']
                 const lat = this.markers[0]['latitude']
                 const lng = this.markers[0]['longitude']
                 const result = jp_township.features //jp_cities
@@ -911,24 +991,29 @@
                 const city_coordinates = []
                 
                 if(township_name == ''){
-                    for (var i = 0; i < jp_city.length; i++) {
-                    if (jp_city[i].properties.NAME_0 == theCity) {
-                    
-                    if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                    {
-                        for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+               
+                    for (var i = 0; i < jp_city.length; i++) 
                     {
                     
-                        city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                    }
-                    }
-                    else{          
-                        city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                    
-                    }
-                    }
-                }
+                        if (jp_city[i].properties.NAME_0 == theCity)
+                        {
+                            if(jp_city[i].geometry.hasOwnProperty('geometries'))
+                            {
+                                for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+                                {
+                                
+                                    city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+                                }
+                            }
+                            else
+                            {          
+                                city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+                            
+                            }
+                        }
+                   }
                 }else{
+                  console.log('notnull');
                     for (var i = 0; i < result.length; i++) {
                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
                     coordinates.push(result[i].geometry['coordinates'])
@@ -970,75 +1055,76 @@
                     for (var i = 0; i < item.length; i++) {
                         infoWindowContent.push([
                         '<div id="info_content">' +
-                            '<div class="">' +
-                            '<table class="table">' +
-                                '<thead>' +
-                                '<tr>' +
-                                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                                    '</span></td>' +
-                                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                    '</td>' +
-                                '</tr>' +
-                                '</thead>' +
-                                '<tbody>' +
-                                '<tr>' +
-                                    '<td colspan="2"><button class="item-fav-infowindow">'+
-                                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                                    '</span> </button></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td colspan="2" class="text-left">' +
-                                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
-                                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                        '<div class="">' +
+                          '<table class="table">' +
+                            '<thead>' +
+                              '<tr>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
+                                '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td colspan="2"><p class="type-name">' +
-                                    item[i]['type_name'] +
-                                    +'</p></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>' +
-                                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                                '</td>' +
-                                '<td>' +
-                                '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
-                                    '<tbody>' +
-                                    '<tr>' +
-                                        '<td>住所</td>' +
-                                        '<td>' + item[i]['address'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>電話</td>' +
-                                    '<td>' + item[i]['phone'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>ウェブ</td>' +
-                                    '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                    '</tr>' +
-                                    '</tbody>' +
-                                '</table>' +
-                                '</td>' +
-                                '</tr>' +
-                                ' <tr>' +
-                                '<td colspan="2">' +
-                                '<div class="">' +
-                                    '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
-                                    '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
-                                    '<tbody>'+
-                                    '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
-                                    '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
-                                    '</tbody>'+
+                              '</tr>' +
+                            '</thead>' +
+                            '<tbody>' +
+                              '<tr>' +
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
+                                '</span> </button></td>' +
+                              '</tr>' +
+                              '<tr>' +
+                              '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
+                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                              '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                                '<td colspan="2"><p class="type-name">' +
+                                item[i]['type_name'] +
+                                +'</p></td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                            '</td>' +
+                            '<td>' +
+                              '<ul class="list-group list-group-flush nur-caro-card">' +
+                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                                '<span style="color:#d2571c" class="m-r-5">住所</span>' +
+                                    item[i] ['township_name'] ['address'] + 
+                                '</p></li>' +
 
-                                    '</table>'+
-                                '</div>' +
-                                '</td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                            '</table>' +
-                            '</div>' +
-                        '</div>'
+                                '<li class="list-group-item">' +
+                                  '<span style="color:#d2571c" class="m-r-5">電話 </span>' +
+                                  '<span>' + item[i]['phone'] + '</span>' +
+                                  '</li>' +
+
+                                '<li class="list-group-item">' +
+                                 '<span style="color:#d2571c" class="m-r-5">ウェブ</span>' +
+                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                                '</li>' +
+                                
+                              '</ul>' +
+                            '</td>' +
+                            '</tr>' +
+                            ' <tr>' +
+                            '<td colspan="2">' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
+                              '</div>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</tbody>' +
+                          '</table>' +
+                        '</div>' +
+                      '</div>'
                         ])
                     }
                 this.markerHover = [];
@@ -1076,7 +1162,9 @@
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
                 var theCity = this.citylatlng[0]['city_eng']
-                const result = json.features
+                const result = jp_township.features
+  
+
                 const coordinates = []
                 for (var i = 0; i < result.length; i++) {
                     if (result[i].Name == theCity) {
@@ -1107,9 +1195,16 @@
                     strokeWeight: 1
                 })
             }
-                
-            })
-            
+                console.log('search',this.nus_data)
+            if(this.nus_data.length > this.size){
+                this.show_paginate = true;
+                console.log('true')
+            }else{
+                this.show_paginate = false;
+                console.log('false')
+            }
+            })            
+                        
         },
         openInfoWindow(marker) {
             this.selectedLocation = marker;
@@ -1133,8 +1228,8 @@
             this.currentOffset += this.paginationFactor;
             }
         },
-        getStateClick(e) {      
-
+        getStateClick(e) {
+         
             if(this.townshipID.length > 0)
             {
                 this.townshipID = [];
@@ -1176,6 +1271,8 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
+
+             this.search();
         },
         nursingSearchData(index){
             if(index == 1)
@@ -1195,6 +1292,8 @@
                 .then((response) => {
                     this.changeMap(response)
                 })
+
+           
             
         },
         changeMap(response){
@@ -1225,6 +1324,7 @@
                 const lng = response.data.getCity[0]['longitude']
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
+
                 var townshipName = [];
                 for (let i = 0; i < this.getTownships.length; i++) {
                     if(this.getTownships[i]['id'] == this.township_id){
@@ -1297,75 +1397,75 @@
                     for (var i = 0; i < item.length; i++) {
                         infoWindowContent.push([
                         '<div id="info_content">' +
-                            '<div class="">' +
-                            '<table class="table">' +
-                                '<thead>' +
-                                '<tr>' +
-                                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                                    '</span></td>' +
-                                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                    '</td>' +
-                                '</tr>' +
-                                '</thead>' +
-                                '<tbody>' +
-                                '<tr>' +
-                                    '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                                    '</span> </button></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td colspan="2" class="text-left">' +
-                                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
-                                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                        '<div class="">' +
+                          '<table class="table">' +
+                            '<thead>' +
+                              '<tr>' +
+                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                                '</span></td>' +
+                                '<td class="text-right">' + item[i]['date_of_establishment'] +
                                 '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td colspan="2"><p class="type-name">' +
-                                    item[i]['type_name'] +
-                                    +'</p></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>' +
-                                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                                '</td>' +
-                                '<td>' +
-                                '<table class="table table-bordered address-tbl" style="margin-bottom:0px;">' +
-                                    '<tbody>' +
-                                    '<tr>' +
-                                        '<td>住所</td>' +
-                                        '<td>' + item[i]['address'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>電話</td>' +
-                                    '<td>' + item[i]['phone'] + '</td>' +
-                                    '</tr>' +
-                                    '<tr>' +
-                                    '<td>ウェブ</td>' +
-                                    '<td><a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a></td>' +
-                                    '</tr>' +
-                                    '</tbody>' +
-                                '</table>' +
-                                '</td>' +
-                                '</tr>' +
-                                ' <tr>' +
-                                '<td colspan="2">' +
-                                '<div class="">' +
-                                    '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
-                                    '<thead><tr><th class="text-center">入居時費用</th><th class="text-center">月額利用料</th></tr></thead>'+
-                                    '<tbody>'+
-                                    '<tr><td>'+ item[i]['moving_in_to'] + '万円</td></tr>'+
-                                    '<tr><td>'+ item[i]['per_month_to'] + '万円</td></tr>'+
-                                    '</tbody>'+
+                              '</tr>' +
+                            '</thead>' +
+                            '<tbody>' +
+                              '<tr>' +
+                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
+                                '</span> </button></td>' +
+                              '</tr>' +
+                              '<tr>' +
+                              '<td colspan="2" class="text-left">' +
+                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
+                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                              '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                                '<td colspan="2"><p class="type-name">' +
+                                item[i]['type_name'] +
+                                +'</p></td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>' +
+                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                            '</td>' +                            
+                              '<td>' +
+                              '<ul class="list-group list-group-flush nur-caro-card">' +
+                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                                '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
+                                    item[i]['township_name'] + ['address'] + 
+                                '</p></li>' +
 
-                                    '</table>'+
-                                '</div>' +
-                                '</td>' +
-                                '</tr>' +
-                                '</tbody>' +
-                            '</table>' +
-                            '</div>' +
-                        '</div>'
+                                '<li class="list-group-item">' +
+                                  '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
+                                  '<span>' + item[i]['phone'] + '</span>' +
+                                  '</li>' +
+
+                                '<li class="list-group-item">' +
+                                 '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
+                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                                '</li>' +                                
+                              '</ul>' +
+                            '</td>' +                            
+                            '</tr>' +
+                            ' <tr>' +
+                            '<td colspan="2">' +
+                              '<div class="">' +
+                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                                '<tbody>'+
+                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                                '</tbody>'+
+
+                                '</table>'+
+                              '</div>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</tbody>' +
+                          '</table>' +
+                        '</div>' +
+                      '</div>'
                         ])
                     }
                     var bounds = new google.maps.LatLngBounds();
@@ -1505,7 +1605,6 @@
             event.target.src = "images/noimage.jpg"
         },
         favAddFun(status,index){
-            
             if(status == 'add'){
                 $('.view_pro_id'+index).css('display','none');
                 $('.done_pro_id'+index).css('display','block');
@@ -1543,6 +1642,25 @@
                 
             }
         },
+        first() {
+      this.currentPage = 0;
+    },
+    last() {
+      this.currentPage = this.pages - 1;
+    },
+    prev() {
+      if(0<this.currentPage) {
+        this.currentPage--;
+      }
+    },
+    next() {
+      if(this.currentPage < this.pages - 1) {
+        this.currentPage++;
+      }
+    },
+    pageSelect(index) {
+      this.currentPage = index - 1;
+    },
     }
   };
 </script>
@@ -1978,6 +2096,19 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     .tab-pane{
         padding: 10px;
     }
+    .offset{
+  width: 500px !important;
+  margin: 20px auto;  
+}
+.page-item.active_page .spanclass {
+  z-index: 1;
+  background-color: #ffbb99;
+    background-image: none;
+    border: 1px solid #8e3c15;
+}
+.page-item .spanclass{
+  cursor: pointer;
+}
 </style>
 
 </style>

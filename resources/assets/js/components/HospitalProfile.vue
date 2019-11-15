@@ -9,14 +9,14 @@
                 <label class="heading-lbl">名前<span class="error">*</span></label>
 
                 <input type="text" class="form-control customer-name col-10 float-right" placeholder="Name" v-model="customer_info.name">
-
         </div>
 
         <div class="form-group form-group-wrapper">
 
                 <label class="heading-lbl">メールアドレス<span class="error">*</span></label>
+                <label class=" col-10 float-right customer-email"> {{customer_info.email}} </label>
 
-                <input type="text" class="form-control customer-email col-10 float-right"  placeholder="Email" v-model="customer_info.email">
+                <!-- <input type="text" class="form-control customer-email col-10 float-right"  placeholder="Email" v-model="customer_info.email"> -->
         </div>
         <div class="form-group form-group-wrapper">
 
@@ -34,23 +34,46 @@
                 </div>
         </div>-->
 
-
-
         <div class="form-group form-group-wrapper">
 
           <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
 
-          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryAdd()">
-
+          <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
+         
             <i class="fas fa-plus-circle"></i> 追加
 
           </span>
+           <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
+                  <i id="gallery" class="fas fa-sort-down"></i>
+            </span>
 
-          <div class="col-md-12">
+          <div id="changeGalleryLink" class="col-md-12">
+                <div class="row" id ="gallery-photo">   
+                        <div class="col-md-6 gallery-area-photo" v-bind:id="'photo'+indx" v-for="(img,indx) in img_arr" :key="img.id">
+                                <div class="col-md-12">
+                                        <input type="file" name="" class="hospital-photo m-b-10" v-bind:class="img.classname" id="upload_img" @change="preview_image(img.classname,indx)">
+                                        <div class="col-md-12 m-b-10" v-bind:class="img.classname">
+                                                <input type="hidden" class="already-photo" v-model="img.photo">
+                                                <img :src="'/upload/hospital_profile/'+ img.photo" class="img-fluid" alt="profile" v-if="img.photo" v-bind:id="'already-photo'+indx" @error="imgUrlAlt">
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <input type="text" name="title" placeholder="タイトル" class="form-control m-b-15 title white-bg-color" v-model="img.title">
+                                        <textarea name="description" placeholder="コンテンツ" class="form-control m-b-15 description white-bg-color" v-model="img.description"></textarea>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                        <a class="mr-auto text-danger btn delete-borderbtn" @click="DeltArr(indx,'photo')"> <i class="fa fa-trash"></i> 削除</a>
+                                </div>
+                        </div>
+                </div>
+          </div>
+
+          <!-- <div class="col-md-12">
+
 
             <div class="row" id="gallery-photo">
 
-              <!-- Add by + Button -->
+           
 
               <div
 
@@ -63,6 +86,7 @@
                 :key="img.id"
 
               >
+            
 
                 <div class="col-md-12">
 
@@ -95,7 +119,7 @@
 
             </div>
 
-          </div>
+          </div> -->
 
         </div>
 
@@ -103,13 +127,17 @@
 
           <label class="heading-lbl col-2 pad-free">動画</label>
 
-          <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="galleryVideoAdd()" >
+          <span class="galleryvideo btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryVideoAdd()" >
 
             <i class="fas fa-plus-circle"></i> 追加
 
           </span>
 
-          <div class="col-md-12">
+           <span class='changeGalleryVideoLink  btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryVideoToggle" >
+                                        <i id="video" class="fas fa-sort-down"></i>
+           </span>
+
+          <div id="changeGalleryVideoLink" class="col-md-12">
 
             <div class="row" id="gallery-video">
 
@@ -1130,7 +1158,7 @@
 
 
 
-        <table class="table table-bordered table-wrapper">
+        <!-- <table class="table table-bordered table-wrapper">
 
           <tr>
 
@@ -1156,7 +1184,8 @@
 
                 <div class="col-md-12">
 
-                  <GoogleMap></GoogleMap>
+                    <GoogleMap :address="customer_info.address" :lat_num='nursing_info.latitude' :lng_num='nursing_info.longitude' v-if="nursing_info.latitude != 0"></GoogleMap>
+                    <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="nursing_info.latitude == 0"></GoogleMap>
 
 
 
@@ -1191,7 +1220,28 @@
 
           </tr>
 
-        </table>
+        </table> -->
+        <table class="table table-bordered table-wrapper">
+                    <tr>
+                        <td>
+                            <label class="heading-lbl col-2 pad-free">地図</label>
+                            <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="maptogglediv()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate5}"></i></span>
+                            <div class="col-md-10 float-right m-t-10 map-toggle-div toggle-div pad-free">
+                                <div class="col-md-12">
+                                    <GoogleMap :address="customer_info.address" :lat_num='hospital_info.latitude' :lng_num='hospital_info.longitude' v-if="hospital_info.latitude != 0"></GoogleMap>
+                                    <GoogleMap :address="customer_info.address" :lat_num='35.6803997' :lng_num='139.76901739' v-if="hospital_info.latitude == 0"></GoogleMap>
+
+                                    <div class="form-group">
+                                            <label>交通 / アクセス<span class="error">*</span></label>
+                                            <!-- <textarea name="address" rows="10" class="form-control"></textarea> -->
+                                            <quill-editor  ref="myQuilEditor" name="address" :options="editorOption" class="transporation-access" @change="onAccessEditorChange($event)" v-model="hospital_info.access"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
 
 
@@ -1275,6 +1325,13 @@ export default {
                         isRotate3: false,
                         isRotate4: false,
                         isRotate5: false,
+                          editorOption:{
+                        debug:'info',
+                        placeholder:'Type your post...',
+                        readonly:true,
+                        theme:'snow',
+                        access_val: '',
+                },
                 }
         },
         created(){
@@ -1305,7 +1362,15 @@ export default {
                 this.axios
                 .get('/api/hospitalinfo/'+this.cusid)
                 .then(response=>{
-                        this.hospital_info = response.data;
+                    this.hospital_info = response.data;
+                    if(this.hospital_info.latitude == 0){
+                        localStorage.setItem('lat_num',35.6803997);
+                        localStorage.setItem('lng_num',139.76901739);
+                    }
+                    else{
+                        localStorage.setItem('lat_num',this.hospital_info.latitude);
+                        localStorage.setItem('lng_num',this.hospital_info.longitude);
+                    }
                 });
                 this.axios
                 .get('/api/hospital-pgallery/'+this.cusid)
@@ -1330,6 +1395,9 @@ export default {
                 // quill.editor.disable()
         },
         methods: {
+             imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+            },
             scheduletogglediv() {
                     $(".schedule-toggle-div").toggle('medium');
                     this.isRotate2 = !this.isRotate2;
@@ -1376,58 +1444,118 @@ export default {
                     }
             },
             galleryAdd() {
+            
                     var date = new Date;
                     var s = date.getMilliseconds();
                     var m = date.getMinutes();
                     var h = date.getHours();
                     var classname = "class"+h+m+s;
                     var c = "'"+classname+"'";
-                    this.img_arr.push({classname:classname,phoまで:'',title:'',description:''});
+                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
+                  
+                   
+      
+                  
+            },
+             galleryToggle()
+                {
+
+                      var class_by_id = $('#gallery').attr('class');
+
+                      if(class_by_id == "fas fa-sort-down animate rotate")
+                      {
+                                $('#gallery').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryLink').addClass("fas fa-sort-down");
+                                $('#changeGalleryLink').show('medium');
+                                $('.galleryadd').show();
+                      }
+                      else {
+
+
+                                $('#gallery').removeClass("fas fa-sort-down");
+                                $('.changeGalleryLink').removeClass("fas fa-sort-down");
+                                $('#gallery').addClass("fas fa-sort-down animate rotate");
+                                $('#changeGalleryLink').hide('medium');
+                                 $('.galleryadd').show();
+                                      $('.galleryadd').hide();
+                      }
+                },
+                galleryVideoToggle()
+                {
+                       var class_by_id = $('#video').attr('class');
+
+                      if(class_by_id == "fas fa-sort-down animate rotate")
+                      {
+                                $('#video').removeClass("fas fa-sort-down animate rotate");
+                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");
+                                $('#changeGalleryVideoLink').show('medium');
+                                 $('.galleryvideo').show();
+                      }
+                      else {
+
+                                $('#video').removeClass("fas fa-sort-down");
+                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");
+                                $('#video').addClass("fas fa-sort-down animate rotate");
+                                $('#changeGalleryVideoLink').hide('medium');
+                                $('.galleryvideo').hide();
+                      }
+                },
+            onAccessEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.access_val = html
             },
             galleryVideoAdd() {
                    this.video_arr.push({title:'',description:'',url:''});
+                 
             },
             specialFeAdd() {
                      $(".special-feature-toggle-div").toggle('medium');
-                     this.isRotate4 = !this.isRotate4;
+                     this.isRotate4 = !this.isRotate4;  
             },
             Create_Profile () {
                     this.customer_info = [];
 
                     var name = $('.customer-name').val();
-                    var email = $('.customer-email').val();
+                    var email = $('.customer-email').text();
                     var phone = $('.customer-phone').val();
                     var address = $('#city').val();
                     this.customer_info_push.push({name:name,email:email,phone:phone,address:address});
 
-                    var access = $('.access').val();
+                    // var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
                     var details_info = $('.details-info').val();
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
-                    var img = document.getElementsByClassName('gallery-area-photo');
-                        for(var i = 0; i< img.length; i++) {
-                           var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
-                         if(file) {
-                                var file_name = file.name;
-                                let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        this.axios.post('/api/hospital/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
-                        } else {
-                                var file_name = img[i].getElementsByClassName('already-photo')[0].value;
-                        }
-                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
-                        }
+                    var latitude = $('#new_lat').val();
+                    var longitude = $('#new_long').val();
+                    localStorage.setItem('lat_num',latitude);
+                    localStorage.setItem('lng_num',longitude);
+
+                      var img = document.getElementsByClassName('gallery-area-photo');
+                      for(var i = 0; i< img.length; i++) {
+                          var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
+                          if(file) {
+                                  var file_name = file.name;
+                                          let fd = new FormData();
+                                          fd.append('file' ,file )
+                                          fd.append('photo' ,file_name )
+                                          fd.append('type', 'photo')
+                                          this.axios.post('/api/hospital/movephoto', fd)
+                                                  .then(response => {
+                                                  }).catch(error=>{
+                                                          console.log(error);
+                                                  if(error.response.status == 422){
+                                                          this.errors = error.response.data.errors
+                                                  }
+                                          })
+                          } else {
+                                  var file_name = img[i].getElementsByClassName('already-photo')[0].value;
+                          }
+                          this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
+                    }
+
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {
                            this.video_list.push({type:"video",photo:video[i].getElementsByClassName('video-url')[0].value,title:video[i].getElementsByClassName('title')[0].value, description:video[i].getElementsByClassName('description')[0].value});
@@ -1463,7 +1591,7 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                       this.save_hospital_info.push({access:access,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       this.save_hospital_info.push({latitude:latitude,longitude:longitude,access:this.access_val,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios
@@ -1578,9 +1706,8 @@ export default {
                         });
                 }
             },
-            imgUrlAlt(event) {
-                event.target.src = "images/noimage.jpg"
-            }
+            
+           
         }
 
 </script>

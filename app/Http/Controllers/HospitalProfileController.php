@@ -208,7 +208,9 @@ class HospitalProfileController extends Controller
             'closed_day' =>  $request[0]['close_day'],
             'facilities' =>  $request[0]['facilities'],
             'website' =>  $request[0]['website'],
-            'congestion' =>  $request[0]['congestion']
+            'congestion' =>  $request[0]['congestion'],
+            'latitude' =>  $request[0]['latitude'],
+            'longitude' =>  $request[0]['longitude']
        );
 
        $hospital->update($uploadData);
