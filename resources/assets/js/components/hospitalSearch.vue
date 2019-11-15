@@ -595,9 +595,12 @@
             this.timetable = response.data.timetable;
             this.specialfeatures = response.data.specialfeature;
             this.subject = response.data.subject;
-
+            if(this.hos_data.length > this.size) {
+                this.show_paginate = true;
+            }else{
+                this.show_paginate = false;
+            }
           })
-          this.show_paginate = true;
         },
 
         groupBy(array, key){

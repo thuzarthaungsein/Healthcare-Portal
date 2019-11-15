@@ -8338,6 +8338,21 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
+/*pagination */
+.offset{
+    width: 500px !important;
+    margin: 20px auto;  
+  }
+  .page-item.active_page .spanclass {
+    z-index: 1;
+    background-color: #ffbb99;
+      background-image: none;
+      border: 1px solid #8e3c15;
+  }
+  .page-item .spanclass{
+    cursor: pointer;
+  }
+  /* end pagination*/
 
 
 .wrapper-0{
@@ -8367,14 +8382,14 @@ ul.nur-caro-card>li.list-group-item {
   .wrapper-3{
     flex: 1 0 33.333%;
     position: relative;
-    height: 85%;
-    padding-bottom: 70px;
+    /* height: 85%; */
+    /* padding-bottom: 70px; */
 }
   .wrapper-3 img {
     position: absolute;
     width: 100%;
     height: 175px;
-    box-shadow: 0px 1px 5px 0px #b1b1b1 !important;
+    /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
   }
   .wrapper-3 p{
@@ -8390,7 +8405,7 @@ ul.nur-caro-card>li.list-group-item {
 }
   .wrapper-4 img {
     position: absolute;
-    box-shadow: 0px 1px 5px 0px #b1b1b1 !important;
+    /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
   }
   .fit-image-0{
