@@ -693,11 +693,7 @@ export default {
                 customer_address_val:'',
                 // customer_address_val: '',
                 access_val: '',
-<<<<<<< HEAD
-                pre_panocount:'0'
-=======
                 panorama_length: 0,
->>>>>>> 04d53bd600b012f696dd0a804d0876904c381876
           }
         },
 
@@ -846,10 +842,6 @@ export default {
             preview_panorama() {
                 // this.already_panorama_list = [];
                 for(var i=0; i< event.target.files.length; i++) {
-<<<<<<< HEAD
-                        this.panorama_count = i+1;
-                        $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"indx"+this.pre_panocount+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+","+this.pre_panocount+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
-=======
                     var pathreal = URL.createObjectURL(event.target.files[i]);
                     this.panorama_arr.push({id:null,type:"panorama",photo:event.target.files[i].name,title:'',description:'', path:pathreal});
                     // this.panorama.push({type:"panorama",photo:event.target.files[i].name,title:'',description:''});
@@ -857,54 +849,13 @@ export default {
                     // console.log(event);
                     // this.panorama_count = i+1;
                     // $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
->>>>>>> 04d53bd600b012f696dd0a804d0876904c381876
                 }
                
                 
                 // var panorama = document.getElementsByClassName('gallery-area-panorama');
                 // var status = 0;
 
-<<<<<<< HEAD
-                var panorama = document.getElementsByClassName('gallery-area-panorama');
-                var status = 0;
-
-                for(var i = 0; i< this.panorama_count; i++) {
-                        var preview = document.getElementsByClassName('preview-panorama');
-                        if(document.getElementById('preview-panorama'+i+'indx'+this.pre_panocount)) {
-                                if(status == 0) { var j = i; } else { var j = i+1; }
-                        } else {
-                                if(status == 0) { var j = i+1; } else { var j = i+2; }
-                                status = 1;
-                        }
-                        
-                        var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
-                        
-                        if(file && i<this.panorama_count) {
-                                var file_name = file.name;
-                                        let fd = new FormData();
-                                        fd.append('file' ,file )
-                                        fd.append('photo' ,file_name )
-                                        fd.append('type', 'panorama')
-                                        this.axios.post('/api/nursing/movephoto', fd)
-                                                .then(response => {
-                                                }).catch(error=>{
-                                                        console.log(error);
-                                                if(error.response.status == 422){
-                                                        this.errors = error.response.data.errors
-                                                }
-                                        })
-
-                        }
-                         
-                        this.panorama.push({type:"panorama",photo:file_name,title:'',description:''});
-                        console.log(this.panorama);
-                        // this.panorama.splice(0,1);
-                        // console.log(this.panorama);
-                } 
-                this.pre_panocount++;
-=======
                 
->>>>>>> 04d53bd600b012f696dd0a804d0876904c381876
                 
 
             },
@@ -1285,6 +1236,7 @@ export default {
 
                 var old_panorama = document.getElementsByClassName('panorama-old-img');
                 var new_panorama = document.getElementsByClassName('panorama-new-img');
+
                 console.log(old_panorama);
                 console.log(new_panorama);
                 if(this.panorama_length != old_panorama.length || new_panorama.length > 0){
@@ -1297,10 +1249,10 @@ export default {
                 else{
                     this.panorama_list = [];
                 }
-
+               
                 for(var i = 0; i< new_panorama.length; i++) {
                        
-                    var file = document.getElementsByClassName('nursing-panorama')[0].files[i];
+                    var file = document.getElementsByClassName('nursing-panorama')[0].files[0];
                     var file_name = file.name;
                     let fd = new FormData();
                     fd.append('file' ,file )
