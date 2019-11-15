@@ -5,10 +5,10 @@
     <div v-if="type == 'nursing'" id="nursingView">
          <span class="top-mail-btn" @click="documentPost()" v-if="!loginuser"><i data-v-b65423c6="" class="far fa-envelope" style="color: #fff  !important;font-size: 15px;"></i>&nbsp;資料請求</span>
         <!--panorama-->
-        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-building"></i> {{customer_name}}</h4>
+        <h4 class="profile-tit"  v-if="!currentPanoImage"><i class="fas fa-user-md"></i> {{customer_name}}</h4>
 
         <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
-            <h4 class="profile-tit"><i class="fas fa-building"></i> {{customer_name}}</h4>
+            <h4 class="profile-tit"><i class="fas fa-user-md"></i> {{customer_name}}</h4>
 
             <div class="thumbnail-img" style="padding:0px;border:none;">
                 <div class="card-carousel" style="background:#fff;">
@@ -39,7 +39,7 @@
                                             </div> -->
                                             <div  class="thumbnails-pano">
                                                 <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo">
+                                                    <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image.photo" @error="imgUrlAlt">
                                                 </div>
                                             </div>
                                         <!-- </div> -->
@@ -102,39 +102,40 @@
                            <div class="thumbnail-img">
 
                              <div class="card-carousel">
+                               
+                                    <div class="card-img photocard-carousel-wrapper">
 
-                                <div class="card-img">
+                                        <img :src="'/upload/nursing_profile/' +currentImage" alt="" @error="imgUrlAlt"> 
 
-                                    <img :src="'/upload/nursing_profile/' +currentImage" alt="">
+                                        <div class="actions">
 
-                                    <div class="actions">
+                                            <span @click="prevImage" class="prev">
 
-                                        <span @click="prevImage" class="prev">
+                                                <i class="fas fa-chevron-left"></i>
 
-                                            <i class="fas fa-chevron-left"></i>
+                                            </span>
 
-                                        </span>
+                                            <span @click="nextImage" class="next">
 
-                                        <span @click="nextImage" class="next">
+                                                <i class="fas fa-chevron-right"></i>
 
-                                            <i class="fas fa-chevron-right"></i>
+                                            </span>
 
-                                        </span>
+                                        </div>
 
                                     </div>
 
-                                </div>
-
-                                <div class="row col-12">
-                                    <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
-                                    <div class="row col-12 m-b-10">
-                                        <p>{{activeImageDescription}}</p>
+                                    <div class="row col-12 photocard-title">
+                                        <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
+                                        <div class="row col-12 m-b-10">
+                                            <p class="text-left">{{activeImageDescription}}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                 
 
                                 <ul class="thumbnails">
                                     <li v-for="(image,index) in  images" :key="image.id" :class="['thumbnail-image', (activeImage == index) ? 'active' : '']" @click="activateImage(index)" >
-                                        <img  :src ="'/upload/nursing_profile/' + image.photo">
+                                        <img  :src ="'/upload/nursing_profile/' + image.photo" @error="imgUrlAlt">
                                     </li>
                                 </ul>
                             </div>
@@ -424,7 +425,7 @@
                         <h3 class="profile_header">フォトアルバム</h3>
                         <div class="row m-0 gallery-list">
                             <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                              
-                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                                     <span>{{image.title}}</span><br>
                                 
                                 <!-- <span>{{image.photo}}</span> -->
@@ -758,7 +759,7 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ {{customer_name}}</h5>                  
+                <h5 class="profile_header col-12">口コミ ({{customer_name}})</h5>                  
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -795,7 +796,7 @@
 
     <div v-if="type == 'hospital'" id="hospitalView">
        <!--panorama-->
-            <h5 class="profile-tit"><i class="fas fa-building"></i> {{customer_name}}</h5>
+            <h5 class="profile-tit"><i class="fas fa-briefcase-medical"></i> {{customer_name}}</h5>
             <div class="col-12 detail_profile_left pad-free"  v-if="currentPanoImage">
                     <div class="thumbnail-img" style="padding:0px;border:none;">
                         <div class="card-carousel">
@@ -831,7 +832,7 @@
 
                                         <div class="thumbnails-pano">
                                             <div v-for="(image,index) in  panoimages" :key="image.id" :class="['thumbnail-image-panorama', (activePanoImage == index) ? 'active' : '']" @click="activatePanoImage(index)" >
-                                                <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image">
+                                                <img  :src ="'/upload/nursing_profile/Imagepanorama/' + image" @error="imgUrlAlt">
                                             </div>
                                         </div>
                                     <!-- </div> -->
@@ -872,15 +873,15 @@
             
                 
 
-                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn">
+                <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                     病院情報
                 </button>
 
-                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn">
+                <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
                     口コミ
                 </button>
 
-                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn">
+                <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
                     地図
                 </button>
 
@@ -901,9 +902,9 @@
 
                              <div class="card-carousel">
 
-                                <div class="card-img">
+                                <div class="card-img photocard-carousel-wrapper">
 
-                                    <img :src="'/upload/hospital_profile/' +currentImage" alt="">
+                                    <img :src="'/upload/hospital_profile/' +currentImage" alt="" @error="imgUrlAlt">
 
                                     <div class="actions">
 
@@ -923,13 +924,13 @@
 
                                 </div>
 
-                                <div class="row col-12">
+                                <div class="row col-12 photocard-title">
 
                                     <h5><strong class="img_2">  {{activeImageTitle}} </strong></h5>
 
                                     <div class="row col-12 m-b-10">
 
-                                         <p>{{activeImageDescription}}</p>
+                                         <p class="text-left">{{activeImageDescription}}</p>
 
                                     </div>
 
@@ -947,7 +948,7 @@
 
                                         @click="activateImage(index)" >
 
-                                        <img  :src ="'/upload/hospital_profile/' + image.photo">
+                                        <img  :src ="'/upload/hospital_profile/' + image.photo" @error="imgUrlAlt">
 
                                     </div>
 
@@ -1218,7 +1219,7 @@
             </div>
 
             <div class="row ele m-lr-0" id="element2">
-                <h5 class="profile_header col-12 m-t-20">口コミ {{customer.name}}</h5>                  
+                <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>                  
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -1249,7 +1250,7 @@
                 <h3 class="profile_header">フォトアルバム</h3>
                 <div class="row m-0 gallery-list">
                     <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                            
-                        <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)"  >
+                        <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                         <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
                         
                         <!-- <span>{{image.photo}}</span> -->
@@ -1350,7 +1351,7 @@ export default {
                 images:[],
                 videos:[],
                 pm_arr:[],
-                active_el:null,
+                active_el:0,
                 width: '',
                 center: { lat: 0, lng: 0 },
                 address: '',
@@ -1435,14 +1436,14 @@ export default {
                     $(".fixed-nav").css({"position": "fixed","top":"70px"});
                     var cur_pos = $(this).scrollTop();  
                    
-                    $('.ele').each(function(active_el){
+                //     $('.ele').each(function(active_el){
                
-                       if($(this).position().top <= cur_pos){                                
+                //        if($(this).position().top <= cur_pos){                                
 
-                            $('.top-fixed-btn').removeClass('active');      
-                            $('.top-fixed-btn').eq(active_el+1).addClass('active');                   
-                       }
-                   });
+                //             $('.top-fixed-btn').removeClass('active');      
+                //             $('.top-fixed-btn').eq(active_el+1).addClass('active');                   
+                //        }
+                //    });
 
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
@@ -1772,7 +1773,10 @@ export default {
         this.$router.push({
             name: 'nursingFavouriteMail',
         });
-    }
+    },
+     imgUrlAlt(event) {
+                event.target.src = "images/noimage.jpg"
+    },
 
   }
 
@@ -2148,6 +2152,16 @@ export default {
     user-select: none;
     position: relative;
 }
+.photocard-carousel-wrapper{
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow: hidden;
+
+}
+.photocard-title{
+    min-height: 70px;
+}
 .progressbar {
     display: block;
     width: 100%;
@@ -2211,11 +2225,12 @@ export default {
 }
 .card-img {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 10px;   
 }
 .card-img > img {
     display: block;
     margin: 0 auto;
+    width: 100%;
 }
 .actions {
     font-size: 1.5em;
