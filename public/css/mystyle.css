@@ -1329,6 +1329,9 @@ p {
     border-top: 5px solid #e66527; */
     background: #fff;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 99;
 }
 
@@ -8338,7 +8341,6 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
-<<<<<<< HEAD
 /*profile_edit*/
 .header2 {
     font-weight: bold;
@@ -8350,7 +8352,6 @@ ul.nur-caro-card>li.list-group-item {
     padding: 5px;
     margin-bottom: 20px;
 }
-=======
 /*pagination */
 .offset{
     width: 500px !important;
@@ -8478,4 +8479,3 @@ ul.nur-caro-card>li.list-group-item {
     }
   }
   
->>>>>>> 04d53bd600b012f696dd0a804d0876904c381876
