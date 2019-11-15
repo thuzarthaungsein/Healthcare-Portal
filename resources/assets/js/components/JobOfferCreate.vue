@@ -16,7 +16,7 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="title" class="form-control box" id="title" name="title" v-model="joboffer.title" placeholder="施設種別名を入力してください。" />
-                                <span v-if="errors.title" class="error">{{errors.title[0]}}</span>
+                                <span v-if="errors.includes('title')" class="error">題名が必須です。(Title)</span>
                             </div>
 
                             <div class="form-group">
@@ -25,7 +25,8 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <textarea name="description" class="form-control" cols="50" rows="5" v-model="joboffer.description" placeholder="仕事内容を入力してください。"></textarea>
-                                <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
+                                <!-- <span v-if="errors.description" class="error">{{errors.description}}</span> -->
+                                 <span v-if="errors.includes('description')" class="error">題名が必須です。(description)</span>
                             </div>
 
                             <!-- <div class="form-group row">
@@ -136,7 +137,8 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="joboffer.postal" maxlength="7" v-on:keyup="getPostal" />
-                                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                <!-- <span v-if="errors.postal" class="error">{{errors.postal}}</span> -->
+                                <span v-if="errors.includes('postal')" class="error">題名が必須です。(postal)</span>
                             </div>
                             <div class="form-group">
                                 <label for="location">
@@ -144,7 +146,8 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="text" class="form-control box" v-model="joboffer.pref" placeholder="都道府県を入力してください。" />
-                                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                <!-- <span v-if="errors.pref" class="error">{{errors.pref}}</span> -->
+                                <span v-if="errors.includes('pref')" class="error">題名が必須です。(pref)</span>
                             </div>
                             <div class="form-group">
                                 <label for="location">
@@ -152,7 +155,8 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="text" class="form-control box" v-model="joboffer.str_address" placeholder="市区町村、番地を入力してください。" />
-                                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                <!-- <span v-if="errors.str_address" class="error">{{errors.str_address}}</span> -->
+                                 <span v-if="errors.includes('str_address')" class="error">題名が必須です。(str_address)</span>
                             </div>
                             <div class="form-group">
                                 <label for="location">
@@ -160,7 +164,8 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <textarea name="location" class="form-control" cols="50" rows="5" v-model="joboffer.location" placeholder="勤務地を入力してください。"></textarea>
-                                <span v-if="errors.location" class="error">{{errors.location[0]}}</span>
+                                <!-- <span v-if="errors.location" class="error">{{errors.location}}</span> -->
+                                 <span v-if="errors.includes('location')" class="error">題名が必須です。(location)</span>
                             </div>
 
                             <!-- <div class="form-group row">
@@ -294,14 +299,17 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <div class="row form-group">
-                                    <select v-model="joboffer.salary_type" class="form-control col-md-4 joboffer-salary-type">
+                                  <select v-model="joboffer.salary_type" class="form-control col-md-4 joboffer-salary-type">
                                         <option v-bind:value='-1'>選択 </option>
                                         <option value='時給'>時給</option>
                                         <option value="日給">日給</option>
                                         <option value="月給">月給</option>
                                     </select>
+                                      <!-- <span v-if="errors.salary_type" class="error">{{errors.salary_type}}</span> -->
+                                       <span v-if="errors.includes('salary_type')" class="error">題名が必須です。(salary_type)</span>
                                     <input type="text" class="form-control col-md-4 joboffer-salary" v-model="joboffer.salary" name="salary" placeholder="給与を入力してください。" v-on:keydown="isNumber" />
-                                    <span v-if="errors.salary" class="error">{{errors.salary[0]}}</span>
+                                    <!-- <span v-if="errors.salary" class="error">{{errors.salary}}</span> -->
+                                    <span v-if="errors.includes('salary')" class="error">題名が必須です。(salary)</span>
                                 </div>
                             </div>
 
@@ -344,7 +352,8 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="workhour" class="form-control" name="workhour" v-model="joboffer.working_hours" placeholder="就業時間を入力してください。" />
-                                <span v-if="errors.working_hours" class="error">{{errors.working_hours[0]}}</span>
+                                <!-- <span v-if="errors.working_hours" class="error">{{errors.working_hours}}</span> -->
+                                <span v-if="errors.includes('working_hours')" class="error">題名が必須です。(working_hours)</span>
                             </div>
 
                             <div class="form-group">
@@ -356,12 +365,11 @@
                             </div>
 
                             <div class="form-group mt-3 pb-5">
-                                <button class="btn main-bg-color white all-btn">{{subtitle}}</button>
+                                <span class="btn main-bg-color white all-btn"  @click="checkValidate()">{{subtitle}}</span>
                                 <router-link class="btn btn-danger all-btn" to="/jobofferlist">キャンセル</router-link>
                             </div>
                         </form>
                     </div>
-                    <div class="col-sm-2"></div>
                 </div>
             </div>
         </div>
@@ -372,20 +380,21 @@
     export default {
         data() {
                 return {
-                    header: "求人採用作成",
-                    subtitle: "作成する",
-                    errors: [],
-
-                    OccupationList: {
-                        id: "",
-                        name: ""
-                    },
+                header: "求人採用作成",
+                subtitle: "作成する",
+                errors: [],
+                OccupationList: {
+                    id: "",
+                    name: ""
+                },
 
                     joboffer: {
                         title: "",
+                        description:"",
                         customer_id: "",
                         occupation_id: 0,
                         description: "",
+                        salary_type:-1,
                         fields: [{
                             skills: "",
 
@@ -496,6 +505,155 @@
             },
 
             methods: {
+              checkValidate() {
+                //   alert(1);
+                      console.log("Validation fun");
+                    //   if(this.errors.length ==0){
+                            console.log('joboffer');
+                            // this.$swal({
+                            //     title: "作成",
+                            //     text: "作成よろしでしょうか。",
+                            //     type: "success",
+                            //     width: 350,
+                            //     height: 200,
+                            //     showCancelButton: true,
+                            //     confirmButtonColor: "#6cb2eb",
+                            //     cancelButtonColor: "#b1abab",
+                            //     cancelButtonTextColor: "#000",
+                            //     confirmButtonText: "作成",
+                            //     cancelButtonText: "キャンセル",
+                            //     confirmButtonClass: "all-btn",
+                            //     cancelButtonClass: "all-btn"
+                            // })
+                            
+                        
+                        if (this.joboffer.title == '') {
+                           
+                            this.errors.push("title");            
+                        } else {
+                             this.errors=[];
+
+                        }
+
+                        if (this.joboffer.description == '') {
+                            
+                             this.errors.push("description");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        if (this.joboffer.postal == '') {
+                           
+                             this.errors.push("postal");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        if (this.joboffer.pref == '') {
+                            
+                             this.errors.push("pref");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        if (this.joboffer.str_address == '') {
+                         
+                             this.errors.push("str_address");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        if (this.joboffer.location == '') {
+                           
+                             this.errors.push("location");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        if (this.joboffer.salary_type == '-1') {
+                           
+                           this.errors.push("salary_type");  
+                        }
+                        else {
+                           this.errors=[];
+                        }
+
+                        if (this.joboffer.salary == '') {
+                           
+                             this.errors.push("salary");  
+                        } else {
+                            this.errors=[];
+                        }
+
+                        // if (this.joboffer.postal == '') {
+                        //     this.errors.postal = 'postal';
+                        // } else {
+                        //     this.errors.postal = "";
+                        // }                
+
+                        // if (this.joboffer.pref == '') {
+                        //     this.errors.pref = 'pref';
+                        // } else {
+                        //     this.errors.pref = "";
+                        // }
+
+                        // if (this.joboffer.str_address == '') {
+                        //     this.errors.str_address = 'str_address';
+                        // } else {
+                        //     this.errors.str_address = "";
+                        // }
+
+                        // if (this.joboffer.location == '') {
+                        //     this.errors.location = 'location';
+                        // } else {
+                        //     this.errors.location = "";
+                        // }
+
+                        // if (this.joboffer.salary_type == '-1') {
+                        //     this.errors.salary_type = " salary_type";
+                        // }
+                        // else {
+                        //     this.errors.salary_type = null;
+                        // }
+
+                        // if (this.joboffer.salary == '') {
+                        //     this.errors.salary = 'salary';
+                        // } else {
+                        //     this.errors.salary = "";
+                        // }
+
+                        // if (this.joboffer.working_hours == '') {
+                        //     this.errors.working_hours = 'working_hours';
+                        // } else {
+                        //     this.errors.working_hours = "";
+                        // }
+                        
+
+                    // if (
+                    //         !this.errors.title && 
+                    //         !this.errors.description &&
+                    //         !this.errors.postal &&
+                    //         !this.errors.pref &&
+                    //         !this.errors.location &&
+                    //         !this.errors.description &&
+                    //         !this.errors.salary_type &&
+                    //         !this.errors.salary
+                            
+                    //     ) {
+                            
+                    //         this.add();
+                    //     }
+                    // }if
+
+                    if(`${this.$route.params.id}` == "undefined"){
+                        console.log("go to add")
+                        this.add();
+                    }
+                    else{
+                        console.log("go to upd")
+                        this.updateJob();
+                    }
+                },
                 getPostal: function(event) {
                     if (this.joboffer.postal.length > 4) {
                         var postal = this.joboffer.postal;
@@ -527,62 +685,95 @@
                     }
                 },
 
-                add() {
-                    console.log(this.joboffer);
-                    if (this.$route.params.id) {
-                        this.updateJob();
-                    } else {
-                        this.$swal({
-                            title: "確認",
-                            text: "作成よろしでしょうか。",
-                            type: "info",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#6cb2eb",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "作成",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn"
-                        }).then(response => {
-                            this.axios
-                                .post("/api/job/add", this.joboffer)
+                // add() {
+                //     console.log(this.joboffer);
+                //     if (this.$route.params.id) {
+                //         this.updateJob();
+                //     } else {
+                //         this.$swal({
+                //             title: "確認",
+                //             text: "作成よろしでしょうか。",
+                //             type: "info",
+                //             width: 350,
+                //             height: 200,
+                //             showCancelButton: true,
+                //             confirmButtonColor: "#6cb2eb",
+                //             cancelButtonColor: "#b1abab",
+                //             cancelButtonTextColor: "#000",
+                //             confirmButtonText: "作成",
+                //             cancelButtonText: "キャンセル",
+                //             confirmButtonClass: "all-btn",
+                //             cancelButtonClass: "all-btn"
+                //         }).then(response => {
+                //             this.axios
+                //                 .post("/api/job/add", this.joboffer)
 
-                            .then(response => {
-                                    this.$swal({
-                                        position: "top-end",
-                                        type: "success",
-                                        title: "作成されました。",
-                                        // text: "ファイルが作成されました。",
-                                        // type: "success",
-                                        width: 350,
-                                        height: 200,
-                                        confirmButtonText: "はい",
-                                        confirmButtonColor: "#6cb2eb",
-                                    });
+                //             .then(response => {
+                //                     this.$swal({
+                //                         position: "top-end",
+                //                         type: "success",
+                //                         title: "作成されました。",
+                //                         // text: "ファイルが作成されました。",
+                //                         // type: "success",
+                //                         width: 350,
+                //                         height: 200,
+                //                         confirmButtonText: "はい",
+                //                         confirmButtonColor: "#6cb2eb",
+                //                     });
 
-                                    // alert('Successfully Created')
+                //                     // alert('Successfully Created')
 
-                                    this.$router.push({
-                                        name: "jobofferlist"
-                                    });
+                //                     this.$router.push({
+                //                         name: "jobofferlist"
+                //                     });
 
-                                    this.$route.params.id = null;
-                                })
-                                .catch(error => {
-                                    if (error.response.status == 422) {
-                                        this.errors = error.response.data.errors;
-                                    }
-                                });
-                        });
-                    }
-                },
+                //                     this.$route.params.id = null;
+                //                 })
+                //                 .catch(error => {
+                //                     if (error.response.status == 422) {
+                //                         this.errors = error.response.data.errors;
+                //                     }
+                //                 });
+                //         });
+                //     }
+                // },
 
                 // getParent: function() {
                 //   this.joboffer.occupation_id = this.selectedValue;
                 // },
+                 add() {
+                     console.log("add fun")
+                     console.log(this.errors.length)
+                 if(this.errors.length ==0)
+                {
+                    console.log("add fun no error");
+                    this.axios.post("/api/job/add", this.joboffer)
+                    .then(response => {
+                    this.name = ''
+                    // console.log(response);
+                    this.$swal({
+                    position: 'top-end',
+                    type: 'success',
+                    title: '作成されました',
+                    confirmButtonText: "はい",
+                    confirmButtonColor: "#6cb2eb",
+
+                    width: 250,
+                    height: 200,
+                    })
+                    // alert('Successfully Created')
+                    this.$router.push({name: 'jobofferlist'});
+                    }).catch(error=>{
+
+                        if(error.response.status == 422){
+
+                            this.errors = error.response.data.errors
+
+                        }
+                    })
+            // })
+                }
+            },
 
                 addRow: function() {
                     this.joboffer.fields.push({
@@ -674,26 +865,25 @@
                 // },
 
                 updateJob() {
-                    this.$swal({
-                        title: "確認",
-                        text: "更新よろしでしょうか。",
-                        type: "info",
-                        width: 350,
-                        height: 200,
-                        showCancelButton: true,
-                        confirmButtonColor: "#6cb2eb",
-                        cancelButtonColor: "#b1abab",
-                        cancelButtonTextColor: "#000",
-                        confirmButtonText: "更新",
-                        cancelButtonText: "キャンセル",
-                        confirmButtonClass: "all-btn",
-                        cancelButtonClass: "all-btn"
-                    }).then(response => {
-                        this.axios
-
-                            .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
-
-                        .then(response => {
+                    if(this.errors.length ==0){
+                        this.$swal({
+                            title: "確認",
+                            text: "更新よろしでしょうか。",
+                            type: "info",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "更新",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => {
+                            this.axios.post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
+                            .then(response => {
+                            //.log('updateJob');
                                 this.$swal({
                                     title: "更新されました。",
                                     // text: "ファイルが更新されました。",
@@ -713,7 +903,10 @@
                                     this.errors = error.response.data.errors;
                                 }
                             });
-                    });
+                        });
+                    }
+                  //console.log("update");
+                    
                 }
             }
     };
