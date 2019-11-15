@@ -8,12 +8,13 @@
                             <div class="row col-md-12 m-0 p-r-0">
                                 <div class="col-md-6">
                                     <div class="col-md-2 float-right">
-                                        <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span>
+                                        <!-- <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger" v-if="status == 1" @click="clearSearch()">X</span> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6 p-l-0 m-b-15">
                                     <div class="row ">                                            
                                         <div class="col-md-9">
+                                            <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
                                             <input type="text" placeholder="ニュース検索" aria-label="ニュース検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
                                         </div>
                                         <div class="col-md-3 p-r-20">

@@ -6038,7 +6038,17 @@ button.confirmed {
     background: rgba(0, 0, 0, .5);
     color: #fff;
 }
-
+.cross-btn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 25px;
+    top: 8px;
+    padding: 0px;
+    z-index: 99;
+    font-size: 13px;
+    color: #fff;
+}
 
 /* end one page */
 
