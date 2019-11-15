@@ -23,24 +23,9 @@
                     </div>
                     <div v-else class="container-fuid">
                         <h4 class="main-color m-b-10">職種検索</h4>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="職種検索" id="search-item" @keyup="searchOccupation()">
-                        </div>
-                        <!-- <div class="col-md-2">
-                            <button class="btn secondary-bg-color all-btn white">検索</button>
-                        </div> -->
-                    </div>
-                <hr/>
-                    <h5 class="header">職種一覧</h5>
-                <div class="card card-default m-b-20"  v-for="occupations in occupation" :key="occupations.id">
-                    <div class="card-body">
                         <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-12">
                                 <input type="text" class="form-control" placeholder="職種検索" id="search-item" @keyup="searchOccupation()">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn secondary-bg-color all-btn white">検索</button>
                             </div>
                         </div>
                         <hr/>
@@ -91,9 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
-        </div>
-    </div>
+    </div>        
 </template>
 
 <script>
