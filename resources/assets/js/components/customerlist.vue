@@ -211,16 +211,29 @@
                     comfirm(id) {
                         this.$loading(true);
                         this.axios.get(`/api/confirm/${id}`).then(response => {
-                            console.log(response);
-                            this.$swal({
-                                title: "確認済",
-                                text: "メールを送信しました",
-                                type: "success",
-                                width: 350,
-                                height: 200,
-                                confirmButtonText: "はい",
-                                confirmButtonColor: "#dc3545"
-                            });
+                            if(response.data == 'success'){
+                                this.$swal({
+                                    title: "確認済",
+                                    text: "メールを送信しました",
+                                    type: "success",
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: "はい",
+                                    confirmButtonColor: "#dc3545"
+                                });
+                            }
+                            else{
+                                this.$swal({
+                                    title: "確認済",
+                                    text: "Customer is already confirmed!",
+                                    type: "warning",
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: "はい",
+                                    confirmButtonColor: "#dc3545"
+                                });
+                            }
+                            
                             this.$loading(false);
                             $('#confirm-btn' + id).css('display', 'none');
                         });
