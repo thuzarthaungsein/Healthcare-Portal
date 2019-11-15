@@ -8490,9 +8490,9 @@ ul.nur-caro-card>li.list-group-item {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -10px 0 0 -10px;
-    width: 50px;
-    height: 50px;
+    /* margin: -1px 0 0 -1px; */
+    width: 30px;
+    height: 30px;
     transition: all 10ms ease-in;
 
 }
@@ -8511,14 +8511,14 @@ ul.nur-caro-card>li.list-group-item {
 
 .preloader .circle .circle-inner {
     padding: 3px;
-    animation: roll 2s linear infinite reverse;
+    animation: roll 20s linear infinite reverse;
 }
 
 .preloader .circle .circle-inner::after {
     content: '';
     display: block;
-    width: 45px;
-    height: 45px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     background: #fff;
 }
