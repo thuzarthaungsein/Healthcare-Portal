@@ -80,10 +80,10 @@ class CategoryController extends Controller
 
     public function update($id, Request $request)
     {
-        $request->validate([
-            'name' => 'required',
+        // $request->validate([
+        //     'name' => 'required',
 
-        ]);
+        // ]);
         $category = Category::find($id);
         $category->name = $request->input('name');
         $category->user_id = 1;

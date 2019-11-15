@@ -802,7 +802,7 @@ export default {
 
         },
         methods: {
-                imgUrlAlt(event) {
+            imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
             },
 

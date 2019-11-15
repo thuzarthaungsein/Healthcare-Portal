@@ -224,13 +224,13 @@
 
                             <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
                             @if(Auth::user()->type_id == 2)
-                            <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
+                            <i class="fas fa-briefcase-medical" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @elseif(Auth::user()->type_id == 1)
                             <img src="/images/user.png" alt="" class="userprofile-img">
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @else
-                            <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
+                            <i class="fas fa-user-md" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
                             <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
                             @endif
                             <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
@@ -552,7 +552,7 @@
                     @endcan
 
                     @can('customer')
-                    <li><router-link to="/profiledit" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp; Profile Edit</router-link></li>
+                    <li><router-link to="/profiledit" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp; プロファイル編集</router-link></li>
                     <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                     <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
                     @endcan
@@ -793,8 +793,9 @@
         $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
-        $("#hos-his-local").html(0);
+        $("#hos-his-local").html(0);       
         $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.his-hospital-link-box>a ').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("nursing_history")){
         $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
@@ -803,6 +804,7 @@
     else{
         $("#nus-his-local").html(0);
         $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.his-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("hospital_fav")){
         $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
@@ -811,6 +813,7 @@
     else{
         $("#hos-fav-local").html(0);
         $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.fav-hospital-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("nursing_fav")){
         $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
@@ -819,36 +822,37 @@
     else{
         $("#nus-fav-local").html(0);
         $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
 
-    var csrf = "{{ csrf_token() }}";
+    // var csrf = "{{ csrf_token() }}";
 
-    $.ajax({
-        url: '/api/advertisement/ads',
-        type: 'GET',
-        data: {'_token': csrf},
-        success: function( data ) {
-            // console.log(data);
-            var top_ad = "";
-            var side_ad = "";
-            for (var i = 0; i < data.length; i++) {
-                if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
-                    if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
-                    }
-                }
-                else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                }
+    // $.ajax({
+    //     url: '/api/advertisement/ads',
+    //     type: 'GET',
+    //     data: {'_token': csrf},
+    //     success: function( data ) {
+    //         // console.log(data);
+    //         var top_ad = "";
+    //         var side_ad = "";
+    //         for (var i = 0; i < data.length; i++) {
+    //             if(data[i].location.includes("topbar") ) {
+    //                 top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+    //                 if(data[i].location.includes("sidebar")) {
+    //                     side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+    //                 }
+    //             }
+    //             else if(data[i].location.includes("sidebar"))  {
+    //                 side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+    //             }
 
-            }
-            $(".top-ad-slider").html(top_ad);
-            // jssor_1_slider_init();
-            $(".side-ad-slider").html(side_ad);
-            // jssor_slider2_init();
-        }
-    });
+    //         }
+    //         $(".top-ad-slider").html(top_ad);
+    //         // jssor_1_slider_init();
+    //         $(".side-ad-slider").html(side_ad);
+    //         // jssor_slider2_init();
+    //     }
+    // });
 
 });
 
