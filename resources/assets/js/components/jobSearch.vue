@@ -422,7 +422,7 @@
                           </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
-                          <p class="job_id">求人番号{{job.jobnum}}</p>
+                          <p class="job_id"><span>求人番号:</span>{{job.jobnum}}</p>
                         </div>
                       </div>
                       <div class="job-body row  clearfix">

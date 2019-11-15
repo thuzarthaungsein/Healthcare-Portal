@@ -21,17 +21,17 @@
                             <i class="fas fa-plus-circle"></i> 新しく作る
                         </a>
                     </div>
-                    <div v-else class="container-fuid">
-                        <h4 class="main-color m-b-10">診療科目検索</h4>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" placeholder="診療科目検索" id="search-item" @keyup="searchSubject()">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn secondary-bg-color all-btn white">検索</button>
-                            </div>
+                     <div v-else class="container-fuid">
+                          <h4 class="main-color m-b-10">診療科目検索</h4>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="診療科目検索" id="search-item" @keyup="searchSubject()">
                         </div>
-                        <hr/>
+                        <!-- <div class="col-md-2">
+                            <button class="btn secondary-bg-color all-btn white">検索</button>
+                        </div> -->
+                    </div>
+                    <hr/>
                         <h5 class="header">診療科目一覧</h5>
                         <div class="card card-default m-b-20" v-for="subject in displayItems" :key="subject.id">
                             <div class="card-body">

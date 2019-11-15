@@ -77,7 +77,7 @@ export default {
             }
         },
           created() {
-              console.log('22222');
+            //   console.log('22222');
               console.log(this.$route.params.id);
               if(this.$route.params.id){
               //  alert('title');
@@ -149,7 +149,7 @@ export default {
                     // console.log(`${this.$route.params.id}`);
                     // console.log('this.$route.params.id');
                     this.$swal({
-                                title: "作成",
+                            title: "作成",
                             text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,
@@ -188,11 +188,11 @@ export default {
 
                     }
                 })
-                            })
+            })
 
                 }
                 else{
-                    console.log('bbbbb');
+                    //console.log('bbbbb');
                     console.log(this.$route.params.id);
                      this.updateFeature();
                 }
