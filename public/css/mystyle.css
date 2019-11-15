@@ -4908,8 +4908,9 @@ a:hover {
     position: fixed;
     top: 70px;
     width: 13%;
-    height: 100%;
+    height: calc(100% - 100px);
     background: transparent;
+    overflow-y: auto;
     /* box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); */
 }
 
