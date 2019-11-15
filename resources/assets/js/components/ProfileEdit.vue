@@ -11,7 +11,7 @@
                                 <img :src="logo" id="thumbnil" class="profile_logo" alt="Logo" width="90px" height="50px">
                             </div>
                             <div class="col-8">
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="profileChange()">
+                                <span class="btn all-btn main-bg-color"  @click="profileChange()">
                                      変化
                                 </span>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-4"></div>
                             <div class="col-8">
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="passwordChange()">
+                                <span class="btn all-btn main-bg-color"  @click="passwordChange()">
                                      変化
                                 </span>
                             </div>
@@ -68,7 +68,7 @@
                         <div class="row">
                             <div class="col-4"></div>
                             <div class="col-8">
-                                <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="emailChange()">
+                                <span class="btn all-btn main-bg-color"  @click="emailChange()">
                                      変化
                                 </span>
                             </div>
@@ -98,13 +98,13 @@
                                             </div>
                                             <div class="form-group mg">
                                                 <div>
-                                                    <img :src="logo" id="thumbnil" class="profile_logo m-b-8" alt="Logo" width="100px" height="100px">
+                                                    <img :src="logo" id="thumbnil" class="profile_logo m-b-8" alt="Logo" width="200px" >
                                                     <br>
                                                     <input type="file" name="" class="customer-logo m-b-10" id="customer-logo" @change="preview_image(this)">
 
                                                 </div>
                                                 <div class="">
-                                                    <span class="btn main-bg-color white all-btn" style="min-width: 0px;" @click="profileChange()">
+                                                    <span class="btn main-bg-color white all-btn"  @click="profileChange()">
                                      変化
                                 </span>
                                                 </div>
@@ -128,18 +128,18 @@
                                                 <label class="old-pass">古いパスワード:</label>
                                                 <input type="password" name="old_password" class="form-control old-password">
                                                 <div class="error" id="oldpassword" style="display: none;">古いパスワードが必要です。</div>
-
+                                                <br>
                                                 <label class="old-pass">新しいパスワード</label>
                                                 <input type="password" name="new_password" class="form-control new-password">
                                                 <div class="error" id="newpassword" style="display: none;">新しいパスワードが必要です。</div>
                                                 <div class="error" id="newpasswordlength" style="display: none;">パスワードは少なくとも6桁でなければなりません。</div>
-
+                                                <br>
                                                 <label class="old-pass">パスワード認証:</label>
                                                 <input type="password" name="comfirm_password" class="form-control confirm-password">
                                                 <div class="error" id="confirmpassword" style="display: none;">パスワードの確認が必要です。</div>
                                                 <br>
                                                 <div class="">
-                                                    <span class="btn main-bg-color white all-btn" style="min-width: 0px;" @click="passwordChange()">
+                                                    <span class="btn main-bg-color white all-btn"  @click="passwordChange()">
                                      変化
                                 </span>
                                                 </div>
@@ -162,7 +162,7 @@
                                                 <input type="text" class="form-control email" v-model="user_info.email">
                                             </div>
                                             <div class="form-group">
-                                                <span class="btn main-bg-color white all-btn" style="min-width: 0px;" @click="emailChange()">
+                                                <span class="btn main-bg-color white all-btn"  @click="emailChange()">
                                   変化
                                 </span>
                                             </div>

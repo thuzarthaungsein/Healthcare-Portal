@@ -131,7 +131,7 @@
 
                                                 <div class="col-md-8 txt-box">
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                                        <p> {{item.main_point}} </p>
                                                     </router-link>
                                                 </div>
                                             </div>
@@ -171,7 +171,7 @@
 
                                     <div class="col-md-8 txt-box">
                                         <router-link :to="'/newsdetails/'+item.id">
-                                            <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                            <p> {{item.main_point}} </p>
                                         </router-link>
                                     </div>
                                 </div>
@@ -205,23 +205,23 @@
                 <h4 class="category_news_title" :class="'h-color'+index"><span>{{name}}</span> <label style="float: right; color: #999; font-size: 14px;">最新ニュース</label></h4>
                 <div class="row m-lr-0" v-if="group[0].pattern == 1">
                     <div class="col-md-3 p-lr-0">
-                        <div class="col-12 single-news-box">
-                            <router-link :to="'/newsdetails/'+group[0].pid">
-                        <clazy-load class="wrapper-3" @load="log" src="images/noimage.jpg" :key="index" >
-                            <transition name="fade">
-                                <img :src="'/upload/news/' + group[0].photo"  @error="imgUrlAlt">
-                            </transition>
-                            <p> {{group[0].main_point}} </p>
-                            <transition name="fade" slot="placeholder">
-                            <div class="preloader">
-                                <div class="circle">
-                                <div class="circle-inner"></div>
-                                </div>
+                        <router-link :to="'/newsdetails/'+group[0].pid">
+                            <div class="col-12 single-news-box">
+                                <clazy-load class="wrapper-3" @load="log" src="images/noimage.jpg" :key="index" >
+                                    <transition name="fade">
+                                        <img :src="'/upload/news/' + group[0].photo"  @error="imgUrlAlt">
+                                    </transition>
+                                    <p> {{group[0].main_point}} </p>
+                                    <transition name="fade" slot="placeholder">
+                                    <div class="preloader">
+                                        <div class="circle">
+                                        <div class="circle-inner"></div>
+                                        </div>
+                                    </div>
+                                    </transition>
+                                </clazy-load>
                             </div>
-                            </transition>
-                        </clazy-load>
                         </router-link>
-                        </div>
                     </div>                                
                     <div class="col-md-3 p-r-0">
                         <router-link v-for="(item,index) in group.slice(1, 4)" :key="index" :to="'/newsdetails/'+item.pid">
@@ -243,7 +243,7 @@
                                 </div>
 
                                 <div class="col-md-8 txt-box">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </div>
                             </div>
                         </router-link>
@@ -274,7 +274,7 @@
                                 </div>
 
                                 <div class="col-md-8 txt-box">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </div>
                             </div>
                         </router-link>
@@ -300,7 +300,7 @@
                                 </div>
 
                                 <div class="col-md-8 txt-box">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </div>
                             </div>
                         </router-link>
@@ -331,7 +331,7 @@
                                 </div>
 
                                 <div class="col-md-8 txt-box">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </div>
                             </div>
                         </router-link>
@@ -383,7 +383,7 @@
                                 </div>
 
                                 <div class="col-md-8 txt-box">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </div>
                             </div>
                         </router-link>
@@ -407,7 +407,7 @@
                                 </div>
 
                                 <div class="col-md-8 txt-box">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </div>
                             </div>
                         </router-link>
@@ -444,7 +444,7 @@
 
                                 <div class="col-md-8 txt-box">
                                     <router-link :to="'/newsdetails/'+item.pid">
-                                        <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                        <p> {{item.main_point}} </p>
                                     </router-link>
                                 </div>
                             </div> 
