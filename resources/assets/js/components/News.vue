@@ -131,7 +131,7 @@
 
                                                 <div class="col-md-8 txt-box">
                                                     <router-link :to="'/newsdetails/'+item.id">
-                                                        <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                                        <p> {{item.main_point}} </p>
                                                     </router-link>
                                                 </div>
                                             </div>
@@ -171,7 +171,7 @@
 
                                     <div class="col-md-8 txt-box">
                                         <router-link :to="'/newsdetails/'+item.id">
-                                            <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                            <p> {{item.main_point}} </p>
                                         </router-link>
                                     </div>
                                 </div>
@@ -245,7 +245,7 @@
 
                             <div class="col-md-8 txt-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </router-link>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
 
                             <div class="col-md-8 txt-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </router-link>
                             </div>
                         </div>
@@ -310,7 +310,7 @@
 
                             <div class="col-md-8 txt-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </router-link>
                             </div>
                         </div>
@@ -339,7 +339,7 @@
 
                             <div class="col-md-8 txt-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </router-link>
                             </div>
                         </div>
@@ -390,7 +390,7 @@
 
                             <div class="col-md-8 txt-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </router-link>
                             </div>
                         </div>
@@ -416,7 +416,7 @@
 
                             <div class="col-md-8 txt-box">
                                 <router-link :to="'/newsdetails/'+item.pid">
-                                    <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                    <p> {{item.main_point}} </p>
                                 </router-link>
                             </div>
                         </div>
@@ -453,7 +453,7 @@
 
                                 <div class="col-md-8 txt-box">
                                     <router-link :to="'/newsdetails/'+item.pid">
-                                        <p class="news-title smallads-title"> {{item.main_point}} </p>
+                                        <p> {{item.main_point}} </p>
                                     </router-link>
                                 </div>
                             </div> 
