@@ -1494,6 +1494,9 @@ p {
     width: 80%;
     margin: 0 auto;
     box-shadow: 0px 1px 2px 0px #ccc !important;
+    -webkit-box-shadow: 0px 1px 2px 0px #ccc !important;
+    -ms-box-shadow: 0px 1px 2px 0px #ccc !important;
+    -moz-box-shadow: 0px 1px 2px 0px #ccc !important;
     min-height: 100vh;
     background: #fff;
 }
@@ -1547,6 +1550,9 @@ p {
     display: block;
     border-radius: 0px;
     box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
     margin-top: -5px;
 }
 
@@ -1579,6 +1585,9 @@ p {
     background-color: #4bd7ef;
     color: #fff;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
     text-align: center;
     line-height: 30px;
     margin-top: 0px;
@@ -2531,6 +2540,9 @@ ul.sub-ul li {
     color: #fff !important;
     font-weight: bold;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    -ms-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     padding: 10px 20px;
     border-radius: 20px;
     border: 1px solid #c6c6c6;
@@ -8466,7 +8478,7 @@ ul.nur-caro-card>li.list-group-item {
 .fit-image-0 {
     width: 100%;
     object-fit: cover;
-    height: 70px;
+    height: 50px;
 }
 
 .fade-enter,
@@ -8479,10 +8491,11 @@ ul.nur-caro-card>li.list-group-item {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -25px 0 0 -25px;
+    margin: -10px 0 0 -10px;
     width: 50px;
     height: 50px;
-    transition: all 100ms ease-in;
+    transition: all 10ms ease-in;
+
 }
 
 .preloader .circle,
@@ -8490,7 +8503,7 @@ ul.nur-caro-card>li.list-group-item {
     width: inherit;
     height: inherit;
     border-radius: 50%;
-    background: linear-gradient(rgba(64, 150, 238, 1) -50%, rgba(64, 150, 238, 0) 60%);
+    background: linear-gradient(rgb(248, 158, 117) -50%, rgba(86, 156, 43, 0) 60%);
 }
 
 .preloader .circle {
@@ -8498,15 +8511,15 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 .preloader .circle .circle-inner {
-    padding: 5px;
+    padding: 3px;
     animation: roll 2s linear infinite reverse;
 }
 
 .preloader .circle .circle-inner::after {
     content: '';
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background: #fff;
 }
