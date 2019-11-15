@@ -173,8 +173,8 @@
                                     // let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
                                     // this.occupation.splice(i, 1)
                                     this.$swal({
-                                        title: "削除された",
-                                        text: "ファイルが削除されました。",
+                                        title: "削除済",
+                                        text: "職種を削除されました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,

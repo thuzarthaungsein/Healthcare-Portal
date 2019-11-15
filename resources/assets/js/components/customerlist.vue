@@ -189,8 +189,8 @@
                         }).then(response => {
                             this.axios.delete(`/api/customer/delete/${id}`).then(response => {                                
                                 this.$swal({
-                                    title: "削除された",
-                                    text: "ファイルが削除されました。",
+                                    title: "削除済",
+                                    text: "事業者を削除されました。",
                                     type: "success",
                                     width: 350,
                                     height: 200,

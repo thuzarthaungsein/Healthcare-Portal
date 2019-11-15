@@ -534,7 +534,7 @@
                     } else {
                         this.$swal({
                             title: "確認",
-                            text: "作成よろしでしょうか。",
+                            text: "作成よろしいでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -676,7 +676,7 @@
                 updateJob() {
                     this.$swal({
                         title: "確認",
-                        text: "更新よろしでしょうか。",
+                        text: "更新よろしいでしょうか。",
                         type: "info",
                         width: 350,
                         height: 200,
