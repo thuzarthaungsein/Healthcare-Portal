@@ -19,11 +19,11 @@
                             </div>
                         </div>
                     </div>
-                        <!-- <div class="row col-md-12 text-center">
-                            <label class="h_4 next-title"> Panorama</label>
-                            <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
-                        </div>
-                         -->
+                    <!-- <div class="row col-md-12 text-center">
+                        <label class="h_4 next-title"> Panorama</label>
+                        <input type="file" name="" class="nursing-panorama m-b-10"  id="upload_panorama" @change="preview_panorama()" multiple>
+                    </div>
+                        -->
 
                 </div>
 
@@ -632,18 +632,16 @@ import DatePicker from 'vue2-datepicker';
 
 export default {
         components: {
-                GoogleMap,
-                Button,
-                Input,
-                Select,
-                quillEditor,
-                DatePicker
+            GoogleMap,
+            Button,
+            Input,
+            Select,
+            quillEditor,
+            DatePicker
         },
 
        data() {
-
-
-        return {
+            return {
                 isRotate1: false,
                 isRotate2: false,
                 isRotate3: false,
@@ -694,7 +692,8 @@ export default {
                 // customer_address_val: '',
                 access_val: '',
                 panorama_length: 0,
-          }
+                new_panorama_img: [],
+            }
         },
 
         mounted() {
@@ -703,136 +702,132 @@ export default {
 
         created(){
 
-                if(this.type != undefined && this.cusid!= undefined){
-                        localStorage.setItem('cusType',this.type);
-                        localStorage.setItem('cusId',this.cusid);
+            if(this.type != undefined && this.cusid!= undefined){
+                localStorage.setItem('cusType',this.type);
+                localStorage.setItem('cusId',this.cusid);
+            }
+
+            this.type = localStorage.getItem('cusType');
+            this.cusid = Number(localStorage.getItem('cusId'));
+            // this.axios
+            // .get('/api/station/'+this.cusid)
+            // .then(response=>{
+            //         this.station_list = response.data;
+            // });
+
+            this.axios
+            .get('/api/customerinfo/'+this.cusid)
+            .then(response=>{
+                this.customer_info = response.data;   
+            });
+
+            this.axios
+            .get('/api/nursinginfo/'+this.cusid)
+            .then(response=>{
+                this.nursing_info = response.data;
+
+                if(this.nursing_info.latitude == 0){
+                    localStorage.setItem('lat_num',35.6803997);
+                    localStorage.setItem('lng_num',139.76901739);
+                }
+                else{
+                    localStorage.setItem('lat_num',this.nursing_info.latitude);
+                    localStorage.setItem('lng_num',this.nursing_info.longitude);
                 }
 
-                this.type = localStorage.getItem('cusType');
-                this.cusid = Number(localStorage.getItem('cusId'));
-                // this.axios
-                // .get('/api/station/'+this.cusid)
-                // .then(response=>{
-                //         this.station_list = response.data;
-                // });
+            });
 
-                this.axios
-                .get('/api/customerinfo/'+this.cusid)
-                .then(response=>{
-                        this.customer_info = response.data;   
-                });
+            this.axios
+            .get('/api/staffinfo/'+this.cusid)
+            .then(response=>{
+                this.staff_info = response.data;
+            });
 
-                this.axios
-                .get('/api/nursinginfo/'+this.cusid)
-                .then(response=>{
-                        this.nursing_info = response.data;
-                        
+            this.axios
+            .get('/api/facilities')
+            .then(response=>{
+                this.fac_list = response.data;
+            });
 
+            this.axios
+            .get('/api/medical/acceptancewithtransactions/'+this.cusid)
+            .then(response => {
+                this.medical_acceptance = response.data;
+            });
 
-                        if(this.nursing_info.latitude == 0){
-                           
-                            localStorage.setItem('lat_num',35.6803997);
-                            localStorage.setItem('lng_num',139.76901739);
-                        }
-                        else{
-                           
-                            localStorage.setItem('lat_num',this.nursing_info.latitude);
-                            localStorage.setItem('lng_num',this.nursing_info.longitude);
-                        }
+            this.axios
+            .get('/api/feature/'+this.profile_type+'/'+this.cusid)
+            .then(response=>{
+                this.feature_list = response.data;
+            });
 
-                });
+            this.axios
+            .get('/api/nursing-pgallery/'+this.cusid)
+            .then(response=>{
+                this.img_arr = response.data;
+            });
 
-                this.axios
-                .get('/api/staffinfo/'+this.cusid)
-                .then(response=>{
-                        this.staff_info = response.data;
-                });
+            this.axios
+            .get('/api/nursing-panorrama-gallery/'+this.cusid)
+            .then(response=>{
+                this.panorama_arr = response.data;
+                this.panorama_length = this.panorama_arr.length;
+            });
 
-                this.axios
-                .get('/api/facilities')
-                .then(response=>{
-                        this.fac_list = response.data;
-                });
+            this.axios
+            .get('/api/nursing-vgallery/'+this.cusid)
+            .then(response=>{
+                this.video_arr = response.data;
+            });
 
-                this.axios
-                .get('/api/medical/acceptancewithtransactions/'+this.cusid)
-                .then(response => {
-                        this.medical_acceptance = response.data;
-                        console.log(response);
-                });
+            this.axios
+            .get('/api/nursing-cooperate/'+this.cusid)
+            .then(response=>{
+                this.cooperate_arr = response.data;
+            });
 
-                this.axios
-                .get('/api/feature/'+this.profile_type+'/'+this.cusid)
-                .then(response=>{
-
-                        this.feature_list = response.data;
-                });
-
-                this.axios
-                .get('/api/nursing-pgallery/'+this.cusid)
-                .then(response=>{
-                        this.img_arr = response.data;
-                });
-
-                this.axios
-                .get('/api/nursing-panorrama-gallery/'+this.cusid)
-                .then(response=>{
-                        this.panorama_arr = response.data;
-                        this.panorama_length = this.panorama_arr.length;
-                        console.log(this.panorama_arr)
-                });
-
-                this.axios
-                .get('/api/nursing-vgallery/'+this.cusid)
-                .then(response=>{
-                        this.video_arr = response.data;
-                });
-
-                this.axios
-                .get('/api/nursing-cooperate/'+this.cusid)
-                .then(response=>{
-                        this.cooperate_arr = response.data;
-                });
-
-                this.axios
-                .get('/api/nursing-payment/'+this.cusid)
-                .then(response=>{
-                        this.payment_arr = response.data;
-                });
+            this.axios
+            .get('/api/nursing-payment/'+this.cusid)
+            .then(response=>{
+                this.payment_arr = response.data;
+            });
 
         },
+
         methods: {
             imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
             },
 
-                onEditorBlur(quill) {
-      
-      },
-      onEditorFocus(quill) {
-       
-      },
+            onEditorBlur(quill) {
+            
+            },
+
+            onEditorFocus(quill) {
+            
+            },
+
             maptogglediv() {
-                    $(".map-toggle-div").toggle('medium');
-                   this.isRotate5 = !this.isRotate5;
+                $(".map-toggle-div").toggle('medium');
+                this.isRotate5 = !this.isRotate5;
             },
 
             nurseFacToggleDiv() {
-                    $(".nurse-fac-toggle-div").toggle('medium');
-                    this.isRotate1 = !this.isRotate1;
+                $(".nurse-fac-toggle-div").toggle('medium');
+                this.isRotate1 = !this.isRotate1;
 
             },
 
             staffToggleDiv() {
-                    $(".staff-toggle-div").toggle('medium');
-                    this.isRotate3 = !this.isRotate3;
+                $(".staff-toggle-div").toggle('medium');
+                this.isRotate3 = !this.isRotate3;
             },
 
             featureCheck(check_id) {
-                    $('.feature-'+check_id).attr('checked','true');
+                $('.feature-'+check_id).attr('checked','true');
             },
             stationCheck(check_id) {
-                    $('.station-'+check_id).attr('checked','true');
+                $('.station-'+check_id).attr('checked','true');
             },
             preview_image(img_class,indx) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
@@ -840,225 +835,205 @@ export default {
             },
 
             preview_panorama() {
-                // this.already_panorama_list = [];
                 for(var i=0; i< event.target.files.length; i++) {
                     var pathreal = URL.createObjectURL(event.target.files[i]);
-                    this.panorama_arr.push({id:null,type:"panorama",photo:event.target.files[i].name,title:'',description:'', path:pathreal});
-                    // this.panorama.push({type:"panorama",photo:event.target.files[i].name,title:'',description:''});
-                    console.log(this.panorama_arr);
-                    // console.log(event);
-                    // this.panorama_count = i+1;
-                    // $(".panorama").append("<div class='col-sm-3  col-md-3 mt-2 gallery-area-panorama preview-panorama' id='preview-panorama"+i+"'><span class='img-close-btn' onClick='closeBtnPreview("+i+")'>X</span><img src='"+URL.createObjectURL(event.target.files[i])+"' class='img-fluid'></div>");
-                }
-               
-                
-                // var panorama = document.getElementsByClassName('gallery-area-panorama');
-                // var status = 0;
-
-                
-                
-
+                    this.panorama_arr.push({id:null,type:"panorama",photo:event.target.files[i].name,title:'',description:'', path:pathreal, file:event.target.files[i]});
+                }              
             },
-           closeBtnMethod: function(indx) {
+
+            closeBtnMethod: function(indx) {
                 if(confirm("Are you sure you want to delete?"))
                 {
                     // var panorama_x = document.getElementById('x-panorama'+indx);
                     // panorama_x.parentNode.removeChild(panorama_x);
                     this.panorama_arr.splice(indx, 1);
+                    // this.new_panorama_img.
                 }
             },
 
 
             DeltArr(indx,type) {
-                    var arr_list = [];
-                    var arr_count = document.getElementsByClassName('gallery-area-'+type);
-                    for(var i=0; i< arr_count.length; i++) {
-                            arr_list[i] = document.getElementsByClassName('gallery-area-'+type);
-                    }
+                var arr_list = [];
+                var arr_count = document.getElementsByClassName('gallery-area-'+type);
+                for(var i=0; i< arr_count.length; i++) {
+                    arr_list[i] = document.getElementsByClassName('gallery-area-'+type);
+                }
 
-                    for(var i=0; i<= arr_count.length; i++) {
-                            if(i == indx) {
-                                    arr_list.splice(indx,1);
-                                    var ele = document.getElementById(type+indx);
-                                    var parentEle = document.getElementById('gallery-'+type);
-                                    parentEle.removeChild(ele);
-                            }
+                for(var i=0; i<= arr_count.length; i++) {
+                    if(i == indx) {
+                        arr_list.splice(indx,1);
+                        var ele = document.getElementById(type+indx);
+                        var parentEle = document.getElementById('gallery-'+type);
+                        parentEle.removeChild(ele);
                     }
+                }
 
             },
 
             galleryAdd() {
-                    var date = new Date;
-                    var s = date.getMilliseconds();
-                    var m = date.getMinutes();
-                    var h = date.getHours();
-                    var classname = "class"+h+m+s;
-                    var c = "'"+classname+"'";
+                var date = new Date;
+                var s = date.getMilliseconds();
+                var m = date.getMinutes();
+                var h = date.getHours();
+                var classname = "class"+h+m+s;
+                var c = "'"+classname+"'";
 
-                    this.img_arr.push({classname:classname,photo:'',title:'',description:''});
-                 
+                this.img_arr.push({classname:classname,photo:'',title:'',description:''});
             },
 
-             galleryVideoAdd() {
-                   this.video_arr.push({title:'',description:'',url:''});
+            galleryVideoAdd() {
+                this.video_arr.push({title:'',description:'',url:''});
             },
 
             methodAdd() {
-                   this.payment_arr.push({payment_name:'',expense_moving:'',monthly_fees:'',living_room_type:'',
-                                        area:'',details:'',deposit:'',other_use:'',rent:'',admin_expense:'',food_expense:'',
-                                        nurse_care_surcharge:'',other_monthly_cost:'',refund_system:'',depreciation_period:'',
-                                        initial_deprecration:'',other_message_refund:''});
+                this.payment_arr.push({payment_name:'',expense_moving:'',monthly_fees:'',living_room_type:'', area:'',details:'',deposit:'',other_use:'',rent:'',admin_expense:'',food_expense:'', nurse_care_surcharge:'',other_monthly_cost:'',refund_system:'',depreciation_period:'', initial_deprecration:'',other_message_refund:''});
             },
 
             cooperateAdd() {
-                    this.cooperate_arr.push({name:'',clinical_subject:'',details:'',medical_expense:'',remark:''});
+                this.cooperate_arr.push({name:'',clinical_subject:'',details:'',medical_expense:'',remark:''});
             },
 
             acceptanceList() {
-                     $(".accept-toggle-div").toggle('medium');
-                     this.isRotate2 = !this.isRotate2;
+                $(".accept-toggle-div").toggle('medium');
+                this.isRotate2 = !this.isRotate2;
             },
 
             specialFeAdd() {
-                     $(".special-feature-toggle-div").toggle('medium');
-                     this.isRotate4 = !this.isRotate4;
+                $(".special-feature-toggle-div").toggle('medium');
+                this.isRotate4 = !this.isRotate4;
             },
             StationAdd() {
-                     $(".station-toggle-div").toggle('medium');
-                     this.isRotate4 = !this.isRotate4;
+                $(".station-toggle-div").toggle('medium');
+                this.isRotate4 = !this.isRotate4;
             },
             onDrop: function(e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        var files = e.dataTransfer.files;
-                        this.createFile(files[0]);
-                },
-                onChange(e) {
-                        var files = e.target.files;
-                        this.createFile(files[0]);
-                },
-                createFile(file) {
-                        if (!file.type.match('image.*')) {
-                        alert('Select an image');
-                        return;
-                        }
-                        var img = new Image();
-                        var reader = new FileReader();
-                        var vm = this;
+                e.stopPropagation();
+                e.preventDefault();
+                var files = e.dataTransfer.files;
+                this.createFile(files[0]);
+            },
+            onChange(e) {
+                var files = e.target.files;
+                this.createFile(files[0]);
+            },
+            createFile(file) {
+                if (!file.type.match('image.*')) {
+                alert('Select an image');
+                return;
+                }
+                var img = new Image();
+                var reader = new FileReader();
+                var vm = this;
 
-                        reader.onload = function(e) {
-                        vm.image = e.target.result;
-                        }
-                        reader.readAsDataURL(file);
-                },
-                removeFile() {
-                        this.image = '';
-                },
-                onFeatureEditorChange({ editor, html, text }) {
-                        // console.log('editor change!', editor, html, text)
-                        this.feature_val = html
-                },
-                onNursingEditorChange({ editor, html, text }) {
-                        // console.log('editor change!', editor, html, text)
-                        this.nursing_remarks_val = html
-                },
-                onAcceptanceEditorChange({ editor, html, text }) {
-                        // console.log('editor change!', editor, html, text)
-                        this.acceptance_remark_val = html
-                },
-                onResidenceEditorChange({ editor, html, text }) {
-                        // console.log('editor change!', editor, html, text)
-                        this.residence_form_val = html
-                },
-                onAccessEditorChange({ editor, html, text }) {
-                        // console.log('editor change!', editor, html, text)
-                        this.access_val = html
-                },
-                paymentToggle(id)
+                reader.onload = function(e) {
+                vm.image = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            },
+            removeFile() {
+                this.image = '';
+            },
+            onFeatureEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.feature_val = html
+            },
+            onNursingEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.nursing_remarks_val = html
+            },
+            onAcceptanceEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.acceptance_remark_val = html
+            },
+            onResidenceEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.residence_form_val = html
+            },
+            onAccessEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.access_val = html
+            },
+
+            paymentToggle(id)
+            {
+                var class_by_id = $('#icon'+id).attr('class');
+                if(class_by_id == "fas fa-sort-down animate rotate")
                 {
-                      var class_by_id = $('#icon'+id).attr('class');
-                      if(class_by_id == "fas fa-sort-down animate rotate")
-                      {
-                                $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
-                                $('.changeLink'+id).addClass("fas fa-sort-down");
-                                $('#changeLink'+id).show('medium');
-                      }
-                      else {
+                    $('#icon'+id).removeClass("fas fa-sort-down animate rotate");
+                    $('.changeLink'+id).addClass("fas fa-sort-down");
+                    $('#changeLink'+id).show('medium');
+                }
+                else {
+                    $('#icon'+id).removeClass("fas fa-sort-down");
+                    $('.changeLink'+id).removeClass("fas fa-sort-down");
+                    $('#icon'+id).addClass("fas fa-sort-down animate rotate");
+                    $('#changeLink'+id).hide('medium');
+                }
 
-                                $('#icon'+id).removeClass("fas fa-sort-down");
-                                $('.changeLink'+id).removeClass("fas fa-sort-down");
-                                $('#icon'+id).addClass("fas fa-sort-down animate rotate");
-                                $('#changeLink'+id).hide('medium');
-                      }
+            },
 
-                },
-                galleryToggle()
+            galleryToggle()
+            {
+                var class_by_id = $('#gallery').attr('class');
+
+                if(class_by_id == "fas fa-sort-down animate rotate")
                 {
+                    $('#gallery').removeClass("fas fa-sort-down animate rotate");
+                    $('.changeGalleryLink').addClass("fas fa-sort-down");
+                    $('#changeGalleryLink').show('medium');
+                    $('.galleryadd').show();
+                }
+                else {
+                    $('#gallery').removeClass("fas fa-sort-down");
+                    $('.changeGalleryLink').removeClass("fas fa-sort-down");
+                    $('#gallery').addClass("fas fa-sort-down animate rotate");
+                    $('#changeGalleryLink').hide('medium');
+                    $('.galleryadd').show();
+                    $('.galleryadd').hide();
+                }
+            },
 
-                      var class_by_id = $('#gallery').attr('class');
+            galleryVideoToggle()
+            {
+                var class_by_id = $('#video').attr('class');
 
-                      if(class_by_id == "fas fa-sort-down animate rotate")
-                      {
-                                $('#gallery').removeClass("fas fa-sort-down animate rotate");
-                                $('.changeGalleryLink').addClass("fas fa-sort-down");
-                                $('#changeGalleryLink').show('medium');
-                                $('.galleryadd').show();
-                      }
-                      else {
-
-
-                                $('#gallery').removeClass("fas fa-sort-down");
-                                $('.changeGalleryLink').removeClass("fas fa-sort-down");
-                                $('#gallery').addClass("fas fa-sort-down animate rotate");
-                                $('#changeGalleryLink').hide('medium');
-                                 $('.galleryadd').show();
-                                      $('.galleryadd').hide();
-                      }
-                },
-                galleryVideoToggle()
+                if(class_by_id == "fas fa-sort-down animate rotate")
                 {
-                       var class_by_id = $('#video').attr('class');
+                    $('#video').removeClass("fas fa-sort-down animate rotate");
+                    $('.changeGalleryVideoLink').addClass("fas fa-sort-down");
+                    $('#changeGalleryVideoLink').show('medium');
+                    $('.galleryvideo').show();
+                }
+                else {
+                    $('#video').removeClass("fas fa-sort-down");
+                    $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");
+                    $('#video').addClass("fas fa-sort-down animate rotate");
+                    $('#changeGalleryVideoLink').hide('medium');
+                    $('.galleryvideo').hide();
+                }
+            },
 
-                      if(class_by_id == "fas fa-sort-down animate rotate")
-                      {
-                                $('#video').removeClass("fas fa-sort-down animate rotate");
-                                $('.changeGalleryVideoLink').addClass("fas fa-sort-down");
-                                $('#changeGalleryVideoLink').show('medium');
-                                 $('.galleryvideo').show();
-                      }
-                      else {
-
-                                $('#video').removeClass("fas fa-sort-down");
-                                $('.changeGalleryVideoLink').removeClass("fas fa-sort-down");
-                                $('#video').addClass("fas fa-sort-down animate rotate");
-                                $('#changeGalleryVideoLink').hide('medium');
-                                $('.galleryvideo').hide();
-                      }
-                },
-                cooperateToggle(id)
+            cooperateToggle(id)
+            {
+                var class_by_id = $('#cooperate'+id).attr('class');
+                if(class_by_id == "fas fa-sort-down animate rotate")
                 {
-                      var class_by_id = $('#cooperate'+id).attr('class');
-                      if(class_by_id == "fas fa-sort-down animate rotate")
-                      {
-                                $('#cooperate'+id).removeClass("fas fa-sort-down animate rotate");
-                                $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");
-                                $('#cooperateChangeLink'+id).show('medium');
+                    $('#cooperate'+id).removeClass("fas fa-sort-down animate rotate");
+                    $('.cooperateChangeLink'+id).addClass("fas fa-sort-down");
+                    $('#cooperateChangeLink'+id).show('medium');
+                }
+                else {
+                    $('#cooperate'+id).removeClass("fas fa-sort-down");
+                    $('.cooperateChangeLink'+id).removeClass("fas fa-sort-down");
+                    $('#cooperate'+id).addClass("fas fa-sort-down animate rotate");
+                    $('#cooperateChangeLink'+id).hide('medium');
+                }
 
-                      }
-                      else {
-
-                                $('#cooperate'+id).removeClass("fas fa-sort-down");
-                                $('.cooperateChangeLink'+id).removeClass("fas fa-sort-down");
-                                $('#cooperate'+id).addClass("fas fa-sort-down animate rotate");
-                                $('#cooperateChangeLink'+id).hide('medium');
-                      }
-
-                },
+            },
 
             createProfile() {
-
                 // $('#create-profile').prop('disabled', true);
-                 document.getElementById("create-profile").disabled=true;
+                document.getElementById("create-profile").disabled=true;
                 this.customer_info_push = [];
                 this.staff_info_push = [];
                 this.gallery_list = [];
@@ -1109,63 +1084,26 @@ export default {
                 this.staff_info_push.push({staff:staff,nursing_staff:nursing_staff,min_num_staff:min_num_staff,num_staff:num_staff,nursing_remarks:this.nursing_remarks_val});
 
                 var img = document.getElementsByClassName('gallery-area-photo');
+                let pt = new FormData();
                 for(var i = 0; i< img.length; i++) {
                     var file = img[i].getElementsByClassName('nursing-photo')[0].files[0];
                     if(file) {
-                        var file_name = file.name;
-                        let fd = new FormData();
-                        fd.append('file' ,file )
-                        fd.append('photo' ,file_name )
-                        fd.append('type', 'photo')
-                        this.axios.post('/api/nursing/movephoto', fd)
-                            .then(response => {
-                            }).catch(error=>{
-                                    console.log(error);
-                            if(error.response.status == 422){
-                                    this.errors = error.response.data.errors
-                            }
-                        })
+                        var file_name = file.name;                        
+                        pt.append(i ,file )
                     } else {
                         var file_name = img[i].getElementsByClassName('already-photo')[0].value;
                     }
                     this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                 }
 
-                // var panorama = document.getElementsByClassName('gallery-area-panorama');
-                // var count = 0;
-                // var status = 0;
-                // for(var i = 0; i< panorama.length; i++) {
-                //         var preview = document.getElementsByClassName('preview-panorama');
-                //         if(document.getElementById('preview-panorama'+i)) {
-                //                 if(status == 0) { var j = i; } else { var j = i+1; }
-
-                //         } else {
-                //                 if(status == 0) { var j = i+1; } else { var j = i+2; }
-                //                 status = 1;
-                //         }
-                //         var file = document.getElementsByClassName('nursing-panorama')[0].files[j];
-                //         if(file && i<preview.length) {
-                //                 var file_name = file.name;
-                //                         let fd = new FormData();
-                //                         fd.append('file' ,file )
-                //                         fd.append('photo' ,file_name )
-                //                         fd.append('type', 'panorama')
-                //                         this.axios.post('/api/nursing/movephoto', fd)
-                //                                 .then(response => {
-                //                                 }).catch(error=>{
-                //                                         console.log(error);
-                //                                 if(error.response.status == 422){
-                //                                         this.errors = error.response.data.errors
-                //                                 }
-                //                         })
-
-                //         }
-                //         else {
-                //                 var file_name = panorama[count].getElementsByClassName('already-panorama')[0].value;
-                //                 count = count + 1;
-                //         }
-                //         this.panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
-                // }
+                this.axios.post('/api/nursing/movephoto', pt)
+                    .then(response => {
+                    }).catch(error=>{
+                        console.log(error);
+                    if(error.response.status == 422){
+                        this.errors = error.response.data.errors
+                    }
+                })
 
                 var video = document.getElementsByClassName('gallery-area-video');
                 for(var i = 0; i< video.length; i++) {
@@ -1183,9 +1121,7 @@ export default {
                 }
 
                 var payment = document.getElementsByClassName('gallery-area-payment');
-                console.log(payment);
                 for(var i = 0; i< payment.length; i++) {
-                    console.log(payment[i].getElementsByClassName('payment-name')[0].value);
                     this.payment_list.push({payment_name:payment[i].getElementsByClassName('payment-name')[0].value,
                     expense_moving:payment[i].getElementsByClassName('expense-moving')[0].value,
                     monthly_fees:payment[i].getElementsByClassName('monthly-fees')[0].value,
@@ -1227,18 +1163,14 @@ export default {
                         var type = tmp_arr[0];
                         var acceptance_id = tmp_arr[1];
                         acceptance.push({id:id,type:type});
-                        console.log(acceptance)
                 });
 
-                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form,
-                                        site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type,
-                                        occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
+                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form, site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type, occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
                 var old_panorama = document.getElementsByClassName('panorama-old-img');
                 var new_panorama = document.getElementsByClassName('panorama-new-img');
 
                 if((this.panorama_length != old_panorama.length && old_panorama.length >0) || new_panorama.length > 0){
-                    alert('if');
                     for(var i = 0; i< this.panorama_arr.length; i++) {
                         this.panorama_list.push({type:"panorama",photo:this.panorama_arr[i].photo,title:'',description:''});
                     }                
@@ -1247,55 +1179,36 @@ export default {
                     this.panorama_list = [];
                 }
                
-                for(var i = 0; i< new_panorama.length; i++) {
-                       
-                    var file = document.getElementsByClassName('nursing-panorama')[0].files[0];
-                    var file_name = file.name;
+                if(new_panorama.length > 0){
                     let fd = new FormData();
-                    fd.append('file' ,file )
-                    fd.append('photo' ,file_name )
-                    fd.append('type', 'panorama')
-                    this.axios.post('/api/nursing/movephoto', fd)
+                    for(var i = 0; i< this.panorama_arr.length; i++) {
+                        if(this.panorama_arr[i]['path']!=''){ 
+                            fd.append(i ,this.panorama_arr[i]["file"] )
+                        }                   
+                    }
+                        
+                    this.axios.post('/api/nursing/movepanorama', fd)
                         .then(response => {
                         }).catch(error=>{
                                 console.log(error);
                         if(error.response.status == 422){
                                 this.errors = error.response.data.errors
                         }
-                    })                      
-                } 
-                
-                // var already_panorama = document.getElementsByClassName('already-panorama');
-                // var panorama = document.getElementsByClassName('gallery-area-panorama');
-                // if(already_panorama.length>0) {
-                //     for(var i = 0; i< already_panorama.length; i++) {
-                //         var file_name = panorama[i].getElementsByClassName('already-panorama')[0].value;
-                //         if(file_name) {
-                //                 this.already_panorama_list.push({type:"panorama",photo:file_name,title:'',description:''});
-                //                 console.log(this.already_panorama_list);
-                //         }
-                //     }
-                // }
-                // this.panorama_list = this.panorama.concat(this.already_panorama_list);
-
-                // this.tmp_list = this.img_list.concat(this.video_list);
+                    })
+                }
                 var fData = new FormData();
                 fData.append("image",this.img_list);
                 fData.append("video",this.video_list);
-                fData.append("panorama",this.panorama_list);
-                
+                fData.append("panorama",this.panorama_list);               
 
                 this.axios
                     .post(`/api/nursing/galleryupdate/${this.cusid}`,{'video':this.video_list, 'image': this.img_list, 'panorama': this.panorama_list})
-                    .then((response) => {
-            
+                    .then((response) => {            
 
                     }).catch(error=>{
-
                     if(error.response.status == 422){
                     this.gallery_list = 'error';
                     this.errors = error.response.data.errors
-
                     }
                 }) ;
 
@@ -1303,15 +1216,11 @@ export default {
                     this.axios
                         .post(`/api/nursing/cooperate/${this.cusid}`,this.cooperate_list)
                         .then((response) => {
-                            this.name = ''
-            
-
+                            this.name = '' 
                         }).catch(error=>{
-
                         if(error.response.status == 422){
                         this.cooperate_list = 'error';
                         this.errors = error.response.data.errors
-
                         }
                     }) ;
                 }
@@ -1320,9 +1229,7 @@ export default {
                     this.axios
                         .post(`/api/nursing/paymentmethod/${this.cusid}`,this.payment_list)
                         .then((response) => {
-                                    this.name = ''
-                
-
+                            this.name = ''
                         }).catch(error=>{
 
                         if(error.response.status == 422){
@@ -1337,9 +1244,7 @@ export default {
                     this.axios
                         .post(`/api/nursing/profile/${this.cusid}`,this.profile_arr)
                         .then((response) => {
-                                    this.name = ''
-                
-
+                            this.name = ''
                         }).catch(error=>{
 
                         if(error.response.status == 422){
@@ -1355,15 +1260,10 @@ export default {
                     this.axios
                         .post(`/api/customer/profile/${this.cusid}`,this.customer_info_push)
                         .then((response) => {
-                                    
-                
-
                         }).catch(error=>{
-
                         if(error.response.status == 422){
                         this.save_customer_info = 'error';
                         this.errors = error.response.data.errors
-
                         }
                     }) ;
                 }
@@ -1372,9 +1272,6 @@ export default {
                     this.axios
                         .post(`/api/staff/profile/${this.cusid}`,this.staff_info_push)
                         .then((response) => {
-                
-                                console.log(response.data);
-
                         }).catch(error=>{
 
                         if(error.response.status == 422){
@@ -1383,14 +1280,10 @@ export default {
                         }
                     }) ;
                 }
-console.log("acc len - "+acceptance.length)
                 if(acceptance.length > 0) {
                     this.axios
                         .post(`/api/acceptance/transactions/${this.cusid}`,acceptance)
                         .then((response) => {
-            console.log("acceptance result");
-            console.log(response);
-
                         }).catch(error=>{
                             if(error.response.status == 422) {
                                 acceptance = 'error';
@@ -1414,31 +1307,19 @@ console.log("acc len - "+acceptance.length)
                 }
 
                 if(this.gallery_list != 'error' && this.cooperate_list != 'error' && this.payment_list != 'error' && this.profile_arr != 'error' && this.customer_info_push  != 'error' && this.staff_info_push  != 'error' &&  acceptance!= 'error') {
-                        // alert('Nursing Profile is Succcessfully Updated'); 
-                     
-                        // this.$swal({
-                        //     position: 'top-end',
-                        //     type: 'success',
-                        //     title: '作成されました',
-                        //     showConfirmButton: true,
-                        // //     timer: 1800,
-                        //     width: 250,
-                        //     height: 200,
-                        // })
-
-                        this.$swal({
-                            position: 'top-end',
-                            type: 'success',
-                            title: '更新されました',
-                            confirmButtonText: "はい",
-                            confirmButtonColor: "#6cb2eb",
-                            width: 250,
-                            height: 200,
-                        }).then(response => {
-                            document.getElementById('nursing').click();
-                        })
-                }
-                
+                        
+                    this.$swal({
+                        position: 'top-end',
+                        type: 'success',
+                        title: '更新されました',
+                        confirmButtonText: "はい",
+                        confirmButtonColor: "#6cb2eb",
+                        width: 250,
+                        height: 200,
+                    }).then(response => {
+                        document.getElementById('nursing').click();
+                    })
+                }                
                 
             }
         }

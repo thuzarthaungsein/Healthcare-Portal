@@ -39,7 +39,7 @@
         </div>
         <div class="row m-0">
 
-            <form @submit.prevent="add" class="col-md-12 pad-free">
+            <form class="col-md-12 pad-free">
                 <div class="col-12 m-t-20"  id="fav-history-page">
                     <div class="row justify-content-lg-center">
                         <div class="card-carousel-wrapper">
@@ -294,24 +294,24 @@
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_fav', new_local);
                                 this.local_sto = localStorage.getItem("hospital_fav");
-                                this.$swal({
-                                title: "削除された",
-                                text: "ファイルが削除されました。",
-                                type: "success",
-                                width: 350,
-                                height: 200,
-                                confirmButtonText: "はい",
-                                confirmButtonColor: "#dc3545"
-                                });
+                                // this.$swal({
+                                // title: "削除された",
+                                // text: "ファイルが削除されました。",
+                                // type: "success",
+                                // width: 350,
+                                // height: 200,
+                                // confirmButtonText: "はい",
+                                // confirmButtonColor: "#dc3545"
+                                // });
                                 if (this.local_sto) {
                                     this.getAllFavourite(this.local_sto);
                                 } else {
                                     // window.location.reload();
                                     this.$router.push({
-                                        name: 'home',
-                                        params: {
-                                            page: 'subtab3'
-                                        }
+                                        name: 'hospital_search',
+                                        // params: {
+                                        //     page: 'subtab3'
+                                        // }
                                     });
                                 }
                             }

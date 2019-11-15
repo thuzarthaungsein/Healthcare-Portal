@@ -420,30 +420,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-12 p-0">
-                        <h3 class="profile_header">フォトアルバム</h3>
-                        <div class="row m-0 gallery-list">
-                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                              
-                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
-                                    <span>{{image.title}}</span><br>
-                                
-                                <!-- <span>{{image.photo}}</span> -->
-                            </div>
-                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 m-t-15 m-b-15 p-0">
-                        <h3 class="profile_header">動画</h3>
-                        <div class="row m-0">
-                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
-                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
-                            </div>
-                        </div>
-                    </div>
-
             </div>
 
             <div class="row ele m-lr-0" id="element4">
@@ -582,142 +558,138 @@
 
                     </div>
 
-                <!-- </div> -->
-
-
-                        <div class="row col-12 pad-free">
-                            <div class="col-md-12">
-                            <h5 class="profile_header col-md-12"> 協力医療機関</h5>
+                    <div class="col-md-12">
+                        <h5 class="profile_subtit">フォトアルバム</h5>
+                        <div class="row gallery-list">
+                            <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                              
+                                    <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
+                                    <span>{{image.title}}</span><br>
+                                
+                                <!-- <span>{{image.photo}}</span> -->
                             </div>
-                            <div v-if="cooperate_medical.length>0" class="col-md-12">
-                                <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
-                                    <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
-                                    <table border="1" class="table table-bordered">
+                            <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'nursing_profile/'" :timeoutDuration="5000" />
+                        </div>
+                    </div>
 
-                                        <tbody>
+                    <div class="col-md-12  m-b-15">
+                        <h5 class="profile_subtit">動画</h5>
+                        <div class="row">
+                            <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                            </div>
+                        </div>
+                    </div>
 
-                                            <tr>
+                    <div class="col-12">
+                        <h5 class="profile_subtit">協力医療機関</h5>
+                        <div v-if="cooperate_medical.length>0" class="col-md-12">
+                            <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
+                                <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
+                                <table border="1" class="table table-bordered">
 
-                                                <td width="250" class="custom-bg-color" > 診療科目</td>
+                                    <tbody>
 
-                                                <td>{{comedical.clinical_subject}}</td>
+                                        <tr>
 
-                                            </tr>
+                                            <td width="250" class="custom-bg-color" > 診療科目</td>
 
-                                            <tr>
+                                            <td>{{comedical.clinical_subject}}</td>
 
-                                                <td width="250" class="custom-bg-color">協力内容</td>
+                                        </tr>
 
-                                                <td >{{comedical.details}}</td>
+                                        <tr>
 
-                                            </tr>
+                                            <td width="250" class="custom-bg-color">協力内容</td>
 
-                                            <tr>
+                                            <td >{{comedical.details}}</td>
 
-                                                <td width="250" class="custom-bg-color">診療費用</td>
+                                        </tr>
 
-                                                <td >{{comedical.medical_expense}}</td>
+                                        <tr>
 
-                                            </tr>
+                                            <td width="250" class="custom-bg-color">診療費用</td>
 
-                                        </tbody>
+                                            <td >{{comedical.medical_expense}}</td>
 
-                                    </table>
+                                        </tr>
 
-                                </div>
+                                    </tbody>
+
+                                </table>
 
                             </div>
-
-
 
                         </div>
 
 
 
-                       <div class="row col-12">
+                    </div>
 
-                                <h5 class="profile_header col-12"> 医療面の受入れ</h5>
-
-                            <div class="row col-12">
-
-                                <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
-
+                    <div class="col-12">
+                        <h5 class="profile_subtit"> 医療面の受入れ</h5>
+                        <div class="row col-12">
+                            <div v-for="maccept in medical_acceptance" :key="maccept.id" class="col-md-4" >
                                 <div class="col-md-12 accept-box">
                                     <div class="float-left" v-for="(ma,index) in medical" :key="index" style="padding-right:20px;">
-
-                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'accept'" class="fas fa-check green"></i>
-
-                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'unaccept'" class="fas fa-times red"></i>
-
-                                            <i v-if="ma.name === maccept.name && ma.accept_type === 'negotiate'" class="fas fa-adjust blue"></i>
-
+                                        <i v-if="ma.name === maccept.name && ma.accept_type === 'accept'" class="fas fa-check green"></i>
+                                        <i v-if="ma.name === maccept.name && ma.accept_type === 'unaccept'" class="fas fa-times red"></i>
+                                        <i v-if="ma.name === maccept.name && ma.accept_type === 'negotiate'" class="fas fa-adjust blue"></i>
                                     </div>
-
                                     {{maccept.name}}
-
                                 </div>
-
                             </div>
-
-                            </div>
-
                         </div>
-
                         <div class="row col-md-12 float: right" style="display: flex; justify-content: flex-end" >
-
                             <label for="" class="m-r-15"><i class="fas fa-check green"></i> 受入れ可</label>
-
                             <label for="" class="m-r-15"><i class="fas fa-times red"></i> 受入れ不可</label>
-
                             <label for="" class="m-r-15"><i class="fas fa-adjust blue"></i> 応相談</label>
-
                         </div>
+                    </div>
 
+                    <div class=" col-12">
+                        <h5  class="profile_subtit"> 職員体制</h5>
+                        <div v-if="staff.length>0">
 
+                            <div v-for="st in staff" :key="st.id" class="col-md-12" >
 
-                        <div class="row col-12">
-                                <h5  class="profile_header col-12"> 職員体制</h5>
-                            <div v-if="staff.length>0">
+                                <table border="1" class="table table-bordered">
 
-                                <div v-for="st in staff" :key="st.id" class="col-md-12" >
+                                    <tbody>
 
-                                    <table border="1" class="table table-bordered">
+                                        <tr>
 
-                                        <tbody>
+                                            <td width="350" class="custom-bg-color"> 介護に関わる職員体制（入居者：職員）</td>
 
-                                            <tr>
+                                            <td width="500">{{st.staff}}</td>
 
-                                                <td width="350" class="custom-bg-color"> 介護に関わる職員体制（入居者：職員）</td>
+                                            <td width="350" class="custom-bg-color"> 介護職員    </td>
 
-                                                <td width="500">{{st.staff}}</td>
+                                            <td width="500">{{st.nursing_staff}}</td>
 
-                                                <td width="350" class="custom-bg-color"> 介護職員    </td>
+                                        </tr>
 
-                                                <td width="500">{{st.nursing_staff}}</td>
+                                        <tr>
 
-                                            </tr>
+                                            <td width="350" class="custom-bg-color"> 夜間の最少職員数   </td>
 
-                                            <tr>
+                                            <td width="500">{{st.min_num_staff}}</td>
 
-                                                <td width="350" class="custom-bg-color"> 夜間の最少職員数   </td>
+                                            <td width="350" class="custom-bg-color">     看護職員数     </td>
 
-                                                <td width="500">{{st.min_num_staff}}</td>
+                                            <td width="500">{{st.num_staff}}</td>
 
-                                                <td width="350" class="custom-bg-color">     看護職員数     </td>
+                                        </tr>
 
-                                                <td width="500">{{st.num_staff}}</td>
+                                    </tbody>
 
-                                            </tr>
-
-                                        </tbody>
-
-                                    </table>
-
-                                </div>
+                                </table>
 
                             </div>
 
                         </div>
+
+                    </div>
 
             </div>
 
@@ -1066,113 +1038,104 @@
                     </div>
                     <!--end for address-->
                 </div>
-            <!--end ee-->
+            <!--end ee-->         
 
-                <h5 class="profile_header">医院からのお知らせ </h5>
+                <div class="col-12 m-b-20">
+                    <h5 class="profile_subtit">医院からのお知らせ </h5>                
+                    <p v-for="hospital in hospitals" :key="hospital.id">{{hospital.details_info}}</p>
+                </div>
 
-                <div class="row m-lr-0">
+                
 
-                    <div class="col-md-12 m-2" v-for="hospital in hospitals" :key="hospital.id">
+                <div class="col-12 m-b-20">
+                    <h5 class="profile_subtit">診療時間 </h5>
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table table-bordered">
+                                <tbody>
 
-                        <p>{{hospital.details_info}}</p>
+                                    <tr class="first-row">
 
+                                        <th>
+
+                                        日付
+
+                                        </th>
+
+                                        <th>
+
+                                            月
+
+                                        </th>
+
+                                        <th>
+
+                                            火
+
+                                        </th>
+
+                                        <th>
+
+                                            水
+
+                                        </th>
+
+                                        <th>
+
+                                            木
+
+                                        </th>
+
+                                        <th>
+
+                                            金
+
+                                        </th>
+
+                                        <th>
+
+                                            土
+
+                                        </th>
+
+                                        <th>
+
+                                            日
+
+                                        </th>
+
+                                    </tr>
+
+                                    <tr class="last">
+
+                                        <th class="second-row text-center">午前</th>
+
+                                        <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>
+
+                                    </tr>
+
+                                    <tr class="last">
+
+                                        <th class="second-row text-center">午後</th>
+
+                                        <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-3">
+
+                            <div v-for="hospital in hospitals" :key="hospital.id">
+
+                                <p><strong class="font-weight-bold">休診日: </strong><font>{{hospital.closed_day}}</font> </p>
+
+                            </div>
+
+                        </div>
                     </div>
-
-                </div>
-
-                <h5 class="profile_header">診療時間 </h5>
-
-                <div class="row col-12 m-b-10">
-
-                    <div class="col-9">
-
-                    <table class="table table-bordered">
-
-                    <tbody>
-
-                        <tr class="first-row">
-
-                            <th>
-
-                               日付
-
-                            </th>
-
-                            <th>
-
-                                月
-
-                            </th>
-
-                            <th>
-
-                                火
-
-                            </th>
-
-                            <th>
-
-                                水
-
-                            </th>
-
-                            <th>
-
-                                木
-
-                            </th>
-
-                            <th>
-
-                                金
-
-                            </th>
-
-                            <th>
-
-                                土
-
-                            </th>
-
-                            <th>
-
-                                日
-
-                            </th>
-
-                        </tr>
-
-                        <tr class="last">
-
-                            <th class="second-row text-center">午前</th>
-
-                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>
-
-                        </tr>
-
-                        <tr class="last">
-
-                            <th class="second-row text-center">午後</th>
-
-                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-                </div>
-
-                <div class="col-3">
-
-                    <div v-for="hospital in hospitals" :key="hospital.id">
-
-                        <p><strong class="font-weight-bold">休診日: </strong><font>{{hospital.closed_day}}</font> </p>
-
-                    </div>
-
-                </div>
 
                 <!-- <div class="row col-12">
 
@@ -1182,12 +1145,8 @@
 
                 </div>
 
-
-
-                <h5 class="profile_header">施設情報 </h5>
-
                 <div class="col-12">
-
+                    <h5 class="profile_subtit">施設情報 </h5>
                     <div class="row col-md-12">
 
                             <div class="col-md-2 fac-name-box" v-for="hosfacility in hosfacilities " :key="hosfacility.id">
@@ -1247,7 +1206,7 @@
             </div>
 
             <div class="col-md-12">
-                <h3 class="profile_header">フォトアルバム</h3>
+                <h5 class="profile_subtit">フォトアルバム</h5>
                 <div class="row m-0 gallery-list">
                     <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">                            
                         <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
@@ -1260,8 +1219,8 @@
             </div>
 
             <!-- Hospital Video -->
-                <div class="col-md-12 m-t-15 m-b-15 p-0">
-                    <h5 class="profile_header col-12">動画</h5>
+                <div class="col-md-12">
+                    <h5 class="profile_subtit">動画</h5>
                     <div class="row">
                         <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
                             <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
@@ -1277,36 +1236,35 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                            <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
+                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
 
-                            <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+                    <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
 
-                           </GmapMap>
+                    </GmapMap>    
 
-                        <div  class="row col-12" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                </div>
+                <div  class="col-12 m-t-20" v-for="m in google" :key="m.id" >
                              <table border="1" class="table table-bordered">
                                     <tbody>
                                     <tr>
-                                        <td width="250" class="custom-bg-color"> 公式サイト</td>
+                                        <td class="custom-bg-color"> 公式サイト</td>
                                         <td>{{m.website}}</td>
                                     </tr>
                                     <tr>
-                                        <td width="250" class="custom-bg-color"> アクセス</td>
+                                        <td class="custom-bg-color"> アクセス</td>
                                         <td><p v-html="m.access"></p></td>
                                     </tr>
                                     <tr>
-                                        <td width="250" class="custom-bg-color"> 混雑状況</td>
+                                        <td class="custom-bg-color"> 混雑状況</td>
                                         <td>{{m.congestion}}</td>
                                     </tr>
                                     <tr>
-                                        <td width="250" class="custom-bg-color">住所 </td>
+                                        <td class="custom-bg-color">住所 </td>
                                         <td>{{m.address}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                         </div>
-
-                    </div>
 
             </div>
 
@@ -1455,10 +1413,10 @@ export default {
 
             } else {
                 $(document).scroll(function() {
-                    // $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                    $(".fixed-nav").css({"position": "fixed","top":"100px"});
                     var cur_pos = $(this).scrollTop();
                     if (cur_pos >= 100) {
-                        $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                        $(".fixed-nav").css({"position": "fixed","top":"100px"});
                     } else {
                         $(".fixed-nav").css({"position": "unset", "top": "unset"});
                     }
@@ -2020,7 +1978,7 @@ export default {
 
 .cost_heading_lbl{
     border-left: 5px solid rgb(249, 121, 60);
-    padding: 5px 10px;
+    padding: 0 5px;
     font-weight: bold;
     font-size: 1.14em;
 }
@@ -2032,7 +1990,6 @@ export default {
 }
 
 .cost_heading_lbl_mini i{
-    padding: 0px 10px;
     border-radius: 3px;
     /* background: #fbaa84; */
     color: #d2571c;

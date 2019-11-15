@@ -721,7 +721,7 @@
 
                             <div class="container-fluid footer footer-div">
 
-                                    <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+                                    <span>Copyright©Sample Company Corp.All Rights Reserved. </span>
 
                             </div>
 
