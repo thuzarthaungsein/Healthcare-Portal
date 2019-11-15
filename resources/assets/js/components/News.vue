@@ -156,7 +156,7 @@
                                         <clazy-load class="wrapper-4" @load="log"  src="images/noimage.jpg" :key="item.id">
                                             <!-- <img v-bind:src="'/upload/news/' + item.photo" class="fit-image" style="height:5rem;width:6rem" @error="imgUrlAlt"> -->
                                             <transition name="fade">
-                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0"@error="imgUrlAlt">
+                                                <img v-bind:src="'/upload/news/' + item.photo" class="fit-image-0" @error="imgUrlAlt">
                                             </transition>
                                             <transition name="fade" slot="placeholder">
                                                 <div class="preloader">

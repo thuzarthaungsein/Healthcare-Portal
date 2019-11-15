@@ -30,7 +30,7 @@ class GalleryController extends Controller
     }
 
     public function getPanoramabyCustomerId($customer_id) {
-        $sql = "SELECT id,photo,title,description,type,'' as path FROM galleries WHERE type='panorama' and customer_id=$customer_id";
+        $sql = "SELECT id,photo,title,description,type,'' as path, '' as file FROM galleries WHERE type='panorama' and customer_id=$customer_id";
         $panorama_list = DB::select($sql);
         // $panorama_list = Gallery::select('id','photo','title','description','type')->where("customer_id",$customer_id)
         //                     ->where('type','=', 'panorama')

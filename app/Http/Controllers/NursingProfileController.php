@@ -31,16 +31,29 @@ class NursingProfileController extends Controller
         return $nursing;
     }
 
+    public function movePanorama(Request $request) {
+        $request = $request->all();
+        foreach ($request as $file){
+            $destination = 'upload/nursing_profile/Imagepanorama/'.$file->getClientOriginalName();
+            $upload_img = move_uploaded_file($file, $destination);
+        }
+        
+        // for($i = 0; $i<sizeof($request)-1; $i++){
+        //     if($request['type'] == 'photo') {
+        //         $destination = 'upload/nursing_profile/'.$request[$i]['photo'];
+        //     }
+        //     if($request['type'] == 'panorama') {                
+        //         $destination = 'upload/nursing_profile/Imagepanorama/'.$request['file_'.$i];
+        //     }
+        //     $upload_img = move_uploaded_file($request['file_'.$i], $destination);
+        // } 
+    }
     public function movePhoto(Request $request) {
         $request = $request->all();
-
-        if($request['type'] == 'photo') {
-            $destination = 'upload/nursing_profile/'.$request['photo'];
-        }
-        if($request['type'] == 'panorama') {
-            $destination = 'upload/nursing_profile/Imagepanorama/'.$request['photo'];
-        }
-        $upload_img = move_uploaded_file($request['file'], $destination);
+        foreach ($request as $file){
+            $destination = 'upload/nursing_profile/'.$file->getClientOriginalName();
+            $upload_img = move_uploaded_file($file, $destination);
+        }        
     }
 
     public function galleryupdate($id,Request $request) {
