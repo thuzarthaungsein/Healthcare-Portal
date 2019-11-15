@@ -372,7 +372,7 @@
           </div>
 
           <div class="col-sm-2 col-md-2 align-self-center">
-            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</span>
+            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;都道府県を再選択する</span>
           </div>
         </div>
       </div>
@@ -754,7 +754,7 @@
                 <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
               <nav aria-label="Page navigation example">
                 <ul class="pagination"> 
-                  <li class="page-item">
+                  <li class="page-item">/
                     <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
                   </li>
                   <li class="page-item">
