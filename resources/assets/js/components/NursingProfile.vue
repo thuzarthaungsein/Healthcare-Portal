@@ -1236,22 +1236,20 @@ export default {
 
                 var old_panorama = document.getElementsByClassName('panorama-old-img');
                 var new_panorama = document.getElementsByClassName('panorama-new-img');
-                console.log(old_panorama);
-                console.log(new_panorama);
-                if(this.panorama_length != old_panorama.length || new_panorama.length > 0){
+
+                if((this.panorama_length != old_panorama.length && old_panorama.length >0) || new_panorama.length > 0){
+                    alert('if');
                     for(var i = 0; i< this.panorama_arr.length; i++) {
                         this.panorama_list.push({type:"panorama",photo:this.panorama_arr[i].photo,title:'',description:''});
-                        console.log("this.panorama_list");
-                        console.log(this.panorama_list);
                     }                
                 }
                 else{
                     this.panorama_list = [];
                 }
-
+               
                 for(var i = 0; i< new_panorama.length; i++) {
                        
-                    var file = document.getElementsByClassName('nursing-panorama')[0].files[i];
+                    var file = document.getElementsByClassName('nursing-panorama')[0].files[0];
                     var file_name = file.name;
                     let fd = new FormData();
                     fd.append('file' ,file )
