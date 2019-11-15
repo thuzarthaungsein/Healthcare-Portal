@@ -821,34 +821,34 @@
         $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
     }
 
-    var csrf = "{{ csrf_token() }}";
+    // var csrf = "{{ csrf_token() }}";
 
-    $.ajax({
-        url: '/api/advertisement/ads',
-        type: 'GET',
-        data: {'_token': csrf},
-        success: function( data ) {
-            // console.log(data);
-            var top_ad = "";
-            var side_ad = "";
-            for (var i = 0; i < data.length; i++) {
-                if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
-                    if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
-                    }
-                }
-                else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                }
+    // $.ajax({
+    //     url: '/api/advertisement/ads',
+    //     type: 'GET',
+    //     data: {'_token': csrf},
+    //     success: function( data ) {
+    //         // console.log(data);
+    //         var top_ad = "";
+    //         var side_ad = "";
+    //         for (var i = 0; i < data.length; i++) {
+    //             if(data[i].location.includes("topbar") ) {
+    //                 top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+    //                 if(data[i].location.includes("sidebar")) {
+    //                     side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+    //                 }
+    //             }
+    //             else if(data[i].location.includes("sidebar"))  {
+    //                 side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+    //             }
 
-            }
-            $(".top-ad-slider").html(top_ad);
-            // jssor_1_slider_init();
-            $(".side-ad-slider").html(side_ad);
-            // jssor_slider2_init();
-        }
-    });
+    //         }
+    //         $(".top-ad-slider").html(top_ad);
+    //         // jssor_1_slider_init();
+    //         $(".side-ad-slider").html(side_ad);
+    //         // jssor_slider2_init();
+    //     }
+    // });
 
 });
 
