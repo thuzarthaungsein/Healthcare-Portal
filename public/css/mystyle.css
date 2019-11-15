@@ -8309,6 +8309,19 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
+<<<<<<< HEAD
+/*profile_edit*/
+.header2 {
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    background: #fff;
+    border-radius: 1px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+=======
 /*pagination */
 .offset{
     width: 500px !important;
@@ -8436,3 +8449,4 @@ ul.nur-caro-card>li.list-group-item {
     }
   }
   
+>>>>>>> 04d53bd600b012f696dd0a804d0876904c381876

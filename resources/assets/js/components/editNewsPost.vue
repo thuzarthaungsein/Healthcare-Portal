@@ -52,6 +52,7 @@
                                 <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
+                    
                                 <label>内容:<span class="error">*</span></label>
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                 <span v-if="errors.body" class="error">{{errors.body}}</span>
@@ -175,6 +176,32 @@
                     //     $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
                     // },
                     removeUpload(e) {
+                         this.$swal({
+                            title: "確認",
+                            text: "削除よろしいでしょうか",
+                            type: "warning",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#dc3545",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "削除",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => {
+                            
+                                this.$swal({
+                                        title: "削除されました",
+                                        text: "ニュース削除されました。",
+                                        type: "success",
+                                        width: 350,
+                                        height: 200,
+                                        confirmButtonText: "はい",
+                                        confirmButtonColor: "#dc3545"
+                                    });
+                           });
                         this.news.photo = '';
                         this.upload_img = '';
                         this.reset();

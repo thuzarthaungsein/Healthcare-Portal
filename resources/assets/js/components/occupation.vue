@@ -123,7 +123,7 @@ export default {
                           if( `${this.$route.params.id}` == "undefined")
                 {
                     this.$swal({
-                                title: "作成",
+                             title: "作成",
                             text: "作成よろしでしょうか。",
                             type: "success",
                             width: 350,

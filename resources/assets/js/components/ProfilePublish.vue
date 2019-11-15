@@ -1454,7 +1454,7 @@ export default {
 
             } else {
                 $(document).scroll(function() {
-                    $(".fixed-nav").css({"position": "fixed","top":"210px"});
+                    // $(".fixed-nav").css({"position": "fixed","top":"210px"});
                     var cur_pos = $(this).scrollTop();
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"210px"});
@@ -1747,7 +1747,7 @@ export default {
 
              activate:function(el){
 
-                // this.active_el = el;
+                 this.active_el = el;
 
             },
 
