@@ -214,7 +214,7 @@
                     updatepost() {
                          this.$swal({
                             title:"確認",
-                            text: "更新よろしでしょうか。",
+                            text: "更新よろしいでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,
@@ -280,7 +280,7 @@
                         {
                             this.$swal({
                             title: "削除",
-                            text: "削除よろしでしょうか。",
+                            text: "削除よろしいでしょうか。",
                             type: "warning",
                             width: 350,
                             height: 200,
