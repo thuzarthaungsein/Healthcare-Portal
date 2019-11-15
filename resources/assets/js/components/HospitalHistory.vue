@@ -25,7 +25,7 @@
                     &nbsp; <span class="job_count">{{his_hos}} 件</span>
                 </div>
             </div>
-            <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
+            <div class="col-12 m-t-20" id="fav-history-page">
                 <div class="row justify-content-lg-center">
                     <div class="card-carousel-wrapper">
 
@@ -43,10 +43,10 @@
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <img class="img-fluid" v-bind:src="'/upload/hospital_profile/' + hos_profile.logo" alt style="width: 250px"  @error="imgUrlAlt"/>
-                                                        <br>
-                                                        <br>
-
+                                                        <div class="profile_img_wrap">
+                                                             <img class="profile_img" v-bind:src="'/upload/hospital_profile/' + hos_profile.logo" alt style="width: 250px"  @error="imgUrlAlt"/>
+                                                        </div>
+                                                       
                                                         <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
 
                                                     </td>
@@ -54,20 +54,20 @@
 
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">
+                                                        <div class="profile_wd">
                                                             <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設リストから削除</button>
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id" style="word-wrap: break-word;">
-                                                        <div style="width:250px;"> <a :href="hos_profile.website" target="_blank">{{hos_profile.website}}</a></div>
+                                                        <div class="profile_wd"> <a :href="hos_profile.website" target="_blank">{{hos_profile.website}}</a></div>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                         <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">診療時間</dt>
+                                                                <dt class="text-left">診療時間</dt>
                                                             </dl>
                                                             <table class="table table-bordered">
                                                                 <thead>
@@ -120,30 +120,30 @@
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">住所</dt>
-                                                            <dd style="width:250px;">{{hos_profile.township_name}} {{hos_profile.city_name}}</dd>
+                                                            <dt class="text-left">住所</dt>
+                                                            <dd class="profile_wd text-left m-l-10">{{hos_profile.township_name}} {{hos_profile.city_name}}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">交通アクセス</dt>
-                                                            <dd style="width:250px;" v-html="hos_profile.access"></dd>
+                                                            <dt class="text-left">交通アクセス</dt>
+                                                            <dd class="profile_wd text-left m-l-10" v-html="hos_profile.access"></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">電話番号</dt>
-                                                            <dd style="width:250px;">{{hos_profile.phone}}</dd>
+                                                            <dt class="text-left">電話番号</dt>
+                                                            <dd class="profile_wd text-left m-l-10">{{hos_profile.phone}}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div style="width:250px;">
+                                                        <div class="profile_wd text-left m-l-10">
                                                             <ul class="fac_container">
                                                                 <h6 style="text-align:left;font-weight:bold;">特長</h6>
                                                                 <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
@@ -154,15 +154,15 @@
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">診療科目</dt>
-                                                            <dd v-for="sub in hos_profile.sub" :key="sub.id" style="width:250px;">{{sub.name}}</dd>
+                                                            <dt class="text-left">診療科目</dt>
+                                                            <dd v-for="sub in hos_profile.sub" :key="sub.id" class="profile_wd text-left m-l-10">{{sub.name}}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                         <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">専門医</dt>
+                                                                <dt class="text-left">専門医</dt>
                                                                 <dd v-if="hos_profile.specialist != null">{{hos_profile.specialist}}</dd>
                                                                 <dd v-else>-</dd>
                                                             </dl>
@@ -171,8 +171,8 @@
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <dl>
-                                                            <dt style="text-align:left;">医療部</dt>
-                                                            <dd style="width:250px;">{{hos_profile.medical_department}}</dd>
+                                                            <dt class="text-left">医療部</dt>
+                                                            <dd class="profile_wd text-left m-l-10">{{hos_profile.medical_department}}</dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -281,24 +281,24 @@
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_history', new_local);
                                 this.local_sto = localStorage.getItem("hospital_history");
-                                this.$swal({
-                                title: "削除された",
-                                text: "ファイルが削除されました。",
-                                type: "success",
-                                width: 350,
-                                height: 200,
-                                confirmButtonText: "はい",
-                                confirmButtonColor: "#dc3545"
-                                });
+                                // this.$swal({
+                                // title: "削除された",
+                                // text: "ファイルが削除されました。",
+                                // type: "success",
+                                // width: 350,
+                                // height: 200,
+                                // confirmButtonText: "はい",
+                                // confirmButtonColor: "#dc3545"
+                                // });
                                 if (this.local_sto) {
                                     this.getAllCustomer(this.local_sto);
                                 } else {
                                     // window.location.reload();
                                     this.$router.push({
-                                        name: 'home',
-                                        params: {
-                                            page: 'subtab3'
-                                        }
+                                        name: 'hospital_search',
+                                        // params: {
+                                        //     page: 'subtab3'
+                                        // }
                                     });
                                 }
                             }

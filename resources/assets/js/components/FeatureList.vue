@@ -76,7 +76,7 @@
                                             </li>
                                         </ul>
                                     </nav>
-                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,48 +106,48 @@
                 this.axios.get("/api/feature/featurelist").then(response => {
                     this.features = response.data;
                     this.norecord = this.features.length;
-                    if(this.norecord > this.size) {
+                    if (this.norecord > this.size) {
                         this.pagination = true;
-                    }else{
+                    } else {
                         this.pagination = false;
                     }
                 });
             },
             computed: {
-            pages() {
-                    return Math.ceil(this.features.length / this.size);
-                },
-                displayPageRange() {
-                    const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
-                    const offset = isEven ? 1 : 2;
-                    let start, end;
-                    if (this.pages < this.pageRange) {
-                        start = 1;
-                        end = this.pages;
-                    } else if (this.currentPage < half) {
-                        start = 1;
-                        end = start + this.pageRange - 1;
-                    } else if (this.pages - half < this.currentPage) {
-                        end = this.pages;
-                        start = end - this.pageRange + 1;
-                    } else {
-                        start = this.currentPage - half + offset;
-                        end = this.currentPage + half;
+                pages() {
+                        return Math.ceil(this.features.length / this.size);
+                    },
+                    displayPageRange() {
+                        const half = Math.ceil(this.pageRange / 2);
+                        const isEven = this.pageRange / 2 == 0;
+                        const offset = isEven ? 1 : 2;
+                        let start, end;
+                        if (this.pages < this.pageRange) {
+                            start = 1;
+                            end = this.pages;
+                        } else if (this.currentPage < half) {
+                            start = 1;
+                            end = start + this.pageRange - 1;
+                        } else if (this.pages - half < this.currentPage) {
+                            end = this.pages;
+                            start = end - this.pageRange + 1;
+                        } else {
+                            start = this.currentPage - half + offset;
+                            end = this.currentPage + half;
+                        }
+                        let indexes = [];
+                        for (let i = start; i <= end; i++) {
+                            indexes.push(i);
+                        }
+                        return indexes;
+                    },
+                    displayItems() {
+                        const head = this.currentPage * this.size;
+                        return this.features.slice(head, head + this.size);
+                    },
+                    isSelected(page) {
+                        return page - 1 == this.currentPage;
                     }
-                    let indexes = [];
-                    for (let i = start; i <= end; i++) {
-                        indexes.push(i);
-                    }
-                    return indexes;
-                },
-                displayItems() {
-                    const head = this.currentPage * this.size;
-                    return this.features.slice(head, head + this.size);
-                },
-                isSelected(page) {
-                    return page - 1 == this.currentPage;
-                }
             },
             methods: {
                 deleteFeature(id) {
@@ -171,9 +171,9 @@
                                 .then(response => {
                                     this.features = response.data;
                                     this.norecord = this.features.length;
-                                    if(this.norecord > this.size) {
+                                    if (this.norecord > this.size) {
                                         this.pagination = true;
-                                    }else{
+                                    } else {
                                         this.pagination = false;
                                     }
                                     //   alert("Delete Successfully!");
@@ -203,25 +203,25 @@
                             this.features = response.data;
                         });
                     },
-                first() {
-                    this.currentPage = 0;
-                },
-                last() {
-                    this.currentPage = this.pages - 1;
-                },
-                prev() {
-                    if (0 < this.currentPage) {
-                        this.currentPage--;
-                    }
-                },
-                next() {
-                    if (this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                },
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                },
+                    first() {
+                        this.currentPage = 0;
+                    },
+                    last() {
+                        this.currentPage = this.pages - 1;
+                    },
+                    prev() {
+                        if (0 < this.currentPage) {
+                            this.currentPage--;
+                        }
+                    },
+                    next() {
+                        if (this.currentPage < this.pages - 1) {
+                            this.currentPage++;
+                        }
+                    },
+                    pageSelect(index) {
+                        this.currentPage = index - 1;
+                    },
             }
     };
 </script>

@@ -45,17 +45,19 @@
                         </div>
                         <hr />
                         <h5 class="header">ニュース一覧</h5>
-                        <div v-for="newsList in displayItems" :key="newsList.id" class="card card-default m-b-20">
+                        <div v-if="!this.news_list.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
+                        <div v-else class="container-fuid">
+                            <div v-for="newsList in displayItems" :key="newsList.id" class="card card-default m-b-20">
 
-                            <div class="card-body news-post">
-                                <div class="row">
-                                    <div class="col-md-2" v-if="newsList.photo">
-                                        <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid" @error="imgUrlAlt" />
-                                    </div>
-                                    <div class="col-md-2" v-else></div>
-                                    <div class="col-md-10">
-                                        <div class="row col-12 mb-2">
-                                            <b>
+                                <div class="card-body news-post">
+                                    <div class="row">
+                                        <div class="col-md-2" v-if="newsList.photo">
+                                            <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid" @error="imgUrlAlt" />
+                                        </div>
+                                        <div class="col-md-2" v-else></div>
+                                        <div class="col-md-10">
+                                            <div class="row col-12 mb-2">
+                                                <b>
                         <router-link
                           :to="{name: 'newdetails', params:{id:newsList.id}}"
                           class="mr-auto"
@@ -63,17 +65,18 @@
                         <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                         <!-- <a hrဖef="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
                       </b>
-                                        </div>
-                                        <p>{{newsList.main_point}}</p>
-                                        <div class="row col-12 mt-2">
-                                            <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
-                                            <!-- <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a> -->
-                                            <button class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</button>
+                                            </div>
+                                            <p>{{newsList.main_point}}</p>
+                                            <div class="row col-12 mt-2">
+                                                <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
+                                                <!-- <a class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</a> -->
+                                                <button class="mr-auto text-danger btn delete-borderbtn" @click="deletePost(newsList.id)">削除</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                         <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
@@ -131,12 +134,12 @@
             this.axios.get("/api/news_list").then(response => {
                 this.news_list = response.data;
                 this.norecord = this.news_list.length;
-                if(this.norecord > this.size){
+                if (this.norecord > this.size) {
                     this.pagination = true;
-                }else{
+                } else {
                     this.pagination = false;
                 }
-                console.log('no',this.norecord)
+                console.log('no', this.norecord)
             });
         },
         mounted() {
@@ -158,15 +161,19 @@
                     if (this.pages < this.pageRange) {
                         start = 1;
                         end = this.pages;
+                        console.log('half1');
                     } else if (this.currentPage < half) {
                         start = 1;
                         end = start + this.pageRange - 1;
+                        console.log('half2');
                     } else if (this.pages - half < this.currentPage) {
                         end = this.pages;
                         start = end - this.pageRange + 1;
+                        console.log('half3');
                     } else {
                         start = this.currentPage - half + offset;
                         end = this.currentPage + half;
+                        console.log('half4');
                     }
                     let indexes = [];
                     for (let i = start; i <= end; i++) {
@@ -207,10 +214,10 @@
                             .then(response => {
                                 this.news_list = response.data;
                                 this.norecord = this.news_list.length;
-                                if(this.norecord > this.size){
+                                if (this.norecord > this.size) {
                                     this.pagination = true;
-                                }else{
-                                     this.pagination = false;
+                                } else {
+                                    this.pagination = false;
                                 }
                                 // let i = this.news_list.map(item => item.id).indexOf(id);
                                 // this.news_list.splice(i, 1);

@@ -39,8 +39,8 @@
         </div>
         <div class="row m-0">
 
-            <form @submit.prevent="add" class="col-md-12 pad-free">
-                <div class="col-12" style="margin-top: 20px;" id="fav-history-page">
+            <form class="col-md-12 pad-free">
+                <div class="col-12 m-t-20"  id="fav-history-page">
                     <div class="row justify-content-lg-center">
                         <div class="card-carousel-wrapper">
 
@@ -58,8 +58,9 @@
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
-                                                            <img class="profile_wd m-b-15" v-bind:src="'/upload/hospital_profile/' + hos_profile.logo" alt  @error="imgUrlAlt"/>
-                                                            <br>
+                                                            <div class="profile_img_wrap">
+                                                                <img class="profile_img" v-bind:src="'/upload/hospital_profile/' + hos_profile.logo" alt  @error="imgUrlAlt"/>
+                                                            </div> 
                                                             <router-link :to="{name: 'profile', params: {cusid:hos_profile.customer_id, type: 'hospital'}}" class="pseudolink">{{hos_profile.name}}</router-link>
                                                         </td>
                                                     </tr>
@@ -78,7 +79,7 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">診療時間</dt>
+                                                                <dt class="text-left">診療時間</dt>
                                                             </dl>
                                                             <table class="table table-bordered">
                                                                 <thead>
@@ -131,24 +132,24 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">住所</dt>
-                                                                <dd>{{hos_profile.township_name}} {{hos_profile.city_name}}</dd>
+                                                                <dt class="text-left">住所</dt>
+                                                                <dd  class="profile_wd text-left m-l-10" >{{hos_profile.township_name}} {{hos_profile.city_name}}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">交通アクセス</dt>
-                                                                <dd class="profile_wd" v-html="hos_profile.access"></dd>
+                                                                <dt class="text-left">交通アクセス</dt>
+                                                                <dd class="profile_wd text-left m-l-10" v-html="hos_profile.access"></dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">電話番号</dt>
-                                                                <dd class="profile_wd">{{hos_profile.phone}}</dd>
+                                                                <dt class="text-left">電話番号</dt>
+                                                                <dd class="profile_wd text-left m-l-10">{{hos_profile.phone}}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
@@ -156,7 +157,7 @@
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <div class="profile_wd">
                                                                 <ul class="fac_container">
-                                                                    <h6 style="text-align:left;font-weight:bold;">特長</h6>
+                                                                    <h6 class="font-weight-bold text-left">特長</h6>
                                                                     <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                                 </ul>
                                                             </div>
@@ -165,16 +166,16 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">診療科目</dt>
-                                                                <dd class="profile_wd" v-for="subject in hos_profile.sub" :key="subject.id">{{ subject.name }}</dd>
+                                                                <dt class="text-left">診療科目</dt>
+                                                                <dd class="profile_wd text-left m-l-10" v-for="subject in hos_profile.sub" :key="subject.id">{{ subject.name }}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">専門医</dt>
-                                                                <dd v-if="hos_profile.specialist != null">{{hos_profile.specialist}}</dd>
+                                                                <dt class="text-left">専門医</dt>
+                                                                <dd  class="profile_wd text-left m-l-10" v-if="hos_profile.specialist != null">{{hos_profile.specialist}}</dd>
                                                                 <dd v-else>-</dd>
                                                             </dl>
                                                         </td>
@@ -182,8 +183,8 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <dl>
-                                                                <dt style="text-align:left;">医療部</dt>
-                                                                <dd class="profile_wd">{{hos_profile.medical_department}}</dd>
+                                                                <dt class="text-left">医療部</dt>
+                                                                <dd class="profile_wd text-left m-l-10">{{hos_profile.medical_department}}</dd>
                                                             </dl>
                                                         </td>
                                                     </tr>
@@ -293,24 +294,24 @@
                                 var new_local = l_sto_arr.toString();
                                 localStorage.setItem('hospital_fav', new_local);
                                 this.local_sto = localStorage.getItem("hospital_fav");
-                                this.$swal({
-                                title: "削除された",
-                                text: "ファイルが削除されました。",
-                                type: "success",
-                                width: 350,
-                                height: 200,
-                                confirmButtonText: "はい",
-                                confirmButtonColor: "#dc3545"
-                                });
+                                // this.$swal({
+                                // title: "削除された",
+                                // text: "ファイルが削除されました。",
+                                // type: "success",
+                                // width: 350,
+                                // height: 200,
+                                // confirmButtonText: "はい",
+                                // confirmButtonColor: "#dc3545"
+                                // });
                                 if (this.local_sto) {
                                     this.getAllFavourite(this.local_sto);
                                 } else {
                                     // window.location.reload();
                                     this.$router.push({
-                                        name: 'home',
-                                        params: {
-                                            page: 'subtab3'
-                                        }
+                                        name: 'hospital_search',
+                                        // params: {
+                                        //     page: 'subtab3'
+                                        // }
                                     });
                                 }
                             }

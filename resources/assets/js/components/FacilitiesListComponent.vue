@@ -33,16 +33,19 @@
                         </div>
                         <hr />
                         <h5 class="header">施設一覧</h5>
-                        <div class="card card-default m-b-20" v-for="facility in displayItems" :key="facility.id">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-9 m-t-8">
-                                        <p>{{facility.description}}</p>
-                                    </div>
-                                    <div class="col-md-3 text-right" style="margin-top: 8px;">
-                                        <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn edit-borderbtn">編集</router-link>
+                        <div v-if="!this.facilities.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
+                        <div v-else class="container-fuid">
+                            <div class="card card-default m-b-20" v-for="facility in displayItems" :key="facility.id">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9 m-t-8">
+                                            <p>{{facility.description}}</p>
+                                        </div>
+                                        <div class="col-md-3 text-right" style="margin-top: 8px;">
+                                            <router-link :to="{name: 'editfacility', params: { id: facility.id }}" class="btn edit-borderbtn">編集</router-link>
 
-                                        <button class="btn delete-borderbtn" @click="deleteFacility(facility.id)">削除</button>
+                                            <button class="btn delete-borderbtn" @click="deleteFacility(facility.id)">削除</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -91,48 +94,48 @@
                 this.axios.get("/api/facility/facilities").then(response => {
                     this.facilities = response.data;
                     this.norecord = this.facilities.length;
-                    if(this.norecord > this.size){
+                    if (this.norecord > this.size) {
                         this.pagination = true;
-                    }else{
+                    } else {
                         this.pagination = false;
                     }
                 });
             },
             computed: {
-            pages() {
-                    return Math.ceil(this.facilities.length / this.size);
-                },
-                displayPageRange() {
-                    const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
-                    const offset = isEven ? 1 : 2;
-                    let start, end;
-                    if (this.pages < this.pageRange) {
-                        start = 1;
-                        end = this.pages;
-                    } else if (this.currentPage < half) {
-                        start = 1;
-                        end = start + this.pageRange - 1;
-                    } else if (this.pages - half < this.currentPage) {
-                        end = this.pages;
-                        start = end - this.pageRange + 1;
-                    } else {
-                        start = this.currentPage - half + offset;
-                        end = this.currentPage + half;
+                pages() {
+                        return Math.ceil(this.facilities.length / this.size);
+                    },
+                    displayPageRange() {
+                        const half = Math.ceil(this.pageRange / 2);
+                        const isEven = this.pageRange / 2 == 0;
+                        const offset = isEven ? 1 : 2;
+                        let start, end;
+                        if (this.pages < this.pageRange) {
+                            start = 1;
+                            end = this.pages;
+                        } else if (this.currentPage < half) {
+                            start = 1;
+                            end = start + this.pageRange - 1;
+                        } else if (this.pages - half < this.currentPage) {
+                            end = this.pages;
+                            start = end - this.pageRange + 1;
+                        } else {
+                            start = this.currentPage - half + offset;
+                            end = this.currentPage + half;
+                        }
+                        let indexes = [];
+                        for (let i = start; i <= end; i++) {
+                            indexes.push(i);
+                        }
+                        return indexes;
+                    },
+                    displayItems() {
+                        const head = this.currentPage * this.size;
+                        return this.facilities.slice(head, head + this.size);
+                    },
+                    isSelected(page) {
+                        return page - 1 == this.currentPage;
                     }
-                    let indexes = [];
-                    for (let i = start; i <= end; i++) {
-                        indexes.push(i);
-                    }
-                    return indexes;
-                },
-                displayItems() {
-                    const head = this.currentPage * this.size;
-                    return this.facilities.slice(head, head + this.size);
-                },
-                isSelected(page) {
-                    return page - 1 == this.currentPage;
-                }
             },
             methods: {
                 deleteFacility(id) {
@@ -156,10 +159,10 @@
                                 .then(response => {
                                     this.facilities = response.data;
                                     this.norecord = this.facilities.length;
-                                    if(this.norecord > this.size){
-                                    this.pagination = true;
-                                    }else{
-                                    this.pagination = false;
+                                    if (this.norecord > this.size) {
+                                        this.pagination = true;
+                                    } else {
+                                        this.pagination = false;
                                     }
                                     //alert('Delete Successfully!');
                                     // let i = this.facilities.map(item => item.id).indexOf(id); // find index of your object
@@ -180,33 +183,33 @@
                         });
                     },
 
-                searchFacility() {
-                    var search_word = $("#search-item").val();
-                    let fd = new FormData();
-                    fd.append("search_word", search_word);
-                    this.axios.post("/api/facility/search", fd).then(response => {
-                    this.facilities = response.data;
-                    });
-                },
-                first() {
-                    this.currentPage = 0;
-                },
-                last() {
-                    this.currentPage = this.pages - 1;
-                },
-                prev() {
-                    if (0 < this.currentPage) {
-                        this.currentPage--;
-                    }
-                },
-                next() {
-                    if (this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                },
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                },
+                    searchFacility() {
+                        var search_word = $("#search-item").val();
+                        let fd = new FormData();
+                        fd.append("search_word", search_word);
+                        this.axios.post("/api/facility/search", fd).then(response => {
+                            this.facilities = response.data;
+                        });
+                    },
+                    first() {
+                        this.currentPage = 0;
+                    },
+                    last() {
+                        this.currentPage = this.pages - 1;
+                    },
+                    prev() {
+                        if (0 < this.currentPage) {
+                            this.currentPage--;
+                        }
+                    },
+                    next() {
+                        if (this.currentPage < this.pages - 1) {
+                            this.currentPage++;
+                        }
+                    },
+                    pageSelect(index) {
+                        this.currentPage = index - 1;
+                    },
             }
     };
 </script>

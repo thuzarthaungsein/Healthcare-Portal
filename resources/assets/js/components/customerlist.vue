@@ -20,41 +20,44 @@
                         </div>
                         <hr />
                         <h5 class="header">事業者一覧</h5>
-                        <div v-for="customer in displayItems" :key="customer.id" class="card card-default m-b-20">
+                        <div v-if="!this.customers.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
+                        <div v-else class="container-fuid">
+                            <div v-for="customer in displayItems" :key="customer.id" class="card card-default m-b-20">
 
-                            <div class="card-body news-post">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <!-- <img src="/images/hospitalpage.jpg" alt="" class="img-fluid"> -->
-                                        <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
-                                        <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2" @error="imgUrlAlt" />
-                                        <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" @error="imgUrlAlt" />
-                                    </div>
-                                    <div class="row col-md-10">
-                                        <div class="col-md-2 max-width13">
-                                            <strong>名前:</strong>
+                                <div class="card-body news-post">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <!-- <img src="/images/hospitalpage.jpg" alt="" class="img-fluid"> -->
+                                            <!-- <img :src="(customer.logo)" class="col-md-12 " alt=" " style="height:150px;" > -->
+                                            <img :src="'/upload/hospital_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id == 2" @error="imgUrlAlt" />
+                                            <img :src="'/upload/nursing_profile/'+ customer.logo" class="img-fluid" alt="cust" v-if="customer.type_id != 2" @error="imgUrlAlt" />
                                         </div>
-                                        <div class="col-md-10">{{customer.name}}</div>
-                                        <div class="col-md-2 max-width13">
-                                            <strong>メールアドレス:</strong>
-                                        </div>
-                                        <div class="col-md-10">{{customer.email}}</div>
-                                        <!-- <div class="col-md-2 max-width13"><strong>Logo:</strong></div><div class="col-md-10">{{customer.logo}}</div> -->
-                                        <div class="col-md-2 max-width13">
-                                            <strong>電話番号:</strong>
-                                        </div>
-                                        <div class="col-md-10">{{customer.phone}}</div>
-                                        <div class="col-md-2 max-width13">
-                                            <strong>住所:</strong>
-                                        </div>
-                                        <div class="col-md-10">{{customer.address}}</div>
-                                        <div class="row col-12 mt-2">
-                                            <div class="col-4 col-offset-4 pl-3">
-                                                <button class="btn delete-borderbtn" @click="deleteCustomer(customer.id)">削除</button>
-                                                <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
-                                                <!-- <button class="btn confirm-borderbtn" v-if="customer.status == 0">確認済</button> -->
+                                        <div class="row col-md-10">
+                                            <div class="col-md-2 max-width13">
+                                                <strong>名前:</strong>
+                                            </div>
+                                            <div class="col-md-10">{{customer.name}}</div>
+                                            <div class="col-md-2 max-width13">
+                                                <strong>メールアドレス:</strong>
+                                            </div>
+                                            <div class="col-md-10">{{customer.email}}</div>
+                                            <!-- <div class="col-md-2 max-width13"><strong>Logo:</strong></div><div class="col-md-10">{{customer.logo}}</div> -->
+                                            <div class="col-md-2 max-width13">
+                                                <strong>電話番号:</strong>
+                                            </div>
+                                            <div class="col-md-10">{{customer.phone}}</div>
+                                            <div class="col-md-2 max-width13">
+                                                <strong>住所:</strong>
+                                            </div>
+                                            <div class="col-md-10">{{customer.address}}</div>
+                                            <div class="row col-12 mt-2">
+                                                <div class="col-4 col-offset-4 pl-3">
+                                                    <button class="btn delete-borderbtn" @click="deleteCustomer(customer.id)">削除</button>
+                                                    <!-- <router-link :to="{name:'custedit',params:{id:customer.id}}" class="btn main-bg-color all-btn white">Edit</router-link> -->
+                                                    <!-- <button class="btn confirm-borderbtn" v-if="customer.status == 0">確認済</button> -->
 
-                                                <button class="btn confirm-borderbtn" :id="'confirm-btn'+customer.id" v-if="customer.status == 0" @click="comfirm(customer.id)">確認</button>
+                                                    <button class="btn confirm-borderbtn" :id="'confirm-btn'+customer.id" v-if="customer.status == 0" @click="comfirm(customer.id)">確認</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -99,55 +102,55 @@
                     pageRange: 5,
                     items: [],
                     pagination: false,
-                    norecord:0,
+                    norecord: 0,
                 };
             },
             created() {
                 this.axios.get("/api/customers").then(response => {
                     this.customers = response.data;
                     this.norecord = this.customers.length;
-                    if(this.norecord> this.size){
+                    if (this.norecord > this.size) {
                         this.pagination = true;
-                    }else{
+                    } else {
                         this.pagination = false;
                     }
                 });
             },
             computed: {
-            pages() {
-                    return Math.ceil(this.customers.length / this.size);
-                },
-                displayPageRange() {
-                    const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
-                    const offset = isEven ? 1 : 2;
-                    let start, end;
-                    if (this.pages < this.pageRange) {
-                        start = 1;
-                        end = this.pages;
-                    } else if (this.currentPage < half) {
-                        start = 1;
-                        end = start + this.pageRange - 1;
-                    } else if (this.pages - half < this.currentPage) {
-                        end = this.pages;
-                        start = end - this.pageRange + 1;
-                    } else {
-                        start = this.currentPage - half + offset;
-                        end = this.currentPage + half;
+                pages() {
+                        return Math.ceil(this.customers.length / this.size);
+                    },
+                    displayPageRange() {
+                        const half = Math.ceil(this.pageRange / 2);
+                        const isEven = this.pageRange / 2 == 0;
+                        const offset = isEven ? 1 : 2;
+                        let start, end;
+                        if (this.pages < this.pageRange) {
+                            start = 1;
+                            end = this.pages;
+                        } else if (this.currentPage < half) {
+                            start = 1;
+                            end = start + this.pageRange - 1;
+                        } else if (this.pages - half < this.currentPage) {
+                            end = this.pages;
+                            start = end - this.pageRange + 1;
+                        } else {
+                            start = this.currentPage - half + offset;
+                            end = this.currentPage + half;
+                        }
+                        let indexes = [];
+                        for (let i = start; i <= end; i++) {
+                            indexes.push(i);
+                        }
+                        return indexes;
+                    },
+                    displayItems() {
+                        const head = this.currentPage * this.size;
+                        return this.customers.slice(head, head + this.size);
+                    },
+                    isSelected(page) {
+                        return page - 1 == this.currentPage;
                     }
-                    let indexes = [];
-                    for (let i = start; i <= end; i++) {
-                        indexes.push(i);
-                    }
-                    return indexes;
-                },
-                displayItems() {
-                    const head = this.currentPage * this.size;
-                    return this.customers.slice(head, head + this.size);
-                },
-                isSelected(page) {
-                    return page - 1 == this.currentPage;
-                }
             },
             methods: {
                 deleteCustomer(id) {
@@ -176,9 +179,9 @@
                                     confirmButtonText: "はい",
                                     confirmButtonColor: "#dc3545"
                                 });
-                                if(this.norecord > this.size){
+                                if (this.norecord > this.size) {
                                     this.pagination = true;
-                                }else{
+                                } else {
                                     this.pagination = false;
                                 }
                                 //flash("Delete Success", "success");
@@ -190,16 +193,28 @@
                     comfirm(id) {
                         this.$loading(true);
                         this.axios.get(`/api/confirm/${id}`).then(response => {
-                            console.log(response);
-                            this.$swal({
-                                title: "確認済",
-                                text: "メールを送信しました",
-                                type: "success",
-                                width: 350,
-                                height: 200,
-                                confirmButtonText: "はい",
-                                confirmButtonColor: "#dc3545"
-                            });
+                            if (response.data == 'success') {
+                                this.$swal({
+                                    title: "確認済",
+                                    text: "メールを送信しました",
+                                    type: "success",
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: "はい",
+                                    confirmButtonColor: "#dc3545"
+                                });
+                            } else {
+                                this.$swal({
+                                    title: "確認済",
+                                    text: "Customer is already confirmed!",
+                                    type: "warning",
+                                    width: 350,
+                                    height: 200,
+                                    confirmButtonText: "はい",
+                                    confirmButtonColor: "#dc3545"
+                                });
+                            }
+
                             this.$loading(false);
                             $('#confirm-btn' + id).css('display', 'none');
                         });
@@ -216,25 +231,25 @@
                     imgUrlAlt(event) {
                         event.target.src = "images/noimage.jpg"
                     },
-                first() {
-                    this.currentPage = 0;
-                },
-                last() {
-                    this.currentPage = this.pages - 1;
-                },
-                prev() {
-                    if (0 < this.currentPage) {
-                        this.currentPage--;
-                    }
-                },
-                next() {
-                    if (this.currentPage < this.pages - 1) {
-                        this.currentPage++;
-                    }
-                },
-                pageSelect(index) {
-                    this.currentPage = index - 1;
-                },
+                    first() {
+                        this.currentPage = 0;
+                    },
+                    last() {
+                        this.currentPage = this.pages - 1;
+                    },
+                    prev() {
+                        if (0 < this.currentPage) {
+                            this.currentPage--;
+                        }
+                    },
+                    next() {
+                        if (this.currentPage < this.pages - 1) {
+                            this.currentPage++;
+                        }
+                    },
+                    pageSelect(index) {
+                        this.currentPage = index - 1;
+                    },
             }
     };
 </script>
