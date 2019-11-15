@@ -90,64 +90,78 @@
                                                 <p>エリア</p>
                                             </div>
                                             <div class="col-md-3">
-                                                <label>
-                                                    <input type="checkbox" value="address" v-model="address_check"> 住所
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" value="address" v-model="address_check" class="form-check-input"> 住所
+                                                    <div class="control__indicator"></div>
                                                 </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <label>
-                                                    <input type="checkbox" v-model="tran_check"> 交通手段
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="tran_check" class="form-check-input"> 交通手段
+                                                    <div class="control__indicator"></div>
                                                 </label>
-                                            </div>
+                                            </div>   
                                         </div>
+                                        <hr>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <p>費用・条件</p>
                                             </div>
                                             <div class="col-md-3">
-                                                <label>
-                                                    <input type="checkbox" v-model="month_check"> 月額費用
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="month_check" class="form-check-input"> 月額費用
+                                                    <div class="control__indicator"></div>
                                                 </label>
                                                 <br>
-                                                <label style="width:400px;">
-                                                    <input type="checkbox" v-model="condition_check"> 入居条件 （自立、要支援、要介護、認知症相談可）
+                                                <label style="width:400px;"  class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="condition_check" class="form-check-input"> 入居条件 （自立、要支援、要介護、認知症相談可）
+                                                    <div class="control__indicator"></div>
                                                 </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <label>
-                                                    <input type="checkbox" v-model="entry_check"> 入居一時金
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="entry_check" class="form-check-input"> 入居一時金
+                                                    <div class="control__indicator"></div>
                                                 </label>
                                             </div>
                                         </div>
+                                        <hr>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <p>サービス内容</p>
                                             </div>
                                             <div class="col-md-9">
-                                                <label>
-                                                    <input type="checkbox" v-model="special_check"> 特長 （24時間看護、職員体制、食事メニューの選択など）
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="special_check" class="form-check-input"> 特長 （24時間看護、職員体制、食事メニューの選択など）
+                                                    <div class="control__indicator"></div>
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <hr>
+                                        <div class="row pb-4">
                                             <div class="col-md-3">
                                                 <p>施設情報</p>
                                             </div>
                                             <div class="col-md-3">
-                                                <label>
-                                                    <input type="checkbox" v-model="capacity_check"> 定員
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="capacity_check" class="form-check-input"> 定員
+                                                    <div class="control__indicator"></div>
                                                 </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <label>
-                                                    <input type="checkbox" v-model="opening_check"> 開設日
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" v-model="opening_check" class="form-check-input"> 開設日
+                                                     <div class="control__indicator"></div>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer text-center">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <button class="btn btn-secondary" @click="compareBtn()">比較する</button>
+                                        </button> -->
+                                        <button type="button"  data-dismiss="modal" aria-label="Close"  @click="compareBtn()" class="fav-update-btn">
+                                           比較する
                                         </button>
                                     </div>
                                 </div>
@@ -169,11 +183,11 @@
                                         </GmapMap>
                                     </div>
                                     <div class="modal-body">
-                                        <strong>住所</strong>
+                                        <strong><span class="job_ico"><i class="fas fa-map-marker-alt"></i></span>住所</strong>
                                         <br>
                                         <span>{{address}}</span>
                                         <hr>
-                                        <strong>最寄り駅</strong>
+                                        <strong><span class="job_ico"><i class="fa fa-map-signs"></i></span>最寄り駅</strong>
                                         <br>
                                         <p v-html="access"></p>
                                     </div>
@@ -188,7 +202,7 @@
                             <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン（3件）／</h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン／{{custname}}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <button class="btn btn-secondary">閉じる&times;</button>
                                         </button>
@@ -249,12 +263,13 @@
             <!--result-->
             <div class="col-12">
                 <div class="clearfix">
-                    <div class="float-right" style="margin-right:45px;">
-                        <label class="btn btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary mr-2 float-left" >
+                    <div class="float-right">
+                        <label class="btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary control controlinner--checkbox" style="width:300px;">
                             <input type="checkbox" @change="checkAll()" class="check-all-btn" />
                             <span class="checkmark"></span>すべての資料請求にチェックを入れる
+                             <div class="controlinner__indicator" style="top:8px;left:7px;"></div>
                         </label>
-                        <button type="button" class="btn btn-success  float-left" @click="addingMail()" :disabled="isdisable">資料請求する</button>
+                        <button type="button" class="btn btn-success all-btn float-right m-l-10" @click="addingMail()" :disabled="isdisable">資料請求する</button>
                     </div>
                 </div>
                 <div style="margin-top: 20px;" id="fav-history-page">
@@ -285,9 +300,11 @@
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</button>
-                                                        <label class="btn all-btn res-btn hos-btn">
+                                                        <label class="btn all-btn res-btn hos-btn control controlinner--checkbox">
                                                             <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
-                                                            <span class="checkmark"></span>資料請求</label>
+                                                            <span class="checkmark"></span>資料請求
+                                                            <div class="controlinner__indicator"></div>                                                        
+                                                        </label>
                                                     </td>
                                                 </tr>
                                                 <tr v-if="address_show">
