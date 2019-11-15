@@ -33,7 +33,7 @@
                         <h5 class="header">広告一覧</h5>
                         <div v-if="!this.advertisements.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
                         <div v-else class="container-fuid">
-                            <div v-for="ads in advertisements" :key="ads.id" class="card card-default m-b-20">
+                            <div v-for="ads in displayItems" :key="ads.id" class="card card-default m-b-20">
                                 <div class="card-body news-post">
                                     <div class="row">
                                         <div class="col-md-2">
@@ -58,6 +58,28 @@
                                 </div>
                             </div>
                         </div>
+                    
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                                    </li>
+                                    <li class="page-item">
+                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                                    </li>
+                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                                    </li>
+                                    <li class="page-item">
+                                        <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                                    </li>
+                                    <li class="page-item">
+                                        <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,15 +93,60 @@
                     advertisements: [],
                     isOpen: false,
                     norecord: 0,
+                    currentPage: 0,
+                    size: 10,
+                    pageRange: 5,
+                    items: [],
+                    pagination: false,
                 };
             },
             created() {
                 this.axios.get("/api/advertisement/ads").then(response => {
                     this.advertisements = response.data;
                     this.norecord = this.advertisements.length;
+                    if(this.norecord > this.size){
+                        this.pagination = true;
+                    }else{
+                        this.pagination = false;
+                    }
                 });
             },
-
+            computed: {
+            pages() {
+                    return Math.ceil(this.advertisements.length / this.size);
+                },
+                displayPageRange() {
+                    const half = Math.ceil(this.pageRange / 2);
+                    const isEven = this.pageRange / 2 == 0;
+                    const offset = isEven ? 1 : 2;
+                    let start, end;
+                    if (this.pages < this.pageRange) {
+                        start = 1;
+                        end = this.pages;
+                    } else if (this.currentPage < half) {
+                        start = 1;
+                        end = start + this.pageRange - 1;
+                    } else if (this.pages - half < this.currentPage) {
+                        end = this.pages;
+                        start = end - this.pageRange + 1;
+                    } else {
+                        start = this.currentPage - half + offset;
+                        end = this.currentPage + half;
+                    }
+                    let indexes = [];
+                    for (let i = start; i <= end; i++) {
+                        indexes.push(i);
+                    }
+                    return indexes;
+                },
+                displayItems() {
+                    const head = this.currentPage * this.size;
+                    return this.advertisements.slice(head, head + this.size);
+                },
+                isSelected(page) {
+                    return page - 1 == this.currentPage;
+                }
+            },
             methods: {
                 // toggleModal() {
                 //     this.isOpen = !this.isOpen;
@@ -103,6 +170,11 @@
                             this.axios.delete(`/api/advertisement/delete/${id}`).then(response => {
                                 this.advertisements = response.data;
                                 this.norecord = this.advertisements.length;
+                                if(this.norecord > this.size){
+                                    this.pagination = true;
+                                }else{
+                                    this.pagination = false;
+                                }
                                 //alert("Delete Successfully!");
                                 //   let a = this.advertisements.map(item => item.id).indexOf(id);
                                 //   this.advertisements.splice(a, 1);
@@ -126,11 +198,35 @@
                         fd.append("search_word", search_word);
                         this.axios.post("/api/advertisement/search", fd).then(response => {
                             this.advertisements = response.data;
+                            if(this.advertisements.length > this.size){
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                     },
                     imgUrlAlt(event) {
                         event.target.src = "images/noimage.jpg"
+                    },
+                first() {
+                    this.currentPage = 0;
+                },
+                last() {
+                    this.currentPage = this.pages - 1;
+                },
+                prev() {
+                    if (0 < this.currentPage) {
+                        this.currentPage--;
                     }
+                },
+                next() {
+                    if (this.currentPage < this.pages - 1) {
+                        this.currentPage++;
+                    }
+                },
+                pageSelect(index) {
+                    this.currentPage = index - 1;
+                },
             }
     }
 </script>

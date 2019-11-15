@@ -115,8 +115,8 @@ export default {
                  if( `${this.$route.params.id}` == "undefined")
                 {
                     this.$swal({
-                                title: "作成",
-                            text: "作成よろしでしょうか。",
+                                title: "確認",
+                            text: "作成よろしいでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -136,7 +136,7 @@ export default {
                             this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            title: '作成されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             // showConfirmButton: false,
@@ -171,7 +171,7 @@ export default {
 
                 this.$swal({
                           title: "確認",
-                            text: "更新よろしでしょうか。",
+                            text: "更新よろしいでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,

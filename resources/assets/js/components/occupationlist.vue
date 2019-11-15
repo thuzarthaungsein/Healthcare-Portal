@@ -176,8 +176,8 @@
                                     // let i = this.occupation.map(item => item.id).indexOf(id); // find index of your object
                                     // this.occupation.splice(i, 1)
                                     this.$swal({
-                                        title: "削除された",
-                                        text: "ファイルが削除されました。",
+                                        title: "削除済",
+                                        text: "職種を削除されました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,
@@ -197,27 +197,33 @@
                         fd.append("search_word", search_word);
                         this.axios.post("/api/occupation/search", fd).then(response => {
                             this.occupation = response.data;
+                            if(this.occupation.length > this.size){
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                     },
-                    first() {
-                        this.currentPage = 0;
-                    },
-                    last() {
-                        this.currentPage = this.pages - 1;
-                    },
-                    prev() {
-                        if (0 < this.currentPage) {
-                            this.currentPage--;
-                        }
-                    },
-                    next() {
-                        if (this.currentPage < this.pages - 1) {
-                            this.currentPage++;
-                        }
-                    },
-                    pageSelect(index) {
-                        this.currentPage = index - 1;
-                    },
+                first() {
+                    this.currentPage = 0;
+                },
+                last() {
+                    this.currentPage = this.pages - 1;
+                },
+                prev() {
+                    if (0 < this.currentPage) {
+                        this.currentPage--;
+                    }
+                },
+                next() {
+                    if (this.currentPage < this.pages - 1) {
+                        this.currentPage++;
+                    }
+                },
+                pageSelect(index) {
+                    this.currentPage = index - 1;
+                    window.scrollTo(0,0);
+                },
 
             }
     }

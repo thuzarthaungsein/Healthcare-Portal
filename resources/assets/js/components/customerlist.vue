@@ -171,8 +171,8 @@
                         }).then(response => {
                             this.axios.delete(`/api/customer/delete/${id}`).then(response => {
                                 this.$swal({
-                                    title: "削除された",
-                                    text: "ファイルが削除されました。",
+                                    title: "削除済",
+                                    text: "事業者を削除されました。",
                                     type: "success",
                                     width: 350,
                                     height: 200,
@@ -226,6 +226,11 @@
                         fd.append("search_word", search_word);
                         this.axios.post("/api/customer/search", fd).then(response => {
                             this.customers = response.data;
+                            if(this.customers.length > this.size){
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                     },
                     imgUrlAlt(event) {

@@ -200,6 +200,11 @@
                         fd.append("search_word", search_word);
                         this.axios.post("/api/category/search", fd).then(response => {
                             this.categories = response.data;
+                            if(this.categories.length > this.size) {
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                     },
                     first() {

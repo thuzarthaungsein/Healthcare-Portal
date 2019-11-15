@@ -139,7 +139,6 @@
                 } else {
                     this.pagination = false;
                 }
-                console.log('no', this.norecord)
             });
         },
         mounted() {
@@ -155,7 +154,7 @@
                 },
                 displayPageRange() {
                     const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
+                    const isEven = this.pageRange % 2 == 0;
                     const offset = isEven ? 1 : 2;
                     let start, end;
                     if (this.pages < this.pageRange) {
@@ -245,7 +244,12 @@
                     fd.append("selected_category", selected_category);
                     this.axios.post("/api/news_list/search", fd).then(response => {
                         this.news_list = response.data;
-                    });
+                        if(this.news_list.length > this.size){
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
+                            });
                 },
                 imgUrlAlt(event) {
                     event.target.src = "images/noimage.jpg"
@@ -268,6 +272,7 @@
                 },
                 pageSelect(index) {
                     this.currentPage = index - 1;
+                    window.scrollTo(0,0);
                 },
         }
     };
