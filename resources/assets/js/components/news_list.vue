@@ -151,7 +151,7 @@
                 },
                 displayPageRange() {
                     const half = Math.ceil(this.pageRange / 2);
-                    const isEven = this.pageRange / 2 == 0;
+                    const isEven = this.pageRange % 2 == 0;
                     const offset = isEven ? 1 : 2;
                     let start, end;
                     if (this.pages < this.pageRange) {
@@ -160,12 +160,23 @@
                     } else if (this.currentPage < half) {
                         start = 1;
                         end = start + this.pageRange - 1;
+                        console.log('show1')
                     } else if (this.pages - half < this.currentPage) {
                         end = this.pages;
                         start = end - this.pageRange + 1;
+                        console.log('show2')
+                        console.log('start',start)
+                        console.log('end',end)
+                        console.log('current',this.currentPage)
+                        console.log('half',this.pages)
                     } else {
                         start = this.currentPage - half + offset;
                         end = this.currentPage + half;
+                        console.log('show3')
+                        console.log('start',start)
+                        console.log('end',end)
+                        console.log('current',this.currentPage)
+                        console.log('half',half)
                     }
                     let indexes = [];
                     for (let i = start; i <= end; i++) {
@@ -260,6 +271,7 @@
                 },
                 pageSelect(index) {
                     this.currentPage = index - 1;
+                    window.scrollTo(0,0);
                 },
         }
     };
