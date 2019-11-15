@@ -201,6 +201,11 @@
                         fd.append("search_word", search_word);
                         this.axios.post("/api/feature/search", fd).then(response => {
                             this.features = response.data;
+                            if(this.features.length > this.size) {
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                     },
                 first() {
@@ -221,6 +226,7 @@
                 },
                 pageSelect(index) {
                     this.currentPage = index - 1;
+                    window.scrollTo(0,0);
                 },
             }
     };

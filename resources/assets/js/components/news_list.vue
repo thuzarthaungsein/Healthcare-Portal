@@ -135,7 +135,6 @@
                 }else{
                     this.pagination = false;
                 }
-                console.log('no',this.norecord)
             });
         },
         mounted() {
@@ -160,23 +159,12 @@
                     } else if (this.currentPage < half) {
                         start = 1;
                         end = start + this.pageRange - 1;
-                        console.log('show1')
                     } else if (this.pages - half < this.currentPage) {
                         end = this.pages;
                         start = end - this.pageRange + 1;
-                        console.log('show2')
-                        console.log('start',start)
-                        console.log('end',end)
-                        console.log('current',this.currentPage)
-                        console.log('half',this.pages)
                     } else {
                         start = this.currentPage - half + offset;
                         end = this.currentPage + half;
-                        console.log('show3')
-                        console.log('start',start)
-                        console.log('end',end)
-                        console.log('current',this.currentPage)
-                        console.log('half',half)
                     }
                     let indexes = [];
                     for (let i = start; i <= end; i++) {
@@ -248,7 +236,12 @@
                     fd.append("selected_category", selected_category);
                     this.axios.post("/api/news_list/search", fd).then(response => {
                         this.news_list = response.data;
-                    });
+                        if(this.news_list.length > this.size){
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
+                            });
                 },
                 imgUrlAlt(event) {
                     event.target.src = "images/noimage.jpg"

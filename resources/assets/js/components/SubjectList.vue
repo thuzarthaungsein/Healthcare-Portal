@@ -191,7 +191,12 @@
                         let fd = new FormData();
                         fd.append("search_word", search_word)
                         this.axios.post("/api/subjects/search", fd).then(response => {
-                            this.subjects = response.data;
+                        this.subjects = response.data;
+                        if(this.subjects.length > this.size){
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
                         });
                     },
                 first() {
@@ -212,6 +217,7 @@
                 },
                 pageSelect(index) {
                     this.currentPage = index - 1;
+                    window.scrollTo(0,0);
                 },
             }
     }
