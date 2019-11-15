@@ -430,7 +430,7 @@
                                             <ul class="list-group list-group-flush nur-caro-card">
                                                 <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
                                             <!-- <table class="table table-bordered address-tbl">
@@ -461,7 +461,7 @@
                                         <thead>
                                             <tr style="background-color:#ffffcc">
                                                 <th class="text-center" style="background-color:#ffffcc">入居時費用</th>
-                                                <th class="text-center" style="background-color:#ffffcc">月額利用料</th>
+                                                <th class="text-center" style="background-color:#ffffcc">月額費用</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -702,7 +702,7 @@
                                 </td>
                             </tr>      
                             <tr>
-                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
+                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額費用</td>
                                 <td>
                                     <font class="cash-lbl">
                                         {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
@@ -1100,7 +1100,7 @@
                                   '</li>' +
 
                                 '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c" class="m-r-5">ウェブ</span>' +
+                                 '<span style="color:#d2571c" class="m-r-5">公式サイト</span>' +
                                 '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                                 '</li>' +
                                 
@@ -1111,7 +1111,7 @@
                             '<td colspan="2">' +
                               '<div class="">' +
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
-                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額費用</th></tr></thead>'+
                                 '<tbody>'+
                                 '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
@@ -1442,7 +1442,7 @@
                                   '</li>' +
 
                                 '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
+                                 '<span style="color:#d2571c" class="m-r-10">公式サイト</span>' +
                                 '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                                 '</li>' +                                
                               '</ul>' +
@@ -1452,7 +1452,7 @@
                             '<td colspan="2">' +
                               '<div class="">' +
                                 '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
-                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額費用</th></tr></thead>'+
                                 '<tbody>'+
                                 '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                                 '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
