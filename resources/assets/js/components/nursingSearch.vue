@@ -433,7 +433,7 @@
                                 
                                     <div class="row">
                                         <div class="col-4">
-                                            <img :src="'/images/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
+                                            <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
@@ -621,7 +621,7 @@
                     </div>
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
-                        <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">   
+                        <img :src="'/upload/nursing_profile/'+nus.logo" alt="image" @error="imgUrlAlt">   
                          <div class="mt-4 col-12 detail-btn text-center">                                             
                             <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
                           </div>                         
@@ -895,7 +895,7 @@ getStateClick(e) {
 // map onclick function 
 // map change dropdown function
 nursingSearchData(index){
-             this.chngeSearch();
+            this.changeSearch();
             if(index == 1)
             {
                 this.township_id = -1;
@@ -1031,7 +1031,7 @@ infoWindow(item, mmarker){
                 '</tr>' +
                 '<tr>' +
                 '<td>' +
-                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                 '</td>' +                            
                     '<td>' +
                     '<ul class="list-group list-group-flush nur-caro-card">' +
@@ -1046,7 +1046,7 @@ infoWindow(item, mmarker){
                         '</li>' +
 
                     '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
+                        '<span style="color:#d2571c" class="m-r-10">公式サイト</span>' +
                     '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                     '</li>' +                                
                     '</ul>' +
@@ -1139,7 +1139,7 @@ changeMap(response){
 
         },
 
-chngeSearch()
+changeSearch()
         {
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -1199,7 +1199,7 @@ chngeSearch()
         
 
 search(){   
-            this.chngeSearch();
+            this.changeSearch();
             var mmarker = new Array()
             var item = []
 
