@@ -15,8 +15,8 @@
           <label for="nursing" class="typelabel dim-btn nav-link active" id="nursing-lbl">
 
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
-            <span v-if="loginuser"><i class="fas fa-id-badge"></i> myページ</span>
-            <span v-if="!loginuser"><i class="fas fa-home"></i></span>
+            <span v-if="loginuser"><i class="fas fa-user-md" style="font-size:18px;"></i>&nbsp;マイページ</span>
+            <span v-if="!loginuser"><i class="fas fa-id-badge"></i></span>
           </label>
         </li>
         <span class="btn fav-profile fav-item fav-color" v-if="!view_pro_id && !loginuser" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
@@ -42,7 +42,6 @@
         <li role="presentation" class="subtab1 nav-item" v-if="loginuser">
           <label for="hospital" class="typelabel nav-link" id="hospital-lbl">
             <i class="fa fa-plus-circle"></i>
-
             <input type="radio" v-model="btntype" value="create" v-on:change="changeBtnType('hospital-lbl','nursing-lbl')" name="btntype" id="hospital" />
             作成
           </label>
@@ -52,8 +51,8 @@
           <label for="nursing" class="typelabel nav-link active" id="nursing-lbl">
 
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
-            <span v-if="loginuser"><i class="fas fa-id-badge"></i> myページ</span>
-            <span v-if="!loginuser"><i class="fas fa-home"></i></span>
+            <span v-if="loginuser"><i class="fas fa-briefcase-medical" style="font-size:18px;"></i>&nbsp;マイページ</span>
+            <span v-if="!loginuser"><i class="fas fa-briefcase-medical"></i></span>
           </label>
         </li>
 
@@ -116,8 +115,8 @@ export default {
         this.loginuser = true;
        console.log(response.data)
         localStorage.setItem("cusId", response.data.user.customer_id);
-        localStorage.setItem("lat_num", response.data.lat_lng[0].latitude);
-        localStorage.setItem("lng_num", response.data.lat_lng[0].longitude);
+        localStorage.setItem("lat_num", response.data.lat_lng[0].latitude==0?'35.6803997':response.data.lat_lng[0].latitude);
+        localStorage.setItem("lng_num", response.data.lat_lng[0].longitude==0?'139.76901739':response.data.lat_lng[0].longitude);
 
         // localStorage.setItem("hospital_fav", this.l_storage_hos_fav);
         // localStorage.setItem("nursing_fav", this.l_storage_nus_fav);

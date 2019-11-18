@@ -47,8 +47,8 @@ export default {
   methods: {
     add() {
      this.$swal({
-                            title: "作成",
-                            text: "作成よろしでしょうか。",
+                            title: "確認",
+                            text: "作成よろしいでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,

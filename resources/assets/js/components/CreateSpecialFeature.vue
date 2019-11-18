@@ -77,7 +77,7 @@ export default {
             }
         },
           created() {
-              console.log('22222');
+            //   console.log('22222');
               console.log(this.$route.params.id);
               if(this.$route.params.id){
               //  alert('title');
@@ -149,8 +149,8 @@ export default {
                     // console.log(`${this.$route.params.id}`);
                     // console.log('this.$route.params.id');
                     this.$swal({
-                                title: "作成",
-                            text: "作成よろしでしょうか。",
+                            title: "確認",
+                            text: "作成よろしいでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
@@ -170,7 +170,7 @@ export default {
                             this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            title: '作成されました。',
                             confirmButtonText: "はい",
                             confirmButtonColor: "#6cb2eb",
                             // showConfirmButton: false,
@@ -188,11 +188,11 @@ export default {
 
                     }
                 })
-                            })
+            })
 
                 }
                 else{
-                    console.log('bbbbb');
+                    //console.log('bbbbb');
                     console.log(this.$route.params.id);
                      this.updateFeature();
                 }
@@ -206,7 +206,7 @@ export default {
             updateFeature() {
                  this.$swal({
                             title: "確認",
-                            text: "更新よろしでしょうか。",
+                            text: "更新よろしいでしょうか。",
                             type: "info",
                             width: 350,
                             height: 200,

@@ -49,7 +49,7 @@ Vue.use(VuePannellum);
 Vue.component('VPannellumn', VuePannellum)
 
 
-//vue Panorama 
+//vue Panorama
 import Panorama from 'vuejs-panorama';
 Vue.use(Panorama);
 
@@ -58,7 +58,6 @@ Vue.use(Panorama);
 // import Lightbox from 'vue-easy-lightbox'
 // Vue.use(Lightbox)
 //import Vue from 'vue'
-
 
 //vue vuetify
 // import Vuetify from "vuetify";
@@ -112,7 +111,7 @@ Vue.component('ads_slider', require('./components/ads_slider.vue'));
 Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
 Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
 Vue.component('autocomplete', Autocomplete);
-
+Vue.use(VueClazyLoad)
 const router = new VueRouter({
     mode: 'history',
     routes: routes

@@ -11,7 +11,7 @@
                             <form @submit.prevent="add">
                                 <div class="form-group">
 
-                                    <label>広告タイトル : <span class="error">*</span></label>
+                                    <label>広告題名 : <span class="error">*</span></label>
                                     <input type="title" class="form-control box" id="title" name="title" v-model="ads.title" placeholder="広告タイトルを入力してください。">
                                     <span v-if="errors.title" class="error">{{errors.title}}</span>
 
@@ -96,15 +96,15 @@
                         this.errors.title = "";
                     } else {
                         // console.log('null');
-                        this.errors.title = " カテゴリが必須です。";
+                        this.errors.title = " 題名が必須です。";
                     }
                      if (this.ads.location.length != 0) {
                         console.log(this.ads.location.length);
-                        console.log(1);
+                        
                         this.errors.location = "";
                     } else {
-                        console.log(2);
-                        this.errors.location = " カテゴリが必須です。";
+                        
+                        this.errors.location = "";
                     }
                      if (this.ads.photo) {
                      
@@ -115,7 +115,6 @@
                     }
                    if (
                         !this.errors.title &&
-                        !this.errors.location &&
                         !this.errors.photo
                         
                     ) {
@@ -129,8 +128,8 @@
             },
             add() {
                   this.$swal({
-                            title: "作成",
-                            text: "作成よろしでしょうか。",
+                            title: "確認",
+                            text: "作成よろしいでしょうか。",
                             type: "success",
                             width: 350,
                             height: 200,
