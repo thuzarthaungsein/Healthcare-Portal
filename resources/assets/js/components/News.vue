@@ -26,7 +26,7 @@
                         <!-- </form>                                       -->
                         <div class="row" v-if="status == '0'">
                             <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
-                                <div class="card-header tab-card-header">
+                                <!-- <div class="card-header tab-card-header">
                                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                         <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
                                             <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
@@ -36,7 +36,31 @@
                                             {{ cat.name }}</a>
                                         </li>
                                     </ul>
+                                </div> -->
+                               <div class="card-header tab-card-header clearfix">
+                                <div class="left">
+                                
+                                <button id="left-button" @click="swipeLeft">
+                                    swipe left
+                                </button>
                                 </div>
+                                <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content">                                  
+                                    <div class="internal" v-for="cat in cats" :key="cat.id" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
+                                        <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                            {{ cat.name }}</a>
+
+                                        <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                            {{ cat.name }}</a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="right">
+                                <button id="right-button" @click="swipeRight">
+                                    swipe right
+                                </button>
+                              
+                                </div>
+                               </div>
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">                                                                        
                                         <div class="row">
@@ -530,11 +554,53 @@
 
             imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
+            },
+
+            scrollTo(element, scrollPixels, duration) {
+                const scrollPos = element.scrollLeft;
+                // Condition to check if scrolling is required
+                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0))) 
+                {
+                    // Get the start timestamp
+                    const startTime =
+                    "now" in window.performance
+                        ? performance.now()
+                        : new Date().getTime();
+                    
+                    function scroll(timestamp) {
+                    //Calculate the timeelapsed
+                    const timeElapsed = timestamp - startTime;
+                    //Calculate progress 
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    //Set the scrolleft
+                    element.scrollLeft = scrollPos + scrollPixels * progress;
+                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
+                    if (timeElapsed < duration) {
+                        //Request for animation
+                        window.requestAnimationFrame(scroll);
+                    } else {
+                        return;
+                    }
+                    }
+                    //Call requestAnimationFrame on scroll function first time
+                    window.requestAnimationFrame(scroll);
+                }
+                },
+                swipeLeft() {
+                const content = this.$refs.content;
+                this.scrollTo(content, -300, 800); 
+                },
+                swipeRight() {
+                const content = this.$refs.content;
+                this.scrollTo(content, 300, 800);
+                }
             }
         }
-    }
+    
  </script>
 <style>
+
+
 .news-list-display{
     /* border: 1px solid #f7f7f7; */
     padding: 5px 10px;
@@ -573,4 +639,32 @@
     .tab-pane{
         padding: 10px;
     }
+.left{
+ float: left; 
+ width: 30%;
+ border: 1px solid black;
+}
+
+.internal{
+ width: 31.75%;
+ border: 1px solid black;
+ display: inline-block;
+}
+
+.center{
+ float: left;
+width: 38.9%;
+border: 1px solid black;
+margin: 1px;
+overflow: hidden;
+white-space: nowrap;
+display: inline-block;
+}
+
+.right{
+ float: right; 
+ width: 30%;
+ border: 1px solid black;
+}
+   
 </style>
