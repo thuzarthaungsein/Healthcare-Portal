@@ -895,7 +895,7 @@ getStateClick(e) {
 // map onclick function 
 // map change dropdown function
 nursingSearchData(index){
-             this.chngeSearch();
+            this.changeSearch();
             if(index == 1)
             {
                 this.township_id = -1;
@@ -1139,7 +1139,7 @@ changeMap(response){
 
         },
 
-chngeSearch()
+changeSearch()
         {
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -1199,7 +1199,7 @@ chngeSearch()
         
 
 search(){   
-            this.chngeSearch();
+            this.changeSearch();
             var mmarker = new Array()
             var item = []
 
