@@ -128,12 +128,12 @@
                                                 <label class="old-pass">古いパスワード:</label>
                                                 <input type="password" name="old_password" class="form-control old-password">
                                                 <div class="error" id="oldpassword" style="display: none;">古いパスワードが必要です。</div>
-
+                                                <br>
                                                 <label class="old-pass">新しいパスワード</label>
                                                 <input type="password" name="new_password" class="form-control new-password">
                                                 <div class="error" id="newpassword" style="display: none;">新しいパスワードが必要です。</div>
                                                 <div class="error" id="newpasswordlength" style="display: none;">パスワードは少なくとも6桁でなければなりません。</div>
-
+                                                <br>
                                                 <label class="old-pass">パスワード認証:</label>
                                                 <input type="password" name="comfirm_password" class="form-control confirm-password">
                                                 <div class="error" id="confirmpassword" style="display: none;">パスワードの確認が必要です。</div>

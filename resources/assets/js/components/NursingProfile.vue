@@ -827,7 +827,7 @@ export default {
                 $('.feature-'+check_id).attr('checked','true');
             },
             stationCheck(check_id) {
-                $('.station-'+check_id).attr('checked','true');
+                $('.station-'+check_id).attr('checked','true'); 
             },
             preview_image(img_class,indx) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
