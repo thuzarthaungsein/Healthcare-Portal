@@ -44,7 +44,8 @@ class SearchMapController extends Controller
             $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if ($id != null && $township_id != -1 && $moving_in != -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+
+            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if($id != null && $township_id != -1 && $moving_in != -1 && $per_month == -1){
             $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
@@ -52,7 +53,7 @@ class SearchMapController extends Controller
         else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month != -1){
             $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
         }
-        
+      
        
         $nursing_profile = DB::select($query);
     
