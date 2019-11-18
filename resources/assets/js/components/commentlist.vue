@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="offset-md-4 col-md-8 mt-3">
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -120,6 +120,7 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
+                    pagination: false,
                 }
             },
             created() {
@@ -128,7 +129,11 @@
                     .then(response => {
                         this.comments = response.data;
                         this.norecord = this.comments.length;
-
+                        if(this.norecord > this.size){
+                            this.pagination = true;
+                        }else{
+                            this.pagination = false;
+                        }
                     });
             },
             computed: {
@@ -189,7 +194,11 @@
                                 .then(response => {
                                     this.comments = response.data;
                                     this.norecord = this.comments.length;
-
+                                    if(this.norecord > this.size){
+                                        this.pagination = true;
+                                    }else{
+                                        this.pagination = false;
+                                    }
                                     // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
                                     // this.categories.splice(i, 1);
                                     this.$swal({
@@ -261,7 +270,12 @@
                         fd.append("search_word", search_word);
                         this.axios.post("/api/comments/search", fd).then(response => {
                             this.comments = response.data;
-                        });
+                            if(this.comments.length > this.size){
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
+                            });
                     },
                     commentToggle(id) {
                         var class_by_id = $('#icon' + id).attr('class');
@@ -297,6 +311,7 @@
                 },
                 pageSelect(index) {
                     this.currentPage = index - 1;
+                    window.scrollTo(0,0);
                 },
             }
     }
