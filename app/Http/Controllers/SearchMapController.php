@@ -35,16 +35,17 @@ class SearchMapController extends Controller
             $query .= " t.city_id=" . $id . " and t.id =".$township_id." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if($id != null && $township_id == -1 && $moving_in != -1 && $per_month == -1){
-            $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+            $query .= " t.city_id=" . $id . " and n.occupancy_condition_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if ($id != null && $township_id == -1 && $moving_in == -1 && $per_month != -1){
             $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if ($id != null && $township_id == -1 && $moving_in != -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+            $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." and n.occupancy_condition_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if ($id != null && $township_id != -1 && $moving_in != -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+
+            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
         }
         else if($id != null && $township_id != -1 && $moving_in != -1 && $per_month == -1){
             $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
@@ -52,7 +53,7 @@ class SearchMapController extends Controller
         else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month != -1){
             $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
         }
-        
+      
        
         $nursing_profile = DB::select($query);
     
@@ -170,6 +171,8 @@ class SearchMapController extends Controller
            } else {
                $MoveID = implode(',', $MoveID); // this condition is when array[0] has no '0'
            }
+
+           
      
 
            $query = "SELECT '' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
@@ -210,19 +213,19 @@ class SearchMapController extends Controller
                 $MoveID = explode(',', $MoveID);
                 if(count($MoveID) == 3) 
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 
                 }
                 else  if(count($MoveID) == 2)
                 {
                   
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                    
                 }
                 else if(count($MoveID) ==1 )
                 {
                  
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                            
                 }
               
@@ -243,15 +246,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";       
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";       
                 }
                 else if(count($MoveID) ==2)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                 
             }
@@ -266,16 +269,16 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) ==3 )
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                    
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                
             }
@@ -285,15 +288,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3 )
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
      
             }
@@ -308,15 +311,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                        
             }
@@ -326,33 +329,39 @@ class SearchMapController extends Controller
                  $MoveID = explode(',',$MoveID);
                  if(count($MoveID) == 3)
                  {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                  }
                  else if(count($MoveID) == 2)
                  {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                  }
                  else if(count($MoveID) == 1)
                  {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                  }
                 
             }
 
             if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID !== '0')
             {
+
+               
                 $MoveID = explode(',',$MoveID);
+
+                
+
+              
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".(String)$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".(String)$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                 
             }
@@ -376,15 +385,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) or n.moving_in like '%".$MoveID[1]."%' ) or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                       
             }
@@ -399,15 +408,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }  
                
             }
@@ -417,15 +426,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }  
                         
             }
@@ -435,15 +444,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }  
                 
             }
@@ -463,15 +472,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";       
+                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";       
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }  
                 
             }
@@ -483,16 +492,16 @@ class SearchMapController extends Controller
                     $MoveID = explode(',',$MoveID);
                     if(count($MoveID) == 3)
                     {
-                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";
                          
                     }
                     else if(count($MoveID) == 2)
                     {
-                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                     }
                     else if(count($MoveID) == 1)
                     {
-                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                     }  
                     
                 }
@@ -509,15 +518,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";        
+                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";        
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                 
             }
@@ -527,15 +536,15 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";              
+                    $query .= " ci.id =".$id." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) group by c.id";              
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
-                    $query .= " ci.id =".$id." and ( n.moving_in like '%".$$MoveID[0]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) group by c.id";
                 }
                 
             }
@@ -565,6 +574,7 @@ class SearchMapController extends Controller
                     }
                 }
             }
+       
             $city = DB::table('cities')->where('id',$id)->get();
             return response()->json(array("nursing"=>$nus_data,
                                           "specialfeature"=>$specialfeature,

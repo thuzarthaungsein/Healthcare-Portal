@@ -16,7 +16,7 @@
 
             <input type="radio" v-model="btntype" value="view" v-on:change="changeBtnType('nursing-lbl','hospital-lbl')" name="btntype" id="nursing" />
             <span v-if="loginuser"><i class="fas fa-user-md" style="font-size:18px;"></i>&nbsp;マイページ</span>
-            <span v-if="!loginuser"><i class="fas fa-id-badge"></i></span>
+            <span v-if="!loginuser"><i class="fas fa-user-md"></i></span>
           </label>
         </li>
         <span class="btn fav-profile fav-item fav-color" v-if="!view_pro_id && !loginuser" @click="favAddFun('add');view_pro_id = !view_pro_id"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
