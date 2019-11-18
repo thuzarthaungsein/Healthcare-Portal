@@ -40,7 +40,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-image"></i></span>
                                     </div>
-                                    <span class="btn all-btn choose-btn" style="color: #a93f0c!important;box-shadow:none!important;" onClick="choosefile()">Choose</span> <span id="imgname" style = "padding: 8px 0 0 30px;color: #fff;"></span>
+                                    <span class="btn all-btn choose-btn" style="color: #a93f0c!important;box-shadow:none!important;" onClick="choosefile()">Choose</span> <span id="imgname" style = "padding: 8px 0 0 30px;"></span>
                                     <input type="file" accept="image/*" onchange="showMyImage(this)" name="img" id="file" ref="file" class="form-control inputfile">
                                 </div>
                                 <div class="input-group mb-3">
