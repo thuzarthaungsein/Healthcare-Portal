@@ -285,7 +285,7 @@
               </div>-->
 
                             <div class="form-group">
-                                <label for="salary">職業:</label>
+                                <label for="salary">職種:</label>
 
                                 <select v-model="joboffer.occupation_id" class="form-control">
                                     <option value="0">なし</option>

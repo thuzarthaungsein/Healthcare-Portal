@@ -8367,10 +8367,7 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
+
    /* searchdata */
    .no_search_data{
     font-size: 20px;
@@ -8381,44 +8378,33 @@ ul.nur-caro-card>li.list-group-item {
     text-align:center;
    }
    /* end searchdata */
->>>>>>> 530a72c2e87af0a285f6ec90d0a1f67ac476dca7
 
 
->>>>>>> c3e05d23ae6bde323161e2bdaa373f18961f6384
 /*profile_edit*/
 
 .header2 {
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.header2 h5 {
+    /* display: inline-block; */
+    padding-left: 5px;
+    margin-bottom: 15px;
+    border-left: 4px solid #f57e46;
 }
 
 
-/* .header2:after {
+/* 
+.header2 h5:after {
     height: 2px;
     content: '';
     position: absolute;
-    width: 100%;
-    top: 8px;
-    right: 0;
-    background-color: #e4e4e4;
+    width: 10%;
+    bottom: -2px;
+    left: 0;
+    background-color: #f57e46;
 } */
 
-.header2 h5 {
-    display: inline-block;
-    background: #444;
-    color: #fff;
-    padding: 3px 20px;
-    border-left: 5px solid #f57e46;
-    /* display: inline-block;
-    position: relative;
-    text-transform: uppercase;
-    font-size: 16px;
-    color: #181818;
-    font-weight: 700;
-    background-color: #ffffff;
-    z-index: 9;
-    padding-right: 7px;
-    letter-spacing: 0.075em; */
-}
 /*pagination */
 
 .offset {
@@ -8451,7 +8437,7 @@ ul.nur-caro-card>li.list-group-item {
     position: absolute;
     width: 100%;
     box-shadow: 0px 1px 5px 0px #b1b1b1 !important;
-    height: 100%;
+    height: auto;
     transition: all 250ms ease-out;
 }
 
