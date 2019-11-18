@@ -107,7 +107,7 @@
 
 <body>
     <button onclick="topFunction()" id="myBtn">Top</button>
-    
+
 <div id="app">
 @if(!Auth::check())
     <router-link to="/" id="homeBtn"><i class="fa fa-home"></i> ホーム </router-link>
@@ -132,7 +132,7 @@
                     </span>
                     </router-link>
                 </div>
-                <div class="div2 fav-hospital-link-box">               
+                <div class="div2 fav-hospital-link-box">
                     <router-link to="/favouriteHospital">
                     <i class="fa fa-chevron-circle-right is-hos"></i>
                     <span style="color:#2981cc;">
@@ -145,7 +145,7 @@
                 <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#c40000"><path d="M86,15.0472l-78.83333,70.9528h21.5v64.5h59.44694c-1.3545,-4.54367 -2.11361,-9.3525 -2.11361,-14.33333h-43v-63.14225l43,-38.6888l57.61328,51.66439h21.22006zM136.19466,100.24935c-19.78717,0 -35.83333,16.04617 -35.83333,35.83333c0,19.78717 16.04617,35.83333 35.83333,35.83333c19.78717,0 35.83333,-16.04617 35.83333,-35.83333c0,-19.78717 -16.04617,-35.83333 -35.83333,-35.83333zM150.89193,119.24382l10.02213,10.03613l-28.30274,28.30274l-21.13606,-21.13607l10.02213,-10.03613l11.11393,11.11393z"></path></g></g></svg>
                 &nbsp;<span class="font-weight-bold"> 最近見た施設</span>
                 <div class="div1 his-nursing-link-box">
-             
+
                     <router-link to="/nursing_history">
                         <i class="fa fa-chevron-circle-right is-nur"></i>
                         <span  style="color:#d2571c;">
@@ -154,7 +154,7 @@
                     </router-link>
                 </div>
                 <div class="div2 his-hospital-link-box">
-              
+
                     <router-link to="/hospital_history">
                         <i class="fa fa-chevron-circle-right is-hos"></i>
                         <span style="color:#2981cc;">
@@ -224,13 +224,15 @@
 
                             <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
                             @if(Auth::user()->type_id == 2)
-                            <i class="fas fa-hotel" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i>
+                            <!-- <i class="fas fa-briefcase-medical" style="border: 1px solid #2981cc; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #2981cc;"></i> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 226 226" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#63b7ff"><path d="M89.04047,4.52c-9.19067,0 -16.72047,7.5298 -16.72047,16.72047v48.3693c0,9.19067 7.5298,16.72047 16.72047,16.72047h48.3693c9.19067,0 16.72047,-7.5298 16.72047,-16.72047v-48.3693c0.00038,-0.10012 -0.00256,-0.20023 -0.00883,-0.30016c-0.60079,-9.01504 -7.97121,-16.42031 -17.16188,-16.42031zM89.04047,13.56h47.91906c4.36242,0 7.81818,3.42869 8.1307,7.96297v48.0868c0,4.36933 -3.31114,7.68047 -7.68047,7.68047h-48.3693c-4.36933,0 -7.68047,-3.31114 -7.68047,-7.68047v-48.3693c0,-4.36933 3.31114,-7.68047 7.68047,-7.68047zM108.48,27.12v13.56h-13.56v9.04h13.56v13.56h9.04v-13.56h13.56v-9.04h-13.56v-13.56zM30.28047,40.68c-9.2208,0 -16.72047,7.49967 -16.72047,16.72047v150.51953h81.36v-54.24h36.16v54.24h85.88v-150.51953c0,-9.2208 -7.49967,-16.72047 -16.72047,-16.72047h-37.0693v28.92977c0,14.1928 -11.56767,25.76047 -25.76047,25.76047h-48.3693c-14.1928,0 -25.76047,-11.56767 -25.76047,-25.76047v-28.92977zM36.16,103.96h31.64v27.12h-31.64zM94.92,103.96h36.16v27.12h-36.16zM158.2,103.96h31.64v27.12h-31.64zM36.16,153.68h31.64v27.12h-31.64zM158.2,153.68h31.64v27.12h-31.64z"></path></g></g></svg>
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @elseif(Auth::user()->type_id == 1)
                             <img src="/images/user.png" alt="" class="userprofile-img">
                             <label for="" style="color:#1973bf;">{{ Auth::user()->name }}</label>
                             @else
-                            <i class="fas fa-hotel" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i>
+                            <!-- <i class="fas fa-user-md" style="border: 1px solid #d2571c; padding: 8px; border-radius: 50%; font-size: 1.5em; color: #fff; margin-right: 10px; background: #d2571c;"></i> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 226 226" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#e67e22"><path d="M89.04047,4.52c-9.19067,0 -16.72047,7.5298 -16.72047,16.72047v48.3693c0,9.19067 7.5298,16.72047 16.72047,16.72047h48.3693c9.19067,0 16.72047,-7.5298 16.72047,-16.72047v-48.3693c0.00038,-0.10012 -0.00256,-0.20023 -0.00883,-0.30016c-0.60079,-9.01504 -7.97121,-16.42031 -17.16188,-16.42031zM89.04047,13.56h47.91906c4.36242,0 7.81818,3.42869 8.1307,7.96297v48.0868c0,4.36933 -3.31114,7.68047 -7.68047,7.68047h-48.3693c-4.36933,0 -7.68047,-3.31114 -7.68047,-7.68047v-48.3693c0,-4.36933 3.31114,-7.68047 7.68047,-7.68047zM108.48,27.12v13.56h-13.56v9.04h13.56v13.56h9.04v-13.56h13.56v-9.04h-13.56v-13.56zM30.28047,40.68c-9.2208,0 -16.72047,7.49967 -16.72047,16.72047v150.51953h81.36v-54.24h36.16v54.24h85.88v-150.51953c0,-9.2208 -7.49967,-16.72047 -16.72047,-16.72047h-37.0693v28.92977c0,14.1928 -11.56767,25.76047 -25.76047,25.76047h-48.3693c-14.1928,0 -25.76047,-11.56767 -25.76047,-25.76047v-28.92977zM36.16,103.96h31.64v27.12h-31.64zM94.92,103.96h36.16v27.12h-36.16zM158.2,103.96h31.64v27.12h-31.64zM36.16,153.68h31.64v27.12h-31.64zM158.2,153.68h31.64v27.12h-31.64z"></path></g></g></svg>
                             <label for="" style="color:#b34814;">{{ Auth::user()->name }}</label>
                             @endif
                             <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
@@ -552,7 +554,7 @@
                     @endcan
 
                     @can('customer')
-                    <li><router-link to="/profiledit" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp; Profile Edit</router-link></li>
+                    <li><router-link to="/profiledit" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp; プロファイル編集</router-link></li>
                     <li><router-link to="/profile" class="nav-link"><i class="fa fa-map"></i>&nbsp;&nbsp;  マイページ</router-link></li>
                     <li><router-link to="/jobofferlist" class="nav-link"><i class="fa fa-edit"></i>&nbsp;&nbsp;  仕事一覧</router-link></li>
                     @endcan
@@ -721,7 +723,7 @@
 
                             <div class="container-fluid footer footer-div">
 
-                                    <span>Copyright©Management Partners Corp.All Rights Reserved. </span>
+                                    <span>Copyright©Sample Company Corp.All Rights Reserved. </span>
 
                             </div>
 
@@ -793,8 +795,9 @@
         $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
-        $("#hos-his-local").html(0);
+        $("#hos-his-local").html(0);       
         $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.his-hospital-link-box>a ').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("nursing_history")){
         $("#nus-his-local").html(localStorage.getItem("nursing_history").split(",").length);
@@ -803,6 +806,7 @@
     else{
         $("#nus-his-local").html(0);
         $('.his-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.his-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("hospital_fav")){
         $("#hos-fav-local").html(localStorage.getItem("hospital_fav").split(",").length);
@@ -811,6 +815,7 @@
     else{
         $("#hos-fav-local").html(0);
         $('.fav-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.fav-hospital-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
     if(localStorage.getItem("nursing_fav")){
         $("#nus-fav-local").html(localStorage.getItem("nursing_fav").split(",").length);
@@ -819,36 +824,37 @@
     else{
         $("#nus-fav-local").html(0);
         $('.fav-nursing-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
+        $( '.fav-nursing-link-box>a').parent('div').css({'cursor':'not-allowed'});
     }
 
-    var csrf = "{{ csrf_token() }}";
+    // var csrf = "{{ csrf_token() }}";
 
-    $.ajax({
-        url: '/api/advertisement/ads',
-        type: 'GET',
-        data: {'_token': csrf},
-        success: function( data ) {
-            // console.log(data);
-            var top_ad = "";
-            var side_ad = "";
-            for (var i = 0; i < data.length; i++) {
-                if(data[i].location.includes("topbar") ) {
-                    top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
-                    if(data[i].location.includes("sidebar")) {
-                        side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
-                    }
-                }
-                else if(data[i].location.includes("sidebar"))  {
-                    side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
-                }
+    // $.ajax({
+    //     url: '/api/advertisement/ads',
+    //     type: 'GET',
+    //     data: {'_token': csrf},
+    //     success: function( data ) {
+    //         // console.log(data);
+    //         var top_ad = "";
+    //         var side_ad = "";
+    //         for (var i = 0; i < data.length; i++) {
+    //             if(data[i].location.includes("topbar") ) {
+    //                 top_ad += '<div class="list-group-item adslist-card"><a href="' + data[i].link + '"><div class="slide-img"><img class="img-fluid ads-img" src="/upload/advertisement/' + data[i].photo + '" /></div><h3 class="smallads-title">' + data[i].title + '</h3></a></div>';
+    //                 if(data[i].location.includes("sidebar")) {
+    //                     side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>' + data[i].title + '</p></div></a></div>';
+    //                 }
+    //             }
+    //             else if(data[i].location.includes("sidebar"))  {
+    //                 side_ad += '<div><a href="' + data[i].link + '"><img data-u="image" style="width:100%" src="/upload/advertisement/' + data[i].photo + '" /><div class="side_slider_lbl"><p>'+ data[i].title +'</p></div></a></div>';
+    //             }
 
-            }
-            $(".top-ad-slider").html(top_ad);
-            // jssor_1_slider_init();
-            $(".side-ad-slider").html(side_ad);
-            // jssor_slider2_init();
-        }
-    });
+    //         }
+    //         $(".top-ad-slider").html(top_ad);
+    //         // jssor_1_slider_init();
+    //         $(".side-ad-slider").html(side_ad);
+    //         // jssor_slider2_init();
+    //     }
+    // });
 
 });
 

@@ -15,11 +15,11 @@
                     <span class="error">*</span>
                   </label>
                   <input type="text" class="form-control" v-model="facility.description" placeholder="施設の種類を入力してください。"/>
-                  <span v-if="errors.description" class="error">{{errors.description[0]}}</span>
+                  <span v-if="errors.description" class="error">{{errors.description}}</span>
                 </div>
 
                 <div class="form-group ">   
-                    <button class="btn main-bg-color white all-btn" > 更新する </button>
+                    <button class="btn main-bg-color white all-btn" @click="clickValidation()" > 更新する </button>
                     <router-link to="/facilitieslist" class="btn btn-danger all-btn">キャンセル</router-link>                                             
                     <!-- <router-link to="/facilitieslist" class="btn news-post-btn all-btn">更新</router-link>                                -->
                 </div>
@@ -35,7 +35,9 @@
 export default {
   data() {
     return {
-      errors: [],
+      errors: {
+        description:'',
+      },
       facility: {
         description: ""
       }
@@ -51,21 +53,7 @@ export default {
 
   methods: {
     updateFacility() {
-                this.$swal({
-                            title: "確認",
-                            text: "更新よろしでしょうか。",
-                            type: "info",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#6cb2eb",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "更新",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn"
-                        }).then(response => {
+       if( `${this.$route.params.id}` && this.errors.description == null ){
           this.axios.post(`/api/facility/update/${this.$route.params.id}`, this.facility).then(response => {
           this.description = "";
           this.$swal({
@@ -82,14 +70,44 @@ export default {
                     })
           // alert("Successfully Updated!");
           this.$router.push({ name: "facilitieslist" });
-        })
-        .catch(error => {
+        }).catch(error => {
           if (error.response.status == 422) {
             this.errors = error.response.data.errors;
           }
         });
-      });
-  
+      
+       }
+    },
+    clickValidation(){
+      if(this.facility.description){
+        this.$swal({
+                            title: "確認",
+                            text: "更新よろしいでしょうか。",
+                            type: "success",
+                            width: 350,
+                            height: 200,
+                            showCancelButton: true,
+                            confirmButtonColor: "#6cb2eb",
+                            cancelButtonColor: "#b1abab",
+                            cancelButtonTextColor: "#000",
+                            confirmButtonText: "更新",
+                            cancelButtonText: "キャンセル",
+                            confirmButtonClass: "all-btn",
+                            cancelButtonClass: "all-btn"
+                        }).then(response => { 
+                        
+                          this.errors.description = null;
+                            this.updateFacility();
+                        })
+              } else {
+                        this.errors.description = " 施設の種類が必須です。";
+              }
+               if (
+                        !this.errors.description
+                        
+                    ) {
+                        this.updateFacility();
+                    }
     }
   }
 };

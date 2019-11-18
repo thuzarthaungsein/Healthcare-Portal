@@ -422,7 +422,7 @@
                           </h5>
                         <div class="clearfix">
                           <p class="job_status">{{job.employment_status}}</p>
-                          <p class="job_id">求人番号{{job.jobnum}}</p>
+                          <p class="job_id"><span>求人番号:</span>{{job.jobnum}}</p>
                         </div>
                       </div>
                       <div class="job-body row  clearfix">
@@ -458,7 +458,7 @@
                   </div>
                 </div>                       
               </div>
-            <div class="offset-md-4 col-md-8 mt-3">
+            <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
@@ -566,6 +566,11 @@ export default {
         }).then((response)=>{
     
           this.job_data = response.data;
+          if(this.job_data.length > this.size) {
+              this.show_paginate = true;
+          }else{
+              this.show_paginate = false;
+          }
          
       
         })
@@ -650,7 +655,6 @@ export default {
          })
         
         this.search();
-        this.show_paginate = true;
 
       },
 

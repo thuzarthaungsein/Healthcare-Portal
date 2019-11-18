@@ -148,7 +148,7 @@ class CustomerController extends Controller
         // $getUserId = User::where('email',$getCustomer->email)->value('id');
         $comfirmUser =  auth('api')->user()->id;
         if(!empty($checkUser)){            
-            return response()->json('user is already confirm!');
+            return response()->json('already');
         }else{
             \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
            

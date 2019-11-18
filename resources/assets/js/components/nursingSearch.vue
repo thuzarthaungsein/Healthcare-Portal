@@ -372,7 +372,7 @@
           </div>
 
           <div class="col-sm-2 col-md-2 align-self-center">
-            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</span>
+            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;都道府県を再選択する</span>
           </div>
         </div>
       </div>
@@ -409,10 +409,19 @@
                             <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
-                                    <p class="item-fav btn btn-sm">
+                                    <p class="item-fav btn btn-sm" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);">
                                         <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
                                     </p>                                 
-                                    <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
+                                    <p class="item-fav btn btn-sm" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);">
+                                        <i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
+                                    </p>                                 
+                                    <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">
+                                        <router-link :to="{name: 'profile', params: {cusid:items.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}}</router-link>
+                                    </p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div> 
                             </td>
@@ -424,13 +433,13 @@
                                 
                                     <div class="row">
                                         <div class="col-4">
-                                            <img :src="'/images/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
+                                            <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
                                                 <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
                                          
@@ -446,7 +455,7 @@
                                         <thead>
                                             <tr style="background-color:#ffffcc">
                                                 <th class="text-center" style="background-color:#ffffcc">入居時費用</th>
-                                                <th class="text-center" style="background-color:#ffffcc">月額利用料</th>
+                                                <th class="text-center" style="background-color:#ffffcc">月額費用</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -612,7 +621,7 @@
                     </div>
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
-                        <img src="/upload/news/nursing.JPG"  alt="" @error="imgUrlAlt">   
+                        <img :src="'/upload/nursing_profile/'+nus.logo" alt="image" @error="imgUrlAlt">   
                          <div class="mt-4 col-12 detail-btn text-center">                                             
                             <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
                           </div>                         
@@ -633,7 +642,7 @@
                                 </td>
                             </tr>      
                             <tr>
-                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
+                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額費用</td>
                                 <td>
                                     <font class="cash-lbl">
                                         {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
@@ -685,7 +694,7 @@
                 <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
               <nav aria-label="Page navigation example">
                 <ul class="pagination"> 
-                  <li class="page-item">
+                  <li class="page-item">/
                     <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
                   </li>
                   <li class="page-item">
@@ -1022,7 +1031,7 @@ infoWindow(item, mmarker){
                 '</tr>' +
                 '<tr>' +
                 '<td>' +
-                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                 '</td>' +                            
                     '<td>' +
                     '<ul class="list-group list-group-flush nur-caro-card">' +
@@ -1037,7 +1046,7 @@ infoWindow(item, mmarker){
                         '</li>' +
 
                     '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
+                        '<span style="color:#d2571c" class="m-r-10">公式サイト</span>' +
                     '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
                     '</li>' +                                
                     '</ul>' +
