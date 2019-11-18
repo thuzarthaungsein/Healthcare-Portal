@@ -701,7 +701,7 @@
                 //     } else {
                 //         this.$swal({
                 //             title: "確認",
-                //             text: "作成よろしでしょうか。",
+                //             text: "作成よろしいでしょうか。",
                 //             type: "info",
                 //             width: 350,
                 //             height: 200,
@@ -874,25 +874,28 @@
                 // },
 
                 updateJob() {
-                    if(this.errors.length ==0){
-                        this.$swal({
-                            title: "確認",
-                            text: "更新よろしでしょうか。",
-                            type: "info",
-                            width: 350,
-                            height: 200,
-                            showCancelButton: true,
-                            confirmButtonColor: "#6cb2eb",
-                            cancelButtonColor: "#b1abab",
-                            cancelButtonTextColor: "#000",
-                            confirmButtonText: "更新",
-                            cancelButtonText: "キャンセル",
-                            confirmButtonClass: "all-btn",
-                            cancelButtonClass: "all-btn"
-                        }).then(response => {
-                            this.axios.post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
-                            .then(response => {
-                            //.log('updateJob');
+                      if (`${this.$route.params.id}` && this.errors.length ==0){
+                          console.log("nnnn");
+                           this.$swal({
+                        title: "確認",
+                        text: "更新よろしいでしょうか。",
+                        type: "info",
+                        width: 350,
+                        height: 200,
+                        showCancelButton: true,
+                        confirmButtonColor: "#6cb2eb",
+                        cancelButtonColor: "#b1abab",
+                        cancelButtonTextColor: "#000",
+                        confirmButtonText: "更新",
+                        cancelButtonText: "キャンセル",
+                        confirmButtonClass:  "all-btn",
+                        cancelButtonClass: "all-btn"
+                    }).then(response => {
+                        this.axios
+
+                            .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
+
+                        .then(response => {
                                 this.$swal({
                                     title: "更新されました。",
                                     // text: "ファイルが更新されました。",
@@ -914,9 +917,11 @@
                             });
                         });
                     }
+
+                      }
+                   
                   //console.log("update");
                     
                 }
-            }
     };
 </script>

@@ -372,7 +372,7 @@
           </div>
 
           <div class="col-sm-2 col-md-2 align-self-center">
-            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</span>
+            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;都道府県を再選択する</span>
           </div>
         </div>
       </div>
@@ -439,7 +439,7 @@
                                             <ul class="list-group list-group-flush nur-caro-card">
                                                 <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
                                          
@@ -455,7 +455,7 @@
                                         <thead>
                                             <tr style="background-color:#ffffcc">
                                                 <th class="text-center" style="background-color:#ffffcc">入居時費用</th>
-                                                <th class="text-center" style="background-color:#ffffcc">月額利用料</th>
+                                                <th class="text-center" style="background-color:#ffffcc">月額費用</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -642,7 +642,7 @@
                                 </td>
                             </tr>      
                             <tr>
-                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
+                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額費用</td>
                                 <td>
                                     <font class="cash-lbl">
                                         {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
@@ -694,7 +694,7 @@
                 <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
               <nav aria-label="Page navigation example">
                 <ul class="pagination"> 
-                  <li class="page-item">
+                  <li class="page-item">/
                     <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
                   </li>
                   <li class="page-item">
