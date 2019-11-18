@@ -665,7 +665,9 @@
 
             searchCategory() {
                 if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
+                   
                     this.clearSearch();
+                     console.log('null');
                 } else {
                     this.status = 1;
                     this.search_word = $('#search-word').val();
