@@ -6314,7 +6314,6 @@ button.confirmed {
     margin: 0px !important;
     border-radius: 5px;
 }
-
 .ele {
     margin-top: 50px;
 }
@@ -8368,6 +8367,16 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
+   /* searchdata */
+   .no_search_data{
+    font-size: 20px;
+    color: #a5a5a5;
+    font-weight: bold;
+    margin: 30px 0px;
+    padding-top:30px;
+    text-align:center;
+   }
+   /* end searchdata */
 
 
 /*profile_edit*/

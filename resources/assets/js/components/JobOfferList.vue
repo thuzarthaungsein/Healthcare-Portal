@@ -254,8 +254,8 @@
                                     let i = this.jobs.map(item => item.id).indexOf(id); // find index of your object
                                     this.jobs.splice(i, 1);
                                     this.$swal({
-                                        title: "削除された",
-                                        text: "ファイルが削除されました。",
+                                        title: "削除済",
+                                        text: "仕事を削除されました。",
                                         type: "success",
                                         width: 350,
                                         height: 200,

@@ -49,7 +49,7 @@ Vue.use(VuePannellum);
 Vue.component('VPannellumn', VuePannellum)
 
 
-//vue Panorama 
+//vue Panorama
 import Panorama from 'vuejs-panorama';
 Vue.use(Panorama);
 
@@ -58,7 +58,6 @@ Vue.use(Panorama);
 // import Lightbox from 'vue-easy-lightbox'
 // Vue.use(Lightbox)
 //import Vue from 'vue'
-
 
 //vue vuetify
 // import Vuetify from "vuetify";
