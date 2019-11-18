@@ -12,17 +12,12 @@ require('./bootstrap');
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-
 import { routes } from './route';
 import * as VueGoogleMaps from "vue2-google-maps";
-// import Vue from 'vue';
 import Autocomplete from 'vuejs-auto-complete';
-
-
 //start onepage
 import 'animate.css'
-// import 'fullpage.js/vendors/scrolloverflow'
-// import './fullpage.scrollHorizontally.min'
+
 import 'fullpage-vue/src/fullpage.css'
 import VueFullpage from 'fullpage-vue'
 Vue.use(VueFullpage)
