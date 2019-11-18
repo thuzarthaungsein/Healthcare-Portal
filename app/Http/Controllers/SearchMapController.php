@@ -18,11 +18,11 @@ class SearchMapController extends Controller
         $per_month = $_GET['per_month'];
         $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
                     FROM customers AS c 
-                    JOIN townships AS t 
+                    LEFT JOIN townships AS t 
                     ON t.id = c.townships_id 
                     JOIN nursing_profiles AS n 
                     ON n.customer_id = c.id
-                    JOIN cities AS ci
+                    LEFT JOIN cities AS ci
                     ON t.city_id = ci.id
                     JOIN types AS ty
                     ON c.type_id = ty.id
@@ -170,9 +170,10 @@ class SearchMapController extends Controller
            } else {
                $MoveID = implode(',', $MoveID); // this condition is when array[0] has no '0'
            }
+     
 
-
-           $query = "SELECT '' as alphabet, n.id as nus_id,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name from nursing_profiles as n  
+           $query = "SELECT '' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
+                     from nursing_profiles as n  
                      left join customers as c on c.id = n.customer_id 
                      left join types AS ty ON c.type_id = ty.id
                      left join townships as t on t.id = c.townships_id
@@ -623,8 +624,8 @@ class SearchMapController extends Controller
         }
          
         $query ="SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
-                from customers as c 
-                join hospital_profiles as h on h.customer_id = c.id 
+                from  hospital_profiles as h 
+                join customers as c on h.customer_id = c.id 
                 left join townships as t on t.id = c.townships_id  
                 left join cities as ci on ci.id = t.city_id
                 left join special_features_junctions as spej on spej.customer_id = c.id 
@@ -720,10 +721,10 @@ class SearchMapController extends Controller
 
         $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,
                  (CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum 
-                  from customers As c 
-                  Join nursing_profiles As n on n.customer_id = c.id 
+                  from  jobs as j
+                  join customers as c on c.id = j.customer_id
+                  left Join nursing_profiles As n on n.customer_id = c.id 
                   left Join hospital_profiles As h on h.customer_id = c.id 
-                  left Join jobs as j on j.customer_id = c.id 
                   left Join townships as t on t.id = j.township_id 
                   where ";
 

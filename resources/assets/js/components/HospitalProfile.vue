@@ -1514,7 +1514,6 @@ export default {
             },
             Create_Profile () {
                     this.customer_info = [];
-
                     var name = $('.customer-name').val();
                     var email = $('.customer-email').text();
                     var phone = $('.customer-phone').val();
@@ -1533,28 +1532,32 @@ export default {
                     localStorage.setItem('lat_num',latitude);
                     localStorage.setItem('lng_num',longitude);
 
-                      var img = document.getElementsByClassName('gallery-area-photo');
-                      for(var i = 0; i< img.length; i++) {
+                    var img = document.getElementsByClassName('gallery-area-photo');
+                    let pt = new FormData();
+                    for(var i = 0; i< img.length; i++) {
                           var file = img[i].getElementsByClassName('hospital-photo')[0].files[0];
-                          if(file) {
-                                  var file_name = file.name;
-                                          let fd = new FormData();
-                                          fd.append('file' ,file )
-                                          fd.append('photo' ,file_name )
-                                          fd.append('type', 'photo')
-                                          this.axios.post('/api/hospital/movephoto', fd)
-                                                  .then(response => {
-                                                  }).catch(error=>{
-                                                          console.log(error);
-                                                  if(error.response.status == 422){
-                                                          this.errors = error.response.data.errors
-                                                  }
-                                          })
+                          if(file) {                   
+                                var file_name = file.name;
+                                pt.append(i ,file )
+
+                                        // let fd = new FormData();
+                                        // fd.append('file' ,file )
+                                        // fd.append('photo' ,file_name )
+                                        // fd.append('type', 'photo')
                           } else {
                                   var file_name = img[i].getElementsByClassName('already-photo')[0].value;
                           }
                           this.img_list.push({type:"photo",photo:file_name,title:img[i].getElementsByClassName('title')[0].value, description:img[i].getElementsByClassName('description')[0].value});
                     }
+
+                    this.axios.post('/api/hospital/movephoto', pt)
+                        .then(response => {
+                            }).catch(error=>{
+                                console.log(error);
+                                if(error.response.status == 422){
+                                    this.errors = error.response.data.errors
+                                }
+                        })
 
                     var video = document.getElementsByClassName('gallery-area-video');
                         for(var i = 0; i< video.length; i++) {

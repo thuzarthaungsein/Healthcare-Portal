@@ -24,7 +24,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-2 tohoku-box">
+                <div class="col-sm-2 tohoku-box">   
                   <div class="mb-3">                    
                     <div class="division-box">
                       <ul class="multiple-boxa">    
@@ -314,10 +314,10 @@
             <div class="card search-border-dash">
               
               <div class="card-body">
-                <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1)" style="background-color: #fff;" v-model="id">
+                <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #fff;" v-model="id">
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
-                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2)" v-model="township_id">
+                <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2);" v-model="township_id">
                 <option value="-1">▼市区町村</option>
                   <option  :value="selectTownship.id"  v-for="selectTownship in getTownships" :key="selectTownship.id">{{selectTownship.township_name}}</option>
                 </select>
@@ -372,7 +372,7 @@
           </div>
 
           <div class="col-sm-2 col-md-2 align-self-center">
-            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;郵便番号を調べる</span>
+            <span class="btn seemore-btn select" style="width:100%;padding:20px 10px;" id="showSearchMap" @click="showSearchMap"><i class="fas fa-exchange-alt"></i>&nbsp;都道府県を再選択する</span>
           </div>
         </div>
       </div>
@@ -409,10 +409,19 @@
                             <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
-                                    <p class="item-fav btn btn-sm">
+                                    <p class="item-fav btn btn-sm" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);">
                                         <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
                                     </p>                                 
-                                    <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
+                                    <p class="item-fav btn btn-sm" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);">
+                                        <i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
+                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
+                                    </p>                                 
+                                    <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">
+                                        <router-link :to="{name: 'profile', params: {cusid:items.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}}</router-link>
+                                    </p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div> 
                             </td>
@@ -430,25 +439,10 @@
                                             <ul class="list-group list-group-flush nur-caro-card">
                                                 <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">ウェブ</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
                                             </ul>
 
-                                            <!-- <table class="table table-bordered address-tbl">
-                                                <tbody>
-                                                <tr>
-                                                    <td style="width:50px">住所</td>
-                                                    <td><p>{{items.township_name}}{{items.address}}</p></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:50px">電話</td>
-                                                    <td><p>{{items.phone}}</p></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:50px;">ウェブ</td>
-                                                    <td></td>
-                                                </tr>
-                                                </tbody>
-                                            </table> -->
+                                         
                                         </div>
                                     </div>
                                 </div>                          
@@ -461,7 +455,7 @@
                                         <thead>
                                             <tr style="background-color:#ffffcc">
                                                 <th class="text-center" style="background-color:#ffffcc">入居時費用</th>
-                                                <th class="text-center" style="background-color:#ffffcc">月額利用料</th>
+                                                <th class="text-center" style="background-color:#ffffcc">月額費用</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -476,58 +470,7 @@
                           </tr>
                         </tbody>
                       </table>
-                        <!-- <div class="col-12">
-                            <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
-                              <p class="item-fav btn btn-sm">
-                                <i class="fas fa-plus-square"></i> お気に入りに追加 
-                              </p>                                 
-                              <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">{{items.name}}</p>
-                              <p>{{items.city_name}} <i class="fas fa-angle-double-right"></i> {{items.township_name}}</p>
-                        </div> 
-                        <div class="col-12 mt-3">
-                           <p class="type-name">{{items.type_name}}</p> 
-                        </div>
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div class="col-5">
-                                    <img :src="'/images/'+items.logo" alt="image" width="130px" />
-                                </div>
-                                <div class="col-7">
-                                    <table class="table table-bordered address-tbl">
-                                    <tbody>
-                                    <tr>
-                                        <td>Address</td>
-                                        <td>{{items.address}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone</td>
-                                        <td>{{items.phone}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Website</td>
-                                        <td><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mt-3 price-tbl-wrap">
-                            <table class="table table-bordered price-tbl">
-                                <thead>
-                                    <tr>
-                                        <th>Moving In</th>
-                                        <th>Per Month</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span>{{items.moving_in_to}} </span>万円</td>
-                                        <td><span>{{items.per_month_to}} </span>万円</td>
-                                    </tr>
-                                </tbody>                               
-                            </table>
-                        </div> -->
+                     
                     </div>
 
                     
@@ -552,7 +495,7 @@
                   <td>
                     <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label control control--checkbox" style="padding-left:5px;">
-                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID">
+                         <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @click="check">
                             {{township.township_name}}
                         <div class="control__indicator"></div>
                         </label>
@@ -659,9 +602,6 @@
                         <p><span class="job_ico"><i class="fa fa-map-signs"></i></span>{{nus.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{nus.township_name}}</p> 
                         </div>
                         <div class="col-4 text-right">
-                        <!-- <p class="btn all-btn nur-addbtn" @click="favAddFun('add');view_pro_id = !view_pro_id">
-                            <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加
-                        </p>   -->
                         <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                         <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
@@ -702,7 +642,7 @@
                                 </td>
                             </tr>      
                             <tr>
-                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額利用料</td>
+                                <td style="width:30%"><span class="job_ico">&#xa5;</span>月額費用</td>
                                 <td>
                                     <font class="cash-lbl">
                                         {{(Math.floor(Number(nus.per_month_from)/10000))==0? '' : (Math.floor(Number(nus.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_from)%10000)==0 ? '' : (Number(nus.per_month_from)%10000).toLocaleString()}}円
@@ -754,7 +694,7 @@
                 <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
               <nav aria-label="Page navigation example">
                 <ul class="pagination"> 
-                  <li class="page-item">
+                  <li class="page-item">/
                     <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
                   </li>
                   <li class="page-item">
@@ -810,6 +750,7 @@
         listid : '', 
         map: null,
         markers: [],
+        searchmarkers:[],
         marker:[],
         selectedLocation: null,
         infoBoxOpen: false,
@@ -851,7 +792,7 @@
         pageRange: 5,
         items: [],
         show_paginate: false,
-
+        onchangeid:0
       }
     },
     mounted() {
@@ -902,325 +843,27 @@
       return page - 1 == this.currentPage;
     }
     },
-    methods: {
-        search(){        
+methods: {
 
-            if(this.townshipID == null || this.townshipID == '')
-            {
-            this.townshipID[0] = 0;
-            }
-            if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
-            {
-            this.SpecialFeatureID[0] = 0;
-            }
-            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
-            {
-            this.MedicalAcceptanceID[0] = 0;
-            }
-            if(this.FacTypeID == null || this.FacTypeID == '')
-            {
-            this.FacTypeID[0] = 0;
-            }
-            if(this.MoveID == null || this.MoveID == '')
-            {
-            this.MoveID[0] = 0;
-            } 
-
-            this.axios.get('api/getnursingsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                SpecialFeatureID:this.SpecialFeatureID,
-                MedicalAcceptanceID:this.MedicalAcceptanceID,
-                FacTypeID:this.FacTypeID,
-                MoveID:this.MoveID
-            },
-            }).then((response)=>{
-    
-            console.log(response.data.nursing);
-            this.nus_data = response.data.nursing;
-            this.specialfeature = response.data.specialfeature;
-            this.medicalacceptance = response.data.medicalacceptance;
-            this.factype = response.data.factype;
-            this.markers = response.data.nursing;
-            this.nursingList = response.data.nursing;
-               
-            console.log('nursing',this.nursingList)
-            this.citylatlng = response.data.city
-                var mmarker = new Array()
-                var item = []
-
-            if(response.data.nursing.length > 0){
-                console.log(this.markers)
-                for (var i = 0; i < this.markers.length; i++) {
-                    mmarker.push([this.markers[i]['alphabet'], this.markers[i]['latitude'], this.markers[i]['longitude']])
-                    item.push(this.markers[i])
-
-                    // if(localStorage.getItem("nursing_fav")){
-                    //     console.log('a'+this.markers[i]['nus_id'])
-                    //     var nus_fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
-                    //     // this.view_pro_id = nus_fav_arr.includes(this.markers[i]['nus_id']);
-                    //     console.log(nus_fav_arr);
-                    //     if(nus_fav_arr.includes(this.markers[i]['nus_id'])){
-                    //         console.log('b'+this.markers[i]['nus_id'])
-                           
-                    //         $('.view_pro_id'+this.markers[i]['nus_id']).css('display','none');
-                    //         $('.done_pro_id'+this.markers[i]['nus_id']).css('display','block');
-                    //     }
-                    //     else{
-                    //         console.log('c'+this.markers[i]['id'])
-                    //         $('.view_pro_id'+this.markers[i]['id']).css('display','block');
-                    //         $('.done_pro_id'+this.markers[i]['id']).css('display','none');
-                    //     }
-                    // }
-                }
-
-                const theCity = this.markers[0]['city_name']
-                const lat = this.markers[0]['latitude']
-                const lng = this.markers[0]['longitude']
-                const result = jp_township.features //jp_cities
-                const jp_city = jp_cities.features //convert
-                var townshipName = [];
-                for (let i = 0; i < this.getTownships.length; i++) {
-                    if(this.getTownships[i]['id'] == this.township_id){
-                        townshipName.push(this.getTownships[i]['township_name'])
-                    }
-                }
-                var township_name = townshipName.toString();
-                const coordinates = []
-                const city_coordinates = []
-                
-                if(township_name == ''){
-               
-                    for (var i = 0; i < jp_city.length; i++) 
-                    {
-                    
-                        if (jp_city[i].properties.NAME_0 == theCity)
-                        {
-                            if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                            {
-                                for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
-                                {
-                                
-                                    city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                                }
-                            }
-                            else
-                            {          
-                                city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                            
-                            }
-                        }
-                   }
-                }else{
-                  console.log('notnull');
-                    for (var i = 0; i < result.length; i++) {
-                    if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
-                    coordinates.push(result[i].geometry['coordinates'])
-                    }    
-                }
-                }
-
-                if(township_name == ''){
-                    var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
-                
-                }else{
-                    var co = coordinates.reduce((acc, val) => acc.concat(val), []);
-                    var coordinate = co.reduce((acc, val) => acc.concat(val), []);
-                }
-                var data = {
-                    type: "Feature",
-                    geometry: {
-                    "type": "Polygon",
-                    "coordinates": coordinate
-                    },
-                };
-                var mapProp = {
-                    center: new google.maps.LatLng(lat, lng),
-                    zoom: 6,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                };
-                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                this.map.data.addGeoJson(data);
-                this.map.data.setStyle({
-                    strokeColor: "red",
-                    fillColor: 'red',
-                    strokeOpacity: 0.8,
-                    fillOpacity: 0.1,
-                    strokeWeight: 1
-                })
-                    var bounds = new google.maps.LatLngBounds();
-                    var markers = mmarker;
-                    var infoWindowContent = new Array();
-                    for (var i = 0; i < item.length; i++) {
-                        infoWindowContent.push([
-                        '<div id="info_content">' +
-                        '<div class="">' +
-                          '<table class="table">' +
-                            '<thead>' +
-                              '<tr>' +
-                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                                '</span></td>' +
-                                '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                '</td>' +
-                              '</tr>' +
-                            '</thead>' +
-                            '<tbody>' +
-                              '<tr>' +
-                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                                '</span> </button></td>' +
-                              '</tr>' +
-                              '<tr>' +
-                              '<td colspan="2" class="text-left">' +
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="">'+
-                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
-                              '</td>' +
-                            '</tr>' +
-                            '<tr>' +
-                                '<td colspan="2"><p class="type-name">' +
-                                item[i]['type_name'] +
-                                +'</p></td>' +
-                            '</tr>' +
-                            '<tr>' +
-                            '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                            '</td>' +
-                            '<td>' +
-                              '<ul class="list-group list-group-flush nur-caro-card">' +
-                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                                '<span style="color:#d2571c" class="m-r-5">住所</span>' +
-                                    item[i] ['township_name'] ['address'] + 
-                                '</p></li>' +
-
-                                '<li class="list-group-item">' +
-                                  '<span style="color:#d2571c" class="m-r-5">電話 </span>' +
-                                  '<span>' + item[i]['phone'] + '</span>' +
-                                  '</li>' +
-
-                                '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c" class="m-r-5">ウェブ</span>' +
-                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
-                                '</li>' +
-                                
-                              '</ul>' +
-                            '</td>' +
-                            '</tr>' +
-                            ' <tr>' +
-                            '<td colspan="2">' +
-                              '<div class="">' +
-                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px;">'+
-                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
-                                '<tbody>'+
-                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                                '</tbody>'+
-
-                                '</table>'+
-                              '</div>' +
-                            '</td>' +
-                            '</tr>' +
-                            '</tbody>' +
-                          '</table>' +
-                        '</div>' +
-                      '</div>'
-                        ])
-                    }
-                this.markerHover = [];
-
-                var infoWindow = new google.maps.InfoWindow(),marker, i;
-                    for (let i = 0; i < this.markers.length; i++) {
-                        var beach = this.markers[i]
-                        var lats = this.markers[i]['latitude']
-                        var lngs = this.markers[i]['longitude']
-                        var img = this.markers[i]['alphabet']
-                        var myLatLng = new google.maps.LatLng(lats, lngs);
-                        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                    
-                        
-                        marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: this.map,
-                        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
-                        zoom: 6,
-                        title: this.markers[i]['name']
-                        });
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                        return function() {
-                            infoWindow.setContent(infoWindowContent[i][0]);
-                            infoWindow.open(this.map, marker);
-                        }
-                        })(marker, i));
-                        this.markerHover.push(marker)
-                        var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
-                        google.maps.event.removeListener(boundsListener);
-                        });
-                    }
-            }
-            else{
-                var lat = this.citylatlng[0]['latitude']
-                var lng = this.citylatlng[0]['longitude']
-                var theCity = this.citylatlng[0]['city_eng']
-                const result = jp_township.features
-  
-
-                const coordinates = []
-                for (var i = 0; i < result.length; i++) {
-                    if (result[i].Name == theCity) {
-                    coordinates.push(result[i].geometry['coordinates'])
-                    }
-                }
-                var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-                var data = {
-                    type: "Feature",
-                    geometry: {
-                    "type": "Polygon",
-                    "coordinates": coordinate
-                    },
-                };
-                
-                var mapProp = {
-                    center: new google.maps.LatLng(lat, lng),
-                    zoom: 6,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                };
-                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                this.map.data.addGeoJson(data);
-                this.map.data.setStyle({
-                    strokeColor: "red",
-                    fillColor: 'red',
-                    strokeOpacity: 0.8,
-                    fillOpacity: 0.1,
-                    strokeWeight: 1
-                })
-            }
-                console.log('search',this.nus_data)
-            if(this.nus_data.length > this.size){
-                this.show_paginate = true;
-                console.log('true')
-            }else{
-                this.show_paginate = false;
-                console.log('false')
-            }
-            })            
-                        
+check()
+        {
+            this.onchangeid = 0;
         },
-        openInfoWindow(marker) {
+        
+openInfoWindow(marker) {
             this.selectedLocation = marker;
             this.infoBoxOpen = true;
         },
-        closeInfoWindow() {
+closeInfoWindow() {
             this.infoBoxOpen = false;
         },
-        showSearchMap() {
+showSearchMap() {
             $('#searchMap').removeClass('select');
             $('#showSearchMap').addClass('select');
             $('#filter').addClass('select');
 
         },
-        moveCarousel(direction) {
-
+moveCarousel(direction) {
             // Find a more elegant way to express the :style. consider using props to make it truly generic
             if (direction === 1 && !this.atEndOfList) {
             this.currentOffset -= this.paginationFactor;
@@ -1228,30 +871,8 @@
             this.currentOffset += this.paginationFactor;
             }
         },
-        getStateClick(e) {
-         
-            if(this.townshipID.length > 0)
-            {
-                this.townshipID = [];
-            }
-            if(this.SpecialFeatureID.length > 0)
-            {
-                this.SpecialFeatureID = [];
-            }
-            if(this.MedicalAcceptanceID.length > 0)
-            {
-                this.MedicalAcceptanceID = [];
-            }
-            if(this.FacTypeID.length > 0)
-            {
-                this.FacTypeID = [];
-            }
-                if(this.MoveID.length > 0)
-            {
-                this.MoveID = [];
-            }
-
-
+// map onclick function 
+getStateClick(e) {
             $("#nursing-search").css("display", "block");
             if(e.target.id == ''){
                 var id = $('#selectCity').val();
@@ -1259,7 +880,6 @@
                 var id = e.target.id;
             }
             this.id = id;
-        
             this.axios.get('/api/getmap/',{
                 params:{
                 id: this.id,
@@ -1271,15 +891,19 @@
                 .then((response) => {
                 this.changeMap(response)
                 })
-
-             this.search();
         },
-        nursingSearchData(index){
+// map onclick function 
+// map change dropdown function
+nursingSearchData(index){
+             this.chngeSearch();
             if(index == 1)
             {
                 this.township_id = -1;
+                this.townshipID = [];
             }
-        
+            this.onchangeid = 1;
+            // this.townshipID = [];
+            // this.search();
             this.axios.get('/api/getmap/',{
                     params:{
                     id: this.id,
@@ -1291,37 +915,16 @@
                 })
                 .then((response) => {
                     this.changeMap(response)
-                })
+                    
+                }) 
+
+            
 
            
-            
         },
-        changeMap(response){
-            $('.select').removeClass('select');
-                $('#searchMap').addClass('select');
-                $('#showSearchMap').removeClass('select');
-                $('#filter').removeClass('select');
-                this.cities = response.data.city
-                this.getCity = response.data.getCity
-                this.getTownships = response.data.getTownships
-                this.special_features = response.data.special_features
-                this.fac_types = response.data.fac_types
-                this.medical_acceptance = response.data.medical_acceptance
-                this.nursingList = response.data.nursing_profile
-                this.markers = response.data.nursing_profile; 
-                
-    
-    
-                var mmarker = new Array();
-                var item = [];
-                for (var i = 0; i < this.markers.length; i++) {
-                    mmarker.push([this.markers[i]['alphabet'], this.markers[i]['lat'], this.markers[i]['lng']])
-                    item.push(this.markers[i])
-                }
-
-                const theCity = response.data.getCity[0]['city_name']
-                const lat = response.data.getCity[0]['latitude']
-                const lng = response.data.getCity[0]['longitude']
+// map change dropdown function
+// make infowindow, marker , google map 
+coordinates(theCity, lat, lng){
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
 
@@ -1382,7 +985,7 @@
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                 };
 
-                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                    this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
                     this.map.data.addGeoJson(data);
                     this.map.data.setStyle({
                     strokeColor: "red",
@@ -1390,121 +993,276 @@
                     strokeOpacity: 0.8,
                     fillOpacity: 0.1,
                     strokeWeight: 1
-                    })
-                
-                    var markers = mmarker;
-                    var infoWindowContent = new Array();
-                    for (var i = 0; i < item.length; i++) {
-                        infoWindowContent.push([
-                        '<div id="info_content">' +
-                        '<div class="">' +
-                          '<table class="table">' +
-                            '<thead>' +
-                              '<tr>' +
-                                '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                                '</span></td>' +
-                                '<td class="text-right">' + item[i]['date_of_establishment'] +
-                                '</td>' +
-                              '</tr>' +
-                            '</thead>' +
-                            '<tbody>' +
-                              '<tr>' +
-                                '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                                '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                                '</span> </button></td>' +
-                              '</tr>' +
-                              '<tr>' +
-                              '<td colspan="2" class="text-left">' +
-                                '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
-                                '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                                '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
-                              '</td>' +
-                            '</tr>' +
-                            '<tr>' +
-                                '<td colspan="2"><p class="type-name">' +
-                                item[i]['type_name'] +
-                                +'</p></td>' +
-                            '</tr>' +
-                            '<tr>' +
-                            '<td>' +
-                            '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
-                            '</td>' +                            
-                              '<td>' +
-                              '<ul class="list-group list-group-flush nur-caro-card">' +
-                                '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                                '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
-                                    item[i]['township_name'] + ['address'] + 
-                                '</p></li>' +
+                    }) 
+},
+infoWindow(item, mmarker){
+        
+        var infoWindowContent = new Array();
+        for (var i = 0; i < item.length; i++) {
+            infoWindowContent.push([
+            '<div id="info_content">' +
+            '<div class="">' +
+                '<table class="table">' +
+                '<thead>' +
+                    '<tr>' +
+                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
+                    '</span></td>' +
+                    '<td class="text-right">' + item[i]['date_of_establishment'] +
+                    '</td>' +
+                    '</tr>' +
+                '</thead>' +
+                '<tbody>' +
+                    '<tr>' +
+                    '<td colspan="2"><button class="item-fav btn btn-sm">'+
+                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
+                    '</span> </button></td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td colspan="2" class="text-left">' +
+                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
+                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
+                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                    '</td>' +
+                '</tr>' +
+                '<tr>' +
+                    '<td colspan="2"><p class="type-name">' +
+                    item[i]['type_name'] +
+                    +'</p></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>' +
+                '<img src="/images/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                '</td>' +                            
+                    '<td>' +
+                    '<ul class="list-group list-group-flush nur-caro-card">' +
+                    '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
+                    '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
+                        item[i]['township_name'] + ['address'] + 
+                    '</p></li>' +
 
-                                '<li class="list-group-item">' +
-                                  '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
-                                  '<span>' + item[i]['phone'] + '</span>' +
-                                  '</li>' +
+                    '<li class="list-group-item">' +
+                        '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
+                        '<span>' + item[i]['phone'] + '</span>' +
+                        '</li>' +
 
-                                '<li class="list-group-item">' +
-                                 '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
-                                '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
-                                '</li>' +                                
-                              '</ul>' +
-                            '</td>' +                            
-                            '</tr>' +
-                            ' <tr>' +
-                            '<td colspan="2">' +
-                              '<div class="">' +
-                                '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
-                                '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
-                                '<tbody>'+
-                                '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                                '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                                '</tbody>'+
+                    '<li class="list-group-item">' +
+                        '<span style="color:#d2571c" class="m-r-10">ウェブ</span>' +
+                    '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
+                    '</li>' +                                
+                    '</ul>' +
+                '</td>' +                            
+                '</tr>' +
+                ' <tr>' +
+                '<td colspan="2">' +
+                    '<div class="">' +
+                    '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
+                    '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
+                    '<tbody>'+
+                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                    '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                    '</tbody>'+
 
-                                '</table>'+
-                              '</div>' +
-                            '</td>' +
-                            '</tr>' +
-                            '</tbody>' +
-                          '</table>' +
-                        '</div>' +
-                      '</div>'
-                        ])
-                    }
-                    var bounds = new google.maps.LatLngBounds();
-                    this.markerHover = [];
-                    var infoWindow = new google.maps.InfoWindow(),marker, i;
-                    for (let i = 0; i < this.markers.length; i++) {
-                        var beach = this.markers[i]
-                        var lats = this.markers[i]['lat']
-                        var lngs = this.markers[i]['lng']
-                        var img = this.markers[i]['alphabet']
-                        var myLatLng = new google.maps.LatLng(lats, lngs);
-                        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                    '</table>'+
+                    '</div>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+            '</div>' +
+            '</div>'
+            ])
+        }
+        var markers = mmarker;
+        var bounds = new google.maps.LatLngBounds();
+        this.markerHover = [];
+        var infoWindow = new google.maps.InfoWindow(),marker, i;
+        for (let i = 0; i < this.markers.length; i++) {
+            var beach = this.markers[i]
+            var lats = this.markers[i]['lat']
+            var lngs = this.markers[i]['lng']
+            var img = this.markers[i]['alphabet']
+            var myLatLng = new google.maps.LatLng(lats, lngs);
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        
+            
+            marker = new google.maps.Marker({
+            position: position,
+            map: this.map,
+            icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
+            zoom: 6,
+            title: this.markers[i]['name']
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(this.map, marker);
+            }
+            })(marker, i));
+            
+            this.markerHover.push(marker)
+            var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
+            google.maps.event.removeListener(boundsListener);
+            });
+            
+        }
+        },
+// make infowindow, marker , google map 
+changeMap(response){
+                $('.select').removeClass('select');
+                $('#searchMap').addClass('select');
+                $('#showSearchMap').removeClass('select');
+                $('#filter').removeClass('select');
+                this.cities = response.data.city
+                this.getCity = response.data.getCity
+                this.getTownships = response.data.getTownships
+                this.special_features = response.data.special_features
+                this.fac_types = response.data.fac_types
+                this.medical_acceptance = response.data.medical_acceptance
+                this.nursingList = response.data.nursing_profile
+                this.markers = response.data.nursing_profile; 
+            
+                var mmarker = new Array();
+                var item = [];
+                for (var i = 0; i < this.markers.length; i++) {
+                    mmarker.push([this.markers[i]['alphabet'], this.markers[i]['lat'], this.markers[i]['lng']])
+                    item.push(this.markers[i])
+                }
+
+                const theCity = response.data.getCity[0]['city_name']
+                const lat = response.data.getCity[0]['latitude']
+                const lng = response.data.getCity[0]['longitude']
+                this.coordinates(theCity,lat,lng);
+                this.infoWindow(item, mmarker);
+                   
                     
-                        
-                        marker = new google.maps.Marker({
-                        position: position,
-                        map: this.map,
-                        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + img + '|ff9563|000000',
-                        zoom: 6,
-                        title: this.markers[i]['name']
-                        });
-
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                        return function() {
-                            infoWindow.setContent(infoWindowContent[i][0]);
-                            infoWindow.open(this.map, marker);
-                        }
-                        })(marker, i));
-                        
-                        this.markerHover.push(marker)
-                        var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
-                        google.maps.event.removeListener(boundsListener);
-                        });
-                        
-                    }
 
         },
-        mouseover(index) {
+
+chngeSearch()
+        {
+            if(this.townshipID == null || this.townshipID == '')
+            {
+            this.townshipID[0] = 0;
+            }
+            if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+            {
+            this.SpecialFeatureID[0] = 0;
+            }
+            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
+            {
+            this.MedicalAcceptanceID[0] = 0;
+            }
+            if(this.FacTypeID == null || this.FacTypeID == '')
+            {
+            this.FacTypeID[0] = 0;
+            }
+            if(this.MoveID == null || this.MoveID == '')
+            {
+            this.MoveID[0] = 0;
+            }
+            if(this.onchangeid == 1)
+            {  
+                if(this.township_id == -1)
+                {
+                    this.townshipID[0] = 0;
+                }
+                else{
+                    this.townshipID[0] = this.township_id;
+                }
+            }
+            else{
+
+                this.township_id = -1;
+            }
+
+            this.axios.get('api/getnursingsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                SpecialFeatureID:this.SpecialFeatureID,
+                MedicalAcceptanceID:this.MedicalAcceptanceID,
+                FacTypeID:this.FacTypeID,
+                MoveID:this.MoveID
+            },
+            }).then((response)=>{
+
+            this.nus_data = response.data.nursing;
+            this.specialfeature = response.data.specialfeature;
+            this.medicalacceptance = response.data.medicalacceptance;
+            this.factype = response.data.factype;
+            this.searchmarkers = response.data.nursing;
+            this.nursingList = response.data.nursing;
+            this.citylatlng = response.data.city;
+            });
+        },
+        
+
+search(){   
+            this.chngeSearch();
+            var mmarker = new Array()
+            var item = []
+
+            if(this.nus_data.length > 0){
+                for (var i = 0; i < this.searchmarkers.length; i++) {
+                   
+                    mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
+                    item.push(this.searchmarkers[i])
+                }
+                const theCity = this.searchmarkers[0]['city_name']
+                const lat = this.searchmarkers[0]['lat']
+                const lng = this.searchmarkers[0]['lng']
+                // google map 
+                this.coordinates(theCity,lat,lng)
             
+                this.infoWindow(item, mmarker);
+                    
+            }
+            else{
+                // for clean googleMap
+                var lat = this.citylatlng[0]['latitude']
+                var lng = this.citylatlng[0]['longitude']
+                var theCity = this.citylatlng[0]['city_eng']
+                const result = jp_township.features
+  
+
+                const coordinates = []
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i].Name == theCity) {
+                    coordinates.push(result[i].geometry['coordinates'])
+                    }
+                }
+                var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var data = {
+                    type: "Feature",
+                    geometry: {
+                    "type": "Polygon",
+                    "coordinates": coordinate
+                    },
+                };
+                
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lng),
+                    zoom: 6,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                this.map.data.addGeoJson(data);
+                this.map.data.setStyle({
+                    strokeColor: "red",
+                    fillColor: 'red',
+                    strokeOpacity: 0.8,
+                    fillOpacity: 0.1,
+                    strokeWeight: 1
+                })
+              }
+       
+                
+        
+            this.show_paginate = true;            
+        },
+        // hover animate function
+        mouseover(index) {
             for (let i = 0; i < this.markerHover.length; i++) {
                 
                 if(this.markers[i]['alphabet'] == index)
@@ -1514,7 +1272,6 @@
             }
         },
         mouseleave(index){
-
             for (let i = 0; i < this.markerHover.length; i++) {
                 if(this.markers[i]['alphabet'] == index)
                 {
@@ -1522,6 +1279,7 @@
                 }
             }
         },
+        // hover animate function
         getCheck(e) {
             if (this.townshipID.length > 0) {
             this.axios.post('/api/getmaptownship/' + this.townshipID + '')
