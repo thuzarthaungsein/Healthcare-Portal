@@ -376,11 +376,11 @@ class SearchMapController extends Controller
                 $MoveID = explode(',',$MoveID);
                 if(count($MoveID) == 3)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) or n.moving_in like '%".$MoveID[1]."%' ) or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%'  or n.moving_in like '%".$MoveID[2]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 2)
                 {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%' ) or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
+                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.moving_in like '%".$$MoveID[0]."%'  or n.moving_in like '%".$MoveID[1]."%' ) group by c.id";
                 }
                 else if(count($MoveID) == 1)
                 {
