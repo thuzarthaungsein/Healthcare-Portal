@@ -40,7 +40,7 @@
                                 <!-- <button class="btn main-bg-color white all-btn" type="button">
                                                     種類
                                                 <span class="caret"></span>
-                                            </button> --> 
+                                            </button> -->
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id" id="categories" class="form-control" @change='getstates()'>
                                     <option v-bind:value="-1">選択してください。</option>
@@ -55,7 +55,7 @@
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                     <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
-                            
+
                             <div class="col-md-12 card related-card">
                                 <div class="card-body">
                                     <div class="row">
@@ -179,7 +179,7 @@
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
-                        }).then(response => { 
+                        }).then(response => {
                         let fData = new FormData();
                         fData.append('photo', this.news.image)
                         fData.append('title', this.news.title)
@@ -211,7 +211,7 @@
 
                                 this.errors = error.response.data.errors
                             }});
-                        
+
                         })
                     },
                     getstates: function() {

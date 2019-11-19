@@ -131,15 +131,17 @@
             };
         },
         created() {
+
             this.axios.get("/api/news_list").then(response => {
                 this.news_list = response.data;
-                this.norecord = this.news_list.length;
+                this.norecord = this.news_list.length
                 if (this.norecord > this.size) {
                     this.pagination = true;
                 } else {
                     this.pagination = false;
                 }
             });
+
         },
         mounted() {
             this.axios.get("/api/category/category_list").then(
