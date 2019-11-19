@@ -137,8 +137,8 @@ class HospitalProfileController extends Controller
      */
     public function edit($id)
     {
-        $hospital = HospitalProfile::find($id);
-
+        $hospital = HospitalProfile::where('customer_id',$id)->first();
+       
         return response()->json($hospital);
     }
 
@@ -169,9 +169,10 @@ class HospitalProfileController extends Controller
 
     public function movePhoto(Request $request) {
         $request = $request->all();
-
-        $destination = 'upload/hospital_profile/'.$request['photo'];
-        $upload_img = move_uploaded_file($request['file'], $destination);
+        foreach ($request as $file){
+            $destination = 'upload/hospital_profile/'.$file->getClientOriginalName();
+            $upload_img = move_uploaded_file($file, $destination);
+        }        
     }
 
     public function galleryupdate($id,Request $request) {
@@ -196,7 +197,7 @@ class HospitalProfileController extends Controller
 
     public function profileupdate($id,Request $request) {
         $request = $request->all();
-    
+        print_r($request);
         $hospital = HospitalProfile::where('customer_id',$id);
         $uploadData = array(
             'access' => $request[0]['access'],
