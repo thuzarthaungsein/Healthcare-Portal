@@ -16,7 +16,7 @@
                   <div class="mb-3">                    
                     <div class="division-box">
                       <ul class="hokkaido-wrap">    
-                        <a href="#" data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick">
+                        <a href="#" data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick($event)">
                             <li class="spanclass" id="1">北海道</li> 
                         </a>
                       </ul>
@@ -313,7 +313,7 @@
               <tr>
                 <th>地域</th>
                 <td>
-                  <select id="selectCity" class="col-9 form-control custom-select mt-2 mb-2" v-model="id">
+                  <select id="selectCity" class="col-9 form-control custom-select mt-2 mb-2" v-model="id" @change="ChangeTownship">
                     <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                   </select>
                   <button @click="toggleContent" class="btn col-3 seemore-btn">
@@ -642,28 +642,41 @@
           $('#close2').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
         }
       },
+      ChangeTownship(){
+         this.axios.get('api/getmap',{
+              params:{
+              id: this.id,
+              township_id:-1,
+              moving_in:-1,
+              per_month:-1
+          },
+          })
+            .then((response) => {
+              $('.hospitalselect').removeClass('hospitalselect');
+              this.cities = response.data.city
+              this.getCity = response.data.getCity
+              this.getTownships = response.data.getTownships
+              this.special_features = response.data.special_features
+              this.subjects = response.data.subjects
+              this.id = id;
+
+            })
+              this.search();
+      },
+
       getStateClick(e) {
-        
-          
-        //   if(this.townshipID.length > 0)
-        //   {
-        //     this.townshipID = [];
-        //   }
-        //   if(this.specialfeatureID.length > 0)
-        //   {
-        //     this.specialfeatureID = [];
-        //   }
-        //   if(this.subjectID.length > 0)
-        //   {
-        //     this.subjectID = [];
-        //   }
-       
-          if(e.target.id == ''){
-            var id = $('#selectCity').val();
+        if(e.target.id != 'selectCity')
+        {
+            if(e.target.id == '')
+          {
+             var id = $('#selectCity').val();
+             this.id = id;
           }else{
-            var id = e.target.id;
+             var id = e.target.id;
+             this.id = id;
           }
-          this.id = id;
+        }
+  
           
          
           this.axios.get('api/getmap',{
