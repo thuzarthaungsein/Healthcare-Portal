@@ -140,8 +140,8 @@ class HospitalProfileController extends Controller
      */
     public function edit($id)
     {
-        $hospital = HospitalProfile::find($id);
-
+        $hospital = HospitalProfile::where('customer_id',$id)->first();
+       
         return response()->json($hospital);
     }
 

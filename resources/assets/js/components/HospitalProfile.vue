@@ -1363,6 +1363,7 @@ export default {
                 .get('/api/hospitalinfo/'+this.cusid)
                 .then(response=>{
                     this.hospital_info = response.data;
+                    
                     if(this.hospital_info.latitude == 0){
                         localStorage.setItem('lat_num',35.6803997);
                         localStorage.setItem('lng_num',139.76901739);
