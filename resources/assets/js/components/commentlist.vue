@@ -1,13 +1,7 @@
 <template>
     <div class="row">
         <div class="col-12">
-            <div class="row m-b-10" v-if="norecord !== 0">
-                <div class="col-md-12">
-                    <router-link to="/comment" class="float-right main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> 新しいコメントを作成
-                    </router-link>
-                </div>
-            </div>
+            
             <!--card-->
             <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                 <div class="col-md-12 scrolldiv">
