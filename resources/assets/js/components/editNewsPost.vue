@@ -43,12 +43,12 @@
                             </div>
                             <div class="form-group">
                                 <label>カテゴリー:<span class="error">*</span></label>
-                                <select v-model="selectedValue" class="form-control" @change='getstates()'>
-                                    <option v-bind:value="0">選択してください。</option>
-                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
-                                        {{category.name}}
-                                    </option>
-                                </select>
+                                    <select v-model="selectedValue" class="form-control" @change='getstates()'>
+                                        <option v-bind:value="0">選択してください。</option>
+                                        <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                            {{category.name}}
+                                        </option>
+                                    </select>
                                 <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
@@ -59,13 +59,18 @@
                             </div>
 
                             <input type="hidden" v-model="old_photo" >
-                            <div class="form-group">
+                            <div class="row">
                                 <label> カテゴリー:<span class="error">*</span></label>
-                                <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
-                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
-                                        {{category.name}}
-                                    </option>
-                                </select>
+                                <div class="col-md-5">
+                                    <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
+                                        <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                            {{category.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="関連ニュース検索" aria-label="search" id="search-word" class="form-control" @keyup='getSearchPostsByCatId()'>
+                                </div>
                             </div>
 
                             <div class="row col-md-12">
@@ -156,7 +161,8 @@
                     pageRange: 5,
                     items: [],
                     pagination: false,
-                    check_head: false
+                    check_head: false,
+                    search_word:''
                 }
             },
             created() {
@@ -181,6 +187,7 @@
                         this.selectedValue = this.news.category_id;
                     });
                     this.getPostsByCatId();
+                    this.getSearchPostsByCatId();
             },
             mounted() {
                 this.axios
@@ -340,6 +347,28 @@
                                 this.pagination = false;
                             }
                         });
+                    },
+                    getSearchPostsByCatId: function() {
+                        var cat_id = this.category_id_1;
+                        if(this.search_word == '') {
+                            var search_word = this.search_word;
+                        }  else {
+                            var search_word = $('#search-word').val();
+                        }
+
+                        let fd = new FormData();
+                        fd.append("search_word", search_word);
+                        fd.append("selected_category", cat_id);
+                        this.axios.post("/api/news_list/search", fd).then(response => {
+                            this.related_news = response.data;
+                            this.check_head = true;
+                            if(this.related_news.length > this.size) {
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
+                        });
+                        this.search_word = '1';
                     },
                     closeBtnMethod: function(old_photo) {
                         // console.log(old_photo);
