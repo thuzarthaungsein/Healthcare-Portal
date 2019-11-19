@@ -1428,19 +1428,26 @@ p {
 .main-header .navbar-nav .nav-link {
     margin-top: 3px;
     font-size: 12px;
-    color: #444;
+    color: #fff;
 }
 
+.main-header .nav-item{
+    padding: 10px;
+    background: #d2571c;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    color: #fff;
+}
 .main-header .navbar-nav .nav-link:hover {
     opacity: 0.7;
 }
 
 .main-header .navbar-nav .nav-link i {
-    color: #f57e46;
+    color: #fff;
 }
 
 .main-header .navbar-nav .nav-link span {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .social-link a {
