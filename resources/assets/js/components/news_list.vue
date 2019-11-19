@@ -256,19 +256,23 @@
                 },
                 first() {
                     this.currentPage = 0;
+                    window.scrollTo(0,0);
                 },
                 last() {
                     this.currentPage = this.pages - 1;
+                    window.scrollTo(0,0);
                 },
                 prev() {
                     if (0 < this.currentPage) {
                         this.currentPage--;
                     }
+                    window.scrollTo(0,0);
                 },
                 next() {
                     if (this.currentPage < this.pages - 1) {
                         this.currentPage++;
                     }
+                    window.scrollTo(0,0);
                 },
                 pageSelect(index) {
                     this.currentPage = index - 1;

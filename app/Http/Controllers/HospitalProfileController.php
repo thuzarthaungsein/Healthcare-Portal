@@ -74,10 +74,7 @@ class HospitalProfileController extends Controller
                 }            
                 $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
                 $payment = DB::select($sql);
-                $nur->payment_method = $payment;
-                $sql = "SELECT MIN(monthly_fees) AS smallestCost, MAX(monthly_fees) AS largeCost FROM method_payment WHERE customer_id=$cId";
-                $min_max = DB::select($sql);
-                $nur->minmax = $min_max;
+                $nur->payment_method = $payment;                
             }
             
 
