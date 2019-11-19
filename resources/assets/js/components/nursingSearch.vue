@@ -8,16 +8,26 @@
     <div class="row" id="hos">
       <div class="col-md-12">
         <div>
-        <div class="row map-wrap">
+        <div class="row map-wrap"  id="searchMap">
           <!-- search map and path -->
           
-          <div class="col-md-12 col-sm-12" id="searchMap">
-            <div class="col-md-4 col-sm-12">
-            <h2>老人ホームや病院で働きたいあなたの希望叶えます。</h2>
-            <input type="text">            
-          </div>
-            <div class="divisions">
-              <div class="row" id="divisionswrap">
+          
+            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
+            <h2 class="map-header">あなたらしい 暮らしができる 老人ホームが 見つかります。</h2>
+            <!--search input-->
+              <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <button type="submit" class="searchButton">    
+                      <i class="fas fa-search"></i>   
+                      検索
+                  </button>
+                </div>
+              </div> 
+            <!--end search input-->          
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12 float-left">
+              <div class="divisions row" id="divisionswrap">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
                     <div class="division-box">
@@ -308,7 +318,7 @@
 
             <!-- <div class="map">
             </div> -->
-          </div>
+          
         </div>
 
         <!-- search city , township  -->

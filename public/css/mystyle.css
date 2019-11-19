@@ -3321,21 +3321,66 @@ ul.main-tab li:after {
 
 .map-wrap {
     /* max-width: 1180px !important; */
-    padding: 10px 0px;
+    padding: 20px;
     background: #f7f0ed;
 }
 
-.divisions {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
+.divisions{
     position: relative;
     z-index: 1;
-    background: url(/images/img_map1.png) center top no-repeat;
-    width: 1180px;
-    height: 424px;
+    background: url(/images/img_map8.png) center top no-repeat;
+    /* width: 1670px; */
+    /* min-width: 936px; */
+    height: 532px;
 }
+@media only screen and (max-width: 1300px){
+    .divisions {
+        width: 100%;
+    }
+}
+/* @media (max-width: 1200px){
+    .divisions {
+        width: 1670px;
+    }
+} */
 
+.map-header{
+    color: #7f340f;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 1.4;
+}
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+      width: 100%;
+      border: 3px solid #f7834b;
+      border-right: none;
+      padding: 5px;
+      height: 46px;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+    color: #00B4CC;
+  }
+  
+  .searchButton {
+      width: 85px;
+      height: 46px;
+      border: 1px solid #f7834b;
+      background: #f7834b;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+  }
+  
 .division-box>ul {
     box-sizing: border-box;
     position: absolute;
@@ -4199,7 +4244,6 @@ div.b {
 }
 
 
-/*/////////////////////////// setup////////////////////// */
 
 
 /* setup class */
