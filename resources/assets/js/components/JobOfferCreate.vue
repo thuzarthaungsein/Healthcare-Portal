@@ -509,7 +509,7 @@
                 //   alert(1);
                       console.log("Validation fun");
                     //   if(this.errors.length ==0){
-                            console.log('joboffer');
+                            console.log('joboffer');                                                
                             // this.$swal({
                             //     title: "作成",
                             //     text: "作成よろしでしょうか。",
@@ -528,7 +528,7 @@
                             
                         
                         if (this.joboffer.title == '') {
-                           
+                            console.log("til")
                             this.errors.push("title");            
                         } else {
                              this.errors=[];
@@ -750,9 +750,7 @@
                 // getParent: function() {
                 //   this.joboffer.occupation_id = this.selectedValue;
                 // },
-                 add() {
-                     console.log("add fun")
-                     console.log(this.errors.length)
+                 add() {                   
                  if(this.errors.length ==0)
                 {
                     console.log("add fun no error");
@@ -875,27 +873,25 @@
 
                 updateJob() {
                       if (`${this.$route.params.id}` && this.errors.length ==0){
-                          console.log("nnnn");
-                           this.$swal({
-                        title: "確認",
-                        text: "更新よろしいでしょうか。",
-                        type: "info",
-                        width: 350,
-                        height: 200,
-                        showCancelButton: true,
-                        confirmButtonColor: "#6cb2eb",
-                        cancelButtonColor: "#b1abab",
-                        cancelButtonTextColor: "#000",
-                        confirmButtonText: "更新",
-                        cancelButtonText: "キャンセル",
-                        confirmButtonClass:  "all-btn",
-                        cancelButtonClass: "all-btn"
-                    }).then(response => {
-                        this.axios
-
-                            .post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
+                    //        this.$swal({
+                    //     title: "確認",
+                    //     text: "更新よろしいでしょうか。",
+                    //     type: "info",
+                    //     width: 350,
+                    //     height: 200,
+                    //     showCancelButton: true,
+                    //     confirmButtonColor: "#6cb2eb",
+                    //     cancelButtonColor: "#b1abab",
+                    //     cancelButtonTextColor: "#000",
+                    //     confirmButtonText: "更新",
+                    //     cancelButtonText: "キャンセル",
+                    //     confirmButtonClass:  "all-btn",
+                    //     cancelButtonClass: "all-btn"
+                    // }).then(response => {
+                        this.axios.post(`/api/job/update/${this.$route.params.id}`, this.joboffer)
 
                         .then(response => {
+                          console.log("JOB");
                                 this.$swal({
                                     title: "更新されました。",
                                     // text: "ファイルが更新されました。",
@@ -915,7 +911,7 @@
                                     this.errors = error.response.data.errors;
                                 }
                             });
-                        });
+                        //});
                     }
 
                       }
