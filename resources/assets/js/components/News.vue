@@ -45,7 +45,7 @@
                                                 <router-link :to="'/newsdetails/'+latest_post.id">
                                                  <clazy-load class="wrapper-0" @load="log"  src="images/noimage.jpg" :key="latest_post.id">
                                                     <transition name="fade">
-                                                        <img v-if="latest_post.photo" v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
+                                                        <img  v-bind:src="'/upload/news/' + latest_post.photo" class="source-img img-responsive"  @error="imgUrlAlt">
                                                     </transition>
                                                     <transition name="fade" slot="placeholder">
                                                         <div class="preloader">
@@ -84,7 +84,7 @@
                                                 <div class="hovereffect fit-image">
                                                 <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
                                                     <transition name="fade">
-                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image">
+                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
                                                     </transition>
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
                                                     <transition name="fade" slot="placeholder">
@@ -665,7 +665,7 @@
 
             searchCategory() {
                 if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
-                   
+
                     this.clearSearch();
                      console.log('null');
                 } else {

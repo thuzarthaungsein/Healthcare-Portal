@@ -19,7 +19,7 @@
                             <div class="form-group mg">
                                 <label class="">メディア:</label>
                                 <div>
-                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput">
+                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput"  @error="imgUrlAlt">
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row" id="image_preview">

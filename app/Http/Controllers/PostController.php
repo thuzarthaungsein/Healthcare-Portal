@@ -25,7 +25,7 @@ class PostController extends Controller
     public function index()
     {
 
-       $news_list = Post::orderBy('id','DESC')->get()->toArray();
+       $news_list = Post::orderBy('id')->get()->toArray();
        return response()->json(array_reverse($news_list));
 
     }
