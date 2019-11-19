@@ -55,13 +55,13 @@
                         <div class="modal-dialog modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">料金プラン（3件）／</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">料金プラン</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <button class="btn btn-secondary">閉じる&times;</button>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered price_tbl">
                                         <thead>
                                             <tr>
                                                 <th scope="col">プラン名／居室詳細</th>
@@ -71,12 +71,11 @@
                                         </thead>
                                         <tbody v-for="payment in payment_name" :key="payment.id">
                                             <tr>
-                                                <td>【増税対応済】{{payment.payment_name}}
-                                                    <br>
-                                                    <small>[{{payment.living_room_type}}] {{payment.area}}</small>
+                                                <td><h5>【増税対応済】{{payment.payment_name}}</h5>
+                                                    <p class="room_type"><span>{{payment.living_room_type}}</span>{{payment.area}}</p>
                                                 </td>
-                                                <td class="profile_price">{{payment.expense_moving}}</td>
-                                                <td class="profile_price">{{payment.monthly_fees}}</td>
+                                                <td class="expense_txt">{{payment.expense_moving}}</td>
+                                                <td class="expense_txt">{{payment.monthly_fees}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -155,7 +154,7 @@
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
                                                             <dt class="text-left">入居時の費用</dt>
-                                                            <dd class="profile_price"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
+                                                            <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.moving_in_from)/10000))==0? '' : (Math.floor(Number(nur_profile.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.moving_in_from)%10000)==0 ? '' : (Number(nur_profile.moving_in_from)%10000).toLocaleString()}}円～</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -164,7 +163,7 @@
                                                     <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                         <dl>
                                                             <dt class="text-left">月額の費用</dt>
-                                                            <dd class="profile_price"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
+                                                            <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.per_month_from)/10000))==0? '' : (Math.floor(Number(nur_profile.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.per_month_from)%10000)==0 ? '' : (Number(nur_profile.per_month_from)%10000).toLocaleString()}}円～</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>

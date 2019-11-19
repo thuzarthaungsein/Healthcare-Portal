@@ -202,7 +202,7 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('subject/{cusid}','ProfilePublishController@getSubject');
 });
 Route::group(['prefix' => 'job'], function () {
-    Route::get('getjob/{id}', 'JobController@getJob');
+    // Route::get('getjob/{id}', 'JobController@getJob');
     Route::post('search', 'JobController@search');
 });
 
@@ -231,7 +231,7 @@ Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
-Route::get('job_details', 'JobDetailController@index');
+// Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
@@ -301,7 +301,7 @@ Route::post('news_list/search', 'PostController@search');
 
 Route::post('jobapply','JobApplyController@store');
 Route::get('jobapplylist/{jobs_id}','JobApplyController@getJobapplies');
-Route::get('job_details', 'JobDetailController@index');
+// Route::get('job_details', 'JobDetailController@index');
 Route::get('job_details/{id}', 'JobDetailController@show');
 
 // Guest Hospital History

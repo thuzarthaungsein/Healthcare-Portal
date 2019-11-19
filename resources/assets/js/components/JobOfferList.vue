@@ -91,7 +91,7 @@
                             <!-- <span class="job_id">jobapplylistcount{{job.count}}</span> -->
                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
 
-                            <span class="job_id">求人番号：{{job.job_number}}</span>
+                            <span class="job_id">求人番号：{{job.jobid}}</span>
                         </h5>
                                         </div>
 
@@ -186,6 +186,7 @@
             },
             created() {
                 this.axios.get("/api/job/index").then(response => {
+                    console.log(response.data);
                     this.jobs = response.data.profilejob;
                     this.customer_id = response.data.user;
                     console.log(this.jobs)

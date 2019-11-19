@@ -311,7 +311,7 @@
                 <tr>
                   <th>地域</th>
                   <td>
-                    <select id="selectCity"   class="col-9 form-control custom-select mt-2 mb-2" v-model="id">
+                    <select id="selectCity"   class="col-9 form-control custom-select mt-2 mb-2" v-model="id" @change="changeTownship">
                       <option v-for = "city in cities" :value="city.id" :key="city.id" >{{city.city_name}}</option>
                     </select>
                     <button @click="toggleContent4" class="btn col-3 seemore-btn">
@@ -608,22 +608,32 @@ export default {
                 $('#close4').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
             }
         },
+        changeTownship()
+        {
+            this.axios.get('api/getmap',{
+            params:{
+              id: this.id,
+              township_id:-1,
+              moving_in:-1,
+              per_month:-1
+          },
+          })
+          .then((response)=>{
+
+          $('.jobselect').removeClass('jobselect');
+          this.cities = response.data.city
+          this.getCity = response.data.getCity
+          this.getTownships = response.data.getTownships
+          this.occupations = response.data.occupations
+          this.id = id
+         })
+        
+        this.search();
+        },
 
       getStateClick(e){
            
 
-          if(this.townshipID.length > 0)
-          {
-            this.townshipID = [];
-          }
-          if(this.occupationID.length > 0)
-          {
-            this.occupationID = [];
-          }
-          if(this.empstatus.length > 0)
-          {
-            this.empstatus = [];
-          }
       
           if(e.target.id == ''){
             var id = $('#selectCity').val();
@@ -632,9 +642,7 @@ export default {
           }
           this.id = id;
        
-       
-          // const id = e.target.id;
-          // this.id = id;
+      
 
           this.axios.get('api/getmap',{
             params:{

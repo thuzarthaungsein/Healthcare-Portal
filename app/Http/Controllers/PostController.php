@@ -26,7 +26,7 @@ class PostController extends Controller
     {
 
        $news_list = Post::orderBy('id','DESC')->get()->toArray();
-       return response()->json(array_reverse($news_list));
+       return response()->json($news_list);
 
     }
     // add news

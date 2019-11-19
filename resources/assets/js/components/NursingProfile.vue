@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">メールアドレス<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-email col-10 float-right"  placeholder="メール" v-model="customer_info.email">
+                            <label class=" col-10 float-right customer-email"> {{customer_info.email}} </label>
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">電話番号<span class="error">*</span></label>
@@ -827,7 +827,7 @@ export default {
                 $('.feature-'+check_id).attr('checked','true');
             },
             stationCheck(check_id) {
-                $('.station-'+check_id).attr('checked','true');
+                $('.station-'+check_id).attr('checked','true'); 
             },
             preview_image(img_class,indx) {
                 $("."+img_class).html("<img src='"+URL.createObjectURL(event.target.files[0])+"' class='img-fluid hospital-image'>");
@@ -1042,7 +1042,7 @@ export default {
                 this.payment_list = [];
 
                 var customer_name = $('.customer-name').val();
-                var customer_email = $('.customer-email').val();
+                var customer_email = $('.customer-email').text();
                 var customer_phone = $('.customer-phone').val();
                 var customer_address = $('#city').val();
 

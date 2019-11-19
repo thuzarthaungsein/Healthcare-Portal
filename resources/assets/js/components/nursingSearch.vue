@@ -906,19 +906,27 @@ getStateClick(e) {
                 .then((response) => {
                 this.changeMap(response)
                 })
+
+                this.changeSearch();
         },
 // map onclick function 
 // map change dropdown function
 nursingSearchData(index){
-
             if(index == 1)
             {
                 this.township_id = -1;
                 this.townshipID = [];
             }
+            else{
+              this.townshipID = [];
+              this.townshipID[0] = this.township_id;
+        
+            }
+           
             this.onchangeid = 1;
+          
             // this.townshipID = [];
-            // this.search();
+            // this.search();  
             this.axios.get('/api/getmap/',{
                     params:{
                     id: this.id,
@@ -934,12 +942,14 @@ nursingSearchData(index){
                 }) 
 
             
-
+             this.changeSearch();
            
         },
 // map change dropdown function
 // make infowindow, marker , google map 
 coordinates(theCity, lat, lng){
+
+
                 const result = jp_township.features //jp_cities
                 const jp_city = jp_cities.features //convert
 
@@ -1011,6 +1021,10 @@ coordinates(theCity, lat, lng){
                     }) 
 },
 infoWindow(item, mmarker){
+
+  console.log('infowindow');
+  console.log(item);
+  console.log(this.markers);
         
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
@@ -1156,6 +1170,70 @@ changeMap(response){
 
 changeSearch()
         {
+
+            if(this.townshipID == null || this.townshipID == '')
+            {
+            this.townshipID[0] = 0;
+            }
+            if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+            {
+            this.SpecialFeatureID[0] = 0;
+            }
+            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
+            {
+            this.MedicalAcceptanceID[0] = 0;
+            }
+            if(this.FacTypeID == null || this.FacTypeID == '')
+            {
+            this.FacTypeID[0] = 0;
+            }
+            if(this.MoveID == null || this.MoveID == '')
+            {
+            this.MoveID[0] = 0;
+            }
+            if(this.onchangeid == 1)
+            {  
+                if(this.township_id == -1)
+                {
+                    this.townshipID[0] = 0;
+                }
+                else{
+                    this.townshipID[0] = this.township_id;
+                }
+            }
+            else{
+
+                this.township_id = -1;
+            }
+
+    
+
+            this.axios.get('api/getnursingsearch',{
+            params:{
+                id: this.id,
+                townshipID:this.townshipID,
+                SpecialFeatureID:this.SpecialFeatureID,
+                MedicalAcceptanceID:this.MedicalAcceptanceID,
+                FacTypeID:this.FacTypeID,
+                MoveID:this.MoveID
+            },
+            }).then((response)=>{
+
+            this.nus_data = response.data.nursing;
+            this.specialfeature = response.data.specialfeature;
+            this.medicalacceptance = response.data.medicalacceptance;
+            this.factype = response.data.factype;
+            this.searchmarkers = response.data.nursing;
+            this.nursingList = response.data.nursing;
+            this.citylatlng = response.data.city;
+            
+            });
+        },
+        
+
+search(){   
+
+  console.log(this.townshipID);
             if(this.townshipID == null || this.townshipID == '')
             {
             this.townshipID[0] = 0;
@@ -1209,16 +1287,15 @@ changeSearch()
             this.searchmarkers = response.data.nursing;
             this.nursingList = response.data.nursing;
             this.citylatlng = response.data.city;
-            });
-        },
-        
+            this.markers = response.data.nursing;
 
-search(){   
-            this.changeSearch();
             var mmarker = new Array()
             var item = []
 
+    
             if(this.nus_data.length > 0){
+
+               
                 for (var i = 0; i < this.searchmarkers.length; i++) {
                    
                     mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
@@ -1227,6 +1304,10 @@ search(){
                 const theCity = this.searchmarkers[0]['city_name']
                 const lat = this.searchmarkers[0]['lat']
                 const lng = this.searchmarkers[0]['lng']
+
+                console.log(mmarker);
+                console.log(item);
+            
                 // google map 
                 this.coordinates(theCity,lat,lng)
             
@@ -1234,6 +1315,8 @@ search(){
                     
             }
             else{
+
+    
                 // for clean googleMap
                 var lat = this.citylatlng[0]['latitude']
                 var lng = this.citylatlng[0]['longitude']
@@ -1274,7 +1357,14 @@ search(){
        
                 
         
-            this.show_paginate = true;            
+            this.show_paginate = true;   
+
+           
+            });
+
+       
+
+                     
         },
         // hover animate function
         mouseover(index) {
