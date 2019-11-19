@@ -8,11 +8,16 @@
     <div class="row" id="hos">
       <div class="col-md-12">
         <div>
-        <div class="row">
+        <div class="row map-wrap">
           <!-- search map and path -->
-          <div class="col-md-12 col-sm-12 col-md-12 map-wrap" id="searchMap">
-            <div class="divisions" style="margin:0 auto">
-              <div class="row " id="divisionswrap">
+          
+          <div class="col-md-12 col-sm-12" id="searchMap">
+            <div class="col-md-4 col-sm-12">
+            <h2>老人ホームや病院で働きたいあなたの希望叶えます。</h2>
+            <input type="text">            
+          </div>
+            <div class="divisions">
+              <div class="row" id="divisionswrap">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
                     <div class="division-box">
