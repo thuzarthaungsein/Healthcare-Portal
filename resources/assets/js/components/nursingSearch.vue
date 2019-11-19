@@ -897,7 +897,6 @@ getStateClick(e) {
 // map onclick function 
 // map change dropdown function
 nursingSearchData(index){
-           
             if(index == 1)
             {
                 this.township_id = -1;
@@ -1780,6 +1779,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     display: flex;
     justify-content: center;
     width: 1359px;
+    overflow:auto;
   }
 
   #nursing-search .card-carousel--overflow-container {
