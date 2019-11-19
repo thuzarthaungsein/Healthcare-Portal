@@ -69,7 +69,7 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <div class="col-md-4" v-for="news in related_news" :key="news.id">
+                                <div class="col-md-4" v-for="news in displayItems" :key="news.id">
                                     <label>
                                         <input type="checkbox" :value="news.id" id="aaa" v-model="checkedNews">
                                         <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
@@ -86,6 +86,27 @@
                                         </div>
                                     </label>
                                  </div>
+                                 <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                                                    </li>
+                                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
                             </div>
                             <input type="hidden" v-model="checkedNews" >
 
@@ -130,6 +151,12 @@
                     checkedNews: [],
                     old_photo: "",
                     upload_img: null,
+                    currentPage: 0,
+                    size: 12,
+                    pageRange: 5,
+                    items: [],
+                    pagination: false,
+                    check_head: false
                 }
             },
             created() {
@@ -162,6 +189,47 @@
                         this.categories = response.data;
                     }.bind(this));
             },
+            computed: {
+            pages() {
+                    return Math.ceil(this.related_news.length / this.size);
+                },
+                displayPageRange() {
+                    const half = Math.ceil(this.pageRange / 2);
+                    const isEven = this.pageRange % 2 == 0;
+                    const offset = isEven ? 1 : 2;
+                    let start, end;
+                    if (this.pages < this.pageRange) {
+                        start = 1;
+                        end = this.pages;
+                    } else if (this.currentPage < half) {
+                        start = 1;
+                        end = start + this.pageRange - 1;
+                    } else if (this.pages - half < this.currentPage) {
+                        end = this.pages;
+                        start = end - this.pageRange + 1;
+                    } else {
+                        start = this.currentPage - half + offset;
+                        end = this.currentPage + half;
+                    }
+                    let indexes = [];
+                    for (let i = start; i <= end; i++) {
+                        indexes.push(i);
+                    }
+                    return indexes;
+                },
+                displayItems() {
+                    if(this.check_head == true){
+                        const head = 0;                    
+                        return this.related_news.slice(head,head + this.size);
+                    }else{
+                        const head = this.currentPage * this.size;                    
+                        return this.related_news.slice(head,head + this.size);
+                    }                    
+                },
+                isSelected(page) {
+                    return page - 1 == this.currentPage;
+                }
+        },
             methods: {
                     fileSelected(e) {
                         // $('.image_show').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-img'></div>");
@@ -191,7 +259,6 @@
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
                         }).then(response => {
-
                                 this.$swal({
                                         title: "削除されました",
                                         text: "ニュース削除されました。",
@@ -245,22 +312,16 @@
                             confirmButtonColor: "#6cb2eb",
                             width: 250,
                             height: 200,
-
                         })
                         //alert('Successfully Updated!')
                         this.$router.push({
                             name: 'news_list'
                         })
                         .catch(error=>{
-
                         if(error.response.status == 422){
-
                             this.errors = error.response.data.errors
-
                         }
                         });
-
-
                     });
                     },
                     getstates: function() {
@@ -272,6 +333,12 @@
                         .post('/api/new/getPostsByCatId/' + cat_id)
                         .then(response => {
                             this.related_news = response.data;
+                            this.check_head = true;
+                            if(this.related_news.length > this.size) {
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                     },
                     closeBtnMethod: function(old_photo) {
@@ -296,11 +363,7 @@
                             var image_x = document.getElementById('x-image');
                             image_x.parentNode.removeChild(image_x);
                             document.getElementById('showimage').style.display = 'block';
-
-
-
                            }).then(response => {
-
                                 this.$swal({
                                         title: "削除されました",
                                         text: "ニュース削除されました。",
@@ -315,9 +378,6 @@
                            });
 
                         }
-
-
-
                     },
                     checkValidate() {
                         if (this.news.title) {
@@ -351,7 +411,31 @@
                     },
                 imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
-            }
+            },
+            first() {
+                    this.currentPage = 0;
+                    window.scrollTo(0,0);
+                },
+                last() {
+                    this.currentPage = this.pages - 1;
+                    window.scrollTo(0,0);
+                },
+                prev() {
+                    if (0 < this.currentPage) {
+                        this.currentPage--;
+                    }
+                    window.scrollTo(0,0);
+                },
+                next() {
+                    if (this.currentPage < this.pages - 1) {
+                        this.currentPage++;
+                    }
+                    window.scrollTo(0,0);
+                },
+                pageSelect(index) {
+                    this.currentPage = index - 1;
+                    window.scrollTo(0,0);
+                },
 
             }
     }
