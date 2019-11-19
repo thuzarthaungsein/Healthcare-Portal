@@ -8391,6 +8391,7 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
+
    /* searchdata */
    .no_search_data{
     font-size: 20px;
@@ -8427,7 +8428,6 @@ ul.nur-caro-card>li.list-group-item {
     left: 0;
     background-color: #f57e46;
 } */
-
 
 /*pagination */
 
@@ -8563,4 +8563,5 @@ ul.nur-caro-card>li.list-group-item {
     100% {
         transform: rotate(360deg);
     }
-}
+  }
+  
