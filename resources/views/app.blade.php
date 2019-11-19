@@ -208,16 +208,16 @@
                     </ul> -->
                     <ul class="navbar-nav ml-auto pc  d-flex justify-content-end"> 
                         @guest
-                        <li class="nav-item">
+                        <li class="nav-item all-btn"style="background-color:#ff6117;">
                             <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>{{ __('事業者 ログイン') }}</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item all-btn m-l-10" style="background-color:#1c65d2;">
                             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
                             <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;<span>{{ __('事業者 登録') }}</span></a>
                             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
                         </li>
-                        <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
-                        <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-link align-self-center"><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
+                        <li class="social-link align-self-center"><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
                         <!-- <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li> -->
                         @else
                         <li class="nav-item col-12 userprofile-name pc">
