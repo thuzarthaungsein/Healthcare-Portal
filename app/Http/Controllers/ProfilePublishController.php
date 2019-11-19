@@ -115,7 +115,7 @@ class ProfilePublishController extends Controller
 
     public function getComment($cusid)
     {
-        $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment, comments.created_at from comments INNER JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id WHERE comments.customer_id = $cusid";
+        $sql = "SELECT comments.id,comments.title,comments.email,comments.year,comments.comment, comments.created_at from comments INNER JOIN nursing_profiles ON comments.customer_id= nursing_profiles.customer_id WHERE comments.customer_id = $cusid AND comments.status = 1";
         $comments = DB::select($sql);
         foreach ($comments as $cm) {
             $splitTimeStamp = explode(" ",$cm->created_at);
