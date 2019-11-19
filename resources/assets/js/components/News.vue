@@ -3,7 +3,7 @@
         <div class="m-lr-0 justify-content-md-center">
             <div class="row">
                 <div class="col-12 p-r-0">
-                    <div class="col-12 p-r-0">  
+                    <div class="col-12 p-r-0">
                         <!-- <form class="col-lg-12 mb-2 pad-free"> -->
                             <div class="row col-md-12 m-0 p-r-0">
                                 <div class="col-md-6">
@@ -12,7 +12,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 p-l-0 m-b-15">
-                                    <div class="row ">                                            
+                                    <div class="row ">
                                         <div class="col-md-9">
                                             <span class="btn btn my-2 col-md-12 my-sm-0 danger-bg-color btn-danger cross-btn" v-if="status == 1" @click="clearSearch()">X</span>
                                             <input type="text" placeholder="ニュース検索" aria-label="ニュース検索" class="form-control col-lg mr-sm-3 d-flex p-2 form-control" id="search-word" v-bind:value="search_word">
@@ -22,8 +22,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>                                            
-                                
+                            </div>
+
                         <!-- </form>                                       -->
                         <div class="row" v-if="status == '0'">
                             <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
@@ -39,7 +39,7 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
-                                    <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">                                                                        
+                                    <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
                                         <div class="row">
                                             <div class="active-users col-md-6">
                                                 <router-link :to="'/newsdetails/'+latest_post.id">
@@ -84,7 +84,7 @@
                                                 <div class="hovereffect fit-image">
                                                 <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
                                                     <transition name="fade">
-                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" alt="Image">
+                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" alt="Image" @error="imgUrlAlt">
                                                     </transition>
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
                                                     <transition name="fade" slot="placeholder">
@@ -136,9 +136,9 @@
                                                     </router-link>
                                                 </div>
                                             </div>
-                                                
+
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
                                 </clazy-load>
                             </div>
                         </router-link>
-                    </div>                                
+                    </div>
                     <div class="col-md-3 p-r-0">
                         <router-link v-for="(item,index) in group.slice(1, 4)" :key="index" :to="'/newsdetails/'+item.pid">
                             <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card">
@@ -251,8 +251,8 @@
                     </div>
                     <div class="col-md-3 p-r-0">
                         <router-link v-for="(item,index) in group.slice(4,12)" :key="index" :to="'/newsdetails/'+item.pid" style="color:#333;">
-                            <p class="text-truncate news-list-display">                                
-                                <i class="fas fa-building"></i> {{item.main_point}}                                
+                            <p class="text-truncate news-list-display">
+                                <i class="fas fa-building"></i> {{item.main_point}}
                             </p>
                         </router-link>
                     </div>
@@ -280,7 +280,7 @@
                             </div>
                         </router-link>
                     </div>
-                </div> 
+                </div>
                 <div class="row m-lr-0" v-if="group[0].pattern == 2">
                     <div class="col-md-3 p-lr-0">
                         <router-link v-for="(item,index) in group.slice(0, 3)" :key="index" :to="'/newsdetails/'+item.pid">
@@ -306,10 +306,10 @@
                             </div>
                         </router-link>
                     </div>
-                    <div class="col-md-3 p-r-0">  
-                        <router-link v-for="(item,index) in group.slice(3, 11)" :key="index" :to="'/newsdetails/'+item.pid" style="color:#333;">                      
-                            <p class="text-truncate news-list-display">                                
-                                <i class="fas fa-building"></i> {{item.main_point}}                                
+                    <div class="col-md-3 p-r-0">
+                        <router-link v-for="(item,index) in group.slice(3, 11)" :key="index" :to="'/newsdetails/'+item.pid" style="color:#333;">
+                            <p class="text-truncate news-list-display">
+                                <i class="fas fa-building"></i> {{item.main_point}}
                             </p>
                         </router-link>
                     </div>
@@ -339,12 +339,12 @@
                     </div>
                     <div class="col-md-3 p-r-0">
                         <router-link v-for="(item,index) in group.slice(14, 22)" :key="index" :to="'/newsdetails/'+item.pid" style="color:#333;">
-                            <p class="text-truncate news-list-display">                                
-                                <i class="fas fa-building"></i> {{item.main_point}}                                
+                            <p class="text-truncate news-list-display">
+                                <i class="fas fa-building"></i> {{item.main_point}}
                             </p>
                         </router-link>
                     </div>
-                </div> 
+                </div>
                 <div class="row m-lr-0" v-if="group[0].pattern == 3">
                     <div class="col-md-3 p-lr-0">
                         <router-link :to="'/newsdetails/'+group[0].pid">
@@ -364,7 +364,7 @@
                                 </clazy-load>
                             </div>
                         </router-link>
-                    </div>                                
+                    </div>
                     <div class="col-md-3 p-r-0">
                         <router-link v-for="(item,index) in group.slice(1, 4)" :key="index" :to="'/newsdetails/'+item.pid">
                             <div class="col-md-12 row m-b-10 adslist-card m-lr-0 news-3-card">
@@ -432,7 +432,7 @@
                             </div>
                         </router-link>
                     </div>
-                </div> 
+                </div>
 
                 <!-- Old design -->
                     <!-- <div class="col-md-3 p-l-0" v-for="(item,i) in group" :key="i">
@@ -448,9 +448,9 @@
                                         <p> {{item.main_point}} </p>
                                     </router-link>
                                 </div>
-                            </div> 
+                            </div>
                     </div>-->
-                <!-- Old design end -->                            
+                <!-- Old design end -->
             </div>
         </div>
         <!-- </div>
@@ -520,7 +520,7 @@
     },
     created() {
 
-        var today = new Date();  
+        var today = new Date();
         var month =(String) (today.getMonth()+1);
         var date = (String) (today.getDate());
 
@@ -528,38 +528,38 @@
         {
                 month = '0' + today.getMonth();
         }
-        
+
         if(date.length == 1 )
         {
                 date = '0' + today.getDate();
         }
-        var todaydate = today.getFullYear()+'-'+ month +'-'+ date; 
- 
+        var todaydate = today.getFullYear()+'-'+ month +'-'+ date;
+
         if(localStorage.getItem('date') == null)
-        {     
-            
-              localStorage.setItem('date',todaydate); 
-              this.getCategoryRandomValue();           
+        {
+
+              localStorage.setItem('date',todaydate);
+              this.getCategoryRandomValue();
         }
         else{
             // console.log(localStorage.getItem('date'));
-        
+
               var localdate = localStorage.getItem('date');
     // console.log(localdate);
     // console.log(todaydate > localdate)
-              if(todaydate > localdate) 
+              if(todaydate > localdate)
               {
                   localStorage.setItem('date',todaydate);
-                  this.getCategoryRandomValue();      
-              }  
-                  
-        }
-    
+                  this.getCategoryRandomValue();
+              }
 
-        
+        }
+
+
+
     //     this.categoryId();
     },
-    methods: {        
+    methods: {
 
             log() {
                 // console.log()
@@ -596,7 +596,7 @@
                     // console.log(response);
                     this.post_groups = this.groupBy(response.data, 'name');
                     // console.log(this.post_groups)
-                    
+
                 });
             },
 
@@ -626,9 +626,9 @@
             },
 
             getCategoryRandomValue(){
-                 
+
             this.axios.get("/api/get_cat_random") .then(response => {
-                });          
+                });
             },
 
             getLatestPostByCatID: function(catId) {
@@ -651,7 +651,7 @@
                 this.axios.post("/api/get_latest_post" , fd)
                 .then(response => {
                     this.latest_post = response.data;
-                   
+
                     // console.log(this.pattern);
                 });
             },
@@ -665,7 +665,7 @@
 
             searchCategory() {
                 if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
-                   
+
                     this.clearSearch();
                      console.log('null');
                 } else {

@@ -51,21 +51,22 @@
 
                                 <div class="card-body news-post">
                                     <div class="row">
-                                        <div class="col-md-2" v-if="newsList.photo">
+                                        <div class="col-md-2" v-if="newsList.photo !=null" >
                                             <img :src="'/upload/news/'+ newsList.photo" alt class="img-fluid" @error="imgUrlAlt" />
                                         </div>
-                                        <div class="col-md-2" v-else></div>
+                                        <div class="col-md-2" v-else> <img src="images/noimage.jpg" alt class="img-fluid"/></div>
                                         <div class="col-md-10">
-                                            <div class="row col-12 mb-2">
+                                            <!-- <div class="row col-12 mb-2"> -->
                                                 <b>
                         <router-link
                           :to="{name: 'newdetails', params:{id:newsList.id}}"
-                          class="mr-auto"
+                          class="row col-12 mb-2"
                         >{{newsList.title}}</router-link>
                         <!-- <router-link :to="{name: 'job_details', params:{id:news_list.id}}" class="mr-auto">{{news_list.title}}<router-link> -->
                         <!-- <a hrဖef="../news/news_details.html" class="mr-auto">{{newsList.title}} </a> -->
                       </b>
-                                            </div>
+                                            <!-- </div> -->
+
                                             <p>{{newsList.main_point}}</p>
                                             <div class="row col-12 mt-2">
                                                 <router-link :to="{name: 'editPost', params: {id: newsList.id}}" class="btn edit-borderbtn">編集</router-link>&nbsp;
@@ -131,15 +132,18 @@
             };
         },
         created() {
+
             this.axios.get("/api/news_list").then(response => {
+                console.log(this.news_list.photo);
                 this.news_list = response.data;
-                this.norecord = this.news_list.length;
+                this.norecord = this.news_list.length
                 if (this.norecord > this.size) {
                     this.pagination = true;
                 } else {
                     this.pagination = false;
                 }
             });
+
         },
         mounted() {
             this.axios.get("/api/category/category_list").then(

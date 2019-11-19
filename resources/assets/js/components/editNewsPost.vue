@@ -28,11 +28,11 @@
                                     <img :src="upload_img" class='show-img'>
                                 </div>
                             </div>
-                            <div class="form-group image_update" id="x-image" v-if="news.photo && !upload_img && !old_photo">
+                            <div class="form-group image_update" id="x-image" v-if ="news.photo && !upload_img && !old_photo">
                                 <div class="col-md-12" >
                                     <div id='x-image' class='col-md-2'>
                                         <span class='img-close-btn' v-on:click='closeBtnMethod(news.photo)'>X</span>
-                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="news" @error="imgUrlAlt">
+                                        <img :src="'/upload/news/'+ news.photo" class='show-img' alt="">
                                     </div>
                                 </div>
                             </div>
@@ -52,12 +52,12 @@
                                 <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
-                    
+
                                 <label>内容:<span class="error">*</span></label>
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                 <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
-                  
+
                             <input type="hidden" v-model="old_photo" >
                             <div class="form-group">
                                 <label> カテゴリー:<span class="error">*</span></label>
@@ -76,7 +76,7 @@
                                             <div class="card-body news-post">
                                                 <div class="row">
                                                     <div class="col-md-3" >
-                                                        <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news">
+                                                        <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news" @error="imgUrlAlt">
                                                     </div>
                                                     <div class="col-md-9">
                                                         {{news.title}}
@@ -170,7 +170,7 @@
 
                         this.news.photo = event.target.files[0];
                         this.upload_img = URL.createObjectURL(event.target.files[0]);
-                        
+
                     },
                     // updateselected() {
                     //     $('.image_update').html("<div id='x-image' class='col-md-2'><span class='img-close-btn' onClick='closebtn()'>X</span><img src= upload/news/" + this.news.photo + " class='show-img''></div>");
@@ -191,7 +191,7 @@
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
                         }).then(response => {
-                            
+
                                 this.$swal({
                                         title: "削除されました",
                                         text: "ニュース削除されました。",
@@ -260,7 +260,7 @@
                         }
                         });
 
-                      
+
                     });
                     },
                     getstates: function() {
@@ -292,15 +292,15 @@
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
-                            }).then(response =>{ 
+                            }).then(response =>{
                             var image_x = document.getElementById('x-image');
                             image_x.parentNode.removeChild(image_x);
                             document.getElementById('showimage').style.display = 'block';
-                           
-                            
-                            
+
+
+
                            }).then(response => {
-                            
+
                                 this.$swal({
                                         title: "削除されました",
                                         text: "ニュース削除されました。",
@@ -313,11 +313,11 @@
                                     this.old_photo = old_photo;
                                     this.getPostsByCatId;
                            });
-                             
+
                         }
-                     
-                        
-                    
+
+
+
                     },
                     checkValidate() {
                         if (this.news.title) {
@@ -352,7 +352,7 @@
                 imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
             }
-			
+
             }
     }
 </script>
