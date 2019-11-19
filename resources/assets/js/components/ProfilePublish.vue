@@ -164,9 +164,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '-' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '-' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
                                                      ~
-                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '-' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '-' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -176,9 +176,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '-' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '-' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
                                                      ~
-                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '-' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '-' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -187,7 +187,7 @@
                                                 <font>住所</font>
                                             </th>
                                             <td>
-                                                <font>{{cust.address}}</font>
+                                                <font>{{(cust.address == '')?'-':cust.address}}</font>
                                             </td>
                                         </tr>
                                         <tr>
@@ -202,9 +202,10 @@
                                             <th width="200" class="custom-bg-color">
                                                 <font>アクセス　</font>
                                             </th>
-                                            <td>
-                                                <p v-html="cust.access"></p>
+                                            <td v-if="cust.access">
+                                                <p v-html=cust.access></p>
                                             </td>
+                                            <td v-else> - </td>
                                         </tr>
                                         <!-- <tr>
                                             <th width="200" class="custom-bg-color">
@@ -250,7 +251,15 @@
             <div class="row ele m-lr-0" id="element2">
 
                 <h5 class="profile_header">特長 </h5>
-                <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12"><p v-html="nurseprofile.feature"></p></div>
+                
+                    <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">
+                        <div v-if="nurseprofile.features">
+                            <p v-html="nurseprofile.feature"></p>
+                        </div>
+                        <div v-else>
+                            No data
+                        </div>
+                    </div>
 
             </div>
 
@@ -270,10 +279,12 @@
 
                                 </th>
 
-                                <td width="50%">
+                                <td width="50%" v-if="nusmethod.method">
 
                                     <font>{{nusmethod.method}}</font>
 
+                                </td>
+                                <td v-else> -
                                 </td>
 
                             </tr>
@@ -436,7 +447,8 @@
 
                                 <td width="250" class="custom-bg-color"> 事業主体</td>
 
-                                <td>{{nus.business_entity}}</td>
+                                <td v-if="nus.business_entity">{{nus.business_entity}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -444,7 +456,8 @@
 
                                 <td width="250" class="custom-bg-color">開設年月日</td>
 
-                                <td>{{nus.date_of_establishment}}</td>
+                                <td v-if="nus.date_of_establishment">{{nus.date_of_establishment}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -452,7 +465,8 @@
 
                                 <td width="250" class="custom-bg-color"> 土地の権利形態 </td>
 
-                                <td>{{nus.land_right_form}}</td>
+                                <td v-if="nus.land_right_form">{{nus.land_right_form}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -460,7 +474,8 @@
 
                                 <td width="250" class="custom-bg-color">建物の権利形態</td>
 
-                                <td>{{nus.building_right_form}}</td>
+                                <td v-if="nus.building_right_form">{{nus.building_right_form}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -468,7 +483,8 @@
 
                                 <td width="250" class="custom-bg-color">敷地面積</td>
 
-                                <td>{{nus.site_area}}</td>
+                                <td v-if="nus.site_area">{{nus.site_area}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -476,7 +492,8 @@
 
                                 <td width="250" class="custom-bg-color">延床面積</td>
 
-                                <td>{{nus.floor_area}}</td>
+                                <td v-if="nus.floor_area">{{nus.floor_area}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -484,7 +501,8 @@
 
                                 <td width="250" class="custom-bg-color">構造</td>
 
-                                <td>{{nus.construction}}</td>
+                                <td v-if="nus.construction">{{nus.construction}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -492,7 +510,8 @@
 
                                 <td width="250" class="custom-bg-color">定員</td>
 
-                                <td>{{nus.capacity}}</td>
+                                <td v-if="nus.capacity">{{nus.capacity}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -500,7 +519,8 @@
 
                                 <td width="250" class="custom-bg-color">総居室・戸数 </td>
 
-                                <td>{{nus.num_rooms}}</td>
+                                <td v-if="nus.num_rooms">{{nus.num_rooms}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -508,7 +528,8 @@
 
                                 <td width="250" class="custom-bg-color">居住の権利形態 </td>
 
-                                <td>{{nus.residence_form}}</td>
+                                <td v-if="nus.residence_form">{{nus.residence_form}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -516,7 +537,8 @@
 
                                 <td width="250" class="custom-bg-color">類型 </td>
 
-                                <td>{{nus.fac_type}}</td>
+                                <td v-if="nus.fac_type">{{nus.fac_type}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -524,7 +546,8 @@
 
                                 <td width="250" class="custom-bg-color">入居条件</td>
 
-                                <td>{{nus.occupancy_condition}}</td>
+                                <td v-if="nus.occupancy_condition">{{nus.occupancy_condition}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -532,7 +555,8 @@
 
                                 <td width="250" class="custom-bg-color">居室区分・間取り等 </td>
 
-                                <td>{{nus.room_floor}}</td>
+                                <td v-if="nus.room_floor">{{nus.room_floor}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -540,7 +564,8 @@
 
                                 <td width="250" class="custom-bg-color"> 居室設備</td>
 
-                                <td>{{nus.living_room_facilities}}</td>
+                                <td v-if="nus.living_room_facilities">{{nus.living_room_facilities}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -548,7 +573,8 @@
 
                                 <td width="250" class="custom-bg-color">共用施設・設備 </td>
 
-                                <td>{{nus.equipment}}</td>
+                                <td v-if="nus.equipment">{{nus.equipment}}</td>
+                                <td v-else>-</td>
 
                             </tr>
 
@@ -573,12 +599,10 @@
 
                     <div class="col-md-12  m-b-15">
                         <h5 class="profile_subtit">動画</h5>
-                        <div class="row">
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
-                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
-                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                                    <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                                    <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                             </div>
-                        </div>
                     </div>
 
                     <div class="col-12">
