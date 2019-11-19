@@ -32,6 +32,7 @@ export default {
                 swipe: true,
                 autoplay: true,
                 lazyLoad: 'ondemand',
+                
             },
         }
     },
