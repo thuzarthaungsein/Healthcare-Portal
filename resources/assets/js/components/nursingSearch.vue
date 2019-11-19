@@ -895,7 +895,7 @@ getStateClick(e) {
 // map onclick function 
 // map change dropdown function
 nursingSearchData(index){
-            this.changeSearch();
+
             if(index == 1)
             {
                 this.township_id = -1;
