@@ -50,7 +50,7 @@
                                     <!-- <span class='img-close-btn' v-on:click="removeUpload()">X</span> -->
                                     <img :src="upload_img" class='show-img'>
                                 </div>
-                                 
+
                             </div>
 
                             <div class="form-group image_update" v-if="!update_img" id="x-image" >
@@ -104,7 +104,7 @@ export default {
                     this.advertisement.link = response.data.link;
                     this.ischeck = response.data.location;
                     this.updateCheck(this.ischeck);
-                    this.advertisement.photo=response.data.photo;                  
+                    this.advertisement.photo=response.data.photo;
                 });
         },
          methods: {
@@ -113,27 +113,27 @@ export default {
                 this.upload_img = URL.createObjectURL(event.target.files[0]);
                 this.update_img = true;
             },
-            
+
             closeBtnMethod: function(old_photo) {
                 this.update_img = true;
                 if(this.advertisement.photo)
-                {   
+                {
                     var image_x = document.getElementById('x-image');
                     image_x.parentNode.removeChild(image_x);
                 }
-            },       
+            },
             updateCheck: function (check){
                 this.advertisement.location.shift()
                if(check == "topbar"){
                  this.advertisement.location.push({
                     topbars: 1,
-                    sidebars:0   
+                    sidebars:0
                 });
                }
                else if(check == "sidebar"){
                     this.advertisement.location.push({
                         topbars: 0,
-                        sidebars:1  
+                        sidebars:1
                     });
                }
                else{
@@ -160,8 +160,8 @@ export default {
                         cancelButtonText: "キャンセル",
                         confirmButtonClass: "all-btn",
                         cancelButtonClass: "all-btn"
-                    }).then(response => { 
-                        this.errors = [];                    
+                    }).then(response => {
+                        this.errors = [];
                         let adsData = new FormData();
                         var arr = this.advertisement.location;
                         for(var i=0;i<arr.length;i++)
@@ -208,10 +208,10 @@ export default {
                     })
                 });
              }
-            
+
             },
 
-            clickValidation() {                
+            clickValidation() {
                 if(this.advertisement.title){
                     if(this.update_img){
                         if($('input[type="file"]').val() == null || $('input[type="file"]').val() == ''){
@@ -221,7 +221,7 @@ export default {
                         else{
                             this.errors = [];
                             this.updateAds();
-                        }                     
+                        }
                     }
                     else{
                         this.errors = [];
@@ -233,12 +233,12 @@ export default {
                     if(this.update_img){
                         if($('input[type="file"]').val() == null || $('input[type="file"]').val() == ''){
                             this.errors.push("photo");
-                        }                                            
+                        }
                     }
                 }
-                
+
             }
-  
+
         }
 }
 </script>

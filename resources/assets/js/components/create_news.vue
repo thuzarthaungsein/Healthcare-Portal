@@ -19,7 +19,7 @@
                             <div class="form-group mg">
                                 <label class="">メディア:</label>
                                 <div>
-                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput">
+                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput"  @error="imgUrlAlt">
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row" id="image_preview">
@@ -40,7 +40,7 @@
                                 <!-- <button class="btn main-bg-color white all-btn" type="button">
                                                     種類
                                                 <span class="caret"></span>
-                                            </button> --> 
+                                            </button> -->
                                 <label> カテゴリー:<span class="error">*</span></label>
                                 <select v-model="category_id" id="categories" class="form-control" @change='getstates()'>
                                     <option v-bind:value="-1">選択してください。</option>
@@ -55,7 +55,7 @@
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                     <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
-                            
+
                             <div class="col-md-12 card related-card">
                                 <div class="card-body">
                                     <div class="row">
@@ -74,7 +74,7 @@
                                     </div>
                                     <br/>
                                     <div class="row">
-                                        <div class="col-md-4" v-for="news in related_news" :key="news.id">
+                                        <div class="col-md-4" v-for="news in displayItems" :key="news.id">
                                             <label class="form-check-label control control--checkbox">
                                                 <input type="checkbox" :value="news.id" v-model="checkedNews">
                                                 <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
@@ -91,6 +91,27 @@
                                                 </div>
                                                 <div class="control__indicator"></div>
                                             </label>
+                                        </div>
+                                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                                                    </li>
+                                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                                                    </li>
+                                                </ul>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
@@ -139,6 +160,12 @@
                     related_news: [],
                     checkedNews: [],
                     upload_img: null,
+                    currentPage: 0,
+                size: 12,
+                pageRange: 5,
+                items: [],
+                pagination: false,
+                check_head: false
                 }
             },
             created() {
@@ -148,6 +175,47 @@
                     }.bind(this));
                 this.getPostsByCatId();
             },
+            computed: {
+            pages() {
+                    return Math.ceil(this.related_news.length / this.size);
+                },
+                displayPageRange() {
+                    const half = Math.ceil(this.pageRange / 2);
+                    const isEven = this.pageRange % 2 == 0;
+                    const offset = isEven ? 1 : 2;
+                    let start, end;
+                    if (this.pages < this.pageRange) {
+                        start = 1;
+                        end = this.pages;
+                    } else if (this.currentPage < half) {
+                        start = 1;
+                        end = start + this.pageRange - 1;
+                    } else if (this.pages - half < this.currentPage) {
+                        end = this.pages;
+                        start = end - this.pageRange + 1;
+                    } else {
+                        start = this.currentPage - half + offset;
+                        end = this.currentPage + half;
+                    }
+                    let indexes = [];
+                    for (let i = start; i <= end; i++) {
+                        indexes.push(i);
+                    }
+                    return indexes;
+                },
+                displayItems() {
+                    if(this.check_head == true){
+                        const head = 0;                    
+                        return this.related_news.slice(head,head + this.size);
+                    }else{
+                        const head = this.currentPage * this.size;                    
+                        return this.related_news.slice(head,head + this.size);
+                    }                    
+                },
+                isSelected(page) {
+                    return page - 1 == this.currentPage;
+                }
+        },
             methods: {
                     preview_image(e) {
                         // $('#image_preview').html("<div class='col-md-2'><img src='" + URL.createObjectURL(event.target.files[0]) + "' class='show-news-img'></div>");
@@ -179,7 +247,7 @@
                             cancelButtonText: "キャンセル",
                             confirmButtonClass: "all-btn",
                             cancelButtonClass: "all-btn"
-                        }).then(response => { 
+                        }).then(response => {
                         let fData = new FormData();
                         fData.append('photo', this.news.image)
                         fData.append('title', this.news.title)
@@ -211,7 +279,7 @@
 
                                 this.errors = error.response.data.errors
                             }});
-                        
+
                         })
                     },
                     getstates: function() {
@@ -230,6 +298,12 @@
                         fd.append("selected_category", cat_id);
                         this.axios.post("/api/news_list/search", fd).then(response => {
                             this.related_news = response.data;
+                            this.check_head = true;
+                            if(this.related_news.length > this.size) {
+                                this.pagination = true;
+                            }else{
+                                this.pagination = false;
+                            }
                         });
                         this.search_word = '1';
                     },
@@ -266,6 +340,30 @@
                 imgUrlAlt(event) {
                 event.target.src = "images/noimage.jpg"
             },
+                first() {
+                    this.currentPage = 0;
+                    window.scrollTo(0,0);
+                },
+                last() {
+                    this.currentPage = this.pages - 1;
+                    window.scrollTo(0,0);
+                },
+                prev() {
+                    if (0 < this.currentPage) {
+                        this.currentPage--;
+                    }
+                    window.scrollTo(0,0);
+                },
+                next() {
+                    if (this.currentPage < this.pages - 1) {
+                        this.currentPage++;
+                    }
+                    window.scrollTo(0,0);
+                },
+                pageSelect(index) {
+                    this.currentPage = index - 1;
+                    window.scrollTo(0,0);
+                },
             }
     }
 </script>

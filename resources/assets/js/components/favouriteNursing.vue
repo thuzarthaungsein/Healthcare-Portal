@@ -202,7 +202,7 @@
                             <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン／{{custname}}</h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle">料金プラン</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <button class="btn btn-secondary">閉じる&times;</button>
                                         </button>
@@ -233,31 +233,6 @@
                         <!-- end monthly cost -->
                     </div>
                 </div>
-
-                <!-- <div class="list-group col-md-3">
-                <div class="list-group-item list-group-item-action" style="height:68px;background:#fff9cb;margin-bottom:39px;">
-                    <input type="checkbox" class="che1 check-all-btn" @change="checkAll()">
-                    <div class="tx1">すべてチェック</div>
-                </div>
-                <div class="list-group-item list-group-item-action" style="height:221px;">
-                    <p class="m-l-20">基本情報</p>
-                </div>
-                <div class="bd">
-                    <div class="list-group-item list-group-item-action" v-if="address_show" style="height:50px;border:none;">住所</div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="tran_show" style="height:100px;">交通アクセス</div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="tran_show || address_show" style="height:50px;"></div>
-                </div>
-                <div class="bd">
-                    <div class="list-group-item list-group-item-action" v-if="month_show" style="height:50px;border:none;">月額費用</div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="entry_show" style="height:100px;">入居一時金</div>
-                    <div class="list-group-item list-group-item-action bd1" v-if="month_show || entry_show" style="height:50px;"></div>
-                </div>
-                <div v-if="condition_show" class="list-group-item list-group-item-action" style="height:166px;">入居条件</div>
-                <div v-if="special_show" class="list-group-item list-group-item-action" style="height:380px;">特長</div>
-                <div v-if="capacity_show" class="list-group-item list-group-item-action" style="height:50px;">Nursing_staff</div>
-                <div v-if="opening_show" class="list-group-item list-group-item-action" style="height:70px;">開設日</div>
-
-            </div> -->
             </div>
             <!--end compare box-->
             <!--result-->
@@ -285,8 +260,6 @@
                                     <div class="card-carousel--overflow-container">
                                         <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                                             <div class="card-carousel--card">
-                                                <!-- <div class="card-carousel--card--footer"> -->
-
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
@@ -316,7 +289,6 @@
                                                                 {{nur_profile.township_name}} {{nur_profile.city_name}}
                                                             </dd>
                                                         </dl>
-                                                        <!-- <div v-if="address_show" class="profile_wd"></div> -->
                                                     </td>
                                                 </tr>
                                                 <tr v-if="tran_show">
@@ -338,7 +310,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt class="text-left">入居時の費用</dt>
-                                                            <dd class="profile_price"><strong>{{nur_profile.moving_in_from}}円~{{nur_profile.moving_in_to}}円</strong></dd>
+                                                            <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.moving_in_from)/10000))==0? '' : (Math.floor(Number(nur_profile.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.moving_in_from)%10000)==0 ? '' : (Number(nur_profile.moving_in_from)%10000).toLocaleString()}}円～</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>
@@ -346,7 +318,7 @@
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <dl>
                                                             <dt class="text-left">月額の費用</dt>
-                                                            <dd class="profile_price"><strong>{{nur_profile.per_month_from}}円~{{nur_profile.per_month_to}}円</strong></dd>
+                                                            <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.per_month_from)/10000))==0? '' : (Math.floor(Number(nur_profile.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.per_month_from)%10000)==0 ? '' : (Number(nur_profile.per_month_from)%10000).toLocaleString()}}円～</strong></dd>
                                                         </dl>
                                                     </td>
                                                 </tr>

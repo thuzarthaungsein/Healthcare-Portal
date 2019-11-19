@@ -268,7 +268,7 @@
 
                     <ul class="list-unstyled collapse" id="pageSubmenu" style="">
 
-                        <li>
+                        <!-- <li>
 
                             <router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link>
 
@@ -278,7 +278,7 @@
 
                             <router-link to="#" class="nav-link"><i class="fa fa-random"></i>&nbsp;Dropdown 2</router-link>
 
-                        </li>
+                        </li> -->
 
 
 
@@ -545,10 +545,11 @@
                     <li><router-link to="/subjectlist" class="nav-link"><i class="fa fa-user-md"></i>&nbsp;&nbsp;医学科目</router-link></li>
 
                     <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認管理者確認</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed nav-link text-pre"><i class="fa fa-user-lock"></i>&nbsp;管理者確認</a>
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
-                            <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link></li>
+                            <!-- <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link></li> -->
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者一覧</router-link></li>
+                            <li><router-link to="/commentlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;Comment List</router-link></li>
                         </ul>
                     </li>
                     @endcan

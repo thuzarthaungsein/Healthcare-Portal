@@ -3533,6 +3533,7 @@ screen and (min-width: 750px) {
     .scrolldiv::-webkit-scrollbar,
     .scroll2::-webkit-scrollbar,
     .scrolldiv2::-webkit-scrollbar,
+    .adminview-sidebar::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
         width: 6px !important;
         background: #f7f7f7 !important;
@@ -3543,6 +3544,7 @@ screen and (min-width: 750px) {
     .scrolldiv::-webkit-scrollbar-track,
     .scroll2::-webkit-scrollbar-track,
     .scrolldiv2::-webkit-scrollbar-track,
+    .adminview-sidebar::-webkit-scrollbar-track,
     .main-wrap::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
         border-radius: 0px !important;
@@ -3553,6 +3555,7 @@ screen and (min-width: 750px) {
     .scrolldiv::-webkit-scrollbar-thumb,
     .scroll2::-webkit-scrollbar-thumb,
     .scrolldiv2::-webkit-scrollbar-thumb,
+    .adminview-sidebar::-webkit-scrollbar-thumb,
     body::-webkit-scrollbar-thumb {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
         background-color: #d7d7d7 !important;
@@ -3812,6 +3815,9 @@ background-color: #f5f5f5;
 .news-wrapper {
     height: 350px;
     overflow-y: auto;
+    scrollbar-width: thin;
+}
+.adminview-sidebar {
     scrollbar-width: thin;
 }
 
@@ -6474,7 +6480,8 @@ button.confirmed {
 #nursing dl dd {
     width: 100%;
     text-align: left;
-    padding-left: 10px;
+    /* padding-left: 10px; */
+    text-align: center;
 }
 
 #nursing p {
@@ -8384,6 +8391,7 @@ ul.nur-caro-card>li.list-group-item {
     font-size: 20px;
     font-weight: bold;
 }
+
    /* searchdata */
    .no_search_data{
     font-size: 20px;
@@ -8420,7 +8428,6 @@ ul.nur-caro-card>li.list-group-item {
     left: 0;
     background-color: #f57e46;
 } */
-
 
 /*pagination */
 
@@ -8556,4 +8563,5 @@ ul.nur-caro-card>li.list-group-item {
     100% {
         transform: rotate(360deg);
     }
-}
+  }
+  

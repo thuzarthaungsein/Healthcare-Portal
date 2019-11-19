@@ -1334,10 +1334,6 @@
 
             </div>
 
-            <!-- <div class="ele m-lr-0" id="element4">
-                <joboffer profile="profile"></joboffer>
-            </div> -->
-
     </div>
 
   </div>
@@ -1349,13 +1345,11 @@
 <script>
 
 
-import joboffer from './JobSearchListComponent.vue'
 import Pannellum from '../../../../resources/assets/js/components/vue-pannellum.vue'
 import Lightbox from 'vue-my-photos'
 export default {
 
     components:{
-        joboffer,
         Pannellum,
         Lightbox
     },
@@ -1429,7 +1423,7 @@ export default {
                 paginationFactor:103,
                 fav_email : [],
                 currentPage: 0,
-                size: 20,
+                size: 5,
                 pageRange: 5,
                 items: [],
                 pagination: false,
