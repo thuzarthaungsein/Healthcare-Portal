@@ -1399,7 +1399,7 @@ export default {
                 paginationFactor:103,
                 fav_email : [],
                 currentPage: 0,
-                size: 20,
+                size: 5,
                 pageRange: 5,
                 items: [],
                 pagination: false,
