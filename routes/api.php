@@ -330,6 +330,7 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
     Route::post('search','CommentController@search');
+    //Route::get('getcommentlist/{cusid}','CommentController@getCommentList');
     Route::get('comment_list','CommentController@list');
 });
 
