@@ -522,7 +522,8 @@
             pattern:[],
             is_cat_overflow: false,
             is_cat_slided: false,
-            computed_width: '100%'
+            computed_width: '100%',
+            width: 0
         }
     },
     created() {
@@ -563,8 +564,15 @@
         }
 
     //     this.categoryId();
+
+        window.addEventListener('resize', this.handleResize)
+        this.handleResize();
     },
     methods: {
+
+             handleResize() {
+                this.window.width = window.innerWidth;
+            },
 
             log() {
                 // console.log()
