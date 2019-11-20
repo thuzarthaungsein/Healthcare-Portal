@@ -3366,7 +3366,7 @@ ul.main-tab li:after {
     position: relative;
     display: flex;
   }
-  
+
   .searchTerm {
       width: 100%;
       border: 3px solid #f7834b;
@@ -3377,11 +3377,11 @@ ul.main-tab li:after {
       outline: none;
       color: #495057;
   }
-  
+
   .searchTerm:focus{
     color: #000;
   }
-  
+
   .searchButton {
       width: 85px;
       height: 46px;
@@ -3391,7 +3391,7 @@ ul.main-tab li:after {
       color: #fff;
       border-radius: 0 5px 5px 0;
   }
-  
+
 .division-box>ul {
     box-sizing: border-box;
     position: absolute;
@@ -3590,8 +3590,10 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar,
     .scrolldiv2::-webkit-scrollbar,
     .adminview-sidebar::-webkit-scrollbar,
+    .map-wrap::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
         width: 6px !important;
+        height: 6px;
         background: #f7f7f7 !important;
     }
     .news-wrapper::-webkit-scrollbar-track,
@@ -3601,6 +3603,7 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar-track,
     .scrolldiv2::-webkit-scrollbar-track,
     .adminview-sidebar::-webkit-scrollbar-track,
+    .map-wrap::-webkit-scrollbar-track,
     .main-wrap::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
         border-radius: 0px !important;
@@ -3612,6 +3615,7 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar-thumb,
     .scrolldiv2::-webkit-scrollbar-thumb,
     .adminview-sidebar::-webkit-scrollbar-thumb,
+    .map-wrap::-webkit-scrollbar-thumb,
     body::-webkit-scrollbar-thumb {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
         background-color: #d7d7d7 !important;
@@ -6010,11 +6014,11 @@ body::-webkit-scrollbar-thumb {
 /*  Start CommentList */
 
 button.confirmed {
-    opacity: 0.5;
-    cursor: not-allowed;
+    border: 1px solid #b6b4b4 !important;
+    background: #b6b4b4;
+    box-shadow: none!important;
+    min-width: 60px;
 }
-
-
 /* End Commentlist */
 
 .mailbox {
@@ -8244,7 +8248,7 @@ ul.nur-caro-card>li.list-group-item {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    
+
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
@@ -8404,7 +8408,7 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 
-/* 
+/*
 .header2 h5:after {
     height: 2px;
     content: '';

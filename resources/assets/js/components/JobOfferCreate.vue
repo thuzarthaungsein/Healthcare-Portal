@@ -139,7 +139,7 @@
                                     <span class="error sp2">必須</span>
                                 </label>
                                 <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="joboffer.postal" maxlength="7" v-on:keyup="getPostal" />
-                          
+
                                 <!-- <span v-if="errors.includes('postal')" class="error">題名が必須です。(postal)</span> -->
                                  <span v-if="errors.postal" class="error">{{errors.postal}}</span>
                             </div>
@@ -171,7 +171,7 @@
                                 <textarea name="location" class="form-control" cols="50" rows="5" v-model="joboffer.location" placeholder="勤務地を入力してください。"></textarea>
                                  <span v-if="errors.location" class="error">{{errors.location}}</span>
                                  <!-- <span v-if="errors.includes('location')" class="error">題名が必須です。(location)</span> -->
-                                  
+
                             </div>
 
                             <!-- <div class="form-group row">
@@ -313,11 +313,11 @@
                                     </select>
                                       <span v-if="errors.salary_type" class="error">{{errors.salary_type}}</span>
                                        <!-- <span v-if="errors.includes('salary_type')" class="error">題名が必須です。(salary_type)</span> -->
-                                       
+
                                     <input type="text" class="form-control col-md-4 joboffer-salary" v-model="joboffer.salary" name="salary" placeholder="給与を入力してください。" v-on:keydown="isNumber" />
                                     <span v-if="errors.salary" class="error">{{errors.salary}}</span>
                                     <!-- <span v-if="errors.includes('salary')" class="error">題名が必須です。(salary)</span> -->
-                                   
+
                                 </div>
                             </div>
 
@@ -362,7 +362,7 @@
                                 <input type="workhour" class="form-control" name="workhour" v-model="joboffer.working_hours" placeholder="就業時間を入力してください。" />
                                 <span v-if="errors.working_hours" class="error">{{errors.working_hours}}</span>
                                 <!-- <span v-if="errors.includes('working_hours')" class="error">題名が必須です。(working_hours)</span> -->
-                              
+
                             </div>
 
                             <div class="form-group">
@@ -440,7 +440,7 @@
                         salary_remark: '',
 
                         insurance: "",
-                        
+
                         holidays: "",
 
                         user_id: "",
@@ -524,101 +524,7 @@
 
             methods: {
               checkValidate() {
-                //   alert(1);
-                      console.log("Validation fun");
-                    //   if(this.errors.length ==0){
-                            console.log('joboffer');                                                
-                            // this.$swal({
-                            //     title: "作成",
-                            //     text: "作成よろしでしょうか。",
-                            //     type: "success",
-                            //     width: 350,
-                            //     height: 200,
-                            //     showCancelButton: true,
-                            //     confirmButtonColor: "#6cb2eb",
-                            //     cancelButtonColor: "#b1abab",
-                            //     cancelButtonTextColor: "#000",
-                            //     confirmButtonText: "作成",
-                            //     cancelButtonText: "キャンセル",
-                            //     confirmButtonClass: "all-btn",
-                            //     cancelButtonClass: "all-btn"
-                            // })
-                            
-                        
-                        // if (this.joboffer.title == '' ) {
-                          
-                        //     this.errors.push("title");            
-                        // } else {
-                        //      this.errors=[];
 
-                        // }
-
-                        // if (this.joboffer.description == '') {
-                            
-                        //      this.errors.push("description");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-
-                        // if (this.joboffer.postal == '') {
-                           
-                        //      this.errors.push("postal");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-
-                        // if (this.joboffer.pref == '') {
-                            
-                        //      this.errors.push("pref");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-
-                        // if (this.joboffer.str_address == '') {
-                         
-                        //      this.errors.push("str_address");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-
-                        // if (this.joboffer.location == '') {
-                           
-                        //      this.errors.push("location");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-
-                        // if (this.joboffer.salary_type == '-1') {
-                           
-                        //    this.errors.push("salary_type");  
-                        // }
-                        // else {
-                        //    this.errors=[];
-                        // }
-
-                        // if (this.joboffer.salary == '') {
-                           
-                        //      this.errors.push("salary");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-
-                        //  if (this.joboffer.working_hours == '') {
-                           
-                        //      this.errors.push("working_hours");  
-                        // } else {
-                        //     this.errors=[];
-                        // }
-                         
-                        //  if(`${this.$route.params.id}` == "undefined"){
-                        // console.log("go to add")
-                        // this.add();
-                        // }
-                        // else{
-                        //     console.log("go to upd")
-                        //     this.updateJob();
-                        // }
-                         
                          if (this.joboffer.title == '') {
                             this.errors.title = '施設種別名が必須です。';
                         } else {
@@ -629,13 +535,13 @@
                             this.errors.description = '仕事内容が必須です。';
                         } else {
                             this.errors.description = "";
-                        } 
+                        }
 
                           if (this.joboffer.postal == '') {
                             this.errors.postal = '郵便番号が必須です。';
                         } else {
                             this.errors.postal = "";
-                        }               
+                        }
 
                         if (this.joboffer.pref == '') {
                             this.errors.pref = '都道府県が必須です。';
@@ -673,9 +579,9 @@
                         } else {
                             this.errors.working_hours = "";
                         }
-                        
+
                         if (
-                            !this.errors.title && 
+                            !this.errors.title &&
                             !this.errors.description &&
                             !this.errors.postal &&
                             !this.errors.pref &&
@@ -684,54 +590,11 @@
                             !this.errors.salary_type &&
                             !this.errors.salary &&
                             !this.errors.working_hours
-                            
+
                         ) {
-                            
+
                             this.add();
                         }
-
-                        // if (this.joboffer.postal == '') {
-                        //     this.errors.postal = 'postal';
-                        // } else {
-                        //     this.errors.postal = "";
-                        // }                
-
-                        // if (this.joboffer.pref == '') {
-                        //     this.errors.pref = 'pref';
-                        // } else {
-                        //     this.errors.pref = "";
-                        // }
-
-                        // if (this.joboffer.str_address == '') {
-                        //     this.errors.str_address = 'str_address';
-                        // } else {
-                        //     this.errors.str_address = "";
-                        // }
-
-                        // if (this.joboffer.location == '') {
-                        //     this.errors.location = 'location';
-                        // } else {
-                        //     this.errors.location = "";
-                        // }
-
-                        // if (this.joboffer.salary_type == '-1') {
-                        //     this.errors.salary_type = " salary_type";
-                        // }
-                        // else {
-                        //     this.errors.salary_type = null;
-                        // }
-
-                        // if (this.joboffer.salary == '') {
-                        //     this.errors.salary = 'salary';
-                        // } else {
-                        //     this.errors.salary = "";
-                        // }
-
-                        // if (this.joboffer.working_hours == '') {
-                        //     this.errors.working_hours = 'working_hours';
-                        // } else {
-                        //     this.errors.working_hours = "";
-                        // }
                   },
                 getPostal: function(event) {
                     if (this.joboffer.postal.length > 4) {
@@ -767,7 +630,6 @@
                 add() {
                     console.log(this.joboffer);
                     if (this.$route.params.id) {
-                      console.log('aaaaa');
                         this.updateJob();
                     } else {
                         this.$swal({
@@ -821,9 +683,9 @@
                 getParent: function() {
                   this.joboffer.occupation_id = this.selectedValue;
                 },
-            //      add() {                   
+            //      add() {
             //      if(this.errors.length ==0)
-            //     {   
+            //     {
             //       // this.$swal({
             //       //       title: "確認",
             //       //       text: "更新よろしいでしょうか。",
@@ -918,10 +780,10 @@
                 //   // }
 
                 //   var keyCode = event.key;
-                //   if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57)) { 
+                //   if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57)) {
                 //     console.log(keyCode);
                 //     return false;
-                //   }  
+                //   }
                 // },
                 // createCheck: function(check) {
 
@@ -960,7 +822,6 @@
                 updateJob() {
                   // console.log('bbb');
                       if (this.$route.params.id){
-                        console.log('bbbbb');
                         this.$swal({
                         title: "確認",
                         text: "更新よろしいでしょうか。",
@@ -1003,9 +864,9 @@
                     }
 
                       }
-                   
+
                   //console.log("update");
-                    
+
                 }
             };
 
