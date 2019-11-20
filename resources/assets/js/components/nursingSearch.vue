@@ -1030,7 +1030,6 @@ coordinates(theCity, lat, lng){
                     }) 
 },
 infoWindow(item, mmarker){
-
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
             infoWindowContent.push([
