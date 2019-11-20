@@ -205,12 +205,12 @@
                 },
                 displayItems() {
                     if(this.check_head == true){
-                        const head = 0;                    
+                        const head = 0;
                         return this.related_news.slice(head,head + this.size);
                     }else{
-                        const head = this.currentPage * this.size;                    
+                        const head = this.currentPage * this.size;
                         return this.related_news.slice(head,head + this.size);
-                    }                    
+                    }
                 },
                 isSelected(page) {
                     return page - 1 == this.currentPage;

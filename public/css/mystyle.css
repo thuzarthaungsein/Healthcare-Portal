@@ -5953,11 +5953,11 @@ body::-webkit-scrollbar-thumb {
 /*  Start CommentList */
 
 button.confirmed {
-    opacity: 0.5;
-    cursor: not-allowed;
+    border: 1px solid #b6b4b4 !important;
+    background: #b6b4b4;
+    box-shadow: none!important;
+    min-width: 60px;
 }
-
-
 /* End Commentlist */
 
 .mailbox {
@@ -8418,7 +8418,7 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 
-/* 
+/*
 .header2 h5:after {
     height: 2px;
     content: '';
@@ -8564,4 +8564,4 @@ ul.nur-caro-card>li.list-group-item {
         transform: rotate(360deg);
     }
   }
-  
+
