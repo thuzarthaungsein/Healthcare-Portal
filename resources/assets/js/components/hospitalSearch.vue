@@ -7,24 +7,23 @@
   <div class="search-map card-body"  @mouseover="getStateHover">
     <div class="row" id="hos">
       <div class="col-md-12">
-        <div class="row">
-          <div class="info-box"></div>
-          <div class="col-12 map-wrap">
-          <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
-            <h2 class="map-header m-t-100">あなたの街の名医<br/>見つかります。</h2>
+        <div>
+          <!-- <div class="info-box"></div> -->
+          <div class="row map-wrap">
+          <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
+            <h2 class="map-header">あなたの街の名医<br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton">    
-                      <i class="fas fa-search"></i>   
-                      検索
+                      <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
               </div> 
             <!--end search input-->          
             </div>
-           <div class="col-lg-7 col-md-12 col-sm-12 float-left">
+           <div class="col-lg-7 col-md-12 col-sm-12 float-right">
             
               <div class="divisions row " id="divisionswrap">
                 <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
@@ -442,7 +441,7 @@
                           <td>{{hos.email}}</td>
                         </tr>
                         <tr>
-                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
+                          <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
                           <td>{{hos.address}}</td>
                         </tr>
                         <!-- <tr>

@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-12">
-            
+
             <!--card-->
             <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                 <div class="col-md-12 scrolldiv">
@@ -29,49 +29,52 @@
                         <div class="card card-default m-b-20" v-for="comment in displayItems" :key="comment.id">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-8 m-t-8">
-                                        <strong>タイトル :</strong> {{comment.title}}
+                                    <div class="col-md-8">
+                                        <strong>タイトル :</strong> {{comment.title}}  <br/>
+                                        <strong>顧客名 :</strong> {{comment.name}}  <br/>
+                                        <strong>メールアドレス:</strong>{{comment.email}}
                                     </div>
+
                                     <div class="col-md-4 text-right">
                                         <!-- <button class="'btn btn all-btn main-bg-color changeLink'+payment.id" type="button" @click="commentToggle(comment.id)"><span  :id="'icon' + comment.id"  class="fa fa-angle-down"></span></button> -->
                                         <button :class="'btn btn all-btn main-bg-color changeLink'+comment.id" style="min-width: 0px;" @click="commentToggle(comment.id)">
                                             <i :id="'icon' + comment.id" class="fa fa-angle-down"></i> 見る</button>
-                                        <button class="btn-secondary all-btn confirmed" v-if="comment.status != 0" style="padding:5px;border-radius:2px;">確認しました。</button>
-                                        <button class="btn btn-info all-btn" v-else @click="commentConfirm(comment.id)">確認</button>
-                                        <button class="btn btn-danger all-btn" @click="deleteComment(comment.id)">削除</button>
+                                        <button class="btn confirmed" v-if="comment.status != 0" style ="opacity: 0.5;cursor: not-allowed;" >確認</button>
+                                        <button class="btn confirm-borderbtn" v-else @click="commentConfirm(comment.id)">確認</button>
+                                        <button class="btn text-danger delete-borderbtn" @click="deleteComment(comment.id)">削除</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="collapse card-body" :id="'changeLink' + comment.id">
                                 <div class="col-md-12">
-                                    <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}}</h5>
+                                    <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}} (コメント)</h5>
                                     <br>
-                                    <table class="table">
-                                        <tr>
+                                        <div name="exp[]" class="col-md-12"><p>{{comment.comment}}</p></div>
+                                    <!-- <table class="table"> -->
+                                        <!-- <tr>
                                             <th>タイトル</th>
                                             <th>
                                                 <input type="text" name="exp[]" class="form-control expense-moving white-bg-color" v-model="comment.title">
                                             </th>
-                                        </tr>
-                                        <tr>
-                                            <th>コメント</th>
+                                        </tr> -->
+                                        <!-- <tr>
                                             <th>
                                                 <input type="text" name="exp[]" class="form-control living-room-type white-bg-color" v-model="comment.comment">
                                             </th>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                             <th>メールアドレス</th>
                                             <th>
                                                 <input type="text" name="exp[]" class="form-control monthly-fees white-bg-color" v-model="comment.email">
                                             </th>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                             <th>名前</th>
                                             <th>
                                                 <input type="text" name="exp[]" class="form-control area white-bg-color" v-model="comment.name">
                                             </th>
-                                        </tr>
-                                    </table>
+                                        </tr> -->
+                                    <!-- </table> -->
                                 </div>
                             </div>
                         </div>
@@ -116,6 +119,7 @@
                     items: [],
                     pagination: false,
                 }
+
             },
             created() {
                 this.axios
@@ -129,6 +133,8 @@
                             this.pagination = false;
                         }
                     });
+
+
             },
             computed: {
             pages() {
