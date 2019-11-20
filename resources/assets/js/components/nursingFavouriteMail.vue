@@ -60,17 +60,17 @@
                                 <div class="col-md-3 col-sm-12 form-left"><label>性別 <span class="error sp1">必須</span></label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1" @change="aggreBtn">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
                                          <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1" @change="aggreBtn">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
+                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1" @change="aggreBtn">&nbsp;夫婦
                                         <div class="control__indicator"></div>
                                     </label>
 
@@ -463,7 +463,7 @@ import DatePicker from 'vue2-datepicker';
                 });
             },
             aggreBtn: function(){
-                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != ''){
+                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.sex1 != ''){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;

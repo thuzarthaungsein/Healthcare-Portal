@@ -138,7 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="offset-md-4 col-md-8 mt-3">
+                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -182,6 +182,7 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
+                    pagination: false
                 };
             },
             created() {
@@ -189,7 +190,11 @@
                     console.log(response.data);
                     this.jobs = response.data.profilejob;
                     this.customer_id = response.data.user;
-                    console.log(this.jobs)
+                    if (this.jobs.length > this.size) {
+                    this.pagination = true;
+                    } else {
+                        this.pagination = false;
+                    }
 
                 });
 
@@ -278,6 +283,11 @@
                         fd.append("customer_id", customer_id);
                         this.axios.post("/api/job/search", fd).then(response => {
                             this.jobs = response.data;
+                            if (this.jobs.length > this.size) {
+                            this.pagination = true;
+                            } else {
+                                this.pagination = false;
+                            }
                         });
                     },
                 first() {

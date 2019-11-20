@@ -1042,7 +1042,7 @@ export default {
                 this.payment_list = [];
 
                 var customer_name = $('.customer-name').val();
-                var customer_email = $('.customer-email').text();
+                var customer_email = $('.customer-email').text(); 
                 var customer_phone = $('.customer-phone').val();
                 var customer_address = $('#city').val();
 

@@ -9,9 +9,25 @@
       <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
-           <div class="col-md-12 col-sm-12 col-md-12 map-wrap">
-            <div class="divisions" style="margin:0 auto">
-              <div class="row " id="divisionswrap">
+          <div class="col-12 map-wrap">
+          <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
+            <h2 class="map-header m-t-100">あなたの街の名医<br/>見つかります。</h2>
+            <!--search input-->
+              <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <button type="submit" class="searchButton">    
+                      <i class="fas fa-search"></i>   
+                      検索
+                  </button>
+                </div>
+              </div> 
+            <!--end search input-->          
+            </div>
+           <div class="col-lg-7 col-md-12 col-sm-12 float-left">
+            
+              <div class="divisions row " id="divisionswrap">
+                <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
                     <div class="division-box">
@@ -298,11 +314,12 @@
                   </div>
                 </div>
               </div>
-            </div>           
+                      
 
             <!-- <div class="map">
               
             </div> -->
+          </div>
           </div>
            
 
