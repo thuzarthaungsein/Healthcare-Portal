@@ -51,10 +51,11 @@
                                     </select>
                                 <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group"> 
+
                                 <label>内容:<span class="error">*</span></label>
                                 <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
-                                <span v-if="errors.body" class="error">{{errors.body}}</span>
+                                <span v-if="errors.body" class="error">{{errors.body}}</span> 
                             </div>
                             <div class="col-md-12 card related-card">
                                 <div class="card-body">
