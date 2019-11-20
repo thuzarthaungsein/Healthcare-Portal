@@ -2691,10 +2691,6 @@ li.userprofile-name>a {
     display: inline-block;
 }
 
-.userprofile-img {
-    width: 40px;
-    height: 40px;
-}
 
 .tab-content {
     /* padding: 15px !important; */
@@ -3417,6 +3413,12 @@ ul.main-tab li:after {
     border: 1px solid #8e3c15;
     color: #ff6117;
 }
+
+.page-item .spanclass:hover {
+    background-color: #ddd !important;
+    border: 1px solid #8e3c15;
+ }
+
 
 .spanclass:hover a.card-text {
     color: #ff6117 !important;
@@ -4613,7 +4615,14 @@ li.userprofile-name>a {
 
 .userprofile-img {
     width: 40px;
-    height: 40px;
+   height: 40px;
+   line-height: 40px !important;
+   font-size: 23px;
+   color: #ff6117;
+   background: #ece1e1b3;
+   text-align: center;
+   vertical-align: middle;
+   border-radius: 50%;
 }
 
 .maintab-content {
@@ -5315,6 +5324,19 @@ padding-bottom: 15px; */
 
 @media print,
 screen and (min-width: 750px) {
+    .page-item:first-child .spanclass,
+    .page-item:last-child .spanclass,
+    .page-item:nth-child(2) .spanclass,
+    .page-item:nth-last-child(2) .spanclass {
+        width: 60px;
+        height: 30px;
+        transition: background-color .3s;
+    }
+    .page-item .spanclass {
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
     .spanclass {
         width: 60px;
         height: 30px;
@@ -8427,11 +8449,19 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 .page-item.active_page .spanclass {
-    z-index: 1;
-    background-color: #ffbb99;
+    background-color: #f57e46;
     background-image: none;
     border: 1px solid #8e3c15;
-}
+    color: #fff;
+    z-index: 1;
+ }
+ .page-item.active_page .spanclass:hover {
+    background-color: #f57e46 !important;
+    background-image: none;
+    border: 1px solid #8e3c15;
+    color: #fff;
+    z-index: 1;
+ }
 
 .page-item .spanclass {
     cursor: pointer;
@@ -8476,7 +8506,7 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 .wrapper-3 img {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     height: 175px;
     /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
