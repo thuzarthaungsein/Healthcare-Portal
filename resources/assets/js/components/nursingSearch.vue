@@ -1032,36 +1032,28 @@ coordinates(theCity, lat, lng){
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
+            console.log("typename");
+            console.log(item[i]['type_name']);
             infoWindowContent.push([
             '<div id="info_content">' +
             '<div class="">' +
                 '<table class="table">' +
                 '<thead>' +
                     '<tr>' +
-                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                    '</span></td>' +
-                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                    '</td>' +
-                    '</tr>' +
-                '</thead>' +
-                '<tbody>' +
-                    '<tr>' +
-                    '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                    '</span> </button></td>' +
-                    '</tr>' +
-                    '<tr>' +
-                    '<td colspan="2" class="text-left">' +
-                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
-                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
-                    '</td>' +
-                '</tr>' +
-                '<tr>' +
                     '<td colspan="2"><p class="type-name">' +
                     item[i]['type_name'] +
-                    +'</p></td>' +
+                    +'</p>'+
+                    '</td>' +                    
+                    '</tr>' +
+                '</thead>' +
+                '<tbody>' +                    
+                    '<tr>' +
+                    '<td colspan="2" class="text-left">' +
+                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" style="margin-right:10px;">' +
+                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +                    
+                    '</td>' +
                 '</tr>' +
+                
                 '<tr>' +
                 '<td>' +
                 '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
@@ -1091,10 +1083,8 @@ infoWindow(item, mmarker){
                     '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                     '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                     '<tbody>'+
-                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                    '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                     '</tbody>'+
-
                     '</table>'+
                     '</div>' +
                 '</td>' +
