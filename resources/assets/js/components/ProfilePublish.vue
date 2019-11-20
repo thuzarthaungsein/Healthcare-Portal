@@ -1001,25 +1001,28 @@
                                         <th width="250" class="custom-bg-color">
                                             <font>住所</font>
                                         </th>
-                                        <td>
+                                        <td v-if="cust.address">
                                             <font>{{cust.address}}</font>
                                         </td>
+                                        <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>電話番号</font>
                                         </th>
-                                        <td>
+                                        <td v-if="cust.phone">
                                             <font>{{cust.phone}}</font>
                                         </td>
+                                        <td v-else> - </td>
                                     </tr>
                                      <tr>
                                         <th width="250" class="custom-bg-color">
                                             <font>アクセス</font>
                                         </th>
-                                        <td>
+                                        <td v-if="cust.access">
                                             <p v-html="cust.access"></p>
                                         </td>
+                                        <td v-else> - </td>
                                     </tr>
                                      <!-- <tr>
                                         <th width="250" class="custom-bg-color">
@@ -1041,12 +1044,13 @@
                                         <th width="250" class="custom-bg-color">
                                             <font>件名 </font>
                                         </th>
-                                        <td>
+                                        <td v-if="subjects">
                                             <label for="" v-for="sub in subjects" :key="sub.id">
                                                 {{sub.name}}
                                             </label>
                                             <!-- <font>{{cust.subject}}</font> -->
                                         </td>
+                                        <td v-else> - </td>
                                     </tr>
                                 </table>
                             </div>
@@ -1063,7 +1067,7 @@
 
                          <h5 class="header m-t-10">こだわりの特長</h5>
 
-                        <div class="row m-lr-0">
+                        <div class="row m-lr-0" v-if="specialfeature">
 
                             <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
 
@@ -1072,17 +1076,16 @@
                             </ul>
 
                         </div>
+                        <div class="row m-lr-0" v-else> No Data </div>
 
                         <h5 class="header m-t-10">診療科目</h5>
 
-                        <div class="row col-md-12">
+                        <div class="row col-md-12" v-if="subjects">
                             <ul class="sub_container" v-for="sub in subjects" :key="sub.id">
                                 <li>{{sub.name}}</li>
-
                             </ul>
-
                         </div>
-
+                        <div class='row col-md-12' v-else> No Data </div>
                     </div>
                     <!--end for address-->
                 </div>
@@ -1090,11 +1093,11 @@
 
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
-                    <p v-for="hospital in hospitals" :key="hospital.id">{{hospital.details_info}}</p>
+                    <p v-for="hospital in hospitals" :key="hospital.id">
+                        <span v-if="hospital.details_info">{{hospital.details_info}}</span>
+                        <span v-else>No Data</span>
+                    </p>
                 </div>
-
-
-
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">診療時間 </h5>
                     <div class="row">
@@ -1158,7 +1161,15 @@
 
                                         <th class="second-row text-center">午前</th>
 
-                                        <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">{{amval}}</td>
+                                        <span v-if="am_arr[0]">
+                                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
+                                        </span>
+                                        <span v-else>
+                                            <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
+                                        </span>
 
                                     </tr>
 
@@ -1166,7 +1177,15 @@
 
                                         <th class="second-row text-center">午後</th>
 
-                                        <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">{{amval}}</td>
+                                        <span v-if="pm_arr[0]">
+                                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
+                                        </span>
+                                        <span v-else>
+                                            <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
+                                        </span>
 
                                     </tr>
 
@@ -1178,7 +1197,10 @@
 
                             <div v-for="hospital in hospitals" :key="hospital.id">
 
-                                <p><strong class="font-weight-bold">休診日: </strong><font>{{hospital.closed_day}}</font> </p>
+                                <p><strong class="font-weight-bold">休診日: </strong>
+                                    <span v-if="hospital.closed_day"><font>{{hospital.closed_day}}</font></span>
+                                    <span v-else> No Data </span>
+                                </p>
 
                             </div>
 
@@ -1196,31 +1218,21 @@
                 <div class="col-12">
                     <h5 class="profile_subtit">施設情報 </h5>
                     <div class="row col-md-12">
-
-                            <div class="col-md-2 fac-name-box" v-for="hosfacility in hosfacilities " :key="hosfacility.id">
-
+                        <div class="col-md-2 fac-name-box" v-for="hosfacility in hosfacilities " :key="hosfacility.id">
                             <h4>{{hosfacility.description}}</h4>
-
-                            <div class="fac-check-box">
-
-                                <p v-for="fac in fac_list" :key="fac.id">
-
-                                    <i v-if="fac.id === hosfacility.id">〇</i>
-
-                                </p>
-
-
-
+                            <div class="fac-check-box" v-if="fac_list">
+                                <span v-if="fac_list.length>0">
+                                    <p v-for="fac in fac_list" :key="fac.id">
+                                        <i v-if="fac.id === hosfacility.id">〇</i>
+                                    </p>
+                                </span>
+                                <span v-else>
+                                    <p> - </p>
+                                </span>
                                 <!-- <i class="fa fa-circle-o fa-stack-2x" v-if="fac.id === hosfacility.id"></i>  -->
-
                             </div>
-
                         </div>
-
                     </div>
-
-
-
                 </div>
 
             </div>
@@ -1290,10 +1302,15 @@
             <!-- Hospital Video -->
                 <div class="col-md-12">
                     <h5 class="profile_subtit">動画</h5>
-                    <div class="row">
+                    <div class="row" v-if="videos.length>0">
                         <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
                             <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
                             <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                        </div>
+                    </div>
+                    <div class="row" v-else>
+                        <div class="col-sm-4 col-md-4 col-lg-3">
+                            <span> No Data </span>
                         </div>
                     </div>
                 </div>
@@ -1317,19 +1334,23 @@
                                     <tbody>
                                     <tr>
                                         <td class="custom-bg-color"> 公式サイト</td>
-                                        <td>{{m.website}}</td>
+                                        <td v-if="m.website">{{m.website}}</td> 
+                                        <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <td class="custom-bg-color"> アクセス</td>
-                                        <td><p v-html="m.access"></p></td>
+                                        <td v-if="m.access"><p v-html="m.access"></p></td>
+                                        <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <td class="custom-bg-color"> 混雑状況</td>
-                                        <td>{{m.congestion}}</td>
+                                        <td v-if="m.congestion">{{m.congestion}}</td>
+                                        <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <td class="custom-bg-color">住所 </td>
-                                        <td>{{m.address}}</td>
+                                        <td v-if="m.address">{{m.address}}</td>
+                                        <td v-else> - </td>
                                     </tr>
                                     </tbody>
                                 </table>
