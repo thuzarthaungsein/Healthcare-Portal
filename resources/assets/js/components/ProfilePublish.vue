@@ -599,55 +599,57 @@
 
                     <div class="col-md-12  m-b-15">
                         <h5 class="profile_subtit">動画</h5>
+                        <span v-if="videos == ''">
+                            <div class="col-sm-4 col-md-4 col-lg-3"> No Data </div>
+                        </span>
+                        <span v-else>
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
-                                    <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
-                                    <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                                <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                                <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                             </div>
+                        </span>
                     </div>
 
                     <div class="col-12">
                         <h5 class="profile_subtit">協力医療機関</h5>
                         <div v-if="cooperate_medical.length>0" class="col-md-12">
-                            <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
-                                <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
-                                <table border="1" class="table table-bordered">
+                                <div v-for="comedical in cooperate_medical" :key="comedical.id" class="col-md-12" >
+                                    <label class="cost_heading_lbl_mini"><i class="fas fa-university"></i> {{comedical.name}}</label>
+                                    <table border="1" class="table table-bordered">
 
-                                    <tbody>
+                                        <tbody>
 
-                                        <tr>
+                                            <tr>
 
-                                            <td width="250" class="custom-bg-color" > 診療科目</td>
+                                                <td width="250" class="custom-bg-color" > 診療科目</td>
 
-                                            <td>{{comedical.clinical_subject}}</td>
+                                                <td>{{comedical.clinical_subject}}</td>
 
-                                        </tr>
+                                            </tr>
 
-                                        <tr>
+                                            <tr>
 
-                                            <td width="250" class="custom-bg-color">協力内容</td>
+                                                <td width="250" class="custom-bg-color">協力内容</td>
 
-                                            <td >{{comedical.details}}</td>
+                                                <td >{{comedical.details}}</td>
 
-                                        </tr>
+                                            </tr>
 
-                                        <tr>
+                                            <tr>
 
-                                            <td width="250" class="custom-bg-color">診療費用</td>
+                                                <td width="250" class="custom-bg-color">診療費用</td>
 
-                                            <td >{{comedical.medical_expense}}</td>
+                                                <td >{{comedical.medical_expense}}</td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
+                                        </tbody>
 
-                                </table>
+                                    </table>
 
-                            </div>
-
+                                </div>
                         </div>
-
-
-
+                        <div class="col-md-12" v-else> No Data </div>
                     </div>
 
                     <div class="col-12">
@@ -712,6 +714,7 @@
                             </div>
 
                         </div>
+                        <div v-else class="col-md-12"> No Data </div>
 
                     </div>
 
@@ -734,15 +737,15 @@
                                     <tbody>
                                     <tr>
                                         <td width="250" class="custom-bg-color"> 公式サイト</td>
-                                        <td>{{m.website}}</td>
+                                        <td v-if="m.website">{{m.website}}</td> <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <td width="250" class="custom-bg-color"> アクセス</td>
-                                        <td><p v-html="m.access"></p></td>
+                                        <td v-if="m.access"><p v-html="m.access"></p></td> <td v-else> - </td>
                                     </tr>
                                     <tr>
                                         <td width="250" class="custom-bg-color">住所 </td>
-                                        <td>{{m.address}}</td>
+                                        <td v-if="m.address">{{m.address}}</td> <td v-else> - </td>
                                     </tr>
                                     </tbody>
                                 </table>
