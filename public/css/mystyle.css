@@ -3322,22 +3322,23 @@ ul.main-tab li:after {
 }
 
 .map-wrap {
-    /* max-width: 1180px !important; */
+    max-width: 1600px !important;
     padding: 20px;
     background: #f7f0ed;
+    overflow:auto;
 }
 
 .divisions{
     position: relative;
     z-index: 1;
     /* background: url(/images/img_map1.png) center top no-repeat; */
-    /* width: 1670px; */
+    width: 850px;
     /* min-width: 936px; */
     /* height: 532px; */
 }
 @media only screen and (max-width: 1300px){
     .divisions {
-        width: 100%;
+        /* width: 100%; */
     }
 }
 /* @media (max-width: 1200px){
@@ -3350,7 +3351,12 @@ ul.main-tab li:after {
     color: #7f340f;
     font-weight: bold;
     font-size: 45px;
-    line-height: 1.4;
+    line-height: 1.4;    
+}
+.wrap{
+    position: relative;
+    top: 50px;
+
 }
 .search {
     width: 100%;
@@ -3366,11 +3372,11 @@ ul.main-tab li:after {
       height: 46px;
       border-radius: 5px 0 0 5px;
       outline: none;
-      color: #9DBFAF;
+      color: #495057;
   }
   
   .searchTerm:focus{
-    color: #00B4CC;
+    color: #000;
   }
   
   .searchButton {
@@ -4357,7 +4363,9 @@ div.b {
 .m-t-22 {
     margin-top: 22px;
 }
-
+.m-t-100{
+    margin-top: 100px;
+}
 .m-l-10p {
     margin-left: 10% !important;
 }
@@ -8233,85 +8241,7 @@ ul.nur-caro-card>li.list-group-item {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    /*job search*/
-    ul.hokkaido-wrap {
-        left: 0px;
-    }
-    .divisions span {
-        margin-right: 10px;
-    }
-    .divisions {
-        width: 100%;
-    }
-    .hokkaido-box {
-        position: absolute;
-        top: 12%;
-        right: 16%;
-        z-index: 2;
-    }
-    .tohoku-box {
-        position: absolute;
-        top: 26%;
-        right: 23%;
-        z-index: 2;
-    }
-    .multiple-box {
-        width: 132px !important;
-    }
-    .hokkaido-box .spanclass,
-    .kanto-box .spanclass,
-    .okinawa-box .spanclass {
-        margin-right: 3px;
-    }
-    .kanto-box {
-        position: absolute;
-        top: 57%;
-        right: 25%;
-        z-index: 2;
-    }
-    .hokuriku-box {
-        position: absolute;
-        top: 24%;
-        left: 51%;
-        z-index: 2;
-    }
-    .tokai-box {
-        position: absolute;
-        bottom: 27%;
-        right: 30%;
-        z-index: 2;
-    }
-    .kinki-box {
-        position: absolute;
-        top: 39%;
-        left: 3%;
-        z-index: 2;
-    }
-    .chugoku-box {
-        position: absolute;
-        top: 27%;
-        left: 18%;
-        z-index: 2;
-    }
-    .shikoku-box {
-        position: absolute;
-        left: 32%;
-        bottom: 22%;
-        z-index: 2;
-    }
-    .kyushu-box {
-        position: absolute;
-        bottom: 66%;
-        left: 5%;
-        z-index: 2;
-    }
-    .okinawa-box {
-        position: absolute;
-        bottom: 4%;
-        left: 31%;
-        z-index: 2;
-    }
-    /*end job search*/
+    
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;

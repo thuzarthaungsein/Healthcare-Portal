@@ -11,7 +11,7 @@
           <div class="info-box"></div>
           <div class="col-12 map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
-            <h2 class="map-header">あなたの街の名医<br/>見つかります。</h2>
+            <h2 class="map-header m-t-100">あなたの街の名医<br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">

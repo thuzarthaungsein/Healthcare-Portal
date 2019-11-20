@@ -8,8 +8,9 @@
       <div class="col-md-12">
         <div class="row">
           <div class="info-box"></div>
+          <div class="col-12 map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
-            <h2 class="map-header">あなたの街の名医<br/>見つかります。</h2>
+            <h2 class="map-header m-t-20">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
@@ -22,9 +23,8 @@
               </div> 
             <!--end search input-->          
             </div>
-          <div class="col-lg-7 col-sm-12 col-md-12 map-wrap">
-            <div class="divisions" style="margin:0 auto">
-              <div class="row " id="divisionswrap">
+          <div class="col-lg-7 col-sm-12 col-md-12 float-left">            
+              <div class="row divisions" id="divisionswrap">
                  <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
@@ -312,11 +312,12 @@
                   </div>
                 </div>
               </div>
-            </div>
+           
             <!-- <div class="map">
               
             </div> -->
           </div>
+        </div>
 
          
           <div class="col-12 jobselect pad-free"> 
