@@ -197,7 +197,7 @@
                                     if(this.norecord > this.size){
                                         this.pagination = true;
                                     }else{
-                                        this.pagination = false;
+                                        this.pagination = false; 
                                     }
                                     // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
                                     // this.categories.splice(i, 1);

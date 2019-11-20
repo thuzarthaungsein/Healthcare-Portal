@@ -144,7 +144,7 @@ class CommentController extends Controller
         $search_word = $request['search_word'];
 
         $search_comment = Comment::query()
-                            ->where('title', 'LIKE', "%{$search_word}%")
+                            ->where('name', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')
                             ->get()
                             ->toArray();
