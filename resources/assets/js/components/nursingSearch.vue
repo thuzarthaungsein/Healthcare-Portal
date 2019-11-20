@@ -13,7 +13,7 @@
           
           
             <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
-            <h2 class="map-header">あなたらしい 暮らしができる 老人ホームが 見つかります。</h2>
+            <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
@@ -28,6 +28,7 @@
             </div>
             <div class="col-lg-7 col-md-12 col-sm-12 float-left">
               <div class="divisions row" id="divisionswrap">
+                <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">                    
                     <div class="division-box">
