@@ -3352,10 +3352,13 @@ ul.main-tab li:after {
     font-weight: bold;
     font-size: 45px;
     line-height: 1.4;    
+    position: absolute;
+    bottom: 120px;
 }
 .wrap{
-    position: relative;
-    top: 50px;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
 
 }
 .search {
