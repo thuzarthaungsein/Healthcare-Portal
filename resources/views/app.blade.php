@@ -208,10 +208,10 @@
                     </ul> -->
                     <ul class="navbar-nav ml-auto pc  d-flex justify-content-end"> 
                         @guest
-                        <li class="nav-item all-btn"style="background-color:#ff6117;">
+                        <li class="nav-item">
                             <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>{{ __('事業者 ログイン') }}</span></a>
                         </li>
-                        <li class="nav-item all-btn m-l-10" style="background-color:#1c65d2;">
+                        <li class="nav-item m-l-10">
                             <!-- <a class="nav-link pad-free" href="{{ route('register') }}">{{ __('事業者 登録') }}</a> -->
                             <a class="nav-link pad-free" href="{{ url('registerForm') }}"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;<span>{{ __('事業者 登録') }}</span></a>
                             <!-- <router-link to="/createcustomer" class="nav-link pad-free">事業者 登録</router-link> -->
@@ -251,7 +251,7 @@
 
                 @can('role-list')
 
-                <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;ニュース一覧</router-link></li>
+                <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;ニュース管理</router-link></li>
 
                 <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;事業者</router-link></li>
 
@@ -532,7 +532,7 @@
 
                     @can('role-list')
 
-                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
+                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース管理</router-link></li>
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴリー一覧</router-link></li>
 
