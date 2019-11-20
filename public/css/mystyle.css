@@ -3351,11 +3351,14 @@ ul.main-tab li:after {
     color: #7f340f;
     font-weight: bold;
     font-size: 45px;
-    line-height: 1.4;
+    line-height: 1.4;    
+    position: absolute;
+    bottom: 120px;
 }
 .wrap{
-    position: relative;
-    top: 50px;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
 
 }
 .search {
@@ -3587,8 +3590,10 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar,
     .scrolldiv2::-webkit-scrollbar,
     .adminview-sidebar::-webkit-scrollbar,
+    .map-wrap::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
         width: 6px !important;
+        height: 6px;
         background: #f7f7f7 !important;
     }
     .news-wrapper::-webkit-scrollbar-track,
@@ -3598,6 +3603,7 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar-track,
     .scrolldiv2::-webkit-scrollbar-track,
     .adminview-sidebar::-webkit-scrollbar-track,
+    .map-wrap::-webkit-scrollbar-track,
     .main-wrap::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
         border-radius: 0px !important;
@@ -3609,6 +3615,7 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar-thumb,
     .scrolldiv2::-webkit-scrollbar-thumb,
     .adminview-sidebar::-webkit-scrollbar-thumb,
+    .map-wrap::-webkit-scrollbar-thumb,
     body::-webkit-scrollbar-thumb {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
         background-color: #d7d7d7 !important;

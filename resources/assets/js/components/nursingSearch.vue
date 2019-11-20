@@ -9,24 +9,21 @@
       <div class="col-md-12">
         <div>
         <div class="row map-wrap"  id="searchMap">
-          <!-- search map and path -->
-          
-          
-            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
+          <!-- search map and path -->  
+            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
             <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton">    
-                      <i class="fas fa-search"></i>   
-                      検索
+                      <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
               </div> 
             <!--end search input-->          
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-12 float-left">
+            <div class="col-lg-7 col-md-12 col-sm-12 float-right">
               <div class="divisions row" id="divisionswrap">
                 <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
@@ -393,16 +390,18 @@
         </div>
       </div>
         <!-- google map  -->
-        <div class="row m-t-10 m-b-10">
+        <section id="holder" >
+        <div class="row" >
           <div class="col-sm-12 col-md-12">
-          <div id="holder" style="position: relative;">
+          <div style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
               
-              <div id="mymap" class="select"></div>
+              <div id="mymap" class="select m-t-10 m-b-10"></div>
             
           </div>
           </div>
         </div>
+        </section>
        
         <!-- nursing list -->
        <div id="nursing-search"> 
