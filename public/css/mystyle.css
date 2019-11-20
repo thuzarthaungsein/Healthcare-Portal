@@ -3351,7 +3351,7 @@ ul.main-tab li:after {
     color: #7f340f;
     font-weight: bold;
     font-size: 45px;
-    line-height: 1.4;    
+    line-height: 1.4;
 }
 .wrap{
     position: relative;
@@ -3363,7 +3363,7 @@ ul.main-tab li:after {
     position: relative;
     display: flex;
   }
-  
+
   .searchTerm {
       width: 100%;
       border: 3px solid #f7834b;
@@ -3374,11 +3374,11 @@ ul.main-tab li:after {
       outline: none;
       color: #495057;
   }
-  
+
   .searchTerm:focus{
     color: #000;
   }
-  
+
   .searchButton {
       width: 85px;
       height: 46px;
@@ -3388,7 +3388,7 @@ ul.main-tab li:after {
       color: #fff;
       border-radius: 0 5px 5px 0;
   }
-  
+
 .division-box>ul {
     box-sizing: border-box;
     position: absolute;
@@ -6007,11 +6007,11 @@ body::-webkit-scrollbar-thumb {
 /*  Start CommentList */
 
 button.confirmed {
-    opacity: 0.5;
-    cursor: not-allowed;
+    border: 1px solid #b6b4b4 !important;
+    background: #b6b4b4;
+    box-shadow: none!important;
+    min-width: 60px;
 }
-
-
 /* End Commentlist */
 
 .mailbox {
@@ -8241,7 +8241,7 @@ ul.nur-caro-card>li.list-group-item {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    
+
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
@@ -8401,7 +8401,7 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 
-/* 
+/*
 .header2 h5:after {
     height: 2px;
     content: '';
