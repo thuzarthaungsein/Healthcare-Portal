@@ -6,36 +6,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="page-header header">ニュース作成</h4>
+                            <h4 class="page-header header">ニュースの作成</h4>
                             <br>
                         </div>
 
                         <form @submit.prevent="add" class="col-md-12">
-                            <div class="form-group">
-                                <label>題名:<span class="error">*</span></label>
-                                <input type="text" class="form-control" placeholder="題名を入力してください。" v-model="news.title">
-                                <span v-if="errors.title" class="error">{{errors.title}}</span>
-                            </div>
-                            <div class="form-group mg">
-                                <label class="">メディア:</label>
-                                <div>
-                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput"  @error="imgUrlAlt">
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="row" id="image_preview">
-                                        <div class='col-md-2' v-if="upload_img">
-                                            <span class='img-close-btn' v-on:click="removeUpload()">X</span>
-                                            <img :src="upload_img" class="show-news-img">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label>主情報:<span class="error">*</span></label>
-                                <input type="text" class="form-control" placeholder="ニュースの主情報を入力してください。" v-model="news.main_point">
-                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
-                            </div>
                             <div class="form-group">
                                 <!-- <button class="btn main-bg-color white all-btn" type="button">
                                                     種類
@@ -51,15 +26,45 @@
                                 <span v-if="errors.category_id" class="error">{{errors.category_id}}</span>
                             </div>
                             <div class="form-group">
+                                <label>タイトル:<span class="error">*</span></label>
+                                <input type="text" class="form-control" placeholder="タイトルを入力してください。" v-model="news.title">
+                                <span v-if="errors.title" class="error">{{errors.title}}</span>
+                            </div>
+                            <div class="form-group mg">
+                                <label class="">画像:</label>
+                                <div>
+                                <input type="file" class="" value="Upload Photo" id="upload_file" @change="preview_image();" ref="fileInput"  @error="imgUrlAlt">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row" id="image_preview">
+                                        <div class='col-md-2' v-if="upload_img">
+                                            <span class='img-close-btn' v-on:click="removeUpload()">X</span>
+                                            <img :src="upload_img" class="show-news-img">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label>画像の説明:<span class="error">*</span></label>
+                                <input type="text" class="form-control" placeholder="画像の説明を入力してください。" v-model="news.main_point">
+                                <span v-if="errors.main_point" class="error">{{errors.main_point}}</span>
+                            </div>
+                            
+                            <div class="form-group">
                                 <label>内容:<span class="error">*</span></label>
                                     <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" placeholder="内容を入力してください。" v-model="news.body"></textarea>
                                     <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
 
                             <div class="col-md-12 card related-card">
+                                <div class="card-header">
+                                    関連ニュース
+                                </div>
                                 <div class="card-body">
+                                    
                                     <div class="row">
-                                        <label> 関連ニュース:<span class="error">*</span></label>
+                                        <label> カテゴリー:<span class="error">*</span></label>
                                         <div class="col-md-5">
                                             <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
                                                 <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
