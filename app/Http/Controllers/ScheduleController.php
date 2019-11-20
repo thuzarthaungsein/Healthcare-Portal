@@ -118,7 +118,7 @@ class ScheduleController extends Controller
             $pm['pm_mon_from'] = $tmp_arr[0];
             $pm['pm_mon_to'] = $tmp_arr[1];
 
-            $tmp_arr = explode('-',$schedule_pm[0]['mon']);
+            $tmp_arr = explode('-',$schedule_pm[0]['tue']);
             $pm['pm_tue_from'] = $tmp_arr[0];
             $pm['pm_tue_to'] = $tmp_arr[1];
 

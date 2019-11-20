@@ -45,7 +45,7 @@ class CustomerProfileContoller extends Controller
     }
 
     function getNursingHistory($local_sto) {
-        $query = "SELECT nursing_profiles.*, group_concat(special_features_junctions.special_feature_id) AS special, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
+        $query = "SELECT nursing_profiles.*, group_concat(special_features_junctions.special_feature_id) AS special,'' AS payment_method, customers.name, customers.email, customers.phone, customers.logo, townships.township_name, townships.city_id, cities.city_name FROM `nursing_profiles`
                     LEFT JOIN customers ON nursing_profiles.customer_id = customers.id
                     LEFT JOIN townships ON townships.id = customers.townships_id
                     LEFT JOIN cities ON townships.city_id = cities.id
@@ -54,11 +54,15 @@ class CustomerProfileContoller extends Controller
         $nur_histories = DB::select($query);
         foreach($nur_histories as $nur) {
             $sfeature = $nur->special;
+            $cId = $nur->customer_id;
             if($sfeature != null){
                 $sql = "SELECT short_name FROM special_features WHERE id IN (".$sfeature.")";
                 $specialfeature = DB::select($sql);
                 $nur->special = $specialfeature;
             }
+            $sql = "SELECT * FROM method_payment WHERE customer_id = $cId";
+            $payment = DB::select($sql);
+            $nur->payment_method = $payment;  
         }
         return $nur_histories;
     }

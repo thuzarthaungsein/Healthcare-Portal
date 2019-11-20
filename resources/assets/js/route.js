@@ -1,11 +1,11 @@
-import home from "./components/home.vue";
+// import home from "./components/home.vue";
 import Newsdetails from "./components/Newsdetails.vue";
 import hospitalSearch from "./components/hospitalSearch.vue";
 import JobApply from "./components/JobApply.vue";
 import jobapplylist from "./components/jobapplylist.vue";
 import customerlist from "./components/customerlist.vue";
-import JobSearchListComponent from "./components/JobSearchListComponent.vue";
-import JobOfferComponent from "./components/JobOfferComponent.vue";
+// import JobSearchListComponent from "./components/JobSearchListComponent.vue";
+// import JobOfferComponent from "./components/JobOfferComponent.vue";
 import job_details from "./components/job_details.vue";
 import news_list from "./components/news_list.vue";
 import create_news from "./components/create_news.vue";
@@ -19,7 +19,7 @@ import CreateFacilityComponent from "./components/CreateFacilityComponent.vue";
 import custedit from "./components/custedit.vue";
 import CustomerSearchListComponent from "./components/CustomerSearchListComponent.vue";
 import NewsSearchListComponent from "./components/NewsSearchListComponent.vue";
-import map from "./components/map.vue";
+// import map from "./components/map.vue";
 import EditFacilityComponent from "./components/EditFacilityComponent.vue";
 import editcategory from "./components/editcategory.vue";
 import createcustomer from "./components/CreateCustomer.vue";
@@ -37,8 +37,8 @@ import userPasswordResetList from "./components/userPasswordResetList.vue";
 import HospitalHistory from "./components/HospitalHistory.vue";
 import favouriteHospital from "./components/favouriteHospital.vue";
 import NursingHistory from "./components/NursingHistory.vue";
-import HospitalProfile from "./components/HospitalProfile.vue";
-import NursingProfile from "./components/NursingProfile.vue";
+// import HospitalProfile from "./components/HospitalProfile.vue";
+// import NursingProfile from "./components/NursingProfile.vue";
 import VideoUpload from "./components/VideoUpload.vue";
 import GoogleMap from "./components/GoogleMap.vue";
 import type from "./components/Type.vue";
@@ -126,11 +126,11 @@ export const routes = [
         path: "/custsedit",
         component: custedit
     },
-    {
-        name: "jobsearchlist",
-        path: "/jobsearchlist",
-        component: JobSearchListComponent
-    },
+    // {
+    //     name: "jobsearchlist",
+    //     path: "/jobsearchlist",
+    //     component: JobSearchListComponent
+    // },
 
     {
         name: "job_details",

@@ -12,34 +12,22 @@ class JobController extends Controller
 
     public function index()
     {
+        $query = "SELECT jobs.* ,customers.type_id, 
+        (CASE customers.type_id WHEN '2' THEN CONCAT((500000+jobs.id),'-',LPAD(jobs.id, 4, '0')) ELSE CONCAT((200000+jobs.id),'-',LPAD(jobs.id, 4, '0')) END) as jobid
+        FROM `jobs`
+        JOIN customers ON jobs.customer_id = customers.id
+        LEFT JOIN job_applies ON jobs.id = job_applies.job_id
+        WHERE jobS.customer_id = ".auth()->user()->customer_id." GROUP BY jobs.id ORDER BY jobs.id DESC";
+        $profilejob = DB::select($query);
 
-
-        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
-                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
-
-        $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
-                           ->join('jobs','jobs.customer_id','=','customers.id')
-                           ->leftJoin('job_applies','job_applies.job_id','=','jobs.id')
-                           ->where('jobs.customer_id','=',auth()->user()->customer_id)->groupBy('jobs.id')->orderBy('jobs.id','desc')->get();
         foreach($profilejob as $jobs){
             $job_id = $jobs->id;
             $jobapplies =  DB::table('job_applies')->join('jobs','job_applies.job_id','=','jobs.id')
                            ->where('job_applies.job_id','=',$job_id)->count();
             $jobs->count = $jobapplies;
         }
-        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
+        return response()->json(array('profilejob'=>$profilejob));
 
-    }
-
-    public function getJob($id)
-    {
-        $jobs =  DB::table('customers') ->select('customers.logo','jobs.*')
-                     ->join('jobs','jobs.customer_id','=','customers.id')->get();
-
-        $profilejob =  DB::table('customers') ->select('customers.logo','jobs.*')
-                           ->join('jobs','jobs.customer_id','=','customers.id')
-                           ->where('jobs.customer_id','=',$id)->get();
-        return response()->json(array('jobs'=>$jobs,'profilejob'=>$profilejob));
     }
 
     public function create()
@@ -67,28 +55,24 @@ class JobController extends Controller
 
         $township_id = DB::select($query);
         return $township_id;
-    }
-
-       
-
-
+    } 
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' =>'required',
-            'location' => 'required',
-            'salary' => 'required',
-            'working_hours' => 'required',
+        // $request->validate([
+        //     'title' => 'required',
+        //     'description' =>'required',
+        //     'location' => 'required',
+        //     'salary' => 'required',
+        //     'working_hours' => 'required',
 
-        ],[
-            'title.required'=>'施設種別が必須です。',
-            'description.required'=>'仕事内容が必須です。',
-            'location.required'=>'勤務地が必須です。',
-            'salary.required'=>'給与が必須です。',
-            'working_hours.required'=>'就業時間が必須です。',
-        ]);
+        // ],[
+        //     'title.required'=>'施設種別が必須です。',
+        //     'description.required'=>'仕事内容が必須です。',
+        //     'location.required'=>'勤務地が必須です。',
+        //     'salary.required'=>'給与が必須です。',
+        //     'working_hours.required'=>'就業時間が必須です。',
+        // ]);
 
         $string = '';
         $count = count($request->fields);
@@ -241,13 +225,13 @@ class JobController extends Controller
 
     public function update($id, Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' =>'required',
-            'location' => 'required',
-            'salary' => 'required',
-            'working_hours' => 'required',
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'description' =>'required',
+        //     'location' => 'required',
+        //     'salary' => 'required',
+        //     'working_hours' => 'required',
+        // ]);
 
 
         $job = Job::find($id);
