@@ -892,14 +892,14 @@
 
                 <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                     病院情報
-                </button>
+                </button>                
 
                 <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
-                    口コミ
+                    地図
                 </button>
 
                 <button v-scroll-to="{ el: '#element3' }" class="top-fixed-btn" @click="activate(3)" :class="{ active : active_el == 3 }">
-                    地図
+                    口コミ
                 </button>
 
                 <!-- <button v-scroll-to="{ el: '#element4' }" class="top-fixed-btn" @click="activate(4)" :class="{ active : active_el == 4 }">
@@ -1222,7 +1222,69 @@
 
             </div>
 
+            <div class="col-md-12">
+                <h5 class="profile_subtit">フォトアルバム</h5>
+                <div class="row m-0 gallery-list">
+                    <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
+                        <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
+                        <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
+
+                        <!-- <span>{{image.photo}}</span> -->
+                    </div>
+                    <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
+                </div>
+            </div>
+
+            <!-- Hospital Video -->
+                <div class="col-md-12">
+                    <h5 class="profile_subtit">動画</h5>
+                    <div class="row">
+                        <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
+                            <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
+                            <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
+                        </div>
+                    </div>
+                </div>
+            <!-- End -->
+
             <div class="row ele m-lr-0" id="element2">
+
+                 <h5 class="profile_header col-md-12"> 地図 </h5>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
+
+                    <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+
+                    </GmapMap>
+
+                </div>
+                <div  class="col-12 m-t-20" v-for="m in google" :key="m.id" >
+                             <table border="1" class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td class="custom-bg-color"> 公式サイト</td>
+                                        <td>{{m.website}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="custom-bg-color"> アクセス</td>
+                                        <td><p v-html="m.access"></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="custom-bg-color"> 混雑状況</td>
+                                        <td>{{m.congestion}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="custom-bg-color">住所 </td>
+                                        <td>{{m.address}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+
+            </div>
+            div class="row ele m-lr-0" id="element3">
                 <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
@@ -1269,69 +1331,6 @@
                                 </ul>
                             </nav>
                         </div>
-            </div>
-
-            <div class="col-md-12">
-                <h5 class="profile_subtit">フォトアルバム</h5>
-                <div class="row m-0 gallery-list">
-                    <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
-                        <img  :src ="'/upload/hospital_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
-                        <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
-
-                        <!-- <span>{{image.photo}}</span> -->
-                    </div>
-                    <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
-                </div>
-            </div>
-
-            <!-- Hospital Video -->
-                <div class="col-md-12">
-                    <h5 class="profile_subtit">動画</h5>
-                    <div class="row">
-                        <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
-                            <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
-                            <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
-                        </div>
-                    </div>
-                </div>
-            <!-- End -->
-
-            <div class="row ele m-lr-0" id="element3">
-
-                 <h5 class="profile_header col-md-12"> 地図 </h5>
-
-                <div class="col-lg-12 col-md-12 col-sm-12">
-
-                    <GmapMap id="googlemap" ref="map" :center="center" :zoom="10" >
-
-                    <GmapMarker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
-
-                    </GmapMap>
-
-                </div>
-                <div  class="col-12 m-t-20" v-for="m in google" :key="m.id" >
-                             <table border="1" class="table table-bordered">
-                                    <tbody>
-                                    <tr>
-                                        <td class="custom-bg-color"> 公式サイト</td>
-                                        <td>{{m.website}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="custom-bg-color"> アクセス</td>
-                                        <td><p v-html="m.access"></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="custom-bg-color"> 混雑状況</td>
-                                        <td>{{m.congestion}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="custom-bg-color">住所 </td>
-                                        <td>{{m.address}}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                        </div>
-
             </div>
 
     </div>
