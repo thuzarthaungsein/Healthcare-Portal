@@ -220,7 +220,7 @@
                         <li class="social-link align-self-center"><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
                         <!-- <li class="social-link"><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li> -->
                         @else
-                        <li class="nav-item col-12 userprofile-name pc">
+                        <li class="col-12 userprofile-name pc">
 
                             <!-- <img src="/images/user.png" alt="" class="userprofile-img"> -->
                             @if(Auth::user()->type_id == 2)
