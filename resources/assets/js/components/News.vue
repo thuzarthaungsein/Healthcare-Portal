@@ -28,10 +28,10 @@
                         <div class="row" v-if="status == '0'">
                             <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
                                 <div class="card-header tab-card-header clearfix cat-nav">
-                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft">&lt;</span>
+                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft"><i class="fas fa-angle-double-left"></i></span>
                                     <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content">
-                                        <ul class="nav" role="tablist">
-                                            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
+                                        <ul class="nav" role="tablist" ref="containerWidth">
+                                            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
                                                 <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
                                                 {{ cat.name }}</a>
 
@@ -40,7 +40,7 @@
                                             </li>
                                         </ul>
                                     </div>                             
-                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight">&gt;</span>
+                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight"><i class="fas fa-angle-double-right"></i></span>
                                 </div>
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
@@ -559,8 +559,6 @@
 
         }
 
-
-
     //     this.categoryId();
     },
     methods: {
@@ -574,7 +572,13 @@
                     .then(response => {
                         // console.log(response);
                         this.cats = response.data;
+                        if(this.cats.length > 5) {
+                            console.log(this.cats.length);
+                            console.log(this.cats[5].name);
+                        }
                     });
+
+                
             },
             groupBy(array, key) {
                 const result = {}
@@ -719,15 +723,16 @@
                     //Call requestAnimationFrame on scroll function first time
                     window.requestAnimationFrame(scroll);
                 }
-                },
-                swipeLeft() {
+            },
+            swipeLeft() {
                 const content = this.$refs.content;
                 this.scrollTo(content, -300, 800); 
-                },
-                swipeRight() {
+            },
+            swipeRight() {
                 const content = this.$refs.content;
                 this.scrollTo(content, 300, 800);
-                }
+                // console.log(this.$refs.containerWidth.clientWidth);
+            },
         }
     }
  </script>
