@@ -251,7 +251,7 @@
 
                 @can('role-list')
 
-                <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;ニュース一覧</router-link></li>
+                <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;&nbsp;ニュース管理</router-link></li>
 
                 <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;&nbsp;事業者</router-link></li>
 
@@ -532,7 +532,7 @@
 
                     @can('role-list')
 
-                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース一覧</router-link></li>
+                    <li><router-link to="/news_list" class="nav-link"><i class="fa fa-newspaper"></i>&nbsp;ニュース管理</router-link></li>
 
                     <li><router-link to="/categorylist" class="nav-link"><i class="fa fa-file"></i>&nbsp;カテゴリー一覧</router-link></li>
 
