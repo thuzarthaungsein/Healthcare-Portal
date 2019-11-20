@@ -161,11 +161,11 @@
                     checkedNews: [],
                     upload_img: null,
                     currentPage: 0,
-                size: 12,
-                pageRange: 5,
-                items: [],
-                pagination: false,
-                check_head: false
+                    size: 12,
+                    pageRange: 5,
+                    items: [],
+                    pagination: false,
+                    check_head: false
                 }
             },
             created() {
