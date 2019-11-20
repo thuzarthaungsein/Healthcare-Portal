@@ -3408,6 +3408,7 @@ ul.main-tab li:after {
 
 .page-item .spanclass:hover {
     background-color: #ddd;
+    border: 1px solid #8e3c15;
 }
 
 .page-item.active_page .spanclass:hover {
@@ -5308,8 +5309,9 @@ screen and (min-width: 750px) {
     .page-item:nth-last-child(2) .spanclass {
         width: 60px;
         height: 30px;
+        transition: background-color .3s;
     }
-    .spanclass {
+    .page-item .spanclass {
         width: 30px;
         height: 30px;
         background-color: #fff;
