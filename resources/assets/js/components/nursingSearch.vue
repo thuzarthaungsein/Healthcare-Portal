@@ -347,7 +347,7 @@
                 <div class="">
                   <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="moving_in">
                     <option data-price-type="" value="-1">▼入居一時金</option>
-                    <option data-price-type="" value="0">一時金なし</option>
+                    <!-- <option data-price-type="" value="0">一時金なし</option> -->
                     <option data-price-type="" value="50">50万円以下</option>
                     <option data-price-type="" value="100">100万円以下</option>
                     <option data-price-type="" value="200">200万円以下</option>
@@ -864,6 +864,8 @@ methods: {
 check()
         {
             this.onchangeid = 0;
+            this.moving_in = -1;
+            this.township_id = -1;
         },
         
 openInfoWindow(marker) {
@@ -889,6 +891,9 @@ moveCarousel(direction) {
         },
 // map onclick function 
 getStateClick(e) {
+            this.township_id= -1;
+            this.moving_in = -1;
+            this.per_month = -1;
             $("#nursing-search").css("display", "block");
             if(e.target.id == ''){
                 var id = $('#selectCity').val();
@@ -908,7 +913,7 @@ getStateClick(e) {
                 this.changeMap(response)
                 })
 
-                this.changeSearch();
+               this.changeSearch();
         },
 // map onclick function 
 // map change dropdown function
@@ -928,6 +933,8 @@ nursingSearchData(index){
           
             // this.townshipID = [];
             // this.search();  
+
+         
             this.axios.get('/api/getmap/',{
                     params:{
                     id: this.id,
@@ -942,8 +949,10 @@ nursingSearchData(index){
                     
                 }) 
 
+                 this.changeSearch();
+
             
-             this.changeSearch();
+           
            
         },
 // map change dropdown function
@@ -1023,10 +1032,6 @@ coordinates(theCity, lat, lng){
 },
 infoWindow(item, mmarker){
 
-  console.log('infowindow');
-  console.log(item);
-  console.log(this.markers);
-        
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
             infoWindowContent.push([
@@ -1150,7 +1155,8 @@ changeMap(response){
                 this.fac_types = response.data.fac_types
                 this.medical_acceptance = response.data.medical_acceptance
                 this.nursingList = response.data.nursing_profile
-                this.markers = response.data.nursing_profile; 
+                this.markers = response.data.nursing_profile;
+         
             
                 var mmarker = new Array();
                 var item = [];
@@ -1162,16 +1168,23 @@ changeMap(response){
                 const theCity = response.data.getCity[0]['city_name']
                 const lat = response.data.getCity[0]['latitude']
                 const lng = response.data.getCity[0]['longitude']
-                this.coordinates(theCity,lat,lng);
-                this.infoWindow(item, mmarker);
-                   
-                    
 
+                if(this.markers.length > 0)
+                {
+                     this.coordinates(theCity,lat,lng);
+                     this.infoWindow(item, mmarker);
+                 }
+                 else{
+                    this.coordinates(theCity,lat,lng);
+                 }
+               
+               
+        
         },
 
 changeSearch()
         {
-
+    
             if(this.townshipID == null || this.townshipID == '')
             {
             this.townshipID[0] = 0;
@@ -1216,7 +1229,9 @@ changeSearch()
                 SpecialFeatureID:this.SpecialFeatureID,
                 MedicalAcceptanceID:this.MedicalAcceptanceID,
                 FacTypeID:this.FacTypeID,
-                MoveID:this.MoveID
+                MoveID:this.MoveID,
+                Moving_in:this.moving_in,
+                Per_month:this.per_month
             },
             }).then((response)=>{
 
@@ -1224,17 +1239,66 @@ changeSearch()
             this.specialfeature = response.data.specialfeature;
             this.medicalacceptance = response.data.medicalacceptance;
             this.factype = response.data.factype;
-            this.searchmarkers = response.data.nursing;
-            this.nursingList = response.data.nursing;
             this.citylatlng = response.data.city;
+        
+            if(this.nus_data.length == 0)
+            {
+
+                const theCity = this.nus_data[0]['city_name']
+                const lat = this.nus_data[0]['lat']
+                const lng = this.nus_data[0]['lng']
+             
+                this.coordinates(theCity,lat,lng);
+            }
+          
             
             });
+                    
         },
+        // clearmap(citylatlng)
+        // {
+        //     // for clean googleMap
+        //         var lat = citylatlng[0]['latitude']
+        //         var lng = citylatlng[0]['longitude']
+        //         var theCity = citylatlng[0]['city_eng']
+        //         const result = jp_township.features
+  
+
+        //         const coordinates = []
+        //         for (var i = 0; i < result.length; i++) {
+        //             if (result[i].Name == theCity) {
+        //             coordinates.push(result[i].geometry['coordinates'])
+        //             }
+        //         }
+        //         var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+        //         var data = {
+        //             type: "Feature",
+        //             geometry: {
+        //             "type": "Polygon",
+        //             "coordinates": coordinate
+        //             },
+        //         };
+                
+        //         var mapProp = {
+        //             center: new google.maps.LatLng(lat, lng),
+        //             zoom: 6,
+        //             mapTypeId: google.maps.MapTypeId.ROADMAP,
+        //         };
+        //         this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+        //         this.map.data.addGeoJson(data);
+        //         this.map.data.setStyle({
+        //             strokeColor: "red",
+        //             fillColor: 'red',
+        //             strokeOpacity: 0.8,
+        //             fillOpacity: 0.1,
+        //             strokeWeight: 1
+        //         })
+        // },
         
 
-search(){   
+search(){  
 
-  console.log(this.townshipID);
+ 
             if(this.townshipID == null || this.townshipID == '')
             {
             this.townshipID[0] = 0;
@@ -1257,18 +1321,23 @@ search(){
             }
             if(this.onchangeid == 1)
             {  
+               
                 if(this.township_id == -1)
                 {
                     this.townshipID[0] = 0;
                 }
                 else{
-                    this.townshipID[0] = this.township_id;
+                     this.townshipID[0] = this.township_id;
+                    this.township_id = -1;
                 }
             }
             else{
-
+                
                 this.township_id = -1;
             }
+
+            this.moving_in = -1;
+            this.per_month = -1;
 
             this.axios.get('api/getnursingsearch',{
             params:{
@@ -1277,7 +1346,9 @@ search(){
                 SpecialFeatureID:this.SpecialFeatureID,
                 MedicalAcceptanceID:this.MedicalAcceptanceID,
                 FacTypeID:this.FacTypeID,
-                MoveID:this.MoveID
+                MoveID:this.MoveID,
+                Moving_in:this.moving_in,
+                Per_month:this.per_month
             },
             }).then((response)=>{
 
@@ -1305,59 +1376,27 @@ search(){
                 const theCity = this.searchmarkers[0]['city_name']
                 const lat = this.searchmarkers[0]['lat']
                 const lng = this.searchmarkers[0]['lng']
-
-                console.log(mmarker);
-                console.log(item);
             
                 // google map 
+
                 this.coordinates(theCity,lat,lng)
             
                 this.infoWindow(item, mmarker);
                     
             }
             else{
+                const theCity = this.nus_data[0]['city_name']
+                const lat = this.nus_data[0]['lat']
+                const lng = this.nus_data[0]['lng']
+             
+              this.coordinates(theCity,lat,lng);
 
-    
-                // for clean googleMap
-                var lat = this.citylatlng[0]['latitude']
-                var lng = this.citylatlng[0]['longitude']
-                var theCity = this.citylatlng[0]['city_eng']
-                const result = jp_township.features
-  
-
-                const coordinates = []
-                for (var i = 0; i < result.length; i++) {
-                    if (result[i].Name == theCity) {
-                    coordinates.push(result[i].geometry['coordinates'])
-                    }
-                }
-                var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-                var data = {
-                    type: "Feature",
-                    geometry: {
-                    "type": "Polygon",
-                    "coordinates": coordinate
-                    },
-                };
-                
-                var mapProp = {
-                    center: new google.maps.LatLng(lat, lng),
-                    zoom: 6,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                };
-                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                this.map.data.addGeoJson(data);
-                this.map.data.setStyle({
-                    strokeColor: "red",
-                    fillColor: 'red',
-                    strokeOpacity: 0.8,
-                    fillOpacity: 0.1,
-                    strokeWeight: 1
-                })
+                //  this.clearmap(this.citylatlng)
+              
               }
        
                 
-        
+            
             this.show_paginate = true;   
 
            

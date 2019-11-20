@@ -3406,11 +3406,16 @@ ul.main-tab li:after {
     color: #461e0a;
 }
 
-.spanclass:hover {
-    background-color: #ccff60 !important;
+.page-item .spanclass:hover {
+    background-color: #ddd;
+}
+
+.page-item.active_page .spanclass:hover {
+    background-color: #f57e46;
     background-image: none;
     border: 1px solid #8e3c15;
-    color: #ff6117;
+    color: #fff;
+    z-index: 1;
 }
 
 .spanclass:hover a.card-text {
@@ -3521,7 +3526,7 @@ screen and (min-width: 750px) {
         padding: 5px;
         font-size: 12px;
         margin-top: 1px;
-        margin-left: 1px;
+        margin-left: 3px;
     }
     .spanclass a {
         position: relative;
@@ -5297,17 +5302,24 @@ padding-bottom: 15px; */
 
 @media print,
 screen and (min-width: 750px) {
-    .spanclass {
+    .page-item:first-child .spanclass,
+    .page-item:last-child .spanclass,
+    .page-item:nth-child(2) .spanclass,
+    .page-item:nth-last-child(2) .spanclass {
         width: 60px;
         height: 30px;
+    }
+    .spanclass {
+        width: 30px;
+        height: 30px;
         background-color: #fff;
-        background-image: linear-gradient(to bottom, #ffffff, #f1f1f1);
+        /* background-image: linear-gradient(to bottom, #ffffff, #f1f1f1); */
         float: left;
         text-align: center;
         overflow: hidden;
         /* margin-top: 1px; */
         border: 1px solid #8e3c15;
-        border-radius: 3px;
+        border-radius: 2px;
     }
     .spanclass a {
         position: relative;
@@ -8487,10 +8499,11 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 .page-item.active_page .spanclass {
-    z-index: 1;
-    background-color: #ffbb99;
+    background-color: #f57e46;
     background-image: none;
     border: 1px solid #8e3c15;
+    color: #fff;
+    z-index: 1;
 }
 
 .page-item .spanclass {
