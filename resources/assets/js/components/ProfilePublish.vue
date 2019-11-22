@@ -1160,8 +1160,12 @@
                                     <tr class="last">
 
                                         <th class="second-row text-center">午前</th>
+                                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
 
-                                        <span v-if="am_arr[0]">
+                                        <!-- <span v-if="am_arr[0]">
                                             <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
                                                 <span v-if="amval"> {{amval}} </span>
                                                 <span v-else> - </span>
@@ -1169,15 +1173,19 @@
                                         </span>
                                         <span v-else>
                                             <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
-                                        </span>
+                                        </span> -->
 
                                     </tr>
 
                                     <tr class="last">
 
                                         <th class="second-row text-center">午後</th>
+                                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
 
-                                        <span v-if="pm_arr[0]">
+                                        <!-- <span v-if="pm_arr[0]">
                                             <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
                                                 <span v-if="amval"> {{amval}} </span>
                                                 <span v-else> - </span>
@@ -1185,7 +1193,7 @@
                                         </span>
                                         <span v-else>
                                             <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
-                                        </span>
+                                        </span> -->
 
                                     </tr>
 
