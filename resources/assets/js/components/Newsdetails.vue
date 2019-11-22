@@ -54,13 +54,15 @@
                   </router-link>
                 </div>
               </div>-->
+             
               <div class="row">
                 <div class="col-md-12">
-                  <h4 class="h_4 header">{{newdetails.title}}</h4>
+                  <h4 class="h_4 header">{{newdetails[0].title}}</h4>
+                   {{newdetails[0].cat_name}}
                   <p class="set-date">
                     <small style="color:#aaa;">
                       <i class="fa fa-calendar-alt"></i>
-                      &nbsp;&nbsp;{{newdetails.created_at}}
+                      &nbsp;&nbsp;{{newdetails[0].created_at}}
                     </small>
                   </p>
                 </div>
@@ -71,16 +73,16 @@
                       style="width:100%;text-align: center;padding: 30px;"
                     >
                       <img
-                        :src="'/upload/news/'+ newdetails.photo"
+                        :src="'/upload/news/'+ newdetails[0].photo"
                         class="img-responsive img_2"
                         style="max-width:100%;"
                         @error="imgUrlAlt"
                       />
                     </div>
-                    <p class="img_2 mb-1">{{newdetails.main_point}}</p>
+                    <p class="img_2 mb-1">{{newdetails[0].main_point}}</p>
                   </div>
                   <div>
-                    <p class="p5 mb-2">{{newdetails.body}}</p>
+                    <p class="p5 mb-2">{{newdetails[0].body}}</p>
                   </div>
                 </div>
                 <div class="col-md-12 mt-2 related-area">
