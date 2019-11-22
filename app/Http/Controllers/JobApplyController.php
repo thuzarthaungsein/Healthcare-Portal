@@ -74,7 +74,7 @@ class JobApplyController extends Controller
             $jobapply->postal = $request->postal;
             $jobapply->city_id = $request->city_id;
             $jobapply->street_address = $request->str_address;
-            $jobapply->home_address = $request->home_address;
+            // $jobapply->home_address = $request->home_address;
             $jobapply->phone = $request->phone;
             $jobapply->email = $request->email;
             $jobapply->skill = $string;
@@ -114,7 +114,7 @@ class JobApplyController extends Controller
                 $city_name = $info->city_name;
             }
 
-            $admin_email = 'thuzar.ts92@gmail.com';
+            $admin_email = 'ccoldcoral@gmail.com';
             // $admin_email = 'management.partner87@gmail.com ';
              $jobapply->save();
              $jobapply->job_title = $job_title;
@@ -133,15 +133,20 @@ class JobApplyController extends Controller
              return response()->json('Apply successfully ');
 
     }
+    public function getJobTitle($jobs_id) {
+        $sql = "SELECT jobs.title from jobs WHERE jobs.id = $jobs_id";
+        $jobapply = DB::select($sql);
+        return $jobapply;
+    }
 
-    public function getSkills()
-    {
+    // public function getSkills()
+    // {
 
-        $skill = Job::select('skills')->value('skills');
-         $array =explode(',',$skill);
-            return ($array);
+    //     $skill = Job::select('skills')->value('skills');
+    //      $array =explode(',',$skill);
+    //         return ($array);
 
-        }
+    //     }
 
 
     /**
