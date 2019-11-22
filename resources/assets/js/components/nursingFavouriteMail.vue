@@ -49,28 +49,28 @@
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
-                            <div class="col-md-3 col-sm-12 form-left"> <label>生年月日 <span class="error sp1">必須</span></label></div>
+                            <div class="col-md-3 col-sm-12 form-left"> <label>生年月日 </label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                                 <!-- <input type="text" id="bdate" name="bdate" class="form-control float-left" placeholder="生年月日を入力してください。" v-model="comments.bdate" @change="aggreBtn" @focusout="focusbdate"/> -->
-                                <date-picker class="box" valueType="format" v-model="comments.bdate" style="margin-left: 11px;" @change="aggreBtn" @focusout="focusbdate"></date-picker>
-                                <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span>
+                                <date-picker class="box" valueType="format" v-model="comments.bdate" style="margin-left: 11px;"></date-picker>
+                                <!-- <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span> -->
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
-                                <div class="col-md-3 col-sm-12 form-left"><label>性別 <span class="error sp1">必須</span></label></div>
+                                <div class="col-md-3 col-sm-12 form-left"><label>性別 </label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1" @change="aggreBtn">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
                                          <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1" @change="aggreBtn">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1" @change="aggreBtn">&nbsp;夫婦
+                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
                                         <div class="control__indicator"></div>
                                     </label>
 
@@ -455,6 +455,7 @@ import DatePicker from 'vue2-datepicker';
                 }
                 // this.comments.arr_reserve = this.reservation;
                 this.comments.arr_document = this.documentation;
+                this.comments.division = this.comments.selectedValue;
                 localStorage.setItem("inputValue", JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
                 this.$router.push({
@@ -462,7 +463,7 @@ import DatePicker from 'vue2-datepicker';
                 });
             },
             aggreBtn: function(){
-                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.mail != '' && this.comments.sex1 != '' || this.comments.phone != ''){
+                if(this.comments.name != '' && this.comments.selectedValue != 0 && this.comments.city != '' && (this.comments.mail != '' || this.comments.phone != '')){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;
@@ -483,13 +484,13 @@ import DatePicker from 'vue2-datepicker';
                     this.furigana_focus=true;
                 }
             },
-            focusbdate: function(event) {
-                if(this.comments.bdate != ''){
-                    this.bdate_focus = false;
-                }else{
-                    this.bdate_focus = true;
-                }
-            },
+            // focusbdate: function(event) {
+            //     if(this.comments.bdate != ''){
+            //         this.bdate_focus = false;
+            //     }else{
+            //         this.bdate_focus = true;
+            //     }
+            // },
             focusCity: function(event) {
                 if(this.comments.city != ''){
                     this.city_focus=false;

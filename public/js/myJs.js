@@ -320,6 +320,7 @@ $('#save_value').click(function(){
 //     }
 // }
 
+
 function closeBtnPreview(indx,sec) {
   if(confirm("Are you sure you want to delete?"))
   {

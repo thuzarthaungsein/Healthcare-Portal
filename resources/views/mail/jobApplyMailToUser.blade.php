@@ -46,10 +46,7 @@
                         <br/>                       
                         TEL：03-6911-???? FAX：03-6911-????
                    </p>	
-                   
-                   <div>
-                         {{ $getComment }}
-                   </div>
+                  
 	        </div>
 	    </div>
 </div>

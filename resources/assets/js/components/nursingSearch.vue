@@ -1368,9 +1368,9 @@ search(){
                     
             }
             else{
-                const theCity = this.nus_data[0]['city_name']
-                const lat = this.nus_data[0]['lat']
-                const lng = this.nus_data[0]['lng']
+                const theCity = this.citylatlng[0]['city_name']
+                const lat = this.citylatlng[0]['latitude']
+                const lng = this.citylatlng[0]['longitude']
              
               this.coordinates(theCity,lat,lng);
 

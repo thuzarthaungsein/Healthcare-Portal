@@ -2594,6 +2594,13 @@ ul.sub-ul li {
     box-shadow: none !important;
     min-width: 60px;
 }
+.active-borderbtn {
+    border: 1px solid green!important;
+    color: green;
+    background: #fff;
+    box-shadow: none !important;
+    min-width: 60px;
+}
 
 .btn:hover {
     cursor: pointer;
@@ -8489,7 +8496,7 @@ ul.nur-caro-card>li.list-group-item {
     flex: 1 0 33.333%;
     position: relative;
     height: 0;
-    padding-bottom: 220px;
+    padding-bottom: 194px;
 }
 
 .wrapper-0 img {

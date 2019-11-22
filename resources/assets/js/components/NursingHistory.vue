@@ -112,7 +112,7 @@
                                                     <tr>
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <div class="profile_wd">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設リストから削除</button>
+                                                                <span class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">最近見た施設リストから削除</span>
                                                             </div>
                                                         </td>
                                                     </tr>
