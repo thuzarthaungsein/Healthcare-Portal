@@ -16,17 +16,33 @@ class SearchMapController extends Controller
         $township_id = $_GET['township_id'];
         $moving_in = $_GET['moving_in'];
         $per_month = $_GET['per_month'];
-        $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
-                    FROM customers AS c 
-                    LEFT JOIN townships AS t 
-                    ON t.id = c.townships_id 
-                    JOIN nursing_profiles AS n 
-                    ON n.customer_id = c.id
-                    LEFT JOIN cities AS ci
-                    ON t.city_id = ci.id
-                    JOIN types AS ty
-                    ON c.type_id = ty.id
-                    WHERE";
+
+        
+        // $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
+        //             FROM customers AS c 
+        //             LEFT JOIN townships AS t  ON t.id = c.townships_id 
+        //             JOIN nursing_profiles AS n  ON n.customer_id = c.id
+        //             LEFT JOIN cities AS ci ON t.city_id = ci.id
+        //             JOIN types AS ty ON c.type_id = ty.id
+        //              left join special_features_junctions as spej on spej.customer_id = n.customer_id  
+        //              left join special_features as spe on spe.id = spej.special_feature_id
+        //              left join acceptance_transactions as acct on acct.customer_id = n.customer_id
+        //              left join medical_acceptance as med on med.id = acct.medical_acceptance_id
+        //             WHERE";
+
+
+            $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
+                        FROM nursing_profiles AS n
+                        JOIN customers AS c  ON c.id = n.customer_id
+                        LEFT JOIN townships AS t  ON t.id = c.townships_id
+                        LEFT JOIN cities AS ci ON t.city_id = ci.id
+                        LEFT JOIN types AS ty ON c.type_id = ty.id
+                        LEFT JOIN special_features_junctions as spej on spej.customer_id = n.customer_id  
+                        LEFT JOIN special_features as spe on spe.id = spej.special_feature_id
+                        LEFT JOIN acceptance_transactions as acct on acct.customer_id = n.customer_id
+                        LEFT JOIN medical_acceptance as med on med.id = acct.medical_acceptance_id
+                        WHERE";
+
 
         if($id != null && $township_id == -1 && $moving_in == -1 && $per_month == -1 ){
             $query .= " t.city_id=" . $id . " group by c.id order BY n.id ASC LIMIT 26";    
@@ -78,7 +94,8 @@ class SearchMapController extends Controller
         $getTownships       = DB::table('townships')->where('city_id', $id)->get();
         $special_features   = DB::table('special_features')->get();
         $fac_types          = DB::table('fac_types')->get();
-        $subjects           = DB::table('subjects')->get();
+        $subjects           = DB::table('subjects')->where('parent',0)->get();
+        $sub_child          = DB::table('subjects')->get();
         $medical_acceptance = DB::table('medical_acceptance')->get();
         $occupations        = DB::table('occupation')->get();
         return response()->json([
@@ -89,6 +106,7 @@ class SearchMapController extends Controller
             'fac_types' => $fac_types,
             'medical_acceptance' => $medical_acceptance,
             'subjects' => $subjects,
+            'sub_child' => $sub_child,
             'occupations' => $occupations,
             'nursing_profile' => $nursing_profile,
             'alphabet' => $alphabet
@@ -216,7 +234,7 @@ class SearchMapController extends Controller
                 {
                     $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
                 
-                }
+                }  
                 else  if(count($MoveID) == 2)
                 {
                   
@@ -639,7 +657,7 @@ class SearchMapController extends Controller
         //to check if subject is check or not 
         $subjectID = $_GET['subjectID'];
         if ($subjectID[0] == '0' && count($subjectID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
-        {
+        {                       
             $subjectID = '0';
         } else if ($subjectID[0] == '0' && count($subjectID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
             unset($subjectID[0]);
@@ -691,8 +709,9 @@ class SearchMapController extends Controller
         $sub_query = "SELECT sub.*,subj.customer_id from  subjects as sub join subject_junctions as subj on sub.id = subj.subject_id";
         $subject = DB::select($sub_query);
         $timetable = DB::table('schedule')->get();
+        $sub_child = DB::table('subjects')->get();
 
-        return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject));
+        return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject,"sub_child"=>$sub_child));
     }
 
 

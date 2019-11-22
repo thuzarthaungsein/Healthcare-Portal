@@ -416,13 +416,13 @@
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
                 <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">             
-                  <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id"> -->
+                  <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nus_data" :id="items.alphabet"  :key="items.nursing_id"> -->
                   <div class="card-carousel--card">
                     <div class="MarkerHover">
                         <table class="nursingSearch-tbl">
                         <tbody>
                           <tr >
-                            <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                            <td class="pt-2 pb-2"  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                                     <p class="item-fav btn btn-sm" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);">
@@ -443,7 +443,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                            <td  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <p class="type-name">{{items.type_name}}</p>
                                 
@@ -465,7 +465,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                            <td  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                      <table class="table table-bordered price-tbl text-center">
                                         <thead>
@@ -789,7 +789,7 @@
         currentOffset: 0,
         windowSize: 4,
         paginationFactor: 500,
-        nursingList: [],
+        nus_data: [],
         alphabet: [],
         markerHover:[],
         SpecialFeatureID:[],
@@ -819,7 +819,7 @@
         },
     computed: {
       atEndOfList() {
-        return this.currentOffset <= (this.paginationFactor * -1) * (this.nursingList.length - this.windowSize);
+        return this.currentOffset <= (this.paginationFactor * -1) * (this.nus_data.length - this.windowSize);
       },
       atHeadOfList() {
         return this.currentOffset === 0;
@@ -913,7 +913,7 @@ getStateClick(e) {
                 this.changeMap(response)
                 })
 
-               this.changeSearch();
+              //  this.changeSearch();
         },
 // map onclick function 
 // map change dropdown function
@@ -930,9 +930,7 @@ nursingSearchData(index){
             }
            
             this.onchangeid = 1;
-          
-            // this.townshipID = [];
-            // this.search();  
+  
 
          
             this.axios.get('/api/getmap/',{
@@ -949,7 +947,7 @@ nursingSearchData(index){
                     
                 }) 
 
-                 this.changeSearch();
+                //  this.changeSearch();
 
             
            
@@ -1154,7 +1152,7 @@ changeMap(response){
                 this.special_features = response.data.special_features
                 this.fac_types = response.data.fac_types
                 this.medical_acceptance = response.data.medical_acceptance
-                this.nursingList = response.data.nursing_profile
+                this.nus_data = response.data.nursing_profile
                 this.markers = response.data.nursing_profile;
          
             
@@ -1244,9 +1242,9 @@ changeSearch()
             if(this.nus_data.length == 0)
             {
 
-                const theCity = this.nus_data[0]['city_name']
-                const lat = this.nus_data[0]['lat']
-                const lng = this.nus_data[0]['lng']
+                const theCity = this.citylatlng[0]['city_name']
+                const lat = this.citylatlng[0]['latitude']
+                const lng = this.citylatlng[0]['longitude']
              
                 this.coordinates(theCity,lat,lng);
             }
@@ -1255,45 +1253,7 @@ changeSearch()
             });
                     
         },
-        // clearmap(citylatlng)
-        // {
-        //     // for clean googleMap
-        //         var lat = citylatlng[0]['latitude']
-        //         var lng = citylatlng[0]['longitude']
-        //         var theCity = citylatlng[0]['city_eng']
-        //         const result = jp_township.features
-  
-
-        //         const coordinates = []
-        //         for (var i = 0; i < result.length; i++) {
-        //             if (result[i].Name == theCity) {
-        //             coordinates.push(result[i].geometry['coordinates'])
-        //             }
-        //         }
-        //         var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
-        //         var data = {
-        //             type: "Feature",
-        //             geometry: {
-        //             "type": "Polygon",
-        //             "coordinates": coordinate
-        //             },
-        //         };
-                
-        //         var mapProp = {
-        //             center: new google.maps.LatLng(lat, lng),
-        //             zoom: 6,
-        //             mapTypeId: google.maps.MapTypeId.ROADMAP,
-        //         };
-        //         this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-        //         this.map.data.addGeoJson(data);
-        //         this.map.data.setStyle({
-        //             strokeColor: "red",
-        //             fillColor: 'red',
-        //             strokeOpacity: 0.8,
-        //             fillOpacity: 0.1,
-        //             strokeWeight: 1
-        //         })
-        // },
+       
         
 
 search(){  
@@ -1357,7 +1317,7 @@ search(){
             this.medicalacceptance = response.data.medicalacceptance;
             this.factype = response.data.factype;
             this.searchmarkers = response.data.nursing;
-            this.nursingList = response.data.nursing;
+            this.nus_data = response.data.nursing;
             this.citylatlng = response.data.city;
             this.markers = response.data.nursing;
 
@@ -1385,9 +1345,9 @@ search(){
                     
             }
             else{
-                const theCity = this.nus_data[0]['city_name']
-                const lat = this.nus_data[0]['lat']
-                const lng = this.nus_data[0]['lng']
+                const theCity = this.citylatlng[0]['city_name']
+                const lat = this.citylatlng[0]['latitude']
+                const lng = this.citylatlng[0]['longitude']
              
               this.coordinates(theCity,lat,lng);
 

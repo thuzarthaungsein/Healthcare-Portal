@@ -200,6 +200,7 @@
             </div>
         </div>
         <!-- </div> -->
+   
 
         <div>
             <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">

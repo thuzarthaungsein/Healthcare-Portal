@@ -372,22 +372,60 @@
                       <div class="control__indicator"></div>
                     </label>
                   </div>
-
-
                 </td>
               </tr>
               <tr class="toBeToggled1 ShowHide1">
                 <th>診療科目</th>
+              
                 <td>
-                  <div class="form-check form-check-inline col-sm-2" v-for="subject in subjects" :key="subject.id">
+
+                    <div class="form-check form-check-inline row col-12 align-items-start ">
+                        <div class="col-sm-2" v-for="(subject,index) in subjects" :key="index"  style="padding-left:0px;">
+                            <div class="col-12 m-lr-0">
+                                  <strong> {{subject.name}} </strong> 
+                            </div>
+                          
+                            <div class="col-12"  v-for="sub in sub_child" :key="sub.id+1">
+                                 <div v-if="subject.id == sub.parent">
+                                        <label class=" form-check-label control control--checkbox"  style="padding-left:0px;">
+                                        <input class="form-check-input" type="checkbox" :id="sub.id" v-model="subjectID" :value="sub.id" >
+                                        {{sub.name}}
+                                        <div class="control__indicator"></div>
+                                        </label>
+                                 </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+            
+                 
+                  <!-- <div class="form-check form-check-inline col-sm-4" v-for="(subject,index) in subjects" :key="index"> -->
+                     
+                        
+                             
+                           
+                          
+                            <!-- <div class="form-check form-check-inline col-sm-4" v-for="sub in sub_child" :key="sub.id">
+                            <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                            <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
+                            {{sub.name}}
+                            <div class="control__indicator"></div>
+                            </label>
+                            </div> -->
+
+                     
+                     <!-- </div> -->
+                   
+                   
+                                         
                     <!-- <label class="form-check-label" > -->
-                        <label class="form-check-label control control--checkbox" style="padding-left:5px;">
+                        <!-- <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                       <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
                       {{subject.name}}
                       <div class="control__indicator"></div>
-                    </label>
-                  </div>
-
+                    </label> -->
+                 
                 </td>
               </tr>
 
@@ -565,6 +603,7 @@
         medical_acceptance: [],
         subjectID:[],
         subjects: [],
+        sub_child:[],
         subject:[],
         toggleCheck: true,
         toggleCheck_1: false,
@@ -674,7 +713,8 @@
               this.getCity = response.data.getCity
               this.getTownships = response.data.getTownships
               this.special_features = response.data.special_features
-              this.subjects = response.data.subjects
+              this.subjects = response.data.subjects;
+              this.sub_child = response.data.sub_child;
               this.id = id;
 
             })
@@ -711,6 +751,7 @@
               this.getTownships = response.data.getTownships
               this.special_features = response.data.special_features
               this.subjects = response.data.subjects
+              this.sub_child = response.data.sub_child
               this.id = id;
 
             })
