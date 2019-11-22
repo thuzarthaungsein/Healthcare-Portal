@@ -260,7 +260,7 @@
                                     <div class="card-carousel--overflow-container">
                                         <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                                             <div class="card-carousel--card">
-                                            <table class="table table-bordered">
+                                            <table class="table table-bordered ">
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <div class="profile_img_wrap">
@@ -442,7 +442,7 @@
             },
             computed: {
 
-                atEndOfList() {
+                    atEndOfList() {
                         return this.currentOffset <= (this.paginationFactor * -1) * (this.fav_nursing.length - this.windowSize);
                     },
                     atHeadOfList() {

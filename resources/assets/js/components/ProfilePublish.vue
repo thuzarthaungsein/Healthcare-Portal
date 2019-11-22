@@ -1908,7 +1908,10 @@ export default {
     display: flex;
     justify-content: left;
     /* width: 1336px; */
+    /* width:1033px;
+    overflow: auto; */
     width:1033px;
+    overflow: hidden;
 }
 
 
