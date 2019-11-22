@@ -26,7 +26,7 @@
                     <br>
                     都道府県：{{$getComment->city_name}}
                     <br>
-                    市区町村、番地（建物名)：{{$getComment->home_address}}
+                    市区町村、番地（建物名)：{{$getComment->street_address}}
                     <br>
                     電話番号：{{$getComment->phone}}
                     <br>
@@ -45,7 +45,11 @@
                         東京都新宿区西新宿2-7-1小田急第一生命ビル13階 
                         <br/>                       
                         TEL：03-6911-???? FAX：03-6911-????
-                   </p>	          
+                   </p>	
+                   
+                   <div>
+                         {{ $getComment }}
+                   </div>
 	        </div>
 	    </div>
 </div>

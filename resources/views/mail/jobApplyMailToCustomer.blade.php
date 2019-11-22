@@ -26,7 +26,7 @@
                     <br>
                     都道府県：{{$getComment->city_name}}
                     <br>
-                    市区町村、番地（建物名)：{{$getComment->home_address}}
+                    市区町村、番地（建物名)：{{$getComment->street_address}}
                     <br>
                     電話番号：{{$getComment->phone}}
                     <br>
