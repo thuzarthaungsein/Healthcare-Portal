@@ -251,7 +251,7 @@
             <div class="row ele m-lr-0" id="element2">
 
                 <h5 class="profile_header">特長 </h5>
-                
+
                     <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">
                         <div v-if="nurseprofile.features">
                             <p v-html="nurseprofile.feature"></p>
@@ -1334,7 +1334,7 @@
                                     <tbody>
                                     <tr>
                                         <td class="custom-bg-color"> 公式サイト</td>
-                                        <td v-if="m.website">{{m.website}}</td> 
+                                        <td v-if="m.website">{{m.website}}</td>
                                         <td v-else> - </td>
                                     </tr>
                                     <tr>
