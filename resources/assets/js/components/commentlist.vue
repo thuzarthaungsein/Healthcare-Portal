@@ -1,13 +1,6 @@
 <template>
     <div class="row">
         <div class="col-12">
-            <div class="row m-b-10" v-if="norecord !== 0">
-                <div class="col-md-12">
-                    <router-link to="/comment" class="float-right main-bg-color create-btn all-btn">
-                        <i class="fas fa-plus-circle"></i> 新しいコメントを作成
-                    </router-link>
-                </div>
-            </div>
             <!--card-->
             <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                 <div class="col-md-12 scrolldiv">
@@ -35,54 +28,46 @@
                         <div class="card card-default m-b-20" v-for="comment in displayItems" :key="comment.id">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-8 m-t-8">
-                                        <strong>タイトル :</strong> {{comment.title}}
+                                    <div class="col-md-8">
+                                        <!-- <strong>タイトル :</strong> {{comment.title}}  <br/>
+                                        <strong>顧客名 :</strong> {{comment.name}}  <br/>
+                                        <strong>メールアドレス:</strong>{{comment.email}} -->
+                                       <table>
+                                           <tr>
+                                               <td>タイトル :</td>
+                                               <td> {{comment.title}}</td>
+                                           </tr>
+                                            <tr>
+                                               <td>顧客名 :</td>
+                                               <td> {{comment.name}} </td>
+                                           </tr>
+                                             <tr>
+                                               <td>メールアドレス: </td>
+                                               <td> {{comment.email}} </td>
+                                           </tr>
+                                       </table>
                                     </div>
+
                                     <div class="col-md-4 text-right">
                                         <!-- <button class="'btn btn all-btn main-bg-color changeLink'+payment.id" type="button" @click="commentToggle(comment.id)"><span  :id="'icon' + comment.id"  class="fa fa-angle-down"></span></button> -->
                                         <button :class="'btn btn all-btn main-bg-color changeLink'+comment.id" style="min-width: 0px;" @click="commentToggle(comment.id)">
                                             <i :id="'icon' + comment.id" class="fa fa-angle-down"></i> 見る</button>
-                                        <button class="btn-secondary all-btn confirmed" v-if="comment.status != 0" style="padding:5px;border-radius:2px;">確認しました。</button>
-                                        <button class="btn btn-info all-btn" v-else @click="commentConfirm(comment.id)">確認</button>
-                                        <button class="btn btn-danger all-btn" @click="deleteComment(comment.id)">削除</button>
+                                        <button class="btn confirmed" v-if="comment.status != 0" style ="opacity: 0.5;cursor: not-allowed;" >確認</button>
+                                        <button class="btn confirm-borderbtn" v-else @click="commentConfirm(comment.id)">確認</button>
+                                        <button class="btn text-danger delete-borderbtn" @click="deleteComment(comment.id)">削除</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="collapse card-body" :id="'changeLink' + comment.id">
-                                <div class="col-md-12">
-                                    <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}}</h5>
-                                    <br>
-                                    <table class="table">
-                                        <tr>
-                                            <th>タイトル</th>
-                                            <th>
-                                                <input type="text" name="exp[]" class="form-control expense-moving white-bg-color" v-model="comment.title">
-                                          
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>コメント</th>
-                                            <th>
-                                                <div>{{comment.comment}}</div>
-                                                <!-- <input type="text" name="exp[]" class="form-control living-room-type white-bg-color" v-model="comment.comment"> -->
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>メールアドレス</th>
-                                            <th>
-                                                <div>{{comment.email}}</div>
-                                                <!-- <input type="text" name="exp[]" class="form-control monthly-fees white-bg-color" v-model="comment.email"> -->
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>名前</th>
-                                            <th>
-                                                <div>{{comment.name}}</div>
-                                                <!-- <input type="text" name="exp[]" class="form-control area white-bg-color" v-model="comment.name"> -->
-                                            </th>
-                                        </tr>
-                                    </table>
+                                <div class="comment-title" id="nursingView">
+                                   
+                                    <div class="d-flex">
+                                    <p class="profile_subtit">{{comment.title}}</p> <span style="font-size:12px;">(コメント)</span>
+                                     <p class="comment-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p>
+                                    </div>
+                                    <!-- <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}} <span style="font-size:14px;">(コメント)</span></h5> -->                                                                     
                                 </div>
+                                 <div name="exp[]" class="col-md-12"><p style="color:#736e6e;">{{comment.comment}}</p></div>
                             </div>
                         </div>
                         <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
@@ -126,6 +111,7 @@
                     items: [],
                     pagination: false,
                 }
+
             },
             created() {
                 this.axios
@@ -139,6 +125,8 @@
                             this.pagination = false;
                         }
                     });
+
+
             },
             computed: {
             pages() {
@@ -201,7 +189,7 @@
                                     if(this.norecord > this.size){
                                         this.pagination = true;
                                     }else{
-                                        this.pagination = false;
+                                        this.pagination = false; 
                                     }
                                     // let i = this.categories.map(item => item.id).indexOf(id); // find index of your object
                                     // this.categories.splice(i, 1);
@@ -320,3 +308,20 @@
             }
     }
 </script>
+<style scoped>
+    .comment-title {
+    background-size: 29px;
+    /* background :#b6b4b4; */
+    color: #3fc8d6;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.comment-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #777;
+
+}
+</style>

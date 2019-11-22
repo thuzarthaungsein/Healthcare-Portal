@@ -3352,10 +3352,13 @@ ul.main-tab li:after {
     font-weight: bold;
     font-size: 45px;
     line-height: 1.4;    
+    position: absolute;
+    bottom: 120px;
 }
 .wrap{
-    position: relative;
-    top: 50px;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
 
 }
 .search {
@@ -3363,7 +3366,7 @@ ul.main-tab li:after {
     position: relative;
     display: flex;
   }
-  
+
   .searchTerm {
       width: 100%;
       border: 3px solid #f7834b;
@@ -3374,11 +3377,11 @@ ul.main-tab li:after {
       outline: none;
       color: #495057;
   }
-  
+
   .searchTerm:focus{
     color: #000;
   }
-  
+
   .searchButton {
       width: 85px;
       height: 46px;
@@ -3388,7 +3391,7 @@ ul.main-tab li:after {
       color: #fff;
       border-radius: 0 5px 5px 0;
   }
-  
+
 .division-box>ul {
     box-sizing: border-box;
     position: absolute;
@@ -3587,8 +3590,10 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar,
     .scrolldiv2::-webkit-scrollbar,
     .adminview-sidebar::-webkit-scrollbar,
+    .map-wrap::-webkit-scrollbar,
     .main-wrap::-webkit-scrollbar {
         width: 6px !important;
+        height: 6px;
         background: #f7f7f7 !important;
     }
     .news-wrapper::-webkit-scrollbar-track,
@@ -3598,6 +3603,7 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar-track,
     .scrolldiv2::-webkit-scrollbar-track,
     .adminview-sidebar::-webkit-scrollbar-track,
+    .map-wrap::-webkit-scrollbar-track,
     .main-wrap::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
         border-radius: 0px !important;
@@ -3609,6 +3615,7 @@ screen and (min-width: 750px) {
     .scroll2::-webkit-scrollbar-thumb,
     .scrolldiv2::-webkit-scrollbar-thumb,
     .adminview-sidebar::-webkit-scrollbar-thumb,
+    .map-wrap::-webkit-scrollbar-thumb,
     body::-webkit-scrollbar-thumb {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
         background-color: #d7d7d7 !important;
@@ -6007,11 +6014,11 @@ body::-webkit-scrollbar-thumb {
 /*  Start CommentList */
 
 button.confirmed {
-    opacity: 0.5;
-    cursor: not-allowed;
+    border: 1px solid #b6b4b4 !important;
+    background: #b6b4b4;
+    box-shadow: none!important;
+    min-width: 60px;
 }
-
-
 /* End Commentlist */
 
 .mailbox {
@@ -6659,7 +6666,7 @@ button.confirmed {
 
 .nursingSearch-tbl {
     padding: 20px 0 10px 0;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ff9563;
 }
 
 .nursingSearch-tbl td:first-child {
@@ -6668,7 +6675,8 @@ button.confirmed {
 
 .nursingSearch-tbl td {
     padding: 0 10px;
-    border-left: 1px solid #dee2e6;
+    /* border-left: 1px solid #dee2e6; */
+    border-left: 1px solid #ff9563;
     vertical-align: top;
 }
 
@@ -6726,16 +6734,17 @@ button.confirmed {
 }
 
 .type-name {
-    width: 40%;
-    padding: 0px;
-    margin-bottom: 10px;
-    font-size: 16px;
+    /* width: 40%; */
+    padding: 2px 10px;
+    /* margin-bottom: 10px; */
+    font-size: 14px;
     color: #fff;
     font-weight: bold;
-    background: #ff9563;
-    border: 1px solid #ff9563;
+    background: #489620;
+    /* border: 1px solid #ff9563; */
     border-radius: 5px;
     text-align: center;
+    /* margin-bottom: 10px; */
     font-weight: normal;
 }
 
@@ -8241,7 +8250,7 @@ ul.nur-caro-card>li.list-group-item {
     .today .adslist-card .smallads-title {
         top: 7px;
     }
-    
+
     .sub-title>.ads-title {
         position: unset;
         margin: 10px 0 30px;
@@ -8401,7 +8410,7 @@ ul.nur-caro-card>li.list-group-item {
 }
 
 
-/* 
+/*
 .header2 h5:after {
     height: 2px;
     content: '';

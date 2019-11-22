@@ -9,24 +9,21 @@
       <div class="col-md-12">
         <div>
         <div class="row map-wrap"  id="searchMap">
-          <!-- search map and path -->
-          
-          
-            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
+          <!-- search map and path -->  
+            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
             <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton">    
-                      <i class="fas fa-search"></i>   
-                      検索
+                      <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
               </div> 
             <!--end search input-->          
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-12 float-left">
+            <div class="col-lg-7 col-md-12 col-sm-12 float-right">
               <div class="divisions row" id="divisionswrap">
                 <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
@@ -393,16 +390,18 @@
         </div>
       </div>
         <!-- google map  -->
-        <div class="row m-t-10 m-b-10">
+        <section id="holder" >
+        <div class="row" >
           <div class="col-sm-12 col-md-12">
-          <div id="holder" style="position: relative;">
+          <div style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
               
-              <div id="mymap" class="select"></div>
+              <div id="mymap" class="select m-t-10 m-b-10"></div>
             
           </div>
           </div>
         </div>
+        </section>
        
         <!-- nursing list -->
        <div id="nursing-search"> 
@@ -445,9 +444,9 @@
                           <tr>
                             <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
-                                    <p class="type-name">{{items.type_name}}</p>
+                                    <span class="type-name">{{items.type_name}}</span>
                                 
-                                    <div class="row">
+                                    <div class="row" style="margin-top:10px;">
                                         <div class="col-4">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
@@ -1032,56 +1031,37 @@ coordinates(theCity, lat, lng){
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
+         
             infoWindowContent.push([
             '<div id="info_content">' +
             '<div class="">' +
-                '<table class="table">' +
+                '<table class="table" style="margin-bottom:0px;">' +
                 '<thead>' +
                     '<tr>' +
-                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                    '</span></td>' +
-                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                    '</td>' +
+                    '<td colspan="2"><span class="type-name">' +
+                    item[i]['type_name']+
+                    '</span>'+
+                    '</td>' +                    
                     '</tr>' +
                 '</thead>' +
-                '<tbody>' +
-                    '<tr>' +
-                    '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                    '</span> </button></td>' +
-                    '</tr>' +
+                '<tbody>' +                    
                     '<tr>' +
                     '<td colspan="2" class="text-left">' +
-                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
-                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" style="margin-right:10px;">' +
+                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +                    
                     '</td>' +
                 '</tr>' +
-                '<tr>' +
-                    '<td colspan="2"><p class="type-name">' +
-                    item[i]['type_name'] +
-                    +'</p></td>' +
-                '</tr>' +
+                
                 '<tr>' +
                 '<td>' +
                 '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                 '</td>' +                            
-                    '<td>' +
-                    '<ul class="list-group list-group-flush nur-caro-card">' +
-                    '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                    '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
-                        item[i]['township_name'] + ['address'] + 
-                    '</p></li>' +
+                    '<td style="padding-top:3px;padding-bottom:0px;">' +
+                    '<ul class="list-group list-group-flush nur-caro-card">' +                    
 
                     '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
-                        '<span>' + item[i]['phone'] + '</span>' +
-                        '</li>' +
-
-                    '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-10">公式サイト</span>' +
-                    '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
-                    '</li>' +                                
+                        '<p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>' + item[i]['phone'] + '</p>' +
+                        '</li>' +                                
                     '</ul>' +
                 '</td>' +                            
                 '</tr>' +
@@ -1091,10 +1071,8 @@ infoWindow(item, mmarker){
                     '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                     '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                     '<tbody>'+
-                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                    '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                     '</tbody>'+
-
                     '</table>'+
                     '</div>' +
                 '</td>' +

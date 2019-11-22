@@ -174,7 +174,7 @@
                 </a>
                 <p class="h-tel"><i class="fas fa-phone-alt"></i><span>03-1234-5678</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:mpm_secretary@management-partners.co.jp">mpm_secretary@management-partners.co.jp</a></p>
             </div>
-            
+
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -204,9 +204,9 @@
                     <!-- <ul class="social-link col-12 d-flex justify-content-end">
                         <li><a href="http://localhost:8000/registerForm"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="http://localhost:8000/registerForm"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li> 
+                        <li><a href="http://localhost:8000/registerForm"><i class="fas fa-envelope"></i></a></li>
                     </ul> -->
-                    <ul class="navbar-nav ml-auto pc  d-flex justify-content-end"> 
+                    <ul class="navbar-nav ml-auto pc  d-flex justify-content-end">
                         @guest
                         <li class="nav-item">
                             <a class="nav-link pad-free" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;<span>{{ __('事業者 ログイン') }}</span></a>
@@ -238,11 +238,11 @@
                             <!-- <a class="nav-link" href="#!">{{ Auth::user()->name }}</a> -->
 
                         </li>
-                        @endguest 
-                    </ul> 
+                        @endguest
+                    </ul>
                 </div>
-                
-                
+
+
                 <ul class="sp-nav sp">
 
                     <li><router-link to="/" class="nav-link"><i class="fa fa-home"></i>&nbsp;&nbsp;ホーム</router-link></li>
@@ -355,7 +355,7 @@
             </div>
         </div>
         </nav>
-        
+
 
         <!--end navigation bar-->
 
@@ -549,7 +549,7 @@
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
                             <!-- <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link></li> -->
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者一覧</router-link></li>
-                            <li><router-link to="/commentlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;Comment List</router-link></li>
+                            <li><router-link to="/commentlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;コメント一覧</router-link></li>
                         </ul>
                     </li>
                     @endcan
@@ -796,7 +796,7 @@
         $('.his-hospital-link-box>a').css({'cursor':'pointer','pointer-events':'auto'});
     }
     else{
-        $("#hos-his-local").html(0);       
+        $("#hos-his-local").html(0);
         $('.his-hospital-link-box>a').css({'cursor':'not-allowed','pointer-events':'none'});
         $( '.his-hospital-link-box>a ').parent('div').css({'cursor':'not-allowed'});
     }
