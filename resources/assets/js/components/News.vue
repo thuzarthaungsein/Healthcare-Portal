@@ -88,6 +88,7 @@
                                                 <div class="hovereffect fit-image">
                                                 <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
                                                     <transition name="fade">
+                                                        <span  v-if="width <= 1280">{{width}}</span>
                                                         <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
                                                     </transition>
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
@@ -571,7 +572,7 @@
     methods: {
 
              handleResize() {
-                this.window.width = window.innerWidth;
+                this.width = window.innerWidth;
             },
 
             log() {
