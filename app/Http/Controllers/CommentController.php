@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Customer;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
@@ -14,8 +15,11 @@ class CommentController extends Controller
     protected $zipcode;
     public function index()
     {
-        $comment =Comment::all()->toArray();
-        return array_reverse($comment);
+        // $comment =Comment::all()->toArray();
+        // return array_reverse($comment);
+        $sql = "SELECT comments.*,customers.name from comments JOIN customers ON comments.customer_id= customers.id";
+        $commentList = DB::select($sql);
+        return $commentList;
     }
 
 
@@ -23,7 +27,12 @@ class CommentController extends Controller
     {
         //
     }
+    // public function getCommentList($cusid){
 
+    //     // $sql = "SELECT comments.*,customers.id,customers.name from comments JOIN customers ON comments.customer_id= customers.id WHERE comments.customer_id=$cusid";
+    //     // $commentList = DB::select($sql);
+    //     // return $commentList;
+    // }
 
     public function store(Request $request)
     {
@@ -64,11 +73,11 @@ class CommentController extends Controller
         $comment->recordstatus = 1;
         $comment ->save();
 
-    
+
         $getComment = Comment::findOrFail($comment->id);
         $query = "SELECT cu.id as cusid ,cu.name as cusname,co.* from customers As cu  Join comments As co on cu.id = co.customer_id  where co.customer_id =" . $comment->customer_id . " and co.id =" .$comment->id;
         $getComment = DB::select($query);
-      
+
         if($getComment[0]->gender == 0 )
         {
             $getComment[0]->gender = "Male";
@@ -135,7 +144,7 @@ class CommentController extends Controller
         $search_word = $request['search_word'];
 
         $search_comment = Comment::query()
-                            ->where('title', 'LIKE', "%{$search_word}%")
+                            ->where('name', 'LIKE', "%{$search_word}%")
                             ->orderBy('id','DESC')
                             ->get()
                             ->toArray();

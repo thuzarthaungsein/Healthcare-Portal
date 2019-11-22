@@ -27,16 +27,20 @@
                         <!-- </form>                                       -->
                         <div class="row" v-if="status == '0'">
                             <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
-                                <div class="card-header tab-card-header">
-                                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                        <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);">
-                                            <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-                                            {{ cat.name }}</a>
+                                <div class="card-header tab-card-header clearfix cat-nav">
+                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-double-left"></i></span>
+                                    <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li v-for="cat in cats" :key="cat.id" class="nav-item nav-line" id="category-id" v-bind:value="cat.id" v-on:click="getPostByCatID(cat.id);getLatestPostByCatID(cat.id);" ref="itemWidth">
+                                                <a class="nav-link" href="#two" v-if = "cats[0].id != cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                                {{ cat.name }}</a>
 
-                                            <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
-                                            {{ cat.name }}</a>
-                                        </li>
-                                    </ul>
+                                                <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
+                                                {{ cat.name }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>                             
+                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-double-right"></i></span>
                                 </div>
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
                                     <div class="tab-pane fade show active p-1" id="one" role="tabpanel" aria-labelledby="one-tab">
@@ -84,7 +88,7 @@
                                                 <div class="hovereffect fit-image">
                                                 <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
                                                     <transition name="fade">
-                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" alt="Image" @error="imgUrlAlt">
+                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
                                                     </transition>
                                                     <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
                                                     <transition name="fade" slot="placeholder">
@@ -515,7 +519,10 @@
             status:'0',
             search_word:null,
             first_search_word:'',
-            pattern:[]
+            pattern:[],
+            is_cat_overflow: false,
+            is_cat_slided: false,
+            computed_width: '100%'
         }
     },
     created() {
@@ -555,8 +562,6 @@
 
         }
 
-
-
     //     this.categoryId();
     },
     methods: {
@@ -570,6 +575,14 @@
                     .then(response => {
                         // console.log(response);
                         this.cats = response.data;
+                        var total_word = 0;
+                        $.each(this.cats, function(key,value) {
+                            total_word += value.name.length;
+                        });
+                        if(total_word > 32) {
+                            this.is_cat_overflow = true;
+                            this.computed_width = '99%';
+                        }
                     });
             },
             groupBy(array, key) {
@@ -685,7 +698,47 @@
             imgUrlAlt(event) {
                 console.log(event.target)
                 event.target.src = "images/noimage.jpg"
-            }
+            },
+            scrollTo(element, scrollPixels, duration) {
+                const scrollPos = element.scrollLeft;
+                // Condition to check if scrolling is required
+                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0))) 
+                {
+                    // Get the start timestamp
+                    const startTime =
+                    "now" in window.performance
+                        ? performance.now()
+                        : new Date().getTime();
+                    
+                    function scroll(timestamp) {
+                    //Calculate the timeelapsed
+                    const timeElapsed = timestamp - startTime;
+                    //Calculate progress 
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    //Set the scrolleft
+                    element.scrollLeft = scrollPos + scrollPixels * progress;
+                    //Check if elapsed time is less then duration then call the requestAnimation, otherwise exit
+                    if (timeElapsed < duration) {
+                        //Request for animation
+                        window.requestAnimationFrame(scroll);
+                    } else {
+                        return;
+                    }
+                    }
+                    //Call requestAnimationFrame on scroll function first time
+                    window.requestAnimationFrame(scroll);
+                }
+            },
+            swipeLeft() {
+                const content = this.$refs.content;
+                this.scrollTo(content, -300, 800); 
+            },
+            swipeRight() {
+                const content = this.$refs.content;
+                this.scrollTo(content, 300, 800);
+                this.is_cat_slided = true;
+                this.computed_width = '96%';
+            },
         }
     }
  </script>
@@ -728,4 +781,65 @@
     .tab-pane{
         padding: 10px;
     }
+
+.left{
+ float: left; 
+ width: 30%;
+ border: 1px solid black;
+}
+
+.internal{
+ /* width: 31.75%;
+ border: 1px solid black; */
+ display: inline-block;
+}
+
+.center{
+ /* float: left;
+width: 38.9%;
+border: 1px solid black;
+margin: 1px; */
+/* width: 95%; */
+overflow: hidden;
+white-space: nowrap;
+display: inline-block;
+/* max-width: 100%; */
+}
+
+.right{
+ float: right; 
+ width: 30%;
+ border: 1px solid black;
+}
+
+.cat-nav {
+    padding-bottom: 0;
+    height: 40px;
+}
+
+.arr-btn {
+    cursor: pointer;
+    display: inline-block;
+    opacity: 0.7;
+    background:#fff;
+    padding: 5px 1px 4px;
+    /* padding-top: 5px;
+    padding-bottom: 4px; */
+}
+.left-arr-btn {
+    position: relative;
+    top: -3px;
+    left: -8px;
+}
+.right-arr-btn {
+    position: relative;
+    top: -3px;
+    right: -26px;
+}
+#myTab ul li {
+    display: inline-block;
+}
+.nav {
+    flex-wrap: nowrap;
+}
 </style>
