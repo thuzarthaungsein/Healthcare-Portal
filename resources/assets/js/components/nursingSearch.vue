@@ -668,7 +668,7 @@
                             <td>{{nus.email}}</td>
                             </tr>                              
                             <tr>
-                            <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
+                            <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
                             <td>{{nus.address}}</td>
                             </tr>
                             <!-- <tr>
