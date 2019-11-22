@@ -444,9 +444,9 @@
                           <tr>
                             <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
-                                    <p class="type-name">{{items.type_name}}</p>
+                                    <span class="type-name">{{items.type_name}}</span>
                                 
-                                    <div class="row">
+                                    <div class="row" style="margin-top:10px;">
                                         <div class="col-4">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
@@ -1035,17 +1035,16 @@ coordinates(theCity, lat, lng){
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
-            console.log("typename");
-            console.log(item[i]['type_name']);
+         
             infoWindowContent.push([
             '<div id="info_content">' +
             '<div class="">' +
-                '<table class="table">' +
+                '<table class="table" style="margin-bottom:0px;">' +
                 '<thead>' +
                     '<tr>' +
-                    '<td colspan="2"><p class="type-name">' +
-                    item[i]['type_name'] +
-                    +'</p>'+
+                    '<td colspan="2"><span class="type-name">' +
+                    item[i]['type_name']+
+                    '</span>'+
                     '</td>' +                    
                     '</tr>' +
                 '</thead>' +
@@ -1061,22 +1060,12 @@ infoWindow(item, mmarker){
                 '<td>' +
                 '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
                 '</td>' +                            
-                    '<td>' +
-                    '<ul class="list-group list-group-flush nur-caro-card">' +
-                    '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                    '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
-                        item[i]['township_name'] + ['address'] + 
-                    '</p></li>' +
+                    '<td style="padding-top:3px;padding-bottom:0px;">' +
+                    '<ul class="list-group list-group-flush nur-caro-card">' +                    
 
                     '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
-                        '<span>' + item[i]['phone'] + '</span>' +
-                        '</li>' +
-
-                    '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-10">公式サイト</span>' +
-                    '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
-                    '</li>' +                                
+                        '<p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>' + item[i]['phone'] + '</p>' +
+                        '</li>' +                                
                     '</ul>' +
                 '</td>' +                            
                 '</tr>' +

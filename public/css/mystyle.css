@@ -6688,7 +6688,7 @@ button.confirmed {
 
 .nursingSearch-tbl {
     padding: 20px 0 10px 0;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ff9563;
 }
 
 .nursingSearch-tbl td:first-child {
@@ -6697,7 +6697,8 @@ button.confirmed {
 
 .nursingSearch-tbl td {
     padding: 0 10px;
-    border-left: 1px solid #dee2e6;
+    /* border-left: 1px solid #dee2e6; */
+    border-left: 1px solid #ff9563;
     vertical-align: top;
 }
 
@@ -6755,16 +6756,17 @@ button.confirmed {
 }
 
 .type-name {
-    width: 40%;
-    padding: 0px;
-    margin-bottom: 10px;
-    font-size: 16px;
+    /* width: 40%; */
+    padding: 2px 10px;
+    /* margin-bottom: 10px; */
+    font-size: 14px;
     color: #fff;
     font-weight: bold;
-    background: #ff9563;
-    border: 1px solid #ff9563;
+    background: #489620;
+    /* border: 1px solid #ff9563; */
     border-radius: 5px;
     text-align: center;
+    /* margin-bottom: 10px; */
     font-weight: normal;
 }
 
