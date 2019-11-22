@@ -57,71 +57,72 @@
                                     <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
 
-                            <div class="col-md-12 card related-card">
-                                <div class="card-header">
-                                    関連ニュース
-                                </div>
-                                <div class="card-body">
-                                    
-                                    <div class="row">
-                                        <label> カテゴリー:<span class="error">*</span></label>
-                                        <div class="col-md-5">
-                                            <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
-                                                <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
-                                                    {{category.name}}
-                                                </option>
-                                            </select>
-                                            <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
+                            <div class="form-group">
+                                <label>関連ニュース:</label>     
+                                <div class="col-md-12 card related-card">
+                                    <div class="card-body">
+                                        
+                                        <div class="row">
+                                            <label> カテゴリー:</label>
+                                            <div class="col-md-5">
+                                                <select v-model="category_id_1" id="categories" class="form-control" @change='getPostsByCatId()'>
+                                                    <option v-for="category in categories" :key="category.id" v-bind:value="category.id">
+                                                        {{category.name}}
+                                                    </option>
+                                                </select>
+                                                <span v-if="errors.related_news" class="error">{{errors.related_news[0]}}</span>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" placeholder="関連ニュース検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
+                                            </div>
                                         </div>
-                                        <div class="col-md-5">
-                                            <input type="text" placeholder="関連ニュース検索" aria-label="search" id="search-word" class="form-control" @keyup='getPostsByCatId()'>
-                                        </div>
-                                    </div>
-                                    <br/>
-                                    <div class="row">
-                                        <div class="col-md-4" v-for="news in displayItems" :key="news.id">
-                                            <label class="form-check-label control control--checkbox">
-                                                <input type="checkbox" :value="news.id" v-model="checkedNews">
-                                                <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
-                                                    <div class="card-body news-post">
-                                                        <div class="row">
-                                                            <div class="col-md-3 pad-free" >
-                                                                <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news" @error="imgUrlAlt">
-                                                            </div>
-                                                            <div class="col-md-9">
-                                                                {{news.title}}
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-md-4" v-for="news in displayItems" :key="news.id">
+                                                <label class="form-check-label control control--checkbox">
+                                                    <input type="checkbox" :value="news.id" v-model="checkedNews">
+                                                    <div class="col-md-12 card card-default" style="float:left;height:150px;cursor:pointer;">
+                                                        <div class="card-body news-post">
+                                                            <div class="row">
+                                                                <div class="col-md-3 pad-free" >
+                                                                    <img :src="'/upload/news/'+ news.photo" class="img-fluid" alt="news" @error="imgUrlAlt">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    {{news.title}}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="control__indicator"></div>
-                                            </label>
-                                        </div>
-                                        <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination">
-                                                    <li class="page-item">
-                                                        <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
-                                                    </li>
-                                                    <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
-                                                        <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                                                    <div class="control__indicator"></div>
+                                                </label>
+                                            </div>
+                                            <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
+                                                        </li>
+                                                        <li class="page-item">
+                                                            <span class="spanclass" @click="prev"><i class='fas fa-angle-left'></i> 前へ</span>
+                                                        </li>
+                                                        <li class="page-item" v-for="(i,index) in displayPageRange" :key="index" :class="{active_page: i-1 === currentPage}">
+                                                            <span class="spanclass" @click="pageSelect(i)">{{i}}</span>
+                                                        </li>
+                                                        <li class="page-item">
+                                                            <span class="spanclass" @click="next">次へ <i class='fas fa-angle-right'></i></span>
+                                                        </li>
+                                                        <li class="page-item">
+                                                            <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" v-model="checkedNews">
                             </div>
-                            <input type="hidden" v-model="checkedNews">
+
 
                             <div class="form-group">
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
