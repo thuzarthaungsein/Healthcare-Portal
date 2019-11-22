@@ -708,7 +708,8 @@ width: 100%; */
     width: 20px;
     height: 20px;
     margin-top: -10px;
-    background: #bdc3c7;
+    background: #E6E6E6;
+    border: 1px solid #ADA6A6;
     border-radius: 50%;
 }
 
@@ -5871,6 +5872,18 @@ body::-webkit-scrollbar-thumb {
     list-style: none;
 }
 
+.hos_fac_container>li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 0 10px 3px;
+    font-size: 13px;
+    color: #63b7ff;
+    border: 1px solid #63b7ff;
+    text-align: center;
+    border-radius: 20px;
+    list-style: none;
+}
+
 
 /*for clinical subject*/
 
@@ -8484,6 +8497,7 @@ ul.nur-caro-card>li.list-group-item {
     width: 100%;
     box-shadow: 0px 1px 5px 0px #b1b1b1 !important;
     height: auto;
+    max-height: 100%;
     transition: all 250ms ease-out;
 }
 

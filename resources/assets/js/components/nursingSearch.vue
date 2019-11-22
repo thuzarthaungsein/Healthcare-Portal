@@ -499,6 +499,9 @@
           </div>
 
         </div>
+         <div id="nursingView">
+         <h5 class="profile_subtit">もっと探す条件</h5>
+      </div>
       </div>
       <!--list-->
        <table class="table table-bordered col-12 box-wrap select">
