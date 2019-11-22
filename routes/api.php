@@ -225,7 +225,8 @@ Route::group(['prefix' => 'customer'], function () {
 });
 
 Route::get('getReset','registerController@getReset');
-Route::get('getskill', 'JobApplyController@getSkills');
+// Route::get('getskill', 'JobApplyController@getSkills');
+Route::get('getjobtitle/{jobs_id}', 'JobApplyController@getJobTitle');
 Route::get('skill', 'JobController@getSkill');
 Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
