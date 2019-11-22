@@ -90,6 +90,10 @@
                             <router-link :to="{name: 'job_details', params:{id:job.id}}">{{job.title}} </router-link>
                             <!-- <span class="job_id">jobapplylistcount{{job.count}}</span> -->
                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
 
                             <span class="job_id">求人番号：{{job.jobid}}</span>
                         </h5>
@@ -106,6 +110,7 @@
                                                 <li>
                                                     <router-link :to="{name: 'jobapplylist', params:{id:job.id}}" class="btn confirm-borderbtn confirmed">求人応募一覧ページへ</router-link>
                                                 </li>
+                                                <li><a class="btn text-success active-borderbtn">Disabled</a></li>
                                                 <li><a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a></li>
                                             </ul>
                                         </div>
@@ -312,3 +317,66 @@
             }
     };
 </script>
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 47px;
+  height: 26px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0cc72c;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>

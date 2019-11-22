@@ -67,7 +67,7 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <p class="profile_wd">
-                                                                <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">お気に入りリストから削除</button>
+                                                                <span class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">お気に入りリストから削除</span>
                                                             </p>
                                                         </td>
                                                     </tr>
