@@ -1217,8 +1217,7 @@
                     // console.log(response);
 
                     this.post_groups = this.groupBy(response.data, 'name');
-
-                    // console.log(this.post_groups)
+                   
 
 
 
@@ -1619,9 +1618,7 @@ display: inline-block;
  float: right; 
 
  width: 30%;
-
- border: 1px solid black;
-
+ /* border: 1px solid black; */
 }
 
 

@@ -53,16 +53,23 @@
                     <span>{{ latest_new.main_point }}</span>
                   </router-link>
                 </div>
-              </div>-->
-              <div class="row">
-                <div class="col-md-12">
-                  <h4 class="h_4 header">{{newdetails.title}}</h4>
-                  <p class="set-date">
-                    <small style="color:#aaa;">
+              </div>-->   
+
+             
+               
+             
+              <div class="row" v-for="news in newdetails" :key="news.id">
+                <div class="col-md-12" >
+                  <h4 class="h_4 header">{{news.title}}</h4>   
+                  <div class="set-date">
+                    <p :class="'title'+ news.cat_id ">
+                     <span class="font-weight-bold"> {{news.cat_name}}</span>
+                     <small style="color:#aaa;">
                       <i class="fa fa-calendar-alt"></i>
-                      &nbsp;&nbsp;{{newdetails.created_at}}
+                      &nbsp;&nbsp;{{news.created_at}}
                     </small>
-                  </p>
+                    </p>   
+                  </div>
                 </div>
                 <div class="col-12">
                   <div class="float-left mr-4" style="max-width:500px;">
@@ -71,16 +78,16 @@
                       style="width:100%;text-align: center;padding: 30px;"
                     >
                       <img
-                        :src="'/upload/news/'+ newdetails.photo"
+                        :src="'/upload/news/'+ news.photo"
                         class="img-responsive img_2"
                         style="max-width:100%;"
                         @error="imgUrlAlt"
                       />
                     </div>
-                    <p class="img_2 mb-1">{{newdetails.main_point}}</p>
+                    <p class="img_2 mb-1">{{news.main_point}}</p>
                   </div>
                   <div>
-                    <p class="p5 mb-2">{{newdetails.body}}</p>
+                    <p class="p5 mb-2">{{news.body}}</p>
                   </div>
                 </div>
                 <div class="col-md-12 mt-2 related-area">
@@ -168,7 +175,9 @@ export default {
     this.axios
       .get(`/api/newdetails/${this.$route.params.id}`)
       .then(response => {
-        this.newdetails = response.data;
+        this.newdetails = response.data.news;
+    
+        
       });
     // alert(this.$route.params.id);
     this.relatedNews(this.$route.params.id);

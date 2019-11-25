@@ -467,6 +467,26 @@ body {
     color: #d1291d;
 }
 
+.title1 span {
+    color: #63b7ff;
+}
+
+.title2 span {
+    color: #a3774a;
+}
+
+.title3 span {
+    color: #9579ef;
+}
+
+.title4 span {
+    color: #21d1de;
+}
+
+.title5 span {
+    color: #d1291d;
+}
+
 
 /* #hospitalView .pro-heading h5 {
     background-color: #2981cc;
@@ -600,7 +620,7 @@ html {
 }
 
 .user_card {
-    height: 400px;
+    /* height: 400px; */
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
@@ -807,7 +827,6 @@ width: 100%; */
 .user_registercard {
     width: 700px;
     height: auto;
-    padding: 20px;
 }
 
 .user_registercard form label {
@@ -2594,6 +2613,7 @@ ul.sub-ul li {
     box-shadow: none !important;
     min-width: 60px;
 }
+
 .active-borderbtn {
     border: 1px solid green!important;
     color: green;
@@ -3937,6 +3957,8 @@ width: 30rem;
     text-transform: uppercase;
     color: #444;
     margin: 9px 0;
+    max-height: 103px;
+    overflow: hidden;
 }
 
 .source-subtitle {
@@ -4569,6 +4591,10 @@ margin-right: 2% !important;
 
 .is-nur {
     color: #d2571c;
+}
+
+.no-data-color {
+    color: #a5a5a5;
 }
 
 #hos-fav-local,
@@ -6717,6 +6743,13 @@ button.confirmed {
     vertical-align: top;
 }
 
+.nursingSearch-list span:first-child {
+    display: inline-block;
+    width: 50px;
+    margin-right: 10px;
+    color: #d2571c;
+}
+
 .wd-in {
     width: 317px;
 }
@@ -8520,22 +8553,24 @@ ul.nur-caro-card>li.list-group-item {
 .wrapper-3 {
     flex: 1 0 33.333%;
     position: relative;
-    /* height: 85%; */
+    height: 77%;
     /* padding-bottom: 70px; */
 }
 
 .wrapper-3 img {
     /* position: absolute; */
     width: 100%;
-    height: 175px;
+    height: 100%;
     /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
 }
 
 .wrapper-3 p {
     position: absolute;
-    top: 180px;
+    /* top: 180px; */
     font-weight: bold;
+    overflow: hidden;
+    max-height: 70px;
 }
 
 .wrapper-4 {

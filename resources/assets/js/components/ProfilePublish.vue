@@ -258,7 +258,7 @@
                             <p v-html="nurseprofile.feature"></p>
                         </div>
                         <div v-else>
-                            表示されるデータがありません。
+                            <p class="no-data-color">表示されるデータがありません。</p>
                         </div> -->
                     </div>
 
@@ -601,7 +601,7 @@
                     <div class="col-md-12  m-b-15">
                         <h5 class="profile_subtit">動画</h5>
                         <span v-if="videos == ''">
-                            <div class="col-sm-4 col-md-4 col-lg-3"> 表示されるデータがありません。 </div>
+                            <div class="col-sm-4 col-md-4 col-lg-3"> <p class="no-data-color">表示されるデータがありません。</p> </div>
                         </span>
                         <span v-else>
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
@@ -650,7 +650,7 @@
 
                                 </div>
                         </div>
-                        <div class="col-md-12" v-else> 表示されるデータがありません。 </div>
+                        <div class="col-md-12" v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
                     </div>
 
                     <div class="col-12">
@@ -715,7 +715,7 @@
                             </div>
 
                         </div>
-                        <div v-else class="col-md-12"> 表示されるデータがありません。 </div>
+                        <div v-else class="col-md-12"> <p class="no-data-color">表示されるデータがありません。</p> </div>
 
                     </div>
 
@@ -784,7 +784,7 @@
                         </div>
                     </div>
                </div>
-               <div v-else class="col-md-12"> 表示される口コミがありません。 </div>
+               <div v-else class="col-md-12"> <p class="no-data-color">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -1078,7 +1078,7 @@
                             </ul>
 
                         </div>
-                        <div class="row m-lr-0" v-else> 表示されるデータがありません。 </div>
+                        <div class="row m-lr-0" v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
 
                         <h5 class="header m-t-10">診療科目</h5>
 
@@ -1087,7 +1087,7 @@
                                 <li>{{sub.name}}</li>
                             </ul>
                         </div>
-                        <div class='row col-md-12' v-else> 表示されるデータがありません。 </div>
+                        <div class='row col-md-12' v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
                     </div>
                     <!--end for address-->
                 </div>
@@ -1098,7 +1098,7 @@
                     
                     <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
                         <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
-                        <span v-else>表示されるデータがありません。</span> -->
+                        <span v-else><p class="no-data-color">表示されるデータがありません。</p></span> -->
                         
                     </p>
                 </div>
@@ -1211,7 +1211,7 @@
 
                                 <p><strong class="font-weight-bold">休診日: </strong>
                                     <span v-if="hospital.closed_day"><font>{{hospital.closed_day}}</font></span>
-                                    <span v-else> 表示されるデータがありません。 </span>
+                                    <span v-else> <p class="no-data-color">表示されるデータがありません。</p> </span>
                                 </p>
 
                             </div>
@@ -1273,7 +1273,7 @@
                     </div>
                     <div class="row" v-else>
                         <div class="col-sm-4 col-md-4 col-lg-3">
-                            <span> 表示されるデータがありません。 </span>
+                            <span> <p class="no-data-color">表示されるデータがありません。</p> </span>
                         </div>
                     </div>
                 </div>
@@ -1920,8 +1920,8 @@ export default {
     justify-content: left;
     /* width: 1336px; */
     width:1033px;
+    overflow: hidden;
 }
-
 
 /*slick carousel*/
 
