@@ -16,7 +16,7 @@
           <h4>求人応募フォーム</h4>
         </div> -->
         <div class="col-12 m-b-10">
-          <h4 class="job-apply-color">求人応募フォーム</h4>
+          <h4 class="job-apply-color">{{Job.title}}</h4>
         </div>
 
       <div class="col-md-12 register_box mt-3" v-if="type == 'register'">
@@ -38,21 +38,25 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="first_name" placeholder="トラスト　太郎" v-model="jobApply.first_name" />
-                <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div>
+                <input type="text" class="form-control float-left" id="first_name" placeholder="お名前を入力してください。" v-model="jobApply.first_name" @focusout="focusName" @change="aggreBtn"/>
+                <span class="float-left eg-txt">例）探し 太郎</span>
+                <span class="error m-l-30" v-if="focus_name">※入力は必須です。</span>
+                <!-- <div v-if="errors.first_name" class="text-danger mt-2 ml-4">{{ errors.first_name }}</div> -->
             </div>
         </div>
         <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
                 <label for="last_name">
                     <strong>
-                  お名前フリガナ
+                  ふりがな
                   <span class="error sp1">必須</span>
                 </strong>
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="last_name" placeholder="トラスト　タロウ" v-model="jobApply.last_name" />
+                <input type="text" class="form-control float-left" id="last_name" placeholder="ふりがなを入力してください。" v-model="jobApply.last_name" @focusout="focusLname" @change="aggreBtn"/>
+                <span class="float-left eg-txt"> 例）さがし たろう</span>
+                <span class="error m-l-30" v-if="focus_lname">※入力は必須です。</span>
                 <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div>
             </div>
         </div>
@@ -86,14 +90,14 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right pl-4">
-                <label class="control control--radio">
-                    <input type="radio" v-model="jobApply.gender" value="Male" /> 女性
-                    <div class="control__indicator"></div>
-                </label>
-                <label class="control control--radio">
+              <label class="control control--radio">
                     <input type="radio" v-model="jobApply.gender" value="Female" /> 男性
                     <div class="control__indicator"></div>
                 </label>
+                <label class="control control--radio">
+                    <input type="radio" v-model="jobApply.gender" value="Male" /> 女性
+                    <div class="control__indicator"></div>
+                </label>                
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -105,8 +109,9 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="postal" placeholder="165879" v-model="jobApply.postal" maxlength="7" v-on:keyup="getPostal" />
-                <div v-if="errors.postal" class="text-danger mt-2 ml-4">{{ errors.postal }}</div>
+                <input type="text" class="form-control box" id="postal" placeholder="郵便番号を入力してください。" v-model="jobApply.postal" maxlength="7" v-on:keyup="getPostal" />
+                <div id="jsErrorMessage" class="float-left eg-txt"></div>
+                <span class="float-left eg-txt">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</span>
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -115,36 +120,35 @@
                     <strong>
                   都道府県
                 </strong>
+                <span class="error sp1">必須</span>
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" v-model="jobApply.pref" />
+                <select v-model="jobApply.selectedValue" class="division form-control" id="division" @change="aggreBtn">
+                    <option value="0">選択してください。</option>
+                    <option v-for="cities in city_list" :key="cities.id" v-bind:value="cities.id">
+                    {{cities.city_name}}
+                    </option>
+                </select>
+                <span v-if="errors.division" class="error">{{errors.division[0]}}</span>
+                <!-- <input type="text" class="form-control box" v-model="jobApply.pref" /> -->
             </div>
         </div>
         <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
                 <label for="str_address">
                     <strong>
-                  住所
+                  市区町村、番地（建物名)
                   <span class="error sp1">必須</span>
                 </strong>
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="str_address" v-model="jobApply.str_address" />
+                <input type="text" class="city form-control float-left" id="str_address" v-model="jobApply.str_address" placeholder="市区町村、番地を入力してください。" @focusout="focusCity" @change="aggreBtn"/>
+                <span class="float-left eg-txt">例）東京都千代田区丸の内1-9-1 グラントウキョウノースタワー40階</span>
+                <br>
+                <span class="error m-l-30" v-if="focus_city">※入力は必須です。</span>
                 <div v-if="errors.str_address" class="text-danger mt-2 ml-4">{{ errors.str_address }}</div>
-            </div>
-        </div>
-        <div class="form-group m-0 row bd">
-            <div class="col-md-3 col-sm-12 form-left">
-                <label for="home_address">
-                    <strong>
-                  番地以下
-                </strong>
-                </label>
-            </div>
-            <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="home_address" v-model="jobApply.home_address" />
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -157,8 +161,8 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" />
-                <div v-if="errors.phone" class="text-danger mt-2 ml-4">{{ errors.phone }}</div>
+                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn"/>
+                <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -171,18 +175,11 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="email" placeholder="例：abc@gmail.com" v-model="jobApply.email" />
-                <div v-if="errors.email" class="text-danger mt-2 ml-4">{{ errors.email }}</div>
+                <input type="text" class="form-control float-left" id="email" placeholder="メールアドレスを入力してください。" v-model="jobApply.email" @focusout="focusMail" @change="aggreBtn"/>
+                <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>
+                <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
             </div>
         </div>
-        <!-- <div class="form-group m-0 row bd">
-                <div class="col-md-3 col-sm-12 form-left">
-                    <label for ="skill"  ><strong>Skill : </strong>  </label>
-                </div>
-                <div class="col-md-9 col-sm-12 form-right">
-                    <input type="text" class="form-control box" id="skill" v-model="jobApply.skill"  >
-                </div>
-          </div>-->
         <div class="form-group m-0 row bd">
             <div class="col-md-3 col-sm-12 form-left">
                 <label for="remark">
@@ -211,14 +208,17 @@
                 </label>
                 <br />
                 <label class="ml-4 control control--checkbox">
-                    <input type="checkbox" v-model="jobApply.terms" /> 同意する
+                    <input type="checkbox" v-model="jobApply.terms" @change="aggreBtn"/> 同意する
                     <div class="control__indicator"></div>
                 </label>
                 <div v-if="errors.terms" class="text-danger ml-4">{{ errors.terms }}</div>
             </div>
         </div>
-        <div class="text-center mt-4 pb-5">
-            <span :disabled="isDisabled" class="btn main-bg-color white all-btn width17" @click="checkValidate()">確認画面へ進む</span>
+        <div class="mt-4 col-sm-3 submit txt-err" v-if="btn_disable">
+            <div class="error">※未入力の必須項目がございます</div>
+        </div>
+        <div class="text-center mt-2 pb-5">
+            <button type="button" :disabled="isdisable" class="btn main-bg-color white all-btn width17" @click="checkValidate()">確認画面へ進む</button>
         </div>
 </form>
 
@@ -292,20 +292,20 @@
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-              <span class="pl-4">{{ jobApply.pref }}</span>
+              <span class="pl-4">{{ jobApply.selectedValue }}</span>
             </div>
           </div>
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="str_address">
-                <strong>住所 :</strong>
+                <strong>市区町村、番地（建物名)</strong>
               </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
               <span class="pl-4">{{ jobApply.str_address }}</span>
             </div>
           </div>
-          <div class="form-group m-0 row bd">
+          <!-- <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="home_address">
                 <strong>番地以下</strong>
@@ -314,7 +314,7 @@
             <div class="col-md-9 col-sm-12 form-right">
               <span class="pl-4">{{ jobApply.home_address }}</span>
             </div>
-          </div>
+          </div> -->
           <div class="form-group m-0 row bd">
             <div class="col-sm-3 form-left">
               <label for="phone">
@@ -418,63 +418,83 @@ export default {
         email: "",
         skills: [],
         remark: "",
-        terms: false
+        terms: false,
+        selectedValue: 0,
+        division: 0,
+        focus_name: false,
+        focus_lname: false,
+        focus_pref: false,
+        focus_city: false,
+        focus_mail: false
       },
-      Job: {
-        fields: [
-          {
-            skills: []
-          }
-        ]
+    Job: {
+      title: ''
+        // fields: [
+        //   {
+        //     skills: []
+        //   }
+        // ]
       },
-      type: "register",
-      city_list: []
+    type: "register",
+    city_list: [],
+    focus_name: false,
+    focus_lname: false,
+    focus_pref: false,
+    focus_city: false,
+    focus_mail: false,
+    btn_disable: false
+
     };
   },
   created() {
     this.jobApply.job_id = this.$route.params.job_id;
-    this.axios.get("/api/getskill").then(response => {
-      this.Job.fields = response.data;
+    // this.axios.get("/api/getskill").then(response => {
+    //   this.Job.fields = response.data;
+    // });
+    this.axios.get("/api/getjobtitle/" + this.jobApply.job_id).then(response => {
+      this.Job.title = response.data[0].title;
     });
     this.axios.get("/api/hospital/citiesList").then(response => {
       this.city_list = response.data;
     });
+    if(this.jobApply.first_name != '' && this.jobApply.last_name != '' && this.jobApply.selectedValue != 0 && this.jobApply.str_address != '' && this.jobApply.email != '' && this.jobApply.terms == true){
+        this.btn_disable=false;
+    }else{
+        this.btn_disable=true;
+    }
   },
   computed: {
-    isDisabled: function() {
-      return !this.jobApply.terms;
+    isdisable: function() {
+        return this.btn_disable;
     }
   },
   methods: {
     getPostal: function(event) {
-      if (this.jobApply.postal.length > 4) {
-        var postal = this.jobApply.postal;
-        this.axios.post("/api/hospital/postList/" + postal).then(response => {
-          var post_data = response.data;
-          var length = response.data.length;
-          if (length > 0) {
-            var pref = post_data[0]["city_id"];
-            if (post_data[0]["street"] == "") {
-              this.jobApply.city_id = post_data[0]["city_id"];
-              this.jobApply.pref = post_data[0]["pref"];
-              this.jobApply.str_address = post_data[0]["city"];
-            } else {
-              this.jobApply.str_address =
-                post_data[0]["pref"] +
-                " - " +
-                post_data[0]["city"] +
-                " - " +
-                post_data[0]["street"];
-            }
-          } else {
-            this.jobApply.city = "";
-            $("#jsErrorMessage").html(
-              '<div class="error">郵便番号の書式を確認してください。</div>'
-            );
-          }
-        });
-      }
-    },
+                if (this.jobApply.postal.length > 4) {
+                    var postal = this.jobApply.postal;
+                    this.axios
+                        .post('/api/hospital/postList/' + postal)
+                        .then(response => {
+                            var post_data = response.data;
+                            var length = response.data.length;
+                            if (length > 0) {
+                                var pref = post_data[0]['city_id'];
+                                if (post_data[0]['street'] == '') {
+                                    this.jobApply.str_address = post_data[0]['city'];
+                                } else {
+                                    this.jobApply.str_address = post_data[0]['city'] + ' - ' + post_data[0]['street'];
+                                }
+                                this.jobApply.selectedValue = pref;
+                                this.jobApply.division = pref;
+                                 $('#jsErrorMessage').html('<div class="error"></div>');
+                            } else {
+                                this.jobApply.str_address = '';
+                                this.jobApply.selectedValue = 0;
+                                $('#jsErrorMessage').html('<div class="error">郵便番号の書式を確認してください。</div>');
+                            }
+                        });
+                }
+            },
     apply() {
 
     this.$loading(true);
@@ -500,50 +520,90 @@ export default {
       this.jobApply.skills.push(job);
     },
     checkValidate() {
-      if (this.jobApply.first_name) {
-        this.errors.first_name = "";
-      } else {
-        this.errors.first_name = "お名前が必須です。";
-      }
-      if (this.jobApply.last_name) {
-        this.errors.last_name = "";
-      } else {
-        this.errors.last_name = "フリガナが必須です。";
-      }
-      if (this.jobApply.str_address) {
-        this.errors.str_address = "";
-      } else {
-        this.errors.str_address = "電話番号が必須です。";
-      }
-      if (this.jobApply.phone) {
-        this.errors.phone = "";
-      } else {
-        this.errors.phone = "電話番号が必須です。";
-      }
-      if (this.jobApply.email) {
-        this.errors.email = "";
-      } else {
-        this.errors.email = "メールアドレスが必須です。";
-      }
-      if (this.jobApply.terms) {
-        this.errors.terms = "";
-      } else {
-        this.errors.terms = "「同意する」にチェックが必須です。";
-      }
+    //   if (this.jobApply.first_name) {
+    //     this.errors.first_name = "";
+    //   } else {
+    //     this.errors.first_name = "お名前が必須です。";
+    //   }
+    //   if (this.jobApply.last_name) {
+    //     this.errors.last_name = "";
+    //   } else {
+    //     this.errors.last_name = "ふりがなが必須です。";
+    //   }
+    //   if (this.jobApply.str_address) {
+    //     this.errors.str_address = "";
+    //   } else {
+    //     this.errors.str_address = "電話番号が必須です。";
+    //   }
+    //   if (this.jobApply.phone) {
+    //     this.errors.phone = "";
+    //   } else {
+    //     this.errors.phone = "電話番号が必須です。";
+    //   }
+    //   if (this.jobApply.email) {
+    //     this.errors.email = "";
+    //   } else {
+    //     this.errors.email = "メールアドレスが必須です。";
+    //   }
+    //   if (this.jobApply.terms) {
+    //     this.errors.terms = "";
+    //   } else {
+    //     this.errors.terms = "「同意する」にチェックが必須です。";
+    //   }
       if (
         !this.errors.first_name &&
         !this.errors.first_name &&
         !this.errors.postal &&
-        !this.errors.phone &&
         !this.errors.email &&
         !this.errors.terms
       ) {
         this.type = "confirm";
+         for (var i = 0; i < this.city_list.length; i++) {
+        if (this.jobApply.selectedValue == this.city_list[i].id) {
+            this.jobApply.selectedValue = this.city_list[i].city_name;
+        }
+         }
       }
     },
     editUserInfo() {
       this.type = "register";
-    }
+    },
+    focusName: function(event) {
+        if(this.jobApply.first_name != ''){
+            this.focus_name=false;
+        }else{
+            this.focus_name=true;
+        }
+    },
+    focusLname: function(event) {
+        if(this.jobApply.last_name != ''){
+            this.focus_lname=false;
+        }else{
+            this.focus_lname=true;
+        }
+    },
+    focusCity: function(event) {
+        if(this.jobApply.str_address != ''){
+            this.focus_city=false;
+        }else{
+            this.focus_city=true;
+        }
+    },
+    focusMail: function(event) {
+        if(this.jobApply.email != '' || this.jobApply.phone != ''){
+            this.focus_mail=false;
+        }else{
+            this.focus_mail=true;
+        }
+    },
+    aggreBtn: function(){
+        console.log('job',this.jobApply)
+        if(this.jobApply.first_name != '' && this.jobApply.last_name != '' && this.jobApply.selectedValue != 0 && this.jobApply.str_address != '' && this.jobApply.email != '' && this.jobApply.terms == true || this.jobApply.phone){
+            this.btn_disable=false;
+        }else{
+            this.btn_disable=true;
+        }
+    },
   }
 };
 </script>
