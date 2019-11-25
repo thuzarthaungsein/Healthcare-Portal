@@ -504,6 +504,7 @@
       </div>
       </div>
       <!--list-->
+          
        <table class="table table-bordered col-12 box-wrap select">
               <tbody>
                 <tr>
