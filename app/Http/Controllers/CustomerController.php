@@ -137,6 +137,8 @@ class CustomerController extends Controller
         //
         $customer = Customer::find($id);
         $customer->delete();
+        $user = User::where('customer_id',$id)->first();
+        $user->delete();
         return response()->json('Customer successfully deleted');
     }
 
