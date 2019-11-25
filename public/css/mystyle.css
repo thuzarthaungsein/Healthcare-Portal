@@ -1228,6 +1228,24 @@ p.p_2>a {
 #nursingView .profile_subtit:after {
     background: #ff9563;
 }
+.comment-underline {
+    position: relative;   
+}
+
+.comment-underline:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    display: inline-block;
+    width: 30px;
+    height: 5px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.commentWrap .comment-underline::after{
+    background: #ff9563;
+}
 
 .fav-profile {
     position: absolute;
@@ -4443,7 +4461,7 @@ margin-right: 2% !important;
 }
 
 .p-b-0 {
-    padding-bottom: 0px;
+    padding-bottom: 0px !important;
 }
 
 .p-b-5 {

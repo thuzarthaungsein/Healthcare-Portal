@@ -59,15 +59,15 @@
                                 </div>
                             </div>
                             <div class="collapse card-body" :id="'changeLink' + comment.id">
-                                <div class="comment-title" id="nursingView">
+                                <div class="commentWrap">
                                    
-                                    <div class="d-flex">
-                                    <p class="profile_subtit">{{comment.title}}</p> <span style="font-size:12px;">(コメント)</span>
-                                     <p class="comment-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p>
+                                    <div class="d-flex ">
+                                     <p class="comment-underline comment-title p-b-0">{{comment.title}} <span style="font-size:12px;color:#a7a2a2ee;">(コメント)</span>   <p class="comment-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p></p> 
+                                  
                                     </div>
                                     <!-- <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}} <span style="font-size:14px;">(コメント)</span></h5> -->                                                                     
                                 </div>
-                                 <div name="exp[]" class="col-md-12"><p style="color:#736e6e;">{{comment.comment}}</p></div>
+                                 <div name="exp[]" class="col-md-12 m-t-20"><p style="color:#736e6e;">{{comment.comment}}</p></div>
                             </div>
                         </div>
                         <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">

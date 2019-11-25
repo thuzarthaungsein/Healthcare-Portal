@@ -258,7 +258,7 @@
                                 </div>
                                 <div class="card-carousel">
                                     <div class="card-carousel--overflow-container">
-                                        <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                        <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + (currentOffset) + 'px' + ')'}">
                                             <div class="card-carousel--card">
                                             <table class="table table-bordered ">
                                                 <tr>
