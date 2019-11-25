@@ -407,8 +407,8 @@
         <!-- </div> -->
 
 
-
-        <div>
+<div v-if="post_groups==''">No Data</div>
+        <div v-else>
 
             <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">
 
@@ -1159,10 +1159,14 @@
                         if(total_word > 32) {
 
                             this.is_cat_overflow = true;
+                           
 
                             this.computed_width = '99%';
 
                         }
+                        // else{
+                        //       this.is_cat_overflow = false;
+                        // }
 
                     });
 
@@ -1366,6 +1370,7 @@
                     this.search_word = $('#search-word').val();
 
                     this.getLatestPostsByCatID();
+                   
 
                 }
 
@@ -1460,6 +1465,8 @@
                 const content = this.$refs.content;
 
                 this.scrollTo(content, -300, 800); 
+                 console.log('left');
+                
 
             },
 
@@ -1470,10 +1477,13 @@
                 this.scrollTo(content, 300, 800);
 
                 this.is_cat_slided = true;
+                console.log('right');
+              
 
                 this.computed_width = '96%';
 
             },
+            
 
         }
 
@@ -1628,7 +1638,12 @@ display: inline-block;
 }
 
 
-
+.card-header-tabs {
+    margin-right: -0.625rem;
+    margin-bottom: 0rem;
+    margin-left: -0.625rem;
+    border-bottom: 0;
+}
 .arr-btn {
 
     cursor: pointer;
@@ -1636,6 +1651,7 @@ display: inline-block;
     display: inline-block;
     background:transparent;
     padding: 5px 1px 4px;
+    font-size: 25px;
 
     /* padding-top: 5px;
 
@@ -1647,7 +1663,7 @@ display: inline-block;
 
     position: relative;
 
-    top: -3px;
+    top: -10px;
 
     left: -8px;
 
@@ -1657,7 +1673,7 @@ display: inline-block;
 
     position: relative;
 
-    top: -3px;
+    top: -10px;
 
     right: -26px;
 
