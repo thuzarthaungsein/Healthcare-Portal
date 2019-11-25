@@ -98,7 +98,7 @@ class PostController extends Controller
     public function show($id)
     {
         // return Post::findOrFail($id);
-        $query = "SELECT p.*,c.name as cat_name from posts as p left join categories as c on p.category_id = c.id where p.id = " .$id;
+        $query = "SELECT p.*,c.name as cat_name, c.id as cat_id from posts as p left join categories as c on p.category_id = c.id where p.id = " .$id;
         $post = DB::select($query);
         return $post;
 

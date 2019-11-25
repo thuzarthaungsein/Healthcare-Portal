@@ -466,7 +466,15 @@ body {
 .bordertop-color4 i {
     color: #d1291d;
 }
-
+.title1 span{
+    color: red;
+}
+.title2 span{
+    color: blue;
+}
+.title3 span{
+    color: green;
+}
 
 /* #hospitalView .pro-heading h5 {
     background-color: #2981cc;

@@ -53,13 +53,16 @@
                     <span>{{ latest_new.main_point }}</span>
                   </router-link>
                 </div>
-              </div>-->
+              </div>-->            
              
               <div class="row">
                 <div class="col-md-12">
                   <h4 class="h_4 header">{{newdetails[0].title}}</h4>
-                   {{newdetails[0].cat_name}}
-                  <p class="set-date">
+                
+                   <p :class="'title'+ newdetails[0].cat_id ">
+                     <span :class="'h-color'+newdetails[0].cat_id"> {{newdetails[0].cat_name}}</span>
+                  </p>
+                  <p class="set-date">                   
                     <small style="color:#aaa;">
                       <i class="fa fa-calendar-alt"></i>
                       &nbsp;&nbsp;{{newdetails[0].created_at}}
@@ -170,7 +173,9 @@ export default {
     this.axios
       .get(`/api/newdetails/${this.$route.params.id}`)
       .then(response => {
+        console.log("cc",this.$route.params.id);
         this.newdetails = response.data;
+        
       });
     // alert(this.$route.params.id);
     this.relatedNews(this.$route.params.id);
