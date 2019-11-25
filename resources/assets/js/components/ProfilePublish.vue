@@ -258,7 +258,7 @@
                             <p v-html="nurseprofile.feature"></p>
                         </div>
                         <div v-else>
-                            No data
+                            <p class="no-data-color">表示されるデータがありません。</p>
                         </div> -->
                     </div>
 
@@ -601,7 +601,7 @@
                     <div class="col-md-12  m-b-15">
                         <h5 class="profile_subtit">動画</h5>
                         <span v-if="videos == ''">
-                            <div class="col-sm-4 col-md-4 col-lg-3"> No Data </div>
+                            <div class="col-sm-4 col-md-4 col-lg-3"> <p class="no-data-color">表示されるデータがありません。</p> </div>
                         </span>
                         <span v-else>
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
@@ -650,7 +650,7 @@
 
                                 </div>
                         </div>
-                        <div class="col-md-12" v-else> No Data </div>
+                        <div class="col-md-12" v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
                     </div>
 
                     <div class="col-12">
@@ -715,7 +715,7 @@
                             </div>
 
                         </div>
-                        <div v-else class="col-md-12"> No Data </div>
+                        <div v-else class="col-md-12"> <p class="no-data-color">表示されるデータがありません。</p> </div>
 
                     </div>
 
@@ -759,7 +759,7 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ ({{customer_name}})</h5>
+                <h5 class="profile_header col-12">口コミ</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -768,7 +768,7 @@
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
                 </div>
-               <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -784,6 +784,7 @@
                         </div>
                     </div>
                </div>
+               <div v-else class="col-md-12"> <p class="no-data-color pb-3">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -1077,7 +1078,7 @@
                             </ul>
 
                         </div>
-                        <div class="row m-lr-0" v-else> No Data </div>
+                        <div class="row m-lr-0" v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
 
                         <h5 class="header m-t-10">診療科目</h5>
 
@@ -1086,7 +1087,7 @@
                                 <li>{{sub.name}}</li>
                             </ul>
                         </div>
-                        <div class='row col-md-12' v-else> No Data </div>
+                        <div class='row col-md-12' v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
                     </div>
                     <!--end for address-->
                 </div>
@@ -1097,7 +1098,7 @@
                     
                     <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
                         <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
-                        <span v-else>No Data</span> -->
+                        <span v-else><p class="no-data-color">表示されるデータがありません。</p></span> -->
                         
                     </p>
                 </div>
@@ -1210,7 +1211,7 @@
 
                                 <p><strong class="font-weight-bold">休診日: </strong>
                                     <span v-if="hospital.closed_day"><font>{{hospital.closed_day}}</font></span>
-                                    <span v-else> No Data </span>
+                                    <span v-else> <p class="no-data-color">表示されるデータがありません。</p> </span>
                                 </p>
 
                             </div>
@@ -1272,7 +1273,7 @@
                     </div>
                     <div class="row" v-else>
                         <div class="col-sm-4 col-md-4 col-lg-3">
-                            <span> No Data </span>
+                            <span> <p class="no-data-color">表示されるデータがありません。</p> </span>
                         </div>
                     </div>
                 </div>
@@ -1320,7 +1321,7 @@
 
             </div>
             <div class="row ele m-lr-0" id="element3">
-                <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>
+                <h5 class="profile_header col-12 m-t-20">口コミ</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -1329,7 +1330,7 @@
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
                 </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">                  
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -1345,6 +1346,7 @@
                         </div>
                     </div>
                </div>
+               <div v-else class="col-md-12"> <p class="no-data-color pb-3">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
