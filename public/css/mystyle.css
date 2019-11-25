@@ -2063,6 +2063,7 @@ div.b {
     top: 10px;
     width: 50%;
     margin: 0 auto 20px;
+    border-right:1px solid rgba(0, 0, 0, 0.125);
 }
 
 .ads-slider .slick-slide {
@@ -2085,7 +2086,8 @@ div.b {
 }
 
 .ads-slider h3 {
-    width: 100px;
+    /* width: 100px; */
+    width: auto;
     height: 50px;
 }
 
