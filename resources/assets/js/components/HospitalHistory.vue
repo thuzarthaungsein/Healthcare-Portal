@@ -55,7 +55,7 @@
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                         <div class="profile_wd">
-                                                            <button class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設リストから削除</button>
+                                                            <span class="btn btn-danger all-btn hos-btn m-t-8 m-b-3" @click="deleteLocalSto(hos_profile.id)">最近見た施設リストから削除</span>
                                                         </div>
                                                     </td>
                                                 </tr>

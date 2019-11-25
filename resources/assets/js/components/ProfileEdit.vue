@@ -163,8 +163,24 @@
                                             </div>
                                             <div class="form-group">
                                                 <span class="btn main-bg-color white all-btn"  @click="emailChange()">
-                                  変化
-                                </span>
+                                                変化
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-default m-b-20 col-md-11">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 m-t-8">
+                                            <div class="header2">
+                                                <h5 class=" clearfix">Deactivate My Account</h5>
+                                            </div>                                            
+                                            <div class="form-group">
+                                                <span class="btn main-bg-color white all-btn" >
+                                                Deactivate
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

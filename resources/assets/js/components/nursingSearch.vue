@@ -442,22 +442,20 @@
                             </td>
                           </tr>
                           <tr>
-                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id" style="padding-top:0px;">
                                 <div class="wd-in">
                                     <span class="type-name">{{items.type_name}}</span>
                                 
                                     <div class="row" style="margin-top:10px;">
-                                        <div class="col-4">
+                                        <div class="col-4" style="padding-top:3px;">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
+                                                <li class="list-group-item" style="padding-top:0px!important;"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
-                                            </ul>
-
-                                         
+                                            </ul>                                         
                                         </div>
                                     </div>
                                 </div>                          
@@ -501,6 +499,9 @@
           </div>
 
         </div>
+         <div id="nursingView">
+         <h5 class="profile_subtit">もっと探す条件</h5>
+      </div>
       </div>
       <!--list-->
        <table class="table table-bordered col-12 box-wrap select">
@@ -1046,7 +1047,7 @@ infoWindow(item, mmarker){
                 '</thead>' +
                 '<tbody>' +                    
                     '<tr>' +
-                    '<td colspan="2" class="text-left">' +
+                    '<td colspan="2" class="text-left" style="padding-bottom:0px;">' +
                     '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" style="margin-right:10px;">' +
                     '<span class="item-name">' + item[i]['name'] + '</span> <br>' +                    
                     '</td>' +
@@ -1054,19 +1055,14 @@ infoWindow(item, mmarker){
                 
                 '<tr>' +
                 '<td>' +
-                '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px" style="border:1px solid #ccc;"/>' +
                 '</td>' +                            
-                    '<td style="padding-top:3px;padding-bottom:0px;">' +
-                    '<ul class="list-group list-group-flush nur-caro-card">' +                    
-
-                    '<li class="list-group-item">' +
-                        '<p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>' + item[i]['phone'] + '</p>' +
-                        '</li>' +                                
-                    '</ul>' +
+                '<td style="padding-bottom:0px;">' +
+                    '<p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>' + item[i]['phone'] + '</p>' +
                 '</td>' +                            
                 '</tr>' +
                 ' <tr>' +
-                '<td colspan="2">' +
+                '<td colspan="2" style="padding-top:0px;">' +
                     '<div class="">' +
                     '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                     '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
@@ -1210,7 +1206,18 @@ changeSearch()
                 Per_month:this.per_month
             },
             }).then((response)=>{
-
+            console.log(localStorage.getItem("nursing_fav"));
+            // if(localStorage.getItem("nursing_fav")) {
+            //     var fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
+            //     for(var i=0; i<fav_arr.length; i++){
+            //         if(response.data.nursing.includes(fav_arr[i])){
+            //             response.data.nursing.indexOf(fav_arr[i])
+                        
+            //         }
+            //     }
+                
+            // }
+            console.log(JSON.parse("[" + localStorage.getItem("nursing_fav") + "]"));
             this.nus_data = response.data.nursing;
             this.specialfeature = response.data.specialfeature;
             this.medicalacceptance = response.data.medicalacceptance;
@@ -1361,9 +1368,9 @@ search(){
                     
             }
             else{
-                const theCity = this.nus_data[0]['city_name']
-                const lat = this.nus_data[0]['lat']
-                const lng = this.nus_data[0]['lng']
+                const theCity = this.citylatlng[0]['city_name']
+                const lat = this.citylatlng[0]['latitude']
+                const lng = this.citylatlng[0]['longitude']
              
               this.coordinates(theCity,lat,lng);
 

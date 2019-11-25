@@ -164,9 +164,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '-' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '-' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
                                                      ~
-                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '-' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '-' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -176,9 +176,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '-' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '-' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
                                                      ~
-                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '-' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '-' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -253,12 +253,13 @@
                 <h5 class="profile_header">特長 </h5>
                 
                     <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">
-                        <div v-if="nurseprofile.features">
+                        <p v-html="nurseprofile.feature"></p>
+                        <!-- <div v-if="nurseprofile.features">
                             <p v-html="nurseprofile.feature"></p>
                         </div>
                         <div v-else>
-                            No data
-                        </div>
+                            表示されるデータがありません。
+                        </div> -->
                     </div>
 
             </div>
@@ -600,7 +601,7 @@
                     <div class="col-md-12  m-b-15">
                         <h5 class="profile_subtit">動画</h5>
                         <span v-if="videos == ''">
-                            <div class="col-sm-4 col-md-4 col-lg-3"> No Data </div>
+                            <div class="col-sm-4 col-md-4 col-lg-3"> 表示されるデータがありません。 </div>
                         </span>
                         <span v-else>
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
@@ -649,7 +650,7 @@
 
                                 </div>
                         </div>
-                        <div class="col-md-12" v-else> No Data </div>
+                        <div class="col-md-12" v-else> 表示されるデータがありません。 </div>
                     </div>
 
                     <div class="col-12">
@@ -714,7 +715,7 @@
                             </div>
 
                         </div>
-                        <div v-else class="col-md-12"> No Data </div>
+                        <div v-else class="col-md-12"> 表示されるデータがありません。 </div>
 
                     </div>
 
@@ -1069,14 +1070,14 @@
 
                         <div class="row m-lr-0" v-if="specialfeature">
 
-                            <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
+                            <ul class="hos_fac_container" v-for="special in specialfeature" :key="special.id">
 
                                 <li>{{special.short_name}}</li>
 
                             </ul>
 
                         </div>
-                        <div class="row m-lr-0" v-else> No Data </div>
+                        <div class="row m-lr-0" v-else> 表示されるデータがありません。 </div>
 
                         <h5 class="header m-t-10">診療科目</h5>
 
@@ -1085,7 +1086,7 @@
                                 <li>{{sub.name}}</li>
                             </ul>
                         </div>
-                        <div class='row col-md-12' v-else> No Data </div>
+                        <div class='row col-md-12' v-else> 表示されるデータがありません。 </div>
                     </div>
                     <!--end for address-->
                 </div>
@@ -1093,9 +1094,11 @@
 
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
-                    <p v-for="hospital in hospitals" :key="hospital.id">
-                        <span v-if="hospital.details_info">{{hospital.details_info}}</span>
-                        <span v-else>No Data</span>
+                    
+                    <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
+                        <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
+                        <span v-else>表示されるデータがありません。</span> -->
+                        
                     </p>
                 </div>
                 <div class="col-12 m-b-20">
@@ -1160,8 +1163,12 @@
                                     <tr class="last">
 
                                         <th class="second-row text-center">午前</th>
+                                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
 
-                                        <span v-if="am_arr[0]">
+                                        <!-- <span v-if="am_arr[0]">
                                             <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
                                                 <span v-if="amval"> {{amval}} </span>
                                                 <span v-else> - </span>
@@ -1169,15 +1176,19 @@
                                         </span>
                                         <span v-else>
                                             <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
-                                        </span>
+                                        </span> -->
 
                                     </tr>
 
                                     <tr class="last">
 
                                         <th class="second-row text-center">午後</th>
+                                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
 
-                                        <span v-if="pm_arr[0]">
+                                        <!-- <span v-if="pm_arr[0]">
                                             <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
                                                 <span v-if="amval"> {{amval}} </span>
                                                 <span v-else> - </span>
@@ -1185,7 +1196,7 @@
                                         </span>
                                         <span v-else>
                                             <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
-                                        </span>
+                                        </span> -->
 
                                     </tr>
 
@@ -1199,7 +1210,7 @@
 
                                 <p><strong class="font-weight-bold">休診日: </strong>
                                     <span v-if="hospital.closed_day"><font>{{hospital.closed_day}}</font></span>
-                                    <span v-else> No Data </span>
+                                    <span v-else> 表示されるデータがありません。 </span>
                                 </p>
 
                             </div>
@@ -1261,7 +1272,7 @@
                     </div>
                     <div class="row" v-else>
                         <div class="col-sm-4 col-md-4 col-lg-3">
-                            <span> No Data </span>
+                            <span> 表示されるデータがありません。 </span>
                         </div>
                     </div>
                 </div>
@@ -1494,10 +1505,10 @@ export default {
                     var cur_pos = $(this).scrollTop();
                      $('.ele').each(function(active_el){
 
-                        if($(this).position().top <= cur_pos){
-                            $('.top-fixed-btn.active').removeClass('active');
-                            $('.top-fixed-btn').eq(active_el).addClass('active');
-                        }
+                        // if($(this).position().top <= cur_pos){
+                        //     $('.top-fixed-btn.active').removeClass('active');
+                        //     $('.top-fixed-btn').eq(active_el).addClass('active');
+                        // }
                     });
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});

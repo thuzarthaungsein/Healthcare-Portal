@@ -549,7 +549,7 @@
                         <ul class="list-unstyled collapse" id="pageSubmenu" style="">
                             <!-- <li><router-link to="/userPasswordResetList" class="nav-link"><i class="fa fa-undo"></i>&nbsp;事業者パスワードリセット</router-link></li> -->
                             <li><router-link to="/customerlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;事業者一覧</router-link></li>
-                            <li><router-link to="/commentlist" class="nav-link"><i class="fa fa-user"></i>&nbsp;コメント一覧</router-link></li>
+                            <li><router-link to="/commentlist" class="nav-link"><i class="fa fa-list"></i>&nbsp;コメント一覧</router-link></li>
                         </ul>
                     </li>
                     @endcan
