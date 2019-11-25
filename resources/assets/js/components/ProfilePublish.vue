@@ -164,9 +164,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '-' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '-' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.moving_in_from)/10000))==0? '' : (Math.floor(Number(cust.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_from)%10000)==0 ? '' : (Number(cust.moving_in_from)%10000).toLocaleString()}}円
                                                      ~
-                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '-' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '-' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.moving_in_to)/10000))==0? '' : (Math.floor(Number(cust.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.moving_in_to)%10000)==0 ? '' : (Number(cust.moving_in_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -176,9 +176,9 @@
                                             </th>
                                             <td>
                                                 <font class="cash-lbl">
-                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '-' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '-' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.per_month_from)/10000))==0? '' : (Math.floor(Number(cust.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_from)%10000)==0 ? '' : (Number(cust.per_month_from)%10000).toLocaleString()}}円
                                                      ~
-                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '-' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '-' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
+                                                    {{(Math.floor(Number(cust.per_month_to)/10000))==0? '' : (Math.floor(Number(cust.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(cust.per_month_to)%10000)==0 ? '' : (Number(cust.per_month_to)%10000).toLocaleString()}}円
                                                 </font>
                                             </td>
                                         </tr>
@@ -253,12 +253,13 @@
                 <h5 class="profile_header">特長 </h5>
                 
                     <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">
-                        <div v-if="nurseprofile.features">
+                        <p v-html="nurseprofile.feature"></p>
+                        <!-- <div v-if="nurseprofile.features">
                             <p v-html="nurseprofile.feature"></p>
                         </div>
                         <div v-else>
                             No data
-                        </div>
+                        </div> -->
                     </div>
 
             </div>
@@ -1069,7 +1070,7 @@
 
                         <div class="row m-lr-0" v-if="specialfeature">
 
-                            <ul class="fac_container" v-for="special in specialfeature" :key="special.id">
+                            <ul class="hos_fac_container" v-for="special in specialfeature" :key="special.id">
 
                                 <li>{{special.short_name}}</li>
 
@@ -1093,9 +1094,11 @@
 
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
-                    <p v-for="hospital in hospitals" :key="hospital.id">
-                        <span v-if="hospital.details_info">{{hospital.details_info}}</span>
-                        <span v-else>No Data</span>
+                    
+                    <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
+                        <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
+                        <span v-else>No Data</span> -->
+                        
                     </p>
                 </div>
                 <div class="col-12 m-b-20">
@@ -1160,8 +1163,12 @@
                                     <tr class="last">
 
                                         <th class="second-row text-center">午前</th>
+                                            <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
 
-                                        <span v-if="am_arr[0]">
+                                        <!-- <span v-if="am_arr[0]">
                                             <td v-for="(amval,index) in am_arr[0]" :key="index" class="text-center">
                                                 <span v-if="amval"> {{amval}} </span>
                                                 <span v-else> - </span>
@@ -1169,15 +1176,19 @@
                                         </span>
                                         <span v-else>
                                             <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
-                                        </span>
+                                        </span> -->
 
                                     </tr>
 
                                     <tr class="last">
 
                                         <th class="second-row text-center">午後</th>
+                                            <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
+                                                <span v-if="amval"> {{amval}} </span>
+                                                <span v-else> - </span>
+                                            </td>
 
-                                        <span v-if="pm_arr[0]">
+                                        <!-- <span v-if="pm_arr[0]">
                                             <td v-for="(amval,index) in pm_arr[0]" :key="index" class="text-center">
                                                 <span v-if="amval"> {{amval}} </span>
                                                 <span v-else> - </span>
@@ -1185,7 +1196,7 @@
                                         </span>
                                         <span v-else>
                                             <td v-for="indx in 6" :key="indx" class="text-center"> - </td>
-                                        </span>
+                                        </span> -->
 
                                     </tr>
 
@@ -1494,10 +1505,10 @@ export default {
                     var cur_pos = $(this).scrollTop();
                      $('.ele').each(function(active_el){
 
-                        if($(this).position().top <= cur_pos){
-                            $('.top-fixed-btn.active').removeClass('active');
-                            $('.top-fixed-btn').eq(active_el).addClass('active');
-                        }
+                        // if($(this).position().top <= cur_pos){
+                        //     $('.top-fixed-btn.active').removeClass('active');
+                        //     $('.top-fixed-btn').eq(active_el).addClass('active');
+                        // }
                     });
                     if (cur_pos >= 100) {
                         $(".fixed-nav").css({"position": "fixed","top":"70px"});
@@ -1908,8 +1919,8 @@ export default {
     justify-content: left;
     /* width: 1336px; */
     width:1033px;
+    overflow: hidden;
 }
-
 
 /*slick carousel*/
 

@@ -74,7 +74,7 @@ class NursingMailController extends Controller
         // \Mail::to('hero2012.zk@gmail.com')->send(new nursingMailing($request));
     
     }
-        $admin_email = 'ayethandar@management-partners.co.jp';
+        $admin_email = 'thuzar.ts92@gmail.com';
         // $admin_email = 'management.partner87@gmail.com ';
         \Mail::to($admin_email)->send(new nursingMailing($request));
 

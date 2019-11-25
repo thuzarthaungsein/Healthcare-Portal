@@ -467,15 +467,21 @@ body {
     color: #d1291d;
 }
 .title1 span{
-    color: red;
+    color: #63b7ff;
+    
 }
 .title2 span{
-    color: blue;
+    color: #a3774a;
 }
 .title3 span{
-    color: green;
+    color: #9579ef;
 }
-
+.title4 span{
+    color: #21d1de;
+}
+.title5 span{
+    color:#d1291d;
+}
 /* #hospitalView .pro-heading h5 {
     background-color: #2981cc;
     color: #2981cc;
@@ -716,7 +722,8 @@ width: 100%; */
     width: 20px;
     height: 20px;
     margin-top: -10px;
-    background: #bdc3c7;
+    background: #E6E6E6;
+    border: 1px solid #ADA6A6;
     border-radius: 50%;
 }
 
@@ -2601,6 +2608,13 @@ ul.sub-ul li {
     box-shadow: none !important;
     min-width: 60px;
 }
+.active-borderbtn {
+    border: 1px solid green!important;
+    color: green;
+    background: #fff;
+    box-shadow: none !important;
+    min-width: 60px;
+}
 
 .btn:hover {
     cursor: pointer;
@@ -3941,6 +3955,8 @@ width: 30rem;
     text-transform: uppercase;
     color: #444;
     margin: 9px 0;
+    max-height: 103px;
+    overflow: hidden;
 }
 
 .source-subtitle {
@@ -5876,6 +5892,18 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     border-radius: 20px;
     border: 1px solid #b7dad2;
+    list-style: none;
+}
+
+.hos_fac_container>li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 0 10px 3px;
+    font-size: 13px;
+    color: #63b7ff;
+    border: 1px solid #63b7ff;
+    text-align: center;
+    border-radius: 20px;
     list-style: none;
 }
 
@@ -8484,14 +8512,15 @@ ul.nur-caro-card>li.list-group-item {
     flex: 1 0 33.333%;
     position: relative;
     height: 0;
-    padding-bottom: 220px;
+    padding-bottom: 194px;
 }
 
 .wrapper-0 img {
     position: absolute;
     width: 100%;
     box-shadow: 0px 1px 5px 0px #b1b1b1 !important;
-    height: 100%;
+    height: auto;
+    max-height: 100%;
     transition: all 250ms ease-out;
 }
 
@@ -8525,8 +8554,10 @@ ul.nur-caro-card>li.list-group-item {
 
 .wrapper-3 p {
     position: absolute;
-    top: 180px;
+    /* top: 180px; */
     font-weight: bold;
+    overflow: hidden;
+    max-height: 70px;
 }
 
 .wrapper-4 {

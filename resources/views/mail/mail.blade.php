@@ -13,10 +13,10 @@
 				
 				</p>
 				<span style="background: #fbaa84;">
-                <a style="background: #fbaa84;color: #000;box-shadow: 0 2px 4px 0 rgba(27,160,5,0.2);border-radius: 4px;border: 1px solid #ff9563;box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+                <a href="http://192.168.10.111:8000/login" style="background: #fbaa84;color: #000;box-shadow: 0 2px 4px 0 rgba(27,160,5,0.2);border-radius: 4px;border: 1px solid #ff9563;box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
                             background-size: 100%;display: inline-block;background-position: 50% 50%;font-weight: bold;line-height: 46px;font-size: 15px;
 							padding: 0px 28.3px;text-align: center;text-decoration: none;min-width: 280px;-webkit-text-size-adjust: none; mso-hide: all;">
-				<span style="font-size:13.5pt;color:#fff;border:solid #fbaa84 6.0pt;" href="https://google.com">私の電子メールを確認します</span>
+				<span style="font-size:13.5pt;color:#fff;border:solid #fbaa84 6.0pt;">私の電子メールを確認します</span>
 				</a>
 				</span>
 				<br> 

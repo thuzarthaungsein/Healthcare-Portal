@@ -97,12 +97,18 @@ class PostController extends Controller
      */
     public function show($id)
     {
+      
         // return Post::findOrFail($id);
-        $query = "SELECT p.*,c.name as cat_name, c.id as cat_id from posts as p left join categories as c on p.category_id = c.id where p.id = " .$id;
-        $post = DB::select($query);
-        return $post;
+     
 
+        $data = DB::table('posts')->join('categories', 'categories.id', '=', 'posts.category_id')
+                                  ->select('posts.*', 'categories.name as cat_name', 'categories.id as cat_id')
+                                  ->where('posts.id',$id)->get();
+     
+       return response()->json(array('news'=> $data));
+    
     }
+    
     public function show_related($id) {
 
         $related_news = Post::select('related_news','category_id')->where('id',$id)->get();

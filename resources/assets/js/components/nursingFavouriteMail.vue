@@ -49,28 +49,28 @@
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
-                            <div class="col-md-3 col-sm-12 form-left"> <label>生年月日 <span class="error sp1">必須</span></label></div>
+                            <div class="col-md-3 col-sm-12 form-left"> <label>生年月日 </label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                                 <!-- <input type="text" id="bdate" name="bdate" class="form-control float-left" placeholder="生年月日を入力してください。" v-model="comments.bdate" @change="aggreBtn" @focusout="focusbdate"/> -->
-                                <date-picker class="box" valueType="format" v-model="comments.bdate" style="margin-left: 11px;" @change="aggreBtn" @focusout="focusbdate"></date-picker>
-                                <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span>
+                                <date-picker class="box" valueType="format" v-model="comments.bdate" style="margin-left: 11px;"></date-picker>
+                                <!-- <span class="error m-l-30" v-if="bdate_focus">※入力は必須です。</span> -->
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
-                                <div class="col-md-3 col-sm-12 form-left"><label>性別 <span class="error sp1">必須</span></label></div>
+                                <div class="col-md-3 col-sm-12 form-left"><label>性別 </label></div>
                                 <div class="col-md-9 col-sm-12 form-right pl-4">
                                     <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1" @change="aggreBtn">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="男性"  v-model="comments.sex1">&nbsp;男性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <!-- <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦 -->
                                          <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1" @change="aggreBtn">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="custom-radio" id="sex1" name="sex1" value="女性"    v-model="comments.sex1">&nbsp;女性&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1" @change="aggreBtn">&nbsp;夫婦
+                                       <input type="radio" class="custom-radio" id="sex1" name="sex1" value="夫婦"   v-model="comments.sex1">&nbsp;夫婦
                                         <div class="control__indicator"></div>
                                     </label>
 
@@ -80,10 +80,9 @@
                             <div class="col-md-3 col-sm-12 form-left"><label>ご住所:</label></div>
                             <div class="col-md-9 col-sm-12 form-right">
                                 <div class="form-group row pl-3">
-                                    <div class="col-md-12 "><label> 郵便番号 <span class="error sp1">必須</span></label></div>
+                                    <div class="col-md-12 "><label> 郵便番号</label></div>
                                     <div class="col-md-12 p-0">
-                                        <input type="text" v-model="comments.postal" name="postal" class="postal form-control float-left" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7" @change="aggreBtn" @focusout="focusPostal"/>
-                                        <span class="error m-l-30" v-if="postal_focus">※入力は必須です。</span>
+                                        <input type="text" v-model="comments.postal" name="postal" class="postal form-control float-left" id="postal" v-on:keyup="getPostal" placeholder="郵便番号を入力してください。" maxlength="7"/>
                                         <div id="jsErrorMessage" class="float-left eg-txt"></div>
                                         <span class="float-left eg-txt">例）1006740 (<a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>)</span>
                                     </div>
@@ -110,12 +109,12 @@
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
-                            <div class="col-md-3 col-sm-12 form-left"><label>電話番号 <span class="error sp1">必須</span></label></div>
+                            <div class="col-md-3 col-sm-12 form-left"><label>電話番号</label><span class="error sp1">必須</span></div>
                             <div class="col-md-9 col-sm-12 form-right">
                             <div class="form-group row pl-3">
                                     <div class="col-md-6 p-0">
-                                        <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusPhone">
-                                        <span class="error m-l-30" v-if="phone_focus">※入力は必須です。</span>
+                                        <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusMail">
+                                        <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>
                                         <span class="float-left eg-txt">例）0312345678（半角）</span>
                                     </div>
                                 </div>
@@ -456,6 +455,7 @@ import DatePicker from 'vue2-datepicker';
                 }
                 // this.comments.arr_reserve = this.reservation;
                 this.comments.arr_document = this.documentation;
+                this.comments.division = this.comments.selectedValue;
                 localStorage.setItem("inputValue", JSON.stringify(this.comments));
                 var data = JSON.parse(localStorage.getItem("inputValue"));
                 this.$router.push({
@@ -463,7 +463,7 @@ import DatePicker from 'vue2-datepicker';
                 });
             },
             aggreBtn: function(){
-                if(this.comments.name != '' && this.comments.fav_mail != '' && this.comments.postal != '' && this.comments.selectedValue != 0 && this.comments.city != '' && this.comments.phone != '' && this.comments.mail != '' && this.comments.sex1 != ''){
+                if(this.comments.name != '' && this.comments.selectedValue != 0 && this.comments.city != '' && (this.comments.mail != '' || this.comments.phone != '')){
                     this.btn_disable=false;
                 }else{
                     this.btn_disable=true;
@@ -484,20 +484,13 @@ import DatePicker from 'vue2-datepicker';
                     this.furigana_focus=true;
                 }
             },
-            focusbdate: function(event) {
-                if(this.comments.bdate != ''){
-                    this.bdate_focus = false;
-                }else{
-                    this.bdate_focus = true;
-                }
-            },
-            focusPostal: function(event) {
-                if(this.comments.postal != ''){
-                    this.postal_focus=false;
-                }else{
-                    this.postal_focus=true;
-                }
-            },
+            // focusbdate: function(event) {
+            //     if(this.comments.bdate != ''){
+            //         this.bdate_focus = false;
+            //     }else{
+            //         this.bdate_focus = true;
+            //     }
+            // },
             focusCity: function(event) {
                 if(this.comments.city != ''){
                     this.city_focus=false;
@@ -505,15 +498,8 @@ import DatePicker from 'vue2-datepicker';
                     this.city_focus=true;
                 }
             },
-            focusPhone: function(event) {
-                if(this.comments.phone != ''){
-                    this.phone_focus=false;
-                }else{
-                    this.phone_focus=true;
-                }
-            },
             focusMail: function(event) {
-                if(this.comments.mail != ''){
+                if(this.comments.mail != '' || this.comments.phone != ''){
                     this.mail_focus=false;
                 }else{
                     this.mail_focus=true;
