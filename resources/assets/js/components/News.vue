@@ -57,9 +57,7 @@
                             <div class="card col-md-6 d-none d-sm-block p-l-0" style="border:0px!important;">
 
                                 <div class="card-header tab-card-header clearfix cat-nav">
-
-                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-double-left"></i></span>
-
+                                    <span id="left-button" class="left-arr-btn arr-btn" @click="swipeLeft" v-if="is_cat_slided" ><i class="fas fa-angle-left"></i></span>
                                     <div class="nav nav-tabs card-header-tabs center" id="myTab" ref="content" v-bind:style="{ width: computed_width }">
 
                                         <ul class="nav nav-tabs" role="tablist">
@@ -81,9 +79,7 @@
                                         </ul>
 
                                     </div>                             
-
-                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-double-right"></i></span>
-
+                                    <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
                                 </div>
 
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
@@ -1638,11 +1634,7 @@ display: inline-block;
     cursor: pointer;
 
     display: inline-block;
-
-    opacity: 0.7;
-
-    background:#fff;
-
+    background:transparent;
     padding: 5px 1px 4px;
 
     /* padding-top: 5px;

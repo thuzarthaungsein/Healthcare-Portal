@@ -1915,15 +1915,15 @@ export default {
 </script>
 
 <style scoped>
+
 /*slider*/
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
-    /* width: 1336px; */
-    width:1033px;
+    /* width: 1336px; */    
     overflow: hidden;
 }
-
+ 
 /*slick carousel*/
 
 #pano-slider-page .card-carousel-wrapper {
@@ -2453,4 +2453,51 @@ export default {
     border: 1px solid #53c000;
     z-index: 4;
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #pano-slider-page .card-carousel {
+        width: 400px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #pano-slider-page .card-carousel {
+        width: 603px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #pano-slider-page .card-carousel {
+        width: 573px;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #pano-slider-page .card-carousel {
+        width: 802px;
+    }
+} 
+
+@media only screen and (min-width: 1024px) {
+    #pano-slider-page .card-carousel {
+        width: 829px;
+    }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+   #pano-slider-page .card-carousel {
+        width: 990px;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    #pano-slider-page .card-carousel {
+        width: 1033px;
+    }
+}
+
 </style>

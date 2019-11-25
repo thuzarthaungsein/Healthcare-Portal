@@ -468,23 +468,43 @@ body {
 }
 
 .title1 span {
-    color: #63b7ff;
+    background-color: #63b7ff;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .title2 span {
-    color: #a3774a;
+    background-color: #a3774a;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .title3 span {
-    color: #9579ef;
+    background-color: #9579ef;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .title4 span {
-    color: #21d1de;
+    background-color: #21d1de;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .title5 span {
-    color: #d1291d;
+    background-color: #d1291d;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 
@@ -2682,15 +2702,6 @@ ul.sub-ul li {
     padding: 5px 10px;
 }
 
-.card-header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: rgba(0, 0, 0, 0.03);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    padding-top: 0px !important;
-    padding-left: 9px !important;
-}
-
 .box-searchmap {
     position: relative;
     padding: 16px;
@@ -2700,9 +2711,6 @@ ul.sub-ul li {
     border-radius: 0.25rem;
     /* min-height: 350px !important; */
     /* max-height: 252px;
-
-
-
     min-height: 252px; */
     /* width: 49%; */
 }
@@ -3374,15 +3382,18 @@ ul.main-tab li:after {
 } */
 
 .map-header {
-    color: #7f340f;
+    color: #7F340F;
     font-weight: bold;
     font-size: 45px;
     line-height: 1.4;
+    position: absolute;
+    bottom: 120px;
 }
 
 .wrap {
-    position: relative;
-    top: 50px;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
 }
 
 .search {
@@ -4685,6 +4696,7 @@ li.userprofile-name>a {
 
 .tab-card-header {
     background-color: #e0e0e0 !important;
+    border-bottom: 1px solid rgb(224, 224, 224);
 }
 
 #app .navbar-dark .navbar-nav .nav-link {
