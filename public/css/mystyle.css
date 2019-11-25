@@ -6881,6 +6881,16 @@ table.box-wrap th {
     padding: 12px !important;
 }
 
+#holder .gm-ui-hover-effect {
+    top: -3px !important;
+    right: -3px !important;
+}
+
+#holder .gm-ui-hover-effect img {
+    border: 1px solid;
+    border-radius: 50%;
+}
+
 
 /* end nursing search */
 

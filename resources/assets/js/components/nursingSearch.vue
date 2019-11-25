@@ -633,7 +633,7 @@
                         </span>
                         </span>  
                         <span class="nur_date">{{nus.date_of_establishment}}</span>   
-                        <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
+                        <p class="hos_phone float-right" v-if="nus.phone"><span class="circle-phone" ><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
                     </div>
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
@@ -1997,6 +1997,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
 .page-item .spanclass{
   cursor: pointer;
 }
+
 </style>
 
 </style>
