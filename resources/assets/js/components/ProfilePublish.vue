@@ -759,7 +759,7 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ ({{customer_name}})</h5>
+                <h5 class="profile_header col-12">口コミ</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -784,7 +784,7 @@
                         </div>
                     </div>
                </div>
-               <div v-else class="col-md-12"> <p class="no-data-color">表示される口コミがありません。</p></div>
+               <div v-else class="col-md-12"> <p class="no-data-color pb-3">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -1321,7 +1321,7 @@
 
             </div>
             <div class="row ele m-lr-0" id="element3">
-                <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>
+                <h5 class="profile_header col-12 m-t-20">口コミ</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -1330,7 +1330,7 @@
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
                 </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">                  
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -1346,6 +1346,7 @@
                         </div>
                     </div>
                </div>
+               <div v-else class="col-md-12"> <p class="no-data-color pb-3">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
