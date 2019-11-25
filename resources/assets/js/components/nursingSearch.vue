@@ -9,24 +9,21 @@
       <div class="col-md-12">
         <div>
         <div class="row map-wrap"  id="searchMap">
-          <!-- search map and path -->
-          
-          
-            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;padding-top: 10px;">
+          <!-- search map and path -->  
+            <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
             <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton">    
-                      <i class="fas fa-search"></i>   
-                      検索
+                      <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
               </div> 
             <!--end search input-->          
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-12 float-left">
+            <div class="col-lg-7 col-md-12 col-sm-12 float-right">
               <div class="divisions row" id="divisionswrap">
                 <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
@@ -393,16 +390,18 @@
         </div>
       </div>
         <!-- google map  -->
-        <div class="row m-t-10 m-b-10">
+        <section id="holder" >
+        <div class="row" >
           <div class="col-sm-12 col-md-12">
-          <div id="holder" style="position: relative;">
+          <div style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
               
-              <div id="mymap" class="select"></div>
+              <div id="mymap" class="select m-t-10 m-b-10"></div>
             
           </div>
           </div>
         </div>
+        </section>
        
         <!-- nursing list -->
        <div id="nursing-search"> 
@@ -441,24 +440,22 @@
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div> 
                             </td>
-                          </tr>
+                          </tr>   
                           <tr>
                             <td  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
-                                    <p class="type-name">{{items.type_name}}</p>
+                                    <span class="type-name">{{items.type_name}}</span>
                                 
-                                    <div class="row">
-                                        <div class="col-4">
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-4" style="padding-top:3px;">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
                                         <div class="col-8">
                                             <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
+                                                <li class="list-group-item" style="padding-top:0px!important;"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
                                                 <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
-                                            </ul>
-
-                                         
+                                            </ul>                                         
                                         </div>
                                     </div>
                                 </div>                          
@@ -502,6 +499,9 @@
           </div>
 
         </div>
+         <div id="nursingView">
+         <h5 class="profile_subtit">もっと探す条件</h5>
+      </div>
       </div>
       <!--list-->
        <table class="table table-bordered col-12 box-wrap select">
@@ -621,8 +621,7 @@
                         <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                         <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    </div>
-                    
+                    </div>                    
                     
                     </div>
                     <div class="col-12 pad-free m-b-10 clearfix">
@@ -672,7 +671,7 @@
                             <td>{{nus.email}}</td>
                             </tr>                              
                             <tr>
-                            <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker"></i></span>住所</td>
+                            <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
                             <td>{{nus.address}}</td>
                             </tr>
                             <!-- <tr>
@@ -789,7 +788,7 @@
         currentOffset: 0,
         windowSize: 4,
         paginationFactor: 500,
-        nus_data: [],
+        nursingList: [],
         alphabet: [],
         markerHover:[],
         SpecialFeatureID:[],
@@ -803,7 +802,7 @@
         selectedcity:'',
         citylatlng:[],
         view_pro_id: [],
-        currentPage: 0,
+        currentPage: 0, 
         size: 20,
         pageRange: 5,
         items: [],
@@ -1029,72 +1028,45 @@ coordinates(theCity, lat, lng){
                     }) 
 },
 infoWindow(item, mmarker){
-
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
+         
             infoWindowContent.push([
             '<div id="info_content">' +
             '<div class="">' +
-                '<table class="table">' +
+                '<table class="table" style="margin-bottom:0px;">' +
                 '<thead>' +
                     '<tr>' +
-                    '<td class="text-left"><span class="num-room">' + item[i]['num_rooms'] +
-                    '</span></td>' +
-                    '<td class="text-right">' + item[i]['date_of_establishment'] +
-                    '</td>' +
+                    '<td colspan="2"><span class="type-name">' +
+                    item[i]['type_name']+
+                    '</span>'+
+                    '</td>' +                    
                     '</tr>' +
                 '</thead>' +
-                '<tbody>' +
+                '<tbody>' +                    
                     '<tr>' +
-                    '<td colspan="2"><button class="item-fav btn btn-sm">'+
-                    '<i class="fas fa-plus-square" style="color:#c40000;"></i> <span class="info-font">お気に入りに追加'+                                
-                    '</span> </button></td>' +
-                    '</tr>' +
-                    '<tr>' +
-                    '<td colspan="2" class="text-left">' +
-                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" >' +
-                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
-                    '<span>' + item[i]['city_name'] + ' <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> ' + item[i]['township_name'] + '</span>' +
+                    '<td colspan="2" class="text-left" style="padding-bottom:0px;">' +
+                    '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" style="margin-right:10px;">' +
+                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +                    
                     '</td>' +
                 '</tr>' +
-                '<tr>' +
-                    '<td colspan="2"><p class="type-name">' +
-                    item[i]['type_name'] +
-                    +'</p></td>' +
-                '</tr>' +
+                
                 '<tr>' +
                 '<td>' +
-                '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px"/>' +
+                '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px" style="border:1px solid #ccc;"/>' +
                 '</td>' +                            
-                    '<td>' +
-                    '<ul class="list-group list-group-flush nur-caro-card">' +
-                    '<li class="list-group-item"><p class="text-truncate" style="max-width:200px">' +
-                    '<span style="color:#d2571c" class="m-r-15">住所</span>' +                                
-                        item[i]['township_name'] + ['address'] + 
-                    '</p></li>' +
-
-                    '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-15">電話 </span>' +
-                        '<span>' + item[i]['phone'] + '</span>' +
-                        '</li>' +
-
-                    '<li class="list-group-item">' +
-                        '<span style="color:#d2571c" class="m-r-10">公式サイト</span>' +
-                    '<a href="http://'+item[i]['website']+'" target="_blank">'+item[i]['website']+'</a>' +
-                    '</li>' +                                
-                    '</ul>' +
+                '<td style="padding-bottom:0px;">' +
+                    '<p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>' + item[i]['phone'] + '</p>' +
                 '</td>' +                            
                 '</tr>' +
                 ' <tr>' +
-                '<td colspan="2">' +
+                '<td colspan="2" style="padding-top:0px;">' +
                     '<div class="">' +
                     '<table class="table table-bordered price-tbl text-center" style="margin-bottom:0px">'+
                     '<thead><tr style="background-color:#ffffcc"><th class="text-center" style="background-color:#ffffcc">入居時費用</th><th class="text-center" style="background-color:#ffffcc">月額利用料</th></tr></thead>'+
                     '<tbody>'+
-                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
-                    '<tr><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
+                    '<tr><td><span>'+ (Number(item[i]['moving_in_to'])/10000).toLocaleString() + '</span>万円</td><td><span>'+ (Number(item[i]['per_month_to'])/10000).toLocaleString() + '</span>万円</td></tr>'+
                     '</tbody>'+
-
                     '</table>'+
                     '</div>' +
                 '</td>' +
@@ -1232,7 +1204,18 @@ changeSearch()
                 Per_month:this.per_month
             },
             }).then((response)=>{
-
+            console.log(localStorage.getItem("nursing_fav"));
+            // if(localStorage.getItem("nursing_fav")) {
+            //     var fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
+            //     for(var i=0; i<fav_arr.length; i++){
+            //         if(response.data.nursing.includes(fav_arr[i])){
+            //             response.data.nursing.indexOf(fav_arr[i])
+                        
+            //         }
+            //     }
+                
+            // }
+            console.log(JSON.parse("[" + localStorage.getItem("nursing_fav") + "]"));
             this.nus_data = response.data.nursing;
             this.specialfeature = response.data.specialfeature;
             this.medicalacceptance = response.data.medicalacceptance;
@@ -1343,7 +1326,7 @@ search(){
             
                 this.infoWindow(item, mmarker);
                     
-            }
+            }           
             else{
                 const theCity = this.citylatlng[0]['city_name']
                 const lat = this.citylatlng[0]['latitude']

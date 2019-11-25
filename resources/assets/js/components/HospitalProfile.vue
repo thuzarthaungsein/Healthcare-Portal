@@ -237,7 +237,7 @@
                   <td class="width17" style="border:none;"> <label class="heading-lbl pad-free"> 医院からのお知らせ<span class="error">*</span></label></td>
                   <td style="border:none;">
                           <!-- <textarea name="feature" id="" cols="30" rows="10" ></textarea> -->
-                          <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" v-model="hospital_info.details_info" :options="editorOption"/>
+                          <quill-editor  ref="myQuilEditor" name="detailsinfo" class="details-info" @change="onDetailInfoEditorChange($event)" v-model="hospital_info.details_info" :options="editorOption"/>
                   </td>
           </tr>
         </table>
@@ -1331,6 +1331,7 @@ export default {
                         readonly:true,
                         theme:'snow',
                         access_val: '',
+                        detail_info: '',
                 },
                 }
         },
@@ -1505,6 +1506,10 @@ export default {
                 // console.log('editor change!', editor, html, text)
                 this.access_val = html
             },
+            onDetailInfoEditorChange({ editor, html, text }) {
+                // console.log('editor change!', editor, html, text)
+                this.detail_info = html
+            },
             galleryVideoAdd() {
                    this.video_arr.push({title:'',description:'',url:''});
                  
@@ -1524,7 +1529,7 @@ export default {
                     // var access = $('.access').val();
                     var subject = $('.subject').val();
                     var specialist = $('.specialist').val();
-                    var details_info = $('.details-info').text();
+                    // var details_info = $('.details-info').text();
                     var close_day = $('.close-day').val();
                     var website = $('.website').val();
                     var congestion = $('.congestion').val();
@@ -1595,7 +1600,7 @@ export default {
                         if(j == 0) { this.schedule_list.push(this.shedule_am); }
                         if(j == 1) { this.schedule_list.push(this.shedule_pm); }
                       }
-                       this.save_hospital_info.push({latitude:latitude,longitude:longitude,access:this.access_val,specialist:specialist,details_info:details_info,close_day:close_day,website:website,
+                       this.save_hospital_info.push({latitude:latitude,longitude:longitude,access:this.access_val,specialist:specialist,details_info:this.detail_info,close_day:close_day,website:website,
                        congestion:congestion,facilities:facilities});
                         if(this.gallery_list.length > 0) {
                                 this.axios

@@ -126,7 +126,7 @@ class registerController extends Controller
             }
 
 
-            $admin_email = 'sawnwaiyan2014@gmail.com';
+            $admin_email = 'thuzar.ts92@gmail.com';
             \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success', "Special message goes here");

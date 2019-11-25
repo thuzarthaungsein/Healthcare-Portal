@@ -17,7 +17,7 @@ class SearchMapController extends Controller
         $moving_in = $_GET['moving_in'];
         $per_month = $_GET['per_month'];
 
-        
+
         // $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
         //             FROM customers AS c 
         //             LEFT JOIN townships AS t  ON t.id = c.townships_id 
@@ -194,7 +194,7 @@ class SearchMapController extends Controller
            $Per_month = $_GET['Per_month'];
 
 
-           $query = "SELECT '' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
+           $query = "SELECT '' as fav_check,'' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
                      from nursing_profiles as n  
                      left join customers as c on c.id = n.customer_id 
                      left join types AS ty ON c.type_id = ty.id
