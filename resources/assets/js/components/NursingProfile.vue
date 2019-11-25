@@ -366,10 +366,12 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">類型</td>
-                                                    <select class="form-control white-bg-color fac-type">
-                                                        <option>施設タイプを選択</option>
-                                                        <option v-for="fac in fac_types" :key="fac.id" v-bind:value="fac.id" :selected="fac.id == nursing_info.fac_type">{{ fac.description }}</option>
-                                                    </select>
+                                                    <td>
+                                                        <select class="form-control white-bg-color fac-type">
+                                                            <option>施設タイプを選択</option>
+                                                            <option v-for="fac in fac_types" :key="fac.id" v-bind:value="fac.id" :selected="fac.id == nursing_info.fac_type">{{ fac.description }}</option>
+                                                        </select>
+                                                    </td>
                                                     <!-- <td ><textarea class="form-control white-bg-color fac-type" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td> -->
                                                         <!-- <td > <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td> -->
                                             </tr>
