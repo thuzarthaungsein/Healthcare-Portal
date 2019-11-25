@@ -232,6 +232,7 @@ Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
+Route::get('facility_types', 'FacTypesController@index');
 // Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 
