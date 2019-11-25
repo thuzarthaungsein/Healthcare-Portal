@@ -1909,6 +1909,7 @@ export default {
     justify-content: left;
     /* width: 1336px; */
     width:1033px;
+    overflow: hidden;
 }
 
 
