@@ -175,11 +175,12 @@
                                     <div class="row">
                                         <div class="col-md-12 m-t-8">
                                             <div class="header2">
-                                                <h5 class=" clearfix">Deactivate My Account</h5>
+                                                <h5 class=" clearfix" >{{accout_status}} My Account</h5>
+                                                
                                             </div>                                            
                                             <div class="form-group">
-                                                <span class="btn main-bg-color white all-btn" >
-                                                Deactivate
+                                                <span class="btn main-bg-color white all-btn"  @click="AccountStatusChange(customer_info.recordstatus)">
+                                                    {{accout_status}}
                                                 </span>
                                             </div>
                                         </div>
@@ -209,7 +210,8 @@
                     logo: '',
                     cusid: '0',
                     upload_img: null,
-                    image: ''
+                    image: '',
+                    accout_status:''
                 }
             },
             created() {
@@ -219,6 +221,11 @@
                     .then(response => {
                         this.customer_info = response.data;
                         console.log(this.customer_info);
+                        if(this.customer_info.recordstatus == '1') {
+                            this.accout_status = 'Deactivate';
+                        } else {
+                            this.accout_status = 'Activate';
+                        }
                         if (this.customer_info.type_id == '2') {
                             this.logo = 'upload/hospital_profile/' + response.data.logo;
                         } else {
@@ -391,6 +398,56 @@
                                     }
                                 });
                         })
+                    },
+                    AccountStatusChange(status) {
+                        if(status == '1') {
+                            var confirm_text = '無効にしますか？';
+                        } else {
+                            var confirm_text = 'アクティベートしますか ?';
+                        }
+                        let fd = new FormData();
+                            fd.append('status', status)
+                        this.$swal({
+                                title: "確認",
+                                text: confirm_text,
+                                type: "info",
+                                width: 350,
+                                height: 200,
+                                showCancelButton: true,
+                                confirmButtonColor: "#6cb2eb",
+                                cancelButtonColor: "#b1abab",
+                                cancelButtonTextColor: "#000",
+                                confirmButtonText: "作成",
+                                cancelButtonText: "キャンセル",
+                                confirmButtonClass: "all-btn",
+                                cancelButtonClass: "all-btn"
+                            }).then(response => {
+                                this.axios
+                                    .post('api/customer/account_update', fd)
+                                    .then((response) => {
+                                        this.$swal({
+                                                position: 'top-end',
+                                                type: 'success',
+                                                title: '更新されました。',
+                                                confirmButtonText: "はい",
+                                                confirmButtonColor: "#6cb2eb",
+                                                width: 250,
+                                                height: 200,
+                                            })
+                                        console.log(response.data);
+                                        if(response.data.recordstatus == '1') {
+                                            this.accout_status = 'Deactivate';
+                                        } else {
+                                            this.accout_status = 'Activate';
+                                        }
+                                            
+                                    }).catch(error => {
+
+                                        if (error.response.status == 422) {
+                                            this.errors = error.response.data.errors
+                                        }
+                                    });
+                            });
                     },
             }
     }

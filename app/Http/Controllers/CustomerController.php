@@ -218,5 +218,22 @@ class CustomerController extends Controller
         return $search_customer;
     }
 
-   
+    public function accountStatusUpdate(Request $request)
+   {
+       $request = $request->all();
+      
+       $user = User::find(auth('api')->user()->id);
+       
+       $customer = Customer::find($user['customer_id']);
+      
+        if($request['status'] == '1') { 
+            $customer->recordstatus = '0'; } 
+        if($request['status'] == '0') { 
+            $customer->recordstatus = '1';
+        }
+      
+       $customer->save();
+
+       return $customer;
+   }
 }
