@@ -1476,6 +1476,7 @@ export default {
         },
 
         created(){
+           
             this.customer_id = this.cusid;
             this.activePanoImage = 0;
 
@@ -1486,7 +1487,7 @@ export default {
 
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
-
+        
             if(this.loginuser == true) {
                 $(document).scroll(function() {
 
@@ -1544,7 +1545,6 @@ export default {
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
-
 
                     this.cooperate_medical = response.data.comedical;
 
