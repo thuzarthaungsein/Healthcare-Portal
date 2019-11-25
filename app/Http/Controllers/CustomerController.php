@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\User;
+use App\NursingProfile;
+use App\HospitalProfile;
 use DB;
 use Auth;
 class CustomerController extends Controller
@@ -137,6 +139,22 @@ class CustomerController extends Controller
         //
         $customer = Customer::find($id);
         $customer->delete();
+
+        $user = User::where('customer_id',$id)->first();
+        if($user !== null){
+            $user->delete();
+        }        
+
+        $nursing = NursingProfile::where('customer_id',$id)->first();
+        if($nursing !== null){
+            $nursing->delete();
+        }
+        
+        $hospital = HospitalProfile::where('customer_id',$id)->first();
+        if($hospital !== null){
+            $hospital->delete();
+        }
+        
         return response()->json('Customer successfully deleted');
     }
 
