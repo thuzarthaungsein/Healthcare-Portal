@@ -367,8 +367,8 @@ body {
 
 .category_news_title {
     /* text-align: center; */
-    padding: 15px;
-    padding-left: 0px;
+    padding: 0px 15px 15px 0px;   
+    
 }
 
 .category_news_title span {
@@ -380,7 +380,7 @@ body {
 .category_box {
     border-top: 1px dashed #1aa985;
     padding: 10px 0px 0px 0px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .img-box img {
