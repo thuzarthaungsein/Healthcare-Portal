@@ -201,32 +201,32 @@
             });
 
             function validateForm() {
-                if(window.pwd_same == false ||  window.nur_type == false) {
+                if(window.pwd_same == false) {
                     return false;
                 }
             }
 
-            $('#type').on('change', function() {
-                const type = $("#type option:selected").val();
-                if (type == 3) {
-                    $.getJSON("ajax-type?type=" + type, function(data) {
-                        $('#showHideActionNursing').removeClass('hide').addClass('show');
-                        $('#nursing').empty();
-                        $.each(data.data, function(id, name) {
-                            $('#nursing').append(
-                                '<div class="form-check sample">' +
-                                '<input class="form-check-input custom-radio nursing_type" required onchange="chooseNursingType()" type="radio" name="nursing" value="' + name.id + '" id="' + name.id + '">' +
-                                '<label class="form-check-label custom-radio" for="' + name.id + '">' + name.name + '</label>' +
-                                '</div>');
-                        });
-                    });
-                    chooseNursingType();
-                } else {
-                    $('#showHideActionNursing').removeClass('show').addClass('hide');
-                    $('#nursing').empty();
-                }
-                chooseNursingType();
-            });
+            // $('#type').on('change', function() {
+            //     const type = $("#type option:selected").val();
+            //     if (type == 3) {
+            //         $.getJSON("ajax-type?type=" + type, function(data) {
+            //             $('#showHideActionNursing').removeClass('hide').addClass('show');
+            //             $('#nursing').empty();
+            //             $.each(data.data, function(id, name) {
+            //                 $('#nursing').append(
+            //                     '<div class="form-check sample">' +
+            //                     '<input class="form-check-input custom-radio nursing_type" required onchange="chooseNursingType()" type="radio" name="nursing" value="' + name.id + '" id="' + name.id + '">' +
+            //                     '<label class="form-check-label custom-radio" for="' + name.id + '">' + name.name + '</label>' +
+            //                     '</div>');
+            //             });
+            //         });
+            //         chooseNursingType();
+            //     } else {
+            //         $('#showHideActionNursing').removeClass('show').addClass('hide');
+            //         $('#nursing').empty();
+            //     }
+            //     chooseNursingType();
+            // });
 
             $('#cities').on('change', function(e) {
                 let cities = e.target.value;
@@ -240,21 +240,21 @@
                 });
             });
 
-            function chooseNursingType() {
-                if($("#type option:selected").val() == 3) {
-                    window.nur_type = $('.nursing_type').is(':checked');
-                    if($('.nursing_type').is(':checked')) {
-                        $('#radioerror').css("display", "none");
-                    }
-                    else {
-                        $('#radioerror').css("display", "block");
-                        window.nur_type = false;
-                    }
-                }
-                else{
-                    window.nur_type = true;
-                }
-            }
+            // function chooseNursingType() {
+            //     if($("#type option:selected").val() == 3) {
+            //         window.nur_type = $('.nursing_type').is(':checked');
+            //         if($('.nursing_type').is(':checked')) {
+            //             $('#radioerror').css("display", "none");
+            //         }
+            //         else {
+            //             $('#radioerror').css("display", "block");
+            //             window.nur_type = false;
+            //         }
+            //     }
+            //     else{
+            //         window.nur_type = true;
+            //     }
+            // }
 
             function password_validate() {
                 var pwd = $('#pwd').val();
@@ -270,7 +270,5 @@
                 }
             }
         </script>
-
 </body>
-
 </html>
