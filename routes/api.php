@@ -140,6 +140,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('deletevideo', 'CustomerController@deletevideo');
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
+        Route::post('account_update','CustomerController@accountStatusUpdate');
         Route::delete('delete/{id}','CustomerController@destroy');
     });
     // End Customer
