@@ -529,7 +529,7 @@
 
                                 <td width="250" class="custom-bg-color">居住の権利形態 </td>
 
-                                <td v-if="nus.residence_form">{{nus.residence_form}}</td>
+                                <td v-if="nus.residence_form"><p v-html="nus.residence_form"></p></td>
                                 <td v-else>-</td>
 
                             </tr>
