@@ -219,7 +219,7 @@
             <div class="error">※未入力の必須項目がございます</div>
         </div>
         <div class="text-center mt-2 pb-5">
-            <button type="button" class="btn main-bg-color white all-btn width17" @click="checkValidate()">確認画面へ進む</button>
+            <button type="button" :disabled="isdisable" class="btn main-bg-color white all-btn width17" @click="checkValidate()">確認画面へ進む</button>
         </div>
 </form>
 
@@ -521,7 +521,7 @@ export default {
       this.jobApply.skills.push(job);
     },
     checkValidate() {
-
+      $('.char-err').text('');
       var input_val = $('#last_name').val();
       var code = 0;
       var flag = 0;
