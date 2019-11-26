@@ -38,6 +38,12 @@
                                             </div>
                                             <div class="col-md-10">{{customer.name}}</div>
                                             <div class="col-md-2 max-width13">
+                                                <strong>状態:</strong>
+                                            </div>
+                                            <div class="col-md-10" v-if="customer.recordstatus == '1'">Activate</div>
+                                            <div class="col-md-10" v-else>Deactivate</div>
+
+                                            <div class="col-md-2 max-width13">
                                                 <strong>メールアドレス:</strong>
                                             </div>
                                             <div class="col-md-10">{{customer.email}}</div>

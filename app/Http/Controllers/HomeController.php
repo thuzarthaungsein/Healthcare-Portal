@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cats = Category::all()->toArray();
+        $cats = DB::select("SELECT categories.* FROM categories INNER JOIN posts ON categories.id = posts.category_id GROUP BY categories.id");
         return response()->json($cats);
     }
 
@@ -38,8 +38,8 @@ class HomeController extends Controller
 
     public function getPosts(Request $request)
     {
-     
-    
+
+
 
 
         $request = $request->all();
@@ -59,7 +59,7 @@ class HomeController extends Controller
     public function getLatestPost(Request $request)
     {
 
-       
+
 
 
         // $latest_post = Post::where("category_id",$cat_id)->orderBy('created_at', 'desc')->first();
@@ -87,10 +87,10 @@ class HomeController extends Controller
         // $cat_random = DB::select($random);
         // for($i=0;$i<count($cat_random);$i++)
         // {
-       
+
 
         //    $cat_random[$i]->pattern = $pattern_arr[$i];
-             
+
         // }
         // return response()->json($cat_random);
 
@@ -100,24 +100,24 @@ class HomeController extends Controller
         $cat_random = DB::select($random);
         $k = count($cat_random);
         for($i=0;$i<count($cat_random);$i++)
-        { 
-          
+        {
+
            for($j=0; $j<count($pattern_arr);$j++)
            {
                if($i < $k)
-               {        
+               {
                     $cat_random[$i]->pattern = $pattern_arr[$j];
                     $id = $cat_random[$i]->id;
                     $category = Category::find($id);
-                    $category->pattern =  $pattern_arr[$j]; 
-                    $category->save(); 
-                    $i++;     
-               }          
-           } 
-     
-           $i--;         
+                    $category->pattern =  $pattern_arr[$j];
+                    $category->save();
+                    $i++;
+               }
+           }
+
+           $i--;
         }
-       
+
 
         return response()->json('success');
     }
@@ -158,17 +158,17 @@ class HomeController extends Controller
         //                 ->selectRaw('GROUP_CONCAT(posts.id order by posts.created_at desc limit 6) as post_id')
         //                 ->groupBy('categories.id')
         //                 ->get()
-        //                 ->toArray();    
-        // $posts = Post::selectRaw('GROUP_CONCAT(title) as title')->groupBy('posts.category_id') ->get();    
-        // $posts = Post::select('postid')->get();    
+        //                 ->toArray();
+        // $posts = Post::selectRaw('GROUP_CONCAT(title) as title')->groupBy('posts.category_id') ->get();
+        // $posts = Post::select('postid')->get();
 
         // $sql = "SELECT id, GROUP_CONCAT(name SEPARATOR ',') FROM customers GROUP BY id";
         // $sql = "SELECT id, GROUP_CONCAT(name SEPARATOR ',') FROM customers GROUP BY id";
-        
+
         // $sql = "select c.name , c.id, group_concat(p.title  order by p.created_at desc limit 6) as title, group_concat(p.photo order by p.created_at desc limit 4) as photo ,group_concat(p.id order by p.created_at desc limit 6) as post_id from categories AS c INNER join posts AS p on c.id = p.category_id group by c.id";
         // $sql = "SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id order by posts.created_at desc LIMIT 100";
         // $sql = "SELECT categories.name,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE posts.created_at > date_sub(now(), interval 1 month) order by posts.created_at desc";
-        
+
         $sql = "";
         if($search_word == 'all_news_search'){
             $wh = '';
@@ -179,13 +179,14 @@ class HomeController extends Controller
 
         $cat = Category::select('id')->get();
         for($i = 0; $i < count($cat); $i++) {
-            $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION "; 
+            $sql.= "(SELECT categories.name,categories.pattern,categories.id,posts.id as pid,posts.title,posts.created_at, posts.photo, posts.main_point FROM categories INNER JOIN posts ON categories.id = posts.category_id WHERE categories.id = ".$cat[$i]['id']." ".$wh." order by posts.created_at desc LIMIT 25) UNION ";
         }
 
         $sql = trim($sql,' UNION ');
-        
+
         $posts = DB::select($sql);
-        return $posts;
+
+        return response()->json($posts);
     }
 }
 

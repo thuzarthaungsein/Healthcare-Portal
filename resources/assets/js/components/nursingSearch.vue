@@ -450,11 +450,11 @@
                                         <div class="col-4" style="padding-top:3px;">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
-                                        <div class="col-8">
-                                            <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item" style="padding-top:0px!important;"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                        <div class="col-8 m-b-15">
+                                            <ul class="nursingSearch-list m-l-10">
+                                                <li class="d-flex"><p class="text-truncate"><span>住所</span><span> {{items.township_name}}{{items.address}}</span></p></li>
+                                                <li class="d-flex"><span>電話 </span><span>{{items.phone}}</span></li>
+                                                <li class="d-flex"><span>サイト</span><a :href="'http://'+ items.website" target="_blank"  class="text-truncate">{{items.website}}</a></li>                                               
                                             </ul>                                         
                                         </div>
                                     </div>
@@ -504,6 +504,7 @@
       </div>
       </div>
       <!--list-->
+          
        <table class="table table-bordered col-12 box-wrap select">
               <tbody>
                 <tr>
