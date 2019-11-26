@@ -72,14 +72,13 @@ class registerController extends Controller
             'cities'=> 'required',
             'township'=> 'required',
             ]);
-            $type = 2;
+            // $type = 2;
 
-            if($request->types == '3'){
-                $type = $request->nursing;
-            }
+            // if($request->types == '3'){
+            //     $type = $request->nursing;
+            // }
 
             // $destinationPath = public_path('/images');
-
             $image = $request->file('img');
             $getName = time().'.'.$image->getClientOriginalExtension();
             if($request->types == 2){
@@ -87,32 +86,35 @@ class registerController extends Controller
             }
             else{
                 $image->move('upload/nursing_profile/', $getName);
-            }
-            
+            }            
             // $dbPath = $destinationPath. '/'.$input['img'];
-
             $customer = new Customer;
             $customer->logo= $getName;
             $customer->name = $request->name;
             $customer->email = $request->email;
             $customer->phone = $request->phone;
-            $customer->type_id = $type;
+            $customer->type_id = $request->types;
             $customer->password = bcrypt($request->password);
             // $customer->address = $request->address;
             $customer->townships_id = $request->township;
             $customer->save();
-            if($type == 2){
+
+            if($request->types == 2){
                 $customer->type = '病院';
             }
-            elseif($type == 4){
-                $customer->type = '介護  (有料老人ホーム)';
+            else{
+                $customer->type = '介護';
             }
-            elseif($type == 5){
-                $customer->type = '介護 (デイサービス)';
-            }
-            elseif($type == 6){
-                $customer->type = '介護  (訪問介護・看護)';
-            }
+
+            // elseif($request->types == 4){
+            //     $customer->type = '介護  (有料老人ホーム)';
+            // }
+            // elseif($request->types == 5){
+            //     $customer->type = '介護 (デイサービス)';
+            // }
+            // elseif($request->types == 6){
+            //     $customer->type = '介護  (訪問介護・看護)';
+            // }
             $query = "SELECT townships.*, cities.city_name
                     FROM townships 
                     JOIN cities
@@ -124,7 +126,6 @@ class registerController extends Controller
                 $customer->city_name = $ad->city_name;
                 $customer->township_name = $ad->township_name;
             }
-
 
             $admin_email = 'thuzar.ts92@gmail.com';
             \Mail::to($admin_email)->send(new customerCreateMail($customer));

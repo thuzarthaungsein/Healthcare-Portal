@@ -410,9 +410,9 @@
 
         <div>
 
-            <div class="col-md-12 category_box" :class="'bordertop-color'+index" v-for="(group,name,index) in post_groups" :key="index">
+            <div class="col-md-12 category_box" :class="'bordertop-color'+(5-(Math.floor(index%5)))" v-for="(group,name,index) in post_groups" :key="index">
 
-                <h4 class="category_news_title" :class="'h-color'+index"><span>{{name}}</span> <label style="float: right; color: #999; font-size: 14px;">新着ニュース一覧</label></h4>
+                <h4 class="category_news_title" :class="'h-color'+(5-(Math.floor(index%5)))"><span>{{name}}</span> <label style="float: right; color: #999; font-size: 14px;">新着ニュース一覧</label></h4>
 
                 <div class="row m-lr-0" v-if="group[0].pattern == 1">
 

@@ -95,7 +95,7 @@ class JobApplyController extends Controller
 
              $query = "SELECT j.*,c.email,c.name as cus_name,ci.city_name as city_name,(CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum
                         from customers as c join jobs as j on c.id = j.customer_id join townships as t on t.id = c.townships_id join cities as ci on ci.id = t.city_id 
-                        where j.id = " . $jobapply->job_id;
+                        where c.recordstatus=1 and j.id = " . $jobapply->job_id;
 
             $infos = DB::select($query);    
           
