@@ -1199,6 +1199,7 @@
                 if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
 
                     var searchword = 'all_news_search';
+                   
 
                 } else {
 
@@ -1358,7 +1359,7 @@
                 if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
 
 
-
+            console.log("statusBar",this.search_word);
                     this.clearSearch();
 
                      console.log('null');
@@ -1368,6 +1369,7 @@
                     this.status = 1;
 
                     this.search_word = $('#search-word').val();
+                    // console.log("status",this.search_word);
 
                     this.getLatestPostsByCatID();
                    
