@@ -1,7 +1,6 @@
 <template>
     <div class="row">
         <div class="col-12">
-
             <!--card-->
             <div class="col-md-12 col-md-12 tab-content tab-content1 tabs pad-free border-style">
                 <div class="col-md-12 scrolldiv">
@@ -30,9 +29,23 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <strong>タイトル :</strong> {{comment.title}}  <br/>
+                                        <!-- <strong>タイトル :</strong> {{comment.title}}  <br/>
                                         <strong>顧客名 :</strong> {{comment.name}}  <br/>
-                                        <strong>メールアドレス:</strong>{{comment.email}}
+                                        <strong>メールアドレス:</strong>{{comment.email}} -->
+                                       <table>
+                                           <tr>
+                                               <td>タイトル :</td>
+                                               <td> {{comment.title}}</td>
+                                           </tr>
+                                            <tr>
+                                               <td>顧客名 :</td>
+                                               <td> {{comment.name}} </td>
+                                           </tr>
+                                             <tr>
+                                               <td>メールアドレス: </td>
+                                               <td> {{comment.email}} </td>
+                                           </tr>
+                                       </table>
                                     </div>
 
                                     <div class="col-md-4 text-right">
@@ -46,36 +59,15 @@
                                 </div>
                             </div>
                             <div class="collapse card-body" :id="'changeLink' + comment.id">
-                                <div class="col-md-12">
-                                    <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}} (コメント)</h5>
-                                    <br>
-                                        <div name="exp[]" class="col-md-12"><p>{{comment.comment}}</p></div>
-                                    <!-- <table class="table"> -->
-                                        <!-- <tr>
-                                            <th>タイトル</th>
-                                            <th>
-                                                <input type="text" name="exp[]" class="form-control expense-moving white-bg-color" v-model="comment.title">
-                                            </th>
-                                        </tr> -->
-                                        <!-- <tr>
-                                            <th>
-                                                <input type="text" name="exp[]" class="form-control living-room-type white-bg-color" v-model="comment.comment">
-                                            </th>
-                                        </tr> -->
-                                        <!-- <tr>
-                                            <th>メールアドレス</th>
-                                            <th>
-                                                <input type="text" name="exp[]" class="form-control monthly-fees white-bg-color" v-model="comment.email">
-                                            </th>
-                                        </tr> -->
-                                        <!-- <tr>
-                                            <th>名前</th>
-                                            <th>
-                                                <input type="text" name="exp[]" class="form-control area white-bg-color" v-model="comment.name">
-                                            </th>
-                                        </tr> -->
-                                    <!-- </table> -->
+                                <div class="commentWrap">
+                                   
+                                    <div class="d-flex ">
+                                     <p class="comment-underline comment-title p-b-0">{{comment.title}} <span style="font-size:12px;color:#a7a2a2ee;">(コメント)</span>   <p class="comment-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{comment.created_date | moment("YYYY年MM月DD日") }}投稿 <span class="ml-2"><i class="fa fa-clock" aria-hidden="true"></i> {{comment.created_time}}</span></p></p> 
+                                  
+                                    </div>
+                                    <!-- <h5 style="background:linear-gradient(45deg, #ffbe9f, transparent);padding:8px;">{{comment.title}} <span style="font-size:14px;">(コメント)</span></h5> -->                                                                     
                                 </div>
+                                 <div name="exp[]" class="col-md-12 m-t-20"><p style="color:#736e6e;">{{comment.comment}}</p></div>
                             </div>
                         </div>
                         <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
@@ -123,7 +115,7 @@
             },
             created() {
                 this.axios
-                    .get('/api/comments/comment')
+                    .get('/api/comments/comment'+ this.comments )
                     .then(response => {
                         this.comments = response.data;
                         this.norecord = this.comments.length;
@@ -316,3 +308,20 @@
             }
     }
 </script>
+<style scoped>
+    .comment-title {
+    background-size: 29px;
+    /* background :#b6b4b4; */
+    color: #3fc8d6;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.comment-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #777;
+
+}
+</style>
