@@ -675,26 +675,19 @@
                 var search_word = $('#search-word').val();
           
 
-                this.axios.get('api/gethospitalsearch/'+ search_word,{
-                    params:{
-                        id: -1,
-                        townshipID:-1,
-                        specialfeatureID:-1,
-                        subjectID:-1 
-                    },
-                  }).then((response)=>{
-                 
-                    this.hos_data = response.data.hospital;
-                    this.timetable = response.data.timetable;
-                    this.specialfeatures = response.data.specialfeature;
-                    this.getTownships = [];
-                    this.subject = response.data.subject;
-                    if(this.hos_data.length > this.size) {
-                        this.show_paginate = true;
-                    }else{
-                        this.show_paginate = false;
-                    }
-                  });
+                this.axios.get('api/gethospitalsearch/'+ search_word)
+                .then((response)=>{
+                      this.hos_data = response.data.hospital;
+                      this.timetable = response.data.timetable;
+                      this.specialfeatures = response.data.specialfeature;
+                      this.getTownships = [];
+                      this.subject = response.data.subject;
+                      if(this.hos_data.length > this.size) {
+                          this.show_paginate = true;
+                      }else{
+                          this.show_paginate = false;
+                      }
+                    });
               
               } 
             

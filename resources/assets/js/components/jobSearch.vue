@@ -14,8 +14,8 @@
             <!--search input-->
               <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
-                    <button type="submit" class="searchButton">    
+                    <input type="text" class="searchTerm" id="search-word" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <button type="submit" class="searchButton" @click="searchfreeword">    
                       <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
@@ -570,7 +570,7 @@ export default {
           this.empstatus[0] = 0;
         }
 
-        this.axios.get('api/getjobsearch',{
+        this.axios.get('api/getjobsearch/null',{
           
           params:{
               id: this.id,
@@ -592,6 +592,41 @@ export default {
         
          // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
+   searchfreeword(){
+
+
+            //clear all checkbox
+            this.id = -1;
+            this.townshipID = [];
+            this.occupationID = [];
+            this.empstatus = [];
+
+              
+
+              if ($('#search-word').val() != '') 
+              {
+               
+                var search_word = $('#search-word').val();
+          
+
+                this.axios.get('api/getjobsearch/'+ search_word
+                  ).then((response)=>{
+                 
+                    this.hos_data = response.data.hospital;
+                    this.timetable = response.data.timetable;
+                    this.specialfeatures = response.data.specialfeature;
+                    this.getTownships = [];
+                    this.subject = response.data.subject;
+                    if(this.hos_data.length > this.size) {
+                        this.show_paginate = true;
+                    }else{
+                        this.show_paginate = false;
+                    }
+                  });
+              
+              } 
+            
+        },
 
     gotoJobdetail(jid) {
         this.$router.push({ name: 'job_details', params:{id:jid}});
