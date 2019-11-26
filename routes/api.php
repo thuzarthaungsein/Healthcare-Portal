@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
 // public route api start
     Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch','SearchMapController@getNursingSearch');
-    Route::get('getmap/','SearchMapController@getMap');
+    Route::get('getmap/{searchword}','SearchMapController@getMap');
     Route::get('getjobsearch','SearchMapController@getJobSearch');
     Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
 
@@ -291,6 +291,8 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
 Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
 Route::get('get_cat_random', 'HomeController@getCategoryRandom');
+
+
 
 
 

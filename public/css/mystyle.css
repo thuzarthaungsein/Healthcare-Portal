@@ -3372,7 +3372,7 @@ ul.main-tab li:after {
   }
 
   .searchTerm {
-      width: 100%;
+      width: 70%;
       border: 3px solid #f7834b;
       border-right: none;
       padding: 5px;

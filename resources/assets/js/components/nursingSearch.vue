@@ -12,11 +12,11 @@
           <!-- search map and path -->  
             <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
             <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
-            <!--search input-->
+            <!--search input-->    
               <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
-                    <button type="submit" class="searchButton">    
+                    <input type="text"  id="search-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <button class="searchButton"  @click="searchfreeword" >    
                       <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
@@ -328,6 +328,7 @@
               
               <div class="card-body">
                 <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #fff;" v-model="id">
+                  <option value="-1">▼市区町村</option>
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
                 <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2);" v-model="township_id">
@@ -403,6 +404,7 @@
         </div>
         </section>
        
+ 
         <!-- nursing list -->
        <div id="nursing-search"> 
         <div class="row">
@@ -509,13 +511,15 @@
                 <tr>
                   <th>地域</th>
                   <td>
-                    <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                     
+                        <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                          <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @click="check">
                             {{township.township_name}}
                         <div class="control__indicator"></div>
                         </label>
                       </div>
+                     
                   </td>
                 </tr>
                 <tr>
@@ -858,7 +862,40 @@
       return page - 1 == this.currentPage;
     }
     },
+
 methods: {
+
+searchfreeword(){
+
+     //clear all drop down
+     this.id = -1;
+     this.township_id = -1;
+     this.moving_in = -1;
+     this.per_month = -1;
+      $("#nursing-search").css("display", "block");
+
+      if ($('#search-word').val() != '') 
+      {
+        this.id = -1;
+      
+        var search_word = $('#search-word').val();
+  
+
+         this.axios.get('/api/getmap/'+ search_word,{
+                params:{
+                id: -1 ,
+                township_id:-1,
+                moving_in:-1,
+                per_month:-1
+                },
+            })
+                .then((response) => {
+                this.changeMap(response)
+            });
+      
+      } 
+    
+},
 
 check()
         {
@@ -875,6 +912,15 @@ closeInfoWindow() {
             this.infoBoxOpen = false;
         },
 showSearchMap() {
+            
+            //clear all checkbox 
+            this.id = [];
+            this.townshipID = [];
+            this.SpecialFeatureID = [];
+            this.FacTypeID = [];
+            this.MoveID = [];
+            this.MedicalAcceptanceID = [];
+          
             $('#searchMap').removeClass('select');
             $('#showSearchMap').addClass('select');
             $('#filter').addClass('select');
@@ -900,7 +946,7 @@ getStateClick(e) {
                 var id = e.target.id;
             }
             this.id = id;
-            this.axios.get('/api/getmap/',{
+            this.axios.get('/api/getmap/null',{
                 params:{
                 id: this.id,
                 township_id:-1,
@@ -917,22 +963,28 @@ getStateClick(e) {
 // map onclick function 
 // map change dropdown function
 nursingSearchData(index){
-            if(index == 1)
+            if(index == 1) //if choose city
             {
                 this.township_id = -1;
                 this.townshipID = [];
+              
             }
-            else{
+            else{ //if choose township 
+
               this.townshipID = [];
               this.townshipID[0] = this.township_id;
         
             }
-           
+            
+            //if change dropdown , clear array
+            this.MoveID = [];
+            this.MedicalAcceptanceID = [];
+            this.FacTypeID = [];
+            this.SpecialFeatureID = [];
             this.onchangeid = 1;
-  
 
-         
-            this.axios.get('/api/getmap/',{
+ 
+            this.axios.get('/api/getmap/null',{
                     params:{
                     id: this.id,
                     township_id:this.township_id,
@@ -1029,7 +1081,10 @@ coordinates(theCity, lat, lng){
 },
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
-        for (var i = 0; i < item.length; i++) {
+        if(item != null && mmarker != null)
+        {
+         
+            for (var i = 0; i < item.length; i++) {
          
             infoWindowContent.push([
             '<div id="info_content">' +
@@ -1077,10 +1132,14 @@ infoWindow(item, mmarker){
             '</div>'
             ])
         }
-        var markers = mmarker;
+         var markers = mmarker;
         var bounds = new google.maps.LatLngBounds();
         this.markerHover = [];
         var infoWindow = new google.maps.InfoWindow(),marker, i;
+        }
+       
+         
+        
         for (let i = 0; i < this.markers.length; i++) {
             var beach = this.markers[i]
             var lats = this.markers[i]['lat']
@@ -1088,6 +1147,8 @@ infoWindow(item, mmarker){
             var img = this.markers[i]['alphabet']
             var myLatLng = new google.maps.LatLng(lats, lngs);
             var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+
+
         
             
             marker = new google.maps.Marker({
@@ -1112,6 +1173,43 @@ infoWindow(item, mmarker){
             
         }
         },
+
+        clearmap(citylatlng)
+        {
+            // for clean googleMap
+                var lat = citylatlng[0]['latitude']
+                var lng = citylatlng[0]['longitude']
+                var theCity = citylatlng[0]['city_eng']
+                const result = jp_township.features
+                const coordinates = []
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i].Name == theCity) {
+                    coordinates.push(result[i].geometry['coordinates'])
+                    }
+                }
+                var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var data = {
+                    type: "Feature",
+                    geometry: {
+                    "type": "Polygon",
+                    "coordinates": coordinate
+                    },
+                };
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lng),
+                    zoom: 6,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                this.map.data.addGeoJson(data);
+                this.map.data.setStyle({
+                    strokeColor: "red",
+                    fillColor: 'red',
+                    strokeOpacity: 0.8,
+                    fillOpacity: 0.1,
+                    strokeWeight: 1
+                })
+        },
 // make infowindow, marker , google map 
 changeMap(response){
                 $('.select').removeClass('select');
@@ -1126,8 +1224,7 @@ changeMap(response){
                 this.medical_acceptance = response.data.medical_acceptance
                 this.nus_data = response.data.nursing_profile
                 this.markers = response.data.nursing_profile;
-         
-            
+               
                 var mmarker = new Array();
                 var item = [];
                 for (var i = 0; i < this.markers.length; i++) {
@@ -1135,107 +1232,30 @@ changeMap(response){
                     item.push(this.markers[i])
                 }
 
-                const theCity = response.data.getCity[0]['city_name']
-                const lat = response.data.getCity[0]['latitude']
-                const lng = response.data.getCity[0]['longitude']
-
-                if(this.markers.length > 0)
+                if(this.getCity.length > 0)
                 {
-                     this.coordinates(theCity,lat,lng);
-                     this.infoWindow(item, mmarker);
-                 }
-                 else{
-                    this.coordinates(theCity,lat,lng);
-                 }
-               
-               
-        
-        },
+                    const theCity = response.data.getCity[0]['city_name']
+                    const lat = response.data.getCity[0]['latitude']
+                    const lng = response.data.getCity[0]['longitude']
+                    
 
-changeSearch()
-        {
-    
-            if(this.townshipID == null || this.townshipID == '')
-            {
-            this.townshipID[0] = 0;
-            }
-            if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
-            {
-            this.SpecialFeatureID[0] = 0;
-            }
-            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
-            {
-            this.MedicalAcceptanceID[0] = 0;
-            }
-            if(this.FacTypeID == null || this.FacTypeID == '')
-            {
-            this.FacTypeID[0] = 0;
-            }
-            if(this.MoveID == null || this.MoveID == '')
-            {
-            this.MoveID[0] = 0;
-            }
-            if(this.onchangeid == 1)
-            {  
-                if(this.township_id == -1)
-                {
-                    this.townshipID[0] = 0;
+                    if(this.markers.length > 0 )
+                    {
+                        this.coordinates(theCity,lat,lng);
+                        this.infoWindow(item, mmarker);
+                    }
+                    else{
+                        this.coordinates(theCity,lat,lng);
+                    }
                 }
                 else{
-                    this.townshipID[0] = this.township_id;
-                }
-            }
-            else{
-
-                this.township_id = -1;
-            }
-
-    
-
-            this.axios.get('api/getnursingsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                SpecialFeatureID:this.SpecialFeatureID,
-                MedicalAcceptanceID:this.MedicalAcceptanceID,
-                FacTypeID:this.FacTypeID,
-                MoveID:this.MoveID,
-                Moving_in:this.moving_in,
-                Per_month:this.per_month
-            },
-            }).then((response)=>{
-            console.log(localStorage.getItem("nursing_fav"));
-            // if(localStorage.getItem("nursing_fav")) {
-            //     var fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
-            //     for(var i=0; i<fav_arr.length; i++){
-            //         if(response.data.nursing.includes(fav_arr[i])){
-            //             response.data.nursing.indexOf(fav_arr[i])
-                        
-            //         }
-            //     }
-                
-            // }
-            console.log(JSON.parse("[" + localStorage.getItem("nursing_fav") + "]"));
-            this.nus_data = response.data.nursing;
-            this.specialfeature = response.data.specialfeature;
-            this.medicalacceptance = response.data.medicalacceptance;
-            this.factype = response.data.factype;
-            this.citylatlng = response.data.city;
-        
-            if(this.nus_data.length == 0)
-            {
-
-                const theCity = this.citylatlng[0]['city_name']
-                const lat = this.citylatlng[0]['latitude']
-                const lng = this.citylatlng[0]['longitude']
-             
-                this.coordinates(theCity,lat,lng);
-            }
-          
-            
-            });
-                    
+                     this.coordinates(null,this.markers[0]['lat'],this.markers[0]['lng']);
+                     this.infoWindow(item, mmarker);
+                }      
+                  
         },
+
+
        
         
 
@@ -1300,7 +1320,6 @@ search(){
             this.medicalacceptance = response.data.medicalacceptance;
             this.factype = response.data.factype;
             this.searchmarkers = response.data.nursing;
-            this.nus_data = response.data.nursing;
             this.citylatlng = response.data.city;
             this.markers = response.data.nursing;
 
@@ -1310,7 +1329,6 @@ search(){
     
             if(this.nus_data.length > 0){
 
-               
                 for (var i = 0; i < this.searchmarkers.length; i++) {
                    
                     mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
@@ -1328,13 +1346,25 @@ search(){
                     
             }           
             else{
-                const theCity = this.citylatlng[0]['city_name']
-                const lat = this.citylatlng[0]['latitude']
-                const lng = this.citylatlng[0]['longitude']
+                //if choose city
+                if(this.citylatlng.length > 0)
+                {
+                    const theCity = this.citylatlng[0]['city_name']
+                    const lat = this.citylatlng[0]['latitude']
+                    const lng = this.citylatlng[0]['longitude']
              
-              this.coordinates(theCity,lat,lng);
-
-                //  this.clearmap(this.citylatlng)
+                     this.coordinates(theCity,lat,lng);
+                }
+                else{
+                  console.log('else');
+                     var mapProp = {
+                     center: new google.maps.LatLng(35.6804, 139.7690),
+                     zoom: 8,     
+                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+                     };
+                    this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                }           
+            
               
               }
        
