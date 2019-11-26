@@ -160,55 +160,57 @@
 
                                     <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
 
-                                    <div class="row col-md-12 p-l-0 m-0">
+                                    <div v-if="w_width > 1279" class="row col-md-12 p-l-0 m-0">
+                                        
+                                            <div class="col-sm-6 m-b-8 p-l-0" v-for="latest_post_all_cat in latest_post_all_cats.slice(0, 2)" :key="latest_post_all_cat.id">
 
-                                        <div class="col-sm-6 m-b-8 p-l-0" v-for="latest_post_all_cat in latest_post_all_cats.slice(0, 2)" :key="latest_post_all_cat.id">
+                                                <div class="col-md-12 row m-0 pad-free">
 
-                                            <div class="col-md-12 row m-0 pad-free">
+                                                    <div class="hovereffect fit-image">
 
-                                                <div class="hovereffect fit-image">
+                                                    <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
 
-                                                <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
+                                                        <transition name="fade">
 
-                                                    <transition name="fade">
+                                                            <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
 
-                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
+                                                        </transition>
 
-                                                    </transition>
+                                                        <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
 
-                                                    <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
+                                                        <transition name="fade" slot="placeholder">
 
-                                                    <transition name="fade" slot="placeholder">
+                                                        <div class="preloader">
 
-                                                    <div class="preloader">
+                                                            <div class="circle">
 
-                                                        <div class="circle">
+                                                            <div class="circle-inner"></div>
 
-                                                        <div class="circle-inner"></div>
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
+                                                        </transition>
 
-                                                    </transition>
+                                                    </clazy-load>
 
-                                                </clazy-load>
+                                                        <div class="overlay">
 
-                                                    <div class="overlay">
+                                                            <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
 
-                                                        <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                        </div>
 
-                                                    </div>
+                                                        <div class="info">
 
-                                                    <div class="info">
+                                                            <div class="col-12" style="border:none;">
 
-                                                        <div class="col-12" style="border:none;">
+                                                                <p class=" p_3">
 
-                                                            <p class=" p_3">
+                                                                    {{ latest_post_all_cat.main_point }}
 
-                                                                {{ latest_post_all_cat.main_point }}
+                                                                </p>
 
-                                                            </p>
+                                                            </div>
 
                                                         </div>
 
@@ -217,9 +219,10 @@
                                                 </div>
 
                                             </div>
-
-                                        </div>
-
+                                      
+                                    </div>
+                                    <div v-if="w_width < 1280 && w_width > 767" class="row col-md-12 p-l-0 m-0">
+                                            Hello
                                     </div>
 
                                     <div class="row col-md-12 p-l-0 m-0">
@@ -1045,6 +1048,7 @@
             is_cat_slided: false,
 
             computed_width: '100%',
+            w_width: $(window).width() + 16,
 
         }
 
@@ -1052,6 +1056,7 @@
 
     created() {
         console.log($(window).width());
+
         var today = new Date();
         var month =(String) (today.getMonth()+1);
         var date = (String) (today.getDate());
