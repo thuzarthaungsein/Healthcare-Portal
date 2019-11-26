@@ -251,7 +251,7 @@
             <div class="row ele m-lr-0" id="element2">
 
                 <h5 class="profile_header">特長 </h5>
-                
+
                     <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">
                         <p v-html="nurseprofile.feature"></p>
                         <!-- <div v-if="nurseprofile.features">
@@ -897,7 +897,7 @@
 
                 <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                     病院情報
-                </button>                
+                </button>
 
                 <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
                     地図
@@ -1095,11 +1095,11 @@
 
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
-                    
+
                     <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
                         <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
                         <span v-else><p class="no-data-color">表示されるデータがありません。</p></span> -->
-                        
+
                     </p>
                 </div>
                 <div class="col-12 m-b-20">
@@ -1297,7 +1297,7 @@
                                     <tbody>
                                     <tr>
                                         <td class="custom-bg-color"> 公式サイト</td>
-                                        <td v-if="m.website">{{m.website}}</td> 
+                                        <td v-if="m.website">{{m.website}}</td>
                                         <td v-else> - </td>
                                     </tr>
                                     <tr>
@@ -1329,8 +1329,8 @@
                     </a> -->
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
-                </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">                  
+                </div>
+               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -1481,7 +1481,6 @@ export default {
         },
 
         created(){
-<<<<<<< HEAD
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
             
@@ -1516,9 +1515,7 @@ export default {
 
             // }
 
-=======
            
->>>>>>> 6b2716ed8c79c79caaaf3e533e325aea4da4b5ba
             this.customer_id = this.cusid;
             this.activePanoImage = 0;
 
@@ -1529,7 +1526,7 @@ export default {
 
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
-        
+
             if(this.loginuser == true) {
                 $(document).scroll(function() {
 
@@ -1965,9 +1962,10 @@ export default {
     display: flex;
     justify-content: left;
     width: 1033px !important;   
+    /* width: 1336px; */
     overflow: hidden;
 }
- 
+
 /*slick carousel*/
 
 #pano-slider-page .card-carousel-wrapper {
@@ -2532,7 +2530,7 @@ export default {
         /* width: 573px; */
         width: 415px!important;
     }
-} 
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 1024px) and (min-width: 992px) {
