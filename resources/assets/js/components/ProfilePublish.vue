@@ -1462,10 +1462,13 @@ export default {
                 items: [],
                 pagination: false,
                 data: {
-                str:"Welcome to Canada!",
-                substr: ""
-  },
-
+                    str:"Welcome to Canada!",
+                    substr: ""
+                },
+                window: {
+                    width: 0,
+                    height: 0
+                }
             };
         },
 
@@ -1476,6 +1479,40 @@ export default {
         },
 
         created(){
+            window.addEventListener('resize', this.handleResize)
+            this.handleResize();
+            
+            if(this.window.width > 319 && this.window.width < 370) {
+                this.windowSize = 1;
+                this.paginationFactor =103;
+            } 
+            else if(this.window.width > 374 && this.window.width < 450) {
+                this.windowSize = 2;
+                this.paginationFactor = 103;
+            }
+            else if(this.window.width > 499 && this.window.width < 800) {
+                this.windowSize = 4;
+                this.paginationFactor = 103;
+                console.log(this.window.width);
+                console.log(this.windowSize);
+            }
+            else if (this.window.width > 990 && this.window.width < 1025) {
+                this.windowSize = 6;
+                this.paginationFactor = 103;
+            }
+            else if (this.window.width > 1199 && this.window.width < 1441) {
+                this.windowSize = 7;
+                this.paginationFactor = 103;
+            }
+            else if (this.window.width > 1499 && this.window.width < 1700) {
+                this.windowSize = 9;
+                this.paginationFactor = 103;
+                
+            }
+            // else if( this.window.width > 1700) {
+
+            // }
+
             this.customer_id = this.cusid;
             this.activePanoImage = 0;
 
@@ -1786,6 +1823,10 @@ export default {
                 }
         },
         methods: {
+            handleResize() {
+                this.window.width = window.innerWidth;
+                this.window.height = window.innerHeight;
+            },
             changeBg(ch,a) {
                 $('.main-cost-table td').css({'background':'transparent'});
                 $('.cost'+a+' td').css({'background':'#ffe9df'});
@@ -1918,7 +1959,7 @@ export default {
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
-    /* width: 1336px; */    
+    width: 1033px !important;   
     overflow: hidden;
 }
  
@@ -2452,6 +2493,19 @@ export default {
     z-index: 4;
 }
 
+/* iphone 5 and early mobile devices */
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+  #pano-slider-page .card-carousel {
+        width: 100px!important;
+    }
+}
+
+/* Galaxy S5 and iphone 11 */
+@media only screen and (max-width: 450px) and (min-width: 376px) {
+  #pano-slider-page .card-carousel {
+        width: 207px !important;
+    }
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -2468,33 +2522,29 @@ export default {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
   #pano-slider-page .card-carousel {
-        width: 573px;
+        /* width: 573px; */
+        width: 415px!important;
     }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
   #pano-slider-page .card-carousel {
-        width: 802px;
+        width: 619px!important;
     }
-} 
+}
 
-@media only screen and (min-width: 1024px) {
-    #pano-slider-page .card-carousel {
-        width: 829px;
-    }
-}
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 1440px) and (min-width: 1200px) {
    #pano-slider-page .card-carousel {
-        width: 990px;
+        width: 713px!important;
     }
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (max-width: 1880px) and (min-width: 1500px) {
     #pano-slider-page .card-carousel {
-        width: 1033px;
+        width: 824px!important;
     }
 }
 
