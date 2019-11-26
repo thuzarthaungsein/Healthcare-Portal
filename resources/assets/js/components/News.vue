@@ -39,7 +39,7 @@
                                                 {{ cat.name }}</a>
                                             </li>
                                         </ul>
-                                    </div>                             
+                                    </div>
                                     <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-double-right"></i></span>
                                 </div>
                                 <div class="tab-content tab-content2 scroll2" id="myTabContent">
@@ -702,18 +702,18 @@
             scrollTo(element, scrollPixels, duration) {
                 const scrollPos = element.scrollLeft;
                 // Condition to check if scrolling is required
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0))) 
+                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
                 {
                     // Get the start timestamp
                     const startTime =
                     "now" in window.performance
                         ? performance.now()
                         : new Date().getTime();
-                    
+
                     function scroll(timestamp) {
                     //Calculate the timeelapsed
                     const timeElapsed = timestamp - startTime;
-                    //Calculate progress 
+                    //Calculate progress
                     const progress = Math.min(timeElapsed / duration, 1);
                     //Set the scrolleft
                     element.scrollLeft = scrollPos + scrollPixels * progress;
@@ -731,7 +731,7 @@
             },
             swipeLeft() {
                 const content = this.$refs.content;
-                this.scrollTo(content, -300, 800); 
+                this.scrollTo(content, -300, 800);
             },
             swipeRight() {
                 const content = this.$refs.content;
@@ -783,7 +783,7 @@
     }
 
 .left{
- float: left; 
+ float: left;
  width: 30%;
  border: 1px solid black;
 }
@@ -807,7 +807,7 @@ display: inline-block;
 }
 
 .right{
- float: right; 
+ float: right;
  width: 30%;
  border: 1px solid black;
 }
