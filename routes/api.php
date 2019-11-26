@@ -35,12 +35,10 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 // public route api start
-    Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
+    Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch','SearchMapController@getNursingSearch');
-    Route::get('getmap/','SearchMapController@getMap');
+    Route::get('getmap/{searchword}','SearchMapController@getMap');
     Route::get('getjobsearch','SearchMapController@getJobSearch');
-    Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
-
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
@@ -296,6 +294,8 @@ Route::get('get_cat_random', 'HomeController@getCategoryRandom');
 
 
 
+
+
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 Route::get('relatednews/{id}', 'PostController@show_related');
@@ -333,6 +333,7 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
     Route::post('search','CommentController@search');
+    //Route::get('getcommentlist/{cusid}','CommentController@getCommentList');
     Route::get('comment_list','CommentController@list');
 });
 
