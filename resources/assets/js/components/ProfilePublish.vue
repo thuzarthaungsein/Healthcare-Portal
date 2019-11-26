@@ -149,7 +149,7 @@
                     <!--end for slide image-->
                     <!--for address-->
                      <div class="col-sm-7 detail_profile_right">
-                        <div class="row col-12 pro-heading">
+                        <div class="row m-lr-0 pro-heading">
                              <div class="col-12 pad-free">
                                 <h5 class="profile_header">介護情報</h5>
                              </div>
@@ -587,7 +587,7 @@
 
                     <div class="col-md-12">
                         <h5 class="profile_subtit">フォトアルバム</h5>
-                        <div class="row gallery-list">
+                        <div class="row gallery-list m-0">
                             <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
                                     <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                                     <span>{{image.title}}</span><br>
