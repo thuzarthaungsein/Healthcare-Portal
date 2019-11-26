@@ -68,8 +68,6 @@
 
                                                 {{ cat.name }}</a>
 
-
-
                                                 <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
 
                                                 {{ cat.name }}</a>
@@ -405,9 +403,6 @@
         </div>
 
         <!-- </div> -->
-   
-
-
         <div>
             <span v-if="post_groups.length == 0">
                 <div class="container-fuid no_search_data">
@@ -1049,51 +1044,33 @@
 
             is_cat_slided: false,
 
-            computed_width: '100%'
+            computed_width: '100%',
 
         }
 
     },
 
     created() {
-
-
-
+        console.log($(window).width());
         var today = new Date();
-
         var month =(String) (today.getMonth()+1);
-
         var date = (String) (today.getDate());
 
-
-
         if(month.length == 1)
-
         {
-
-                month = '0' + today.getMonth();
-
+            month = '0' + today.getMonth();
         }
-
-
 
         if(date.length == 1 )
-
         {
-
-                date = '0' + today.getDate();
+            date = '0' + today.getDate();
 
         }
-
         var todaydate = today.getFullYear()+'-'+ month +'-'+ date;
-
-
 
         if(localStorage.getItem('date') == null)
 
         {
-
-
 
               localStorage.setItem('date',todaydate);
 
@@ -1373,17 +1350,10 @@
 
                     this.search_word = $('#search-word').val();
                     //console.log("word",this.search_word);
-                    this.getLatestPostsByCatID();
-                   
+                    this.getLatestPostsByCatID();                 
 
                 }
-
-
-
             },
-
-
-
             clearSearch() {
 
                 this.status = 0;
@@ -1393,8 +1363,6 @@
                 this.getLatestPostsByCatID();
 
             },
-
-
 
             imgUrlAlt(event) {
 
