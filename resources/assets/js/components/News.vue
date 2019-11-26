@@ -300,7 +300,7 @@
 
                     </div>
 
-                    <div class="col-md-12 m-lr-0 p-r-0" v-if="status == '0'">
+                    <div class="col-md-12 m-lr-0 p-0" v-if="status == '0'">
 
                         <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
 
@@ -405,6 +405,7 @@
         </div>
 
         <!-- </div> -->
+   
 
 
         <div>
