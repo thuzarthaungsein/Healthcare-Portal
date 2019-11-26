@@ -452,11 +452,11 @@
                                         <div class="col-4" style="padding-top:3px;">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
-                                        <div class="col-8">
-                                            <ul class="list-group list-group-flush nur-caro-card">
-                                                <li class="list-group-item" style="padding-top:0px!important;"><p class="text-truncate"><span style="color:#d2571c" class="m-r-15">住所</span> {{items.township_name}}{{items.address}}</p></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-15">電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="list-group-item"><span style="color:#d2571c" class="m-r-10">公式サイト</span><a :href="'http://'+ items.website" target="_blank">{{items.website}}</a></li>                                               
+                                        <div class="col-8 m-b-15">
+                                            <ul class="nursingSearch-list m-l-10">
+                                                <li class="d-flex"><p class="text-truncate"><span>住所</span><span> {{items.township_name}}{{items.address}}</span></p></li>
+                                                <li class="d-flex"><span>電話 </span><span>{{items.phone}}</span></li>
+                                                <li class="d-flex"><span>サイト</span><a :href="'http://'+ items.website" target="_blank"  class="text-truncate">{{items.website}}</a></li>                                               
                                             </ul>                                         
                                         </div>
                                     </div>
@@ -506,6 +506,7 @@
       </div>
       </div>
       <!--list-->
+          
        <table class="table table-bordered col-12 box-wrap select">
               <tbody>
                 <tr>
@@ -1397,76 +1398,8 @@ search(){
                 }
             }
         },
-        // hover animate function
-        getCheck(e) {
-            if (this.townshipID.length > 0) {
-            this.axios.post('/api/getmaptownship/' + this.townshipID + '')
-                .then((response) => {
-                this.markers = response.data;
 
-                var mmarker = new Array();
-                var multibusiness = new Array();
-                for (var i = 0; i < this.markers.length; i++) {
-                    mmarker.push([this.markers[i]['business_entity'], this.markers[i]['lat'], this.markers[i]['lng']])
-                    multibusiness.push(this.markers[i]['business_entity'])
-                }
-                var icon = {
-                    url: "/google-map/marker-1.png", // url
-                    scaledSize: new google.maps.Size(30, 35), // scaled size
-                };
-                var mapProp = {
-                    // center: new google.maps.LatLng(lat, lng),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                };
-                var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                var bounds = new google.maps.LatLngBounds();
-                var markers = mmarker;
-                var infoWindowContent = new Array();
-                for (var i = 0; i < multibusiness.length; i++) {
-                    infoWindowContent.push(['<div class="info_content">' + multibusiness[i] + '</div>'])
-                }
-                var infoWindow = new google.maps.InfoWindow(),
-                    marker, i;
-                for (i = 0; i < this.markers.length; i++) {
-                    var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                    bounds.extend(position);
-                    marker = new google.maps.Marker({
-                    position: position,
-                    map: map,
-                    icon: icon,
-                    zoom: 6,
-                    title: markers[i][0]
-                    });
-                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infoWindow.setContent(infoWindowContent[i][0]);
-                        infoWindow.open(map, marker);
-                    }
-                    })(marker, i));
-                    google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-                    return function() {
-                        marker.setAnimation(google.maps.Animation.BOUNCE);
-                        setTimeout(function() {
-                        marker.setAnimation(null);
-                        }, 750);
-                    }
-                    })(marker, i));
-                    map.fitBounds(bounds);
-                    map.setZoom(11);
-                    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-                    google.maps.event.removeListener(boundsListener);
-                    });
-                }
-
-
-                });
-            } else {
-            this.markers = '';
-            }
-
-
-
-        },
+       
         features(e) {
             if (e.target.checked) {
         

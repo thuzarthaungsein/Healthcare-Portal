@@ -15,8 +15,8 @@
             <!--search input-->
               <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
-                    <button type="submit" class="searchButton">    
+                    <input type="text" id="search-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <button type="submit" class="searchButton" @click="searchfreeword">    
                       <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
@@ -330,6 +330,7 @@
                 <th>地域</th>
                 <td>
                   <select id="selectCity" class="col-9 form-control custom-select mt-2 mb-2" v-model="id" @change="ChangeTownship">
+                     <option value="-1">▼市区町村</option>
                     <option v-for="city in cities" :value="city.id" :key="city.id">{{city.city_name}}</option>
                   </select>
                   <button @click="toggleContent" class="btn col-3 seemore-btn">
@@ -447,7 +448,7 @@
           </table>
           <div class="col-12">
             <div class="row">
-            
+           
               <div id="job_detail" class="col-md-12 col-sm-12 offset" style="margin-top:20px;" v-for="hos in displayItems" :key="hos.id">
                 <div class="hos-content">
                   <div class="job-header">
@@ -637,7 +638,7 @@
             this.subjectID[0] = 0;
           }
 
-          this.axios.get('api/gethospitalsearch',{
+          this.axios.get('api/gethospitalsearch/null',{
             params:{
                 id: this.id,
                 townshipID:this.townshipID,
@@ -656,6 +657,47 @@
                 this.show_paginate = false;
             }
           })
+        },
+        searchfreeword(){
+
+
+            //clear all checkbox
+            this.id = -1;
+            this.townshipID = [];
+            this.specialfeatureID = [];
+            this.subjectID = [];
+
+              
+
+              if ($('#search-word').val() != '') 
+              {
+               
+                var search_word = $('#search-word').val();
+          
+
+                this.axios.get('api/gethospitalsearch/'+ search_word,{
+                    params:{
+                        id: -1,
+                        townshipID:-1,
+                        specialfeatureID:-1,
+                        subjectID:-1 
+                    },
+                  }).then((response)=>{
+                 
+                    this.hos_data = response.data.hospital;
+                    this.timetable = response.data.timetable;
+                    this.specialfeatures = response.data.specialfeature;
+                    this.getTownships = [];
+                    this.subject = response.data.subject;
+                    if(this.hos_data.length > this.size) {
+                        this.show_paginate = true;
+                    }else{
+                        this.show_paginate = false;
+                    }
+                  });
+              
+              } 
+            
         },
 
         groupBy(array, key){
@@ -698,7 +740,7 @@
         }
       },
       ChangeTownship(){
-         this.axios.get('api/getmap',{
+         this.axios.get('api/getmap/null',{
               params:{
               id: this.id,
               township_id:-1,
@@ -707,6 +749,8 @@
           },
           })
             .then((response) => {
+              console.log('a');
+              console.log(response);
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -721,6 +765,12 @@
       },
 
       getStateClick(e) {
+        
+         //clear all checkbox
+         this.townshipID = [];
+         this.specialfeatureID = [];
+         this.subjectID = [];
+
         if(e.target.id != 'selectCity')
         {
             if(e.target.id == '')
@@ -735,7 +785,7 @@
   
           
          
-          this.axios.get('api/getmap',{
+          this.axios.get('api/getmap/null',{
               params:{
               id: this.id,
               township_id:-1,

@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cats = Category::all()->toArray();
+        $cats = DB::select("SELECT categories.* FROM categories INNER JOIN posts ON categories.id = posts.category_id GROUP BY categories.id");
         return response()->json($cats);
     }
 

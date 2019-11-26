@@ -35,12 +35,10 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 // public route api start
-    Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
+    Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch','SearchMapController@getNursingSearch');
     Route::get('getmap/{searchword}','SearchMapController@getMap');
     Route::get('getjobsearch','SearchMapController@getJobSearch');
-    Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
-
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
@@ -140,6 +138,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         Route::post('deletevideo', 'CustomerController@deletevideo');
         Route::get('edit/{id}', 'CustomerController@edit');
         Route::post('update/{id}','CustomerController@update');
+        Route::post('account_update','CustomerController@accountStatusUpdate');
         Route::delete('delete/{id}','CustomerController@destroy');
     });
     // End Customer
@@ -232,6 +231,7 @@ Route::get('customers','CustomerController@index');
 Route::get('custedit','CustomerController@edit');
 Route::get('confirm/{id}','CustomerController@confirm');
 Route::get('facilities', 'FacilityController@index');
+Route::get('facility_types', 'FacTypesController@index');
 // Route::get('job_details', 'JobDetailController@index');
 Route::get('featurelist', 'SpecialFeatureController@index');
 

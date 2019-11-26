@@ -51,7 +51,7 @@ class JobDetailController extends Controller
         (CASE customers.type_id WHEN '2' THEN CONCAT((500000+jobs.id),'-',LPAD(jobs.id, 4, '0')) ELSE CONCAT((200000+jobs.id),'-',LPAD(jobs.id, 4, '0')) END) as jobid
         FROM `jobs`
         JOIN customers ON jobs.customer_id = customers.id
-        WHERE jobs.id = $id";
+        WHERE customers.recordstatus=1 and jobs.id = $id";
         $selectedJob = DB::select($query);
         
         return $selectedJob;

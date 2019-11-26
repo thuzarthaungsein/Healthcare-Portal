@@ -659,7 +659,7 @@ export default {
        
       
 
-          this.axios.get('api/getmap',{
+          this.axios.get('api/getmap/null',{
             params:{
               id: this.id,
               township_id:-1,
