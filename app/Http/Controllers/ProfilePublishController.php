@@ -20,7 +20,7 @@ use App\Subject;
 use App\Gallery;
 use App\SpecialFeaturesJunctions;
 use App\SubjectJunctions;
-
+use App\FacType;
 
 class ProfilePublishController extends Controller
 {
@@ -72,7 +72,10 @@ class ProfilePublishController extends Controller
         $feature = NursingProfile::select('feature')->where('customer_id',$cusid)->get();
 
         $method = NursingProfile::select('method')->where('customer_id',$cusid)->get();
-        $facility = NursingProfile::where('customer_id',$cusid)->get();
+        $facility = NursingProfile::where('customer_id',$cusid)->get(); 
+        $tmp = FacType::where('id', $facility[0]['fac_type'])->first();
+        $facility[0]['fac_type'] = $tmp['description'];
+       
         $comedical = Cooperate_Medical::where('customer_id',$cusid)->get();
 
         $sql = "SELECT method_payment.* from method_payment INNER JOIN customers ON method_payment.customer_id= customers.id WHERE method_payment.customer_id=$cusid";

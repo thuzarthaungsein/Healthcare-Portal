@@ -48,7 +48,7 @@
                             <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
                             
                                     <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
-                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <i class="fas fa-plus-circle"></i> 追加</span>
                                     <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
                                         <i id="gallery" class="fas fa-sort-down"></i>
                                    </span>
@@ -149,7 +149,7 @@
                                 <div class="col-10 float-right pad-free">
                                     <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
                                     <div class="col-2 float-right">
-                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 追加</span>
                                     </div>
                                     <div class="col-md-12 pad-free m-t-50" id="gallery-payment">
                                         <!-- test -->
@@ -347,7 +347,7 @@
                                             <tr>
                                                     <td class="width15 title-bg">構造</td>
                                                     <td ><textarea class="form-control white-bg-color construction" :options="editorOption" v-model="nursing_info.construction"></textarea></td>
-                                                        <!-- <td > <quill-editor  class="construction" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.construction"/></td> -->
+                                                    <!-- <td > <quill-editor  class="construction" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.construction"/></td> -->
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">定員</td>
@@ -366,7 +366,13 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">類型</td>
-                                                    <td ><textarea class="form-control white-bg-color fac-type" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td>
+                                                    <td>
+                                                        <select class="form-control white-bg-color fac-type">
+                                                            <option>施設タイプを選択</option>
+                                                            <option v-for="fac in fac_types" :key="fac.id" v-bind:value="fac.id" :selected="fac.id == nursing_info.fac_type">{{ fac.description }}</option>
+                                                        </select>
+                                                    </td>
+                                                    <!-- <td ><textarea class="form-control white-bg-color fac-type" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td> -->
                                                         <!-- <td > <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td> -->
                                             </tr>
                                             <tr>
@@ -405,7 +411,7 @@
                                 <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
                                 <div class="col-10 pad-free float-right ">
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
-                                            <i class="fas fa-plus-circle"></i> 加算</span>
+                                            <i class="fas fa-plus-circle"></i> 追加</span>
 
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
@@ -661,7 +667,7 @@ export default {
                 payment_arr:[],payment_list:[],
                 profile_type:'nursing',
                 profile_arr:[], test:'',
-                station_list:[],chek_feature : [], panorama_count:'0',
+                station_list:[],chek_feature : [], panorama_count:'0', fac_types:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -747,6 +753,12 @@ export default {
             .get('/api/facilities')
             .then(response=>{
                 this.fac_list = response.data;
+            });
+
+            this.axios
+            .get('/api/facility_types')
+            .then(response=>{
+                this.fac_types = response.data;
             });
 
             this.axios
