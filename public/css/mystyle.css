@@ -1268,6 +1268,24 @@ p.p_2>a {
 #nursingView .profile_subtit:after {
     background: #ff9563;
 }
+.comment-underline {
+    position: relative;   
+}
+
+.comment-underline:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    display: inline-block;
+    width: 30px;
+    height: 5px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.commentWrap .comment-underline::after{
+    background: #ff9563;
+}
 
 .fav-profile {
     position: absolute;
@@ -2087,6 +2105,7 @@ div.b {
     top: 10px;
     width: 50%;
     margin: 0 auto 20px;
+    border-right:1px solid rgba(0, 0, 0, 0.125);
 }
 
 .ads-slider .slick-slide {
@@ -2109,7 +2128,8 @@ div.b {
 }
 
 .ads-slider h3 {
-    width: 100px;
+    /* width: 100px; */
+    width: auto;
     height: 50px;
 }
 
@@ -3404,20 +3424,20 @@ ul.main-tab li:after {
     width: 100%;
     position: relative;
     display: flex;
-}
+  }
 
-.searchTerm {
-    width: 100%;
-    border: 3px solid #f7834b;
-    border-right: none;
-    padding: 5px;
-    height: 46px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #495057;
-}
+  .searchTerm {
+      width: 70%;
+      border: 3px solid #f7834b;
+      border-right: none;
+      padding: 5px;
+      height: 46px;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color: #495057;
+  }
 
-.searchTerm:focus {
+  .searchTerm:focus{
     color: #000;
 }
 
@@ -4475,7 +4495,7 @@ margin-right: 2% !important;
 }
 
 .p-b-0 {
-    padding-bottom: 0px;
+    padding-bottom: 0px !important;
 }
 
 .p-b-5 {
