@@ -1578,7 +1578,9 @@ p {
 /* Create News */
 
 .error {
-    color: #ff0000;
+    color: #ff0000;   
+    margin-bottom: 18px;
+    
 }
 
 .show-news-img {
@@ -3820,9 +3822,6 @@ screen and (min-width: 750px) {
 
 /* Create News */
 
-.error {
-    color: #ff0000;
-}
 
 .show-news-img {
     height: 100px;
@@ -4340,7 +4339,9 @@ div.b {
 .pad-10 {
     padding: 10px !important;
 }
-
+.p-l-162{
+    padding-left:162px;
+}
 .m-0 {
     margin: 0px;
 }

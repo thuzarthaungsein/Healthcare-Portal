@@ -161,8 +161,10 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn"/>
+                <input type="text" class="form-control float-left" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn" v-on:keydown="isNumberOnly" maxlength="14"/>
                 <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
+                <span class="error m-l-30" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
+                <span class="float-left eg-txt">例）0312345678（半角）</span>
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -442,7 +444,8 @@ export default {
     focus_pref: false,
     focus_city: false,
     focus_mail: false,
-    btn_disable: false
+    btn_disable: false,
+    ph_length: false
 
     };
   },
@@ -595,15 +598,27 @@ export default {
         }else{
             this.focus_mail=true;
         }
+        if(this.jobApply.phone.length < 10) {
+            this.ph_length = true;
+        }else{
+            this.ph_length = false;
+        }
     },
     aggreBtn: function(){
         console.log('job',this.jobApply)
-        if(this.jobApply.first_name != '' && this.jobApply.last_name != '' && this.jobApply.selectedValue != 0 && this.jobApply.str_address != '' && this.jobApply.email != '' && this.jobApply.terms == true || this.jobApply.phone){
+        if(this.jobApply.first_name != '' && this.jobApply.last_name != '' && this.jobApply.selectedValue != 0 && this.jobApply.str_address != '' && this.jobApply.terms == true && (this.jobApply.email != '' || this.jobApply.phone)){
             this.btn_disable=false;
         }else{
             this.btn_disable=true;
         }
     },
+    isNumberOnly: function(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            }
   }
 };
 </script>
