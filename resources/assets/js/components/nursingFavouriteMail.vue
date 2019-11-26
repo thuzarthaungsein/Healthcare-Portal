@@ -46,6 +46,7 @@
                                 <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="aggreBtn" @focusout="focusFuri"/>
                                 <span class="error m-l-30" v-if="furigana_focus">※入力は必須です。</span>
                                 <span class="float-left eg-txt"> 例）さがし たろう</span>
+                                <div class="text-danger mt-2 ml-4 char-err"></div>
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
@@ -144,7 +145,7 @@
 
                         <div class="btn-list mt-2  clearfix">
                             <ul>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページに進む</button></li>
+                                <li> <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()">確認ページに進む</button></li>
                                 <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li>                                
                             </ul>
                         </div>
@@ -327,7 +328,7 @@
                         </div>
                         <div class="btn-list  clearfix">
                             <ul>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページに進む</button></li>
+                                <li> <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" >確認ページに進む</button></li>
                                 <li class="m-r-15">
                                 <!-- <router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link> -->
                                 <a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a>
@@ -444,6 +445,23 @@ import DatePicker from 'vue2-datepicker';
                 }
             },
             add() {
+                $('.char-err').text('');
+                var input_val = $('#furigana').val();
+                var code = 0;
+                var flag = 0;
+                var each_val = input_val.split('');
+                $.each(each_val, function (key, value) {
+                    code = value.charCodeAt();
+                    if ((12448<= code && code <= 12543) || (19968<= code && code <= 19893)) {
+                        
+                    } else {
+                    flag = 1;
+                    }
+                });
+                if(flag == 1) {
+                    $('.char-err').text('カタカナのみを書いてください!');return;
+                }
+
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
                 // this.reservation = JSON.parse(localStorage.getItem("reserve"));
                 this.documentation = JSON.parse(localStorage.getItem("document"));

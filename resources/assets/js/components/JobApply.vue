@@ -57,7 +57,8 @@
                 <input type="text" class="form-control float-left" id="last_name" placeholder="ふりがなを入力してください。" v-model="jobApply.last_name" @focusout="focusLname" @change="aggreBtn"/>
                 <span class="float-left eg-txt"> 例）さがし たろう</span>
                 <span class="error m-l-30" v-if="focus_lname">※入力は必須です。</span>
-                <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div>
+                <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div> 
+                <div class="text-danger mt-2 ml-4 char-err"></div>
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -161,7 +162,7 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn"/>
+                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail"  @change="aggreBtn"/>
                 <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
             </div>
         </div>
@@ -175,7 +176,7 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control float-left" id="email" placeholder="メールアドレスを入力してください。" v-model="jobApply.email" @focusout="focusMail" @change="aggreBtn"/>
+                <input type="text" class="form-control float-left" id="email" placeholder="メールアドレスを入力してください。" v-model="jobApply.email" @focusout="focusMail"  @change="aggreBtn"/>
                 <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>
                 <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
             </div>
@@ -520,6 +521,22 @@ export default {
       this.jobApply.skills.push(job);
     },
     checkValidate() {
+      $('.char-err').text('');
+      var input_val = $('#last_name').val();
+      var code = 0;
+      var flag = 0;
+      var each_val = input_val.split('');
+      $.each(each_val, function (key, value) {
+        code = value.charCodeAt();
+        if ((12448<= code && code <= 12543) || (19968<= code && code <= 19893)) {
+            
+        } else {
+           flag = 1;
+        }
+      });
+      if(flag == 1) {
+          $('.char-err').text('カタカナのみを書いてください!');return;
+      }
     //   if (this.jobApply.first_name) {
     //     this.errors.first_name = "";
     //   } else {
@@ -604,6 +621,7 @@ export default {
             this.btn_disable=true;
         }
     },
+   
   }
 };
 </script>
