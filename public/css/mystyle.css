@@ -3463,6 +3463,13 @@ ul.main-tab li:after {
     color: #ff6117 !important;
 }
 
+.spanclass:hover {
+    background-color: #CCFF60 !important;
+    background-image: none;
+    border: 1px solid #8E3C15;
+    color: #FF6117;
+}
+
 .spanclass>a.card-text {
     color: #461e0a;
 }

@@ -78,7 +78,7 @@
 
                                         </ul>
 
-                                    </div>                             
+                                    </div>
                                     <span id="right-button"  class="right-arr-btn arr-btn" @click="swipeRight" v-if="is_cat_overflow" ><i class="fas fa-angle-right"></i></span>
                                 </div>
 
@@ -300,7 +300,7 @@
 
                     </div>
 
-                    <div class="col-md-12 m-lr-0 p-r-0" v-if="status == '0'">
+                    <div class="col-md-12 m-lr-0 p-0" v-if="status == '0'">
 
                         <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
 
@@ -407,10 +407,14 @@
         <!-- </div> -->
 
 
-
         <div>
-
-            <div class="col-md-12 category_box" :class="'bordertop-color'+(5-(Math.floor(index%5)))" v-for="(group,name,index) in post_groups" :key="index">
+            <span v-if="post_groups.length == 0">
+                <div class="container-fuid no_search_data">
+                    検索したデータ見つかりません。
+                </div>
+            </span>
+            <span v-else>
+             <div class="col-md-12 category_box" :class="'bordertop-color'+(5-(Math.floor(index%5)))" v-for="(group,name,index) in post_groups" :key="index">
 
                 <h4 class="category_news_title" :class="'h-color'+(5-(Math.floor(index%5)))"><span>{{name}}</span> <label style="float: right; color: #999; font-size: 14px;">新着ニュース一覧</label></h4>
 
@@ -909,8 +913,10 @@
                 <!-- Old design end -->
 
             </div>
+            </span>
 
         </div>
+
 
         <!-- </div>
 
@@ -1159,10 +1165,14 @@
                         if(total_word > 32) {
 
                             this.is_cat_overflow = true;
+                           
 
                             this.computed_width = '99%';
 
                         }
+                        // else{
+                        //       this.is_cat_overflow = false;
+                        // }
 
                     });
 
@@ -1195,6 +1205,7 @@
                 if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
 
                     var searchword = 'all_news_search';
+                   
 
                 } else {
 
@@ -1209,14 +1220,11 @@
                 .get('/api/get_latest_posts_by_catId/'+searchword)
 
                 .then(response => {
-
-                    // console.log(response);
-
-                    this.post_groups = this.groupBy(response.data, 'name');
-                   
-
-
-
+                    if(response.data.length>0) {
+                        this.post_groups = this.groupBy(response.data, 'name');
+                    } else {
+                        this.post_groups = [];
+                    }
                 });
 
             },
@@ -1290,7 +1298,6 @@
                 if ($('#search-word').val()) {
 
                     var search_word = $('#search-word').val();
-
                 } else {
 
                     var search_word = null;
@@ -1354,7 +1361,7 @@
                 if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
 
 
-
+            console.log("statusBar",this.search_word);
                     this.clearSearch();
 
                      console.log('null');
@@ -1364,8 +1371,9 @@
                     this.status = 1;
 
                     this.search_word = $('#search-word').val();
-
+                    //console.log("word",this.search_word);
                     this.getLatestPostsByCatID();
+                   
 
                 }
 
@@ -1401,7 +1409,7 @@
 
                 // Condition to check if scrolling is required
 
-                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0))) 
+                if ( !( (scrollPos === 0 || scrollPixels > 0) && (element.clientWidth + scrollPos === element.scrollWidth || scrollPixels < 0)))
 
                 {
 
@@ -1415,7 +1423,7 @@
 
                         : new Date().getTime();
 
-                    
+
 
                     function scroll(timestamp) {
 
@@ -1423,7 +1431,7 @@
 
                     const timeElapsed = timestamp - startTime;
 
-                    //Calculate progress 
+                    //Calculate progress
 
                     const progress = Math.min(timeElapsed / duration, 1);
 
@@ -1459,7 +1467,7 @@
 
                 const content = this.$refs.content;
 
-                this.scrollTo(content, -300, 800); 
+                this.scrollTo(content, -300, 800);
 
             },
 
@@ -1470,10 +1478,13 @@
                 this.scrollTo(content, 300, 800);
 
                 this.is_cat_slided = true;
+                console.log('right');
+              
 
                 this.computed_width = '96%';
 
             },
+            
 
         }
 
@@ -1563,7 +1574,7 @@
 
 .left{
 
- float: left; 
+ float: left;
 
  width: 30%;
 
@@ -1611,7 +1622,7 @@ display: inline-block;
 
 .right{
 
- float: right; 
+ float: right;
 
  width: 30%;
  /* border: 1px solid black; */
@@ -1628,7 +1639,12 @@ display: inline-block;
 }
 
 
-
+.card-header-tabs {
+    margin-right: -0.625rem;
+    margin-bottom: 0rem;
+    margin-left: -0.625rem;
+    border-bottom: 0;
+}
 .arr-btn {
 
     cursor: pointer;
@@ -1636,6 +1652,7 @@ display: inline-block;
     display: inline-block;
     background:transparent;
     padding: 5px 1px 4px;
+    font-size: 25px;
 
     /* padding-top: 5px;
 
@@ -1647,7 +1664,7 @@ display: inline-block;
 
     position: relative;
 
-    top: -3px;
+    top: -10px;
 
     left: -8px;
 
@@ -1657,7 +1674,7 @@ display: inline-block;
 
     position: relative;
 
-    top: -3px;
+    top: -10px;
 
     right: -26px;
 
