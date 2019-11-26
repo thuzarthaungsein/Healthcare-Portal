@@ -1481,14 +1481,12 @@ export default {
         },
 
         created(){
-<<<<<<< HEAD
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
-            
             if(this.window.width > 319 && this.window.width < 370) {
                 this.windowSize = 1;
                 this.paginationFactor =103;
-            } 
+            }
             else if(this.window.width > 374 && this.window.width < 450) {
                 this.windowSize = 2;
                 this.paginationFactor = 103;
@@ -1510,15 +1508,8 @@ export default {
             else if (this.window.width > 1499 && this.window.width < 1700) {
                 this.windowSize = 9;
                 this.paginationFactor = 103;
-                
             }
-            // else if( this.window.width > 1700) {
-
-            // }
-
-=======
            
->>>>>>> 6b2716ed8c79c79caaaf3e533e325aea4da4b5ba
             this.customer_id = this.cusid;
             this.activePanoImage = 0;
 
@@ -2553,4 +2544,11 @@ export default {
     }
 }
 
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 767px) {
+}
 </style>

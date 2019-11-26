@@ -368,8 +368,7 @@ body {
 
 .category_news_title {
     /* text-align: center; */
-    padding: 0px 15px 15px 0px;   
-    
+    padding: 0px 15px 15px 0px;
 }
 
 .category_news_title span {
@@ -3357,7 +3356,7 @@ ul.main-tab li:after {
     max-width: 1600px !important;
     padding: 20px;
     background: #f7f0ed;
-    overflow:auto;
+    overflow: auto;
     scrollbar-width: thin;
 }
 
@@ -3368,12 +3367,6 @@ ul.main-tab li:after {
     width: 850px;
     /* min-width: 936px; */
     /* height: 532px; */
-}
-
-@media only screen and (max-width: 1300px) {
-    .divisions {
-        /* width: 100%; */
-    }
 }
 
 
