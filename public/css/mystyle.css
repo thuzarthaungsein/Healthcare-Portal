@@ -1577,7 +1577,9 @@ p {
 /* Create News */
 
 .error {
-    color: #ff0000;
+    color: #ff0000;   
+    margin-bottom: 18px;
+    
 }
 
 .show-news-img {
@@ -2472,18 +2474,6 @@ ul.sub-ul li {
 .m-l-14 {
     margin-left: 14px;
 }
-
-
-/* .m-r-2per{
-
-
-
-    margin-right: 2% !important;
-
-
-
-} */
-
 .p-t-0 {
     padding-top: 0px;
 }
@@ -2507,7 +2497,9 @@ ul.sub-ul li {
 .p-b-5 {
     padding-bottom: 5px;
 }
-
+.p-l-30{
+    padding-left: 30px !important;
+}
 .p-5 {
     padding: 5px;
 }
@@ -3822,9 +3814,6 @@ screen and (min-width: 750px) {
 
 /* Create News */
 
-.error {
-    color: #ff0000;
-}
 
 .show-news-img {
     height: 100px;
@@ -4342,7 +4331,9 @@ div.b {
 .pad-10 {
     padding: 10px !important;
 }
-
+.p-l-162{
+    padding-left:162px;
+}
 .m-0 {
     margin: 0px;
 }
@@ -8664,6 +8655,23 @@ ul.nur-caro-card>li.list-group-item {
     }
 }
 /*--------------------------------------------------responsive ---------------------------------------------------------------*/
+@media only screen and (max-width:768px){
+    #fav-history-page .card-carousel-cards .card-carousel--card--footer {
+        padding: 0px;
+    }
+    #hospital .nav-content, #nursing .nav-content {
+        border: none;
+        background: transparent !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        width: 25px !important;
+    }
+    #fav-history-page .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff !important;
+        width: 25px !important;
+    }
+}
 @media only screen and (max-width: 375px) and (min-width: 320px) {
     #fav-history-page .card-carousel {        
         width: 1336px;        
@@ -8673,7 +8681,7 @@ ul.nur-caro-card>li.list-group-item {
   
   @media only screen and (max-width: 450px) and (min-width: 376px) {
     #fav-history-page .card-carousel {
-          width: 207px !important;
+          width: 264px !important;
       }
   }
   
@@ -8687,21 +8695,7 @@ ul.nur-caro-card>li.list-group-item {
     #fav-history-page .card-carousel {       
           width: 515px !important;
       }
-    #fav-history-page .card-carousel-cards .card-carousel--card--footer {
-        padding: 0px;
-    }
-    #hospital .nav-content {
-        border: none;
-        background: transparent !important;
-        margin-right: 0px !important;
-        margin-left: 0px !important;
-        width: 25px !important;
-    }
-    #fav-history-page .nav-box[disabled] .nav-content {
-        border: none;
-        background: #fff !important;
-        width: 25px !important;
-    }
+    
   }
   @media only screen and (max-width: 992px) and (min-width: 768px) {
     #fav-history-page .cardcarousel {

@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch','SearchMapController@getNursingSearch');
     Route::get('getmap/{searchword}','SearchMapController@getMap');
-    Route::get('getjobsearch','SearchMapController@getJobSearch');
+    Route::get('getjobsearch/{searchword}','SearchMapController@getJobSearch');
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
@@ -111,6 +111,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Job
     Route::group(['prefix' => 'job'], function () {
+        Route::get('confirm/{number}','JobController@confirm');
         Route::post('add', 'JobController@store');
         Route::get('index', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');

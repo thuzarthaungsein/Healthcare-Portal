@@ -669,37 +669,28 @@
 
               
 
-              if ($('#search-word').val() != '') 
-              {
-               
-                var search_word = $('#search-word').val();
-          
+            if ($('#search-word').val() != '') 
+            {
+              
+              var search_word = $('#search-word').val();
+        
 
-                this.axios.get('api/gethospitalsearch/'+ search_word,{
-                    params:{
-                        id: -1,
-                        townshipID:-1,
-                        specialfeatureID:-1,
-                        subjectID:-1 
-                    },
-                  }).then((response)=>{
-                 
-                    this.hos_data = response.data.hospital;
-                    this.timetable = response.data.timetable;
-                    this.specialfeatures = response.data.specialfeature;
-                    this.getTownships = [];
-                    this.subject = response.data.subject;
-                    if(this.hos_data.length > this.size) {
-                        this.show_paginate = true;
-                    }else{
-                        this.show_paginate = false;
-                    }
-                  });
-              
-              } 
-              
-            
-        },
+              this.axios.get('api/gethospitalsearch/'+ search_word)
+                        .then((response)=>{
+                            this.hos_data = response.data.hospital;
+                            this.timetable = response.data.timetable;
+                            this.specialfeatures = response.data.specialfeature;
+                            this.getTownships = [];
+                            this.subject = response.data.subject;
+                            if(this.hos_data.length > this.size) {
+                                this.show_paginate = true;
+                            }else{
+                                this.show_paginate = false;
+                            }
+                        });
+                  } 
+          
+            },
 
         groupBy(array, key){
 
@@ -750,8 +741,7 @@
           },
           })
             .then((response) => {
-              console.log('a');
-              console.log(response);
+            
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -767,22 +757,22 @@
 
       getStateClick(e) {
         
-         //clear all checkbox
-         this.townshipID = [];
-         this.specialfeatureID = [];
-         this.subjectID = [];
+          //clear all checkbox
+          this.townshipID = [];
+          this.specialfeatureID = [];
+          this.subjectID = [];
 
-        if(e.target.id != 'selectCity')
-        {
-            if(e.target.id == '')
+          if(e.target.id != 'selectCity')
           {
-             var id = $('#selectCity').val();
-             this.id = id;
-          }else{
-             var id = e.target.id;
-             this.id = id;
-          }
-        }         
+            if(e.target.id == '')
+            {
+              var id = $('#selectCity').val();
+              this.id = id;
+            }else{
+              var id = e.target.id;
+              this.id = id;
+            }
+          }         
          
           this.axios.get('api/getmap/null',{
               params:{
