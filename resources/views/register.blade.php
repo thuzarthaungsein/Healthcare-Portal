@@ -76,7 +76,7 @@
                                     <br>
                                     
                                 </div>
-                                <div class="error" id="passworderror" style="padding-left: 162px;margin-bottom: 18px;display: none;">Password not match.</div>
+                                <div class="error p-l-162" id="passworderror" style="display:none;">※パスワードが一致しません。</div>
                                 <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">事業者タイプ</label>
                                     <div class="input-group-append">
@@ -127,9 +127,9 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" name="phone" value="" required placeholder="電話番号を入力してください。">
- 
+                                    <input class="form-control" id="phone" name="phone" value="" required placeholder="電話番号を入力してください。" onfocusout="numberLenght()" onkeydown="isNumberOnly(event)" maxlength="14">
                                 </div>
+                                <div id="jsErrorMessage" class="error p-l-162"></div>
                                 <!-- <div class="input-group mb-3">
                                     <label class="col-4 col-lg-3 control-label">アドレス</label>
                                     <div class="input-group-append">
@@ -267,6 +267,25 @@
                 else {
                     $('#passworderror').css("display","none");
                     window.pwd_same = true;
+                }
+            }
+
+            function isNumberOnly(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            }
+
+            function numberLenght(){
+                var number = $('#phone').val();
+                if(number == ''){
+                    $('#jsErrorMessage').html('<div class="error"></div>');
+                }else if(number.length < 10){
+                    $('#jsErrorMessage').html('<div class="error">※電話番号が正しくありません。もう一度入力してください。</div>');
+                }else{
+                    $('#jsErrorMessage').html('<div class="error"></div>');
                 }
             }
         </script>

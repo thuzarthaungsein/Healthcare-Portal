@@ -46,6 +46,7 @@
                                 <input type="text" id="furigana" name="furigana" class="form-control float-left" placeholder="ふりがなを入力してください。" v-model="comments.furigana" @change="aggreBtn" @focusout="focusFuri"/>
                                 <span class="error m-l-30" v-if="furigana_focus">※入力は必須です。</span>
                                 <span class="float-left eg-txt"> 例）さがし たろう</span>
+                                <div class="text-danger mt-2 ml-4 char-err"></div>
                             </div>
                         </div>
                         <div class="form-group m-0 row bd">
@@ -112,9 +113,10 @@
                             <div class="col-md-3 col-sm-12 form-left"><label>電話番号</label><span class="error sp1">必須</span></div>
                             <div class="col-md-9 col-sm-12 form-right">
                             <div class="form-group row pl-3">
-                                    <div class="col-md-6 p-0">
-                                        <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusMail">
+                                    <div class="col-md-12 p-0">
+                                        <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusMail" v-on:keydown="isNumberOnly" maxlength="14">
                                         <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>
+                                        <span class="error m-l-30" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
                                         <span class="float-left eg-txt">例）0312345678（半角）</span>
                                     </div>
                                 </div>
@@ -144,7 +146,7 @@
 
                         <div class="btn-list mt-2  clearfix">
                             <ul>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページに進む</button></li>
+                                <li> <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()">確認ページに進む</button></li>
                                 <li class="m-r-15"><a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a></li>                                
                             </ul>
                         </div>
@@ -327,7 +329,7 @@
                         </div>
                         <div class="btn-list  clearfix">
                             <ul>
-                                <li> <button type="button" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" :disabled="isdisable">確認ページに進む</button></li>
+                                <li> <button type="button" :disabled="isdisable" class="submit1 btn main-bg-color continue all-btn submit" @click="add()" >確認ページに進む</button></li>
                                 <li class="m-r-15">
                                 <!-- <router-link :to="{name: 'favouriteNursing'}"  class="btn btn-danger all-btn submit">戻る</router-link> -->
                                 <a @click="$router.go(-1)" class="btn btn-danger all-btn submit">戻る</a>
@@ -389,7 +391,8 @@ import DatePicker from 'vue2-datepicker';
                 postal_focus: false,
                 city_focus: false,
                 phone_focus: false,
-                mail_focus: false
+                mail_focus: false,
+                ph_length: false,
             }
         },
         computed: {
@@ -398,7 +401,6 @@ import DatePicker from 'vue2-datepicker';
             }
         },
         created() {
-            console.log('item',JSON.parse(localStorage.getItem("item")))
             this.bk_data = this.$route.params.input_data;
             this.bk_postal = this.$route.params.bk_postal;
             if (this.bk_data != undefined) {
@@ -444,10 +446,26 @@ import DatePicker from 'vue2-datepicker';
                 }
             },
             add() {
+                $('.char-err').text('');
+                var input_val = $('#furigana').val();
+                var code = 0;
+                var flag = 0;
+                var each_val = input_val.split('');
+                $.each(each_val, function (key, value) {
+                    code = value.charCodeAt();
+                    if ((12448<= code && code <= 12543) || (19968<= code && code <= 19893)) {
+                        
+                    } else {
+                    flag = 1;
+                    }
+                });
+                if(flag == 1) {
+                    $('.char-err').text('カタカナのみを書いてください!');return;
+                }
+
                 this.all_mail = JSON.parse(localStorage.getItem("item"));
                 // this.reservation = JSON.parse(localStorage.getItem("reserve"));
                 this.documentation = JSON.parse(localStorage.getItem("document"));
-                console.log('document',this.documentation)
                 for (var i = 0; i < this.all_mail.length; i++) {
                     this.comments.fav_mail.push(this.all_mail[i].email);
                     this.comments.fav_id.push(this.all_mail[i].id);
@@ -503,8 +521,21 @@ import DatePicker from 'vue2-datepicker';
                     this.mail_focus=false;
                 }else{
                     this.mail_focus=true;
+                    // this.ph_length = false;
+                }
+                if(this.comments.phone.length < 10) {
+                    this.ph_length = true;
+                }else{
+                    this.ph_length = false;
                 }
             },
+            isNumberOnly: function(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            }
         }
     }
 </script>
