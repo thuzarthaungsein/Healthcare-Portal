@@ -300,10 +300,12 @@ class SearchMapController extends Controller
 
         if($searchword != 'null')
         {
+          
             $query .= " h.access like '%" . $searchword . "%' or h.medical_department like '%".$searchword."%' group by c.id";
         }
         else
         {
+         
           //for city
           $id = $_GET['id'];
 
@@ -383,91 +385,99 @@ class SearchMapController extends Controller
     }
 
 
-    public function getJobSearch()
+    public function getJobSearch($searchword)
     {
-        
-        //for city
-        $id = $_GET['id'];
-
-        //to check if township is check or not 
-        $townshipID = $_GET['townshipID'];
-        if ($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
-        {
-            $townshipID = '0';
-        } else if ($townshipID[0] == '0' && count($townshipID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
-            unset($townshipID[0]);
-            $townshipID = implode(',', $townshipID);
-        } else {
-            $townshipID = implode(',', $townshipID); // this condition is when array[0] has no '0'
-        }
-
-
-        //to check if occupation is check or not
-        $occupationID = $_GET['occupationID'];
-
-        if ($occupationID[0] == '0' && count($occupationID) == 1) {
-            $occupationID = '0';
-        } else if ($occupationID[0] == '0' && count($occupationID) > 1) {
-            unset($occupationID[0]);
-            $occupationID = implode(',', $occupationID);
-        } else {
-            $occupationID = implode(',', $occupationID);
-        }
-
-
-
-        //to check if employment status is check or not
-        $empstatus = $_GET['empstatus'];
-
-        if ($empstatus[0] === '0' && count($empstatus) === 1) {
-            $empstatus = '0';
-        } else if ($empstatus[0] === '0' && count($empstatus) > 1) {
-
-            unset($empstatus[0]);
-            $empstatus = implode(',', $empstatus);
-        } else {
-            $empstatus = implode(',', $empstatus);
-        }
-
-
         $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,
-                 (CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum 
-                  from  jobs as j
-                  join customers as c on c.id = j.customer_id
-                  left Join nursing_profiles As n on n.customer_id = c.id 
-                  left Join hospital_profiles As h on h.customer_id = c.id 
-                  left Join townships as t on t.id = j.township_id 
-                  where ";
+                (CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum 
+                from  jobs as j
+                join customers as c on c.id = j.customer_id
+                left Join nursing_profiles As n on n.customer_id = c.id 
+                left Join hospital_profiles As h on h.customer_id = c.id 
+                left Join townships as t on t.id = j.township_id 
+                where ";
 
-        $query .= "t.city_id =".$id;
+        if($searchword != 'null')
+        {
+           
+            $query .= " j.title like '%" . $searchword . "%' or j.description like '%".$searchword."%'";
+        }
+        else
+        {
+            //for city
+            $id = $_GET['id'];
 
-        if($townshipID != '0')
-        {
-            $query .= " and t.id in (".$townshipID.")";
-        }
-        if($occupationID != '0')
-        {
-            $query .= " and j.occupation_id in (".$occupationID.")";
-        }
-        if($empstatus != '0')
-        {
-            $empstatus = explode(',', $empstatus);
-    
-            if (count($empstatus) == 4) {
-                $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
-            }
-            else if(count($empstatus) == 3)
+            //to check if township is check or not 
+            $townshipID = $_GET['townshipID'];
+            if ($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
             {
-                $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')" ;
+                $townshipID = '0';
+            } else if ($townshipID[0] == '0' && count($townshipID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+                unset($townshipID[0]);
+                $townshipID = implode(',', $townshipID);
+            } else {
+                $townshipID = implode(',', $townshipID); // this condition is when array[0] has no '0'
             }
-            else if(count($empstatus) == 2){
-                $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')" ;
+
+
+            //to check if occupation is check or not
+            $occupationID = $_GET['occupationID'];
+
+            if ($occupationID[0] == '0' && count($occupationID) == 1) {
+                $occupationID = '0';
+            } else if ($occupationID[0] == '0' && count($occupationID) > 1) {
+                unset($occupationID[0]);
+                $occupationID = implode(',', $occupationID);
+            } else {
+                $occupationID = implode(',', $occupationID);
             }
-            else  {
- 
-                $query .= " and (j.employment_status = '".$empstatus[0] ."')";
-            } 
+
+
+
+            //to check if employment status is check or not
+            $empstatus = $_GET['empstatus'];
+
+            if ($empstatus[0] === '0' && count($empstatus) === 1) {
+                $empstatus = '0';
+            } else if ($empstatus[0] === '0' && count($empstatus) > 1) {
+
+                unset($empstatus[0]);
+                $empstatus = implode(',', $empstatus);
+            } else {
+                $empstatus = implode(',', $empstatus);
+            }
+
+            $query .= "t.city_id =".$id;
+
+            if($townshipID != '0')
+            {
+                $query .= " and t.id in (".$townshipID.")";
+            }
+            if($occupationID != '0')
+            {
+                $query .= " and j.occupation_id in (".$occupationID.")";
+            }
+            if($empstatus != '0')
+            {
+                $empstatus = explode(',', $empstatus);
+        
+                if (count($empstatus) == 4) {
+                    $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
+                }
+                else if(count($empstatus) == 3)
+                {
+                    $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')" ;
+                }
+                else if(count($empstatus) == 2){
+                    $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')" ;
+                }
+                else  {
+     
+                    $query .= " and (j.employment_status = '".$empstatus[0] ."')";
+                } 
+            }
         }
+        
+     
 
         $query .= " group by c.id";
 
