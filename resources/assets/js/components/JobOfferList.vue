@@ -90,11 +90,17 @@
                             <router-link :to="{name: 'job_details', params:{id:job.id,loginuser:loginuser}}">{{job.title}} </router-link>
                             <!-- <span class="job_id">jobapplylistcount{{job.count}}</span> -->
                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
-                            <label class="switch">
-                                <input type="checkbox">
+                            <!-- <label class="switch">
+                                <input type="checkbox" v-if="job.recordstatus != 1" >
+                                 <input type="checkbox" v-else @click="confirm(job.id)">
                                 <span class="slider round"></span>
-                            </label>
-
+                            </label> -->
+                        <div>
+                            <button class="btn confirmed" v-if="job.recordstatus!= 1" >OFF</button>
+                            
+                            <button class="btn confirm-borderbtn" v-else @click="confirm(job.id)">ON</button>
+                        </div>
+                          
                             <span class="job_id">求人番号：{{job.jobid}}</span>
                         </h5>
                                         </div>
@@ -110,7 +116,7 @@
                                                 <li>
                                                     <router-link :to="{name: 'jobapplylist', params:{id:job.id}}" class="btn confirm-borderbtn confirmed">求人応募一覧ページへ</router-link>
                                                 </li>
-                                                <li><a class="btn text-success active-borderbtn">Disabled</a></li>
+                                                <!-- <li><a class="btn text-success active-borderbtn">Disabled</a></li> -->
                                                 <li><a class="btn text-danger delete-borderbtn" @click="deleteJob(job.id)">削除</a></li>
                                             </ul>
                                         </div>
@@ -252,6 +258,15 @@
             },
             methods: {
 
+                 confirm(id) {
+                     
+                            this.axios.get(`/api/job/confirm/${id}`)
+                                .then(response => {
+                                    this.jobs = response.data.jobs;
+                                })
+
+                    
+                    },
                 deleteJob(id) {
                         this.$swal({
                             title: "確認",
