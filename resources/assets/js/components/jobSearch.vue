@@ -327,6 +327,7 @@
                   <th>地域</th>
                   <td>
                     <select id="selectCity"   class="col-9 form-control custom-select mt-2 mb-2" v-model="id" @change="changeTownship">
+                         <option value="-1">▼市区町村</option>
                       <option v-for = "city in cities" :value="city.id" :key="city.id" >{{city.city_name}}</option>
                     </select>
                     <button @click="toggleContent4" class="btn col-3 seemore-btn">
@@ -579,8 +580,9 @@ export default {
               empstatus:this.empstatus
           },
         }).then((response)=>{
-    
+
           this.job_data = response.data;
+
           if(this.job_data.length > this.size) {
               this.show_paginate = true;
           }else{
@@ -592,39 +594,31 @@ export default {
         
          // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
-   searchfreeword(){
-
+    searchfreeword(){
 
             //clear all checkbox
             this.id = -1;
             this.townshipID = [];
             this.occupationID = [];
             this.empstatus = [];
-
-              
-
-              if ($('#search-word').val() != '') 
-              {
-               
-                var search_word = $('#search-word').val();
           
 
-                this.axios.get('api/getjobsearch/'+ search_word
-                  ).then((response)=>{
-                 
-                    this.hos_data = response.data.hospital;
-                    this.timetable = response.data.timetable;
-                    this.specialfeatures = response.data.specialfeature;
+            if ($('#search-word').val() != '') 
+            { 
+                var search_word = $('#search-word').val();
+            
+                this.axios.get('api/getjobsearch/'+ search_word).then((response)=>{
+                    
+                    this.job_data = response.data;
                     this.getTownships = [];
-                    this.subject = response.data.subject;
-                    if(this.hos_data.length > this.size) {
-                        this.show_paginate = true;
-                    }else{
-                        this.show_paginate = false;
-                    }
-                  });
-              
-              } 
+                    // if(this.job_data.length > this.size) {
+                    //     this.show_paginate = true;
+                    // }else{
+                    //     this.show_paginate = false;
+                    // }
+                });
+            
+            } 
             
         },
 
@@ -660,7 +654,7 @@ export default {
         },
         changeTownship()
         {
-            this.axios.get('api/getmap',{
+            this.axios.get('api/getmap/null',{
             params:{
               id: this.id,
               township_id:-1,
@@ -671,11 +665,11 @@ export default {
           .then((response)=>{
 
           $('.jobselect').removeClass('jobselect');
-          this.cities = response.data.city
-          this.getCity = response.data.getCity
-          this.getTownships = response.data.getTownships
-          this.occupations = response.data.occupations
-          this.id = id
+            this.cities = response.data.city
+            this.getCity = response.data.getCity
+            this.getTownships = response.data.getTownships
+            this.occupations = response.data.occupations
+            this.id = id
          })
         
         this.search();
@@ -683,7 +677,10 @@ export default {
 
       getStateClick(e){
            
-
+          //clear all check box
+            this.townshipID = [];
+            this.occupationID = [];
+            this.empstatus = [];
       
           if(e.target.id == ''){
             var id = $('#selectCity').val();
