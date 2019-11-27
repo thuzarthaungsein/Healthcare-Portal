@@ -51,7 +51,7 @@
                             </div>
                             <div class="card-carousel">
                                 <div class="card-carousel--overflow-container">
-                                    <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                    <div class="card-carousel-cards col-3 pad-free" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                                         <div class="card-carousel--card">
                                             <div class="card-carousel--card--footer">
 
@@ -233,6 +233,10 @@
                     currentOffset: 0,
                     windowSize: 5,
                     paginationFactor: 267,
+                    window:{
+                        width:0,
+                        height:0
+                    }
                 };
             },
             computed: {
@@ -244,6 +248,45 @@
                     },
             },
             created() {
+                //for cardcarousel responsive
+                window.addEventListener('resize', this.handleResize)
+                this.handleResize();
+                console.log('nnnnnnn');
+                console.log(this.window.width);
+                if(this.window.width > 320 && this.window.width < 450) {
+                    this.windowSize = 1;                
+                } 
+                
+                else if(this.window.width >= 450 && this.window.width < 768) {
+                    this.windowSize = 1;
+                    console.log('bbb');
+                    console.log(this.window.width);
+                
+                } 
+                else if(this.window.width >= 768 && this.window.width < 992) {
+                    this.windowSize = 2;
+                
+                }
+                else if(this.window.width >= 992 && this.window.width < 1024) {
+                    this.windowSize = 3;               
+                    console.log(this.window.width);
+                    console.log(this.windowSize);
+                }
+                else if (this.window.width >= 1024 && this.window.width < 1280) {
+                    this.windowSize = 3;
+                    console.log('aaaaaaa');
+                console.log(this.window.width);
+                    
+                }
+                else if (this.window.width >= 1280 && this.window.width < 1440) {
+                    this.windowSize = 4;
+                    console.log('bbbb');
+                }
+                else if (this.window.width >= 1440 && this.window.width < 1880) {
+                    this.windowSize = 5;              
+                    
+                }
+
                 this.local_sto = localStorage.getItem("hospital_fav");
                 this.getAllFavourite(this.local_sto);
                 if(this.local_sto){
@@ -251,6 +294,10 @@
                 }
             },
             methods: {
+                handleResize() {
+                    this.window.width = window.innerWidth;
+                    this.window.height = window.innerHeight;
+                },
 
                 moveCarousel(direction) {
                         // Find a more elegant way to express the :style. consider using props to make it truly generic
@@ -351,4 +398,5 @@
     .second-row {
         background-color: #eff7ec;
     }
+    
 </style>

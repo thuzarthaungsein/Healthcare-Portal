@@ -6679,7 +6679,7 @@ button.confirmed {
 }
 
 .profile_wd {
-    width: 239px !important;
+    width: 230px !important;
 }
 
 .profile_price {
@@ -7126,8 +7126,8 @@ ul.test>li:before {
 #fav-history-page .card-carousel {
     display: flex;
     justify-content: center;
-    max-width: 1336px;
-    overflow-x: auto;
+    width: 1303px;
+    overflow:hidden;
 }
 
 
@@ -8367,9 +8367,7 @@ ul.nur-caro-card>li.list-group-item {
         max-width: 19%;
         flex: 0 0 18%;
     }
-    #fav-history-page .card-carousel {
-        overflow-x: auto;
-    }
+    
 }
 
 
@@ -8665,3 +8663,71 @@ ul.nur-caro-card>li.list-group-item {
         transform: rotate(360deg);
     }
 }
+/*--------------------------------------------------responsive ---------------------------------------------------------------*/
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+    #fav-history-page .card-carousel {        
+        width: 1336px;        
+    }
+  }
+  
+  
+  @media only screen and (max-width: 450px) and (min-width: 376px) {
+    #fav-history-page .card-carousel {
+          width: 207px !important;
+      }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (max-width: 1023px) and (min-width: 768px) {
+    #fav-history-page .card-carousel {        
+          width: 415px!important;
+      }
+  }
+  @media only screen and (max-width: 768px) and (min-width: 449px) {
+    #fav-history-page .card-carousel {       
+          width: 515px !important;
+      }
+    #fav-history-page .card-carousel-cards .card-carousel--card--footer {
+        padding: 0px;
+    }
+    #hospital .nav-content {
+        border: none;
+        background: transparent !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        width: 25px !important;
+    }
+    #fav-history-page .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff !important;
+        width: 25px !important;
+    }
+  }
+  @media only screen and (max-width: 992px) and (min-width: 768px) {
+    #fav-history-page .cardcarousel {
+          width: 415px!important;
+      }
+  }
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (max-width: 1024px) and (min-width: 992px) {
+    #fav-history-page .card-carousel {
+          width: 823px!important;
+      }
+  }
+  @media only screen and (max-width: 1200px) and (min-width: 992px) {
+    #fav-history-page .card-carousel {
+          width: 787px !important;
+      }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (max-width: 1440px) and (min-width: 1200px) {
+    #fav-history-page .card-carousel {
+          width: 1045px!important;
+      }
+  }
+  @media only screen and (max-width: 1880px) and (min-width: 1440px) {
+    #fav-history-page .card-carousel {
+          width: 1033px!important;
+      }
+  }
