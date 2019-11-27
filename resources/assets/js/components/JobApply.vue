@@ -614,7 +614,6 @@ export default {
             this.btn_disable=true;
         }
     },
-<<<<<<< HEAD
     ChekChar: function(event) {
         $('.char-err').text('');
         var input_val = $('#furigana').val();
@@ -627,9 +626,8 @@ export default {
           $('.char-err').text('カタカナのみを書いてください!');
         }
         
-      }
+      },
    
-=======
     isNumberOnly: function(event) {
                 if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
                     && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
@@ -637,7 +635,6 @@ export default {
                     event.preventDefault();
                 }
             }
->>>>>>> 6db89666c46c1be89a4f6fcd4b6661c28f834d50
   }
 };
 </script>
