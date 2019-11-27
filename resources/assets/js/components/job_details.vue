@@ -87,7 +87,7 @@
               
               
               
-              white all-btn width17" style="background-color:#828282;">この案件に応募する</router-link>
+              white all-btn width17" style="background-color:#828282;" v-if="!login_user">この案件に応募する</router-link>
             </div>
           </div>
         </div>
@@ -101,14 +101,15 @@ export default {
   data() {
     return {
       job_details: [],
-      job_id: ""
+      job_id: "",
+      login_user: Boolean
     };
   },
   created() {
+      this.login_user = this.$route.params.loginuser;
     this.axios
       .get(`/api/job_details/${this.$route.params.id}`)
       .then(response => {
-        console.log(response.data);
         this.job_details = response.data;
       });
     this.job_id = this.$route.params.id;
