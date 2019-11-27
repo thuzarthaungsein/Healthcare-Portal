@@ -251,7 +251,7 @@ class SearchMapController extends Controller
             $med_query = "SELECT med.*,acc.customer_id from acceptance_transactions as acc join medical_acceptance as med on acc.medical_acceptance_id = med.id";
             $medicalacceptance = DB::select($med_query);
             
-            $fac_query = "SELECT fac.* from nursing_profiles as n  right join fac_types  as fac on fac.id = n.fac_type";
+            $fac_query = "SELECT fac.* from nursing_profiles as n   join fac_types  as fac on fac.id = n.fac_type";
             $factype = DB::select($fac_query);
             
             $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];

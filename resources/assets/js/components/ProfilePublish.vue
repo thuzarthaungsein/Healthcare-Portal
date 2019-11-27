@@ -149,7 +149,7 @@
                     <!--end for slide image-->
                     <!--for address-->
                      <div class="col-sm-7 detail_profile_right">
-                        <div class="row col-12 pro-heading">
+                        <div class="row m-lr-0 pro-heading">
                              <div class="col-12 pad-free">
                                 <h5 class="profile_header">介護情報</h5>
                              </div>
@@ -587,7 +587,7 @@
 
                     <div class="col-md-12">
                         <h5 class="profile_subtit">フォトアルバム</h5>
-                        <div class="row gallery-list">
+                        <div class="row gallery-list m-0">
                             <div v-for="(image,index) in  light_images" :key="index" class="col-sm-4 col-md-4 col-lg-3 m-b-10 gallery-item">
                                     <img  :src ="'/upload/nursing_profile/' + image.name"  class="img-fluid" @click="showLightbox(image.name)" @error="imgUrlAlt" >
                                     <span>{{image.title}}</span><br>
@@ -1464,10 +1464,13 @@ export default {
                 items: [],
                 pagination: false,
                 data: {
-                str:"Welcome to Canada!",
-                substr: ""
-  },
-
+                    str:"Welcome to Canada!",
+                    substr: ""
+                },
+                window: {
+                    width: 0,
+                    height: 0
+                }
             };
         },
 
@@ -1478,7 +1481,47 @@ export default {
         },
 
         created(){
+            window.addEventListener('resize', this.handleResize)
+            this.handleResize();
+            if(this.window.width > 320 && this.window.width < 450) {
+                this.windowSize = 1;
+               
+            } 
+            
+            else if(this.window.width >= 450 && this.window.width < 768) {
+                this.windowSize = 4;
+                console.log('bbb');
+                console.log(this.window.width);
+               
+            } 
+            else if(this.window.width >= 768 && this.window.width < 992) {
+                this.windowSize = 4;
+               
+            }
+            else if(this.window.width >= 992 && this.window.width < 1024) {
+                this.windowSize = 4;               
+                console.log(this.window.width);
+                console.log(this.windowSize);
+            }
+            else if (this.window.width >= 1024 && this.window.width < 1280) {
+                this.windowSize = 8;
+                console.log('aaaaaaa');
+               console.log(this.window.width);
+                
+            }
+            else if (this.window.width >= 1280 && this.window.width < 1440) {
+                this.windowSize = 10;
+                console.log('bbbb');
+            }
+            else if (this.window.width >= 1440 && this.window.width < 1880) {
+                this.windowSize = 10;              
+                
+            }
+            // else if( this.window.width > 1700) {
 
+            // }
+
+           
             this.customer_id = this.cusid;
             this.activePanoImage = 0;
 
@@ -1788,6 +1831,10 @@ export default {
                 }
         },
         methods: {
+            handleResize() {
+                this.window.width = window.innerWidth;
+                this.window.height = window.innerHeight;
+            },
             changeBg(ch,a) {
                 $('.main-cost-table td').css({'background':'transparent'});
                 $('.cost'+a+' td').css({'background':'#ffe9df'});
@@ -1920,6 +1967,7 @@ export default {
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
+    width: 1033px !important;   
     /* width: 1336px; */
     overflow: hidden;
 }
@@ -2049,59 +2097,6 @@ export default {
     opacity: 0.5;
 }
 
-/* #pano-slider-page .card-carousel-cards .card-carousel--card--footer {
-    border-top: 0;
-    padding: 7px 15px;
-}
-
-#pano-slider-page .card-carousel-cards .card-carousel--card--footer p {
-    padding: 3px 0;
-    margin: 0;
-    margin-bottom: 2px;
-    font-size: 19px;
-    font-weight: 500;
-    color: #2c3e50;
-    user-select: none;
-}
-
-#pano-slider-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2) {
-    font-size: 12px;
-    font-weight: 300;
-    padding: 6px;
-    background: rgba(40, 44, 53, 0.06);
-    display: inline-block;
-    position: relative;
-    margin-left: 4px;
-    color: #666a73;
-}
-
-#pano-slider-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):before {
-    content: "";
-    float: left;
-    position: absolute;
-    top: 0;
-    left: -12px;
-    width: 0;
-    height: 0;
-    border-color: transparent rgba(40, 44, 53, 0.06) transparent transparent;
-    border-style: solid;
-    border-width: 12px 12px 12px 0;
-}
-
-#pano-slider-page .card-carousel-cards .card-carousel--card--footer p:nth-of-type(2):after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: -1px;
-    float: left;
-    width: 4px;
-    height: 4px;
-    border-radius: 2px;
-    background: white;
-    box-shadow: -0px -0px 0px #004977;
-} */
-
-/*Endslider*/
 .pannellum{
     height: 500px;
 }
@@ -2455,49 +2450,64 @@ export default {
 }
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) and (min-width: 320px) {
   #pano-slider-page .card-carousel {
-        width: 400px;
+        width: 200px!important;
     }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+
+@media only screen and (max-width: 450px) and (min-width: 376px) {
   #pano-slider-page .card-carousel {
-        width: 603px;
+        width: 207px !important;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  #pano-slider-page .card-carousel {
-        width: 573px;
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  #pano-slider-page .card-carousel {        
+        width: 415px!important;
     }
 }
-
+@media only screen and (max-width: 768px) and (min-width: 449px) {
+  #pano-slider-page .card-carousel {       
+        width: 415px!important;
+    }
+}
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  #pano-slider-page .card-carousel {
+        width: 415px!important;
+    }
+}
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
   #pano-slider-page .card-carousel {
-        width: 802px;
+        width: 823px!important;
+    }
+}
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+  #pano-slider-page .card-carousel {
+        width: 823px!important;
     }
 }
 
-@media only screen and (min-width: 1024px) {
-    #pano-slider-page .card-carousel {
-        width: 829px;
-    }
-}
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 1440px) and (min-width: 1200px) {
    #pano-slider-page .card-carousel {
-        width: 990px;
+        width: 930px!important;
     }
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (max-width: 1880px) and (min-width: 1440px) {
     #pano-slider-page .card-carousel {
-        width: 1033px;
+        width: 1033px!important;
     }
 }
 
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 767px) {
+}
 </style>

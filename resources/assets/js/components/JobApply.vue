@@ -54,10 +54,11 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control float-left" id="last_name" placeholder="ふりがなを入力してください。" v-model="jobApply.last_name" @focusout="focusLname" @change="aggreBtn"/>
+                <input type="text" class="form-control float-left" id="last_name" placeholder="ふりがなを入力してください。" v-model="jobApply.last_name" @keyup="ChekChar" @focusout="focusLname" @change="aggreBtn"/>
                 <span class="float-left eg-txt"> 例）さがし たろう</span>
                 <span class="error m-l-30" v-if="focus_lname">※入力は必須です。</span>
-                <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div>
+                <div v-if="errors.last_name" class="text-danger mt-2 ml-4">{{ errors.last_name }}</div> 
+                <div class="text-danger mt-2 ml-4 char-err"></div>
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -161,8 +162,10 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control box" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn"/>
+                <input type="text" class="form-control float-left" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn" v-on:keydown="isNumberOnly" maxlength="14"/>
                 <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
+                <span class="error m-l-30" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
+                <span class="float-left eg-txt">例）0312345678（半角）</span>
             </div>
         </div>
         <div class="form-group m-0 row bd">
@@ -175,7 +178,7 @@
                 </label>
             </div>
             <div class="col-md-9 col-sm-12 form-right">
-                <input type="text" class="form-control float-left" id="email" placeholder="メールアドレスを入力してください。" v-model="jobApply.email" @focusout="focusMail" @change="aggreBtn"/>
+                <input type="text" class="form-control float-left" id="email" placeholder="メールアドレスを入力してください。" v-model="jobApply.email" @focusout="focusMail"  @change="aggreBtn"/>
                 <span class="float-left eg-txt"> 例）abc@example.jp （半角）</span>
                 <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
             </div>
@@ -442,7 +445,8 @@ export default {
     focus_pref: false,
     focus_city: false,
     focus_mail: false,
-    btn_disable: false
+    btn_disable: false,
+    ph_length: false
 
     };
   },
@@ -520,6 +524,7 @@ export default {
       this.jobApply.skills.push(job);
     },
     checkValidate() {
+  
     //   if (this.jobApply.first_name) {
     //     this.errors.first_name = "";
     //   } else {
@@ -595,15 +600,41 @@ export default {
         }else{
             this.focus_mail=true;
         }
+        if(this.jobApply.phone.length < 10) {
+            this.ph_length = true;
+        }else{
+            this.ph_length = false;
+        }
     },
     aggreBtn: function(){
         console.log('job',this.jobApply)
-        if(this.jobApply.first_name != '' && this.jobApply.last_name != '' && this.jobApply.selectedValue != 0 && this.jobApply.str_address != '' && this.jobApply.email != '' && this.jobApply.terms == true || this.jobApply.phone){
+        if(this.jobApply.first_name != '' && this.jobApply.last_name != '' && this.jobApply.selectedValue != 0 && this.jobApply.str_address != '' && this.jobApply.terms == true && (this.jobApply.email != '' || this.jobApply.phone)){
             this.btn_disable=false;
         }else{
             this.btn_disable=true;
         }
     },
+    ChekChar: function(event) {
+        $('.char-err').text('');
+        var input_val = $('#furigana').val();
+        var code = 0;
+               
+        code = input_val.charCodeAt();
+        if ((12448<= code && code <= 12543) || (19968<= code && code <= 19893)) {
+                        
+        } else {
+          $('.char-err').text('カタカナのみを書いてください!');
+        }
+        
+      },
+   
+    isNumberOnly: function(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            }
   }
 };
 </script>
