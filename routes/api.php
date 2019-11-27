@@ -111,7 +111,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Job
     Route::group(['prefix' => 'job'], function () {
-        Route::get('confirm/{number}','JobController@confirm');
+        Route::get('confirm/{id}','JobController@confirm');
         Route::post('add', 'JobController@store');
         Route::get('index', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');
