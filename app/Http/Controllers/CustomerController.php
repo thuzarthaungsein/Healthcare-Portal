@@ -189,6 +189,7 @@ class CustomerController extends Controller
         }
     }
 
+
     public function search(Request $request)
     {
         $request = $request->all();
