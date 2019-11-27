@@ -968,7 +968,6 @@ $( '#page-item button' ).on( 'click', function(e) {
   }
   table>tbody>tr th {
     background-color: #e8e7e7;
-    text-align: right;
     width: 140px;
     padding: 25px;
   }

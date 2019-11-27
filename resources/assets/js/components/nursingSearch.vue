@@ -1610,7 +1610,6 @@ search(){
 
   table>tbody>tr th {
     background-color: #eeeeee94;
-    text-align: right;
     width: 140px;
     padding: 25px;
   }
