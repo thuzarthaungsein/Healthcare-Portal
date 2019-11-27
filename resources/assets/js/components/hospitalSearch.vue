@@ -673,11 +673,13 @@
             {
               
               var search_word = $('#search-word').val();
+              $('.hospitalselect').removeClass('hospitalselect');
         
 
               this.axios.get('api/gethospitalsearch/'+ search_word)
                         .then((response)=>{
                             this.hos_data = response.data.hospital;
+                            this.cities = response.data.city;
                             this.timetable = response.data.timetable;
                             this.specialfeatures = response.data.specialfeature;
                             this.getTownships = [];

@@ -581,7 +581,7 @@ export default {
           },
         }).then((response)=>{
 
-          this.job_data = response.data;
+          this.job_data = response.data.job;
 
           if(this.job_data.length > this.size) {
               this.show_paginate = true;
@@ -595,6 +595,7 @@ export default {
          // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
     searchfreeword(){
+      
 
             //clear all checkbox
             this.id = -1;
@@ -606,11 +607,14 @@ export default {
             if ($('#search-word').val() != '') 
             { 
                 var search_word = $('#search-word').val();
+                 $('.jobselect').removeClass('jobselect');
             
                 this.axios.get('api/getjobsearch/'+ search_word).then((response)=>{
                     
-                    this.job_data = response.data;
+                    this.job_data = response.data.job;
+                    this.cities = response.data.city
                     this.getTownships = [];
+                  
                     // if(this.job_data.length > this.size) {
                     //     this.show_paginate = true;
                     // }else{

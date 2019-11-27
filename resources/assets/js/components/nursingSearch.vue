@@ -406,7 +406,7 @@
        
  
         <!-- nursing list -->
-       <div id="nursing-search"> 
+       <div id="nursing-search" > 
         <div class="row">
           <div class="card-carousel-wrapper col-12">
             <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
@@ -507,7 +507,7 @@
       </div>
       <!--list-->
           
-       <table class="table table-bordered col-12 box-wrap select">
+       <table id="filtertable" class="table table-bordered col-12 box-wrap select">
               <tbody>
                 <tr>
                   <th>地域</th>
@@ -873,7 +873,8 @@ searchfreeword(){
      this.township_id = -1;
      this.moving_in = -1;
      this.per_month = -1;
-      $("#nursing-search").css("display", "block");
+
+      
 
       if ($('#search-word').val() != '') 
       {
@@ -891,7 +892,21 @@ searchfreeword(){
                 },
             })
                 .then((response) => {
-                this.changeMap(response)
+               
+                  if(response.data.nursing_profile.length > 0)
+                  {
+                   
+                     $("#mymap").css("display", "block");
+                     $("#filtertable").css("display", "block");
+                     $("#nursing-search").css("display", "block");
+                     this.changeMap(response);
+                  }
+                  else{
+                     console.log('null');
+                     $("#nursing-search").css("display", "none");
+                    
+                  }
+               
             });
       
       } 
@@ -913,7 +928,9 @@ closeInfoWindow() {
             this.infoBoxOpen = false;
         },
 showSearchMap() {
-            
+ 
+     
+      
             //clear all checkbox 
             this.id = [];
             this.townshipID = [];
@@ -921,12 +938,19 @@ showSearchMap() {
             this.FacTypeID = [];
             this.MoveID = [];
             this.MedicalAcceptanceID = [];
-          
+            this.nus_data = [];
+            
             $('#searchMap').removeClass('select');
             $('#showSearchMap').addClass('select');
             $('#filter').addClass('select');
-
+            $("#mymap").css("display", "none");
+            $("#nursing-search").css("display", "none");
+            $("#filtertable").css("display", "none");
+           
+             
+           
         },
+
 moveCarousel(direction) {
             // Find a more elegant way to express the :style. consider using props to make it truly generic
             if (direction === 1 && !this.atEndOfList) {
@@ -956,6 +980,9 @@ getStateClick(e) {
                 },
             })
                 .then((response) => {
+                  $("#mymap").css("display", "block");
+                  $("#nursing-search").css("display", "block");
+                  $("#filtertable").css("display", "block");
                 this.changeMap(response)
                 })
 

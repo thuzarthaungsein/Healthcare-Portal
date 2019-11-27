@@ -380,8 +380,9 @@ class SearchMapController extends Controller
         $subject = DB::select($sub_query);
         $timetable = DB::table('schedule')->get();
         $sub_child = DB::table('subjects')->get();
+        $city = DB::table('cities')->get();
 
-        return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject,"sub_child"=>$sub_child));
+        return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject,"sub_child"=>$sub_child,"city"=>$city));
     }
 
 
@@ -480,11 +481,13 @@ class SearchMapController extends Controller
      
 
         $query .= " group by c.id";
-
+ 
         $job_data = DB::select($query);
+        $city = DB::table('cities')->get();
+
 
      
-        return response()->json($job_data);
+        return response()->json(array('job'=>$job_data,'city'=>$city));
     }
 
 
