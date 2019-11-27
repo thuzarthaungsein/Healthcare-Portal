@@ -888,7 +888,7 @@ $( '#page-item button' ).on( 'click', function(e) {
 </script>
 
 
-<style scoped>
+<style>
 
 .spanclass.active{
     /* background-color: #fffe00 !important;
