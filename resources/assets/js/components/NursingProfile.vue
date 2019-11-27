@@ -36,9 +36,13 @@
                             <label class="heading-lbl col-2 pad-free">メールアドレス<span class="error">*</span></label>
                             <label class=" col-10 float-right customer-email"> {{customer_info.email}} </label>
                     </div>
-                    <div class="form-group form-group-wrapper">
+                    <div class="form-group form-group-wrapper d-flex">
                             <label class="heading-lbl col-2 pad-free">電話番号<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-phone col-10 float-right"  placeholder="電話" v-model="customer_info.phone">
+                            <div class="col-10 row">
+                            <input type="text" class="form-control customer-phone col-12"  placeholder="電話番号を入力してください。" v-model="customer_info.phone" v-on:keydown="isNumberOnly" @focusout="numberLength" maxlength="14">
+                            <span class="error" v-if="ph_error"></span>
+                            <span class="error" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>                            
+                            </div>
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">公式サイト</label>
@@ -48,7 +52,7 @@
                             <label class="heading-lbl col-2 pad-free">フォトアルバム</label>
                             
                                     <span class="galleryadd btn all-btn main-bg-color float-right" style="min-width: 0px;" @click="galleryAdd()">
-                                    <i class="fas fa-plus-circle"></i> 加算</span>
+                                    <i class="fas fa-plus-circle"></i> 追加</span>
                                     <span class='changeGalleryLink btn btn all-btn main-bg-color ' style="min-width: 0px;" @click="galleryToggle" >
                                         <i id="gallery" class="fas fa-sort-down"></i>
                                    </span>
@@ -149,7 +153,7 @@
                                 <div class="col-10 float-right pad-free">
                                     <input type="text"  class="form-control col-10 nursing-payment-method float-left white-bg-color" v-model="nursing_info.method">
                                     <div class="col-2 float-right">
-                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 加算</span>
+                                        <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="methodAdd()"><i class="fas fa-plus-circle"></i> 追加</span>
                                     </div>
                                     <div class="col-md-12 pad-free m-t-50" id="gallery-payment">
                                         <!-- test -->
@@ -366,10 +370,12 @@
                                             </tr>
                                             <tr>
                                                     <td class="width15 title-bg">類型</td>
-                                                    <select class="form-control white-bg-color fac-type">
-                                                        <option>施設タイプを選択</option>
-                                                        <option v-for="fac in fac_types" :key="fac.id" v-bind:value="fac.id" :selected="fac.id == nursing_info.fac_type">{{ fac.description }}</option>
-                                                    </select>
+                                                    <td>
+                                                        <select class="form-control white-bg-color fac-type">
+                                                            <option>施設タイプを選択</option>
+                                                            <option v-for="fac in fac_types" :key="fac.id" v-bind:value="fac.id" :selected="fac.id == nursing_info.fac_type">{{ fac.description }}</option>
+                                                        </select>
+                                                    </td>
                                                     <!-- <td ><textarea class="form-control white-bg-color fac-type" :options="editorOption" v-model="nursing_info.fac_type"></textarea></td> -->
                                                         <!-- <td > <quill-editor  class="fac-type" ref="myQuilEditor" :options="editorOption" v-model="nursing_info.fac_type"/></td> -->
                                             </tr>
@@ -409,7 +415,7 @@
                                 <label class="heading-lbl col-2 pad-free">協力医療機関 <span class="error">*</span></label>
                                 <div class="col-10 pad-free float-right ">
                                     <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="cooperateAdd()">
-                                            <i class="fas fa-plus-circle"></i> 加算</span>
+                                            <i class="fas fa-plus-circle"></i> 追加</span>
 
                                     <div class="col-md-12 pad-free" id="gallery-cooperate">
                                         <!-- cooperation -->
@@ -697,6 +703,8 @@ export default {
                 access_val: '',
                 panorama_length: 0,
                 new_panorama_img: [],
+                ph_length: false,
+                ph_error: false,
             }
         },
 
@@ -1330,6 +1338,23 @@ export default {
                         document.getElementById('nursing').click();
                     })
                 }                
+                
+            },
+            isNumberOnly: function(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            },
+            numberLength: function(event) {                
+                if(this.customer_info.phone == ''){
+                    this.ph_error = true;
+                }else if(this.customer_info.phone.length < 10){
+                    this.ph_length = true;
+                }else{
+                    this.ph_length = false;
+                }
                 
             }
         }

@@ -17,7 +17,7 @@ class JobController extends Controller
         FROM `jobs`
         JOIN customers ON jobs.customer_id = customers.id
         LEFT JOIN job_applies ON jobs.id = job_applies.job_id
-        WHERE jobS.customer_id = ".auth()->user()->customer_id." GROUP BY jobs.id ORDER BY jobs.id DESC";
+        WHERE customers.recordstatus=1 and jobs.customer_id = ".auth()->user()->customer_id." GROUP BY jobs.id ORDER BY jobs.id DESC";
         $profilejob = DB::select($query);
 
         foreach($profilejob as $jobs){

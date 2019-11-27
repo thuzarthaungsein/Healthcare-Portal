@@ -251,14 +251,14 @@
             <div class="row ele m-lr-0" id="element2">
 
                 <h5 class="profile_header">特長 </h5>
-                
+
                     <div  v-for="nurseprofile in nursing_profiles" :key="nurseprofile.id" class="col-md-12">
                         <p v-html="nurseprofile.feature"></p>
                         <!-- <div v-if="nurseprofile.features">
                             <p v-html="nurseprofile.feature"></p>
                         </div>
                         <div v-else>
-                            No data
+                            <p class="no-data-color">表示されるデータがありません。</p>
                         </div> -->
                     </div>
 
@@ -601,7 +601,7 @@
                     <div class="col-md-12  m-b-15">
                         <h5 class="profile_subtit">動画</h5>
                         <span v-if="videos == ''">
-                            <div class="col-sm-4 col-md-4 col-lg-3"> No Data </div>
+                            <div class="col-sm-4 col-md-4 col-lg-3"> <p class="no-data-color">表示されるデータがありません。</p> </div>
                         </span>
                         <span v-else>
                             <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
@@ -650,7 +650,7 @@
 
                                 </div>
                         </div>
-                        <div class="col-md-12" v-else> No Data </div>
+                        <div class="col-md-12" v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
                     </div>
 
                     <div class="col-12">
@@ -715,7 +715,7 @@
                             </div>
 
                         </div>
-                        <div v-else class="col-md-12"> No Data </div>
+                        <div v-else class="col-md-12"> <p class="no-data-color">表示されるデータがありません。</p> </div>
 
                     </div>
 
@@ -759,7 +759,7 @@
 
 
             <div class="row ele m-lr-0" id="element6">
-                <h5 class="profile_header col-12">口コミ ({{customer_name}})</h5>
+                <h5 class="profile_header col-12">口コミ</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -768,7 +768,7 @@
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
                 </div>
-               <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -784,6 +784,7 @@
                         </div>
                     </div>
                </div>
+               <div v-else class="col-md-12"> <p class="no-data-color pb-3">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -896,7 +897,7 @@
 
                 <button v-scroll-to="{ el: '#element1'}" class="top-fixed-btn" @click="activate(1)" :class="{ active : active_el == 1 }">
                     病院情報
-                </button>                
+                </button>
 
                 <button v-scroll-to="{ el: '#element2' }" class="top-fixed-btn" @click="activate(2)" :class="{ active : active_el == 2 }">
                     地図
@@ -1077,7 +1078,7 @@
                             </ul>
 
                         </div>
-                        <div class="row m-lr-0" v-else> No Data </div>
+                        <div class="row m-lr-0" v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
 
                         <h5 class="header m-t-10">診療科目</h5>
 
@@ -1086,7 +1087,7 @@
                                 <li>{{sub.name}}</li>
                             </ul>
                         </div>
-                        <div class='row col-md-12' v-else> No Data </div>
+                        <div class='row col-md-12' v-else> <p class="no-data-color">表示されるデータがありません。</p> </div>
                     </div>
                     <!--end for address-->
                 </div>
@@ -1094,11 +1095,11 @@
 
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
-                    
+
                     <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
                         <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
-                        <span v-else>No Data</span> -->
-                        
+                        <span v-else><p class="no-data-color">表示されるデータがありません。</p></span> -->
+
                     </p>
                 </div>
                 <div class="col-12 m-b-20">
@@ -1210,7 +1211,7 @@
 
                                 <p><strong class="font-weight-bold">休診日: </strong>
                                     <span v-if="hospital.closed_day"><font>{{hospital.closed_day}}</font></span>
-                                    <span v-else> No Data </span>
+                                    <span v-else> <p class="no-data-color">表示されるデータがありません。</p> </span>
                                 </p>
 
                             </div>
@@ -1272,7 +1273,7 @@
                     </div>
                     <div class="row" v-else>
                         <div class="col-sm-4 col-md-4 col-lg-3">
-                            <span> No Data </span>
+                            <span> <p class="no-data-color">表示されるデータがありません。</p> </span>
                         </div>
                     </div>
                 </div>
@@ -1296,7 +1297,7 @@
                                     <tbody>
                                     <tr>
                                         <td class="custom-bg-color"> 公式サイト</td>
-                                        <td v-if="m.website">{{m.website}}</td> 
+                                        <td v-if="m.website">{{m.website}}</td>
                                         <td v-else> - </td>
                                     </tr>
                                     <tr>
@@ -1320,7 +1321,7 @@
 
             </div>
             <div class="row ele m-lr-0" id="element3">
-                <h5 class="profile_header col-12 m-t-20">口コミ ({{customer.name}})</h5>
+                <h5 class="profile_header col-12 m-t-20">口コミ</h5>
                 <div class="comment-ico  col-12">
                     <!-- <a href="/comment">
                         <i class="far fa-comment"></i>
@@ -1328,8 +1329,8 @@
                     </a> -->
                     <router-link :to="{name: 'comment', params: { customer_id: customer_id }}" class="comhov"> <i class="far fa-comment"></i>
                               <span>口コミを追加する</span></router-link>
-                </div>             
-               <div class="col-lg-12 col-md-12 col-sm-12">                  
+                </div>
+               <div class="col-lg-12 col-md-12 col-sm-12"  v-if="displayItems.length>0">
                     <div class="card mb-4" v-for="comment in displayItems" :key="comment.id">
                         <div class="card-body">
                             <div class="comment-title">
@@ -1345,6 +1346,7 @@
                         </div>
                     </div>
                </div>
+               <div v-else class="col-md-12"> <p class="no-data-color pb-3">表示される口コミがありません。</p></div>
                <div class="offset-md-4 col-md-8 mt-3" v-if="pagination">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -1476,6 +1478,7 @@ export default {
         },
 
         created(){
+
             this.customer_id = this.cusid;
             this.activePanoImage = 0;
 
@@ -1544,7 +1547,6 @@ export default {
                     this.method_payment = response.data.cost;
 
                     this.nusfacilities = response.data.facility;
-
 
                     this.cooperate_medical = response.data.comedical;
 
@@ -1913,17 +1915,14 @@ export default {
 </script>
 
 <style scoped>
+
 /*slider*/
     #pano-slider-page .card-carousel {
     display: flex;
     justify-content: left;
     /* width: 1336px; */
-    /* width:1033px;
-    overflow: auto; */
-    width:1033px;
     overflow: hidden;
 }
-
 
 /*slick carousel*/
 
@@ -2454,4 +2453,51 @@ export default {
     border: 1px solid #53c000;
     z-index: 4;
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #pano-slider-page .card-carousel {
+        width: 400px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #pano-slider-page .card-carousel {
+        width: 603px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #pano-slider-page .card-carousel {
+        width: 573px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #pano-slider-page .card-carousel {
+        width: 802px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #pano-slider-page .card-carousel {
+        width: 829px;
+    }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+   #pano-slider-page .card-carousel {
+        width: 990px;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    #pano-slider-page .card-carousel {
+        width: 1033px;
+    }
+}
+
 </style>

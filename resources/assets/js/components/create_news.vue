@@ -57,12 +57,9 @@
                                     <span v-if="errors.body" class="error">{{errors.body}}</span>
                             </div>
 
-                             <div class="form-group">
-                                <label>関連ニュース:</label>
+                            <div class="form-group">
+                                <label>関連ニュース:</label>     
                                 <div class="col-md-12 card related-card">
-                                    <!-- <div class="card-header">
-                                        関連ニュース
-                                    </div> -->
                                     <div class="card-body">
                                         
                                         <div class="row">
@@ -124,7 +121,8 @@
                                     </div>
                                 </div>
                                 <input type="hidden" v-model="checkedNews">
-                             </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <span class="btn main-bg-color white all-btn" @click="checkValidate()"> ニュースを投稿する</span>
