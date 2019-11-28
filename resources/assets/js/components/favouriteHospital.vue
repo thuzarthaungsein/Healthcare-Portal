@@ -40,7 +40,7 @@
         <div class="row m-0">
 
             <form class="col-md-12 pad-free">
-                <div class="col-12 m-t-20"  id="fav-history-page">
+                <div class="col-12"  id="fav-history-page">
                     <div class="row justify-content-lg-center">
                         <div class="card-carousel-wrapper">
 
@@ -156,8 +156,8 @@
                                                     <tr>
                                                         <td v-for="hos_profile in fav_hospital" :key="hos_profile.id">
                                                             <div class="profile_wd">
-                                                                <ul class="fac_container">
-                                                                    <h6 class="font-weight-bold text-left">特長</h6>
+                                                                <ul class="fac_container text-left">
+                                                                    <h6 class="font-weight-bold">特長</h6>
                                                                     <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
                                                                 </ul>
                                                             </div>

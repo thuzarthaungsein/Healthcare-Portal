@@ -402,10 +402,7 @@ body {
     font-size: 1em !important;
 }
 
-.h-color5 span {
-    border-left: 5px solid #63b7ff;
-    color: #63b7ff;
-}
+
 
 .h-color1 span {
     border-left: 5px solid #a3774a;
@@ -426,14 +423,11 @@ body {
     border-left: 5px solid #d1291d;
     color: #d1291d;
 }
-
-.bordertop-color5 {
-    border-top: 2px solid #63b7ff;
-}
-
-.bordertop-color5 i {
+.h-color5 span {
+    border-left: 5px solid #63b7ff;
     color: #63b7ff;
 }
+
 
 .bordertop-color1 {
     border-top: 2px solid #a3774a;
@@ -466,16 +460,15 @@ body {
 .bordertop-color4 i {
     color: #d1291d;
 }
-
-.title1 span {
-    background-color: #63b7ff;
-    color: #fff;
-    padding: 2px 10px;
-    border-radius: 5px;
-    font-size: 13px;
+.bordertop-color5 {
+    border-top: 2px solid #63b7ff;
 }
 
-.title2 span {
+.bordertop-color5 i {
+    color: #63b7ff;
+}
+
+.title1 span {
     background-color: #a3774a;
     color: #fff;
     padding: 2px 10px;
@@ -483,7 +476,7 @@ body {
     font-size: 13px;
 }
 
-.title3 span {
+.title2 span {
     background-color: #9579ef;
     color: #fff;
     padding: 2px 10px;
@@ -491,7 +484,7 @@ body {
     font-size: 13px;
 }
 
-.title4 span {
+.title3 span {
     background-color: #21d1de;
     color: #fff;
     padding: 2px 10px;
@@ -499,8 +492,16 @@ body {
     font-size: 13px;
 }
 
-.title5 span {
+.title4 span {
     background-color: #d1291d;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.title5 span {
+    background-color: #63b7ff;
     color: #fff;
     padding: 2px 10px;
     border-radius: 5px;
@@ -6607,7 +6608,7 @@ button.confirmed {
 
 #nursing .hos-btn,
 #hospital .hos-btn {
-    width: 71%;
+    width: 75%;
     margin: 0 auto;
     margin-bottom: 5px;
 }
@@ -7255,10 +7256,9 @@ ul.test>li:before {
 }
 
 #fav-history-page .card-carousel-cards .card-carousel--card--footer p {
-    padding: 3px 0;
     margin: 0;
     margin-bottom: 2px;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: 500;
     color: #2c3e50;
     user-select: none;

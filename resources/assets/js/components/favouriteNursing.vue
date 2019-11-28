@@ -296,7 +296,7 @@
                                                         <dl>
                                                             <dt class="text-left">交通手段</dt>
                                                             <dd class="profile_wd">
-                                                                <p v-html="nur_profile.access"></p>
+                                                                <span v-html="nur_profile.access"></span>
                                                             </dd>
                                                         </dl>
                                                     </td>
