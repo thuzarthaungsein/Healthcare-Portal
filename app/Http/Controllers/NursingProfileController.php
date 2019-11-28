@@ -185,7 +185,7 @@ class NursingProfileController extends Controller
         $nursing->acceptance_remark = $request[0]['acceptance_remark'];
         $nursing->latitude = $request[0]['latitude'];
         $nursing->longitude = $request[0]['longitude'];
-        // $nursing->stations = $request[0]['stations'];
+        $nursing->stations = $request[0]['stations'];
 
         $nursing->save();
     }
