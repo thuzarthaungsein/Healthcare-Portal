@@ -1490,7 +1490,7 @@ export default {
             
             else if(this.window.width >= 450 && this.window.width < 768) {
                 this.windowSize = 4;
-                console.log('bbb');
+              
                 console.log(this.window.width);
                
             } 
@@ -1511,7 +1511,7 @@ export default {
             }
             else if (this.window.width >= 1280 && this.window.width < 1440) {
                 this.windowSize = 10;
-                console.log('bbbb');
+               
             }
             else if (this.window.width >= 1440 && this.window.width < 1880) {
                 this.windowSize = 10;              

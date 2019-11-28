@@ -274,7 +274,7 @@
                                                 <tr>
                                                     <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
                                                         <span class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</span>
-                                                        <label class="btn all-btn res-btn hos-btn control controlinner--checkbox">
+                                                        <label class="btn all-btn res-btn hos-btn control controlinner--checkbox p-l-30">
                                                             <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
                                                             <span class="checkmark"></span>資料請求
                                                             <div class="controlinner__indicator"></div>                                                        
@@ -296,7 +296,7 @@
                                                         <dl>
                                                             <dt class="text-left">交通手段</dt>
                                                             <dd class="profile_wd">
-                                                                <p v-html="nur_profile.access"></p>
+                                                                <span v-html="nur_profile.access"></span>
                                                             </dd>
                                                         </dl>
                                                     </td>
@@ -437,7 +437,11 @@
                     windowSize: 5,
                     paginationFactor: 267,
                     disableBtn: false,
-                    check:false
+                    check:false,
+                    window:{
+                        width: 0,
+                        height: 0
+                    }
                 };
             },
             computed: {
@@ -454,6 +458,45 @@
             },
 
             created() {
+                //for cardcarousel responsive
+                window.addEventListener('resize', this.handleResize)
+                this.handleResize();
+                console.log('nnnnnnn');
+                console.log(this.window.width);
+                if(this.window.width > 320 && this.window.width < 450) {
+                    this.windowSize = 1;                
+                } 
+                
+                else if(this.window.width >= 450 && this.window.width < 768) {
+                    this.windowSize = 1;
+                    console.log('bbb');
+                    console.log(this.window.width);
+                
+                } 
+                else if(this.window.width >= 768 && this.window.width < 992) {
+                    this.windowSize = 2;
+                
+                }
+                else if(this.window.width >= 992 && this.window.width < 1024) {
+                    this.windowSize = 3;               
+                    console.log(this.window.width);
+                    console.log(this.windowSize);
+                }
+                else if (this.window.width >= 1024 && this.window.width < 1280) {
+                    this.windowSize = 3;
+                    console.log('aaaaaaa');
+                console.log(this.window.width);
+                    
+                }
+                else if (this.window.width >= 1280 && this.window.width < 1440) {
+                    this.windowSize = 4;
+                    console.log('bbbb');
+                }
+                else if (this.window.width >= 1440 && this.window.width < 1880) {
+                    this.windowSize = 5;              
+                    
+                }
+
                 // $('.checkbox1').prop("checked", true);
                 this.iscompare = true;
                 this.address_check = true;
@@ -480,6 +523,11 @@
              },
 
             methods: {
+                handleResize() {
+                    this.window.width = window.innerWidth;
+                    this.window.height = window.innerHeight;
+                },
+
                 moveCarousel(direction) {
                         // Find a more elegant way to express the :style. consider using props to make it truly generic
                         if (direction === 1 && !this.atEndOfList) {

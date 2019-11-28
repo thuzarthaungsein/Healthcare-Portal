@@ -139,7 +139,7 @@
                                                         <td v-for="nur_profile in nur_profiles" :key="nur_profile.id">
                                                             <dl>
                                                                 <dt class="text-left">交通アクセス</dt>
-                                                                <dd class="profile_wd"><p v-html="nur_profile.access"></p></dd>
+                                                                <dd class="profile_wd"><span v-html="nur_profile.access"></span></dd>
                                                             </dl>
                                                         </td>
                                                     </tr>

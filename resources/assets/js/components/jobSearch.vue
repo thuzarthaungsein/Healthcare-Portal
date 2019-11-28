@@ -10,7 +10,7 @@
           <!-- <div class="info-box"></div> -->
           <div class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
-            <h2 class="map-header">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2>
+            <h2 class="map-header" style="bottom: 184px;">老人ホームや病院<br/>で働きたいあなた<br/>の希望叶えます。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
