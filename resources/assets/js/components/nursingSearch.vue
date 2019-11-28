@@ -1,7 +1,7 @@
 <template>
 <layout>
 <div>
-  <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">     
+  <div class="col-md-12" style="border-bottom: 1px dashed #ff6117;padding-bottom: 10px; margin-bottom: 20px;">
     <h5 class="font-weight-bold"><i class="fas fa-map" style="color:#ff6117;"></i>&nbsp;地図検索</h5>
   </div>
   <div class="search-map"  @mouseover="getStateHover">
@@ -9,53 +9,53 @@
       <div class="col-md-12">
         <div>
         <div class="row map-wrap"  id="searchMap">
-          <!-- search map and path -->  
+          <!-- search map and path -->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
             <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
                     <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
-                    <button type="submit" class="searchButton">    
+                    <button type="submit" class="searchButton">
                       <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
-              </div> 
-            <!--end search input-->          
+              </div>
+            <!--end search input-->
             </div>
             <div class="col-lg-7 col-md-12 col-sm-12 float-right">
               <div class="divisions row" id="divisionswrap">
                 <img src="/images/img_map1.png" alt="map" class="img-fluid" style="margin:0 auto;">
                 <div class="col-sm-2 hokkaido-box">
-                  <div class="mb-3">                    
+                  <div class="mb-3">
                     <div class="division-box">
-                      <ul class="hokkaido-wrap">    
+                      <ul class="hokkaido-wrap">
                         <a href="#" data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick">
-                            <li class="spanclass" id="1">北海道</li> 
+                            <li class="spanclass" id="1">北海道</li>
                         </a>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-2 tohoku-box">   
-                  <div class="mb-3">                    
+                <div class="col-sm-2 tohoku-box">
+                  <div class="mb-3">
                     <div class="division-box">
-                      <ul class="multiple-boxa">    
+                      <ul class="multiple-boxa">
                         <a href="#" data-info="Aomori" class="path Aomori card-text" @click="getStateClick">
                             <li class="spanclass" id="2">青森</li>
                         </a>
                         <a href="#" data-info="Iwate" class="path Iwate card-text" @click="getStateClick">
                             <li class="spanclass" id="3" >岩手</li>
                         </a>
-                       
+
                         <a href="#" data-info="Akita" class="path Akita card-text" @click="getStateClick">
                             <li class="spanclass" id="5">秋田</li>
-                        </a>                     
-                        
+                        </a>
+
                         <a href="#" data-info="Miyagi" class="path Miyagi card-text" @click="getStateClick">
-                            <li class="spanclass" id="4">宮城</li>     
-                        </a>                   
-                       
+                            <li class="spanclass" id="4">宮城</li>
+                        </a>
+
                         <a  href="#" data-info="Yamagata" class="path Yamagata card-text" @click="getStateClick">
                             <li class="spanclass" id="6">山形</li>
                         </a>
@@ -75,7 +75,7 @@
                         <a href="#" data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
                              <li class="spanclass" id="13" >東京</li>
                         </a>
-                        
+
                         <a href="#" data-info="Kanagawa" class="path Kanagawa card-text" @click="getStateClick">
                             <li class="spanclass" id="14">神奈川</li>
                         </a>
@@ -84,23 +84,23 @@
                             <li class="spanclass" id="11" >埼玉</li>
                         </a>
 
-                        
+
                         <a href="#" data-info="Chiba" class="path Chiba card-text" @click="getStateClick">
                             <li class="spanclass" id="12">千葉</li>
-                        </a>                        
-                         
+                        </a>
+
                         <a href="#" data-info="Gunma" class="path Gunma card-text" @click="getStateClick">
                             <li class="spanclass" id="10">群馬</li>
                         </a>
 
                         <a href="#" data-info="Ibaraki" class="path Ibaraki card-text" @click="getStateClick">
                             <li class="spanclass" id="8" >茨城</li>
-                        </a>                       
-                      
+                        </a>
+
                         <a href="#" data-info="Tochigi" class="path Tochigi card-text" @click="getStateClick">
                               <li class="spanclass" id="9">栃木</li>
-                        </a> 
-                        
+                        </a>
+
                         <a href="#" data-info="Yamanashi" class="path Yamanashi card-text" @click="getStateClick">
                             <li class="spanclass" id="19">山梨</li>
                         </a>
@@ -117,23 +117,23 @@
                         <a href="#" data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
                             <li class="spanclass" id="15" >新潟</li>
                         </a>
-                        
+
                         <a href="#" data-info="Nagano" class="path Nagano card-text" @click="getStateClick">
                             <li class="spanclass" id="20">長野</li>
                         </a>
-                        
+
                           <a href="#" data-info="Toyama" class="path Toyama card-text" @click="getStateClick">
                             <li class="spanclass" id="16">富山</li>
                         </a>
-                        
+
                         <a href="#" data-info="Ishikawa" class="path Ishikawa card-text" @click="getStateClick">
                             <li class="spanclass" id="17">石川</li>
                         </a>
-                       
+
                         <a href="#" data-info="Fukui" class="path Fukui card-text" @click="getStateClick">
                              <li class="spanclass" id="18">福井</li>
                         </a>
-                         
+
                       </ul>
                     </div>
                   </div>
@@ -144,20 +144,20 @@
                     <!-- <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div> -->
                     <div class="division-box">
                       <ul class="multiple-boxa">
-                         
+
                         <a href="#" data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
                               <li class="spanclass" id="23">愛知</li>
                         </a>
-                       
-                        
+
+
                         <a href="#" data-info="Shizuoka" class="path Shizuoka card-text" @click="getStateClick" >
                             <li class="spanclass" id="22">静岡</li>
-                        </a>      
-                         
+                        </a>
+
                         <a href="#" id="21" data-info="Gifu" class="path Gifu card-text" @click="getStateClick">
                             <li class="spanclass" id="21">岐阜</li>
-                        </a>                 
-                       
+                        </a>
+
                         <a href="#" data-info="Mie" class="path Mie card-text" @click="getStateClick">
                              <li class="spanclass"  id="24">三重</li>
                         </a>
@@ -171,27 +171,27 @@
                     <!-- <div class="card-header pad-10" style="background:#efb838">近畿</div> -->
                     <div class="division-box">
                       <ul class="multiple-boxa">
-                        
+
                         <a href="#" data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
                             <li class="spanclass" id="27">大阪府</li>
-                        </a>  
-                       
+                        </a>
+
                         <a href="#" data-info="Hyogo" class="path Hyogo card-text" @click="getStateClick">
                              <li class="spanclass" id="28">兵庫</li>
-                        </a>   
-                        
+                        </a>
+
                         <a href="#" data-info="Kyoto" class="path Kyoto card-text" @click="getStateClick">
                             <li class="spanclass"  id="26">京都府</li>
-                        </a>    
-                        
+                        </a>
+
                         <a href="#" data-info="Nara" class="path Nara card-text" @click="getStateClick">
                             <li class="spanclass"  id="29">奈良</li>
-                        </a>               
-                        
+                        </a>
+
                         <a href="#" data-info="Shiga" class="path Shiga card-text" @click="getStateClick">
                               <li class="spanclass"  id="25">滋賀</li>
-                        </a>  
-                        
+                        </a>
+
                         <a href="#" data-info="Wakayama" class="path Wakayama card-text" @click="getStateClick">
                             <li class="spanclass" id="30">和歌山</li>
                         </a>
@@ -205,28 +205,28 @@
                     <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
                     <div class="division-box">
                       <ul class="">
-                        
+
                         <a href="#" data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
                              <li class="spanclass" id="33">岡山</li>
                         </a>
-                        
+
                         <a href="#" data-info="Hiroshima" class="path Hiroshima card-text" @click="getStateClick">
                             <li class="spanclass" id="34">広島</li>
                         </a>
-                        
+
                         <a href="#" data-info="Yamaguchi" class="path Yamaguchi card-text" @click="getStateClick">
                             <li class="spanclass" id="35">山口</li>
                         </a>
-                        
+
                         <a href="#" data-info="Shimane" class="path Shimane card-text" @click="getStateClick">
                             <li class="spanclass" id="32">島根</li>
-                        </a>        
-                         
+                        </a>
+
                         <a href="#" data-info="Tottori" class="path Tottori card-text" @click="getStateClick">
                             <li class="spanclass"  id="31">鳥取</li>
-                        </a>               
-                        
-                        
+                        </a>
+
+
                       </ul>
                     </div>
                   </div>
@@ -237,23 +237,23 @@
                     <!-- <div class="card-header pad-10" style="background:#f1a296;">四国</div> -->
                     <div class="division-box">
                       <ul class="multiple-boxa">
-                        
+
                         <a href="#" data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
                             <li class="spanclass" id="36">徳島</li>
                         </a>
-                        
+
                         <a href="#" data-info="Kagawa" class="path Kagawa card-text" @click="getStateClick">
                             <li class="spanclass" id="37">香川</li>
                         </a>
-                        
+
                         <a href="#" data-info="Kochi" class="path Kochi card-text" @click="getStateClick">
                             <li class="spanclass" id="39">高知</li>
                         </a>
-                        
+
                         <a href="#" data-info="Ehime" class="path Ehime card-text" @click="getStateClick">
                             <li class="spanclass" id="38">愛媛</li>
                         </a>
-                        
+
                       </ul>
                     </div>
                   </div>
@@ -264,28 +264,28 @@
                     <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
                     <div class="division-box">
                       <ul class="">
-                        
+
                         <a href="#" data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
                           <li class="spanclass" id="40">福岡</li>
                         </a>
-                        
+
                         <a href="#" data-info="Saga" class="path Saga card-text" @click="getStateClick">
                             <li class="spanclass" id="41">佐賀</li>
                         </a>
-                       
-                        <a href="#" data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick"> 
+
+                        <a href="#" data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick">
                             <li class="spanclass" id="42">長崎</li>
                         </a>
-                        
+
                         <a href="#" data-info="Oita" class="path Oita card-text" @click="getStateClick">
                             <li class="spanclass" id="44">大分</li>
                         </a>
 
-                       <a href="#" data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick"> 
+                       <a href="#" data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick">
                            <li class="spanclass" id="43">熊本</li>
                         </a>
-                       
-                        
+
+
                         <a href="#" data-info="Miyazaki" class="path Miyazaki card-text" @click="getStateClick">
                               <li class="spanclass" id="45">宮崎</li>
                         </a>
@@ -293,7 +293,7 @@
                         <a href="#" data-info="Kagoshima" class="path Kagoshima card-text" @click="getStateClick">
                             <li class="spanclass" id="46">鹿児島</li>
                         </a>
-                        
+
                       </ul>
                     </div>
                   </div>
@@ -303,7 +303,7 @@
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
                     <div class="division-box">
-                      <ul class=""> 
+                      <ul class="">
                           <a href="#" data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">
                               <li class="spanclass" id="47">沖縄県</li>
                         </a>
@@ -316,7 +316,7 @@
 
             <!-- <div class="map">
             </div> -->
-          
+
         </div>
 
         <!-- search city , township  -->
@@ -325,7 +325,7 @@
           <div class="col-sm-5 col-md-5">
             <div><p class="nurs-sub-heading">地域で絞り込む</p></div>
             <div class="card search-border-dash">
-              
+
               <div class="card-body">
                 <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #fff;" v-model="id">
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
@@ -339,7 +339,7 @@
           </div>
           <div class="col-sm-5 col-md-5">
             <div><p class="nurs-sub-heading">料金で絞り込む</p></div>
-            <div class="card search-border-dash">              
+            <div class="card search-border-dash">
               <div class="card-body">
                 <div class="">
                   <select name="" id="" class="form-control custom-select" style="background-color: #fff;" @change="nursingSearchData" v-model="moving_in">
@@ -395,16 +395,16 @@
           <div class="col-sm-12 col-md-12">
           <div style="position: relative;">
               <div class="overlay standard hidden">&nbsp;</div>
-              
+
               <div id="mymap" class="select m-t-10 m-b-10"></div>
-            
+
           </div>
           </div>
         </div>
         </section>
-       
+
         <!-- nursing list -->
-       <div id="nursing-search"> 
+       <div id="nursing-search">
         <div class="row">
           <div class="card-carousel-wrapper col-12">
             <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
@@ -414,7 +414,7 @@
             </div>
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
-                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">             
+                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                   <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id"> -->
                   <div class="card-carousel--card">
                     <div class="MarkerHover">
@@ -425,27 +425,27 @@
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                                     <p class="item-fav btn btn-sm" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);">
-                                        <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加 
+                                        <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加
                                         <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
                                         <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
-                                    </p>                                 
+                                    </p>
                                     <p class="item-fav btn btn-sm" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);">
                                         <i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み
                                         <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
                                         <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
-                                    </p>                                 
+                                    </p>
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">
                                         <router-link :to="{name: 'profile', params: {cusid:items.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}}</router-link>
                                     </p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
-                                </div> 
+                                </div>
                             </td>
                           </tr>
                           <tr>
                             <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id" style="padding-top:0px;">
                                 <div class="wd-in">
                                     <span class="type-name">{{items.type_name}}</span>
-                                
+
                                     <div class="row" style="margin-top:10px;">
                                         <div class="col-4" style="padding-top:3px;">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
@@ -454,11 +454,11 @@
                                             <ul class="nursingSearch-list m-l-10">
                                                 <li class="d-flex"><p class="text-truncate"><span>住所</span><span> {{items.township_name}}{{items.address}}</span></p></li>
                                                 <li class="d-flex"><span>電話 </span><span>{{items.phone}}</span></li>
-                                                <li class="d-flex"><span>サイト</span><a :href="'http://'+ items.website" target="_blank"  class="text-truncate">{{items.website}}</a></li>                                               
-                                            </ul>                                         
+                                                <li class="d-flex"><span>サイト</span><a :href="'http://'+ items.website" target="_blank"  class="text-truncate">{{items.website}}</a></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>                          
+                                </div>
                             </td>
                           </tr>
                           <tr>
@@ -476,17 +476,17 @@
                                                 <td><span>{{(Number(items.moving_in_to)/10000).toLocaleString()}} </span>万円</td>
                                                 <td><span>{{(Number(items.per_month_to)/10000).toLocaleString()}} </span>万円</td>
                                             </tr>
-                                        </tbody>                               
+                                        </tbody>
                                     </table>
                                 </div>
-                            </td>  
+                            </td>
                           </tr>
                         </tbody>
                       </table>
-                     
+
                     </div>
 
-                    
+
                   </div>
                 </div>
               </div>
@@ -504,7 +504,7 @@
       </div>
       </div>
       <!--list-->
-          
+
        <table class="table table-bordered col-12 box-wrap select">
               <tbody>
                 <tr>
@@ -542,9 +542,9 @@
                             要介護
                              <div class="control__indicator"></div>
                           </label>
-                        </div>                      
-                  </td> 
-                </tr>   
+                        </div>
+                  </td>
+                </tr>
                 <tr>
                   <th v-if="showOne">特長</th>
                   <td v-if="showOne">
@@ -556,7 +556,7 @@
                       </label>
                   </div>
                   </td>
-                </tr> 
+                </tr>
                 <tr>
                   <th v-if="showOne">施設の種類</th>
                   <td v-if="showOne">
@@ -581,7 +581,7 @@
                   </div>
                   </td>
                 </tr>
-                <tr class="text-center">                  
+                <tr class="text-center">
                   <td colspan="2">
                     <button @click="showOne = !showOne" class="btn btn-link mt-2">
                       <!-- <span v-show="showOne"><i class="fas fa-arrow-circle-up"></i>閉じる</span> -->
@@ -605,7 +605,7 @@
               </tbody>
       </table>
       <!--end list-->
-        
+
         <div class=" col-12">
             <div class="row">
                 <div id="job_detail" class="col-md-6 col-sm-12" style="margin-top:20px;" v-for="nus in displayItems" :key="nus.id">
@@ -616,34 +616,34 @@
                         <h5 class="nur-tit">
                             <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
                         </h5>
-                        <p><span class="job_ico"><i class="fa fa-map-signs"></i></span>{{nus.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{nus.township_name}}</p> 
+                        <p><span class="job_ico"><i class="fa fa-map-signs"></i></span>{{nus.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{nus.township_name}}</p>
                         </div>
                         <div class="col-4 text-right">
                         <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                         <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
-                    </div>                    
-                    
+                    </div>
+
                     </div>
                     <div class="col-12 pad-free m-b-10 clearfix">
-                        <span class="num-room"> {{nus.num_rooms}} </span>                          
+                        <span class="num-room"> {{nus.num_rooms}} </span>
                         <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                         <span v-if="fac.id == nus.fac_type" class="fac_list">
                             {{fac.description}}
                         </span>
-                        </span>  
-                        <span class="nur_date">{{nus.date_of_establishment}}</span>   
+                        </span>
+                        <span class="nur_date">{{nus.date_of_establishment}}</span>
                         <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
                     </div>
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
-                        <img :src="'/upload/nursing_profile/'+nus.logo" alt="image" @error="imgUrlAlt">   
-                         <div class="mt-4 col-12 detail-btn text-center">                                             
+                        <img :src="'/upload/nursing_profile/'+nus.logo" alt="image" @error="imgUrlAlt">
+                         <div class="mt-4 col-12 detail-btn text-center">
                             <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
-                          </div>                         
+                          </div>
                     </div>
                     <div class="col-8 job-box">
-                        <table  class="table table-bordered table-sm">                              
+                        <table  class="table table-bordered table-sm">
                             <!-- <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-user"></i></span>名前</td>
                             <td>{{nus.name}}</td>
@@ -656,7 +656,7 @@
                                         ~
                                     {{(Math.floor(Number(nus.moving_in_to)/10000))==0? '' : (Math.floor(Number(nus.moving_in_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.moving_in_to)%10000)==0 ? '' : (Number(nus.moving_in_to)%10000).toLocaleString()}}円
                                 </td>
-                            </tr>      
+                            </tr>
                             <tr>
                                 <td style="width:30%"><span class="job_ico">&#xa5;</span>月額費用</td>
                                 <td>
@@ -666,11 +666,11 @@
                                         {{(Math.floor(Number(nus.per_month_to)/10000))==0? '' : (Math.floor(Number(nus.per_month_to)/10000)).toLocaleString()+'万' }}{{(Number(nus.per_month_to)%10000)==0 ? '' : (Number(nus.per_month_to)%10000).toLocaleString()}}円
                                     </font>
                                 </td>
-                            </tr>    
+                            </tr>
                             <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-envelope"></i></span>メールアドレス</td>
                             <td>{{nus.email}}</td>
-                            </tr>                              
+                            </tr>
                             <tr>
                             <td style="width:30%;"><span class="job_ico"><i class="fa fa-map-marker-alt"></i></span>住所</td>
                             <td>{{nus.address}}</td>
@@ -678,7 +678,7 @@
                             <!-- <tr>
                             <td style="width:30%;"><span class="job_ico">&#xa5;</span>入居時費用</td>
                             <td>{{nus.moving_in}} </td>
-                            </tr> -->     
+                            </tr> -->
                         </table>
                         <h5 class="header m-t-10">こだわりの特長</h5>
                             <span v-for="(spe,index) in specialfeature" :key="index+'-'+spe.name+'-'+nus.id">
@@ -687,29 +687,29 @@
                             </span>
                             </span>
 
-                            <!-- <h5 class="header m-t-10">医療受入</h5>  
+                            <!-- <h5 class="header m-t-10">医療受入</h5>
                             <span v-for="(med,index) in medicalacceptance" :key="index+'-'+med.name+'-'+nus.id">
                             <span v-if="med.customer_id == nus.customer_id" class="feature_list">
                                 {{med.name}}
                             </span>
                             </span> -->
                     </div>
-                    <!-- <div class="col-4"> 
-                        <h5 class="header m-t-10">施設タイプ</h5>                            
+                    <!-- <div class="col-4">
+                        <h5 class="header m-t-10">施設タイプ</h5>
                             <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
                             <span v-if="fac.id == nus.fac_type" class="fac_list">
                                 {{fac.description}}
                             </span>
-                            </span>                            
-                        <div>                            
+                            </span>
+                        <div>
                         </div>
                     </div> -->
-                    </div>                  
+                    </div>
                 </div>
                 </div>
                 <div class="offset-md-4 col-md-8 mt-3" v-if="show_paginate">
               <nav aria-label="Page navigation example">
-                <ul class="pagination"> 
+                <ul class="pagination">
                   <li class="page-item">/
                     <span class="spanclass" @click="first"><i class='fas fa-angle-double-left'></i> 最初</span>
                   </li>
@@ -724,13 +724,13 @@
                   </li>
                   <li class="page-item">
                     <span class="spanclass" @click="last">最後 <i class='fas fa-angle-double-right'></i></span>
-                  </li>                 
+                  </li>
                 </ul>
               </nav>
             </div>
             </div>
         </div>
-        
+
 
       </div>
       <!-- <div class="col-md-2 p-l-0">
@@ -763,7 +763,7 @@
 
       return {
         cityid:[],
-        listid : '', 
+        listid : '',
         map: null,
         markers: [],
         searchmarkers:[],
@@ -844,7 +844,7 @@
       }else {
         start = this.currentPage - half + offset;
         end = this.currentPage + half;
-      } 
+      }
       let indexes = [];
       for (let i = start; i <= end; i++) {
         indexes.push(i);
@@ -867,7 +867,7 @@ check()
             this.moving_in = -1;
             this.township_id = -1;
         },
-        
+
 openInfoWindow(marker) {
             this.selectedLocation = marker;
             this.infoBoxOpen = true;
@@ -889,7 +889,7 @@ moveCarousel(direction) {
             this.currentOffset += this.paginationFactor;
             }
         },
-// map onclick function 
+// map onclick function
 getStateClick(e) {
             this.township_id= -1;
             this.moving_in = -1;
@@ -915,7 +915,7 @@ getStateClick(e) {
 
                this.changeSearch();
         },
-// map onclick function 
+// map onclick function
 // map change dropdown function
 nursingSearchData(index){
             if(index == 1)
@@ -926,15 +926,15 @@ nursingSearchData(index){
             else{
               this.townshipID = [];
               this.townshipID[0] = this.township_id;
-        
-            }
-           
-            this.onchangeid = 1;
-          
-            // this.townshipID = [];
-            // this.search();  
 
-         
+            }
+
+            this.onchangeid = 1;
+
+            // this.townshipID = [];
+            // this.search();
+
+
             this.axios.get('/api/getmap/',{
                     params:{
                     id: this.id,
@@ -942,21 +942,21 @@ nursingSearchData(index){
                     moving_in:this.moving_in,
                     per_month:this.per_month
                     },
-            
+
                 })
                 .then((response) => {
                     this.changeMap(response)
-                    
-                }) 
+
+                })
 
                  this.changeSearch();
 
-            
-           
-           
+
+
+
         },
 // map change dropdown function
-// make infowindow, marker , google map 
+// make infowindow, marker , google map
 coordinates(theCity, lat, lng){
 
 
@@ -972,22 +972,22 @@ coordinates(theCity, lat, lng){
                 var township_name = townshipName.toString();
                 const coordinates = []
                 const city_coordinates = []
-                
+
                 if(township_name == ''){
                     for (var i = 0; i < jp_city.length; i++) {
                     if (jp_city[i].properties.NAME_0 == theCity) {
-                    
+
                     if(jp_city[i].geometry.hasOwnProperty('geometries'))
                     {
                         for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
                     {
-                    
+
                         city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
                     }
                     }
-                    else{          
+                    else{
                         city_coordinates.push(jp_city[i].geometry['coordinates']) ;
-                    
+
                     }
                     }
                 }
@@ -995,18 +995,18 @@ coordinates(theCity, lat, lng){
                     for (var i = 0; i < result.length; i++) {
                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
                     coordinates.push(result[i].geometry['coordinates'])
-                    }    
+                    }
                 }
                 }
 
                 if(township_name == ''){
                     var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
-                
+
                 }else{
                     var co = coordinates.reduce((acc, val) => acc.concat(val), []);
                     var coordinate = co.reduce((acc, val) => acc.concat(val), []);
                 }
-                
+
                 var data = {
                     type: "Feature",
                     geometry: {
@@ -1028,12 +1028,12 @@ coordinates(theCity, lat, lng){
                     strokeOpacity: 0.8,
                     fillOpacity: 0.1,
                     strokeWeight: 1
-                    }) 
+                    })
 },
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
         for (var i = 0; i < item.length; i++) {
-         
+
             infoWindowContent.push([
             '<div id="info_content">' +
             '<div class="">' +
@@ -1043,24 +1043,24 @@ infoWindow(item, mmarker){
                     '<td colspan="2"><span class="type-name">' +
                     item[i]['type_name']+
                     '</span>'+
-                    '</td>' +                    
+                    '</td>' +
                     '</tr>' +
                 '</thead>' +
-                '<tbody>' +                    
+                '<tbody>' +
                     '<tr>' +
                     '<td colspan="2" class="text-left" style="padding-bottom:0px;">' +
                     '<img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+item[i]['alphabet']+'|ff9563|000000" alt="" style="margin-right:10px;">' +
-                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +                    
+                    '<span class="item-name">' + item[i]['name'] + '</span> <br>' +
                     '</td>' +
                 '</tr>' +
-                
+
                 '<tr>' +
                 '<td>' +
                 '<img src="/upload/nursing_profile/' + item[i]['logo'] + '" alt="image" width="100px" style="border:1px solid #ccc;"/>' +
-                '</td>' +                            
+                '</td>' +
                 '<td style="padding-bottom:0px;">' +
                     '<p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>' + item[i]['phone'] + '</p>' +
-                '</td>' +                            
+                '</td>' +
                 '</tr>' +
                 ' <tr>' +
                 '<td colspan="2" style="padding-top:0px;">' +
@@ -1091,8 +1091,8 @@ infoWindow(item, mmarker){
             var img = this.markers[i]['alphabet']
             var myLatLng = new google.maps.LatLng(lats, lngs);
             var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-        
-            
+
+
             marker = new google.maps.Marker({
             position: position,
             map: this.map,
@@ -1107,15 +1107,15 @@ infoWindow(item, mmarker){
                 infoWindow.open(this.map, marker);
             }
             })(marker, i));
-            
+
             this.markerHover.push(marker)
             var boundsListener = google.maps.event.addListener((this.map), 'bounds_changed', function(event) {
             google.maps.event.removeListener(boundsListener);
             });
-            
+
         }
         },
-// make infowindow, marker , google map 
+// make infowindow, marker , google map
 changeMap(response){
                 $('.select').removeClass('select');
                 $('#searchMap').addClass('select');
@@ -1129,8 +1129,8 @@ changeMap(response){
                 this.medical_acceptance = response.data.medical_acceptance
                 this.nursingList = response.data.nursing_profile
                 this.markers = response.data.nursing_profile;
-         
-            
+
+
                 var mmarker = new Array();
                 var item = [];
                 for (var i = 0; i < this.markers.length; i++) {
@@ -1150,14 +1150,14 @@ changeMap(response){
                  else{
                     this.coordinates(theCity,lat,lng);
                  }
-               
-               
-        
+
+
+
         },
 
 changeSearch()
         {
-    
+
             if(this.townshipID == null || this.townshipID == '')
             {
             this.townshipID[0] = 0;
@@ -1166,7 +1166,7 @@ changeSearch()
             {
             this.SpecialFeatureID[0] = 0;
             }
-            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
+            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
             {
             this.MedicalAcceptanceID[0] = 0;
             }
@@ -1179,7 +1179,7 @@ changeSearch()
             this.MoveID[0] = 0;
             }
             if(this.onchangeid == 1)
-            {  
+            {
                 if(this.township_id == -1)
                 {
                     this.townshipID[0] = 0;
@@ -1193,7 +1193,7 @@ changeSearch()
                 this.township_id = -1;
             }
 
-    
+
 
             this.axios.get('api/getnursingsearch',{
             params:{
@@ -1213,10 +1213,10 @@ changeSearch()
             //     for(var i=0; i<fav_arr.length; i++){
             //         if(response.data.nursing.includes(fav_arr[i])){
             //             response.data.nursing.indexOf(fav_arr[i])
-                        
+
             //         }
             //     }
-                
+
             // }
             console.log(JSON.parse("[" + localStorage.getItem("nursing_fav") + "]"));
             this.nus_data = response.data.nursing;
@@ -1224,20 +1224,20 @@ changeSearch()
             this.medicalacceptance = response.data.medicalacceptance;
             this.factype = response.data.factype;
             this.citylatlng = response.data.city;
-        
+
             if(this.nus_data.length == 0)
             {
 
                 const theCity = this.nus_data[0]['city_name']
                 const lat = this.nus_data[0]['lat']
                 const lng = this.nus_data[0]['lng']
-             
+
                 this.coordinates(theCity,lat,lng);
             }
-          
-            
+
+
             });
-                    
+
         },
         // clearmap(citylatlng)
         // {
@@ -1246,7 +1246,7 @@ changeSearch()
         //         var lng = citylatlng[0]['longitude']
         //         var theCity = citylatlng[0]['city_eng']
         //         const result = jp_township.features
-  
+
 
         //         const coordinates = []
         //         for (var i = 0; i < result.length; i++) {
@@ -1262,7 +1262,7 @@ changeSearch()
         //             "coordinates": coordinate
         //             },
         //         };
-                
+
         //         var mapProp = {
         //             center: new google.maps.LatLng(lat, lng),
         //             zoom: 6,
@@ -1278,11 +1278,11 @@ changeSearch()
         //             strokeWeight: 1
         //         })
         // },
-        
 
-search(){  
 
- 
+search(){
+
+
             if(this.townshipID == null || this.townshipID == '')
             {
             this.townshipID[0] = 0;
@@ -1291,7 +1291,7 @@ search(){
             {
             this.SpecialFeatureID[0] = 0;
             }
-            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')    
+            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
             {
             this.MedicalAcceptanceID[0] = 0;
             }
@@ -1304,8 +1304,8 @@ search(){
             this.MoveID[0] = 0;
             }
             if(this.onchangeid == 1)
-            {  
-               
+            {
+
                 if(this.township_id == -1)
                 {
                     this.townshipID[0] = 0;
@@ -1316,7 +1316,7 @@ search(){
                 }
             }
             else{
-                
+
                 this.township_id = -1;
             }
 
@@ -1348,52 +1348,52 @@ search(){
             var mmarker = new Array()
             var item = []
 
-    
+
             if(this.nus_data.length > 0){
 
-               
+
                 for (var i = 0; i < this.searchmarkers.length; i++) {
-                   
+
                     mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
                     item.push(this.searchmarkers[i])
                 }
                 const theCity = this.searchmarkers[0]['city_name']
                 const lat = this.searchmarkers[0]['lat']
                 const lng = this.searchmarkers[0]['lng']
-            
-                // google map 
+
+                // google map
 
                 this.coordinates(theCity,lat,lng)
-            
+
                 this.infoWindow(item, mmarker);
-                    
+
             }
             else{
                 const theCity = this.citylatlng[0]['city_name']
                 const lat = this.citylatlng[0]['latitude']
                 const lng = this.citylatlng[0]['longitude']
-             
+
               this.coordinates(theCity,lat,lng);
 
                 //  this.clearmap(this.citylatlng)
-              
-              }
-       
-                
-            
-            this.show_paginate = true;   
 
-           
+              }
+
+
+
+            this.show_paginate = true;
+
+
             });
 
-       
 
-                     
+
+
         },
         // hover animate function
         mouseover(index) {
             for (let i = 0; i < this.markerHover.length; i++) {
-                
+
                 if(this.markers[i]['alphabet'] == index)
                 {
                 this.markerHover[i].setAnimation(google.maps.Animation.BOUNCE);
@@ -1480,7 +1480,7 @@ search(){
         },
         features(e) {
             if (e.target.checked) {
-        
+
             }
         },
         getStateHover(e) {
@@ -1507,7 +1507,7 @@ search(){
                     localStorage.setItem("nursing_fav", fav_arr);
                     $("#nus-fav-local").html(fav_arr.length);
                 }
-                $(".fav-nursing-link-box>a").css({'cursor':'pointer','pointer-events':'auto'});                
+                $(".fav-nursing-link-box>a").css({'cursor':'pointer','pointer-events':'auto'});
             }
             else{
                 $('.view_pro_id'+index).css('display','block');
@@ -1526,7 +1526,7 @@ search(){
                 else{
                     $(".fav-nursing-link-box>a").css({'cursor':'pointer','pointer-events':'auto'})
                 }
-                
+
             }
         },
         first() {
@@ -1986,7 +1986,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     }
     .offset{
   width: 500px !important;
-  margin: 20px auto;  
+  margin: 20px auto;
 }
 .page-item.active_page .spanclass {
   z-index: 1;
