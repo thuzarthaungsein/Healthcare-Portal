@@ -320,7 +320,7 @@
                                             </td>
                                             <td><span class="cash-lbl-mini">{{cost.expense_moving}}</span></td>
                                             <td><span class="cash-lbl-mini">{{cost.monthly_fees}}</span></td>
-                                            <td style="padding-top:15px;">
+                                            <td>
                                                 <span :class="'changeLink changeLink'+cost.id" @click="costConfirm(cost.id)" >詳しくはこちら</span>
                                             </td>
                                         </tr>
@@ -338,7 +338,7 @@
 
                                 <div class="col-md-12 collapse closeChangeLink" :id="'changeLink' + cost.id" v-for="cost in method_payment" :key="cost.id">
                                     <label class="cost_heading_lbl m-b-15">{{cost.payment_name}}</label>
-                                    <div class="col-md-12 pad-free">
+                                    <div class="col-md-12">
                                         <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 入居にかかる費用</label>
                                         <table id="costDetails" class="table table-condensed cost_table">
                                             <tbody>
@@ -352,7 +352,7 @@
                                         </table>
                                     </div>
 
-                                    <div class="col-md-12 pad-free">
+                                    <div class="col-md-12">
                                         <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 月額費用</label>
                                         <table class="table table-condensed cost_table">
                                             <tbody>
@@ -387,7 +387,7 @@
                                         </table>
                                     </div>
 
-                                    <div class="col-md-12 pad-free">
+                                    <div class="col-md-12">
                                         <label class="cost_heading_lbl_mini"><i class="fas fa-yen-sign"></i> 返還金について</label>
                                         <table class="table table-condensed cost_table">
                                             <tbody>
@@ -733,7 +733,7 @@
 
                            </GmapMap>
 
-                            <div class="col-12" style="padding-top:20px;" v-for="m in google" :key="m.id" >
+                            <div class="m-t-20"  v-for="m in google" :key="m.id" >
                                 <table border="1" class="table table-bordered">
                                     <tbody>
                                     <tr>
@@ -994,7 +994,7 @@
                      <div class="col-sm-7 detail_profile_right">
 
                         <div class="row m-lr-0">
-                            <div class="col-12 pro-heading">
+                            <div class="col-12 pro-heading pad-free">
                                 <div class="col-12 pad-free">
                                     <h5 class="profile_header">病院情報 </h5>
                                 </div>
@@ -1096,7 +1096,7 @@
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">医院からのお知らせ </h5>
 
-                    <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info">
+                    <p v-for="hospital in hospitals" :key="hospital.id" v-html="hospital.details_info" class="col-12">
                         <!-- <span v-if="hospital.details_info">{{hospital.details_info}}</span>
                         <span v-else><p class="no-data-color">表示されるデータがありません。</p></span> -->
 
@@ -1104,7 +1104,7 @@
                 </div>
                 <div class="col-12 m-b-20">
                     <h5 class="profile_subtit">診療時間 </h5>
-                    <div class="row">
+                    <div class="row m-0">
                         <div class="col-9">
                             <table class="table table-bordered">
                                 <tbody>
@@ -1229,7 +1229,7 @@
 
                 <div class="col-12">
                     <h5 class="profile_subtit">施設情報 </h5>
-                    <div class="row col-md-12">
+                    <div class="row col-md-12 m-0">
                         <div class="col-md-2 fac-name-box" v-for="hosfacility in hosfacilities " :key="hosfacility.id">
                             <h4>{{hosfacility.description}}</h4>
                             <div class="fac-check-box" v-if="fac_list">
@@ -1257,7 +1257,7 @@
                         <span style="color:orange;font-weight:bold;">{{image.title}}</span><br>
 
                         <!-- <span>{{image.photo}}</span> -->
-                    </div>
+                    </div> 
                     <lightbox id="mylightbox" ref="lightbox" :images="light_images" :directory="thumbnailDir+'hospital_profile/'" :timeoutDuration="5000" />
                 </div>
             </div>
@@ -1265,13 +1265,13 @@
             <!-- Hospital Video -->
                 <div class="col-md-12">
                     <h5 class="profile_subtit">動画</h5>
-                    <div class="row" v-if="videos.length>0">
+                    <div class="row m-0" v-if="videos.length>0">
                         <div v-for="(video) in  videos" :key="video.id" class="col-sm-4 col-md-4 col-lg-3">
                             <iframe :src="'https://www.youtube.com/embed/'+video.photo" controls></iframe>
                             <span style="color:orange;font-weight:bold;">{{video.title}}</span><br>
                         </div>
                     </div>
-                    <div class="row" v-else>
+                    <div class="row m-0" v-else>
                         <div class="col-sm-4 col-md-4 col-lg-3">
                             <span> <p class="no-data-color">表示されるデータがありません。</p> </span>
                         </div>
@@ -2150,7 +2150,7 @@ export default {
 }
 .cost_heading_lbl_mini{
     /* border-left: 5px solid rgb(249, 121, 60); */
-    padding: 5px 10px;
+    line-height: 1;
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -2183,6 +2183,7 @@ export default {
 }
 .main-cost-table td{
     padding: 10px !important;
+    vertical-align: middle;
 }
 
 .cost_btnwrapper{
