@@ -672,6 +672,7 @@ export default {
                 profile_type:'nursing',
                 profile_arr:[], test:'',
                 station_list:[],chek_feature : [], panorama_count:'0', fac_types:[],
+                stations:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -777,6 +778,8 @@ export default {
             .get('/api/feature/'+this.profile_type+'/'+this.cusid)
             .then(response=>{
                 this.feature_list = response.data;
+                console.log('Feature is');
+                console.log(response.data);
             });
 
             this.axios
@@ -1166,11 +1169,10 @@ export default {
                         this.chek_feature.push({special_feature_id:s_features});
 
                 var chek_station=[];
-                var stations;
                 $.each($("input[name='station']:checked"), function(){
                         chek_station.push($(this).val());
                 });
-                stations = chek_station.join(',');
+                this.stations.push({station_id:chek_station});
 
 
                 var acceptance=[];
@@ -1184,7 +1186,7 @@ export default {
                         acceptance.push({id:id,type:type});
                 });
 
-                this.profile_arr.push({feature:this.feature_val,website:website,stations:stations,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form, site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type, occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
+                this.profile_arr.push({feature:this.feature_val,website:website,access:this.access_val,moving_in_from:moving_in_from,moving_in_to:moving_in_to,per_month_from:per_month_from,per_month_to:per_month_to,method:method,business_entity:business_entity, date_of_establishment:date_of_establishment,land_right_form:land_right_form,building_right_form:building_right_form, site_area:site_area,floor_area:floor_area,construction:construction,capacity:capacity,num_rooms:num_rooms,residence_form:this.residence_form_val,fac_type:fac_type, occupancy_condition:occupancy_condition,room_floor:room_floor,living_room_facilities:living_room_facilities,equipment:equipment,acceptance_remark:this.acceptance_remark_val,latitude:latitude,longitude:longitude});
 
                 var old_panorama = document.getElementsByClassName('panorama-old-img');
                 var new_panorama = document.getElementsByClassName('panorama-new-img');
@@ -1320,6 +1322,20 @@ export default {
                         }).catch(error=>{
                         if(error.response.status == 422){
                             this.chek_feature = 'error';
+                            this.errors = error.response.data.errors
+                        }
+                    }) ;
+                }
+
+                if(this.stations.length > 0) {
+                    this.axios
+                    .post(`/api/station_junctions/update/${this.cusid}`,this.stations)
+                    .then((response) => {
+
+
+                        }).catch(error=>{
+                        if(error.response.status == 422){
+                            this.stations = 'error';
                             this.errors = error.response.data.errors
                         }
                     }) ;
