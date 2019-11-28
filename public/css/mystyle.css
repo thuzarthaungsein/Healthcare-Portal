@@ -368,8 +368,7 @@ body {
 
 .category_news_title {
     /* text-align: center; */
-    padding: 0px 15px 15px 0px;   
-    
+    padding: 0px 15px 15px 0px;
 }
 
 .category_news_title span {
@@ -1578,7 +1577,9 @@ p {
 /* Create News */
 
 .error {
-    color: #ff0000;
+    color: #ff0000;   
+    margin-bottom: 18px;
+    
 }
 
 .show-news-img {
@@ -2107,7 +2108,8 @@ div.b {
 }
 
 .ads-slider h3 {
-    width: 100px;
+    /* width: 100px; */
+    width: auto;
     height: 50px;
 }
 
@@ -3357,7 +3359,7 @@ ul.main-tab li:after {
     max-width: 1600px !important;
     padding: 20px;
     background: #f7f0ed;
-    overflow:auto;
+    overflow: auto;
     scrollbar-width: thin;
 }
 
@@ -3368,12 +3370,6 @@ ul.main-tab li:after {
     width: 850px;
     /* min-width: 936px; */
     /* height: 532px; */
-}
-
-@media only screen and (max-width: 1300px) {
-    .divisions {
-        /* width: 100%; */
-    }
 }
 
 
@@ -3405,7 +3401,7 @@ ul.main-tab li:after {
 }
 
 .searchTerm {
-    width: 100%;
+    width: 70%;
     border: 3px solid #f7834b;
     border-right: none;
     padding: 5px;
@@ -3444,8 +3440,9 @@ ul.main-tab li:after {
     /* box-shadow: 1px 1px 2px #868181; */
 }
 
-.division-box a {
+.division-box a:not([href]) {
     color: #461e0a;
+    cursor: pointer;
 }
 
 .page-item .spanclass:hover {
@@ -3468,6 +3465,13 @@ ul.main-tab li:after {
 
 .spanclass:hover a.card-text {
     color: #ff6117 !important;
+}
+
+.spanclass:hover {
+    background-color: #CCFF60 !important;
+    background-image: none;
+    border: 1px solid #8E3C15;
+    color: #FF6117;
 }
 
 .spanclass>a.card-text {
@@ -3820,9 +3824,6 @@ screen and (min-width: 750px) {
 
 /* Create News */
 
-.error {
-    color: #ff0000;
-}
 
 .show-news-img {
     height: 100px;
@@ -4340,7 +4341,9 @@ div.b {
 .pad-10 {
     padding: 10px !important;
 }
-
+.p-l-162{
+    padding-left:162px;
+}
 .m-0 {
     margin: 0px;
 }
@@ -6883,6 +6886,16 @@ table.box-wrap th {
     padding: 12px !important;
 }
 
+#holder .gm-ui-hover-effect {
+    top: -3px !important;
+    right: -3px !important;
+}
+
+#holder .gm-ui-hover-effect img {
+    border: 1px solid;
+    border-radius: 50%;
+}
+
 
 /* end nursing search */
 
@@ -7538,6 +7551,7 @@ ul.test>li:before {
 }
 
 .hos_phone {
+    margin-top: -25px;
     background: #c40000;
     padding: 5px 15px;
     border-radius: 5px;

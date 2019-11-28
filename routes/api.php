@@ -30,21 +30,30 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-
-
-
-
 // public route api start
-    Route::get('gethospitalsearch','SearchMapController@getHospitalSearch');
+    Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
     Route::get('getnursingsearch','SearchMapController@getNursingSearch');
-    Route::get('getmap/','SearchMapController@getMap');
-    Route::get('getjobsearch','SearchMapController@getJobSearch');
-    Route::post('getmaptownship/{id}','SearchMapController@getMapTownship');
-
+    Route::get('getmap/{searchword}','SearchMapController@getMap');
+    Route::get('getjobsearch/{searchword}','SearchMapController@getJobSearch');
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
 // public route api end
+
+
+Route::prefix('auth')->group(function () {
+    Route::post('register', 'AuthController@register');
+    Route::get('getCities','registerController@getCities');
+    Route::get('township','registerController@township');
+    Route::get('getTypes','registerController@getTypes');
+    Route::post('login', 'AuthController@login');
+    Route::get('refresh', 'AuthController@refresh');
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::get('user', 'AuthController@user');
+        Route::post('logout', 'AuthController@logout');
+    });
+});
+
 
 // login route api start
 Route::group(['middleware' => ['auth:api']], function() {
@@ -113,6 +122,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Job
     Route::group(['prefix' => 'job'], function () {
+        Route::get('confirm/{number}','JobController@confirm');
         Route::post('add', 'JobController@store');
         Route::get('index', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');
@@ -294,8 +304,6 @@ Route::post('search', 'HomeController@search');
 Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
 Route::get('get_cat_random', 'HomeController@getCategoryRandom');
 
-
-
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
 Route::get('relatednews/{id}', 'PostController@show_related');
@@ -333,6 +341,7 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('update/{id}', 'CommentController@update');
     Route::delete('delete/{id}','CommentController@destroy');
     Route::post('search','CommentController@search');
+    //Route::get('getcommentlist/{cusid}','CommentController@getCommentList');
     Route::get('comment_list','CommentController@list');
 });
 
@@ -351,4 +360,3 @@ Route::group(['prefix' => 'new'], function () {
 
 Route::get('cost','ProfilePublishController@getCost');
 Route::get('hospital','ProfilePublishController@hospital');
-

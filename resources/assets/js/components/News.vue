@@ -68,8 +68,6 @@
 
                                                 {{ cat.name }}</a>
 
-
-
                                                 <a class="nav-link active nav-line" href="#two" v-if = "cats[0].id == cat.id" id="one-tab" data-toggle="tab" role="tab" aria-controls="One" aria-selected="true" >
 
                                                 {{ cat.name }}</a>
@@ -162,55 +160,57 @@
 
                                     <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
 
-                                    <div class="row col-md-12 p-l-0 m-0">
+                                    <div v-if="w_width > 1279" class="row col-md-12 p-l-0 m-0">
+                                        
+                                            <div class="col-sm-6 m-b-8 p-l-0" v-for="latest_post_all_cat in latest_post_all_cats.slice(0, 2)" :key="latest_post_all_cat.id">
 
-                                        <div class="col-sm-6 m-b-8 p-l-0" v-for="latest_post_all_cat in latest_post_all_cats.slice(0, 2)" :key="latest_post_all_cat.id">
+                                                <div class="col-md-12 row m-0 pad-free">
 
-                                            <div class="col-md-12 row m-0 pad-free">
+                                                    <div class="hovereffect fit-image">
 
-                                                <div class="hovereffect fit-image">
+                                                    <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
 
-                                                <clazy-load class="wrapper-1" @load="log"  src="images/noimage.jpg" :key="latest_post_all_cat.id">
+                                                        <transition name="fade">
 
-                                                    <transition name="fade">
+                                                            <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
 
-                                                        <img :src="'/upload/news/' + latest_post_all_cat.photo " class="img-responsive fit-image" @error="imgUrlAlt">
+                                                        </transition>
 
-                                                    </transition>
+                                                        <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
 
-                                                    <!-- <img class="img-responsive fit-image" :src="'/upload/news/' + latest_post_all_cat.photo " alt="" @error="imgUrlAlt"> -->
+                                                        <transition name="fade" slot="placeholder">
 
-                                                    <transition name="fade" slot="placeholder">
+                                                        <div class="preloader">
 
-                                                    <div class="preloader">
+                                                            <div class="circle">
 
-                                                        <div class="circle">
+                                                            <div class="circle-inner"></div>
 
-                                                        <div class="circle-inner"></div>
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
+                                                        </transition>
 
-                                                    </transition>
+                                                    </clazy-load>
 
-                                                </clazy-load>
+                                                        <div class="overlay">
 
-                                                    <div class="overlay">
+                                                            <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
 
-                                                        <router-link class="btn btn-sm all-btn secondary-bg-color m-t-20" :to="'/newsdetails/'+ latest_post_all_cat.id">詳細</router-link>
+                                                        </div>
 
-                                                    </div>
+                                                        <div class="info">
 
-                                                    <div class="info">
+                                                            <div class="col-12" style="border:none;">
 
-                                                        <div class="col-12" style="border:none;">
+                                                                <p class=" p_3">
 
-                                                            <p class=" p_3">
+                                                                    {{ latest_post_all_cat.main_point }}
 
-                                                                {{ latest_post_all_cat.main_point }}
+                                                                </p>
 
-                                                            </p>
+                                                            </div>
 
                                                         </div>
 
@@ -219,9 +219,10 @@
                                                 </div>
 
                                             </div>
-
-                                        </div>
-
+                                      
+                                    </div>
+                                    <div v-if="w_width < 1280 && w_width > 767" class="row col-md-12 p-l-0 m-0">
+                                            Hello
                                     </div>
 
                                     <div class="row col-md-12 p-l-0 m-0">
@@ -300,7 +301,7 @@
 
                     </div>
 
-                    <div class="col-md-12 m-lr-0 p-r-0" v-if="status == '0'">
+                    <div class="col-md-12 m-lr-0 p-0" v-if="status == '0'">
 
                         <!-- <div class="row col-md-12 text-center"><h4 class="h_4 next-title" style="border-left: 5px solid orange;">関連ニュース</h4></div> -->
 
@@ -405,8 +406,6 @@
         </div>
 
         <!-- </div> -->
-
-
         <div>
             <span v-if="post_groups.length == 0">
                 <div class="container-fuid no_search_data">
@@ -1048,51 +1047,35 @@
 
             is_cat_slided: false,
 
-            computed_width: '100%'
+            computed_width: '100%',
+            w_width: $(window).width() + 16,
 
         }
 
     },
 
     created() {
-
-
+        console.log($(window).width());
 
         var today = new Date();
-
         var month =(String) (today.getMonth()+1);
-
         var date = (String) (today.getDate());
 
-
-
         if(month.length == 1)
-
         {
-
-                month = '0' + today.getMonth();
-
+            month = '0' + today.getMonth();
         }
-
-
 
         if(date.length == 1 )
-
         {
-
-                date = '0' + today.getDate();
+            date = '0' + today.getDate();
 
         }
-
         var todaydate = today.getFullYear()+'-'+ month +'-'+ date;
-
-
 
         if(localStorage.getItem('date') == null)
 
         {
-
-
 
               localStorage.setItem('date',todaydate);
 
@@ -1165,10 +1148,14 @@
                         if(total_word > 32) {
 
                             this.is_cat_overflow = true;
+                           
 
                             this.computed_width = '99%';
 
                         }
+                        // else{
+                        //       this.is_cat_overflow = false;
+                        // }
 
                     });
 
@@ -1201,6 +1188,7 @@
                 if (this.search_word == null || this.search_word == '' || this.search_word == 'null') {
 
                     var searchword = 'all_news_search';
+                   
 
                 } else {
 
@@ -1356,7 +1344,7 @@
                 if ($('#search-word').val() == null || $('#search-word').val() == '' || $('#search-word').val() == 'null') {
 
 
-
+            console.log("statusBar",this.search_word);
                     this.clearSearch();
 
                      console.log('null');
@@ -1367,16 +1355,10 @@
 
                     this.search_word = $('#search-word').val();
                     //console.log("word",this.search_word);
-                    this.getLatestPostsByCatID();
+                    this.getLatestPostsByCatID();                 
 
                 }
-
-
-
             },
-
-
-
             clearSearch() {
 
                 this.status = 0;
@@ -1386,8 +1368,6 @@
                 this.getLatestPostsByCatID();
 
             },
-
-
 
             imgUrlAlt(event) {
 
@@ -1472,10 +1452,13 @@
                 this.scrollTo(content, 300, 800);
 
                 this.is_cat_slided = true;
+                console.log('right');
+              
 
                 this.computed_width = '96%';
 
             },
+            
 
         }
 
@@ -1630,7 +1613,12 @@ display: inline-block;
 }
 
 
-
+.card-header-tabs {
+    margin-right: -0.625rem;
+    margin-bottom: 0rem;
+    margin-left: -0.625rem;
+    border-bottom: 0;
+}
 .arr-btn {
 
     cursor: pointer;
@@ -1638,6 +1626,7 @@ display: inline-block;
     display: inline-block;
     background:transparent;
     padding: 5px 1px 4px;
+    font-size: 25px;
 
     /* padding-top: 5px;
 
@@ -1649,7 +1638,7 @@ display: inline-block;
 
     position: relative;
 
-    top: -3px;
+    top: -10px;
 
     left: -8px;
 
@@ -1659,7 +1648,7 @@ display: inline-block;
 
     position: relative;
 
-    top: -3px;
+    top: -10px;
 
     right: -26px;
 

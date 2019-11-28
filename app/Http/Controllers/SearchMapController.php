@@ -8,51 +8,63 @@ use DB;
 
 class SearchMapController extends Controller
 {
-    public function getMap()
+    public function getMap($searchword)
     {
-
+    
         $id = $_GET['id'];
-
         $township_id = $_GET['township_id'];
         $moving_in = $_GET['moving_in'];
         $per_month = $_GET['per_month'];
+
         $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,ci.city_name,t.township_name,ty.name AS type_name
-                    FROM customers AS c 
-                    LEFT JOIN townships AS t 
-                    ON t.id = c.townships_id 
-                    JOIN nursing_profiles AS n 
-                    ON n.customer_id = c.id
-                    LEFT JOIN cities AS ci
-                    ON t.city_id = ci.id
-                    JOIN types AS ty
-                    ON c.type_id = ty.id
+                    FROM nursing_profiles AS n
+                    JOIN customers AS c  ON c.id = n.customer_id
+                    LEFT JOIN townships AS t  ON t.id = c.townships_id
+                    LEFT JOIN cities AS ci ON t.city_id = ci.id
+                    LEFT JOIN types AS ty ON c.type_id = ty.id
+                    LEFT JOIN special_features_junctions as spej on spej.customer_id = n.customer_id  
+                    LEFT JOIN special_features as spe on spe.id = spej.special_feature_id
+                    LEFT JOIN acceptance_transactions as acct on acct.customer_id = n.customer_id
+                    LEFT JOIN medical_acceptance as med on med.id = acct.medical_acceptance_id
                     WHERE";
 
-        if($id != null && $township_id == -1 && $moving_in == -1 && $per_month == -1 ){
-            $query .= " t.city_id=" . $id . " group by c.id order BY n.id ASC LIMIT 26";    
+
+        if($searchword != 'null')
+        {
+           
+            $query .= " n.method like '%" . $searchword . "%' or n.business_entity like '%".$searchword."%' group by c.id";
+          
         }
-        else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month == -1){
-            $query .= " t.city_id=" . $id . " and t.id =".$township_id." group by c.id order BY n.id ASC LIMIT 26";
+        else 
+        {
+           
+            if($id != null && $township_id == -1 && $moving_in == -1 && $per_month == -1 ){
+                $query .= " t.city_id=" . $id . " group by c.id order BY n.id ASC LIMIT 26";    
+            }
+            else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month == -1){
+                $query .= " t.city_id=" . $id . " and t.id =".$township_id." group by c.id order BY n.id ASC LIMIT 26";
+            }
+            else if($id != null && $township_id == -1 && $moving_in != -1 && $per_month == -1){
+                $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+            }
+            else if ($id != null && $township_id == -1 && $moving_in == -1 && $per_month != -1){
+                $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+            }
+            else if ($id != null && $township_id == -1 && $moving_in != -1 && $per_month != -1){
+                $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+            }
+            else if ($id != null && $township_id != -1 && $moving_in != -1 && $per_month != -1){
+                $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+            }
+            else if($id != null && $township_id != -1 && $moving_in != -1 && $per_month == -1){
+                $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
+            }
+            else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month != -1){
+                $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
+            }
+
         }
-        else if($id != null && $township_id == -1 && $moving_in != -1 && $per_month == -1){
-            $query .= " t.city_id=" . $id . " and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
-        }
-        else if ($id != null && $township_id == -1 && $moving_in == -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
-        }
-        else if ($id != null && $township_id == -1 && $moving_in != -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and n.per_month_to <= ".$per_month." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
-        }
-        else if ($id != null && $township_id != -1 && $moving_in != -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.moving_in_to <= ".$moving_in." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
-        }
-        else if($id != null && $township_id != -1 && $moving_in != -1 && $per_month == -1){
-            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.moving_in_to <= ".$moving_in." group by c.id order BY n.id ASC LIMIT 26";
-        }
-        else if($id != null && $township_id != -1 && $moving_in == -1 && $per_month != -1){
-            $query .= " t.city_id=" . $id . " and t.id =".$township_id." and n.per_month_to <= ".$per_month." group by c.id order BY n.id ASC LIMIT 26";
-        }
-      
+
        
         $nursing_profile = DB::select($query);
     
@@ -71,16 +83,16 @@ class SearchMapController extends Controller
             }
         }
 
-     
-
-        $getCity            = DB::table('cities')->where('id', $id)->get();
         $city               = DB::table('cities')->get();
+        $getCity            = DB::table('cities')->where('id', $id)->get();
         $getTownships       = DB::table('townships')->where('city_id', $id)->get();
         $special_features   = DB::table('special_features')->get();
         $fac_types          = DB::table('fac_types')->get();
-        $subjects           = DB::table('subjects')->get();
+        $subjects           = DB::table('subjects')->where('parent',0)->get();
+        $sub_child          = DB::table('subjects')->get();
         $medical_acceptance = DB::table('medical_acceptance')->get();
         $occupations        = DB::table('occupation')->get();
+
         return response()->json([
             'getTownships' => $getTownships,
             'getCity' => $getCity,
@@ -89,26 +101,21 @@ class SearchMapController extends Controller
             'fac_types' => $fac_types,
             'medical_acceptance' => $medical_acceptance,
             'subjects' => $subjects,
+            'sub_child' => $sub_child,
             'occupations' => $occupations,
             'nursing_profile' => $nursing_profile,
             'alphabet' => $alphabet
         ]);
     }
 
-    public  function getMapTownship($id)
-    {
-        $query = "SELECT n.id,n.latitude as lat ,n.longitude as lng, n.feature, n.business_entity from customers As c  Join nursing_profiles As n on n.customer_id = c.id 
-                  where c.townships_id IN (" . $id . ")  order BY n.id ASC LIMIT 26";
-
-        $nus_latlng = DB::select($query);
-
-        return response()->json($nus_latlng);
-    }
+    
 
     public function getNursingSearch()
     {
           //for city
           $id = $_GET['id'];
+          $Moving_in = $_GET['Moving_in'];
+          $Per_month = $_GET['Per_month'];
 
           //to check if township is check or not 
           $townshipID = $_GET['townshipID'];
@@ -171,10 +178,6 @@ class SearchMapController extends Controller
                $MoveID = implode(',', $MoveID); // this condition is when array[0] has no '0'
            }
 
-           
-           $Moving_in = $_GET['Moving_in'];
-           $Per_month = $_GET['Per_month'];
-
 
            $query = "SELECT '' as fav_check,'' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
                      from nursing_profiles as n  
@@ -187,367 +190,45 @@ class SearchMapController extends Controller
                      left join special_features as spe on spe.id = spej.special_feature_id
                      left join acceptance_transactions as acct on acct.customer_id = n.customer_id
                      left join medical_acceptance as med on med.id = acct.medical_acceptance_id where ";
-        
-           if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID === '0' )
-           {
-                $query .= " ci.id = ".$id;    
-           }
-           if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID === '0' )
-           {
-                $query .=   " ci.id =".$id." and t.id in (".$townshipID.")";
-           } 
-           if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID === '0')
-           {
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.")";
-           }
-           if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID === '0')
-           {
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.")";
-           }
-           if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID === '0')
-           {
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.")";
-           }
 
-           if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID !== '0')
-           {
+            $query .= " ci.id = ".$id;
+
+            if($townshipID != 0 )
+            {
+                $query .=   " and t.id in (".$townshipID.")";
+            }
+            if($SpecialFeatureID != 0)
+            {
+                $query .= " and spe.id in (".$SpecialFeatureID.") ";
+            }
+            if($MedicalAcceptanceID != 0)
+            {
+                $query .= " and med.id in (".$MedicalAcceptanceID.")";
+            }
+            if($FacTypeID != 0)
+            {
+                $query .= " and f.id in (".$FacTypeID.")";
+            }
+            if($MoveID !== '0')
+            {
                 $MoveID = explode(',', $MoveID);
                 if(count($MoveID) == 3) 
                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
+                    $query .= " and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
                 
-                }
+                }  
                 else  if(count($MoveID) == 2)
                 {
-                  
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                   
+                    
+                    $query .= " and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
+                    
                 }
                 else if(count($MoveID) ==1 )
                 {
-                 
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) ";
-                           
-                }
-              
-           }
-     
-           if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID === '0')
-           {
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") ";
-           }
-
-           if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID === '0')
-           {
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.")";
-           }
-
-            if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {    
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";       
-                }
-                else if(count($MoveID) ==2)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-                
-            }
-
-            if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID === '0')
-            {    
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.")";
-            }
-
-            if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {    
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) ==3 )
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";
-                   
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-               
-            }
-
-            if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {    
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3 )
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-     
-            }
-            
-            if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") ";
-            }
-
-            if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-                       
-            }
-
-            if($townshipID != 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {
-                 $MoveID = explode(',',$MoveID);
-                 if(count($MoveID) == 3)
-                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";
-                 }
-                 else if(count($MoveID) == 2)
-                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) ";
-                 }
-                 else if(count($MoveID) == 1)
-                 {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                 }
-                
-            }
-
-            if($townshipID != 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {
-
-               
-                $MoveID = explode(',',$MoveID);
-
-                
-
-              
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".(String)$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".(String)$MoveID[1]."%' ) ";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and t.id in (".$townshipID.") and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-                
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.")";
-            }
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.")";
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and f.id in (".$FacTypeID.")";
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {     
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-                      
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") ";
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) ";
-                }  
-               
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and  f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }  
-                        
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID != 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) ";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and spe.id in (".$SpecialFeatureID.") and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }  
-                
-            }
- 
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") ";
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID.") ";
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' )";       
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) ";
-                }  
-                
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {
-                if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID != 0 && $FacTypeID == 0 && $MoveID !== '0')
-                {
-                    $MoveID = explode(',',$MoveID);
-                    if(count($MoveID) == 3)
-                    {
-                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' or n.occupancy_condition like '%".$MoveID[2]."%' ) ";
-                         
-                    }
-                    else if(count($MoveID) == 2)
-                    {
-                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) ";
-                    }
-                    else if(count($MoveID) == 1)
-                    {
-                        $query .= " ci.id =".$id." and med.id in (".$MedicalAcceptanceID.") and f.id in (".$FacTypeID." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) ";
-                    }  
                     
+                    $query .= " and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) ";
+                            
                 }
-                
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID === '0')
-            {
-                $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") ";
-            }
-
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID != 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";        
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' ) ";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and f.id in (".$FacTypeID.") and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' ) ";
-                }
-                
-            }
-              
-            if($townshipID == 0 && $SpecialFeatureID == 0 && $MedicalAcceptanceID == 0 && $FacTypeID == 0 && $MoveID !== '0')
-            {
-                $MoveID = explode(',',$MoveID);
-                if(count($MoveID) == 3)
-                {
-                    $query .= " ci.id =".$id." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%'  or n.occupancy_condition like '%".$MoveID[2]."%' ) ";              
-                }
-                else if(count($MoveID) == 2)
-                {
-                    $query .= " ci.id =".$id." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%'  or n.occupancy_condition like '%".$MoveID[1]."%' )";
-                }
-                else if(count($MoveID) == 1)
-                {
-                    $query .= " ci.id =".$id." and ( n.occupancy_condition like '%".(String)$MoveID[0]."%' )";
-                }
-                
             }
 
             if($Moving_in != -1)
@@ -558,7 +239,7 @@ class SearchMapController extends Controller
             {
                 $query .= " and n.per_month_to <= " .$Per_month;
             }
-
+         
             $query .= " group by c.id";
 
 
@@ -570,7 +251,7 @@ class SearchMapController extends Controller
             $med_query = "SELECT med.*,acc.customer_id from acceptance_transactions as acc join medical_acceptance as med on acc.medical_acceptance_id = med.id";
             $medicalacceptance = DB::select($med_query);
             
-            $fac_query = "SELECT fac.* from nursing_profiles as n  right join fac_types  as fac on fac.id = n.fac_type";
+            $fac_query = "SELECT fac.* from nursing_profiles as n   join fac_types  as fac on fac.id = n.fac_type";
             $factype = DB::select($fac_query);
             
             $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -587,255 +268,218 @@ class SearchMapController extends Controller
                     }
                 }
             }
+
             $city_query = "SELECT * from cities where id = " .$id;
             $city = DB::select($city_query);
-
-            // $city = DB::table('cities')->where('id',$id)->get();
+            
             return response()->json(array("nursing"=>$nus_data,
                                           "specialfeature"=>$specialfeature,
                                           "medicalacceptance"=>$medicalacceptance,
                                           "factype"=>$factype,
                                           "city"=>$city
                                         ));
+ 
+     }
 
+
+
+    public function getHospitalSearch($searchword)
+    {
+       
+          
+          $query ="SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
+                  from  hospital_profiles as h 
+                  join customers as c on h.customer_id = c.id 
+                  left join townships as t on t.id = c.townships_id  
+                  left join cities as ci on ci.id = t.city_id
+                  left join special_features_junctions as spej on spej.customer_id = c.id 
+                  left join special_features as spe on spe.id = spej.special_feature_id
+                  left join subject_junctions as subj on subj.customer_id = c.id
+                  left join subjects as sub on sub.id = subj.subject_id
+                  where ";
+
+        if($searchword != 'null')
+        {
+          
+            $query .= " h.access like '%" . $searchword . "%' or h.medical_department like '%".$searchword."%' group by c.id";
+        }
+        else
+        {
          
+          //for city
+          $id = $_GET['id'];
+
+          //to check if township is check or not 
+          $townshipID = $_GET['townshipID'];
+          if ($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+          {
+              $townshipID = '0';
+          } else if ($townshipID[0] == '0' && count($townshipID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+              unset($townshipID[0]);
+              $townshipID = implode(',', $townshipID);
+          } else {
+              $townshipID = implode(',', $townshipID); // this condition is when array[0] has no '0'
+          }
+
+          //to check if specialfeature is check or not 
+          $specialfeatureID = $_GET['specialfeatureID'];
+          if ($specialfeatureID[0] == '0' && count($specialfeatureID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+          {
+              $specialfeatureID = '0';
+          } else if ($specialfeatureID[0] == '0' && count($specialfeatureID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+              unset($specialfeatureID[0]);
+              $specialfeatureID = implode(',', $specialfeatureID);
+          } else {
+              $specialfeatureID = implode(',', $specialfeatureID); // this condition is when array[0] has no '0'
+          }
+
+          //to check if subject is check or not 
+          $subjectID = $_GET['subjectID'];
+          if ($subjectID[0] == '0' && count($subjectID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+          {                       
+              $subjectID = '0';
+          } else if ($subjectID[0] == '0' && count($subjectID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+              unset($subjectID[0]);
+              $subjectID = implode(',', $subjectID);
+          } else {
+              $subjectID = implode(',', $subjectID); // this condition is when array[0] has no '0'
+          }
+                  
+            if ($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID == '0') {
+                $query .= " ci.id = " . $id . " group by c.id";
+
+            } else if ($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID == '0') {
+                $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ")  group by c.id";
+                
+            } else if ($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID == '0') {
+                $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ") and spe.id in (" . $specialfeatureID . ")  group by c.id";
+                
+            } else if ($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID != '0') {
+                $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ") and sub.id in (" . $subjectID . ")  group by c.id";
+                
+            } else if ($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID == '0') {
+                $query .= "ci.id = " . $id . " and   spe.id in (" . $specialfeatureID . ")  group by c.id";
+                
+            } else if ($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID != '0') {
+                $query .= "ci.id = " . $id . " and sub.id in (" . $subjectID . ") group by c.id";
+                
+            } else if ($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID != '0') {
+                $query .= "ci.id = " . $id . " and  spe.id in (" . $specialfeatureID . ")  and sub.id in (" . $subjectID . ") group by c.id";
+                
+            } else if ($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID != '0') {
+                $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ") and spe.id in (" . $specialfeatureID . ")  and sub.id in (" . $subjectID . ") group by c.id";
+                
+            }
+        }
 
         
-    }
-
-
-
-    public function getHospitalSearch()
-    {
-
-        //for city
-        $id = $_GET['id'];
-
-
-        //to check if township is check or not 
-        $townshipID = $_GET['townshipID'];
-        if ($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
-        {
-            $townshipID = '0';
-        } else if ($townshipID[0] == '0' && count($townshipID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
-            unset($townshipID[0]);
-            $townshipID = implode(',', $townshipID);
-        } else {
-            $townshipID = implode(',', $townshipID); // this condition is when array[0] has no '0'
-        }
-
-        //to check if specialfeature is check or not 
-        $specialfeatureID = $_GET['specialfeatureID'];
-        if ($specialfeatureID[0] == '0' && count($specialfeatureID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
-        {
-            $specialfeatureID = '0';
-        } else if ($specialfeatureID[0] == '0' && count($specialfeatureID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
-            unset($specialfeatureID[0]);
-            $specialfeatureID = implode(',', $specialfeatureID);
-        } else {
-            $specialfeatureID = implode(',', $specialfeatureID); // this condition is when array[0] has no '0'
-        }
-
-        //to check if subject is check or not 
-        $subjectID = $_GET['subjectID'];
-        if ($subjectID[0] == '0' && count($subjectID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
-        {
-            $subjectID = '0';
-        } else if ($subjectID[0] == '0' && count($subjectID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
-            unset($subjectID[0]);
-            $subjectID = implode(',', $subjectID);
-        } else {
-            $subjectID = implode(',', $subjectID); // this condition is when array[0] has no '0'
-        }
-         
-        $query ="SELECT h.id as hos_id, c.id as cus_id, h.*,c.*
-                from  hospital_profiles as h 
-                join customers as c on h.customer_id = c.id 
-                left join townships as t on t.id = c.townships_id  
-                left join cities as ci on ci.id = t.city_id
-                left join special_features_junctions as spej on spej.customer_id = c.id 
-                left join special_features as spe on spe.id = spej.special_feature_id
-                left join subject_junctions as subj on subj.customer_id = c.id
-                left join subjects as sub on sub.id = subj.subject_id
-                where ";
-
-        if ($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID == '0') {
-            $query .= " ci.id = " . $id . " group by c.id";
-
-        } else if ($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID == '0') {
-            $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ")  group by c.id";
-            
-        } else if ($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID == '0') {
-            $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ") and spe.id in (" . $specialfeatureID . ")  group by c.id";
-            
-        } else if ($townshipID != '0' && $specialfeatureID == '0' &&  $subjectID != '0') {
-            $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ") and sub.id in (" . $subjectID . ")  group by c.id";
-            
-        } else if ($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID == '0') {
-            $query .= "ci.id = " . $id . " and   spe.id in (" . $specialfeatureID . ")  group by c.id";
-            
-        } else if ($townshipID == '0' && $specialfeatureID == '0' &&  $subjectID != '0') {
-            $query .= "ci.id = " . $id . " and sub.id in (" . $subjectID . ") group by c.id";
-            
-        } else if ($townshipID == '0' && $specialfeatureID != '0' &&  $subjectID != '0') {
-            $query .= "ci.id = " . $id . " and  spe.id in (" . $specialfeatureID . ")  and sub.id in (" . $subjectID . ") group by c.id";
-            
-        } else if ($townshipID != '0' && $specialfeatureID != '0' &&  $subjectID != '0') {
-            $query .= "ci.id = " . $id . " and  t.id in (" . $townshipID . ") and spe.id in (" . $specialfeatureID . ")  and sub.id in (" . $subjectID . ") group by c.id";
-            
-        }
         $hos_data = DB::select($query);
-
         $spe_query = "SELECT spe.*,spej.customer_id from  special_features as spe join special_features_junctions as spej on spe.id = spej.special_feature_id";
         $specialfeature = DB::select($spe_query);
         $sub_query = "SELECT sub.*,subj.customer_id from  subjects as sub join subject_junctions as subj on sub.id = subj.subject_id";
         $subject = DB::select($sub_query);
         $timetable = DB::table('schedule')->get();
+        $sub_child = DB::table('subjects')->get();
 
-        return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject));
+        return response()->json(array("hospital" => $hos_data, "timetable" => $timetable, "specialfeature" => $specialfeature, "subject" => $subject,"sub_child"=>$sub_child));
     }
 
 
-    public function getSpecialFeatures($hos_data)
-    { }
-
-    public function getJobSearch()
+    public function getJobSearch($searchword)
     {
-        
-        //for city
-        $id = $_GET['id'];
-
-        //to check if township is check or not 
-        $townshipID = $_GET['townshipID'];
-        if ($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
-        {
-            $townshipID = '0';
-        } else if ($townshipID[0] == '0' && count($townshipID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
-            unset($townshipID[0]);
-            $townshipID = implode(',', $townshipID);
-        } else {
-            $townshipID = implode(',', $townshipID); // this condition is when array[0] has no '0'
-        }
-
-
-        //to check if occupation is check or not
-        $occupationID = $_GET['occupationID'];
-
-        if ($occupationID[0] == '0' && count($occupationID) == 1) {
-            $occupationID = '0';
-        } else if ($occupationID[0] == '0' && count($occupationID) > 1) {
-            unset($occupationID[0]);
-            $occupationID = implode(',', $occupationID);
-        } else {
-            $occupationID = implode(',', $occupationID);
-        }
-
-
-
-        //to check if employment status is check or not
-        $empstatus = $_GET['empstatus'];
-
-        if ($empstatus[0] === '0' && count($empstatus) === 1) {
-            $empstatus = '0';
-        } else if ($empstatus[0] === '0' && count($empstatus) > 1) {
-
-            unset($empstatus[0]);
-            $empstatus = implode(',', $empstatus);
-        } else {
-            $empstatus = implode(',', $empstatus);
-        }
-
-
         $query = "SELECT j.id as jobid, j.*,c.*,n.*,h.*,
-                 (CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum 
-                  from  jobs as j
-                  join customers as c on c.id = j.customer_id
-                  left Join nursing_profiles As n on n.customer_id = c.id 
-                  left Join hospital_profiles As h on h.customer_id = c.id 
-                  left Join townships as t on t.id = j.township_id 
-                  where ";
+                (CASE c.type_id WHEN '2' THEN CONCAT((500000+j.id),'-',LPAD(j.id, 4, '0')) ELSE CONCAT((200000+j.id),'-',LPAD(j.id, 4, '0')) END) as jobnum 
+                from  jobs as j
+                join customers as c on c.id = j.customer_id
+                left Join nursing_profiles As n on n.customer_id = c.id 
+                left Join hospital_profiles As h on h.customer_id = c.id 
+                left Join townships as t on t.id = j.township_id 
+                where ";
 
-        if ($townshipID == '0' && $occupationID == '0' &&  $empstatus == '0') {
-            $query .= "t.city_id =".$id;
-             
-        } else if ($townshipID != '0'  && $occupationID == '0' && $empstatus == '0') {
-            $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.")";
-       
-        } else if ($townshipID != '0' && $occupationID != '0' && $empstatus == '0') {
-            $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.")";
-            
-        } else if ($townshipID != '0' && $occupationID == '0' && $empstatus != '0') {
-            $empstatus = explode(',', $empstatus);
-
-            if (count($empstatus) == 4) {
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
-            }
-            else if(count($empstatus) == 3)
-            {
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')" ;
-            }
-            else if(count($empstatus) == 2){
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')" ;
-            }
-            else  {
- 
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and (j.employment_status = '".$empstatus[0] ."')";
-            }
-            
-        } else if ($townshipID == '0' && $occupationID != '0' && $empstatus != '0') {
-            $empstatus = explode(',', $empstatus);
-
-            if (count($empstatus) == 4) {
-                $query .= "t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
-            }
-            else if(count($empstatus) == 3){
-                $query .= "t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')";
-            }
-            else if(count($empstatus) == 2){
-                $query .= "t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')";
-            }
-            else{
-                $query .= "t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")  and ( j.employment_status = '". $empstatus[0] ."')";
-            }
-            
-        } else if ($townshipID == '0' && $occupationID == '0' && $empstatus != '0') {
-            $empstatus = explode(',', $empstatus);
-
-            if (count($empstatus) == 4) {
-                $query .= "t.city_id =" .$id. " and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
-            }
-            else if(count($empstatus) == 3){
-                $query .= "t.city_id =" .$id. " and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')";
-            }
-            else if(count($empstatus) == 2){
-                $query .= "t.city_id =" .$id. " and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')";
-            }
-            else{
-                $query .= "t.city_id =" .$id. " and ( j.employment_status = '". $empstatus[0] ."')";
-            }
-
-            
-        } else if ($townshipID == '0' && $occupationID != '0' && $empstatus == '0') {
-            $query .= "t.city_id =" .$id. " and j.occupation_id in (".$occupationID.")";
-
-            
-        } else if ($townshipID != '0' && $occupationID != '0' && $empstatus != '0') {
-            $empstatus = explode(',', $empstatus);
-
-            if (count($empstatus) == 4) {
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
-            }
-            else if(count($empstatus) == 3){
-                $query .= " t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')";
-            }
-            else if(count($empstatus) == 2){
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and ( j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')";
-            }
-            else{
-                $query .= "t.city_id =" .$id. " and t.id in (".$townshipID.") and j.occupation_id in (".$occupationID.") and ( j.employment_status = '". $empstatus[0] ."')";
-            }
-    
+        if($searchword != 'null')
+        {
+           
+            $query .= " j.title like '%" . $searchword . "%' or j.description like '%".$searchword."%'";
         }
+        else
+        {
+            //for city
+            $id = $_GET['id'];
+
+            //to check if township is check or not 
+            $townshipID = $_GET['townshipID'];
+            if ($townshipID[0] == '0' && count($townshipID) == 1) //get param value of hospitalsearch.vue and if value is 0 and count =1 , this condition is "No Check"
+            {
+                $townshipID = '0';
+            } else if ($townshipID[0] == '0' && count($townshipID) > 1) { //if count > 1, this condition is  "Check and Remove an item of array [0] and implode array 
+                unset($townshipID[0]);
+                $townshipID = implode(',', $townshipID);
+            } else {
+                $townshipID = implode(',', $townshipID); // this condition is when array[0] has no '0'
+            }
+
+
+            //to check if occupation is check or not
+            $occupationID = $_GET['occupationID'];
+
+            if ($occupationID[0] == '0' && count($occupationID) == 1) {
+                $occupationID = '0';
+            } else if ($occupationID[0] == '0' && count($occupationID) > 1) {
+                unset($occupationID[0]);
+                $occupationID = implode(',', $occupationID);
+            } else {
+                $occupationID = implode(',', $occupationID);
+            }
+
+
+
+            //to check if employment status is check or not
+            $empstatus = $_GET['empstatus'];
+
+            if ($empstatus[0] === '0' && count($empstatus) === 1) {
+                $empstatus = '0';
+            } else if ($empstatus[0] === '0' && count($empstatus) > 1) {
+
+                unset($empstatus[0]);
+                $empstatus = implode(',', $empstatus);
+            } else {
+                $empstatus = implode(',', $empstatus);
+            }
+
+            $query .= "t.city_id =".$id;
+
+            if($townshipID != '0')
+            {
+                $query .= " and t.id in (".$townshipID.")";
+            }
+            if($occupationID != '0')
+            {
+                $query .= " and j.occupation_id in (".$occupationID.")";
+            }
+            if($empstatus != '0')
+            {
+                $empstatus = explode(',', $empstatus);
+        
+                if (count($empstatus) == 4) {
+                    $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."' or j.employment_status = '". $empstatus[3] ."')" ;
+                }
+                else if(count($empstatus) == 3)
+                {
+                    $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."' or j.employment_status = '". $empstatus[2] ."')" ;
+                }
+                else if(count($empstatus) == 2){
+                    $query .= " and (j.employment_status = '". $empstatus[0] ."' or j.employment_status = '".$empstatus[1] ."')" ;
+                }
+                else  {
+     
+                    $query .= " and (j.employment_status = '".$empstatus[0] ."')";
+                } 
+            }
+        }
+        
+     
+
+        $query .= " group by c.id";
 
         $job_data = DB::select($query);
 

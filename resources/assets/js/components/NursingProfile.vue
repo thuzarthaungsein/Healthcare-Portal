@@ -36,9 +36,13 @@
                             <label class="heading-lbl col-2 pad-free">メールアドレス<span class="error">*</span></label>
                             <label class=" col-10 float-right customer-email"> {{customer_info.email}} </label>
                     </div>
-                    <div class="form-group form-group-wrapper">
+                    <div class="form-group form-group-wrapper d-flex">
                             <label class="heading-lbl col-2 pad-free">電話番号<span class="error">*</span></label>
-                            <input type="text" class="form-control customer-phone col-10 float-right"  placeholder="電話" v-model="customer_info.phone">
+                            <div class="col-10 row">
+                            <input type="text" class="form-control customer-phone col-12"  placeholder="電話番号を入力してください。" v-model="customer_info.phone" v-on:keydown="isNumberOnly" @focusout="numberLength" maxlength="14">
+                            <span class="error" v-if="ph_error"></span>
+                            <span class="error" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>                            
+                            </div>
                     </div>
                     <div class="form-group form-group-wrapper">
                             <label class="heading-lbl col-2 pad-free">公式サイト</label>
@@ -699,6 +703,8 @@ export default {
                 access_val: '',
                 panorama_length: 0,
                 new_panorama_img: [],
+                ph_length: false,
+                ph_error: false,
             }
         },
 
@@ -1332,6 +1338,23 @@ export default {
                         document.getElementById('nursing').click();
                     })
                 }                
+                
+            },
+            isNumberOnly: function(event) {
+                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                {
+                    event.preventDefault();
+                }
+            },
+            numberLength: function(event) {                
+                if(this.customer_info.phone == ''){
+                    this.ph_error = true;
+                }else if(this.customer_info.phone.length < 10){
+                    this.ph_length = true;
+                }else{
+                    this.ph_length = false;
+                }
                 
             }
         }

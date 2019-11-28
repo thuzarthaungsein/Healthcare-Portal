@@ -19,6 +19,12 @@ class CommentController extends Controller
         // return array_reverse($comment);
         $sql = "SELECT comments.*,customers.name from comments JOIN customers ON comments.customer_id= customers.id";
         $commentList = DB::select($sql);
+        foreach ($commentList as $com) {
+            $splitTimeStamp = explode(" ",$com->created_at);
+            $com->created_date = $splitTimeStamp[0];
+            $com->created_time = $splitTimeStamp[1];
+        }
+        // return $comments;
         return $commentList;
     }
 

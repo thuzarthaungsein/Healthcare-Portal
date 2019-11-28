@@ -12,11 +12,11 @@
           <!-- search map and path -->
             <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
             <h2 class="map-header">あなたらしい<br/>暮らしができる<br/> 老人ホームが <br/>見つかります。</h2>
-            <!--search input-->
+            <!--search input-->    
               <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
-                    <button type="submit" class="searchButton">
+                    <input type="text"  id="search-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <button class="searchButton"  @click="searchfreeword" >    
                       <i class="fas fa-search"></i> 検索
                   </button>
                 </div>
@@ -29,9 +29,9 @@
                 <div class="col-sm-2 hokkaido-box">
                   <div class="mb-3">
                     <div class="division-box">
-                      <ul class="hokkaido-wrap">
-                        <a href="#" data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick">
-                            <li class="spanclass" id="1">北海道</li>
+                      <ul class="hokkaido-wrap">    
+                        <a data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick">
+                            <li class="spanclass" id="1">北海道</li> 
                         </a>
                       </ul>
                     </div>
@@ -40,26 +40,25 @@
                 <div class="col-sm-2 tohoku-box">
                   <div class="mb-3">
                     <div class="division-box">
-                      <ul class="multiple-boxa">
-                        <a href="#" data-info="Aomori" class="path Aomori card-text" @click="getStateClick">
+                      <ul class="multiple-boxa">    
+                        <a data-info="Aomori" class="path Aomori card-text" @click="getStateClick">
                             <li class="spanclass" id="2">青森</li>
                         </a>
-                        <a href="#" data-info="Iwate" class="path Iwate card-text" @click="getStateClick">
+                        <a data-info="Iwate" class="path Iwate card-text" @click="getStateClick">
                             <li class="spanclass" id="3" >岩手</li>
-                        </a>
-
-                        <a href="#" data-info="Akita" class="path Akita card-text" @click="getStateClick">
+                        </a>       
+                        <a data-info="Akita" class="path Akita card-text" @click="getStateClick">
                             <li class="spanclass" id="5">秋田</li>
-                        </a>
-
-                        <a href="#" data-info="Miyagi" class="path Miyagi card-text" @click="getStateClick">
-                            <li class="spanclass" id="4">宮城</li>
-                        </a>
-
-                        <a  href="#" data-info="Yamagata" class="path Yamagata card-text" @click="getStateClick">
+                        </a>                     
+                        
+                        <a data-info="Miyagi" class="path Miyagi card-text" @click="getStateClick">
+                            <li class="spanclass" id="4">宮城</li>     
+                        </a>                   
+                       
+                        <a  data-info="Yamagata" class="path Yamagata card-text" @click="getStateClick">
                             <li class="spanclass" id="6">山形</li>
                         </a>
-                        <a href="#" data-info="Fukushima" class="path Fukushima card-text" @click="getStateClick">
+                        <a data-info="Fukushima" class="path Fukushima card-text" @click="getStateClick">
                             <li class="spanclass" id="7">福島</li>
                         </a>
                       </ul>
@@ -72,36 +71,33 @@
                     <!-- <div class="card-header pad-10" style="background-color:#71d5cb">関東</div> -->
                     <div class="division-box">
                       <ul class="multiple-box">
-                        <a href="#" data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
+                        <a data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
                              <li class="spanclass" id="13" >東京</li>
-                        </a>
-
-                        <a href="#" data-info="Kanagawa" class="path Kanagawa card-text" @click="getStateClick">
+                        </a>                      
+                        <a data-info="Kanagawa" class="path Kanagawa card-text" @click="getStateClick">
                             <li class="spanclass" id="14">神奈川</li>
                         </a>
 
-                        <a href="#" data-info="Saitama" class="path Saitama card-text" @click="getStateClick">
+                        <a data-info="Saitama" class="path Saitama card-text" @click="getStateClick">
                             <li class="spanclass" id="11" >埼玉</li>
-                        </a>
-
-
-                        <a href="#" data-info="Chiba" class="path Chiba card-text" @click="getStateClick">
+                        </a> 
+                        <a data-info="Chiba" class="path Chiba card-text" @click="getStateClick">
                             <li class="spanclass" id="12">千葉</li>
-                        </a>
-
-                        <a href="#" data-info="Gunma" class="path Gunma card-text" @click="getStateClick">
+                        </a>                        
+                         
+                        <a data-info="Gunma" class="path Gunma card-text" @click="getStateClick">
                             <li class="spanclass" id="10">群馬</li>
                         </a>
 
-                        <a href="#" data-info="Ibaraki" class="path Ibaraki card-text" @click="getStateClick">
+                        <a data-info="Ibaraki" class="path Ibaraki card-text" @click="getStateClick">
                             <li class="spanclass" id="8" >茨城</li>
-                        </a>
-
-                        <a href="#" data-info="Tochigi" class="path Tochigi card-text" @click="getStateClick">
+                        </a>                       
+                      
+                        <a data-info="Tochigi" class="path Tochigi card-text" @click="getStateClick">
                               <li class="spanclass" id="9">栃木</li>
-                        </a>
-
-                        <a href="#" data-info="Yamanashi" class="path Yamanashi card-text" @click="getStateClick">
+                        </a> 
+                        
+                        <a data-info="Yamanashi" class="path Yamanashi card-text" @click="getStateClick">
                             <li class="spanclass" id="19">山梨</li>
                         </a>
                       </ul>
@@ -114,23 +110,22 @@
                     <!-- <div class="card-header pad-10" style="background-color:#75b777">北陸</div> -->
                     <div class="division-box">
                       <ul class="">
-                        <a href="#" data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
+                        <a data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
                             <li class="spanclass" id="15" >新潟</li>
-                        </a>
-
-                        <a href="#" data-info="Nagano" class="path Nagano card-text" @click="getStateClick">
+                        </a>  
+                        <a data-info="Nagano" class="path Nagano card-text" @click="getStateClick">
                             <li class="spanclass" id="20">長野</li>
                         </a>
-
-                          <a href="#" data-info="Toyama" class="path Toyama card-text" @click="getStateClick">
+                        
+                          <a data-info="Toyama" class="path Toyama card-text" @click="getStateClick">
                             <li class="spanclass" id="16">富山</li>
                         </a>
-
-                        <a href="#" data-info="Ishikawa" class="path Ishikawa card-text" @click="getStateClick">
+                        
+                        <a data-info="Ishikawa" class="path Ishikawa card-text" @click="getStateClick">
                             <li class="spanclass" id="17">石川</li>
                         </a>
-
-                        <a href="#" data-info="Fukui" class="path Fukui card-text" @click="getStateClick">
+                       
+                        <a data-info="Fukui" class="path Fukui card-text" @click="getStateClick">
                              <li class="spanclass" id="18">福井</li>
                         </a>
 
@@ -143,22 +138,21 @@
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#c0c743">東海甲信</div> -->
                     <div class="division-box">
-                      <ul class="multiple-boxa">
-
-                        <a href="#" data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
+                      <ul class="multiple-boxa">  
+                        <a data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
                               <li class="spanclass" id="23">愛知</li>
                         </a>
-
-
-                        <a href="#" data-info="Shizuoka" class="path Shizuoka card-text" @click="getStateClick" >
+                       
+                        
+                        <a data-info="Shizuoka" class="path Shizuoka card-text" @click="getStateClick" >
                             <li class="spanclass" id="22">静岡</li>
-                        </a>
-
-                        <a href="#" id="21" data-info="Gifu" class="path Gifu card-text" @click="getStateClick">
+                        </a>      
+                         
+                        <a id="21" data-info="Gifu" class="path Gifu card-text" @click="getStateClick">
                             <li class="spanclass" id="21">岐阜</li>
-                        </a>
-
-                        <a href="#" data-info="Mie" class="path Mie card-text" @click="getStateClick">
+                        </a>                 
+                       
+                        <a data-info="Mie" class="path Mie card-text" @click="getStateClick">
                              <li class="spanclass"  id="24">三重</li>
                         </a>
                       </ul>
@@ -170,29 +164,28 @@
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background:#efb838">近畿</div> -->
                     <div class="division-box">
-                      <ul class="multiple-boxa">
-
-                        <a href="#" data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
+                      <ul class="multiple-boxa"> 
+                        <a data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
                             <li class="spanclass" id="27">大阪府</li>
-                        </a>
-
-                        <a href="#" data-info="Hyogo" class="path Hyogo card-text" @click="getStateClick">
+                        </a>  
+                       
+                        <a data-info="Hyogo" class="path Hyogo card-text" @click="getStateClick">
                              <li class="spanclass" id="28">兵庫</li>
-                        </a>
-
-                        <a href="#" data-info="Kyoto" class="path Kyoto card-text" @click="getStateClick">
+                        </a>   
+                        
+                        <a data-info="Kyoto" class="path Kyoto card-text" @click="getStateClick">
                             <li class="spanclass"  id="26">京都府</li>
-                        </a>
-
-                        <a href="#" data-info="Nara" class="path Nara card-text" @click="getStateClick">
+                        </a>    
+                        
+                        <a data-info="Nara" class="path Nara card-text" @click="getStateClick">
                             <li class="spanclass"  id="29">奈良</li>
-                        </a>
-
-                        <a href="#" data-info="Shiga" class="path Shiga card-text" @click="getStateClick">
+                        </a>               
+                        
+                        <a data-info="Shiga" class="path Shiga card-text" @click="getStateClick">
                               <li class="spanclass"  id="25">滋賀</li>
-                        </a>
-
-                        <a href="#" data-info="Wakayama" class="path Wakayama card-text" @click="getStateClick">
+                        </a>  
+                        
+                        <a data-info="Wakayama" class="path Wakayama card-text" @click="getStateClick">
                             <li class="spanclass" id="30">和歌山</li>
                         </a>
                       </ul>
@@ -204,25 +197,24 @@
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background:#f58c3f;">中国</div> -->
                     <div class="division-box">
-                      <ul class="">
-
-                        <a href="#" data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
+                      <ul class=""> 
+                        <a data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
                              <li class="spanclass" id="33">岡山</li>
                         </a>
-
-                        <a href="#" data-info="Hiroshima" class="path Hiroshima card-text" @click="getStateClick">
+                        
+                        <a data-info="Hiroshima" class="path Hiroshima card-text" @click="getStateClick">
                             <li class="spanclass" id="34">広島</li>
                         </a>
-
-                        <a href="#" data-info="Yamaguchi" class="path Yamaguchi card-text" @click="getStateClick">
+                        
+                        <a data-info="Yamaguchi" class="path Yamaguchi card-text" @click="getStateClick">
                             <li class="spanclass" id="35">山口</li>
                         </a>
-
-                        <a href="#" data-info="Shimane" class="path Shimane card-text" @click="getStateClick">
+                        
+                        <a data-info="Shimane" class="path Shimane card-text" @click="getStateClick">
                             <li class="spanclass" id="32">島根</li>
-                        </a>
-
-                        <a href="#" data-info="Tottori" class="path Tottori card-text" @click="getStateClick">
+                        </a>        
+                         
+                        <a data-info="Tottori" class="path Tottori card-text" @click="getStateClick">
                             <li class="spanclass"  id="31">鳥取</li>
                         </a>
 
@@ -237,20 +229,19 @@
                     <!-- <div class="card-header pad-10" style="background:#f1a296;">四国</div> -->
                     <div class="division-box">
                       <ul class="multiple-boxa">
-
-                        <a href="#" data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
+                        <a data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
                             <li class="spanclass" id="36">徳島</li>
                         </a>
-
-                        <a href="#" data-info="Kagawa" class="path Kagawa card-text" @click="getStateClick">
+                        
+                        <a data-info="Kagawa" class="path Kagawa card-text" @click="getStateClick">
                             <li class="spanclass" id="37">香川</li>
                         </a>
-
-                        <a href="#" data-info="Kochi" class="path Kochi card-text" @click="getStateClick">
+                        
+                        <a data-info="Kochi" class="path Kochi card-text" @click="getStateClick">
                             <li class="spanclass" id="39">高知</li>
                         </a>
-
-                        <a href="#" data-info="Ehime" class="path Ehime card-text" @click="getStateClick">
+                        
+                        <a data-info="Ehime" class="path Ehime card-text" @click="getStateClick">
                             <li class="spanclass" id="38">愛媛</li>
                         </a>
 
@@ -264,33 +255,32 @@
                     <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
                     <div class="division-box">
                       <ul class="">
-
-                        <a href="#" data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
+                        <a data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
                           <li class="spanclass" id="40">福岡</li>
                         </a>
-
-                        <a href="#" data-info="Saga" class="path Saga card-text" @click="getStateClick">
+                        
+                        <a data-info="Saga" class="path Saga card-text" @click="getStateClick">
                             <li class="spanclass" id="41">佐賀</li>
                         </a>
-
-                        <a href="#" data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick">
+                       
+                        <a data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick"> 
                             <li class="spanclass" id="42">長崎</li>
                         </a>
-
-                        <a href="#" data-info="Oita" class="path Oita card-text" @click="getStateClick">
+                        
+                        <a data-info="Oita" class="path Oita card-text" @click="getStateClick">
                             <li class="spanclass" id="44">大分</li>
                         </a>
 
-                       <a href="#" data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick">
+                       <a data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick"> 
                            <li class="spanclass" id="43">熊本</li>
                         </a>
-
-
-                        <a href="#" data-info="Miyazaki" class="path Miyazaki card-text" @click="getStateClick">
+                       
+                        
+                        <a data-info="Miyazaki" class="path Miyazaki card-text" @click="getStateClick">
                               <li class="spanclass" id="45">宮崎</li>
                         </a>
 
-                        <a href="#" data-info="Kagoshima" class="path Kagoshima card-text" @click="getStateClick">
+                        <a data-info="Kagoshima" class="path Kagoshima card-text" @click="getStateClick">
                             <li class="spanclass" id="46">鹿児島</li>
                         </a>
 
@@ -303,8 +293,8 @@
                   <div class="mb-3">
                     <!-- <div class="card-header pad-10" style="background-color:#e77a72;">九州・沖縄</div> -->
                     <div class="division-box">
-                      <ul class="">
-                          <a href="#" data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">
+                      <ul class=""> 
+                          <a data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">
                               <li class="spanclass" id="47">沖縄県</li>
                         </a>
                       </ul>
@@ -328,6 +318,7 @@
 
               <div class="card-body">
                 <select id="selectCity" class="form-control custom-select" @change="nursingSearchData(1);" style="background-color: #fff;" v-model="id">
+                  <option value="-1">▼市区町村</option>
                   <option  :value="city.id" v-for="city in cities" :key="city.id">{{city.city_name}}</option>
                 </select>
                 <select id="selectTownship" class="form-control mt-1 custom-select" style="background-color: #fff;" @change="nursingSearchData(2);" v-model="township_id">
@@ -414,14 +405,14 @@
             </div>
             <div class="card-carousel">
               <div class="card-carousel--overflow-container">
-                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                  <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nursingList" :id="items.alphabet"  :key="items.nursing_id"> -->
+                <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">             
+                  <!-- <div @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" class="card-carousel--card"  v-for="items in nus_data" :id="items.alphabet"  :key="items.nursing_id"> -->
                   <div class="card-carousel--card">
                     <div class="MarkerHover">
                         <table class="nursingSearch-tbl">
                         <tbody>
                           <tr >
-                            <td class="pt-2 pb-2"  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                            <td class="pt-2 pb-2"  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
                                     <p class="item-fav btn btn-sm" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);">
@@ -440,9 +431,9 @@
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div>
                             </td>
-                          </tr>
+                          </tr>   
                           <tr>
-                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id" style="padding-top:0px;">
+                            <td  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <span class="type-name">{{items.type_name}}</span>
 
@@ -462,7 +453,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td  v-for="items in nursingList" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
+                            <td  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                      <table class="table table-bordered price-tbl text-center">
                                         <thead>
@@ -510,13 +501,15 @@
                 <tr>
                   <th>地域</th>
                   <td>
-                    <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
+                     
+                        <div class="form-check form-check-inline col-sm-2"   v-for="township in getTownships" :key="township.id">
                         <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                          <input class="form-check-input" type="checkbox" :id="township.id" :value="township.id" v-model="townshipID" @click="check">
                             {{township.township_name}}
                         <div class="control__indicator"></div>
                         </label>
                       </div>
+                     
                   </td>
                 </tr>
                 <tr>
@@ -563,7 +556,7 @@
                   <div class="form-check form-check-inline col-sm-2" v-for="fac_type in fac_types" :key="fac_type.id">
                     <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                       <input class="form-check-input" type="checkbox" v-model="FacTypeID" :id="fac_type.id" :value="fac_type.id">
-                      {{fac_type.description}}
+                    
                        <div class="control__indicator"></div>
                     </label>
                   </div>
@@ -616,25 +609,25 @@
                         <h5 class="nur-tit">
                             <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
                         </h5>
-                        <p><span class="job_ico"><i class="fa fa-map-signs"></i></span>{{nus.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{nus.township_name}}</p>
+                        <div class="d-flex" v-for="(fac,index) in fac_types" :key="index+'-'+fac.description+'-'+nus.id">
+                          <span v-if="fac.id == nus.fac_type" class="fac_list">
+                            {{fac.description}}
+                          </span>
+                        </div>
                         </div>
                         <div class="col-4 text-right">
                         <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
                         <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
-                        </div>
+                        </div>                       
+                    </div>                        
                     </div>
 
-                    </div>
-                    <div class="col-12 pad-free m-b-10 clearfix">
-                        <span class="num-room"> {{nus.num_rooms}} </span>
-                        <span v-for="(fac,index) in factype" :key="index+'-'+fac.description+'-'+nus.id">
-                        <span v-if="fac.id == nus.fac_type" class="fac_list">
-                            {{fac.description}}
-                        </span>
-                        </span>
-                        <span class="nur_date">{{nus.date_of_establishment}}</span>
-                        <p class="hos_phone float-right"><span class="circle-phone"><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
-                    </div>
+                    <p class="m-b-10"><span class="job_ico"><i class="fa fa-map-signs"></i></span>{{nus.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{nus.township_name}}</p>
+                    <div class="col-12 pad-free m-b-10 clearfix"> 
+                        <span class="num-room"> {{nus.num_rooms}} </span>                                                 
+                        <span class="nur_date">{{nus.date_of_establishment}}</span>     
+                        <p class="hos_phone float-right" v-if="nus.phone"><span class="circle-phone" ><i class="fa fa-phone-alt"></i></span>{{nus.phone}}</p>
+                    </div> 
                     <div class="job-body row  clearfix">
                     <div class="col-4 job-img">
                         <img :src="'/upload/nursing_profile/'+nus.logo" alt="image" @error="imgUrlAlt">
@@ -803,7 +796,7 @@
         selectedcity:'',
         citylatlng:[],
         view_pro_id: [],
-        currentPage: 0,
+        currentPage: 0, 
         size: 20,
         pageRange: 5,
         items: [],
@@ -819,7 +812,7 @@
         },
     computed: {
       atEndOfList() {
-        return this.currentOffset <= (this.paginationFactor * -1) * (this.nursingList.length - this.windowSize);
+        return this.currentOffset <= (this.paginationFactor * -1) * (this.nus_data.length - this.windowSize);
       },
       atHeadOfList() {
         return this.currentOffset === 0;
@@ -859,7 +852,40 @@
       return page - 1 == this.currentPage;
     }
     },
+
 methods: {
+
+searchfreeword(){
+
+     //clear all drop down
+     this.id = -1;
+     this.township_id = -1;
+     this.moving_in = -1;
+     this.per_month = -1;
+      $("#nursing-search").css("display", "block");
+
+      if ($('#search-word').val() != '') 
+      {
+        this.id = -1;
+      
+        var search_word = $('#search-word').val();
+  
+
+         this.axios.get('/api/getmap/'+ search_word,{
+                params:{
+                id: -1 ,
+                township_id:-1,
+                moving_in:-1,
+                per_month:-1
+                },
+            })
+                .then((response) => {
+                this.changeMap(response)
+            });
+      
+      } 
+    
+},
 
 check()
         {
@@ -876,6 +902,15 @@ closeInfoWindow() {
             this.infoBoxOpen = false;
         },
 showSearchMap() {
+            
+            //clear all checkbox 
+            this.id = [];
+            this.townshipID = [];
+            this.SpecialFeatureID = [];
+            this.FacTypeID = [];
+            this.MoveID = [];
+            this.MedicalAcceptanceID = [];
+          
             $('#searchMap').removeClass('select');
             $('#showSearchMap').addClass('select');
             $('#filter').addClass('select');
@@ -901,7 +936,7 @@ getStateClick(e) {
                 var id = e.target.id;
             }
             this.id = id;
-            this.axios.get('/api/getmap/',{
+            this.axios.get('/api/getmap/null',{
                 params:{
                 id: this.id,
                 township_id:-1,
@@ -913,29 +948,33 @@ getStateClick(e) {
                 this.changeMap(response)
                 })
 
-               this.changeSearch();
+              //  this.changeSearch();
         },
 // map onclick function
 // map change dropdown function
 nursingSearchData(index){
-            if(index == 1)
+            if(index == 1) //if choose city
             {
                 this.township_id = -1;
                 this.townshipID = [];
+              
             }
-            else{
+            else{ //if choose township 
+
               this.townshipID = [];
               this.townshipID[0] = this.township_id;
 
             }
-
+ 
+            //if change dropdown , clear array
+            this.MoveID = [];
+            this.MedicalAcceptanceID = [];
+            this.FacTypeID = [];
+            this.SpecialFeatureID = [];
             this.onchangeid = 1;
 
-            // this.townshipID = [];
-            // this.search();
-
-
-            this.axios.get('/api/getmap/',{
+ 
+            this.axios.get('/api/getmap/null',{
                     params:{
                     id: this.id,
                     township_id:this.township_id,
@@ -949,7 +988,7 @@ nursingSearchData(index){
 
                 })
 
-                 this.changeSearch();
+                //  this.changeSearch();
 
 
 
@@ -1032,8 +1071,11 @@ coordinates(theCity, lat, lng){
 },
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
-        for (var i = 0; i < item.length; i++) {
 
+        if(item != null && mmarker != null)
+        {
+         
+            for (var i = 0; i < item.length; i++) {
             infoWindowContent.push([
             '<div id="info_content">' +
             '<div class="">' +
@@ -1080,10 +1122,14 @@ infoWindow(item, mmarker){
             '</div>'
             ])
         }
-        var markers = mmarker;
+         var markers = mmarker;
         var bounds = new google.maps.LatLngBounds();
         this.markerHover = [];
         var infoWindow = new google.maps.InfoWindow(),marker, i;
+        }
+       
+         
+        
         for (let i = 0; i < this.markers.length; i++) {
             var beach = this.markers[i]
             var lats = this.markers[i]['lat']
@@ -1115,7 +1161,47 @@ infoWindow(item, mmarker){
 
         }
         },
+
 // make infowindow, marker , google map
+
+
+        clearmap(citylatlng)
+        {
+            // for clean googleMap
+                var lat = citylatlng[0]['latitude']
+                var lng = citylatlng[0]['longitude']
+                var theCity = citylatlng[0]['city_eng']
+                const result = jp_township.features
+                const coordinates = []
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i].Name == theCity) {
+                    coordinates.push(result[i].geometry['coordinates'])
+                    }
+                }
+                var coordinate = coordinates.reduce((acc, val) => acc.concat(val), []);
+                var data = {
+                    type: "Feature",
+                    geometry: {
+                    "type": "Polygon",
+                    "coordinates": coordinate
+                    },
+                };
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lng),
+                    zoom: 6,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                this.map.data.addGeoJson(data);
+                this.map.data.setStyle({
+                    strokeColor: "red",
+                    fillColor: 'red',
+                    strokeOpacity: 0.8,
+                    fillOpacity: 0.1,
+                    strokeWeight: 1
+                })
+        },
+// make infowindow, marker , google map 
 changeMap(response){
                 $('.select').removeClass('select');
                 $('#searchMap').addClass('select');
@@ -1127,9 +1213,8 @@ changeMap(response){
                 this.special_features = response.data.special_features
                 this.fac_types = response.data.fac_types
                 this.medical_acceptance = response.data.medical_acceptance
-                this.nursingList = response.data.nursing_profile
+                this.nus_data = response.data.nursing_profile
                 this.markers = response.data.nursing_profile;
-
 
                 var mmarker = new Array();
                 var item = [];
@@ -1138,107 +1223,103 @@ changeMap(response){
                     item.push(this.markers[i])
                 }
 
-                const theCity = response.data.getCity[0]['city_name']
-                const lat = response.data.getCity[0]['latitude']
-                const lng = response.data.getCity[0]['longitude']
-
-                if(this.markers.length > 0)
+                if(this.getCity.length > 0)
                 {
-                     this.coordinates(theCity,lat,lng);
-                     this.infoWindow(item, mmarker);
-                 }
-                 else{
-                    this.coordinates(theCity,lat,lng);
-                 }
+//                      this.coordinates(theCity,lat,lng);
+//                      this.infoWindow(item, mmarker);
+//                  }
+//                  else{
+//                     this.coordinates(theCity,lat,lng);
+//                  }
 
 
 
-        },
+//         },
 
-changeSearch()
-        {
+// changeSearch()
+//         {
 
-            if(this.townshipID == null || this.townshipID == '')
-            {
-            this.townshipID[0] = 0;
-            }
-            if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
-            {
-            this.SpecialFeatureID[0] = 0;
-            }
-            if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
-            {
-            this.MedicalAcceptanceID[0] = 0;
-            }
-            if(this.FacTypeID == null || this.FacTypeID == '')
-            {
-            this.FacTypeID[0] = 0;
-            }
-            if(this.MoveID == null || this.MoveID == '')
-            {
-            this.MoveID[0] = 0;
-            }
-            if(this.onchangeid == 1)
-            {
-                if(this.township_id == -1)
-                {
-                    this.townshipID[0] = 0;
-                }
-                else{
-                    this.townshipID[0] = this.township_id;
-                }
-            }
-            else{
+//             if(this.townshipID == null || this.townshipID == '')
+//             {
+//             this.townshipID[0] = 0;
+//             }
+//             if(this.SpecialFeatureID == null || this.SpecialFeatureID == '')
+//             {
+//             this.SpecialFeatureID[0] = 0;
+//             }
+//             if(this.MedicalAcceptanceID == null || this.MedicalAcceptanceID == '')
+//             {
+//             this.MedicalAcceptanceID[0] = 0;
+//             }
+//             if(this.FacTypeID == null || this.FacTypeID == '')
+//             {
+//             this.FacTypeID[0] = 0;
+//             }
+//             if(this.MoveID == null || this.MoveID == '')
+//             {
+//             this.MoveID[0] = 0;
+//             }
+//             if(this.onchangeid == 1)
+//             {
+//                 if(this.township_id == -1)
+//                 {
+//                     this.townshipID[0] = 0;
+//                 }
+//                 else{
+//                     this.townshipID[0] = this.township_id;
+//                 }
+//             }
+//             else{
 
-                this.township_id = -1;
-            }
-
-
-
-            this.axios.get('api/getnursingsearch',{
-            params:{
-                id: this.id,
-                townshipID:this.townshipID,
-                SpecialFeatureID:this.SpecialFeatureID,
-                MedicalAcceptanceID:this.MedicalAcceptanceID,
-                FacTypeID:this.FacTypeID,
-                MoveID:this.MoveID,
-                Moving_in:this.moving_in,
-                Per_month:this.per_month
-            },
-            }).then((response)=>{
-            console.log(localStorage.getItem("nursing_fav"));
-            // if(localStorage.getItem("nursing_fav")) {
-            //     var fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
-            //     for(var i=0; i<fav_arr.length; i++){
-            //         if(response.data.nursing.includes(fav_arr[i])){
-            //             response.data.nursing.indexOf(fav_arr[i])
-
-            //         }
-            //     }
-
-            // }
-            console.log(JSON.parse("[" + localStorage.getItem("nursing_fav") + "]"));
-            this.nus_data = response.data.nursing;
-            this.specialfeature = response.data.specialfeature;
-            this.medicalacceptance = response.data.medicalacceptance;
-            this.factype = response.data.factype;
-            this.citylatlng = response.data.city;
-
-            if(this.nus_data.length == 0)
-            {
-
-                const theCity = this.nus_data[0]['city_name']
-                const lat = this.nus_data[0]['lat']
-                const lng = this.nus_data[0]['lng']
-
-                this.coordinates(theCity,lat,lng);
-            }
+//                 this.township_id = -1;
+//             }
 
 
-            });
 
-        },
+//             this.axios.get('api/getnursingsearch',{
+//             params:{
+//                 id: this.id,
+//                 townshipID:this.townshipID,
+//                 SpecialFeatureID:this.SpecialFeatureID,
+//                 MedicalAcceptanceID:this.MedicalAcceptanceID,
+//                 FacTypeID:this.FacTypeID,
+//                 MoveID:this.MoveID,
+//                 Moving_in:this.moving_in,
+//                 Per_month:this.per_month
+//             },
+//             }).then((response)=>{
+//             console.log(localStorage.getItem("nursing_fav"));
+//             // if(localStorage.getItem("nursing_fav")) {
+//             //     var fav_arr = JSON.parse("[" + localStorage.getItem("nursing_fav") + "]");
+//             //     for(var i=0; i<fav_arr.length; i++){
+//             //         if(response.data.nursing.includes(fav_arr[i])){
+//             //             response.data.nursing.indexOf(fav_arr[i])
+
+//             //         }
+//             //     }
+
+//             // }
+//             console.log(JSON.parse("[" + localStorage.getItem("nursing_fav") + "]"));
+//             this.nus_data = response.data.nursing;
+//             this.specialfeature = response.data.specialfeature;
+//             this.medicalacceptance = response.data.medicalacceptance;
+//             this.factype = response.data.factype;
+//             this.citylatlng = response.data.city;
+
+//             if(this.nus_data.length == 0)
+//             {
+
+//                 const theCity = this.nus_data[0]['city_name']
+//                 const lat = this.nus_data[0]['lat']
+//                 const lng = this.nus_data[0]['lng']
+
+//                 this.coordinates(theCity,lat,lng);
+//             }
+
+
+//             });
+
+//         },
         // clearmap(citylatlng)
         // {
         //     // for clean googleMap
@@ -1279,6 +1360,26 @@ changeSearch()
         //         })
         // },
 
+                    const theCity = response.data.getCity[0]['city_name']
+                    const lat = response.data.getCity[0]['latitude']
+                    const lng = response.data.getCity[0]['longitude']
+                    
+
+                    if(this.markers.length > 0 )
+                    {
+                        this.coordinates(theCity,lat,lng);
+                        this.infoWindow(item, mmarker);
+                    }
+                    else{
+                        this.coordinates(theCity,lat,lng);
+                    }
+                }
+                else{
+                     this.coordinates(null,this.markers[0]['lat'],this.markers[0]['lng']);
+                     this.infoWindow(item, mmarker);
+                }      
+                  
+        },
 
 search(){
 
@@ -1341,7 +1442,6 @@ search(){
             this.medicalacceptance = response.data.medicalacceptance;
             this.factype = response.data.factype;
             this.searchmarkers = response.data.nursing;
-            this.nursingList = response.data.nursing;
             this.citylatlng = response.data.city;
             this.markers = response.data.nursing;
 
@@ -1350,7 +1450,6 @@ search(){
 
 
             if(this.nus_data.length > 0){
-
 
                 for (var i = 0; i < this.searchmarkers.length; i++) {
 
@@ -1366,17 +1465,28 @@ search(){
                 this.coordinates(theCity,lat,lng)
 
                 this.infoWindow(item, mmarker);
-
-            }
+         
+            }           
             else{
-                const theCity = this.citylatlng[0]['city_name']
-                const lat = this.citylatlng[0]['latitude']
-                const lng = this.citylatlng[0]['longitude']
-
-              this.coordinates(theCity,lat,lng);
-
-                //  this.clearmap(this.citylatlng)
-
+                //if choose city
+                if(this.citylatlng.length > 0)
+                {
+                    const theCity = this.citylatlng[0]['city_name']
+                    const lat = this.citylatlng[0]['latitude']
+                    const lng = this.citylatlng[0]['longitude']
+             
+                     this.coordinates(theCity,lat,lng);
+                }
+                else{
+                  console.log('else');
+                     var mapProp = {
+                     center: new google.maps.LatLng(35.6804, 139.7690),
+                     zoom: 8,     
+                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+                     };
+                    this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+                }           
+            
               }
 
 
@@ -1408,76 +1518,8 @@ search(){
                 }
             }
         },
-        // hover animate function
-        getCheck(e) {
-            if (this.townshipID.length > 0) {
-            this.axios.post('/api/getmaptownship/' + this.townshipID + '')
-                .then((response) => {
-                this.markers = response.data;
 
-                var mmarker = new Array();
-                var multibusiness = new Array();
-                for (var i = 0; i < this.markers.length; i++) {
-                    mmarker.push([this.markers[i]['business_entity'], this.markers[i]['lat'], this.markers[i]['lng']])
-                    multibusiness.push(this.markers[i]['business_entity'])
-                }
-                var icon = {
-                    url: "/google-map/marker-1.png", // url
-                    scaledSize: new google.maps.Size(30, 35), // scaled size
-                };
-                var mapProp = {
-                    // center: new google.maps.LatLng(lat, lng),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                };
-                var map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                var bounds = new google.maps.LatLngBounds();
-                var markers = mmarker;
-                var infoWindowContent = new Array();
-                for (var i = 0; i < multibusiness.length; i++) {
-                    infoWindowContent.push(['<div class="info_content">' + multibusiness[i] + '</div>'])
-                }
-                var infoWindow = new google.maps.InfoWindow(),
-                    marker, i;
-                for (i = 0; i < this.markers.length; i++) {
-                    var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                    bounds.extend(position);
-                    marker = new google.maps.Marker({
-                    position: position,
-                    map: map,
-                    icon: icon,
-                    zoom: 6,
-                    title: markers[i][0]
-                    });
-                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infoWindow.setContent(infoWindowContent[i][0]);
-                        infoWindow.open(map, marker);
-                    }
-                    })(marker, i));
-                    google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-                    return function() {
-                        marker.setAnimation(google.maps.Animation.BOUNCE);
-                        setTimeout(function() {
-                        marker.setAnimation(null);
-                        }, 750);
-                    }
-                    })(marker, i));
-                    map.fitBounds(bounds);
-                    map.setZoom(11);
-                    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-                    google.maps.event.removeListener(boundsListener);
-                    });
-                }
-
-
-                });
-            } else {
-            this.markers = '';
-            }
-
-
-
-        },
+       
         features(e) {
             if (e.target.checked) {
 
@@ -1966,7 +2008,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     text-align: center;
 }
 .fav-profile {
-    top:0px;
+    top:10px;
     right:15px;
 }
 
@@ -1997,6 +2039,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
 .page-item .spanclass{
   cursor: pointer;
 }
+
 </style>
 
 </style>
