@@ -15,7 +15,7 @@
             <!--search input-->
               <div class="wrap">
                 <div class="search">
-                    <input type="text" id="search-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <input type="text" id="search-free-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton" @click="searchfreeword">    
                       <i class="fas fa-search"></i> 検索
                   </button>
@@ -322,7 +322,7 @@
           </div>
 
 
-          <div class="col-12 hospitalselect pad-free">
+          <div id="hos_search" class="col-12 hospitalselect pad-free">
             <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
           <table class="table table-bordered col-12">
             <tbody>
@@ -638,7 +638,15 @@
             this.subjectID[0] = 0;
           }
 
-          this.axios.get('api/gethospitalsearch/null',{
+            if ($('#search-free-word').val() != '') 
+            {
+            
+              var search_word = $('#search-free-word').val();
+            }
+            console.log(search_word);
+           
+
+          this.axios.get('api/gethospitalsearch/'+ search_word,{
             params:{
                 id: this.id,
                 townshipID:this.townshipID,
@@ -646,8 +654,9 @@
                 subjectID:this.subjectID
             },
           }).then((response)=>{
-
+            this.getTownships = response.data.township;
             this.hos_data = response.data.hospital;
+            console.log(this.hos_data);
             this.timetable = response.data.timetable;
             this.specialfeatures = response.data.specialfeature;
             this.subject = response.data.subject;
@@ -666,31 +675,48 @@
             this.townshipID = [];
             this.specialfeatureID = [];
             this.subjectID = [];
+           
 
-              
-
-            if ($('#search-word').val() != '') 
+            if ($('#search-free-word').val() != '') 
             {
               
-              var search_word = $('#search-word').val();
-              $('.hospitalselect').removeClass('hospitalselect');
-        
-
-              this.axios.get('api/gethospitalsearch/'+ search_word)
-                        .then((response)=>{
-                            this.hos_data = response.data.hospital;
-                            this.cities = response.data.city;
-                            this.timetable = response.data.timetable;
-                            this.specialfeatures = response.data.specialfeature;
-                            this.getTownships = [];
-                            this.subject = response.data.subject;
-                            if(this.hos_data.length > this.size) {
-                                this.show_paginate = true;
-                            }else{
-                                this.show_paginate = false;
-                            }
-                        });
-                  } 
+                var search_word = $('#search-free-word').val();
+            }
+            else{
+                 var search_word = "all";
+            }
+            
+            this.axios.get('api/gethospitalsearch/'+ search_word,{
+            params:{
+                id: -1,
+                townshipID:-1,
+                specialfeatureID:-1,
+                subjectID:-1
+            },
+            }).then((response)=>{
+                    if(response.data.hospital.length > 0)
+                    {
+                        $('.hospitalselect').removeClass('hospitalselect');
+                        $('#hos_search').css("display","block");
+                        this.hos_data = response.data.hospital;
+                        this.cities = response.data.city;
+                        this.timetable = response.data.timetable;
+                        this.specialfeatures = response.data.specialfeature;
+                        this.getTownships = [];
+                        this.subject = response.data.subject;
+                        if(this.hos_data.length > this.size) {
+                            this.show_paginate = true;
+                        }else{
+                            this.show_paginate = false;
+                        }
+                    }
+                    else{
+                        $('#hos_search').css("display","none");
+                    }
+                    
+                });
+                
+               
           
             },
 
@@ -733,8 +759,13 @@
           $('#close2').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
         }
       },
+
       ChangeTownship(){
-         this.axios.get('api/getmap/null',{
+
+        this.townshipID = [];
+
+    
+         this.axios.get('api/getmap',{
               params:{
               id: this.id,
               township_id:-1,
@@ -774,9 +805,11 @@
               var id = e.target.id;
               this.id = id;
             }
-          }         
+          }        
+          
+       
          
-          this.axios.get('api/getmap/null',{
+          this.axios.get('api/getmap',{
               params:{
               id: this.id,
               township_id:-1,
@@ -785,6 +818,8 @@
           },
           })
             .then((response) => {
+              
+              $('#hos_search').css("display","block");
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -795,6 +830,8 @@
               this.id = id;
 
             })
+
+            document.getElementById('search-free-word').value = '';
             this.search();
 
 

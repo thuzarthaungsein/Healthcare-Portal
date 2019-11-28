@@ -15,7 +15,7 @@
             <!--search input-->    
               <div class="wrap">
                 <div class="search">
-                    <input type="text"  id="search-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <input type="text"  id="search-free-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button class="searchButton"  @click="searchfreeword" >    
                       <i class="fas fa-search"></i> 検索
                   </button>
@@ -437,7 +437,7 @@
                                         <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
                                     </p>                                 
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">
-                                        <router-link :to="{name: 'profile', params: {cusid:items.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}}</router-link>
+                                        <router-link :to="{name: 'profile', params: {cusid:items.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}} {{items.cus_id}}</router-link>
                                     </p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div> 
@@ -618,7 +618,8 @@
                     <div class="row pad-free">
                         <div class="col-8">
                         <h5 class="nur-tit">
-                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
+                          {{nus.cus_id}}
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}} {{nus.cus_id}}</router-link>
                         </h5>
                         <div class="d-flex" v-for="(fac,index) in fac_types" :key="index+'-'+fac.description+'-'+nus.id">
                           <span v-if="fac.id == nus.fac_type" class="fac_list">
@@ -643,7 +644,7 @@
                     <div class="col-4 job-img">
                         <img :src="'/upload/nursing_profile/'+nus.logo" alt="image" @error="imgUrlAlt">   
                          <div class="mt-4 col-12 detail-btn text-center">                                             
-                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る</router-link>
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="btn all-btn" style="font-weight:bold;">詳細を見る {{nus.cus_id}}</router-link>
                           </div>                         
                     </div>
                     <div class="col-8 job-box">
@@ -874,42 +875,41 @@ searchfreeword(){
      this.moving_in = -1;
      this.per_month = -1;
 
-      
-
-      if ($('#search-word').val() != '') 
+      if ($('#search-free-word').val() != '') 
       {
         this.id = -1;
       
-        var search_word = $('#search-word').val();
+        var search_word = $('#search-free-word').val();
+      }
+      else{
+        var search_word = 'all';
+      }
   
 
-         this.axios.get('/api/getmap/'+ search_word,{
-                params:{
-                id: -1 ,
-                township_id:-1,
-                moving_in:-1,
-                per_month:-1
-                },
-            })
-                .then((response) => {
-               
-                  if(response.data.nursing_profile.length > 0)
-                  {
-                   
-                     $("#mymap").css("display", "block");
-                     $("#filtertable").css("display", "block");
-                     $("#nursing-search").css("display", "block");
-                     this.changeMap(response);
-                  }
-                  else{
-                     console.log('null');
-                     $("#nursing-search").css("display", "none");
-                    
-                  }
-               
-            });
-      
-      } 
+        this.axios.get('/api/getnursingsearch/'+search_word,{
+          params:{
+          id: -1 ,
+          township_id:-1,
+          Moving_in:-1,
+          Per_month:-1
+          },})
+          .then((response) => {
+          
+            if(response.data.nursing.length > 0)
+            { 
+                $("#mymap").css("display", "block");
+                $("#filtertable").css("display", "block");
+                $("#nursing-search").css("display", "block");
+                this.changeMap(response);
+            }
+            else{
+          
+                $("#nursing-search").css("display", "none");
+              
+            }
+            document.getElementById('search-free-word').value = '';
+          
+      });
     
 },
 
@@ -946,6 +946,8 @@ showSearchMap() {
             $("#mymap").css("display", "none");
             $("#nursing-search").css("display", "none");
             $("#filtertable").css("display", "none");
+            document.getElementById('search-free-word').value = '';
+
            
              
            
@@ -971,7 +973,9 @@ getStateClick(e) {
                 var id = e.target.id;
             }
             this.id = id;
-            this.axios.get('/api/getmap/null',{
+        
+
+            this.axios.get('/api/getmap',{
                 params:{
                 id: this.id,
                 township_id:-1,
@@ -983,7 +987,7 @@ getStateClick(e) {
                   $("#mymap").css("display", "block");
                   $("#nursing-search").css("display", "block");
                   $("#filtertable").css("display", "block");
-                this.changeMap(response)
+                  this.changeMap(response)
                 })
 
               //  this.changeSearch();
@@ -1011,8 +1015,10 @@ nursingSearchData(index){
             this.SpecialFeatureID = [];
             this.onchangeid = 1;
 
+           
+
  
-            this.axios.get('/api/getmap/null',{
+            this.axios.get('/api/getmap',{
                     params:{
                     id: this.id,
                     township_id:this.township_id,
@@ -1250,8 +1256,8 @@ changeMap(response){
                 this.special_features = response.data.special_features
                 this.fac_types = response.data.fac_types
                 this.medical_acceptance = response.data.medical_acceptance
-                this.nus_data = response.data.nursing_profile
-                this.markers = response.data.nursing_profile;
+                this.nus_data = response.data.nursing
+                this.markers = response.data.nursing;
                
                 var mmarker = new Array();
                 var item = [];
@@ -1330,7 +1336,15 @@ search(){
             this.moving_in = -1;
             this.per_month = -1;
 
-            this.axios.get('api/getnursingsearch',{
+            if ($('#search-free-word').val() != '') 
+            {
+              this.id = -1;
+            
+              var search_word = $('#search-free-word').val();
+            }
+          
+
+            this.axios.get('api/getnursingsearch/'+search_word,{
             params:{
                 id: this.id,
                 townshipID:this.townshipID,
@@ -1348,7 +1362,7 @@ search(){
             this.medicalacceptance = response.data.medicalacceptance;
             this.factype = response.data.factype;
             this.searchmarkers = response.data.nursing;
-            this.citylatlng = response.data.city;
+            this.citylatlng = response.data.getCity;
             this.markers = response.data.nursing;
 
             var mmarker = new Array()
