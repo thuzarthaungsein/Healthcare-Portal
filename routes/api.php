@@ -32,8 +32,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 // public route api start
     Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
-    Route::get('getnursingsearch','SearchMapController@getNursingSearch');
-    Route::get('getmap/{searchword}','SearchMapController@getMap');
+    Route::get('getnursingsearch/{searchword}','SearchMapController@getNursingSearch');
+    Route::get('getmap','SearchMapController@getMap');
     Route::get('getjobsearch/{searchword}','SearchMapController@getJobSearch');
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
@@ -250,6 +250,7 @@ Route::get('featurelist', 'SpecialFeatureController@index');
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
 Route::post('sfeature/update/{id}','SpecialFeaturesJunctionsController@update');
 Route::post('subject_junctions/update/{id}','SubjectJunctionsController@update');
+Route::post('station_junctions/update/{id}','StationJunctionsController@update');
 
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');

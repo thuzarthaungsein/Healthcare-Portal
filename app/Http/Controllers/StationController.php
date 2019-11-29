@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Station;
 use App\NursingProfile;
+use App\StationJunctions;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -129,12 +130,12 @@ class StationController extends Controller
     public function getStationbyCustomerId($customer_id) {
        
         $station_list = Station::all()->toArray();
-        $nursing_station = NursingProfile::where('customer_id','=',$customer_id)->value('stations');
+        $nursing_station = StationJunctions::query()->where('customer_id','=',$customer_id)->get()->toArray();
        
-        $station = explode(',',$nursing_station);
-        for($indx=0; $indx<count($station); $indx++) {
+        // $station = explode(',',$nursing_station);
+        for($indx=0; $indx<count($nursing_station); $indx++) {
             for($sec_indx = 0; $sec_indx<count($station_list); $sec_indx++) {
-                if($station[$indx] == $station_list[$sec_indx]['id']) {
+                if($nursing_station[$indx]['station_id'] == $station_list[$sec_indx]['id']) {
                     $station_list[$sec_indx]['checked'] = "checked";
                 }
             }
