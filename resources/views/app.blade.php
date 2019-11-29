@@ -647,7 +647,7 @@
 
                                 @endif
 
-                                    <div class="col-12 col-lg-12 col-md-10 tab">
+                                    <div class="col-12 col-lg-12 col-md-12 tab">
 
                                     <!-- vue component -->
 
