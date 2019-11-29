@@ -505,10 +505,10 @@
                       {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
                     </td>
                   </tr> -->
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="wi">
                     <thead>
-                      <tr class="first-hos-row text-center">
-                        <th style="width:10%">日付</th>
+                      <tr class="first-row">
+                        <th>日付</th>
                         <th>月</th>
                         <th>火</th>
                         <th>水</th>
@@ -516,7 +516,6 @@
                         <th>金</th>
                         <th>土</th>
                         <th>日</th>
-
                       </tr>
                     </thead>
                     <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
@@ -994,5 +993,14 @@
     }
 .page-item .spanclass{
   cursor: pointer;
+}
+.first-row{
+    color: #fff;
+    background-color: #a2a7a1;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    font-size: 100%;
 }
 </style>

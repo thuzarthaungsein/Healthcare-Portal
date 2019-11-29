@@ -373,9 +373,15 @@ class JobController extends Controller
     {
 
            $jobs =Job::find($id);
-           $jobs->recordstatus =0;
+           if($jobs->recordstatus == 0 ) {
+                $jobs->recordstatus =1;
+           }
+           else {
+                $jobs->recordstatus =0;
+           }
+           
            $jobs->save();
-           $jobs =Job::all()->toArray();
+        //    $jobs =Job::all()->toArray();
            $data = array("jobs"=> $jobs, "success", "Comment successfully confirmed");
            return response()->json($data);
 
