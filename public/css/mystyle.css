@@ -402,11 +402,6 @@ body {
     font-size: 1em !important;
 }
 
-.h-color5 span {
-    border-left: 5px solid #63b7ff;
-    color: #63b7ff;
-}
-
 .h-color1 span {
     border-left: 5px solid #a3774a;
     color: #a3774a;
@@ -427,11 +422,8 @@ body {
     color: #d1291d;
 }
 
-.bordertop-color5 {
-    border-top: 2px solid #63b7ff;
-}
-
-.bordertop-color5 i {
+.h-color5 span {
+    border-left: 5px solid #63b7ff;
     color: #63b7ff;
 }
 
@@ -467,15 +459,15 @@ body {
     color: #d1291d;
 }
 
-.title1 span {
-    background-color: #63b7ff;
-    color: #fff;
-    padding: 2px 10px;
-    border-radius: 5px;
-    font-size: 13px;
+.bordertop-color5 {
+    border-top: 2px solid #63b7ff;
 }
 
-.title2 span {
+.bordertop-color5 i {
+    color: #63b7ff;
+}
+
+.title1 span {
     background-color: #a3774a;
     color: #fff;
     padding: 2px 10px;
@@ -483,7 +475,7 @@ body {
     font-size: 13px;
 }
 
-.title3 span {
+.title2 span {
     background-color: #9579ef;
     color: #fff;
     padding: 2px 10px;
@@ -491,7 +483,7 @@ body {
     font-size: 13px;
 }
 
-.title4 span {
+.title3 span {
     background-color: #21d1de;
     color: #fff;
     padding: 2px 10px;
@@ -499,8 +491,16 @@ body {
     font-size: 13px;
 }
 
-.title5 span {
+.title4 span {
     background-color: #d1291d;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.title5 span {
+    background-color: #63b7ff;
     color: #fff;
     padding: 2px 10px;
     border-radius: 5px;
@@ -1475,7 +1475,7 @@ p {
 .main-header .nav-item {
     padding: 3px 10px 5px 10px;
     border-radius: 5px;
-    border: 1px solid #4444448c;
+    border: 1px solid #44448c;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -1577,9 +1577,8 @@ p {
 /* Create News */
 
 .error {
-    color: #ff0000;   
+    color: #ff0000;
     margin-bottom: 18px;
-    
 }
 
 .show-news-img {
@@ -2475,17 +2474,6 @@ ul.sub-ul li {
     margin-left: 14px;
 }
 
-
-/* .m-r-2per{
-
-
-
-    margin-right: 2% !important;
-
-
-
-} */
-
 .p-t-0 {
     padding-top: 0px;
 }
@@ -2508,6 +2496,10 @@ ul.sub-ul li {
 
 .p-b-5 {
     padding-bottom: 5px;
+}
+
+.p-l-30 {
+    padding-left: 30px !important;
 }
 
 .p-5 {
@@ -3824,7 +3816,6 @@ screen and (min-width: 750px) {
 
 /* Create News */
 
-
 .show-news-img {
     height: 100px;
     margin: 15px 0px;
@@ -4341,9 +4332,11 @@ div.b {
 .pad-10 {
     padding: 10px !important;
 }
-.p-l-162{
-    padding-left:162px;
+
+.p-l-162 {
+    padding-left: 162px;
 }
+
 .m-0 {
     margin: 0px;
 }
@@ -6617,7 +6610,7 @@ button.confirmed {
 
 #nursing .hos-btn,
 #hospital .hos-btn {
-    width: 71%;
+    width: 75%;
     margin: 0 auto;
     margin-bottom: 5px;
 }
@@ -6680,7 +6673,7 @@ button.confirmed {
 }
 
 .profile_wd {
-    width: 239px !important;
+    width: 230px !important;
 }
 
 .profile_price {
@@ -6768,7 +6761,7 @@ button.confirmed {
 }
 
 .wd-in {
-    width: 317px;
+    width: 308px;
 }
 
 .item-fav {
@@ -7127,8 +7120,8 @@ ul.test>li:before {
 #fav-history-page .card-carousel {
     display: flex;
     justify-content: center;
-    max-width: 1336px;
-    overflow-x: auto;
+    width: 1303px;
+    overflow: hidden;
 }
 
 
@@ -7165,10 +7158,9 @@ ul.test>li:before {
     height: 15px;
     padding: 5px;
     box-sizing: border-box;
-    border-top: 5px solid #f9793c;
-    border-right: 5px solid #f9793c;
-    cursor: pointer;
-    margin: 0 10px;
+    border-top: 5px solid #ff9563;
+    border-right: 5px solid #ff9563;
+    margin: 4px 0px;
     transition: transform 150ms linear;
 }
 
@@ -7199,8 +7191,8 @@ ul.test>li:before {
 }
 
 .nav-content {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 50px;
     vertical-align: middle;
     background: #fffff4;
@@ -7208,6 +7200,9 @@ ul.test>li:before {
     border-radius: 50%;
     text-align: center;
 }
+.nav-content:hover{
+    cursor: pointer;
+  }
 
 #fav-history-page .card-carousel--nav__left {
     transform: rotate(-135deg);
@@ -7261,14 +7256,13 @@ ul.test>li:before {
 
 #fav-history-page .card-carousel-cards .card-carousel--card--footer {
     border-top: 0;
-    padding: 7px 15px;
+    padding: 7px 2px;
 }
 
 #fav-history-page .card-carousel-cards .card-carousel--card--footer p {
-    padding: 3px 0;
     margin: 0;
     margin-bottom: 2px;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: 500;
     color: #2c3e50;
     user-select: none;
@@ -7551,7 +7545,6 @@ ul.test>li:before {
 }
 
 .hos_phone {
-    margin-top: -25px;
     background: #c40000;
     padding: 5px 15px;
     border-radius: 5px;
@@ -8368,9 +8361,6 @@ ul.nur-caro-card>li.list-group-item {
         max-width: 19%;
         flex: 0 0 18%;
     }
-    #fav-history-page .card-carousel {
-        overflow-x: auto;
-    }
 }
 
 
@@ -8588,9 +8578,10 @@ ul.nur-caro-card>li.list-group-item {
 .wrapper-3 img {
     /* position: absolute; */
     width: 100%;
-    height: 100%;
+    height: auto;
     /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
+    max-height: 100%;
 }
 
 .wrapper-3 p {
@@ -8666,3 +8657,109 @@ ul.nur-caro-card>li.list-group-item {
         transform: rotate(360deg);
     }
 }
+
+
+/*--------------------------------------------------responsive ---------------------------------------------------------------*/
+@media only screen and (max-width:1024px){
+    .wd-in {
+        width: 249px;
+    }
+}
+@media only screen and (max-width:768px){
+    .wd-in {
+        width: 256px;
+    }
+   
+}
+@media only screen and (max-width:480px){
+
+}
+@media only screen and (max-width:320px){
+
+}
+
+
+
+/**************card carousel***********************/
+@media only screen and (max-width:768px){
+    #fav-history-page .card-carousel-cards .card-carousel--card--footer {
+        padding: 0px;
+    }
+    #hospital .nav-content,
+    #nursing .nav-content {
+        border: none;
+        background: transparent !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        width: 25px !important;
+    }
+    #fav-history-page .nav-box[disabled] .nav-content {
+        border: none;
+        background: #fff !important;
+        width: 25px !important;
+    }
+}
+
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+    #fav-history-page .card-carousel {
+        width: 1336px;
+    }
+}
+
+@media only screen and (max-width: 450px) and (min-width: 376px) {
+    #fav-history-page .card-carousel {
+        width: 264px !important;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    #fav-history-page .card-carousel {
+        width: 415px!important;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 449px) {
+    #fav-history-page .card-carousel {
+        width: 515px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+    #fav-history-page .cardcarousel {
+        width: 415px!important;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
+    #fav-history-page .card-carousel {
+        width: 823px!important;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+    #fav-history-page .card-carousel {
+        width: 787px !important;
+    }
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (max-width: 1440px) and (min-width: 1200px) {
+    #fav-history-page .card-carousel {
+        width: 1045px!important;
+    }
+}
+
+@media only screen and (max-width: 1880px) and (min-width: 1440px) {
+    #fav-history-page .card-carousel {
+          width: 1033px!important;
+      }
+  }
+/**************end card carousel***********************/

@@ -25,7 +25,7 @@
                     &nbsp; <span class="job_count">{{his_hos}} 件</span>
                 </div>
             </div>
-            <div class="col-12 m-t-20" id="fav-history-page">
+            <div class="col-12" id="fav-history-page">
                 <div class="row justify-content-lg-center">
                     <div class="card-carousel-wrapper">
 
@@ -36,7 +36,7 @@
                         </div>
                         <div class="card-carousel">
                             <div class="card-carousel--overflow-container">
-                                <div class="card-carousel-cards col-3" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+                                <div class="card-carousel-cards col-3 pad-free" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
                                     <div class="card-carousel--card">
                                         <div class="card-carousel--card--footer">
 
@@ -143,7 +143,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
-                                                        <div class="profile_wd text-left m-l-10">
+                                                        <div class="profile_wd text-left">
                                                             <ul class="fac_container">
                                                                 <h6 style="text-align:left;font-weight:bold;">特長</h6>
                                                                 <li v-for="feature in hos_profile.special" :key="feature.id">{{ feature.short_name }}</li>
@@ -163,7 +163,7 @@
                                                         <td v-for="hos_profile in hos_profiles" :key="hos_profile.id">
                                                             <dl>
                                                                 <dt class="text-left">専門医</dt>
-                                                                <dd v-if="hos_profile.specialist != null">{{hos_profile.specialist}}</dd>
+                                                                <dd class="profile_wd text-left m-l-10" v-if="hos_profile.specialist != null">{{hos_profile.specialist}}</dd>
                                                                 <dd v-else>-</dd>
                                                             </dl>
                                                         </td>
