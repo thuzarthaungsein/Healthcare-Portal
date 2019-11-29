@@ -14,7 +14,7 @@
             <!--search input-->
               <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchTerm" id="search-word" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <input type="text" class="searchTerm" id="search-free-word" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton" @click="searchfreeword">    
                       <i class="fas fa-search"></i> 検索
                   </button>
@@ -319,7 +319,7 @@
         </div>
 
          
-          <div class="col-12 jobselect pad-free"> 
+          <div  id="job_search" class="col-12 jobselect pad-free"> 
              <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
             <table class="table table-bordered col-12 ">
               <tbody>
@@ -580,7 +580,13 @@ export default {
           this.empstatus[0] = 0;
         }
 
-        this.axios.get('api/getjobsearch/null',{
+        if ($('#search-free-word').val() != '') 
+        {
+        
+          var search_word = $('#search-free-word').val();
+        }
+
+        this.axios.get('api/getjobsearch/'+search_word,{
           
           params:{
               id: this.id,
@@ -590,7 +596,8 @@ export default {
           },
         }).then((response)=>{
 
-          this.job_data = response.data;
+          this.job_data = response.data.job;
+          this.cities = response.data.city
 
           if(this.job_data.length > this.size) {
               this.show_paginate = true;
@@ -604,30 +611,56 @@ export default {
          // window.scrollTo({ top : 1000, behavior: 'smooth' });
     },
     searchfreeword(){
-
+      
             //clear all checkbox
             this.id = -1;
             this.townshipID = [];
             this.occupationID = [];
             this.empstatus = [];
-          
 
-            if ($('#search-word').val() != '') 
-            { 
-                var search_word = $('#search-word').val();
+            if ($('#search-free-word').val() != '') 
+            {
+              
+                var search_word = $('#search-free-word').val();
+            }
+            else{
+                var search_word = "all";
+            }
+          
+            this.axios.get('api/getjobsearch/'+ search_word,{
+               params:{
+                    id: -1,
+                    townshipID:-1,
+                    occupationID:-1,
+                    empstatus:-1
+                   
+                },
+            })
+            .then((response)=>{    
+              if(response.data.job.length > 0)
+              {
+
+                $('.jobselect').removeClass('jobselect');
+                $('#job_search').css("display","block");
+                this.job_data = response.data.job;
+                this.cities = response.data.city
+                this.getTownships = [];
+                if(this.job_data.length > this.size) {
+                    this.show_paginate = true;
+                }else{
+                    this.show_paginate = false;
+                }
+               
+              }    
+              else{
+                  $('#job_search').css("display","none");
+              } 
+              
+              
+              
+            });
             
-                this.axios.get('api/getjobsearch/'+ search_word).then((response)=>{
-                    
-                    this.job_data = response.data;
-                    this.getTownships = [];
-                    // if(this.job_data.length > this.size) {
-                    //     this.show_paginate = true;
-                    // }else{
-                    //     this.show_paginate = false;
-                    // }
-                });
             
-            } 
             
         },
 
@@ -663,7 +696,9 @@ export default {
         },
         changeTownship()
         {
-            this.axios.get('api/getmap/null',{
+           this.townshipID = [];
+
+            this.axios.get('api/getmap',{
             params:{
               id: this.id,
               township_id:-1,
@@ -700,7 +735,7 @@ export default {
        
       
 
-          this.axios.get('api/getmap/null',{
+          this.axios.get('api/getmap',{
             params:{
               id: this.id,
               township_id:-1,
@@ -717,7 +752,8 @@ export default {
           this.occupations = response.data.occupations
           this.id = id
          })
-        
+
+        document.getElementById('search-free-word').value = '';
         this.search();
 
       },
