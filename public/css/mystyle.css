@@ -6673,7 +6673,7 @@ button.confirmed {
 }
 
 .profile_wd {
-    width: 230px !important;
+    width: 243px !important;
 }
 
 .profile_price {
@@ -7200,9 +7200,10 @@ ul.test>li:before {
     border-radius: 50%;
     text-align: center;
 }
-.nav-content:hover{
+
+.nav-content:hover {
     cursor: pointer;
-  }
+}
 
 #fav-history-page .card-carousel--nav__left {
     transform: rotate(-135deg);
@@ -8659,28 +8660,27 @@ ul.nur-caro-card>li.list-group-item {
 
 
 /*--------------------------------------------------responsive ---------------------------------------------------------------*/
-@media only screen and (max-width:1024px){
+
+@media only screen and (max-width:1024px) {
     .wd-in {
         width: 249px;
     }
 }
-@media only screen and (max-width:768px){
+
+@media only screen and (max-width:768px) {
     .wd-in {
         width: 256px;
     }
-   
-}
-@media only screen and (max-width:480px){
-
-}
-@media only screen and (max-width:320px){
-
 }
 
+@media only screen and (max-width:480px) {}
+
+@media only screen and (max-width:320px) {}
 
 
 /**************card carousel***********************/
-@media only screen and (max-width:768px){
+
+@media only screen and (max-width:768px) {
     #fav-history-page .card-carousel-cards .card-carousel--card--footer {
         padding: 0px;
     }
@@ -8758,7 +8758,9 @@ ul.nur-caro-card>li.list-group-item {
 
 @media only screen and (max-width: 1880px) and (min-width: 1440px) {
     #fav-history-page .card-carousel {
-          width: 1033px!important;
-      }
-  }
+        width: 1033px!important;
+    }
+}
+
+
 /**************end card carousel***********************/
