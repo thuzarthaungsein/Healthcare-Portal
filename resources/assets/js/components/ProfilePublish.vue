@@ -2008,7 +2008,7 @@ export default {
     border-top: 5px solid #f9793c;
     border-right: 5px solid #f9793c;
     cursor: pointer;
-    /* margin: 0 10px; */
+    margin: 10px;
     transition: transform 150ms linear;
 }
 
@@ -2035,8 +2035,8 @@ export default {
 }
 
 .nav-content {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     line-height: 35px;
     vertical-align: middle;
     background: #fffff4;
