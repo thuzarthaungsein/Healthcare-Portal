@@ -804,7 +804,7 @@ export default {
 //         $( '#divisionswrap ul li' ).parent().find( 'li.active' ).removeClass( 'active' );
 //         $( this ).addClass( 'active' );
 //  });
-
+``
 // });
 </script>
 
