@@ -436,9 +436,9 @@
                                             })
                                         console.log(response.data);
                                         if(response.data.recordstatus == '1') {
-                                            this.accout_status = 'Deactivate';
+                                            this.accout_status = '無効化';
                                         } else {
-                                            this.accout_status = 'Activate';
+                                            this.accout_status = '有効化';
                                         }
                                             
                                     }).catch(error => {

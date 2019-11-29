@@ -495,8 +495,8 @@
       </div>
       </div>
       <!--list-->
-          
-       <table id="filtertable" class="table table-bordered col-12 box-wrap select">
+          <div id="filtertable">
+       <table class="table table-bordered col-12 box-wrap select">
               <tbody>
                 <tr>
                   <th>地域</th>
@@ -597,6 +597,7 @@
                 </tr>
               </tbody>
       </table>
+      </div>
       <!--end list-->
 
         <div class=" col-12">
