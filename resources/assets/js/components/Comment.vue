@@ -252,7 +252,8 @@ export default {
                         this.$swal({
                             position: 'top-end',
                             type: 'success',
-                            title: '作成されました',
+                            // title: '作成されました',
+                            title: '確認のためもうちょっとしばらくお待ちください。',
                             showConfirmButton: false,
                             timer: 1800,
                             width: 250,
