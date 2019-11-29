@@ -544,7 +544,16 @@ export default {
         pageRange: 5,
         items: [],
         show_paginate: false,
+        loginuser: true,
       }
+    },
+    created() {
+        this.axios.get('/api/user').then(response => {
+                this.pro_id = response.data.lat_lng[0].id;
+                this.loginuser = true;
+                }).catch((error) => {
+                    this.loginuser = false;
+                })
     },
     mounted() {
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
@@ -623,7 +632,7 @@ export default {
         },
 
     gotoJobdetail(jid) {
-        this.$router.push({ name: 'job_details', params:{id:jid}});
+        this.$router.push({ name: 'job_details', params:{id:jid,loginuser:this.loginuser}});
     },
 
     toggleContent4() {

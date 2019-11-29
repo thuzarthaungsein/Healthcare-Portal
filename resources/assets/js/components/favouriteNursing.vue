@@ -233,157 +233,157 @@
                         <!-- end monthly cost -->
                     </div>
                 </div>
-            </div>
-            <!--end compare box-->
-            <!--result-->
-            <div class="col-12">
-                <div class="clearfix">
-                    <div class="float-right">
-                        <label class="btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary control controlinner--checkbox" style="width:300px;">
-                            <input type="checkbox" @change="checkAll()" class="check-all-btn" />
-                            <span class="checkmark"></span>すべての資料請求にチェックを入れる
-                             <div class="controlinner__indicator" style="top:8px;left:7px;"></div>
-                        </label>
-                        <button type="button" class="btn btn-success all-btn float-right m-l-10" @click="addingMail()" :disabled="isdisable">資料請求する</button>
+
+                <!--end compare box-->
+                <!--result-->
+                <div class="col-12">
+                    <div class="clearfix">
+                        <div class="float-right">
+                            <label class="btn my-2 my-sm-0 all-btn secondary-bg-color btn-secondary control controlinner--checkbox" style="width:300px;">
+                                <input type="checkbox" @change="checkAll()" class="check-all-btn" />
+                                <span class="checkmark"></span>すべての資料請求にチェックを入れる
+                                <div class="controlinner__indicator" style="top:8px;left:7px;"></div>
+                            </label>
+                            <button type="button" class="btn btn-success all-btn float-right m-l-10" @click="addingMail()" :disabled="isdisable">資料請求する</button>
+                        </div>
                     </div>
-                </div>
-                <div class="m-t-20" id="fav-history-page">
-                    <div class="col-12">
-                        <div class="card-carousel-wrapper">
-
-                                <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
-                                    <div class="nav-content mr-2">
-                                        <div class="card-carousel--nav__left"></div>
+                    <div class="m-t-20" id="fav-history-page">
+                        <div class="col-12">
+                            <div class="card-carousel-wrapper">
+                                    <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
+                                        <div class="nav-content mr-2">
+                                            <div class="card-carousel--nav__left"></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-carousel">
-                                    <div class="card-carousel--overflow-container">
-                                        <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + (currentOffset) + 'px' + ')'}">
-                                            <div class="card-carousel--card">
-                                            <table class="table table-bordered ">
-                                                <tr>
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div class="profile_img_wrap">
-                                                            <img class="profile_img" style="" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt  @error="imgUrlAlt"/>
-                                                        </div> 
-                                                        <div class="profile_wd">
-                                                            <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nur_profile.name}}</router-link>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <span class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</span>
-                                                        <label class="btn all-btn res-btn hos-btn control controlinner--checkbox p-l-30">
-                                                            <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
-                                                            <span class="checkmark"></span>資料請求
-                                                            <div class="controlinner__indicator"></div>                                                        
-                                                        </label>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="address_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">住所</dt>
-                                                            <dd class="profile_wd">
-                                                                {{nur_profile.township_name}} {{nur_profile.city_name}}
-                                                            </dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="tran_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">交通手段</dt>
-                                                            <dd class="profile_wd">
-                                                                <span v-html="nur_profile.access"></span>
-                                                            </dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="address_show || tran_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div v-if="tran_show || address_show" class="profile_wd"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i> 地図・交通アクセス</span></div>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="entry_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">入居時の費用</dt>
-                                                            <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.moving_in_from)/10000))==0? '' : (Math.floor(Number(nur_profile.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.moving_in_from)%10000)==0 ? '' : (Number(nur_profile.moving_in_from)%10000).toLocaleString()}}円～</strong></dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="month_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">月額の費用</dt>
-                                                            <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.per_month_from)/10000))==0? '' : (Math.floor(Number(nur_profile.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.per_month_from)%10000)==0 ? '' : (Number(nur_profile.per_month_from)%10000).toLocaleString()}}円～</strong></dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="month_show || entry_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div class="profile_wd"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i> 料金プランの詳細</span></div>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="condition_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">入居条件</dt>
-                                                            <dd class="profile_wd">{{nur_profile.occupancy_condition }}</dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="special_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <div class="profile_wd bd3">
-                                                            <ul class="fac_container m-t-8 m-b-15 m-l-8">
-                                                                <h6 class="font-weight-bold text-left">特長</h6>
+                                    <div class="card-carousel">
+                                        <div class="card-carousel--overflow-container">
+                                            <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + (currentOffset) + 'px' + ')'}">
+                                                <div class="card-carousel--card">
+                                                    <div class="card-carousel--card--footer">
+                                                        <table class="table table-bordered ">
+                                                            <tr>
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <div class="profile_img_wrap">
+                                                                        <img class="profile_img" style="" v-bind:src="'/upload/nursing_profile/' + nur_profile.logo" alt  @error="imgUrlAlt"/>
+                                                                    </div> 
+                                                                    <div class="profile_wd">
+                                                                        <router-link :to="{name: 'profile', params: {cusid:nur_profile.customer_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nur_profile.name}}</router-link>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <span class="btn btn-danger all-btn hos-btn m-t-8" @click="deleteLocalSto(nur_profile.id)">お気に入りリストから削除</span>
+                                                                    <label class="btn all-btn res-btn hos-btn control controlinner--checkbox p-l-30">
+                                                                        <input type="checkbox" value="document_status[nur_profile.id]" name="documentation" class="checkbox2" v-model="document_status[nur_profile.id]" @change="checkSingle(nur_profile.id)">
+                                                                        <span class="checkmark"></span>資料請求
+                                                                        <div class="controlinner__indicator"></div>                                                        
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="address_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">住所</dt>
+                                                                        <dd class="profile_wd">
+                                                                            {{nur_profile.township_name}} {{nur_profile.city_name}}
+                                                                        </dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="tran_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">交通手段</dt>
+                                                                        <dd class="profile_wd">
+                                                                            <span v-html="nur_profile.access"></span>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="address_show || tran_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <div v-if="tran_show || address_show" class="profile_wd"><span class="pseudolink" @click="googlemap(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-google"><i class="fa fa-search"></i> 地図・交通アクセス</span></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="entry_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">入居時の費用</dt>
+                                                                        <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.moving_in_from)/10000))==0? '' : (Math.floor(Number(nur_profile.moving_in_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.moving_in_from)%10000)==0 ? '' : (Number(nur_profile.moving_in_from)%10000).toLocaleString()}}円～</strong></dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="month_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">月額の費用</dt>
+                                                                        <dd class="profile_price"><strong>{{(Math.floor(Number(nur_profile.per_month_from)/10000))==0? '' : (Math.floor(Number(nur_profile.per_month_from)/10000)).toLocaleString()+'万' }}{{(Number(nur_profile.per_month_from)%10000)==0 ? '' : (Number(nur_profile.per_month_from)%10000).toLocaleString()}}円～</strong></dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="month_show || entry_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <div class="profile_wd"><span class="pseudolink" @click="monthlyCost(nur_profile.id)" data-toggle="modal" data-target=".bd-example-modal-cost"><i class="fa fa-search"></i> 料金プランの詳細</span></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="condition_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">入居条件</dt>
+                                                                        <dd class="profile_wd">{{nur_profile.occupancy_condition }}</dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="special_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <div class="profile_wd bd3">
+                                                                        <ul class="fac_container m-t-8 m-b-15 m-l-8">
+                                                                            <h6 class="font-weight-bold text-left">特長</h6>
 
-                                                                <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="capacity_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">定員</dt>
-                                                            <dd v-if="nur_profile.capacity != null" class="profile_wd">{{nur_profile.capacity }} </dd>
-                                                            <dd v-else class="profile_wd">-人</dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                                <tr v-if="opening_show">
-                                                    <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
-                                                        <dl>
-                                                            <dt class="text-left">開設日</dt>
-                                                            <dd v-if="opening_show" class="profile_wd">{{nur_profile.date_of_establishment }}</dd>
-                                                        </dl>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <!-- </div> -->
+                                                                            <li v-for="feature in nur_profile.special" :key="feature.id">{{ feature.short_name }}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="capacity_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">定員</dt>
+                                                                        <dd v-if="nur_profile.capacity != null" class="profile_wd">{{nur_profile.capacity }} </dd>
+                                                                        <dd v-else class="profile_wd">-人</dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                            <tr v-if="opening_show">
+                                                                <td v-for="nur_profile in fav_nursing" :key="nur_profile.id">
+                                                                    <dl>
+                                                                        <dt class="text-left">開設日</dt>
+                                                                        <dd v-if="opening_show" class="profile_wd">{{nur_profile.date_of_establishment }}</dd>
+                                                                    </dl>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
-                                <div class="nav-content ml-2">
-                                   <div class="card-carousel--nav__right"></div>
+                                <div class="nav-box"  @click="moveCarousel(1)" :disabled="atEndOfList">
+                                    <div class="nav-content ml-2">
+                                    <div class="card-carousel--nav__right"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--end compare box-->
+                <!--result-->
+
+                <!--end result-->
             </div>
-            <!--end compare box-->
-            <!--result-->
-
-            <!--end result-->
-
         </div>
 
         <button type="button" class="btn btn-success mt-5 float-right" @click="addingMail()" :disabled="isdisable">資料請求する</button>
