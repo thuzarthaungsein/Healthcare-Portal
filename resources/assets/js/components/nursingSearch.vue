@@ -1922,4 +1922,4 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
 
 </style>
 
-</style>
+

@@ -253,16 +253,13 @@
                     console.log(id);
                             this.axios.get(`/api/job/confirm/${id}`)
                                 .then(response => {
-                                    // this.jobs = response.data.jobs;
+                                    this.jobs = response.data.jobs;
                                     // const path = `/jobofferlist/`;
                                     // // if ($route.path !== path) this.$router.push(path);
                                     // this.$router.push('/jobofferlist/').catch(err => {
                                     //     console.log('no go');
                                     // })
-                                    // location.reload(`/jobofferlist/`);
-                                      this.$router.push({
-                                      name: 'jobofferlist'
-                        })
+                                    location.reload();
                                 });
 
                     
