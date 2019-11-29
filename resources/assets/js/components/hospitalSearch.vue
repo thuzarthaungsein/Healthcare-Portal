@@ -11,7 +11,7 @@
           <!-- <div class="info-box"></div> -->
           <div class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
-            <h2 class="map-header">あなたの街の名医<br/>見つかります。</h2>
+            <h2 class="map-header" style="bottom: 247px;">あなたの街の名医<br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
@@ -965,9 +965,8 @@
   .toBeToggled1 {
     display: none;
   }
-  table>tbody>tr th {
+  #hos table>tbody>tr th {
     background-color: #e8e7e7;
-    text-align: right;
     width: 140px;
     padding: 25px;
   }

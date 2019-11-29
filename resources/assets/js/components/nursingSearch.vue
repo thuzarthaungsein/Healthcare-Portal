@@ -438,10 +438,10 @@
                                     <span class="type-name">{{items.type_name}}</span>
 
                                     <div class="row" style="margin-top:10px;">
-                                        <div class="col-4" style="padding-top:3px;">
+                                        <div class="col-4 col-lg-4 col-md-5" style="padding-top:3px;">
                                             <img :src="'/upload/nursing_profile/'+items.logo" alt="image" width="110px" @error="imgUrlAlt"/>
                                         </div>
-                                        <div class="col-8 m-b-15">
+                                        <div class="col-8 col-lg-8 col-md-7 m-b-15">
                                             <ul class="nursingSearch-list m-l-10">
                                                 <li class="d-flex"><p class="text-truncate"><span>住所</span><span> {{items.township_name}}{{items.address}}</span></p></li>
                                                 <li class="d-flex"><span>電話 </span><span>{{items.phone}}</span></li>
@@ -782,6 +782,10 @@
         currentOffset: 0,
         windowSize: 4,
         paginationFactor: 500,
+        window:{
+          width: 0,
+          height: 0
+        },
         nursingList: [],
         alphabet: [],
         markerHover:[],
@@ -804,6 +808,48 @@
         onchangeid:0,
         selected: undefined
       }
+    },
+    created(){
+      window.addEventListener('resize', this.handleResize)
+            this.handleResize();
+            if(this.window.width > 320 && this.window.width < 450) {
+                this.windowSize = 1;
+               
+            } 
+            
+            else if(this.window.width >= 450 && this.window.width < 768) {
+                this.windowSize = 2;
+              
+                console.log(this.window.width);
+               
+            } 
+            else if(this.window.width >= 768 && this.window.width < 992) {
+                this.windowSize = 2;
+               
+            }
+            else if(this.window.width >= 992 && this.window.width < 1024) {
+                this.windowSize = 2;               
+                console.log(this.window.width);
+                console.log(this.windowSize);
+            }
+            else if (this.window.width >= 1024 && this.window.width < 1280) {
+                this.windowSize = 3;
+                console.log('aaaaaaa');
+               console.log(this.window.width);
+                
+            }
+            else if (this.window.width >= 1280 && this.window.width < 1440) {
+                this.windowSize = 4;                
+               console.log(this.window.width);
+               
+            }
+            else if (this.window.width >= 1440 && this.window.width < 1880) {
+                this.windowSize = 4;              
+                
+            }
+            // else if( this.window.width > 1700) {
+
+            // }
     },
     mounted() {
             $('#navtab').removeClass('news-tabColor hospital-tabColor nursing-tabColor job-tabColor');
@@ -855,6 +901,10 @@
     },
 
 methods: {
+handleResize() {
+                this.window.width = window.innerWidth;
+                this.window.height = window.innerHeight;
+            },
 
 searchfreeword(){
 
@@ -1737,7 +1787,6 @@ search(){
 
   table>tbody>tr th {
     background-color: #eeeeee94;
-    text-align: right;
     width: 140px;
     padding: 25px;
   }
@@ -1866,7 +1915,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
   #nursing-search .card-carousel {
     display: flex;
     justify-content: center;
-    width: 1359px;
+    width: 1320px;
     overflow:auto;
   }
 
@@ -1883,7 +1932,7 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     box-sizing: border-box;
     border-top: 5px solid #ff9563;
     border-right: 5px solid #ff9563;
-    margin: 0 10px;
+    margin: 4px 0px;
     transition: transform 150ms linear;
   }
 
@@ -2005,8 +2054,8 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
 }
 
 .nav-content {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 50px;
     vertical-align: middle;
     background: #fffff4;
@@ -2018,22 +2067,19 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
     top:10px;
     right:15px;
 }
+.nursing-tabColor .nav-link {
+    background: #ff9563 !important;
+    color: #fff;
+    border-right: 1px solid #fff;
+}
 
-
-
-    .nursing-tabColor .nav-link {
-        background: #ff9563 !important;
-        color: #fff;
-        border-right: 1px solid #fff;
-    }
-
-    .nursing-borderColor {
-        border: 1px solid #ff9563 !important;
-    }
-    .tab-pane{
-        padding: 10px;
-    }
-    .offset{
+.nursing-borderColor {
+    border: 1px solid #ff9563 !important;
+}
+.tab-pane{
+    padding: 10px;
+}
+.offset{
   width: 500px !important;
   margin: 20px auto;
 }
@@ -2046,7 +2092,58 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
 .page-item .spanclass{
   cursor: pointer;
 }
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+   #nursing-search .card-carousel {
+        width: 200px!important;
+    }
+}
 
-</style>
+
+@media only screen and (max-width: 450px) and (min-width: 376px) {
+   #nursing-search .card-carousel {
+        width: 207px !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+   #nursing-search .card-carousel {        
+        width: 415px!important;
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 449px) {
+   #nursing-search .card-carousel {       
+        width: 415px!important;
+    }
+}
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+   #nursing-search .card-carousel {
+        width: 560px!important;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
+   #nursing-search .card-carousel {
+        width: 823px!important;
+    }
+}
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+   #nursing-search .card-carousel {
+        width: 823px!important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1440px) and (min-width: 1200px) {
+    #nursing-search .card-carousel {
+        width: 988px!important;
+    }
+}
+@media only screen and (max-width: 1880px) and (min-width: 1440px) {
+     #nursing-search .card-carousel {
+        width: 1033px!important;
+    }
+}
+
 
 </style>
