@@ -61,6 +61,7 @@ import occupation from './components/occupation.vue';
 import occupationlist from './components/occupationlist.vue';
 import nursingSearch from './components/nursingSearch.vue';
 import jobSearch from './components/jobSearch.vue';
+import jobofferlist from './components/JobOfferList.vue';
 import News from './components/News.vue';
 
 export const routes = [
