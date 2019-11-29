@@ -505,7 +505,7 @@
                       {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
                     </td>
                   </tr> -->
-                <table class="table table-bordered" style="wi">
+                <table class="table table-bordered">
                     <thead>
                       <tr class="first-row">
                         <th>日付</th>
@@ -518,17 +518,17 @@
                         <th>日</th>
                       </tr>
                     </thead>
-                    <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
-                      <tr v-if="hos.customer_id == time.customer_id" class="text-center">
-                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'am'">午前</td>
-                        <td class="second-hos-row" style="width:8%;" v-if="time.part == 'pm'">午後</td>
-                        <td style="width:10%;">{{time.mon}}</td>
-                        <td style="width:10%;">{{time.tue}}</td>
-                        <td style="width:10%;">{{time.wed}}</td>
-                        <td style="width:10%;">{{time.thu}}</td>
-                        <td style="width:10%;">{{time.fri}}</td>
-                        <td style="width:10%;">{{time.sat}}</td>
-                        <td style="width:10%;">{{time.sun}}</td>
+                    <tbody>
+                      <tr v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id" class="text-center">
+                        <td class="second-hos-row" style="width:8%;" v-if="(hos.customer_id == time.customer_id && time.part == 'am' )">午前</td>
+                        <td class="second-hos-row" style="width:8%;" v-if="(hos.customer_id == time.customer_id && time.part == 'pm' )">午後</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.mon}}</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.tue}}</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.wed}}</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.thu}}</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.fri}}</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.sat}}</td>
+                        <td style="width:10%;" v-if="hos.customer_id == time.customer_id">{{time.sun}}</td>
                       </tr>
                     </tbody>
                 </table>
