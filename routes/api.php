@@ -250,6 +250,7 @@ Route::get('featurelist', 'SpecialFeatureController@index');
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
 Route::post('sfeature/update/{id}','SpecialFeaturesJunctionsController@update');
 Route::post('subject_junctions/update/{id}','SubjectJunctionsController@update');
+Route::post('station_junctions/update/{id}','StationJunctionsController@update');
 
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');

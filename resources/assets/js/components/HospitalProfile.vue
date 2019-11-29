@@ -1221,6 +1221,33 @@
           </tr>
 
         </table> -->
+        <!-- Test Station Area -->
+                                    <table class="table table-bordered table-wrapper">
+                                            <tr>
+                                                    <td>
+                                                            <div class="form-group">
+                                                                    <label  class="heading-lbl col-2 pad-free">駅</label>
+                                                                    <span class="btn all-btn main-bg-color" style="min-width: 0px;" @click="StationAdd()"><i class="fas fa-sort-down animate" :class="{'rotate': isRotate4}"></i></span>
+                                                                    <div class="col-md-10 float-right station-toggle-div toggle-div m-t-10">
+                                                                            <div class="row">
+                                                                                    <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
+                                                                                            <label>
+                                                                                                    <input type="checkbox"  name="station" v-bind:value="stat.id" @click="stationCheck(stat.id)" v-model="stat.checked">
+                                                                                                    {{stat.name}}
+                                                                                            </label>
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                    </td>
+                                            </tr>
+                                    </table>
+                                    <!-- End Test Station Area -->
+
+
+
+
+
         <table class="table table-bordered table-wrapper">
                     <tr>
                         <td>
@@ -1331,7 +1358,7 @@ export default {
                         readonly:true,
                         theme:'snow',
                         access_val: '',
-                        detail_info: '',
+                        detail_info: '', stations:[], station_list:[],
                 },
                 }
         },
@@ -1344,6 +1371,12 @@ export default {
 
                 this.type = localStorage.getItem('cusType');
                 this.cusid = Number(localStorage.getItem('cusId'));
+
+                this.axios
+                  .get('/api/station/'+this.cusid)
+                  .then(response=>{
+                      this.station_list = response.data;
+                });
 
                 this.axios
                 .get('/api/clinical-subject/'+this.cusid)
@@ -1421,6 +1454,9 @@ export default {
             },
             featureCheck(check_id) {
                     $('.feature-'+check_id).attr('checked','true');
+            },
+            stationCheck(check_id) {
+                $('.station-'+check_id).attr('checked','true'); 
             },
             subjectCheck(check_id) {
                     $('.subject-'+check_id).attr('checked','true');
@@ -1518,6 +1554,10 @@ export default {
                      $(".special-feature-toggle-div").toggle('medium');
                      this.isRotate4 = !this.isRotate4;  
             },
+            StationAdd() {
+                $(".station-toggle-div").toggle('medium');
+                this.isRotate4 = !this.isRotate4;
+            },
             Create_Profile () {
                     this.customer_info = [];
                     var name = $('.customer-name').val();
@@ -1591,6 +1631,13 @@ export default {
                         });
                         this.subjects.push({subject_id:chek_subj});
 
+                    var chek_station=[];
+                    $.each($("input[name='station']:checked"), function(){
+                      alert($(this).val());
+                        chek_station.push($(this).val());
+                    });
+                    this.stations.push({station_id:chek_station});
+
                      // Consultation
                      for(var j = 0; j< 2; j++) {
                         for(var i = 0; i< 7; i++) {
@@ -1660,6 +1707,20 @@ export default {
                                                   this.errors = error.response.data.errors
                                 }
                         }) ;
+                        }
+
+                        if(this.stations.length > 0) {
+                          this.axios
+                          .post(`/api/station_junctions/update/${this.cusid}`,this.stations)
+                          .then((response) => {
+
+
+                              }).catch(error=>{
+                              if(error.response.status == 422){
+                                  this.stations = 'error';
+                                  this.errors = error.response.data.errors
+                              }
+                          }) ;
                         }
 
                         if(this.subjects.length > 0) {
