@@ -103,6 +103,20 @@ class SearchMapController extends Controller
 
     public function getNursingSearch($searchword)
     {
+
+        $design_id = 'hc1wXBL7zCsdfMu';
+        $list_desings_ids = array('hc1wXBL7zCsdfMu','dhdsfHddfD','otheridshere');
+
+        if(in_array($design_id, $list_desings_ids))
+        {
+           return 'yes';
+
+        }
+        else{
+            return 'no';
+        }
+
+
           //for city
           $id = $_GET['id'];
           $Moving_in = $_GET['Moving_in'];
@@ -338,7 +352,7 @@ class SearchMapController extends Controller
                   left join special_features_junctions as spej on spej.customer_id = c.id 
                   left join special_features as spe on spe.id = spej.special_feature_id
                   left join subject_junctions as subj on subj.customer_id = c.id
-                  left join subjects as sub on sub.id = subj.subject_id
+                  left join subjects as sub on sub.id = subj.subject_id      
                   where ";
 
         if($id == -1) 

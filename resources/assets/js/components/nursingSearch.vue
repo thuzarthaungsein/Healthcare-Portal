@@ -1290,11 +1290,26 @@ changeMap(response){
         },
 
 
-       
-        
-
+    
 search(){  
 
+ 
+           
+            console.log('test');
+            $design_id = 'hc1wXBL7zCsdfMu';
+            $list_desings_ids = array('hc1wXBL7zCsdfMu','dhdsfHddfD','otheridshere');
+
+            if(in_array($design_id, $list_desings_ids))
+            {
+                console.log('yes');
+
+            }
+            else{
+
+                console.log('no');
+            }
+         
+          
  
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -1343,7 +1358,8 @@ search(){
               var search_word = $('#search-free-word').val();
             }
           
-
+           
+            var local_arr = localStorage.getItem('nursing_fav').split(',');
             this.axios.get('api/getnursingsearch/'+search_word,{
             params:{
                 id: this.id,
@@ -1367,12 +1383,14 @@ search(){
 
             var mmarker = new Array()
             var item = []
+            //  var local_arr = localStorage.getItem('nursing_fav').split(',');
 
-    
+           
+
             if(this.nus_data.length > 0){
-
+             
                 for (var i = 0; i < this.searchmarkers.length; i++) {
-                   
+
                     mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
                     item.push(this.searchmarkers[i])
                 }
@@ -1479,7 +1497,7 @@ search(){
                 var index = fav_arr.indexOf(index);
                 if (index > -1) {
                     fav_arr.splice(index, 1);
-                    localStorage.setItem("nursing_fav", fav_arr);
+                    localStorage.setItem("nursing_fav", fav_arr);   
                 }
                 $("#nus-fav-local").html(fav_arr.length);
 
