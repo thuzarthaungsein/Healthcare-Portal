@@ -395,7 +395,9 @@
         </section>
 
         <!-- nursing list -->
-       <div id="nursing-search">
+
+       <div  id="nursing-search">
+           <div v-if="!this.nus_data.length" class="container-fuid no_search_data">検索したデータ見つかりません。</div>
         <div class="row">
           <div class="card-carousel-wrapper col-12">
             <div class="nav-box" @click="moveCarousel(-1)" :disabled="atHeadOfList">
@@ -814,21 +816,21 @@
             this.handleResize();
             if(this.window.width > 320 && this.window.width < 450) {
                 this.windowSize = 1;
-               
-            } 
-            
+
+            }
+
             else if(this.window.width >= 450 && this.window.width < 768) {
                 this.windowSize = 2;
-              
+
                 console.log(this.window.width);
-               
-            } 
+
+            }
             else if(this.window.width >= 768 && this.window.width < 992) {
                 this.windowSize = 2;
-               
+
             }
             else if(this.window.width >= 992 && this.window.width < 1024) {
-                this.windowSize = 2;               
+                this.windowSize = 2;
                 console.log(this.window.width);
                 console.log(this.windowSize);
             }
@@ -836,16 +838,16 @@
                 this.windowSize = 3;
                 console.log('aaaaaaa');
                console.log(this.window.width);
-                
+
             }
             else if (this.window.width >= 1280 && this.window.width < 1440) {
-                this.windowSize = 4;                
+                this.windowSize = 4;
                console.log(this.window.width);
-               
+
             }
             else if (this.window.width >= 1440 && this.window.width < 1880) {
-                this.windowSize = 4;              
-                
+                this.windowSize = 4;
+
             }
             // else if( this.window.width > 1700) {
 
@@ -1266,7 +1268,7 @@ changeMap(response){
                 this.medical_acceptance = response.data.medical_acceptance
                 this.nus_data = response.data.nursing_profile
                 this.markers = response.data.nursing_profile;
-
+                // console.log("bbbb",this.nus_data);
                 var mmarker = new Array();
                 var item = [];
                 for (var i = 0; i < this.markers.length; i++) {
@@ -2107,12 +2109,12 @@ div.overlay.standard { background: #fff url('/images/google/loading.jpg') no-rep
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
-   #nursing-search .card-carousel {        
+   #nursing-search .card-carousel {
         width: 415px!important;
     }
 }
 @media only screen and (max-width: 768px) and (min-width: 449px) {
-   #nursing-search .card-carousel {       
+   #nursing-search .card-carousel {
         width: 415px!important;
     }
 }

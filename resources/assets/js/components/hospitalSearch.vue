@@ -447,7 +447,8 @@
             </tbody>
           </table>
           <div class="col-12">
-            <div class="row">
+              <div v-if="!this.hos_data.length" class="text-center">検索したデータ見つかりません。</div>
+            <div class="row" v-else>
 
               <div id="job_detail" class="col-md-12 col-sm-12 offset" style="margin-top:20px;" v-for="hos in displayItems" :key="hos.id">
                 <div class="hos-content">
@@ -648,6 +649,7 @@
           }).then((response)=>{
 
             this.hos_data = response.data.hospital;
+            console.log("hos",this.hos_data);
             this.timetable = response.data.timetable;
             this.specialfeatures = response.data.specialfeature;
             this.subject = response.data.subject;
