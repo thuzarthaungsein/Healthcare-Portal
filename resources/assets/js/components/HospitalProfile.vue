@@ -1232,7 +1232,7 @@
                                                                             <div class="row">
                                                                                     <div v-for="stat in station_list" :key="stat.id" class="col-md-3 m-b-20">
                                                                                             <label>
-                                                                                                    <input type="checkbox"  name="station" v-bind:value="stat.id" @click="stationCheck(stat.id)" v-model="stat.checked">
+                                                                                                    <input type="checkbox"  name="station" v-bind:value="stat.id" @click="featureCheck(stat.id)" v-model="stat.checked">
                                                                                                     {{stat.name}}
                                                                                             </label>
                                                                                     </div>
@@ -1333,7 +1333,7 @@ export default {
         },
        data() {
                 return {
-                        fac_list: [],
+                        fac_list: [], stations:[], station_list:[],
                         img_arr:[],img_list:[],
                         video_arr:[], video_list:[],gallery_list:[],
                         feature_list:[],
@@ -1358,7 +1358,7 @@ export default {
                         readonly:true,
                         theme:'snow',
                         access_val: '',
-                        detail_info: '', stations:[], station_list:[],
+                        detail_info: '', 
                 },
                 }
         },
@@ -1626,14 +1626,13 @@ export default {
                         facilities = chek_facility.join(',');
 
                     var chek_subj = [];
-                        $.each($("input[name='subject']:checked"), function(){
+                        $.each($("input[name='subject']:checked"),function(){
                                chek_subj.push($(this).val());
                         });
                         this.subjects.push({subject_id:chek_subj});
 
                     var chek_station=[];
                     $.each($("input[name='station']:checked"), function(){
-                      alert($(this).val());
                         chek_station.push($(this).val());
                     });
                     this.stations.push({station_id:chek_station});
