@@ -235,6 +235,6 @@ class CustomerController extends Controller
       
        $customer->save();
 
-       return $customer;
+       return response()->json($customer);
    }
 }
