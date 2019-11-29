@@ -2102,7 +2102,7 @@ div.b {
 .ads-slider .adslist-card {
     padding: 6px 10px;
     height: 80px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border:  1px solid red;
     border-radius: 1px;
 }
 
