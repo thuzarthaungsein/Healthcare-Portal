@@ -322,7 +322,7 @@
           </div>
 
 
-          <div class="col-12 hospitalselect pad-free">
+          <div class="row hospitalselect">
             <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
           <table class="table table-bordered col-12">
             <tbody>
@@ -449,7 +449,7 @@
           <div class="col-12">
             <div class="row">
 
-              <div id="job_detail" class="col-md-12 col-sm-12 offset" style="margin-top:20px;" v-for="hos in displayItems" :key="hos.id">
+              <div id="job_detail" class="col-md-12 col-sm-12 pad-free offset" style="margin-top:20px;" v-for="hos in displayItems" :key="hos.id">
                 <div class="hos-content">
                   <div class="job-header">
                   <h5 class="hos-title">

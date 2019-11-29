@@ -312,7 +312,7 @@
         </div>
 
 
-          <div class="col-12 jobselect pad-free">
+          <div class="row jobselect">
              <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>
             <table class="table table-bordered col-12 ">
               <tbody>
