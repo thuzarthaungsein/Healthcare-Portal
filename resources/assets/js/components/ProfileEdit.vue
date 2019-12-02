@@ -431,6 +431,8 @@
                                 this.axios
                                     .post('api/customer/account_update', fd)
                                     .then((response) => {
+                                        console.log(response);
+                                        this.customer_info = response.data;
                                         this.$swal({
                                                 position: 'top-end',
                                                 type: 'success',
@@ -440,11 +442,15 @@
                                                 width: 250,
                                                 height: 200,
                                             })
-                                        console.log(response.data);
-                                        if(response.data.recordstatus == '1') {
-                                            this.accout_status = '無効化';
+                                        if(this.customer_info.recordstatus == '1') {
+                                            this.accout_status = '無効にします';
                                         } else {
-                                            this.accout_status = '有効化';
+                                            this.accout_status = '有効にする';
+                                        }
+                                        if (this.customer_info.type_id == '2') {
+                                            this.logo = 'upload/hospital_profile/' + response.data.logo;
+                                        } else {
+                                            this.logo = 'upload/nursing_profile/' + response.data.logo;
                                         }
                                        location.reload();
                                             
