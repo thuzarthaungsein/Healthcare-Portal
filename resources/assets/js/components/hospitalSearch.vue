@@ -385,15 +385,15 @@
                                   <strong> {{subject.name}} </strong>
                             </div>
 
-                            <div class="col-12"  v-for="sub in sub_child" :key="sub.id+1">
-                                 <div v-if="subject.id == sub.parent">
+                            <div v-for="sub in sub_child" :key="sub.id+1" >
+                                 <div class="col-12" v-if="subject.id == sub.parent">
                                         <label class=" form-check-label control control--checkbox"  style="padding-left:0px;">
                                         <input class="form-check-input" type="checkbox" :id="sub.id" v-model="subjectID" :value="sub.id" >
                                         {{sub.name}}
                                         <div class="control__indicator"></div>
                                         </label>
                                  </div>
-
+                               
                             </div>
 
                         </div>

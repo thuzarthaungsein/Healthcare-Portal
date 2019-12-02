@@ -415,16 +415,15 @@
                             <td class="pt-2 pb-2"  v-for="items in nus_data" @mouseover="mouseover(items.alphabet)" @mouseleave="mouseleave(items.alphabet)" :id="items.alphabet" :key="items.nursing_id">
                                 <div class="wd-in">
                                     <p class="mb-2 clearfix"><span class="num-room">{{items.num_rooms}} </span><span class="float-right">{{items.date_of_establishment}}</span></p>
+
                                     <p class="item-fav btn btn-sm" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);">
                                         <i class="fas fa-plus-square" style="color:#c40000;"></i> お気に入りに追加
-                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
-                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
-                                    </p>
-                                    <p class="item-fav btn btn-sm" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);">
+                                    </p>                                    
+ 
+                                    <p class="item-fav btn btn-sm" v-if="items.fav_check == 'check'" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);">
                                         <i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み
-                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+items.nursing_id" style="display:block;" @click="favAddFun('add',items.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span> -->
-                                        <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
                                     </p>
+                                    
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">
                                         <router-link :to="{name: 'profile', params: {cusid:items.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}}</router-link>
                                     </p>
@@ -805,7 +804,8 @@
         pageRange: 5,
         items: [],
         show_paginate: false,
-        onchangeid:0
+        onchangeid:0,
+        localst:''
       }
     },
     created(){
@@ -922,6 +922,16 @@ searchfreeword(){
       else{
         var search_word = 'all';
       }
+
+        if(localStorage.getItem("nursing_fav") == null){
+
+            this.locast = 0;
+        }
+        else{
+            this.locast = localStorage.getItem("nursing_fav");
+        }
+     
+    
   
 
         this.axios.get('/api/getnursingsearch/'+search_word,{
@@ -929,7 +939,9 @@ searchfreeword(){
           id: -1 ,
           township_id:-1,
           Moving_in:-1,
-          Per_month:-1
+          Per_month:-1,
+          local:this.locast
+     
           },})
           .then((response) => {
           
@@ -1008,6 +1020,14 @@ getStateClick(e) {
                 var id = e.target.id;
             }
             this.id = id;
+
+            if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
         
 
             this.axios.get('/api/getmap',{
@@ -1015,7 +1035,8 @@ getStateClick(e) {
                 id: this.id,
                 township_id:-1,
                 moving_in:-1,
-                per_month:-1
+                per_month:-1,
+                local:this.locast
                 },
             })
                 .then((response) => {
@@ -1457,8 +1478,8 @@ changeMap(response){
 
         },
 
-search(){
-
+    
+search(){  
 
             if(this.townshipID == null || this.townshipID == '')
             {
@@ -1508,6 +1529,15 @@ search(){
             }
           
 
+            if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
+
+
             this.axios.get('api/getnursingsearch/'+search_word,{
             params:{
                 id: this.id,
@@ -1517,7 +1547,9 @@ search(){
                 FacTypeID:this.FacTypeID,
                 MoveID:this.MoveID,
                 Moving_in:this.moving_in,
-                Per_month:this.per_month
+                Per_month:this.per_month,
+                local:this.locast
+               
             },
             }).then((response)=>{
 
@@ -1528,13 +1560,14 @@ search(){
             this.searchmarkers = response.data.nursing;
             this.citylatlng = response.data.getCity;
             this.markers = response.data.nursing;
-
             var mmarker = new Array()
             var item = []
+         
 
+           
 
             if(this.nus_data.length > 0){
-
+             
                 for (var i = 0; i < this.searchmarkers.length; i++) {
 
                     mmarker.push([this.searchmarkers[i]['alphabet'], this.searchmarkers[i]['lat'], this.searchmarkers[i]['lng']])
@@ -1642,7 +1675,7 @@ search(){
                 var index = fav_arr.indexOf(index);
                 if (index > -1) {
                     fav_arr.splice(index, 1);
-                    localStorage.setItem("nursing_fav", fav_arr);
+                    localStorage.setItem("nursing_fav", fav_arr);   
                 }
                 $("#nus-fav-local").html(fav_arr.length);
 
