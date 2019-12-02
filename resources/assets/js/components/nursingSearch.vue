@@ -426,7 +426,7 @@
                                         <!-- <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+items.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',items.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span> -->
                                     </p>
                                     <p class="item-name"><img :src="'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+items.alphabet+'|ff9563|000000'" alt="">
-                                        <router-link :to="{name: 'profile', params: {cusid:items.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}} {{items.cus_id}}</router-link>
+                                        <router-link :to="{name: 'profile', params: {cusid:items.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;#ff6117!important">{{items.name}}</router-link>
                                     </p>
                                     <p>{{items.city_name}} <i class="fas fa-angle-double-right" style="color:#b9b5b5;"></i> {{items.township_name}}</p>
                                 </div>
@@ -607,8 +607,7 @@
                     <div class="row pad-free">
                         <div class="col-8">
                         <h5 class="nur-tit">
-                          {{nus.cus_id}}
-                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}} {{nus.cus_id}}</router-link>
+                            <router-link :to="{name: 'profile', params: {cusid:nus.cus_id, type: 'nursing'}}" class="pseudolink" style="font-weight:bold;">{{nus.name}}</router-link>
                         </h5>
                         <div class="d-flex" v-for="(fac,index) in fac_types" :key="index+'-'+fac.description+'-'+nus.id">
                           <span v-if="fac.id == nus.fac_type" class="fac_list">
@@ -617,8 +616,8 @@
                         </div>
                         </div>
                         <div class="col-4 text-right">
-                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.id" style="display:block;" @click="favAddFun('add',nus.id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
-                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'view_pro_id'+nus.nursing_id" style="display:block;" @click="favAddFun('add',nus.nursing_id);"><i class="fas fa-plus-square" style="color:#c40000!important;"></i>&nbsp; お気に入りに追加</span>
+                        <span class="btn fav-profile fav-item fav-color" :class="'done_pro_id'+nus.nursing_id" style="color:#aaa;display:none;" @click="favAddFun('remove',nus.nursing_id);"><i class="fas fa-check-double" style="color:#c40000!important;"></i>&nbsp; 追加済み</span>
                         </div>
                     </div>
                     </div>
