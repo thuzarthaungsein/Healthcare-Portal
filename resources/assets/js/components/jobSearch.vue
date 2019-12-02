@@ -309,9 +309,10 @@
             </div> -->
           </div>
         </div>
-         
-          <div  id="job_search" class="col-12 jobselect pad-free"> 
-             <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>      
+
+
+          <div class="row jobselect" id="job_search">
+             <h5 class="profile_header m-t-10" style="border-left: 5px solid #828282;">現在の検索条件</h5>
             <table class="table table-bordered col-12 ">
               <tbody>
                 <tr>
