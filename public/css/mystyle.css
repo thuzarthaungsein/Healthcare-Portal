@@ -2104,12 +2104,13 @@ div.b {
     height: 80px;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 1px;
+    margin-left: -2px;
 }
 
 .ads-slider h3 {
     /* width: 100px; */
     width: auto;
-    height: 50px;
+    height: 60px;
 }
 
 .ads-slider .ads-img {
@@ -8579,10 +8580,9 @@ ul.nur-caro-card>li.list-group-item {
 .wrapper-3 img {
     /* position: absolute; */
     width: 100%;
-    height: auto;
+    height: 100%;
     /* box-shadow: 0px 1px 5px 0px #b1b1b1 !important; */
     transition: all 250ms ease-out;
-    max-height: 100%;
 }
 
 .wrapper-3 p {

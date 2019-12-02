@@ -179,7 +179,13 @@
                                                 
                                             </div>                                            
                                             <div class="form-group">
-                                                <span class="btn main-bg-color white all-btn"  @click="AccountStatusChange(customer_info.recordstatus)">
+                                                <!-- <button class="btn confirmed" v-if="customer_info.accout_status != 0" >{{accout_status}}</button>
+                                                <button class="btn confirm-borderbtn" v-else @click="AccountStatusChange(customer_info.recordstatus)">{{accout_status}}</button> -->
+                                                <span class="btn btn-danger"  v-if="customer_info.recordstatus ==1"  @click="AccountStatusChange(customer_info.recordstatus)">
+                                                    {{accout_status}}
+                                                </span>
+                                                
+                                                <span class="btn btn-success" v-if="customer_info.recordstatus ==0" @click="AccountStatusChange(customer_info.recordstatus)">
                                                     {{accout_status}}
                                                 </span>
                                             </div>
@@ -224,7 +230,7 @@
                         if(this.customer_info.recordstatus == '1') {
                             this.accout_status = '無効にします';
                         } else {
-                            this.accout_status = '有効にする';
+                            this.accout_status = '有効にします';
                         }
                         if (this.customer_info.type_id == '2') {
                             this.logo = 'upload/hospital_profile/' + response.data.logo;
@@ -403,7 +409,7 @@
                         if(status == '1') {
                             var confirm_text = '無効にしますか？';
                         } else {
-                            var confirm_text = 'アクティベートしますか ?';
+                            var confirm_text = 'アカウントを有効にしますか。?';
                         }
                         let fd = new FormData();
                             fd.append('status', status)
@@ -446,6 +452,7 @@
                                         } else {
                                             this.logo = 'upload/nursing_profile/' + response.data.logo;
                                         }
+                                       location.reload();
                                             
                                     }).catch(error => {
 
