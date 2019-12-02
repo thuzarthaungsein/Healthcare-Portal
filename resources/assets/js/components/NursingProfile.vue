@@ -39,9 +39,9 @@
                     <div class="form-group form-group-wrapper d-flex">
                             <label class="heading-lbl col-2 pad-free">電話番号<span class="error">*</span></label>
                             <div class="col-10 row">
-                            <input type="text" class="form-control customer-phone col-12"  placeholder="電話番号を入力してください。" v-model="customer_info.phone" v-on:keydown="isNumberOnly" @focusout="numberLength" maxlength="14">
+                            <input type="text" class="form-control customer-phone col-12" id="phone" placeholder="電話番号を入力してください。" v-model="customer_info.phone" v-on:keydown="isNumberOnly" @focusout="numberLength" maxlength="14">
                             <span class="error" v-if="ph_error"></span>
-                            <span class="error" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>                            
+                            <span class="error" v-else-if="ph_length || ph_num">※電話番号が正しくありません。もう一度入力してください。</span>                            
                             </div>
                     </div>
                     <div class="form-group form-group-wrapper">
@@ -705,6 +705,7 @@ export default {
                 new_panorama_img: [],
                 ph_length: false,
                 ph_error: false,
+                ph_num: false,
             }
         },
 
@@ -1341,20 +1342,37 @@ export default {
                 
             },
             isNumberOnly: function(event) {
-                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
-                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
-                {
-                    event.preventDefault();
+                var input_data = $('#phone').val();
+                var code = 0;
+                code = input_data.charCodeAt();
+                if((48 <= code && code <= 57)){
+                    this.ph_num = false;
+                    console.log('c')
+                }else{
+                    this.ph_num = true;
+                    console.log('d')
                 }
+
+                // if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                //     && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                // {
+                //     // event.preventDefault();                    
+                //     this.ph_num = true;
+                // }
+                // else{
+                //     this.ph_num = false;
+                    
+                // }
             },
             numberLength: function(event) {                
                 if(this.customer_info.phone == ''){
                     this.ph_error = true;
-                }else if(this.customer_info.phone.length < 10){
-                    this.ph_length = true;
-                }else{
+                }else if(this.customer_info.phone.length >= 10 && this.customer_info.phone.length <= 14){
                     this.ph_length = false;
+                }else{
+                    this.ph_length = true;
                 }
+                
                 
             }
         }

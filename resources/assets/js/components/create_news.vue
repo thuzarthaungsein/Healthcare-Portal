@@ -171,7 +171,7 @@
                     pageRange: 5,
                     items: [],
                     pagination: false,
-                    check_head: false
+                    // check_head: false
                 }
             },
             created() {
@@ -210,13 +210,13 @@
                     return indexes;
                 },
                 displayItems() {
-                    if(this.check_head == true){
-                        const head = 0;
-                        return this.related_news.slice(head,head + this.size);
-                    }else{
+                    // if(this.check_head == true){
+                    //     const head = 0;
+                    //     return this.related_news.slice(head,head + this.size);
+                    // }else{
                         const head = this.currentPage * this.size;
                         return this.related_news.slice(head,head + this.size);
-                    }
+                    // }
                 },
                 isSelected(page) {
                     return page - 1 == this.currentPage;
@@ -304,7 +304,7 @@
                         fd.append("selected_category", cat_id);
                         this.axios.post("/api/news_list/search", fd).then(response => {
                             this.related_news = response.data;
-                            this.check_head = true;
+                            // this.check_head = true;
                             if(this.related_news.length > this.size) {
                                 this.pagination = true;
                             }else{

@@ -167,7 +167,7 @@
                     pageRange: 5,
                     items: [],
                     pagination: false,
-                    check_head: false,
+                    // check_head: false,
                     search_word:''
                 }
             },
@@ -231,13 +231,13 @@
                     return indexes;
                 },
                 displayItems() {
-                    if(this.check_head == true){
-                        const head = 0;                    
-                        return this.related_news.slice(head,head + this.size);
-                    }else{
+                    // if(this.check_head == true){
+                    //     const head = 0;                    
+                    //     return this.related_news.slice(head,head + this.size);
+                    // }else{
                         const head = this.currentPage * this.size;                    
                         return this.related_news.slice(head,head + this.size);
-                    }                    
+                    // }                    
                 },
                 isSelected(page) {
                     return page - 1 == this.currentPage;
@@ -346,7 +346,7 @@
                         .post('/api/new/getPostsByCatId/' + cat_id)
                         .then(response => {
                             this.related_news = response.data;
-                            this.check_head = true;
+                            // this.check_head = true;
                             if(this.related_news.length > this.size) {
                                 this.pagination = true;
                             }else{

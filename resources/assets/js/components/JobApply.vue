@@ -164,7 +164,7 @@
             <div class="col-md-9 col-sm-12 form-right">
                 <input type="text" class="form-control float-left" id="phone" v-model="jobApply.phone" placeholder="電話番号を入力してください。" @focusout="focusMail" @change="aggreBtn" v-on:keydown="isNumberOnly" maxlength="14"/>
                 <span class="error m-l-30" v-if="focus_mail">※入力は必須です。</span>
-                <span class="error m-l-30" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
+                <span class="error m-l-30" v-else-if="ph_length || ph_error">※電話番号が正しくありません。もう一度入力してください。</span>
                 <span class="float-left eg-txt">例）0312345678（半角）</span>
             </div>
         </div>
@@ -428,7 +428,8 @@ export default {
         focus_lname: false,
         focus_pref: false,
         focus_city: false,
-        focus_mail: false
+        focus_mail: false,
+        ph_error: false,
       },
     Job: {
       title: ''
@@ -446,7 +447,8 @@ export default {
     focus_city: false,
     focus_mail: false,
     btn_disable: false,
-    ph_length: false
+    ph_length: false,
+    ph_error: false,
 
     };
   },
@@ -600,11 +602,11 @@ export default {
         }else{
             this.focus_mail=true;
         }
-        if(this.jobApply.phone.length < 10) {
-            this.ph_length = true;
-        }else{
-            this.ph_length = false;
-        }
+        // if(this.jobApply.phone.length >= 10 && this.jobApply.phone.length <= 14) {
+        //     this.ph_length = false;
+        // }else{
+        //     this.ph_length = true;
+        // }
     },
     aggreBtn: function(){
         console.log('job',this.jobApply)
@@ -629,11 +631,30 @@ export default {
       },
    
     isNumberOnly: function(event) {
-                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
-                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
-                {
-                    event.preventDefault();
-                }
+        var input_data = $('#phone').val();
+        var code = 0;
+        code = input_data.charCodeAt();
+        if(this.jobApply.phone.length >= 9 && this.jobApply.phone.length <= 14) {
+            this.ph_length = false;
+        }else{
+            this.ph_length = true;
+        }
+        if((48 <= code && code <= 57)){
+            this.ph_error = false;
+        }else{
+            this.ph_error = true;
+        }
+
+                // if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
+                //     && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
+                // {
+                //     // event.preventDefault();                    
+                //     this.ph_error = true;
+                // }
+                // else{
+                //     this.ph_error = false;
+                    
+                // }
             }
   }
 };
