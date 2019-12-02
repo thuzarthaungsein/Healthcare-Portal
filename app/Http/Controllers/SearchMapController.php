@@ -14,8 +14,17 @@ class SearchMapController extends Controller
         $township_id = $_GET['township_id'];
         $moving_in = $_GET['moving_in'];
         $per_month = $_GET['per_month'];
+        $localst = $_GET['local'];
+        if($localst != 0)
+        {
+          $local = explode(',',$localst);
+        }
+        else{
 
-        $query = "SELECT '' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,c.id as cus_id,ci.city_name,t.township_name,ty.name AS type_name
+            $local = 0;
+        }
+
+        $query = "SELECT '' as fav_check,'' as alphabet,n.id as nursing_id,n.id,n.latitude as lat ,n.longitude as lng, n.*,c.*,c.id as cus_id,ci.city_name,t.township_name,ty.name AS type_name
                     FROM nursing_profiles AS n
                     JOIN customers AS c  ON c.id = n.customer_id
                     LEFT JOIN townships AS t  ON t.id = c.townships_id
@@ -58,6 +67,33 @@ class SearchMapController extends Controller
 
 
         $nursing_profile = DB::select($query);
+
+
+         //to bind fav_nursing
+         for($i = 0;$i<count($nursing_profile);$i++)
+         {
+             $arr[] = ( $nursing_profile[$i]->nursing_id);
+            
+         }
+         
+         if($local != 0)
+         {
+             for($i = 0;$i<count($local);$i++)
+             {
+                 $local_arr = (string)($local[$i]);
+                
+                 if(in_array($local_arr, $arr))
+                 {
+                    $nus_id = array_search($local_arr,$arr);
+                    $nursing_profile[$nus_id]->fav_check = "check";
+                   
+                 }
+               
+             }
+         }
+
+
+         
     
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -73,6 +109,10 @@ class SearchMapController extends Controller
                 }
             }
         }
+
+     
+
+       
 
         $city               = DB::table('cities')->get();
         $getCity            = DB::table('cities')->where('id', $id)->get();
@@ -104,23 +144,19 @@ class SearchMapController extends Controller
     public function getNursingSearch($searchword)
     {
 
-        $design_id = 'hc1wXBL7zCsdfMu';
-        $list_desings_ids = array('hc1wXBL7zCsdfMu','dhdsfHddfD','otheridshere');
-
-        if(in_array($design_id, $list_desings_ids))
-        {
-           return 'yes';
-
-        }
-        else{
-            return 'no';
-        }
-
-
           //for city
           $id = $_GET['id'];
           $Moving_in = $_GET['Moving_in'];
           $Per_month = $_GET['Per_month'];
+          $localst = $_GET['local'];
+          if($localst != 0)
+          {
+            $local = explode(',',$localst);
+          }
+          else{
+
+              $local = 0;
+          }
 
           $query = "SELECT '' as fav_check,'' as alphabet, n.id as nursing_id,n.latitude as lat ,n.longitude as lng,c.id as cus_id,c.*,n.*, ci.id as city_id, ci.city_eng,ci.city_name,t.township_name,ty.name AS type_name 
                     from nursing_profiles as n  
@@ -276,6 +312,31 @@ class SearchMapController extends Controller
 
 
             $nus_data = DB::select($query);
+          
+           //to bind fav_nursing
+            for($i = 0;$i<count($nus_data);$i++)
+            {
+                $arr[] = ( $nus_data[$i]->nursing_id);
+               
+            }
+            
+            if($local != 0)
+            {
+                for($i = 0;$i<count($local);$i++)
+                {
+                    $local_arr = (string)($local[$i]);
+                   
+                    if(in_array($local_arr, $arr))
+                    {
+                       $id = array_search($local_arr,$arr);
+                       $nus_data[$id]->fav_check = "check";
+                      
+                    }
+                  
+                }
+            }
+
+           
 
             $spe_query = "SELECT spe.*,spej.customer_id from  special_features as spe join special_features_junctions as spej on spe.id = spej.special_feature_id";
             $specialfeature = DB::select($spe_query);

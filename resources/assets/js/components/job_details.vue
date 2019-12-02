@@ -10,12 +10,12 @@
     </div>
     <div class="row m-0" v-for="jobDetail in job_details" :key="jobDetail.id">
       <div class="col-12">
-        <h4 class="job-title-color">{{jobDetail.title}} <label class="job_id" style="color:#000;">仕事番号: {{jobDetail.jobid}}</label></h4> 
-        
+        <h4 class="job-title-color">{{jobDetail.title}} <label class="job_id" style="color:#000;">仕事番号: {{jobDetail.jobid}}</label></h4>
+
       </div>
       <div class="col-sm-10 offset-1">
         <!-- <img src="/images/img1.jpg" class="img-responsive" style="width:150px;"> -->
-        
+
         <div class="form-wrap mt-3 mb-3">
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-10 col-sm-12 form-right">{{jobDetail.location}}</div>
           </div>
-          
+
           <div class="form-group m-0 row bd">
             <div class="col-md-2 col-sm-12 form-left">
               <label><span class="job_ico"><i class="fa fa-map-signs"></i></span>最寄り駅</label>
@@ -83,8 +83,8 @@
             <div class="col-md-12 text-center">
               <!-- <button type="button" class="btn btn-warning btn-width white">戻る</button> -->
               <!-- <span class="btn main-bg-color white all-btn" @click="jobApply()">確認画面へ進む</span> -->
-              <router-link :to="{name: 'jobapply', params: { job_id: job_id }}" 
-              class="btn white all-btn width17" style="background-color:#828282;">この案件に応募する</router-link>
+              <router-link :to="{name: 'jobapply', params: { job_id: job_id }}"
+              class="btn white all-btn width17" style="background-color:#828282;" v-if="!login_user">この案件に応募する</router-link>
             </div>
           </div>
         </div>
@@ -98,14 +98,16 @@ export default {
   data() {
     return {
       job_details: [],
-      job_id: ""
+      job_id: "",
+      login_user: Boolean
+
     };
   },
   created() {
+      this.login_user = this.$route.params.loginuser;
     this.axios
       .get(`/api/job_details/${this.$route.params.id}`)
       .then(response => {
-        console.log(response.data);
         this.job_details = response.data;
       });
     this.job_id = this.$route.params.id;

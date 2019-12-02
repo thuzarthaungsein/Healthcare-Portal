@@ -87,7 +87,7 @@
                                     <div class="col-md-12 m-t-8">
                                         <div class="joboffer-header">
                                             <h5 class="joboffer-tit clearfix">
-                            <router-link :to="{name: 'job_details', params:{id:job.id}}">{{job.title}} </router-link>
+                            <router-link :to="{name: 'job_details', params:{id:job.id,loginuser:loginuser}}">{{job.title}} </router-link>
                             <!-- <span class="job_id">jobapplylistcount{{job.count}}</span> -->
                             <span class="text-orange"><span class="job_count">{{job.count}}件</span></span>
                             <!-- <label class="switch">
@@ -96,9 +96,9 @@
                                 <span class="slider round"></span>
                             </label> -->
                         <div>
-                            <button class="btn confirmed" v-if="job.recordstatus!= 1" >OFF</button>
+                            <button class="btn confirmed" v-if="job.recordstatus == 1" @click="confirm(job.id)">OFF</button>
                             
-                            <button class="btn confirm-borderbtn" v-else @click="confirm(job.id)">ON</button>
+                            <button class="btn confirm-borderbtn" v-if="job.recordstatus == 0" @click="confirm(job.id)">ON</button>
                         </div>
                           
                             <span class="job_id">求人番号：{{job.jobid}}</span>
@@ -193,9 +193,11 @@
                     size: 10,
                     pageRange: 5,
                     items: [],
-                    pagination: false
+                    pagination: false,
+                    loginuser: true
                 };
             },
+            
             created() {
                 this.axios.get("/api/job/index").then(response => {
                     console.log(response.data);
@@ -208,7 +210,14 @@
                     }
 
                 });
-                
+
+                this.axios.get('/api/user').then(response => {
+                this.pro_id = response.data.lat_lng[0].id;
+                this.loginuser = true;
+                }).catch((error) => {
+                    this.loginuser = false;
+                })
+
                 // this.countJobapplylist(this.job_id);
             },
             computed: {
@@ -250,11 +259,17 @@
             methods: {
 
                  confirm(id) {
-                     
+                    console.log(id);
                             this.axios.get(`/api/job/confirm/${id}`)
                                 .then(response => {
                                     this.jobs = response.data.jobs;
-                                })
+                                    // const path = `/jobofferlist/`;
+                                    // // if ($route.path !== path) this.$router.push(path);
+                                    // this.$router.push('/jobofferlist/').catch(err => {
+                                    //     console.log('no go');
+                                    // })
+                                    location.reload();
+                                });
 
                     
                     },
