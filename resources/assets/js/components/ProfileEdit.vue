@@ -158,7 +158,7 @@
                                                 <h5 class=" clearfix">メール設定</h5>
                                             </div>
                                             <div class="form-group">
-                                                <label class="email-address">Email-Address:</label>
+                                                <label class="email-address">メールアドレス:</label>
                                                 <input type="text" class="form-control email" v-model="user_info.email">
                                             </div>
                                             <div class="form-group">
@@ -175,7 +175,7 @@
                                     <div class="row">
                                         <div class="col-md-12 m-t-8">
                                             <div class="header2">
-                                                <h5 class=" clearfix" >{{accout_status}} My Account</h5>
+                                                <h5 class=" clearfix" >アカウントを{{accout_status}}</h5>
                                                 
                                             </div>                                            
                                             <div class="form-group">
@@ -222,9 +222,9 @@
                         this.customer_info = response.data;
                         console.log(this.customer_info);
                         if(this.customer_info.recordstatus == '1') {
-                            this.accout_status = 'Deactivate';
+                            this.accout_status = '無効にします';
                         } else {
-                            this.accout_status = 'Activate';
+                            this.accout_status = '有効にする';
                         }
                         if (this.customer_info.type_id == '2') {
                             this.logo = 'upload/hospital_profile/' + response.data.logo;
@@ -425,6 +425,8 @@
                                 this.axios
                                     .post('api/customer/account_update', fd)
                                     .then((response) => {
+                                        console.log(response);
+                                        this.customer_info = response.data;
                                         this.$swal({
                                                 position: 'top-end',
                                                 type: 'success',
@@ -434,11 +436,15 @@
                                                 width: 250,
                                                 height: 200,
                                             })
-                                        console.log(response.data);
-                                        if(response.data.recordstatus == '1') {
-                                            this.accout_status = 'Deactivate';
+                                        if(this.customer_info.recordstatus == '1') {
+                                            this.accout_status = '無効にします';
                                         } else {
-                                            this.accout_status = 'Activate';
+                                            this.accout_status = '有効にする';
+                                        }
+                                        if (this.customer_info.type_id == '2') {
+                                            this.logo = 'upload/hospital_profile/' + response.data.logo;
+                                        } else {
+                                            this.logo = 'upload/nursing_profile/' + response.data.logo;
                                         }
                                             
                                     }).catch(error => {

@@ -96,9 +96,9 @@
                                 <span class="slider round"></span>
                             </label> -->
                         <div>
-                            <button class="btn confirmed" v-if="job.recordstatus!= 1" >OFF</button>
+                            <button class="btn confirmed" v-if="job.recordstatus == 1" @click="confirm(job.id)">OFF</button>
                             
-                            <button class="btn confirm-borderbtn" v-else @click="confirm(job.id)">ON</button>
+                            <button class="btn confirm-borderbtn" v-if="job.recordstatus == 0" @click="confirm(job.id)">ON</button>
                         </div>
                           
                             <span class="job_id">求人番号：{{job.jobid}}</span>
@@ -259,11 +259,17 @@
             methods: {
 
                  confirm(id) {
-                     
+                    console.log(id);
                             this.axios.get(`/api/job/confirm/${id}`)
                                 .then(response => {
                                     this.jobs = response.data.jobs;
-                                })
+                                    // const path = `/jobofferlist/`;
+                                    // // if ($route.path !== path) this.$router.push(path);
+                                    // this.$router.push('/jobofferlist/').catch(err => {
+                                    //     console.log('no go');
+                                    // })
+                                    location.reload();
+                                });
 
                     
                     },

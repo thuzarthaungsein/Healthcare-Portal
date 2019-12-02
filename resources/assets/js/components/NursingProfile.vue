@@ -587,7 +587,7 @@
                                     </div> -->
 
                                     <!-- Test Station Area -->
-                                    <!-- <table class="table table-bordered table-wrapper">
+                                    <table class="table table-bordered table-wrapper">
                                             <tr>
                                                     <td>
                                                             <div class="form-group">
@@ -606,7 +606,7 @@
                                                             </div>
                                                     </td>
                                             </tr>
-                                    </table> -->
+                                    </table>
                                     <!-- End Test Station Area -->
 
                                     <div class="form-group">
@@ -672,6 +672,7 @@ export default {
                 profile_type:'nursing',
                 profile_arr:[], test:'',
                 station_list:[],chek_feature : [], panorama_count:'0', fac_types:[],
+                stations:[],
 
                 // to delete
                 count:-1, v_count: -1, c_count: -1, p_count: -1,
@@ -722,11 +723,11 @@ export default {
 
             this.type = localStorage.getItem('cusType');
             this.cusid = Number(localStorage.getItem('cusId'));
-            // this.axios
-            // .get('/api/station/'+this.cusid)
-            // .then(response=>{
-            //         this.station_list = response.data;
-            // });
+            this.axios
+            .get('/api/station/'+this.cusid)
+            .then(response=>{
+                    this.station_list = response.data;
+            });
 
             this.axios
             .get('/api/customerinfo/'+this.cusid)
@@ -778,6 +779,8 @@ export default {
             .get('/api/feature/'+this.profile_type+'/'+this.cusid)
             .then(response=>{
                 this.feature_list = response.data;
+                console.log('Feature is');
+                console.log(response.data);
             });
 
             this.axios
@@ -1166,12 +1169,12 @@ export default {
                         });
                         this.chek_feature.push({special_feature_id:s_features});
 
-                // var chek_station=[];
-                // var stations;
-                // $.each($("input[name='station']:checked"), function(){
-                //         chek_station.push($(this).val());
-                // });
-                // stations = chek_station.join(',');
+                var chek_station=[];
+                $.each($("input[name='station']:checked"), function(){
+                        chek_station.push($(this).val());
+                });
+                this.stations.push({station_id:chek_station});
+
 
                 var acceptance=[];
                 $.each($("input:radio.medical-acceptance:checked"), function(){
@@ -1320,6 +1323,20 @@ export default {
                         }).catch(error=>{
                         if(error.response.status == 422){
                             this.chek_feature = 'error';
+                            this.errors = error.response.data.errors
+                        }
+                    }) ;
+                }
+
+                if(this.stations.length > 0) {
+                    this.axios
+                    .post(`/api/station_junctions/update/${this.cusid}`,this.stations)
+                    .then((response) => {
+
+
+                        }).catch(error=>{
+                        if(error.response.status == 422){
+                            this.stations = 'error';
                             this.errors = error.response.data.errors
                         }
                     }) ;

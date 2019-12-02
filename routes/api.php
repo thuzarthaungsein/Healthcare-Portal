@@ -30,19 +30,30 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-
-
-
-
 // public route api start
     Route::get('gethospitalsearch/{searchword}','SearchMapController@getHospitalSearch');
-    Route::get('getnursingsearch','SearchMapController@getNursingSearch');
-    Route::get('getmap/{searchword}','SearchMapController@getMap');
+    Route::get('getnursingsearch/{searchword}','SearchMapController@getNursingSearch');
+    Route::get('getmap','SearchMapController@getMap');
     Route::get('getjobsearch/{searchword}','SearchMapController@getJobSearch');
     Route::get('getCity','SearchMapController@getCity');
     Route::get('profile_view/{cusid}/{type}','ProfilePublishController@getCustomerLatLng');
 
 // public route api end
+
+
+Route::prefix('auth')->group(function () {
+    Route::post('register', 'AuthController@register');
+    Route::get('getCities','registerController@getCities');
+    Route::get('township','registerController@township');
+    Route::get('getTypes','registerController@getTypes');
+    Route::post('login', 'AuthController@login');
+    Route::get('refresh', 'AuthController@refresh');
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::get('user', 'AuthController@user');
+        Route::post('logout', 'AuthController@logout');
+    });
+});
+
 
 // login route api start
 Route::group(['middleware' => ['auth:api']], function() {
@@ -111,7 +122,7 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Job
     Route::group(['prefix' => 'job'], function () {
-        Route::get('confirm/{number}','JobController@confirm');
+        Route::get('confirm/{id}','JobController@confirm');
         Route::post('add', 'JobController@store');
         Route::get('index', 'JobController@index');
         Route::get('edit/{id}', 'JobController@edit');
@@ -239,6 +250,7 @@ Route::get('featurelist', 'SpecialFeatureController@index');
 Route::get('feature/{type}/{id}','SpecialFeatureController@getFeaturebyProfileType');
 Route::post('sfeature/update/{id}','SpecialFeaturesJunctionsController@update');
 Route::post('subject_junctions/update/{id}','SubjectJunctionsController@update');
+Route::post('station_junctions/update/{id}','StationJunctionsController@update');
 
 Route::get('facility/{type}/{id}','FacilityController@getFacilitybyProfileType');
 Route::get('clinical-subject/{id}','SubjectController@getHospitalClinicalSubject');
@@ -292,10 +304,6 @@ Route::get('get_latest_post_all_cat', 'HomeController@getLatestPostFromAllCat');
 Route::post('search', 'HomeController@search');
 Route::get('get_latest_posts_by_catId/{searchword}', 'HomeController@getLatestPostsByAllCatId');
 Route::get('get_cat_random', 'HomeController@getCategoryRandom');
-
-
-
-
 
 Route::get('news_list', 'PostController@index');
 Route::get('newdetails/{id}', 'PostController@show');
@@ -353,4 +361,3 @@ Route::group(['prefix' => 'new'], function () {
 
 Route::get('cost','ProfilePublishController@getCost');
 Route::get('hospital','ProfilePublishController@hospital');
-

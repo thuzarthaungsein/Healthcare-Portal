@@ -11,11 +11,11 @@
           <!-- <div class="info-box"></div> -->
           <div class="row map-wrap">
           <div class="col-lg-5 col-md-12 col-sm-12 float-left" style="padding-left: 75px;">
-            <h2 class="map-header">あなたの街の名医<br/>見つかります。</h2>
+            <h2 class="map-header" style="bottom: 247px;">あなたの街の名医<br/>見つかります。</h2>
             <!--search input-->
               <div class="wrap">
                 <div class="search">
-                    <input type="text" id="search-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
+                    <input type="text" id="search-free-word" class="searchTerm" placeholder="地名、駅名、施設名などを入力（例：東京駅）">
                     <button type="submit" class="searchButton" @click="searchfreeword">    
                       <i class="fas fa-search"></i> 検索
                   </button>
@@ -32,7 +32,7 @@
                     <div class="division-box">
                       <ul class="hokkaido-wrap">
                         <a data-info="Hokkaido" class="path Hokkaido card-text" @click="getStateClick($event)">
-                            <li class="spanclass" id="1">北海道</li>
+                            <li class="spanclass" id="1"  @click="selected = 1" :class="{highlight:selected == 1}">北海道</li>
                         </a>
                       </ul>
                     </div>
@@ -43,25 +43,25 @@
                     <div class="division-box">
                       <ul class="multiple-boxa">
                         <a data-info="Aomori" class="path Aomori card-text" @click="getStateClick">
-                            <li class="spanclass" id="2">青森</li>
+                            <li class="spanclass" id="2" @click="selected = 2" :class="{highlight:selected == 2}">青森</li>
                         </a>
                         <a data-info="Iwate" class="path Iwate card-text" @click="getStateClick">
-                            <li class="spanclass" id="3" >岩手</li>
+                            <li class="spanclass" id="3" @click="selected = 3" :class="{highlight:selected == 3}" >岩手</li>
                         </a>
 
                         <a data-info="Akita" class="path Akita card-text" @click="getStateClick">
-                            <li class="spanclass" id="5">秋田</li>
+                            <li class="spanclass" id="5" @click="selected = 5" :class="{highlight:selected == 5}">秋田</li>
                         </a>
 
                         <a data-info="Miyagi" class="path Miyagi card-text" @click="getStateClick">
-                            <li class="spanclass" id="4">宮城</li>
+                            <li class="spanclass" id="4" @click="selected = 4" :class="{highlight:selected == 4}">宮城</li>
                         </a>
 
                         <a data-info="Yamagata" class="path Yamagata card-text" @click="getStateClick">
-                            <li class="spanclass" id="6">山形</li>
+                            <li class="spanclass" id="6" @click="selected = 6" :class="{highlight:selected == 6}">山形</li>
                         </a>
                         <a data-info="Fukushima" class="path Fukushima card-text" @click="getStateClick">
-                            <li class="spanclass" id="7">福島</li>
+                            <li class="spanclass" id="7" @click="selected = 7" :class="{highlight:selected == 7}">福島</li>
                         </a>
                       </ul>
                     </div>
@@ -74,36 +74,36 @@
                     <div class="division-box">
                       <ul class="multiple-box">
                         <a data-info="Tokyo" class="path Tokyo card-text" @click="getStateClick">
-                             <li class="spanclass" id="13" >東京</li>
+                             <li class="spanclass" id="13" @click="selected = 13" :class="{highlight:selected == 13}">東京</li>
                         </a>
 
                         <a data-info="Kanagawa" class="path Kanagawa card-text" @click="getStateClick">
-                            <li class="spanclass" id="14">神奈川</li>
+                            <li class="spanclass" id="14" @click="selected = 14" :class="{highlight:selected == 14}">神奈川</li>
                         </a>
 
                         <a data-info="Saitama" class="path Saitama card-text" @click="getStateClick">
-                            <li class="spanclass" id="11" >埼玉</li>
+                            <li class="spanclass" id="11" @click="selected = 11" :class="{highlight:selected == 11}" >埼玉</li>
                         </a>
 
 
                         <a data-info="Chiba" class="path Chiba card-text" @click="getStateClick">
-                            <li class="spanclass" id="12">千葉</li>
+                            <li class="spanclass" id="12" @click="selected = 12" :class="{highlight:selected == 12}">千葉</li>
                         </a>
 
                         <a data-info="Gunma" class="path Gunma card-text" @click="getStateClick">
-                            <li class="spanclass" id="10">群馬</li>
+                            <li class="spanclass" id="10" @click="selected = 10" :class="{highlight:selected == 10}">群馬</li>
                         </a>
 
                         <a data-info="Ibaraki" class="path Ibaraki card-text" @click="getStateClick">
-                            <li class="spanclass" id="8" >茨城</li>
+                            <li class="spanclass" id="8" @click="selected = 8" :class="{highlight:selected == 8}">茨城</li>
                         </a>
 
                         <a data-info="Tochigi" class="path Tochigi card-text" @click="getStateClick">
-                              <li class="spanclass" id="9">栃木</li>
+                              <li class="spanclass" id="9" @click="selected = 9" :class="{highlight:selected == 9}">栃木</li>
                         </a>
 
                         <a data-info="Yamanashi" class="path Yamanashi card-text" @click="getStateClick">
-                            <li class="spanclass" id="19">山梨</li>
+                            <li class="spanclass" id="19" @click="selected = 19" :class="{highlight:selected == 19}">山梨</li>
                         </a>
                       </ul>
                     </div>
@@ -116,23 +116,23 @@
                     <div class="division-box">
                       <ul class="">
                         <a data-info="Niigata" class="path Niigata card-text" @click="getStateClick">
-                            <li class="spanclass" id="15" >新潟</li>
+                            <li class="spanclass" id="15" @click="selected = 15" :class="{highlight:selected == 15}" >新潟</li>
                         </a>
 
                         <a data-info="Nagano" class="path Nagano card-text" @click="getStateClick">
-                            <li class="spanclass" id="20">長野</li>
+                            <li class="spanclass" id="20" @click="selected = 20" :class="{highlight:selected == 20}">長野</li>
                         </a>
 
                           <a data-info="Toyama" class="path Toyama card-text" @click="getStateClick">
-                            <li class="spanclass" id="16">富山</li>
+                            <li class="spanclass" id="16" @click="selected = 16" :class="{highlight:selected == 16}">富山</li>
                         </a>
 
                         <a data-info="Ishikawa" class="path Ishikawa card-text" @click="getStateClick">
-                            <li class="spanclass" id="17">石川</li>
+                            <li class="spanclass" id="17" @click="selected = 17" :class="{highlight:selected == 17}">石川</li>
                         </a>
 
                         <a data-info="Fukui" class="path Fukui card-text" @click="getStateClick">
-                             <li class="spanclass" id="18">福井</li>
+                             <li class="spanclass" id="18" @click="selected = 18" :class="{highlight:selected == 18}">福井</li>
                         </a>
 
                       </ul>
@@ -147,20 +147,20 @@
                       <ul class="multiple-boxa">
 
                         <a data-info="Aichi" class="path Aichi card-text" @click="getStateClick">
-                              <li class="spanclass" id="23">愛知</li>
+                              <li class="spanclass" id="23" @click="selected = 23" :class="{highlight:selected == 23}">愛知</li>
                         </a>
 
 
                         <a data-info="Shizuoka" class="path Shizuoka card-text" @click="getStateClick">
-                            <li class="spanclass" id="22">静岡</li>
+                            <li class="spanclass" id="22" @click="selected = 22" :class="{highlight:selected == 22}">静岡</li>
                         </a>
 
                         <a id="21" data-info="Gifu" class="path Gifu card-text" @click="getStateClick">
-                            <li class="spanclass" id="21">岐阜</li>
+                            <li class="spanclass" id="21" @click="selected = 21" :class="{highlight:selected == 21}">岐阜</li>
                         </a>
 
                         <a data-info="Mie" class="path Mie card-text" @click="getStateClick">
-                             <li class="spanclass"  id="24">三重</li>
+                             <li class="spanclass"  id="24" @click="selected = 24" :class="{highlight:selected == 24}">三重</li>
                         </a>
                       </ul>
                     </div>
@@ -174,27 +174,27 @@
                       <ul class="multiple-boxa">
 
                         <a data-info="Osaka" class="path Osaka card-text" @click="getStateClick">
-                            <li class="spanclass" id="27">大阪府</li>
+                            <li class="spanclass" id="27" @click="selected = 27" :class="{highlight:selected == 27}">大阪府</li>
                         </a>
 
                         <a data-info="Hyogo" class="path Hyogo card-text" @click="getStateClick">
-                             <li class="spanclass" id="28">兵庫</li>
+                             <li class="spanclass" id="28" @click="selected = 28" :class="{highlight:selected == 28}">兵庫</li>
                         </a>
 
                         <a data-info="Kyoto" class="path Kyoto card-text" @click="getStateClick">
-                            <li class="spanclass"  id="26">京都府</li>
+                            <li class="spanclass"  id="26" @click="selected = 26" :class="{highlight:selected == 26}">京都府</li>
                         </a>
 
                         <a data-info="Nara" class="path Nara card-text" @click="getStateClick">
-                            <li class="spanclass"  id="29">奈良</li>
+                            <li class="spanclass"  id="29" @click="selected = 29" :class="{highlight:selected == 29}">奈良</li>
                         </a>
 
                         <a data-info="Shiga" class="path Shiga card-text" @click="getStateClick">
-                              <li class="spanclass"  id="25">滋賀</li>
+                              <li class="spanclass"  id="25" @click="selected = 25" :class="{highlight:selected == 25}">滋賀</li>
                         </a>
 
                         <a data-info="Wakayama" class="path Wakayama card-text" @click="getStateClick">
-                            <li class="spanclass" id="30">和歌山</li>
+                            <li class="spanclass" id="30" @click="selected = 30" :class="{highlight:selected == 30}">和歌山</li>
                         </a>
                       </ul>
                     </div>
@@ -208,23 +208,23 @@
                       <ul class="">
 
                         <a data-info="Okayama" class="path Okayama card-text" @click="getStateClick">
-                             <li class="spanclass" id="33">岡山</li>
+                             <li class="spanclass" id="33" @click="selected = 33" :class="{highlight:selected == 33}"> 岡山</li>
                         </a>
 
                         <a data-info="Hiroshima" class="path Hiroshima card-text" @click="getStateClick">
-                            <li class="spanclass" id="34">広島</li>
+                            <li class="spanclass" id="34"  @click="selected = 34" :class="{highlight:selected == 34}" >広島</li>
                         </a>
 
                         <a data-info="Yamaguchi" class="path Yamaguchi card-text" @click="getStateClick">
-                            <li class="spanclass" id="35">山口</li>
+                            <li class="spanclass" id="35"  @click="selected = 35" :class="{highlight:selected == 35}">山口</li>
                         </a>
 
                         <a data-info="Shimane" class="path Shimane card-text" @click="getStateClick">
-                            <li class="spanclass" id="32">島根</li>
+                            <li class="spanclass" id="32"  @click="selected = 32" :class="{highlight:selected == 32}">島根</li>
                         </a>
 
                         <a data-info="Tottori" class="path Tottori card-text" @click="getStateClick">
-                            <li class="spanclass"  id="31">鳥取</li>
+                            <li class="spanclass"  id="31"  @click="selected = 31" :class="{highlight:selected == 31}">鳥取</li>
                         </a>
 
 
@@ -240,19 +240,19 @@
                       <ul class="multiple-boxa">
 
                         <a data-info="Tokushima" class="path Tokushima card-text" @click="getStateClick">
-                            <li class="spanclass" id="36">徳島</li>
+                            <li class="spanclass" id="36"  @click="selected = 36" :class="{highlight:selected == 36}">徳島</li>
                         </a>
 
                         <a data-info="Kagawa" class="path Kagawa card-text" @click="getStateClick">
-                            <li class="spanclass" id="37">香川</li>
+                            <li class="spanclass" id="37"  @click="selected = 37" :class="{highlight:selected == 37}">香川</li>
                         </a>
 
                         <a data-info="Kochi" class="path Kochi card-text" @click="getStateClick">
-                            <li class="spanclass" id="39">高知</li>
+                            <li class="spanclass" id="39"  @click="selected = 39" :class="{highlight:selected == 39}">高知</li>
                         </a>
 
                         <a data-info="Ehime" class="path Ehime card-text" @click="getStateClick">
-                            <li class="spanclass" id="38">愛媛</li>
+                            <li class="spanclass" id="38"  @click="selected = 38" :class="{highlight:selected == 38}">愛媛</li>
                         </a>
 
                       </ul>
@@ -267,32 +267,32 @@
                       <ul class="">
 
                         <a data-info="Fukuoka" class="path Fukuoka card-text" @click="getStateClick">
-                          <li class="spanclass" id="40">福岡</li>
+                          <li class="spanclass" id="40"  @click="selected = 40" :class="{highlight:selected == 40}">福岡</li>
                         </a>
 
                         <a data-info="Saga" class="path Saga card-text" @click="getStateClick">
-                            <li class="spanclass" id="41">佐賀</li>
+                            <li class="spanclass" id="41" @click="selected = 41" :class="{highlight:selected == 41}">佐賀</li>
                         </a>
 
                         <a data-info="Nagasaki" class="path Nagasaki card-text" @click="getStateClick">
-                            <li class="spanclass" id="42">長崎</li>
+                            <li class="spanclass" id="42" @click="selected = 42" :class="{highlight:selected == 42}">長崎</li>
                         </a>
 
                         <a data-info="Oita" class="path Oita card-text" @click="getStateClick">
-                            <li class="spanclass" id="44">大分</li>
+                            <li class="spanclass" id="44" @click="selected = 44" :class="{highlight:selected == 44}">大分</li>
                         </a>
 
                        <a data-info="Kumamoto" class="path Kumamoto card-text" @click="getStateClick">
-                           <li class="spanclass" id="43">熊本</li>
+                           <li class="spanclass" id="43" @click="selected = 43" :class="{highlight:selected == 43}">熊本</li>
                         </a>
 
 
                         <a data-info="Miyazaki" class="path Miyazaki card-text" @click="getStateClick">
-                              <li class="spanclass" id="45">宮崎</li>
+                              <li class="spanclass" id="45" @click="selected = 45" :class="{highlight:selected == 45}">宮崎</li>
                         </a>
 
                         <a data-info="Kagoshima" class="path Kagoshima card-text" @click="getStateClick">
-                            <li class="spanclass" id="46">鹿児島</li>
+                            <li class="spanclass" id="46" @click="selected = 46" :class="{highlight:selected == 46}">鹿児島</li>
                         </a>
 
                       </ul>
@@ -306,7 +306,7 @@
                     <div class="division-box">
                       <ul class="">
                           <a data-info="Okinawa" class="path Okinawa card-text" @click="getStateClick">
-                              <li class="spanclass" id="47">沖縄県</li>
+                              <li class="spanclass" id="47" @click="selected = 47" :class="{highlight:selected == 47}">沖縄県</li>
                         </a>
                       </ul>
                     </div>
@@ -322,7 +322,7 @@
           </div>
 
 
-          <div class="col-12 hospitalselect pad-free">
+          <div id="hos_search" class="col-12 hospitalselect pad-free">
             <h5 class="profile_header m-t-10" style="border-left: 5px solid #63b7ff;">現在の検索条件</h5>
           <table class="table table-bordered col-12">
             <tbody>
@@ -376,15 +376,15 @@
               </tr>
               <tr class="toBeToggled1 ShowHide1">
                 <th>診療科目</th>
-              
+
                 <td>
 
                     <div class="form-check form-check-inline row col-12 align-items-start ">
                         <div class="col-sm-2" v-for="(subject,index) in subjects" :key="index"  style="padding-left:0px;">
                             <div class="col-12 m-lr-0">
-                                  <strong> {{subject.name}} </strong> 
+                                  <strong> {{subject.name}} </strong>
                             </div>
-                          
+
                             <div class="col-12"  v-for="sub in sub_child" :key="sub.id+1">
                                  <div v-if="subject.id == sub.parent">
                                         <label class=" form-check-label control control--checkbox"  style="padding-left:0px;">
@@ -395,17 +395,17 @@
                                  </div>
 
                             </div>
-                            
+
                         </div>
                     </div>
-            
-                 
+
+
                   <!-- <div class="form-check form-check-inline col-sm-4" v-for="(subject,index) in subjects" :key="index"> -->
-                     
-                        
-                             
-                           
-                          
+
+
+
+
+
                             <!-- <div class="form-check form-check-inline col-sm-4" v-for="sub in sub_child" :key="sub.id">
                             <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                             <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
@@ -414,18 +414,18 @@
                             </label>
                             </div> -->
 
-                     
+
                      <!-- </div> -->
-                   
-                   
-                                         
+
+
+
                     <!-- <label class="form-check-label" > -->
                         <!-- <label class="form-check-label control control--checkbox" style="padding-left:5px;">
                       <input class="form-check-input" type="checkbox" :id="subject.id" v-model="subjectID" :value="subject.id">
                       {{subject.name}}
                       <div class="control__indicator"></div>
                     </label> -->
-                 
+
                 </td>
               </tr>
 
@@ -448,7 +448,7 @@
           </table>
           <div class="col-12">
             <div class="row">
-           
+
               <div id="job_detail" class="col-md-12 col-sm-12 offset" style="margin-top:20px;" v-for="hos in displayItems" :key="hos.id">
                 <div class="hos-content">
                   <div class="job-header">
@@ -505,10 +505,10 @@
                       {{time.mon}} / {{time.tue}} / {{time.wed}} / {{time.thu}} / {{time.fri}} / {{time.sat}} / {{time.sun}} / {{time.part}}
                     </td>
                   </tr> -->
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="wi">
                     <thead>
-                      <tr class="first-hos-row text-center">
-                        <th style="width:10%">日付</th>
+                      <tr class="first-row">
+                        <th>日付</th>
                         <th>月</th>
                         <th>火</th>
                         <th>水</th>
@@ -516,7 +516,6 @@
                         <th>金</th>
                         <th>土</th>
                         <th>日</th>
-
                       </tr>
                     </thead>
                     <tbody v-for="(time,index) in timetable" :key="index+'-'+time.id+'-'+hos.id">
@@ -611,7 +610,8 @@
         size: 20,
         pageRange: 5,
         items: [],
-        show_paginate: false
+        show_paginate: false,
+        selected: undefined
       }
     },
     mounted() {
@@ -638,7 +638,15 @@
             this.subjectID[0] = 0;
           }
 
-          this.axios.get('api/gethospitalsearch/null',{
+            if ($('#search-free-word').val() != '') 
+            {
+            
+              var search_word = $('#search-free-word').val();
+            }
+            console.log(search_word);
+           
+
+          this.axios.get('api/gethospitalsearch/'+ search_word,{
             params:{
                 id: this.id,
                 townshipID:this.townshipID,
@@ -646,8 +654,9 @@
                 subjectID:this.subjectID
             },
           }).then((response)=>{
-
+            this.getTownships = response.data.township;
             this.hos_data = response.data.hospital;
+            console.log(this.hos_data);
             this.timetable = response.data.timetable;
             this.specialfeatures = response.data.specialfeature;
             this.subject = response.data.subject;
@@ -659,36 +668,52 @@
           })
         },
         searchfreeword(){
-
-
             //clear all checkbox
             this.id = -1;
             this.townshipID = [];
             this.specialfeatureID = [];
-            this.subjectID = [];
+            this.subjectID = [];           
 
-              
-
-            if ($('#search-word').val() != '') 
+            if ($('#search-free-word').val() != '') 
             {
               
-              var search_word = $('#search-word').val();
-        
-
-              this.axios.get('api/gethospitalsearch/'+ search_word)
-                        .then((response)=>{
-                            this.hos_data = response.data.hospital;
-                            this.timetable = response.data.timetable;
-                            this.specialfeatures = response.data.specialfeature;
-                            this.getTownships = [];
-                            this.subject = response.data.subject;
-                            if(this.hos_data.length > this.size) {
-                                this.show_paginate = true;
-                            }else{
-                                this.show_paginate = false;
-                            }
-                        });
-                  } 
+                var search_word = $('#search-free-word').val();
+            }
+            else{
+                 var search_word = "all";
+            }
+            
+            this.axios.get('api/gethospitalsearch/'+ search_word,{
+            params:{
+                id: -1,
+                townshipID:-1,
+                specialfeatureID:-1,
+                subjectID:-1
+            },
+            }).then((response)=>{
+                    if(response.data.hospital.length > 0)
+                    {
+                        $('.hospitalselect').removeClass('hospitalselect');
+                        $('#hos_search').css("display","block");
+                        this.hos_data = response.data.hospital;
+                        this.cities = response.data.city;
+                        this.timetable = response.data.timetable;
+                        this.specialfeatures = response.data.specialfeature;
+                        this.getTownships = [];
+                        this.subject = response.data.subject;
+                        if(this.hos_data.length > this.size) {
+                            this.show_paginate = true;
+                        }else{
+                            this.show_paginate = false;
+                        }
+                    }
+                    else{
+                        $('#hos_search').css("display","none");
+                    }
+                    
+                });
+                
+               
           
             },
 
@@ -731,8 +756,13 @@
           $('#close2').append('<i class="fas fa-arrow-circle-down"></i> もっと見る');
         }
       },
+
       ChangeTownship(){
-         this.axios.get('api/getmap/null',{
+
+        this.townshipID = [];
+
+    
+         this.axios.get('api/getmap',{
               params:{
               id: this.id,
               township_id:-1,
@@ -741,7 +771,7 @@
           },
           })
             .then((response) => {
-            
+
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -756,7 +786,6 @@
       },
 
       getStateClick(e) {
-        
           //clear all checkbox
           this.townshipID = [];
           this.specialfeatureID = [];
@@ -772,9 +801,9 @@
               var id = e.target.id;
               this.id = id;
             }
-          }         
-         
-          this.axios.get('api/getmap/null',{
+          }     
+                
+          this.axios.get('api/getmap',{
               params:{
               id: this.id,
               township_id:-1,
@@ -783,6 +812,8 @@
           },
           })
             .then((response) => {
+              
+              $('#hos_search').css("display","block");
               $('.hospitalselect').removeClass('hospitalselect');
               this.cities = response.data.city
               this.getCity = response.data.getCity
@@ -793,6 +824,8 @@
               this.id = id;
 
             })
+
+            document.getElementById('search-free-word').value = '';
             this.search();
 
 
@@ -871,34 +904,42 @@
     }
 	},
   };
-  $(function() {
-      $( '#divisionswrap ul  li' ).on( 'click', function(e) {
-            e.preventDefault();
-            $( '#divisionswrap ul  li' ).parent().find( 'li.active' ).removeClass( 'active' );
-            $( this ).addClass( 'active' );
-    });
-  });
-  $(function() {
-$( '#page-item button' ).on( 'click', function(e) {
-            e.preventDefault();
-            $( '#page-item button' ).parent().find( 'button.active' ).removeClass( 'active' );
-            $( this ).addClass( 'active' );
-    });
-  });
+//   $(function() {
+//       $( '.division-box ul a.path li' ).on( 'click', function(e) {
+//             e.preventDefault();
+//             $( '.division-box ul  li' ).parent().find( 'li.spanclass' ).removeClass( 'active' );
+//             $( this ).addClass( 'active' );
+//     });
+//   });
+
+//   $(function() {
+// $( '#page-item button' ).on( 'click', function(e) {
+//             e.preventDefault();
+//             $( '#page-item button' ).parent().find( 'button.active' ).removeClass( 'active' );
+//             $( this ).addClass( 'active' );
+//     });
+//   });
 </script>
 
 
 <style>
 
-.spanclass.active{
+.active{
     /* background-color: #fffe00 !important;
     background-image: none;
     border: 1px solid #8e3c15; */
-    background-color: #ccff60 !important;
+    /* background-color: #ccff60 !important;
+    background-image: none;
+    border: 1px solid #8e3c15;
+    color: #ff6117; */
+}
+.highlight {
+  background-color: #ccff60 !important;
     background-image: none;
     border: 1px solid #8e3c15;
     color: #ff6117;
 }
+
 
   .hospitalselect {
     display: none;
@@ -957,9 +998,8 @@ $( '#page-item button' ).on( 'click', function(e) {
   .toBeToggled1 {
     display: none;
   }
-  table>tbody>tr th {
+  #hos table>tbody>tr th {
     background-color: #e8e7e7;
-    text-align: right;
     width: 140px;
     padding: 25px;
   }
@@ -987,5 +1027,14 @@ $( '#page-item button' ).on( 'click', function(e) {
     }
 .page-item .spanclass{
   cursor: pointer;
+}
+.first-row{
+    color: #fff;
+    background-color: #a2a7a1;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    font-size: 100%;
 }
 </style>
