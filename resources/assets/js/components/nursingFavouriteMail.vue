@@ -537,17 +537,17 @@ import DatePicker from 'vue2-datepicker';
                 code = input_data.charCodeAt();
                 if(this.comments.phone.length >= 10 && this.comments.phone.length <= 14) {
                     this.ph_length = false;
-                    console.log('a',this.comments.phone.length)
+                    // console.log('a',this.comments.phone.length)
                 }else{
                     this.ph_length = true;
-                    console.log('b',this.comments.phone.length)
+                    // console.log('b',this.comments.phone.length)
                 }
                 if((48 <= code && code <= 57)){
                     this.ph_error = false;
-                    console.log('c')
+                    // console.log('c')
                 }else{
                     this.ph_error = true;
-                    console.log('d')
+                    // console.log('d')
                 }
 
 

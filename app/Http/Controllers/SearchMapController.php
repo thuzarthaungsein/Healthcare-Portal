@@ -70,31 +70,27 @@ class SearchMapController extends Controller
 
 
          //to bind fav_nursing
-         for($i = 0;$i<count($nursing_profile);$i++)
-         {
-             $arr[] = ( $nursing_profile[$i]->nursing_id);
-            
-         }
+         if(isset($nursing_profile)){
+            for($i = 0;$i<count($nursing_profile);$i++)
+            {
+                $arr[] = ( $nursing_profile[$i]->nursing_id);                
+            }
+            if($local != 0)
+            {
+                for($i = 0;$i<count($local);$i++)
+                {
+                    $local_arr = (string)($local[$i]);
+                    if(isset($arr)){
+                        if(in_array($local_arr, $arr))
+                        {
+                            $nus_id = array_search($local_arr,$arr);
+                            $nursing_profile[$nus_id]->fav_check = "check";                    
+                        }
+                    }              
+                }
+            }
+         }    
          
-         if($local != 0)
-         {
-             for($i = 0;$i<count($local);$i++)
-             {
-                 $local_arr = (string)($local[$i]);
-                
-                 if(in_array($local_arr, $arr))
-                 {
-                    $nus_id = array_search($local_arr,$arr);
-                    $nursing_profile[$nus_id]->fav_check = "check";
-                   
-                 }
-               
-             }
-         }
-
-
-         
-    
         $alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
         for($i = 0;$i<count($nursing_profile);$i++)
