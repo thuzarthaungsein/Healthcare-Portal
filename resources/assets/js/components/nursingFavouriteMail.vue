@@ -114,9 +114,9 @@
                             <div class="col-md-9 col-sm-12 form-right">
                             <div class="form-group row pl-3">
                                     <div class="col-md-12 p-0">
-                                        <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusMail" v-on:keydown="isNumberOnly" maxlength="14">
+                                        <input type="text" id="phone" name="number" class="form-control float-left" placeholder="電話番号を入力してください。" v-model="comments.phone" @change="aggreBtn" @focusout="focusMail" v-on:keyup="isNumberOnly" maxlength="14">
                                         <span class="error m-l-30" v-if="mail_focus">※入力は必須です。</span>
-                                        <span class="error m-l-30" v-else-if="ph_length">※電話番号が正しくありません。もう一度入力してください。</span>
+                                        <span class="error m-l-30" v-else-if="ph_length || ph_error">※電話番号が正しくありません。もう一度入力してください。</span>
                                         <span class="float-left eg-txt">例）0312345678（半角）</span>
                                     </div>
                                 </div>
@@ -393,6 +393,7 @@ import DatePicker from 'vue2-datepicker';
                 phone_focus: false,
                 mail_focus: false,
                 ph_length: false,
+                ph_error: false,
             }
         },
         computed: {
@@ -506,11 +507,15 @@ import DatePicker from 'vue2-datepicker';
                     this.mail_focus=true;
                     // this.ph_length = false;
                 }
-                if(this.comments.phone.length < 10) {
-                    this.ph_length = true;
-                }else{
-                    this.ph_length = false;
-                }
+                // var input_data = $('#phone').val();
+                // var code = 0;
+                // code = input_data.charCodeAt();
+                // if((48 <= code && code <= 57)){
+                //     this.ph_error = false;
+                // }else{
+                //     this.ph_error = true;
+                // }
+                
             },
             ChekChar: function(event) {
                     $('.char-err').text('');
@@ -527,11 +532,26 @@ import DatePicker from 'vue2-datepicker';
                 },
             
             isNumberOnly: function(event) {
-                if(!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) 
-                    && event.keyCode != 8 && event.keyCode != 46 && !(event.keyCode >= 37 && event.keyCode <= 40)) 
-                {
-                    event.preventDefault();
+                var input_data = $('#phone').val();
+                var code = 0;
+                code = input_data.charCodeAt();
+                if(this.comments.phone.length >= 10 && this.comments.phone.length <= 14) {
+                    this.ph_length = false;
+                    console.log('a',this.comments.phone.length)
+                }else{
+                    this.ph_length = true;
+                    console.log('b',this.comments.phone.length)
                 }
+                if((48 <= code && code <= 57)){
+                    this.ph_error = false;
+                    console.log('c')
+                }else{
+                    this.ph_error = true;
+                    console.log('d')
+                }
+
+
+                
             }
         }
     }
