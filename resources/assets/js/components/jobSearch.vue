@@ -547,7 +547,8 @@ export default {
         items: [],
         show_paginate: false,
         loginuser: true,
-        selected: undefined
+        selected: undefined,
+        locast:''
       }
     },
     created() {
@@ -700,13 +701,21 @@ export default {
         changeTownship()
         {
            this.townshipID = [];
+            if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
 
             this.axios.get('api/getmap',{
             params:{
               id: this.id,
               township_id:-1,
               moving_in:-1,
-              per_month:-1
+              per_month:-1,
+              local:this.locast
           },
           })
           .then((response)=>{
@@ -735,6 +744,14 @@ export default {
           }
           this.id = id;
 
+           if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
+
 
 
           this.axios.get('api/getmap',{
@@ -742,7 +759,8 @@ export default {
               id: this.id,
               township_id:-1,
               moving_in:-1,
-              per_month:-1
+              per_month:-1,
+              local:this.locast
           },
           })
           .then((response)=>{
