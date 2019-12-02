@@ -611,7 +611,8 @@
         pageRange: 5,
         items: [],
         show_paginate: false,
-        selected: undefined
+        selected: undefined,
+        localst:''
       }
     },
     mounted() {
@@ -643,7 +644,13 @@
             
               var search_word = $('#search-free-word').val();
             }
-            console.log(search_word);
+           if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
            
 
           this.axios.get('api/gethospitalsearch/'+ search_word,{
@@ -651,7 +658,8 @@
                 id: this.id,
                 townshipID:this.townshipID,
                 specialfeatureID:this.specialfeatureID,
-                subjectID:this.subjectID
+                subjectID:this.subjectID,
+                local:this.locast
             },
           }).then((response)=>{
             this.getTownships = response.data.township;
@@ -760,6 +768,13 @@
       ChangeTownship(){
 
         this.townshipID = [];
+         if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
 
     
          this.axios.get('api/getmap',{
@@ -767,7 +782,8 @@
               id: this.id,
               township_id:-1,
               moving_in:-1,
-              per_month:-1
+              per_month:-1,
+              local:this.locast
           },
           })
             .then((response) => {
@@ -802,13 +818,22 @@
               this.id = id;
             }
           }     
+
+          if(localStorage.getItem("nursing_fav") == null){
+
+                this.locast = 0;
+            }
+            else{
+                this.locast = localStorage.getItem("nursing_fav");
+            }
                 
           this.axios.get('api/getmap',{
               params:{
               id: this.id,
               township_id:-1,
               moving_in:-1,
-              per_month:-1
+              per_month:-1,
+              local:this.locast
           },
           })
             .then((response) => {
