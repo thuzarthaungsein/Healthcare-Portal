@@ -68,7 +68,9 @@ class NursingMailController extends Controller
             $request->fav_name = $favourite_name[$i];  
             if (isset($fav_documentation[$i])){
                 if ($fav_documentation[$i] == true) {
-                    \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
+                    // Test Mail
+                    // \Mail::to($favourite_mail[$i])->send(new nursingMailing($request));
+                    $aa = "Test";
                 } 
             }           
         // \Mail::to('hero2012.zk@gmail.com')->send(new nursingMailing($request));
@@ -76,9 +78,10 @@ class NursingMailController extends Controller
     }
         $admin_email = 'thuzar.ts92@gmail.com';
         // $admin_email = 'management.partner87@gmail.com ';
-        \Mail::to($admin_email)->send(new nursingMailing($request));
+        // Test mail
+        // \Mail::to($admin_email)->send(new nursingMailing($request));
 
-        \Mail::to($request->mail)->send(new userNursingMail($request));
+        // \Mail::to($request->mail)->send(new userNursingMail($request));
 
         return response()->json(['success'=>'Done!']);
     }

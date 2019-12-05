@@ -198,6 +198,9 @@ class NursingProfileController extends Controller
         $customer->address = $request[0]['address'];
 
         $customer->save();
+
+        $sql = "Update users set name='".$request[0]['name']."' where customer_id = $id";
+        DB::update($sql);
     }
 
     public function Staffprofileupdate($id,Request $request) {

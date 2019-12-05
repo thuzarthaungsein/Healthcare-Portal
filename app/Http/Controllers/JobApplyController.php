@@ -127,9 +127,10 @@ class JobApplyController extends Controller
              $jobapply->cus_name = $customer_name;
              $jobapply->jobnum = $jobnum;
              $jobapply->city_name = $city_name;
-             \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
-             \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
-             \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
+            //  Test Mail
+            //  \Mail::to($customer_mail)->send(new jobApplyMailToCustomer($jobapply));
+            //  \Mail::to($jobapply->email)->send(new jobApplyMailToUser($jobapply));
+            //  \Mail::to($admin_email)->send(new jobApplyMailToAdmin($jobapply));
              return response()->json('Apply successfully ');
 
     }
