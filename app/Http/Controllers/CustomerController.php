@@ -169,7 +169,7 @@ class CustomerController extends Controller
             return response()->json('already');
         }else{
             // Test Mail
-            // \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
+            \Mail::to($getCustomer)->send(new SendMailable($getCustomer));
            
             $data = array(
                 'name'=>$getCustomer->name,

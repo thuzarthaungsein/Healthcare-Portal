@@ -742,8 +742,8 @@
   import {
     eventBus
   } from '../event-bus.js';
-  import jp_cities from '../google-map-kml/jp_cities.json';
-  import jp_township from '../google-map-kml/jp_township.json';
+  // import jp_cities from '../google-map-kml/jp_cities.json';
+  // import jp_township from '../google-map-kml/jp_township.json';
   export default {
 
     name: "mymap",
@@ -1095,79 +1095,79 @@ nursingSearchData(index){
         },
 // map change dropdown function
 // make infowindow, marker , google map
-coordinates(theCity, lat, lng){
+// coordinates(theCity, lat, lng){
 
 
-                const result = jp_township.features //jp_cities
-                const jp_city = jp_cities.features //convert
+//                 const result = jp_township.features //jp_cities
+//                 const jp_city = jp_cities.features //convert
 
-                var townshipName = [];
-                for (let i = 0; i < this.getTownships.length; i++) {
-                    if(this.getTownships[i]['id'] == this.township_id){
-                        townshipName.push(this.getTownships[i]['township_name'])
-                    }
-                }
-                var township_name = townshipName.toString();
-                const coordinates = []
-                const city_coordinates = []
+//                 var townshipName = [];
+//                 for (let i = 0; i < this.getTownships.length; i++) {
+//                     if(this.getTownships[i]['id'] == this.township_id){
+//                         townshipName.push(this.getTownships[i]['township_name'])
+//                     }
+//                 }
+//                 var township_name = townshipName.toString();
+//                 const coordinates = []
+//                 const city_coordinates = []
 
-                if(township_name == ''){
-                    for (var i = 0; i < jp_city.length; i++) {
-                    if (jp_city[i].properties.NAME_0 == theCity) {
+//                 if(township_name == ''){
+//                     for (var i = 0; i < jp_city.length; i++) {
+//                     if (jp_city[i].properties.NAME_0 == theCity) {
 
-                    if(jp_city[i].geometry.hasOwnProperty('geometries'))
-                    {
-                        for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
-                    {
+//                     if(jp_city[i].geometry.hasOwnProperty('geometries'))
+//                     {
+//                         for(var j =0;j< jp_city[i].geometry.geometries.length;j++)
+//                     {
 
-                        city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
-                    }
-                    }
-                    else{
-                        city_coordinates.push(jp_city[i].geometry['coordinates']) ;
+//                         city_coordinates.push(jp_city[i].geometry.geometries[j]['coordinates']) ;
+//                     }
+//                     }
+//                     else{
+//                         city_coordinates.push(jp_city[i].geometry['coordinates']) ;
 
-                    }
-                    }
-                }
-                }else{
-                    for (var i = 0; i < result.length; i++) {
-                    if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
-                    coordinates.push(result[i].geometry['coordinates'])
-                    }
-                }
-                }
+//                     }
+//                     }
+//                 }
+//                 }else{
+//                     for (var i = 0; i < result.length; i++) {
+//                     if (result[i].properties.NL_NAME_1 == theCity && result[i].properties.NL_NAME_2 == township_name) {
+//                     coordinates.push(result[i].geometry['coordinates'])
+//                     }
+//                 }
+//                 }
 
-                if(township_name == ''){
-                    var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
+//                 if(township_name == ''){
+//                     var coordinate = city_coordinates.reduce((acc, val) => acc.concat(val), []);
 
-                }else{
-                    var co = coordinates.reduce((acc, val) => acc.concat(val), []);
-                    var coordinate = co.reduce((acc, val) => acc.concat(val), []);
-                }
+//                 }else{
+//                     var co = coordinates.reduce((acc, val) => acc.concat(val), []);
+//                     var coordinate = co.reduce((acc, val) => acc.concat(val), []);
+//                 }
 
-                var data = {
-                    type: "Feature",
-                    geometry: {
-                    "type": "Polygon",
-                    "coordinates": coordinate
-                    },
-                };
-                var mapProp = {
-                    center: new google.maps.LatLng(lat, lng),
-                    zoom: 7,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                };
+//                 var data = {
+//                     type: "Feature",
+//                     geometry: {
+//                     "type": "Polygon",
+//                     "coordinates": coordinate
+//                     },
+//                 };
+//                 var mapProp = {
+//                     center: new google.maps.LatLng(lat, lng),
+//                     zoom: 7,
+//                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+//                 };
 
-                    this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
-                    this.map.data.addGeoJson(data);
-                    this.map.data.setStyle({
-                    strokeColor: "red",
-                    fillColor: 'red',
-                    strokeOpacity: 0.8,
-                    fillOpacity: 0.1,
-                    strokeWeight: 1
-                    })
-},
+//                     this.map = new google.maps.Map(document.getElementById("mymap"), mapProp);
+//                     this.map.data.addGeoJson(data);
+//                     this.map.data.setStyle({
+//                     strokeColor: "red",
+//                     fillColor: 'red',
+//                     strokeOpacity: 0.8,
+//                     fillOpacity: 0.1,
+//                     strokeWeight: 1
+//                     })
+// },
 infoWindow(item, mmarker){
         var infoWindowContent = new Array();
 

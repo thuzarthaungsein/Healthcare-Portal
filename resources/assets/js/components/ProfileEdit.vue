@@ -452,7 +452,6 @@
                                         } else {
                                             this.logo = 'upload/nursing_profile/' + response.data.logo;
                                         }
-                                       location.reload();
                                             
                                     }).catch(error => {
 

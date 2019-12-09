@@ -93,7 +93,7 @@ class CommentController extends Controller
         }
         // \Mail::to('mayphue17@management-part')->send(new SendMailComment($getComment));
         // Test Mail
-        // \Mail::to($getComment[0]->email)->send(new SendMailComment($getComment));
+        \Mail::to($getComment[0]->email)->send(new SendMailComment($getComment));
 
         // return response()->json(['success'=>'Done!']);
 

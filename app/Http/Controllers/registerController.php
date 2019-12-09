@@ -128,7 +128,8 @@ class registerController extends Controller
             }
 
             $admin_email = 'thuzar.ts92@gmail.com';
-            // \Mail::to($admin_email)->send(new customerCreateMail($customer));
+            // Test Mail
+            \Mail::to($admin_email)->send(new customerCreateMail($customer));
 
             Session::flash('success', "Special message goes here");
             return Redirect::back();
@@ -246,7 +247,7 @@ class registerController extends Controller
 
         $resetPass= password_reset_view::findOrFail($id);
         // Test Mail
-        // \Mail::to($getEmail)->send(new sendResetPasswordMail($resetPass));
+        \Mail::to($getEmail)->send(new sendResetPasswordMail($resetPass));
 
         return response()->json('success approved and send mail');
     }
