@@ -24,7 +24,7 @@
         "@ckeditor/ckeditor5-build-classic": "^12.4.0",
         "@ckeditor/ckeditor5-vue": "^1.0.0-beta.2",
         "animate.css": "^3.7.2",
-        "async": "^3.1.0",
+        "async": "^3.2.2",
         "bootstrap-vue": "^2.0.0-rc.28",
         "carousel": "0.0.3",
         "es6-promise": "^4.2.8",
